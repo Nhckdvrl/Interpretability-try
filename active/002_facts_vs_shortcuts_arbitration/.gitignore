@@ -1,0 +1,6 @@
+artifacts/
+upstream_results/
+vendor/
+__pycache__/
+.pytest_cache/
+*.egg-info/
