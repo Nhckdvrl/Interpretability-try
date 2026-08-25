@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=70", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "binding-probe"
+version = "0.1.0"
+description = "Low-cost preflight for role-value binding failures in structured LLM generation"
+requires-python = ">=3.10"
+dependencies = [
+  "numpy>=1.26",
+  "torch>=2.3",
+  "transformers>=4.51",
+  "accelerate>=0.33",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+mechanism = ["scikit-learn>=1.5", "scipy>=1.13"]
+
+[project.scripts]
+binding-fetch = "binding_probe.fetch:main"
+binding-scan = "binding_probe.scan:main"
+binding-infer = "binding_probe.infer_hf:main"
+binding-official = "binding_probe.official:main"
+binding-classify = "binding_probe.classify:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
