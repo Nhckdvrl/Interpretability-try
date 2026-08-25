@@ -12,4 +12,8 @@
 
 当前项目：
 
-- `002_facts_vs_shortcuts_arbitration/` — 实体数值比较中，模型已有可用事实但最终选择违背事实的自然 failure；先验证当前开源模型上的规模与可复现性，再决定是否进入“事实信号 vs 捷径信号仲裁机制”的因果分析。
+- `003_diagnostic_counterevidence_revision/` — 使用 MedEinst 的公开 control/trap 成对数据，研究少量决定性反证出现后，模型的诊断修正究竟失败在证据感知、证据—先验仲裁，还是晚期输出回退。当前只保留研究计划，尚未开始 G0 代码。
+
+已归档：
+
+- `002_facts_vs_shortcuts_arbitration/` — 由于近期工作已强覆盖实体数值表示、比较机制与 shortcut/事实竞争相关叙事，停止 active 推进，完整移入 `archive/` 保存失败经验与代码。
