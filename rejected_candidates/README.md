@@ -53,7 +53,11 @@
 
 ## Domain logs
 
-- [`agent_tool_use.md`](./agent_tool_use.md) — Agent / tool-use / execution failures（当前正在系统扫描）
+- [`agent_tool_use.md`](./agent_tool_use.md) — Agent / tool-use / execution failures
+- [`cognitive_logical_reasoning.md`](./cognitive_logical_reasoning.md) — formal / conditional / logical reasoning phenomena
+- [`cognitive_decision_making.md`](./cognitive_decision_making.md) — economic choice, legal judgment, anchoring, authority, risk, sunk cost
+- [`factuality_information_conflict.md`](./factuality_information_conflict.md) — false premises, answerability, misinformation, source credibility, repetition
+- [`multimodal_grounding.md`](./multimodal_grounding.md) — VLM perception–knowledge conflict and counterfactual visual grounding
 - [`001.md`](./001.md) — **legacy mixed-domain batch**，保留历史记录，不再继续追加。包含 role-value binding、facts-vs-shortcuts、fan effect、VLM conflict、self-correction、tool irrelevance、irrelevant context、negation、social compliance、overthinking。
 
 后续新增 rejection **只进入对应 domain log**；如果出现新的领域，就新建 `<domain>.md`。旧 `001.md` 不删除，作为第一轮搜题历史快照。
