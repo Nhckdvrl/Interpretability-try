@@ -1,7 +1,23 @@
 # 004 — Deontic facilitation in Wason selection
 
-**Status: PRE-CANDIDATE — frozen behavioral G0 only.**  
+**Status: KILLED / ARCHIVED.**
 **Do not start mechanism work before this G0 passes.**
+
+## Final G0 decision (2026-08-27)
+
+The frozen 32-pair G0 was run end-to-end on both primary models. Neither
+model passed, and neither produced any strong pairs.
+
+| Model | Mean accuracy delta | Mean `p_gold` delta | 95% CI for `p_gold` delta | Strong pairs | Pass |
+|---|---:|---:|---:|---:|---:|
+| Qwen3-8B | 0.0586 | 0.0531 | [0.0383, 0.0689] | 0 | no |
+| Gemma3-12B-IT | 0.0156 | 0.0075 | [-0.0097, 0.0249] | 0 | no |
+
+The model-level gates required accuracy delta `>= .10`, probability delta
+`>= .08`, and at least four strong pairs. Since both primary models fail,
+the remaining single confirmation model cannot satisfy the frozen requirement
+of two passing models. The topic is therefore killed before mechanism work;
+no thresholds were weakened.
 
 ## Mother question
 

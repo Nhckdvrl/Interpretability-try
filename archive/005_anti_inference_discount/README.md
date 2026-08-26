@@ -1,7 +1,25 @@
 # 005 — Anti-inference discount after successful comprehension
 
-**Status: PRE-CANDIDATE — frozen behavioral G0 only.**  
+**Status: KILLED / ARCHIVED.**
 **Do not start mechanism work before this G0 passes.**
+
+## Final G0 decision (2026-08-27)
+
+The frozen 96-scenario G0 was run end-to-end on both primary models. All
+scenarios passed the strict comprehension gate in both models, but the natural
+and same-history discounts were effectively zero and no strong scenario was
+observed.
+
+| Model | Gated | Mean natural discount | Mean bridged discount | Strong | Natural pass | Bridged pass |
+|---|---:|---:|---:|---:|---:|---:|
+| Qwen3-8B | 96 | 0.001324 | 4.79e-12 | 0 | no | no |
+| Gemma3-12B-IT | 96 | 1.38e-05 | 9.94e-08 | 0 | no | no |
+
+The frozen thresholds required natural discount `>= .05`, bridged discount
+`>= .03`, at least ten strong scenarios, and two independently passing models.
+Both primary models fail both sub-gates, so the remaining single confirmation
+model cannot satisfy promotion. The project is killed before mechanism work;
+no thresholds or scenario families were changed.
 
 ## Mother question
 

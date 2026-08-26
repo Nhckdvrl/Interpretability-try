@@ -1,0 +1,941 @@
+{
+  "model_pass": false,
+  "paired": {
+    "n_pairs": 32,
+    "mean_delta_accuracy": 0.05859375,
+    "mean_delta_p_gold": 0.0530958646863929,
+    "bootstrap_95_ci_delta_p_gold": [
+      0.038323247665136236,
+      0.06890736777202874
+    ],
+    "positive_forms": 4,
+    "strong_pairs": 0,
+    "strong_forms": 0
+  },
+  "by_form": {
+    "pos-pos": {
+      "n_pairs": 8,
+      "mean_delta_accuracy": 0.03125,
+      "mean_delta_p_gold": 0.021501607851011482,
+      "strong_pairs": 0
+    },
+    "pos-neg": {
+      "n_pairs": 8,
+      "mean_delta_accuracy": 0.03125,
+      "mean_delta_p_gold": 0.06314088330615251,
+      "strong_pairs": 0
+    },
+    "neg-pos": {
+      "n_pairs": 8,
+      "mean_delta_accuracy": 0.046875,
+      "mean_delta_p_gold": 0.03452186379913523,
+      "strong_pairs": 0
+    },
+    "neg-neg": {
+      "n_pairs": 8,
+      "mean_delta_accuracy": 0.125,
+      "mean_delta_p_gold": 0.09321910378927237,
+      "strong_pairs": 0
+    }
+  },
+  "item_stats": [
+    {
+      "pair_id": "alarm:neg-neg",
+      "modal": "deontic",
+      "frame_id": "alarm",
+      "form": "neg-neg",
+      "accuracy": 0.25,
+      "p_gold": 0.2604009606964511
+    },
+    {
+      "pair_id": "alarm:neg-neg",
+      "modal": "epistemic",
+      "frame_id": "alarm",
+      "form": "neg-neg",
+      "accuracy": 0.125,
+      "p_gold": 0.16283171548464614
+    },
+    {
+      "pair_id": "alarm:neg-pos",
+      "modal": "deontic",
+      "frame_id": "alarm",
+      "form": "neg-pos",
+      "accuracy": 0.5,
+      "p_gold": 0.45281543226241583
+    },
+    {
+      "pair_id": "alarm:neg-pos",
+      "modal": "epistemic",
+      "frame_id": "alarm",
+      "form": "neg-pos",
+      "accuracy": 0.375,
+      "p_gold": 0.39576283359266634
+    },
+    {
+      "pair_id": "alarm:pos-neg",
+      "modal": "deontic",
+      "frame_id": "alarm",
+      "form": "pos-neg",
+      "accuracy": 0.5,
+      "p_gold": 0.45495435724987476
+    },
+    {
+      "pair_id": "alarm:pos-neg",
+      "modal": "epistemic",
+      "frame_id": "alarm",
+      "form": "pos-neg",
+      "accuracy": 0.625,
+      "p_gold": 0.4823258174060758
+    },
+    {
+      "pair_id": "alarm:pos-pos",
+      "modal": "deontic",
+      "frame_id": "alarm",
+      "form": "pos-pos",
+      "accuracy": 0.25,
+      "p_gold": 0.23815608297507004
+    },
+    {
+      "pair_id": "alarm:pos-pos",
+      "modal": "epistemic",
+      "frame_id": "alarm",
+      "form": "pos-pos",
+      "accuracy": 0.25,
+      "p_gold": 0.219141335440676
+    },
+    {
+      "pair_id": "badge:neg-neg",
+      "modal": "deontic",
+      "frame_id": "badge",
+      "form": "neg-neg",
+      "accuracy": 0.25,
+      "p_gold": 0.29085781466410676
+    },
+    {
+      "pair_id": "badge:neg-neg",
+      "modal": "epistemic",
+      "frame_id": "badge",
+      "form": "neg-neg",
+      "accuracy": 0.125,
+      "p_gold": 0.1712888009004551
+    },
+    {
+      "pair_id": "badge:neg-pos",
+      "modal": "deontic",
+      "frame_id": "badge",
+      "form": "neg-pos",
+      "accuracy": 0.375,
+      "p_gold": 0.4143092804618837
+    },
+    {
+      "pair_id": "badge:neg-pos",
+      "modal": "epistemic",
+      "frame_id": "badge",
+      "form": "neg-pos",
+      "accuracy": 0.375,
+      "p_gold": 0.36430783433641994
+    },
+    {
+      "pair_id": "badge:pos-neg",
+      "modal": "deontic",
+      "frame_id": "badge",
+      "form": "pos-neg",
+      "accuracy": 0.5,
+      "p_gold": 0.38809384763084853
+    },
+    {
+      "pair_id": "badge:pos-neg",
+      "modal": "epistemic",
+      "frame_id": "badge",
+      "form": "pos-neg",
+      "accuracy": 0.25,
+      "p_gold": 0.24556308866004292
+    },
+    {
+      "pair_id": "badge:pos-pos",
+      "modal": "deontic",
+      "frame_id": "badge",
+      "form": "pos-pos",
+      "accuracy": 0.25,
+      "p_gold": 0.18125201561076015
+    },
+    {
+      "pair_id": "badge:pos-pos",
+      "modal": "epistemic",
+      "frame_id": "badge",
+      "form": "pos-pos",
+      "accuracy": 0.25,
+      "p_gold": 0.20632847776002036
+    },
+    {
+      "pair_id": "door:neg-neg",
+      "modal": "deontic",
+      "frame_id": "door",
+      "form": "neg-neg",
+      "accuracy": 0.375,
+      "p_gold": 0.28196244930611664
+    },
+    {
+      "pair_id": "door:neg-neg",
+      "modal": "epistemic",
+      "frame_id": "door",
+      "form": "neg-neg",
+      "accuracy": 0.125,
+      "p_gold": 0.17135374119976016
+    },
+    {
+      "pair_id": "door:neg-pos",
+      "modal": "deontic",
+      "frame_id": "door",
+      "form": "neg-pos",
+      "accuracy": 0.5,
+      "p_gold": 0.4625331636915602
+    },
+    {
+      "pair_id": "door:neg-pos",
+      "modal": "epistemic",
+      "frame_id": "door",
+      "form": "neg-pos",
+      "accuracy": 0.5,
+      "p_gold": 0.4507187106810555
+    },
+    {
+      "pair_id": "door:pos-neg",
+      "modal": "deontic",
+      "frame_id": "door",
+      "form": "pos-neg",
+      "accuracy": 0.375,
+      "p_gold": 0.4227396321663667
+    },
+    {
+      "pair_id": "door:pos-neg",
+      "modal": "epistemic",
+      "frame_id": "door",
+      "form": "pos-neg",
+      "accuracy": 0.375,
+      "p_gold": 0.32998186245986644
+    },
+    {
+      "pair_id": "door:pos-pos",
+      "modal": "deontic",
+      "frame_id": "door",
+      "form": "pos-pos",
+      "accuracy": 0.25,
+      "p_gold": 0.24280458087858192
+    },
+    {
+      "pair_id": "door:pos-pos",
+      "modal": "epistemic",
+      "frame_id": "door",
+      "form": "pos-pos",
+      "accuracy": 0.25,
+      "p_gold": 0.21677864813377468
+    },
+    {
+      "pair_id": "flag:neg-neg",
+      "modal": "deontic",
+      "frame_id": "flag",
+      "form": "neg-neg",
+      "accuracy": 0.25,
+      "p_gold": 0.3159857975798116
+    },
+    {
+      "pair_id": "flag:neg-neg",
+      "modal": "epistemic",
+      "frame_id": "flag",
+      "form": "neg-neg",
+      "accuracy": 0.25,
+      "p_gold": 0.19009484288475362
+    },
+    {
+      "pair_id": "flag:neg-pos",
+      "modal": "deontic",
+      "frame_id": "flag",
+      "form": "neg-pos",
+      "accuracy": 0.5,
+      "p_gold": 0.4103657770549258
+    },
+    {
+      "pair_id": "flag:neg-pos",
+      "modal": "epistemic",
+      "frame_id": "flag",
+      "form": "neg-pos",
+      "accuracy": 0.375,
+      "p_gold": 0.38570723730375306
+    },
+    {
+      "pair_id": "flag:pos-neg",
+      "modal": "deontic",
+      "frame_id": "flag",
+      "form": "pos-neg",
+      "accuracy": 0.25,
+      "p_gold": 0.381364783205184
+    },
+    {
+      "pair_id": "flag:pos-neg",
+      "modal": "epistemic",
+      "frame_id": "flag",
+      "form": "pos-neg",
+      "accuracy": 0.25,
+      "p_gold": 0.3058759696538329
+    },
+    {
+      "pair_id": "flag:pos-pos",
+      "modal": "deontic",
+      "frame_id": "flag",
+      "form": "pos-pos",
+      "accuracy": 0.25,
+      "p_gold": 0.2214789570051342
+    },
+    {
+      "pair_id": "flag:pos-pos",
+      "modal": "epistemic",
+      "frame_id": "flag",
+      "form": "pos-pos",
+      "accuracy": 0.125,
+      "p_gold": 0.16067756065368455
+    },
+    {
+      "pair_id": "package:neg-neg",
+      "modal": "deontic",
+      "frame_id": "package",
+      "form": "neg-neg",
+      "accuracy": 0.625,
+      "p_gold": 0.40090624450985235
+    },
+    {
+      "pair_id": "package:neg-neg",
+      "modal": "epistemic",
+      "frame_id": "package",
+      "form": "neg-neg",
+      "accuracy": 0.25,
+      "p_gold": 0.26431700704156547
+    },
+    {
+      "pair_id": "package:neg-pos",
+      "modal": "deontic",
+      "frame_id": "package",
+      "form": "neg-pos",
+      "accuracy": 0.5,
+      "p_gold": 0.5276629740305983
+    },
+    {
+      "pair_id": "package:neg-pos",
+      "modal": "epistemic",
+      "frame_id": "package",
+      "form": "neg-pos",
+      "accuracy": 0.5,
+      "p_gold": 0.47712114022286023
+    },
+    {
+      "pair_id": "package:pos-neg",
+      "modal": "deontic",
+      "frame_id": "package",
+      "form": "pos-neg",
+      "accuracy": 0.375,
+      "p_gold": 0.3368871755718828
+    },
+    {
+      "pair_id": "package:pos-neg",
+      "modal": "epistemic",
+      "frame_id": "package",
+      "form": "pos-neg",
+      "accuracy": 0.25,
+      "p_gold": 0.27125548846170844
+    },
+    {
+      "pair_id": "package:pos-pos",
+      "modal": "deontic",
+      "frame_id": "package",
+      "form": "pos-pos",
+      "accuracy": 0.375,
+      "p_gold": 0.2640210089233577
+    },
+    {
+      "pair_id": "package:pos-pos",
+      "modal": "epistemic",
+      "frame_id": "package",
+      "form": "pos-pos",
+      "accuracy": 0.375,
+      "p_gold": 0.2581311504314959
+    },
+    {
+      "pair_id": "signal:neg-neg",
+      "modal": "deontic",
+      "frame_id": "signal",
+      "form": "neg-neg",
+      "accuracy": 0.125,
+      "p_gold": 0.14035147668704304
+    },
+    {
+      "pair_id": "signal:neg-neg",
+      "modal": "epistemic",
+      "frame_id": "signal",
+      "form": "neg-neg",
+      "accuracy": 0.125,
+      "p_gold": 0.11881896618733578
+    },
+    {
+      "pair_id": "signal:neg-pos",
+      "modal": "deontic",
+      "frame_id": "signal",
+      "form": "neg-pos",
+      "accuracy": 0.5,
+      "p_gold": 0.4227354805819219
+    },
+    {
+      "pair_id": "signal:neg-pos",
+      "modal": "epistemic",
+      "frame_id": "signal",
+      "form": "neg-pos",
+      "accuracy": 0.375,
+      "p_gold": 0.37750605869747783
+    },
+    {
+      "pair_id": "signal:pos-neg",
+      "modal": "deontic",
+      "frame_id": "signal",
+      "form": "pos-neg",
+      "accuracy": 0.25,
+      "p_gold": 0.37328690694839467
+    },
+    {
+      "pair_id": "signal:pos-neg",
+      "modal": "epistemic",
+      "frame_id": "signal",
+      "form": "pos-neg",
+      "accuracy": 0.25,
+      "p_gold": 0.32481113945668516
+    },
+    {
+      "pair_id": "signal:pos-pos",
+      "modal": "deontic",
+      "frame_id": "signal",
+      "form": "pos-pos",
+      "accuracy": 0.25,
+      "p_gold": 0.20616076398035688
+    },
+    {
+      "pair_id": "signal:pos-pos",
+      "modal": "epistemic",
+      "frame_id": "signal",
+      "form": "pos-pos",
+      "accuracy": 0.25,
+      "p_gold": 0.20206116342216926
+    },
+    {
+      "pair_id": "ticket:neg-neg",
+      "modal": "deontic",
+      "frame_id": "ticket",
+      "form": "neg-neg",
+      "accuracy": 0.25,
+      "p_gold": 0.24278366476855037
+    },
+    {
+      "pair_id": "ticket:neg-neg",
+      "modal": "epistemic",
+      "frame_id": "ticket",
+      "form": "neg-neg",
+      "accuracy": 0.125,
+      "p_gold": 0.13847496064165696
+    },
+    {
+      "pair_id": "ticket:neg-pos",
+      "modal": "deontic",
+      "frame_id": "ticket",
+      "form": "neg-pos",
+      "accuracy": 0.5,
+      "p_gold": 0.3877303073954036
+    },
+    {
+      "pair_id": "ticket:neg-pos",
+      "modal": "epistemic",
+      "frame_id": "ticket",
+      "form": "neg-pos",
+      "accuracy": 0.5,
+      "p_gold": 0.3710187278635846
+    },
+    {
+      "pair_id": "ticket:pos-neg",
+      "modal": "deontic",
+      "frame_id": "ticket",
+      "form": "pos-neg",
+      "accuracy": 0.5,
+      "p_gold": 0.44786306939588244
+    },
+    {
+      "pair_id": "ticket:pos-neg",
+      "modal": "epistemic",
+      "frame_id": "ticket",
+      "form": "pos-neg",
+      "accuracy": 0.5,
+      "p_gold": 0.40278642675115006
+    },
+    {
+      "pair_id": "ticket:pos-pos",
+      "modal": "deontic",
+      "frame_id": "ticket",
+      "form": "pos-pos",
+      "accuracy": 0.25,
+      "p_gold": 0.21004408210884673
+    },
+    {
+      "pair_id": "ticket:pos-pos",
+      "modal": "epistemic",
+      "frame_id": "ticket",
+      "form": "pos-pos",
+      "accuracy": 0.125,
+      "p_gold": 0.1814457984318641
+    },
+    {
+      "pair_id": "vehicle:neg-neg",
+      "modal": "deontic",
+      "frame_id": "vehicle",
+      "form": "neg-neg",
+      "accuracy": 0.125,
+      "p_gold": 0.16124544516679518
+    },
+    {
+      "pair_id": "vehicle:neg-neg",
+      "modal": "epistemic",
+      "frame_id": "vehicle",
+      "form": "neg-neg",
+      "accuracy": 0.125,
+      "p_gold": 0.1315609887243748
+    },
+    {
+      "pair_id": "vehicle:neg-pos",
+      "modal": "deontic",
+      "frame_id": "vehicle",
+      "form": "neg-pos",
+      "accuracy": 0.5,
+      "p_gold": 0.474981634724956
+    },
+    {
+      "pair_id": "vehicle:neg-pos",
+      "modal": "epistemic",
+      "frame_id": "vehicle",
+      "form": "neg-pos",
+      "accuracy": 0.5,
+      "p_gold": 0.45481659711276595
+    },
+    {
+      "pair_id": "vehicle:pos-neg",
+      "modal": "deontic",
+      "frame_id": "vehicle",
+      "form": "pos-neg",
+      "accuracy": 0.375,
+      "p_gold": 0.41400526690697054
+    },
+    {
+      "pair_id": "vehicle:pos-neg",
+      "modal": "epistemic",
+      "frame_id": "vehicle",
+      "form": "pos-neg",
+      "accuracy": 0.375,
+      "p_gold": 0.3514681797768226
+    },
+    {
+      "pair_id": "vehicle:pos-pos",
+      "modal": "deontic",
+      "frame_id": "vehicle",
+      "form": "pos-pos",
+      "accuracy": 0.25,
+      "p_gold": 0.2338582923959434
+    },
+    {
+      "pair_id": "vehicle:pos-pos",
+      "modal": "epistemic",
+      "frame_id": "vehicle",
+      "form": "pos-pos",
+      "accuracy": 0.25,
+      "p_gold": 0.18119878679627435
+    }
+  ],
+  "paired_rows": [
+    {
+      "pair_id": "alarm:neg-neg",
+      "frame_id": "alarm",
+      "form": "neg-neg",
+      "epistemic_accuracy": 0.125,
+      "deontic_accuracy": 0.25,
+      "delta_accuracy": 0.125,
+      "epistemic_p_gold": 0.16283171548464614,
+      "deontic_p_gold": 0.2604009606964511,
+      "delta_p_gold": 0.09756924521180493,
+      "strong": false
+    },
+    {
+      "pair_id": "alarm:neg-pos",
+      "frame_id": "alarm",
+      "form": "neg-pos",
+      "epistemic_accuracy": 0.375,
+      "deontic_accuracy": 0.5,
+      "delta_accuracy": 0.125,
+      "epistemic_p_gold": 0.39576283359266634,
+      "deontic_p_gold": 0.45281543226241583,
+      "delta_p_gold": 0.05705259866974949,
+      "strong": false
+    },
+    {
+      "pair_id": "alarm:pos-neg",
+      "frame_id": "alarm",
+      "form": "pos-neg",
+      "epistemic_accuracy": 0.625,
+      "deontic_accuracy": 0.5,
+      "delta_accuracy": -0.125,
+      "epistemic_p_gold": 0.4823258174060758,
+      "deontic_p_gold": 0.45495435724987476,
+      "delta_p_gold": -0.02737146015620101,
+      "strong": false
+    },
+    {
+      "pair_id": "alarm:pos-pos",
+      "frame_id": "alarm",
+      "form": "pos-pos",
+      "epistemic_accuracy": 0.25,
+      "deontic_accuracy": 0.25,
+      "delta_accuracy": 0.0,
+      "epistemic_p_gold": 0.219141335440676,
+      "deontic_p_gold": 0.23815608297507004,
+      "delta_p_gold": 0.019014747534394055,
+      "strong": false
+    },
+    {
+      "pair_id": "badge:neg-neg",
+      "frame_id": "badge",
+      "form": "neg-neg",
+      "epistemic_accuracy": 0.125,
+      "deontic_accuracy": 0.25,
+      "delta_accuracy": 0.125,
+      "epistemic_p_gold": 0.1712888009004551,
+      "deontic_p_gold": 0.29085781466410676,
+      "delta_p_gold": 0.11956901376365167,
+      "strong": false
+    },
+    {
+      "pair_id": "badge:neg-pos",
+      "frame_id": "badge",
+      "form": "neg-pos",
+      "epistemic_accuracy": 0.375,
+      "deontic_accuracy": 0.375,
+      "delta_accuracy": 0.0,
+      "epistemic_p_gold": 0.36430783433641994,
+      "deontic_p_gold": 0.4143092804618837,
+      "delta_p_gold": 0.050001446125463755,
+      "strong": false
+    },
+    {
+      "pair_id": "badge:pos-neg",
+      "frame_id": "badge",
+      "form": "pos-neg",
+      "epistemic_accuracy": 0.25,
+      "deontic_accuracy": 0.5,
+      "delta_accuracy": 0.25,
+      "epistemic_p_gold": 0.24556308866004292,
+      "deontic_p_gold": 0.38809384763084853,
+      "delta_p_gold": 0.1425307589708056,
+      "strong": false
+    },
+    {
+      "pair_id": "badge:pos-pos",
+      "frame_id": "badge",
+      "form": "pos-pos",
+      "epistemic_accuracy": 0.25,
+      "deontic_accuracy": 0.25,
+      "delta_accuracy": 0.0,
+      "epistemic_p_gold": 0.20632847776002036,
+      "deontic_p_gold": 0.18125201561076015,
+      "delta_p_gold": -0.02507646214926021,
+      "strong": false
+    },
+    {
+      "pair_id": "door:neg-neg",
+      "frame_id": "door",
+      "form": "neg-neg",
+      "epistemic_accuracy": 0.125,
+      "deontic_accuracy": 0.375,
+      "delta_accuracy": 0.25,
+      "epistemic_p_gold": 0.17135374119976016,
+      "deontic_p_gold": 0.28196244930611664,
+      "delta_p_gold": 0.11060870810635648,
+      "strong": false
+    },
+    {
+      "pair_id": "door:neg-pos",
+      "frame_id": "door",
+      "form": "neg-pos",
+      "epistemic_accuracy": 0.5,
+      "deontic_accuracy": 0.5,
+      "delta_accuracy": 0.0,
+      "epistemic_p_gold": 0.4507187106810555,
+      "deontic_p_gold": 0.4625331636915602,
+      "delta_p_gold": 0.01181445301050471,
+      "strong": false
+    },
+    {
+      "pair_id": "door:pos-neg",
+      "frame_id": "door",
+      "form": "pos-neg",
+      "epistemic_accuracy": 0.375,
+      "deontic_accuracy": 0.375,
+      "delta_accuracy": 0.0,
+      "epistemic_p_gold": 0.32998186245986644,
+      "deontic_p_gold": 0.4227396321663667,
+      "delta_p_gold": 0.09275776970650024,
+      "strong": false
+    },
+    {
+      "pair_id": "door:pos-pos",
+      "frame_id": "door",
+      "form": "pos-pos",
+      "epistemic_accuracy": 0.25,
+      "deontic_accuracy": 0.25,
+      "delta_accuracy": 0.0,
+      "epistemic_p_gold": 0.21677864813377468,
+      "deontic_p_gold": 0.24280458087858192,
+      "delta_p_gold": 0.026025932744807245,
+      "strong": false
+    },
+    {
+      "pair_id": "flag:neg-neg",
+      "frame_id": "flag",
+      "form": "neg-neg",
+      "epistemic_accuracy": 0.25,
+      "deontic_accuracy": 0.25,
+      "delta_accuracy": 0.0,
+      "epistemic_p_gold": 0.19009484288475362,
+      "deontic_p_gold": 0.3159857975798116,
+      "delta_p_gold": 0.12589095469505798,
+      "strong": false
+    },
+    {
+      "pair_id": "flag:neg-pos",
+      "frame_id": "flag",
+      "form": "neg-pos",
+      "epistemic_accuracy": 0.375,
+      "deontic_accuracy": 0.5,
+      "delta_accuracy": 0.125,
+      "epistemic_p_gold": 0.38570723730375306,
+      "deontic_p_gold": 0.4103657770549258,
+      "delta_p_gold": 0.024658539751172714,
+      "strong": false
+    },
+    {
+      "pair_id": "flag:pos-neg",
+      "frame_id": "flag",
+      "form": "pos-neg",
+      "epistemic_accuracy": 0.25,
+      "deontic_accuracy": 0.25,
+      "delta_accuracy": 0.0,
+      "epistemic_p_gold": 0.3058759696538329,
+      "deontic_p_gold": 0.381364783205184,
+      "delta_p_gold": 0.07548881355135112,
+      "strong": false
+    },
+    {
+      "pair_id": "flag:pos-pos",
+      "frame_id": "flag",
+      "form": "pos-pos",
+      "epistemic_accuracy": 0.125,
+      "deontic_accuracy": 0.25,
+      "delta_accuracy": 0.125,
+      "epistemic_p_gold": 0.16067756065368455,
+      "deontic_p_gold": 0.2214789570051342,
+      "delta_p_gold": 0.060801396351449655,
+      "strong": false
+    },
+    {
+      "pair_id": "package:neg-neg",
+      "frame_id": "package",
+      "form": "neg-neg",
+      "epistemic_accuracy": 0.25,
+      "deontic_accuracy": 0.625,
+      "delta_accuracy": 0.375,
+      "epistemic_p_gold": 0.26431700704156547,
+      "deontic_p_gold": 0.40090624450985235,
+      "delta_p_gold": 0.13658923746828688,
+      "strong": false
+    },
+    {
+      "pair_id": "package:neg-pos",
+      "frame_id": "package",
+      "form": "neg-pos",
+      "epistemic_accuracy": 0.5,
+      "deontic_accuracy": 0.5,
+      "delta_accuracy": 0.0,
+      "epistemic_p_gold": 0.47712114022286023,
+      "deontic_p_gold": 0.5276629740305983,
+      "delta_p_gold": 0.050541833807738024,
+      "strong": false
+    },
+    {
+      "pair_id": "package:pos-neg",
+      "frame_id": "package",
+      "form": "pos-neg",
+      "epistemic_accuracy": 0.25,
+      "deontic_accuracy": 0.375,
+      "delta_accuracy": 0.125,
+      "epistemic_p_gold": 0.27125548846170844,
+      "deontic_p_gold": 0.3368871755718828,
+      "delta_p_gold": 0.06563168711017436,
+      "strong": false
+    },
+    {
+      "pair_id": "package:pos-pos",
+      "frame_id": "package",
+      "form": "pos-pos",
+      "epistemic_accuracy": 0.375,
+      "deontic_accuracy": 0.375,
+      "delta_accuracy": 0.0,
+      "epistemic_p_gold": 0.2581311504314959,
+      "deontic_p_gold": 0.2640210089233577,
+      "delta_p_gold": 0.005889858491861799,
+      "strong": false
+    },
+    {
+      "pair_id": "signal:neg-neg",
+      "frame_id": "signal",
+      "form": "neg-neg",
+      "epistemic_accuracy": 0.125,
+      "deontic_accuracy": 0.125,
+      "delta_accuracy": 0.0,
+      "epistemic_p_gold": 0.11881896618733578,
+      "deontic_p_gold": 0.14035147668704304,
+      "delta_p_gold": 0.021532510499707253,
+      "strong": false
+    },
+    {
+      "pair_id": "signal:neg-pos",
+      "frame_id": "signal",
+      "form": "neg-pos",
+      "epistemic_accuracy": 0.375,
+      "deontic_accuracy": 0.5,
+      "delta_accuracy": 0.125,
+      "epistemic_p_gold": 0.37750605869747783,
+      "deontic_p_gold": 0.4227354805819219,
+      "delta_p_gold": 0.045229421884444065,
+      "strong": false
+    },
+    {
+      "pair_id": "signal:pos-neg",
+      "frame_id": "signal",
+      "form": "pos-neg",
+      "epistemic_accuracy": 0.25,
+      "deontic_accuracy": 0.25,
+      "delta_accuracy": 0.0,
+      "epistemic_p_gold": 0.32481113945668516,
+      "deontic_p_gold": 0.37328690694839467,
+      "delta_p_gold": 0.04847576749170951,
+      "strong": false
+    },
+    {
+      "pair_id": "signal:pos-pos",
+      "frame_id": "signal",
+      "form": "pos-pos",
+      "epistemic_accuracy": 0.25,
+      "deontic_accuracy": 0.25,
+      "delta_accuracy": 0.0,
+      "epistemic_p_gold": 0.20206116342216926,
+      "deontic_p_gold": 0.20616076398035688,
+      "delta_p_gold": 0.004099600558187616,
+      "strong": false
+    },
+    {
+      "pair_id": "ticket:neg-neg",
+      "frame_id": "ticket",
+      "form": "neg-neg",
+      "epistemic_accuracy": 0.125,
+      "deontic_accuracy": 0.25,
+      "delta_accuracy": 0.125,
+      "epistemic_p_gold": 0.13847496064165696,
+      "deontic_p_gold": 0.24278366476855037,
+      "delta_p_gold": 0.10430870412689341,
+      "strong": false
+    },
+    {
+      "pair_id": "ticket:neg-pos",
+      "frame_id": "ticket",
+      "form": "neg-pos",
+      "epistemic_accuracy": 0.5,
+      "deontic_accuracy": 0.5,
+      "delta_accuracy": 0.0,
+      "epistemic_p_gold": 0.3710187278635846,
+      "deontic_p_gold": 0.3877303073954036,
+      "delta_p_gold": 0.01671157953181901,
+      "strong": false
+    },
+    {
+      "pair_id": "ticket:pos-neg",
+      "frame_id": "ticket",
+      "form": "pos-neg",
+      "epistemic_accuracy": 0.5,
+      "deontic_accuracy": 0.5,
+      "delta_accuracy": 0.0,
+      "epistemic_p_gold": 0.40278642675115006,
+      "deontic_p_gold": 0.44786306939588244,
+      "delta_p_gold": 0.04507664264473238,
+      "strong": false
+    },
+    {
+      "pair_id": "ticket:pos-pos",
+      "frame_id": "ticket",
+      "form": "pos-pos",
+      "epistemic_accuracy": 0.125,
+      "deontic_accuracy": 0.25,
+      "delta_accuracy": 0.125,
+      "epistemic_p_gold": 0.1814457984318641,
+      "deontic_p_gold": 0.21004408210884673,
+      "delta_p_gold": 0.02859828367698264,
+      "strong": false
+    },
+    {
+      "pair_id": "vehicle:neg-neg",
+      "frame_id": "vehicle",
+      "form": "neg-neg",
+      "epistemic_accuracy": 0.125,
+      "deontic_accuracy": 0.125,
+      "delta_accuracy": 0.0,
+      "epistemic_p_gold": 0.1315609887243748,
+      "deontic_p_gold": 0.16124544516679518,
+      "delta_p_gold": 0.029684456442420376,
+      "strong": false
+    },
+    {
+      "pair_id": "vehicle:neg-pos",
+      "frame_id": "vehicle",
+      "form": "neg-pos",
+      "epistemic_accuracy": 0.5,
+      "deontic_accuracy": 0.5,
+      "delta_accuracy": 0.0,
+      "epistemic_p_gold": 0.45481659711276595,
+      "deontic_p_gold": 0.474981634724956,
+      "delta_p_gold": 0.020165037612190073,
+      "strong": false
+    },
+    {
+      "pair_id": "vehicle:pos-neg",
+      "frame_id": "vehicle",
+      "form": "pos-neg",
+      "epistemic_accuracy": 0.375,
+      "deontic_accuracy": 0.375,
+      "delta_accuracy": 0.0,
+      "epistemic_p_gold": 0.3514681797768226,
+      "deontic_p_gold": 0.41400526690697054,
+      "delta_p_gold": 0.06253708713014794,
+      "strong": false
+    },
+    {
+      "pair_id": "vehicle:pos-pos",
+      "frame_id": "vehicle",
+      "form": "pos-pos",
+      "epistemic_accuracy": 0.25,
+      "deontic_accuracy": 0.25,
+      "delta_accuracy": 0.0,
+      "epistemic_p_gold": 0.18119878679627435,
+      "deontic_p_gold": 0.2338582923959434,
+      "delta_p_gold": 0.05265950559966906,
+      "strong": false
+    }
+  ]
+}
