@@ -8,9 +8,11 @@ CANDIDATES = tuple(f"{a},{b}" for a, b in itertools.combinations(range(1, 5), 2)
 
 # Keep the task instruction neutral with respect to modality. In particular, the
 # control prompt must not inject "violation", "obligation", or similar deontic cues.
+# Explicitly state the two-sided card structure so the task is logically defined
+# rather than relying on the model to infer what turning a card reveals.
 TEMPLATES = (
-    "Conditional rule: {rule}\n\nThe four visible cards are:\n1. {c1}\n2. {c2}\n3. {c3}\n4. {c4}\n\nWhich TWO cards need to be turned over to determine whether the four cases satisfy the conditional rule? Answer with exactly one pair in ascending order, such as 1,4.",
-    "Consider the conditional rule below.\n{rule}\n\nCards:\n[1] {c1}\n[2] {c2}\n[3] {c3}\n[4] {c4}\n\nSelect exactly the two cards whose hidden sides need checking to determine whether the four cases satisfy the rule. Return only the two position numbers separated by a comma, in ascending order.",
+    "Conditional rule: {rule}\n\nEach card has a condition-side statement on one side and an outcome-side statement on the other. Exactly one side of each card is visible; turning a card reveals its hidden other side.\n\nThe four visible sides are:\n1. {c1}\n2. {c2}\n3. {c3}\n4. {c4}\n\nWhich TWO cards need to be turned over to determine whether the four cases satisfy the conditional rule? Answer with exactly one pair in ascending order, such as 1,4.",
+    "Consider the conditional rule below.\n{rule}\n\nEvery card pairs one condition-side value with one outcome-side value. One side is visible and the corresponding other side is hidden until the card is turned.\n\nVisible sides:\n[1] {c1}\n[2] {c2}\n[3] {c3}\n[4] {c4}\n\nSelect exactly the two cards whose hidden sides need checking to determine whether the four cases satisfy the rule. Return only the two position numbers separated by a comma, in ascending order.",
 )
 
 
