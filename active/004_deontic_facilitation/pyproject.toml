@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "deontic-facilitation-g0"
-version = "0.1.0"
-description = "Frozen behavioral G0 for deontic facilitation in Wason selection tasks"
+version = "0.2.0"
+description = "Frozen matched behavioral G0 for deontic facilitation in Wason selection tasks"
 requires-python = ">=3.10"
 dependencies = ["torch>=2.2", "transformers>=4.51", "accelerate>=0.30"]
 
@@ -13,7 +13,7 @@ dependencies = ["torch>=2.2", "transformers>=4.51", "accelerate>=0.30"]
 test = ["pytest>=8"]
 
 [project.scripts]
-deontic-fetch = "deontic_g0.cli:fetch_main"
+deontic-generate = "deontic_g0.cli:generate_main"
 deontic-run = "deontic_g0.cli:run_main"
 deontic-summarize = "deontic_g0.cli:summarize_main"
 
