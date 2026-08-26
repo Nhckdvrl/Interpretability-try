@@ -1,0 +1,11 @@
+{
+  "n": 72,
+  "n_unique_evidence": 24,
+  "posterior_mae_unique_evidence": 0.10482590133329071,
+  "n_inference_good_action_identified_nonboundary": 42,
+  "direct_action_error_rate": 0.3333333333333333,
+  "bridged_action_error_rate": 0.0,
+  "bridge_rescue_rate_among_direct_errors": 1.0,
+  "mean_p_gold_bridge_minus_direct": 0.32695639538656973,
+  "n_bridge_rescues": 14
+}

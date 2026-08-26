@@ -13,9 +13,9 @@
 当前项目：
 
 - `003_diagnostic_counterevidence_revision/` — 使用 MedEinst 的公开 control/trap 成对数据，研究少量决定性反证出现后，模型的诊断修正究竟失败在证据感知、证据—先验仲裁，还是晚期输出回退。当前只保留研究计划，尚未开始 G0 代码。
-- `006_bayesian_latent_inference_use_gap/` — Bayesian evidence accumulation：模型已经能推断 latent state 时，是否仍无法把 posterior 正确用于 downstream decision。已放 closed-form G0 scaffold；状态 `PRE-CANDIDATE`。
-- `007_choice_supportive_ownership_bias/` — choice-supportive bias 的 ownership-specific contrast：同一旧答案被归因为“自己的选择”还是“另一个模型的选择”，是否选择性改变后续 revision。已放 Hidden/Own/Other matched G0 scaffold；状态 `PRE-CANDIDATE`。
-- `008_reliability_weighted_cue_integration/` — psychophysics 中的 reliability-weighted multi-cue integration：模型是否按 cue uncertainty 做近似 inverse-variance fusion。已放 SVG stimulus generator + normative scorer；状态 `PRE-CANDIDATE`。
+- `006_bayesian_latent_inference_use_gap/` — `ACTIVE-MECHANISM`。Qwen2.5-14B 在 posterior-good cases 上有 33.3% natural policy-use error，显式 posterior bridge 后 14/14 全 rescue；研究 inference quality 与 routing quality 的解耦。
+- `007_choice_supportive_ownership_bias/` — `ACTIVE-MECHANISM / REFRAMED`。可见旧答案稳定抑制 revision，但 source specificity 跨模型不同：Qwen own≠other，Gemma 对 own/other 都形成 anchor；转为比较 attribution-dependent commitment routing。
+- `008_reliability_weighted_cue_integration/` — `ACTIVE-MECHANISM`。Qwen3-VL 几乎完全 text capture；Gemma3 虽随 reliability 调整仍系统性低估 image cue；两路 unimodal readout 均正常。
 
 006–008 的 paper search、入选理由与同轮 kill 记录见：
 

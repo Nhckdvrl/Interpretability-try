@@ -1,0 +1,42 @@
+{
+  "n_predictions": 60,
+  "n_weight_analyzable": 47,
+  "image_readout_mae_vs_sample_mean": 2.5180554672438893,
+  "text_readout_mae_vs_sample_mean": 0.5582752567530262,
+  "combined_mae_vs_optimal": 2.300834354402712,
+  "mean_abs_weight_error": 0.4002355912144504,
+  "reliability_weight_correlation": 0.8016259699675569,
+  "extreme_weight_shift": -0.1972036060587913,
+  "conditions": {
+    "img2_txt8": {
+      "n": 10,
+      "optimal_image_weight": 0.9411764705882353,
+      "mean_observed_image_weight": 0.14936684171426315,
+      "mean_abs_weight_error": 0.7918096288739721
+    },
+    "img4_txt8": {
+      "n": 9,
+      "optimal_image_weight": 0.8,
+      "mean_observed_image_weight": 0.3070733673597836,
+      "mean_abs_weight_error": 0.537371077084661
+    },
+    "img6_txt6": {
+      "n": 9,
+      "optimal_image_weight": 0.5,
+      "mean_observed_image_weight": 0.19351376882992602,
+      "mean_abs_weight_error": 0.38111309684171574
+    },
+    "img8_txt4": {
+      "n": 11,
+      "optimal_image_weight": 0.2,
+      "mean_observed_image_weight": 0.04855691851049531,
+      "mean_abs_weight_error": 0.16121241663197414
+    },
+    "img8_txt2": {
+      "n": 8,
+      "optimal_image_weight": 0.058823529411764705,
+      "mean_observed_image_weight": -0.04783676434452817,
+      "mean_abs_weight_error": 0.10666029375629286
+    }
+  }
+}

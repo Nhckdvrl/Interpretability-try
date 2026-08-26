@@ -1,66 +1,52 @@
-# 008 — Reliability-weighted cue integration
+# 008 — Reliability-weighted multimodal cue integration
 
-**Status:** `PRE-CANDIDATE / PAPER-AUDIT-PASSED / G0-SCAFFOLD`  
-**Created:** 2026-08-27
-
-> 行为 G0 通过前，不进入 VLM hidden-state mechanism。
+**Status:** `ACTIVE-MECHANISM / BEHAVIORAL G0 PASSED`
+**Validated:** 2026-08-27
 
 ## Mother question
 
-经典 psychophysics / multisensory integration 问题：
+> Why can a VLM read both visual and textual measurements, and sometimes detect which is more reliable, yet still route the fused estimate toward a dominant modality rather than the reliability-weighted optimum?
 
-> **当两个 noisy cues 指向同一个连续量时，系统是否会按各自可靠性进行近似 Bayes-optimal 加权？**
+The project concerns uncertainty use during fusion, not generic visual accuracy.
 
-本项目不研究“VLM 总体视觉能力差”，而研究 uncertainty/reliability 是否被表示并真正用于 cue fusion。
+## Logic corrections
 
-## Behavioral prerequisite
+The initial scaffold explicitly stated both sigmas. That reduced the task to reading one marker plus inverse-variance arithmetic and could not distinguish uncertainty representation from fusion. The corrected G0 instead:
 
-本轮筛选与已报道 open-model 差异见：
+- renders nine image measurements as a visible dot distribution;
+- supplies nine text measurements and their mean;
+- encodes reliability only through cue spread—sigma is never shown;
+- obtains image-only, text-only, and combined responses for every item;
+- requires both unimodal interfaces to be readable before interpreting fusion;
+- infers observed image weight from the model's own unimodal estimates;
+- compares it with the hidden generative inverse-variance optimum;
+- includes five mirrored reliability regimes from image-dominant to text-dominant.
 
-`rejected_candidates/search_round_2026-08-27_natural_phenomena_final.md`
+## G0 results
 
-已有行为工作显示不同 open multimodal family 的 cue-integration efficiency 差异很大，但本地必须先确认 Gemma/Qwen 上目标 effect 足够强。
+| Model | Image readout MAE | Text readout MAE | Weight MAE | Reliability correlation | Key phenotype |
+|---|---:|---:|---:|---:|---|
+| Qwen3-VL-2B-Instruct | 1.82 | 0.024 | 0.556 | -0.459 | near-complete text capture; observed image weight ≈0 in every regime |
+| Gemma3-4B-IT | 2.52 | 0.56 | 0.400 | +0.802 | reliability-sensitive, but systematically underweights image |
 
-## Competing mechanisms
+Both models can read both cues, so this is not an interface failure. Qwen's combined output nearly copies the text cue even when the image should receive 94% weight. Gemma changes direction with reliability but gives the image only about 0.15 observed weight in that same regime. These complementary phenotypes support a causal comparison of reliability representation versus modality routing.
 
-- **H1 uncertainty representation failure**：模型根本没有形成随 noise 改变的可靠性表征。
-- **H2 fusion/routing failure**：可靠性可读，但融合时仍错误使用 noisy cue。
-- **H3 late magnitude readout failure**：内部融合接近 normative，最终数值/readout 才失真。
+## Mechanism opening and paper scope
 
-## Minimal G0 scaffold
+- probe/patch reliability information encoded by visual spread;
+- distinguish reliability representation from modality-gating failure;
+- trace where the text stream captures the continuous-value readout;
+- test targeted routing interventions rather than globally increasing visual attention.
 
-`g0.py` 目前只做 deterministic stimulus generation + scorer：
-
-1. 生成一个 latent target value；
-2. text cue 与 visual cue 分别是带已知 Gaussian noise 的 measurement；
-3. 把 visual cue 渲染成简单 SVG marker/ruler；
-4. 根据 inverse-variance weighting 计算 normative fused estimate 与 image weight；
-5. 读取后续模型 runner 产出的 numeric prediction，反推出 observed image weight 并与 normative weight 比较。
-
-当前 deliberately 不把某个 VLM serving API 写死；后续只需生成 `predictions.jsonl`（`id`, `prediction`）即可评分。
-
-### Provisional STOP gate
-
-正式冻结前可进一步细化，但不得结果出来后放宽：
-
-- 至少 Gemma-3 与 Qwen2.5-VL 两个 family；
-- unimodal cue reading 不能接近随机，否则不是 integration failure；
-- observed cue weight 必须随 reliability ratio 有可测响应；
-- 若某模型已近似 normative，不把它当 failure model 强行做机制；
-- 至少一个 family 存在稳定 `mean |w_observed - w_optimal| >= 0.15`，且不是纯 numeric parsing/readout error。
-
-若模型完全读不懂 SVG/marker：`HOLD_STIMULUS_INTERFACE_BAD`，不是机制 failure。
-
-## Method opening
-
-H1 → uncertainty/reliability representation training；  
-H2 → reliability-aware fusion/gating；  
-H3 → late continuous-value readout correction。
+The conference-sized claim is reliability-sensitive but modality-biased fusion across two VLM families. It should remain on controlled continuous estimation and not expand to all multimodal hallucination or robustness.
 
 ## Files
 
-- `g0.py` — SVG stimulus + JSONL manifest generator；可对 numeric predictions 做 deterministic scorer。
+- `g0.py` — deterministic PNG generator, local VLM runner, and scorer;
+- `data/manifest.jsonl`, `stimuli/` — 60 frozen cue-integration trials;
+- `results/*_g0.jsonl` and summaries — complete Qwen/Gemma runs;
+- `tests/test_008_g0.py` — stimulus, hidden-sigma, parser, and oracle-scoring tests.
 
-## Current verdict
+## Next step
 
-`PRE-CANDIDATE`. 先确认本地 cue-integration behavior，再决定是否值得白盒。
+Begin white-box comparison on Qwen3-VL-2B and Gemma3-4B. Before a paper-level claim, add one second visual magnitude task or an official BayesBench cue-combination subset to establish task generality.

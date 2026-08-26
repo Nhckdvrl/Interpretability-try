@@ -1,0 +1,53 @@
+{
+  "n_cases_total": 72,
+  "n_usable": 63,
+  "neutral_mean_probability_on_initial_answer": {
+    "hidden": 0.993066413308116,
+    "own": 0.9999986894188202,
+    "other": 0.9999967364629225
+  },
+  "neutral_own_boost_vs_hidden": 0.0069322761107042385,
+  "neutral_own_boost_vs_other": 1.9529558976660866e-06,
+  "conflict_mean_revision_probability": {
+    "hidden": 0.9994411617366203,
+    "own": 0.9864531175913572,
+    "other": 0.9979966190838634
+  },
+  "hidden_minus_own": 0.012988044145263111,
+  "other_minus_own": 0.011543501492506159,
+  "hidden_minus_other_abs": 0.0014445426527569527,
+  "greedy_revision_rate": {
+    "hidden": 1.0,
+    "own": 0.9841269841269841,
+    "other": 1.0
+  },
+  "by_initial_answer": {
+    "A": {
+      "n": 36,
+      "hidden_minus_own": -0.00014169081319965562,
+      "other_minus_own": -8.949695258152973e-05
+    },
+    "B": {
+      "n": 27,
+      "hidden_minus_own": 0.030494357423213412,
+      "other_minus_own": 0.027054166085956476
+    }
+  },
+  "by_reliability_advantage": {
+    "0.05": {
+      "n": 21,
+      "hidden_minus_own": 0.03913763509192449,
+      "other_minus_own": 0.03464351048127135
+    },
+    "0.10": {
+      "n": 21,
+      "hidden_minus_own": 9.99764843080926e-05,
+      "other_minus_own": 0.00017329318356618635
+    },
+    "0.15": {
+      "n": 21,
+      "hidden_minus_own": -0.00027347914044332074,
+      "other_minus_own": -0.00018629918731897602
+    }
+  }
+}
