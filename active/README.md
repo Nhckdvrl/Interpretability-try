@@ -13,8 +13,8 @@
 当前项目：
 
 - `003_diagnostic_counterevidence_revision/` — 使用 MedEinst 的公开 control/trap 成对数据，研究少量决定性反证出现后，模型的诊断修正究竟失败在证据感知、证据—先验仲裁，还是晚期输出回退。当前只保留研究计划，尚未开始 G0 代码。
-- `004_deontic_facilitation/` — 冻结行为 G0。直接复用 EACL 2026 官方 NeuBAROCO Wason 数据，加入 4 个卡片位置轮换、2 个 prompt 模板和六个完整答案对的 teacher-forced likelihood；只有至少两种 open-weight 模型稳定表现出 deontic > epistemic facilitation 才允许进入机制。
-- `005_anti_inference_discount/` — 冻结行为 G0。先用 comprehension gate 确认 direct / inferred 两边都已高置信得到同一关键事实，再检查 downstream judgment 是否仍系统性降低 inferred fact 的权重；三类程序化 matched scenarios，共 96 条。
+- `004_deontic_facilitation/` — 冻结行为 G0。已在逻辑复审后改为 **32 个 true matched modality pairs**：同一 cards / propositions / gold / logical form，只切换 descriptive vs deontic modality；4 个卡片轮换、2 个 neutral prompt、六个完整答案 teacher-forced scoring。官方 NeuBAROCO 只作为行为动机，不再用 unrelated row pseudo-pairing 做 decisive gate。
+- `005_anti_inference_discount/` — 冻结行为 G0。direct / inference evidence 已改为 **non-nested、等权来源**；先要求两边都高置信确认同一 critical fact，再在同一多轮 history 中固定 `assistant: Yes`，比较 downstream A/B judgment 是否仍系统性 discount inferred provenance。三类程序化 matched scenarios，共 96 条。
 
 已归档：
 
