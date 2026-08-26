@@ -116,10 +116,28 @@ The domain is scanned as a family rather than as isolated paper ideas. Every can
 
 ---
 
+## 7. Intended postcondition overwrites authoritative observed state
+
+**Natural question:** The agent intended action A to change the world to state X, but the tool / environment explicitly shows that X did not happen. Why might later planning still proceed as if the intended state X were true?
+
+**Why it initially looked good:** This was the strongest remaining edge after killing generic tool failure. It isolates a potentially surprising state-update bug: intention and observation could both be represented, yet the planner might consume the intended postcondition rather than the authoritative observation. That would be more specific than static tool-memory conflict.
+
+**Kill evidence:** The practical and representational space has tightened substantially. `ToolGate` (Findings of ACL 2026) explicitly maintains trusted symbolic world state, formalizes each tool with preconditions and postconditions, and commits state updates only after runtime postcondition verification. `Verified Tool Calls Improve LLM Agent Reliability Under Non-Atomic Failures` independently uses postcondition verification / verify-before-retry / idempotency to prevent exactly the consequences produced by incorrect state commitment. `PABU` (2026) also directly frames agent operation as explicit belief/progress-state updating. Even if an internal “intention overwrites observation” circuit were discoverable, the obvious successful method would still be an external verified-state layer that works irrespective of that circuit. Under P3 this is now a method collision, and the remaining mechanism story is too close to an already explicit belief/state-update framing.
+
+**Death code:** `METHOD_COLLISION`
+
+**Nearest-neighbor warning:** Do not revive as stale state, optimistic state update, intended-vs-actual postcondition, delayed visibility, partial execution, GUI state mismatch, or planner consuming an old belief. Those are the same execution-semantics family unless the verifier is already present and demonstrably insufficient.
+
+**Resurrection condition:** Only reopen if authoritative verified state is already supplied in a trusted structured channel, ordinary verification wrappers still fail, and a selective internal causal mechanism makes the planner override that trusted state. The resulting mechanism must imply a repair that is not simply “verify/track state externally.”
+
+**Key references:** https://aclanthology.org/2026.findings-acl.470/ ; https://arxiv.org/abs/2608.02645 ; https://arxiv.org/abs/2602.09138
+
+---
+
 # Current lessons from the domain
 
 1. Tool-use behavior papers are moving extremely fast in 2026; many intuitive failure modes are already explicitly benchmarked.
 2. “Behavior exists but mechanism not yet done” is not enough. If a simple external verifier fixes the problem regardless of mechanism, the mechanism fails the method-closure requirement.
-3. The most promising remaining space is **stateful execution semantics**: what internal belief about the world is written after an action, whether intended state and observed state are represented separately, and whether planning consumes the updated state.
-4. A surviving topic should use a decisive contrast unavailable in static RAG/context conflict.
-5. Surprise criterion: “agents are bad when tools fail” is unsurprising. A viable topic should expose a dissociation such as correct internal recognition of failure/unmet goals combined with behavior that still proceeds as if success occurred.
+3. **Stateful execution semantics are no longer a safe generic survivor.** Verified symbolic state, postconditions, and belief-update frameworks now occupy much of the obvious space.
+4. A viable future agent topic needs a decisive contrast that remains broken *despite* correct external verification/state tracking, so that the internal mechanism is genuinely necessary to the fix.
+5. Surprise criterion: “agents are bad when tools fail” is unsurprising. A viable topic should expose a stronger dissociation that existing verified-state wrappers cannot already solve.
