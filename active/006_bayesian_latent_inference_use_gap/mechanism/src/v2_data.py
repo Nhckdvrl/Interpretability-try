@@ -295,6 +295,27 @@ def build_families(config: dict) -> list[dict]:
                     low, high = float(pair["low"]), float(pair["high"])
                     if not low < threshold < high:
                         raise ValueError((threshold, low, high))
+                    crossing_distance = high - low
+                    controls = []
+                    for control in pair.get("same_action_controls", []):
+                        start, end = map(float, control["values"])
+                        if action_for(start, threshold) != action_for(end, threshold):
+                            raise ValueError(("control crosses threshold", control))
+                        if not math.isclose(
+                            abs(end - start), crossing_distance, abs_tol=1e-9
+                        ):
+                            raise ValueError(
+                                ("control distance mismatch", crossing_distance, control)
+                            )
+                        controls.append(
+                            {
+                                "action": action_for(start, threshold),
+                                "values": [start, end],
+                                "absolute_distance": abs(end - start),
+                            }
+                        )
+                    if not controls:
+                        raise ValueError(f"No same-action control for {block_i}/{pair_i}")
                     family_id = f"{evidence_id}-p{pair_i}-{pair['band']}"
                     rows.append(
                         {
@@ -311,6 +332,8 @@ def build_families(config: dict) -> list[dict]:
                             "external_low": low,
                             "external_high": high,
                             "external_band": pair["band"],
+                            "crossing_distance": crossing_distance,
+                            "same_action_controls": controls,
                             "numeral_format": config["numeral_format"],
                         }
                     )

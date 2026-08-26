@@ -16,24 +16,24 @@
       "threshold": 0.40,
       "evidence_targets": [0.25, 0.55],
       "external_pairs": [
-        {"low": 0.28, "high": 0.52, "band": "near_round"},
-        {"low": 0.213719, "high": 0.586281, "band": "far_nonround"}
+        {"low": 0.28, "high": 0.52, "band": "near_round", "same_action_controls": [{"values": [0.52, 0.76]}]},
+        {"low": 0.213719, "high": 0.586281, "band": "far_nonround", "same_action_controls": [{"values": [0.586281, 0.958843]}]}
       ]
     },
     {
       "threshold": 0.50,
       "evidence_targets": [0.35, 0.65],
       "external_pairs": [
-        {"low": 0.38, "high": 0.62, "band": "near_round"},
-        {"low": 0.326731, "high": 0.673269, "band": "far_nonround"}
+        {"low": 0.38, "high": 0.62, "band": "near_round", "same_action_controls": [{"values": [0.62, 0.86]}, {"values": [0.14, 0.38]}]},
+        {"low": 0.347123, "high": 0.652877, "band": "far_nonround", "same_action_controls": [{"values": [0.652877, 0.958631]}, {"values": [0.041369, 0.347123]}]}
       ]
     },
     {
       "threshold": 0.60,
       "evidence_targets": [0.45, 0.75],
       "external_pairs": [
-        {"low": 0.48, "high": 0.72, "band": "near_round"},
-        {"low": 0.371429, "high": 0.828571, "band": "far_nonround"}
+        {"low": 0.48, "high": 0.72, "band": "near_round", "same_action_controls": [{"values": [0.24, 0.48]}]},
+        {"low": 0.419123, "high": 0.780877, "band": "far_nonround", "same_action_controls": [{"values": [0.057369, 0.419123]}]}
       ]
     }
   ],

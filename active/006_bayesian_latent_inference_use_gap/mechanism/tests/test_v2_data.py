@@ -36,7 +36,14 @@ CONFIG = {
             "threshold": 0.5,
             "evidence_targets": [0.35, 0.65],
             "external_pairs": [
-                {"low": 0.326731, "high": 0.673269, "band": "far"}
+                {
+                    "low": 0.35,
+                    "high": 0.65,
+                    "band": "far",
+                    "same_action_controls": [
+                        {"values": [0.65, 0.95]}
+                    ]
+                }
             ],
         }
     ],

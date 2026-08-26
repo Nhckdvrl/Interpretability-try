@@ -38,6 +38,8 @@ def value_set(config: dict) -> set[float]:
         values.update(map(float, block["evidence_targets"]))
         for pair in block["external_pairs"]:
             values.update((float(pair["low"]), float(pair["high"])))
+            for control in pair.get("same_action_controls", []):
+                values.update(map(float, control["values"]))
     return values
 
 

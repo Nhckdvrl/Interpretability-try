@@ -9,16 +9,16 @@
         "threshold": 0.20,
         "evidence_targets": [0.10, 0.30],
         "external_pairs": [
-          {"low": 0.08, "high": 0.32, "band": "near_range_low"},
-          {"low": 0.035719, "high": 0.364281, "band": "far_range_low"}
+          {"low": 0.08, "high": 0.32, "band": "near_range_low", "same_action_controls": [{"values": [0.32, 0.56]}]},
+          {"low": 0.035719, "high": 0.364281, "band": "far_range_low", "same_action_controls": [{"values": [0.364281, 0.692843]}]}
         ]
       },
       {
         "threshold": 0.80,
         "evidence_targets": [0.70, 0.90],
         "external_pairs": [
-          {"low": 0.68, "high": 0.92, "band": "near_range_high"},
-          {"low": 0.635719, "high": 0.964281, "band": "far_range_high"}
+          {"low": 0.68, "high": 0.92, "band": "near_range_high", "same_action_controls": [{"values": [0.44, 0.68]}]},
+          {"low": 0.635719, "high": 0.964281, "band": "far_range_high", "same_action_controls": [{"values": [0.307157, 0.635719]}]}
         ]
       }
     ]
