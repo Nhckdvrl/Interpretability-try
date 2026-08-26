@@ -1,101 +1,74 @@
-# Rejected Candidates — Cognitive Decision-Making Biases
+# Rejected Candidates — Cognitive / Decision-Making Phenomena
 
-**Domain:** economic choice, legal judgment, anchors, authority, risk, sunk cost, framing-style decision biases.  
-**Status:** active breadth-first scan; strong survivors are kept outside this rejected log until killed.
-
----
-
-## 1. Generic authority / expert-hint override
-
-**Natural question:** Why does the model abandon a correct answer when the same wrong suggestion is attributed to a more authoritative person?
-
-**Why it initially looked good:** The graded authority hierarchy is natural, safety-relevant, and creates a clean conflict between factual evidence and social source cues.
-
-**Kill evidence:** `A Mechanistic View of Authority Hierarchy in LLM Sycophancy` (July 2026) directly mechanizes this exact phenomenon across Llama-3.1-8B, Qwen3-8B, and Gemma-2-9B. It reports a graded authority effect and localizes a late-layer process in which correct-answer representations are actively erased in proportion to perceived authority, with causal/intervention analyses. The proposed mother question is therefore occupied, not merely behaviorally adjacent.
-
-**Death code:** `DIRECT_MECHANISM_COLLISION`
-
-**Nearest-neighbor warning:** Judge vs doctor vs professor vs manager personas, medical vs legal QA, or calling the effect “authority anchoring” does not create novelty.
-
-**Resurrection condition:** Need a distinct non-sycophancy phenomenon where authority changes a different computation despite the factual representation remaining causally intact.
-
-**Key reference:** https://arxiv.org/abs/2607.00415
+**Domain:** cognitive effects, judgment, choice, uncertainty, evidence accumulation, social decision-making.  
+**Status:** active breadth-first scan.  
+**Rule:** classic human effects are not assumed to transfer to modern LLMs. A candidate needs direct, modern open-weight behavioral evidence before mechanism work.
 
 ---
 
-## 2. Generic numerical anchoring in judgment
+## Prior negative knowledge
 
-**Natural question:** Why does an irrelevant number pull an LLM's estimate or judgment toward it?
+This file records candidate families that looked natural but failed either because the behavior was weak/nonexistent on modern models, the mother question was already occupied, or the mechanism would not change the practical method.
 
-**Why it initially looked good:** Classic, intuitive cognitive bias with real deployment consequences; easy matched-pair G0 and potential separation between initial estimate and anchor integration.
+### Generic authority / source-status bias
 
-**Kill evidence:** By 2026 the behavioral space is crowded: anchoring has been repeatedly benchmarked, recent work characterizes dependence on model confidence / post-training, and legal studies test authority-conditioned anchors. More importantly, combining anchoring with an authority cue now approaches the direct mechanism collision above. A generic “find anchor direction / heads and suppress them” paper has insufficient narrative headroom and low surprise.
+**Kill:** broad authority-bias and source-credibility framings are too easy to confound with factual prior, style, and context-memory conflict, and the surrounding literature is already dense. Do not revive by swapping profession/domain/source labels.
 
-**Death code:** `NARRATIVE_COLLISION`
+### Generic anchoring / certainty / risk / sunk-cost / outcome-bias families
 
-**Nearest-neighbor warning:** Sentencing anchors, prices, arbitrary IDs, high/low anchors, plausible anchors, or another domain are the same broad mother question.
-
-**Resurrection condition:** Need a sharp, counterintuitive subtype with a decisive contrast not explained by generic confidence, plausibility, or authority weighting, and with mechanism-dependent repair.
+**Kill:** classic-bias-to-LLM transfer is no longer accepted as a premise. Earlier search rounds repeatedly overestimated how strongly modern models inherit textbook cognitive biases. A title saying an LLM shows a bias is insufficient; require model-level effect sizes on current open weights.
 
 ---
 
-## 3. Generic certainty effect / risk-aversion representation
+## 2026-08-27 phenomenon-first round: candidates inspected and killed
 
-**Natural question:** Why does a model disproportionately prefer a guaranteed outcome over a risky option with higher expected value?
+### A. Generic false-belief / Theory-of-Mind failure
 
-**Why it initially looked good:** Very natural economic phenomenon; public code/data exist from `Instructed to Bias`; instruction tuning appears to amplify the effect, making post-training mechanism tempting.
+**Natural phenomenon:** People can represent another agent's belief separately from the actual state of the world.
 
-**Kill evidence:** The broader risk-preference space has become too mechanistically occupied. 2026 work directly identifies and steers internal representations of risk preference, while ICLR 2026 risky-choice work analyzes learned reasoning mechanisms including risk aversion, certainty effect, probability weighting, and related constructs. Even if the exact probability-1 discontinuity has not been fully circuit-mapped, a paper framed as “internal mechanism of the certainty effect” risks looking like a narrow instance of an existing risk-representation line.
+**Why it looked promising:** Modern behavioral work still shows large failure rates on hard false-belief benchmarks. ACL 2026 PICTURE reports vanilla false-belief accuracy of 58.8/54.7/41.5 on BigToM/ToMi/FANToM for Llama-3.1-8B-Instruct and 61.3/62.3/28.7 for Qwen3-8B, so the phenomenon is certainly real on two open families.
 
-**Death code:** `NARRATIVE_COLLISION`
+**Kill evidence:** The mother question is already mechanism-dense. Recent work explicitly studies sparse ToM-sensitive parameters, causal belief-tracking mechanisms ('lookbacks'), and a 2026 mechanistic investigation in Qwen2.5-14B that separates mid-layer representation-vs-reality divergence heads from later answer-retrieval heads. A generic 'why do LLMs fail false belief?' project would collide directly with existing behavioral, training, and mechanistic narratives.
 
-**Nearest-neighbor warning:** Allais paradox, probability=1 specialness, guaranteed-vs-99%, or another lottery benchmark does not automatically create a new narrative.
+**Death code:** `MECHANISM_COLLISION`
 
-**Resurrection condition:** Reopen only with a surprising discontinuity unique to certainty that cannot be reduced to a continuous risk-preference representation and that predicts a distinct intervention.
+**Resurrection condition:** Only with a new natural ToM phenomenon that is behaviorally distinct from classic false belief and not reducible to belief-state tracking / representation-reality divergence.
 
-**Key references:** https://aclanthology.org/2024.tacl-1.43/ ; https://openreview.net/forum?id=gyPUMAq5xN
+**References:** https://aclanthology.org/2026.acl-long.1674.pdf ; https://www.nature.com/articles/s44387-025-00031-9 ; https://arxiv.org/abs/2505.14685 ; https://digitalcommons.dartmouth.edu/cognitive-science_senior_theses/11/
 
----
+### B. Generic working-memory interference / recency
 
-## 4. Generic sunk-cost effect / escalation of commitment
+**Natural phenomenon:** Multiple active memories interfere, with retrieval biased by recency and competing items.
 
-**Natural question:** Why does prior investment make a model continue a losing course of action when only future costs and benefits should matter?
+**Why it looked promising:** `In-context superposition: human-like working memory interference in large language models` (2026) reports load-dependent working-memory limits and human-like recency/statistical interference in a diverse set of pretrained LLMs.
 
-**Why it initially looked good:** Extremely natural practical failure for autonomous agents; prior effort, money, or tool calls could plausibly distort continuation decisions.
+**Kill evidence:** The same paper already supplies the mechanistic story: recent items occupy overlapping internal representations ('in-context superposition'), separation across layers predicts retrieval success, and selectively suppressing competing information modestly improves performance. This is essentially the phenomenon → mechanism → intervention arc we would otherwise want to discover.
 
-**Kill evidence:** The behavioral prerequisite is unstable. A 2026 systematic quantitative assessment finds sunk-cost effects largely absent across current models and highly prompt-sensitive; a recent contamination-aware factorial study likewise reports essentially zero sunk-cost effect across its conditions. Other work can elicit escalation under strong social/organizational pressure, but that turns the mother question into a context/social-dynamics problem rather than a robust intrinsic sunk-cost phenomenon. This is too fragile for a clean mechanistic G0.
+**Death code:** `MECHANISM_COLLISION`
 
-**Death code:** `NO_NATURAL_BEHAVIOR`
+**Resurrection condition:** A different memory phenomenon whose decisive contrast cannot be explained by overlapping-representation interference.
 
-**Nearest-neighbor warning:** Prior tokens spent, prior tool calls, project investment, “don't give up now,” or persona pressure should not be used to manufacture the effect.
+**Reference:** https://arxiv.org/abs/2604.09670
 
-**Resurrection condition:** A robust modern open-model paired benchmark must show that *past irrecoverable investment alone*, with future payoffs held fixed, causally changes continuation decisions across paraphrases and models.
+### C. Generic belief-revision inertia after minimal premise edits
 
-**Key references:** https://arxiv.org/abs/2508.01545 ; https://www.mdpi.com/2079-9292/15/11/2428
+**Natural phenomenon:** Rational belief revision should change conclusions when decisive evidence changes while preserving unrelated beliefs.
 
----
+**Why it looked promising:** DeltaLogic reports Qwen3-1.7B initial accuracy 0.667 but revision accuracy 0.467 with 0.600 inertia, and Qwen3-4B 0.650 initial / 0.450 revision / 0.600 inertia. This is a visible effect, not a 2–5 pp difference.
 
-## 5. Generic outcome bias in legal / moral judgment
+**Why it is not promoted yet:** Current strong evidence for the exact minimal-edit inertia pattern is concentrated in Qwen3 plus Phi-4-mini; it does not yet satisfy our new 'at least two relevant modern open model families' evidence preference. The broader ICLR 2026 AGM-style belief-revision benchmark does replicate preservation/inclusion failures on Llama-3.3-70B and Qwen2.5-72B, but that is a related rather than identical operationalization. Treating them as the same phenomenon would repeat the broad→strict extrapolation mistake from the decoy project.
 
-**Natural question:** Why is exactly the same prior decision judged more negligent or blameworthy merely because the eventual outcome happened to be worse?
+**Death code:** `INSUFFICIENT_EXACT_CROSS_FAMILY_EVIDENCE`
 
-**Why it initially looked good:** Outcome information is normatively irrelevant to ex-ante decision quality, so the matched-pair phenomenon is natural, consequential, and potentially surprising.
+**Resurrection condition:** Replicate the minimal-edit inertia contrast on at least one additional modern open family (Gemma/Llama preferred) with deterministic constrained scoring before candidate registration.
 
-**Kill evidence:** The behavioral result is not stable enough on the open models needed for mechanism work. `Debiasing Legal Judgment: Outcome Effects in Open-source LLMs` (2026) re-tests eight current open-source models and finds little to no outcome bias, with only small effects in Cogito and DeepSeek-R1. That makes a broad causal-mechanism project likely to depend on cherry-picked model/task settings.
-
-**Death code:** `NO_NATURAL_BEHAVIOR`
-
-**Nearest-neighbor warning:** Accident severity, damages, medical outcome, sentencing consequence, or moral luck are surface variants unless robust open-model behavior is independently established.
-
-**Resurrection condition:** A strong, prompt-stable effect across multiple current open models and domains, with outcome held strictly irrelevant to the ex-ante decision criterion.
-
-**Key reference:** https://doi.org/10.1628/jite-2026-0017
+**References:** https://arxiv.org/abs/2604.02733 ; https://openreview.net/pdf/0cf99120b6e1d209b18452f9db476edca54678e0.pdf
 
 ---
 
-# Current lessons from the domain
+# Current lessons
 
-1. Classic cognitive-bias names are not research questions by themselves; many have either weak modern behavior or crowded behavioral literature.
-2. The best surviving candidates need a **within-item contradiction** stronger than “bias score > 0”: e.g. the model explicitly recognizes a decoy is dominated yet lets it alter A-vs-B preference, or can solve the same logic when normatively framed but not descriptively framed.
-3. Instruction-tuning-induced human-like bias is attractive, but mechanism novelty must survive 2026 work on confidence, risk, authority, and preference representations.
-4. Prefer phenomena with a cheap paired G0 and a result that can falsify the project immediately.
+1. Naturalness alone is not enough; classic cognitive phenomena still require modern open-model evidence.
+2. Do not merge nearby operationalizations just to manufacture cross-family support.
+3. A beautiful behavioral effect is unusable if a recent paper has already completed the same mechanistic arc.
+4. The best remaining cognitive candidates are formal/normative phenomena with exact scorers (Bayesian updating, causal intervention/counterfactual structure), not vague named biases.
