@@ -1,6 +1,6 @@
 # 006 — Bayesian latent inference → downstream-use gap
 
-**Status:** `PAUSED / EXTERNAL VALIDITY NOT ESTABLISHED`
+**Status:** `KILLED / ARCHIVED`
 **Last audited:** 2026-08-27
 
 For the complete chronological record from topic registration through G0, exploratory mechanism runs, result audit, and the frozen V2 plan, see [`PROGRESS.md`](PROGRESS.md).
@@ -40,7 +40,7 @@ An external-validity audit also found that [BayesBench](https://arxiv.org/abs/26
 
 ## Current decision boundary
 
-All new V2 mechanism runs are paused. Existing Qwen2.5 results remain labeled D0 exploratory and may be reused only if the phenotype transfers to an official task.
+All new V2 mechanism runs are terminated. Existing Qwen2.5 results remain labeled D0 exploratory and are preserved only as a failure record.
 
 The project gets one bounded salvage test:
 
@@ -59,7 +59,7 @@ If (1) or (2) fails, archive 006. If behavior transfers but (3) fails, the curre
 
 ## Next step
 
-Do not run the custom V2 matrix. First run a small, unmodified BayesBench reproduction on its MovieLens recommender and public medical-triage environments. Record this as external replication, not as our dataset. No further white-box work is approved until that check passes.
+No next experiment is approved. The project was archived after the custom-only phenomenon failed to reproduce consistently across models and the broad narrative was found to overlap BayesBench.
 
 The complete study design is in [`INTERPRETABILITY_PLAN.md`](INTERPRETABILITY_PLAN.md). It treats query-gated posterior formation, posterior routing, comparator failure, and late option binding as competing hypotheses rather than presupposing a routing failure.
 

@@ -1,6 +1,6 @@
 # 007 — From answer visibility to ownership-specific commitment
 
-**Status:** `ACTIVE-MECHANISM / REFRAMED AFTER G0`
+**Status:** `STOPPED / ARCHIVED`
 **Validated:** 2026-08-27
 
 ## Revised mother question
@@ -52,6 +52,6 @@ This is aligned with the width of an ACL/EMNLP/NAACL mechanistic paper if kept t
 
 The latitude cases are deterministically derived from the GeoNames `cities15000` dump (`https://download.geonames.org/export/dump/cities15000.zip`, GeoNames data licensed under CC BY 4.0); the downloaded source archive is not vendored.
 
-## Next step
+## Archive decision
 
-Localize the visible-answer effect first, then test whether the causal component responding to assistant-role ownership differs from the component responding to any displayed answer. Add one non-latitude factual/reasoning dataset before making a task-general paper claim.
+The two evaluated models did not share the proposed ownership-specific phenotype: Qwen showed own/other separation, while Gemma treated both visible sources as anchors. A second independent public task and a pre-registered cross-model taxonomy were not completed. The project is archived by portfolio decision rather than recorded as a strict behavioral falsification. No mechanism experiment was started.

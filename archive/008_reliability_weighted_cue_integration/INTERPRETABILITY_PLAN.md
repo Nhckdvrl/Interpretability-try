@@ -2,7 +2,7 @@
 
 ## Complete mechanistic-interpretability plan
 
-**Plan status:** retain the project; treat current G0 as a confounded behavioral baseline and refreeze a symmetric mechanism dataset before white-box experiments
+**Plan status:** historical only; project killed and archived before white-box experiments
 
 **Primary models:** `Qwen/Qwen3-VL-2B-Instruct`, `google/gemma-3-4b-it`
 **Last literature and design review:** 2026-08-27

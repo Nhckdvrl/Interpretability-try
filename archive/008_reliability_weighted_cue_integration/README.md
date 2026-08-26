@@ -1,6 +1,6 @@
 # 008 — Reliability-weighted multimodal cue integration
 
-**Status:** `ACTIVE-PREFLIGHT / CANDIDATE PHENOTYPE`
+**Status:** `KILLED / ARCHIVED`
 **Validated:** 2026-08-27
 
 ## Mother question
@@ -47,8 +47,8 @@ The conference-sized claim is reliability-sensitive but modality-biased fusion a
 - `results/*_g0.jsonl` and summaries — complete Qwen/Gemma runs;
 - `tests/test_008_g0.py` — stimulus, hidden-sigma, parser, and oracle-scoring tests.
 
-## Next step
+## Archive decision
 
-First refreeze symmetric raw/raw and summary/summary stimuli and identify whether each model exhibits fixed text prior, reliability correction, hard cue selection, or continuous integration. Begin white-box comparison only after that phenotype is stable. Before a paper-level claim, add one second visual magnitude task or an official BayesBench cue-combination subset to establish task generality.
+No further preflight or mechanism experiment will be run. The current G0 cannot distinguish modality bias from explicit-scalar copying because the text supplies its mean while the image requires visual averaging. More importantly, the broad optimal multimodal cue-combination question is already directly covered by the public psychophysics BayesBench across four magnitude tasks and nine models. Rebuilding a symmetric custom dataset would not repair that narrative collision.
 
 The complete study design is in [`INTERPRETABILITY_PLAN.md`](INTERPRETABILITY_PLAN.md). Its preflight supersedes immediate white-box analysis of the current G0: the explicit text mean versus implicit visual mean is an access/copy confound, so symmetric raw/raw and summary/summary stimuli must be refrozen first.

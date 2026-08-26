@@ -13,9 +13,6 @@
 当前项目：
 
 - `003_diagnostic_counterevidence_revision/` — 使用 MedEinst 的公开 control/trap 成对数据，研究少量决定性反证出现后，模型的诊断修正究竟失败在证据感知、证据—先验仲裁，还是晚期输出回退。当前只保留研究计划，尚未开始 G0 代码。
-- `006_bayesian_latent_inference_use_gap/` — `PAUSED / EXTERNAL VALIDITY FAILED`。Qwen2.5-14B 的结果只存在于自构造任务；Qwen3/Gemma 未复现同一 phenotype，跨模型 smoke 另有标签与 mapping artifact。禁止继续 custom V2 或机制实验；只有官方 BayesBench 公共数据跨模型复现通过才可重开，否则归档。
-- `007_choice_supportive_ownership_bias/` — `ACTIVE-MECHANISM / REFRAMED`。可见旧答案稳定抑制 revision，但 source specificity 跨模型不同：Qwen own≠other，Gemma 对 own/other 都形成 anchor；转为比较 attribution-dependent commitment routing。
-- `008_reliability_weighted_cue_integration/` — `ACTIVE-MECHANISM`。Qwen3-VL 几乎完全 text capture；Gemma3 虽随 reliability 调整仍系统性低估 image cue；两路 unimodal readout 均正常。
 
 006–008 的 paper search、入选理由与同轮 kill 记录见：
 
@@ -27,3 +24,6 @@
 - `003_decoy_dissociation/` — Qwen3-8B 与 Gemma3-12B-IT 完成冻结 G0；Gemma strong-reversal rate 仅 1.70%（门槛 5%），Qwen3-8B 为 0%，不满足晋级规则，已 KILLED / ARCHIVED。
 - `004_deontic_facilitation/` — 修正后的 24 排列全反平衡 G0 中，Qwen3-8B 与 Gemma3-12B-IT 均为 `0/32` strong pairs，两模型均未达冻结 gate，已 KILLED / ARCHIVED。
 - `005_anti_inference_discount/` — outcome-symmetric G0 中，Qwen3-8B 的 natural discount 仅 `0.01343`，Gemma3-12B-IT 仅 `8.1e-7`，两者 bridged effect 均近乎为零，已 KILLED / ARCHIVED。
+- `006_bayesian_latent_inference_use_gap/` — custom-only 现象未跨模型成立，且宽叙事与 BayesBench 高度重叠；机制结果仅属于单一人工 bridge prompt，已停止并归档。
+- `007_choice_supportive_ownership_bias/` — Qwen 与 Gemma 的 source-specificity 不一致，尚未在第二个公开任务上形成稳定共同 phenotype；本轮不再续救，按组合决策归档，不能记为已被严格证伪。
+- `008_reliability_weighted_cue_integration/` — 当前自构造 G0 存在显式文本 mean 对隐式视觉 mean 的 access/copy confound，且 optimal multimodal cue-combination 母题已被公开 BayesBench 系统覆盖，已停止并归档。

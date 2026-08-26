@@ -4,7 +4,7 @@
 
 ## 006 — Bayesian latent inference → downstream use gap
 
-**结论：** 当前题目不成立。项目暂停，custom mechanism 路线终止。
+**结论：** 当前题目不成立。项目已归档，custom mechanism 路线终止。
 
 ### 我们实际拥有什么
 
@@ -50,4 +50,23 @@
 3. 在至少两个模型家族或有说服力的跨尺寸序列上出现同一预注册 phenotype；
 4. 新贡献明确限定为已有现象的因果机制与选择性修复，并证明机制跨官方任务迁移。
 
-否则直接归档。不得再通过改 prompt、挑 checkpoint、挑 subset 或放宽现象定义救题。
+否则不得复活。不得再通过改 prompt、挑 checkpoint、挑 subset 或放宽现象定义救题。
+
+## 008 — Reliability-weighted multimodal cue integration
+
+**结论：** 项目已归档，不再重做 G1。
+
+- 当前 60-item G0 完全由本项目构造；文本明确给出 mean，图像只显示散点，导致读取与计算成本不对称。
+- Qwen 的所谓 text capture 主要表现为复制显式文本标量，不能证明它读取了两路可靠性后错误融合。
+- Gemma 的 reliability correlation 只有五个 condition-level 点，且 observed-weight 统计受分母筛选与负权重影响，不能承担现象证据。
+- `Emergent Bayesian Behaviour and Optimal Cue Combination in LLMs` 已发布四类 text/image magnitude estimation benchmark，在九个模型上研究噪声、cue combination 和 Bayesian consistency，直接覆盖 008 的宽 mother question。
+
+因此 008 同时触发 `ARTIFACT_FAILURE` 与 `NARRATIVE_COLLISION`。对自构造刺激做更多对称化只能改善实验质量，不能恢复选题 novelty。
+
+## 007 — Choice-supportive ownership bias
+
+**结论：** 按本轮项目组合决策归档；不宣称严格证伪。
+
+- Qwen 出现 own-specific suppression，Gemma 对 own/other 都强 anchoring，同一 phenotype 未跨模型成立。
+- GeoNames 提供了外部来源，但只有 latitude 一个任务；第二个公开任务与统一的预注册 taxonomy 尚未完成。
+- 在新硬门槛下，这些证据不足以启动机制。用户决定不再投入 salvage budget，因此停止。

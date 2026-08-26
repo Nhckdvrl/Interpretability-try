@@ -1,7 +1,7 @@
 # 006 project progress
 
 **Last updated:** 2026-08-27
-**Current phase:** `PAUSED / synthetic evidence demoted / official-benchmark transfer required`
+**Current phase:** `KILLED / ARCHIVED`
 **Anchor model:** `Qwen/Qwen2.5-14B-Instruct`
 
 This is the chronological project record. It connects the original topic, behavioral validation, code corrections, mechanism experiments, invalidated interpretations, current evidence, and the next approved work package.
@@ -271,7 +271,7 @@ Possible answers remain formation failure, role-gated transport, coordinate mism
 
 ## Next approved milestone
 
-**M14 — official-benchmark transfer smoke** supersedes the previous V2 execution plan:
+**M14 — proposed official-benchmark transfer smoke (cancelled on archival)** superseded the previous V2 execution plan but was not run:
 
 1. use the upstream BayesBench revision and its unmodified evaluation code;
 2. run public-data MovieLens recommender and medical-triage smoke subsets;

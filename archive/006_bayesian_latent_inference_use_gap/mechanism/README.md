@@ -26,7 +26,7 @@ The existing files are `D0 / exploratory`; they may motivate layer windows and h
 Current tests:
 
 ```bash
-cd active/006_bayesian_latent_inference_use_gap
+cd archive/006_bayesian_latent_inference_use_gap
 /home/xiang/miniconda3/envs/pvlm/bin/python -m pytest -q
 ```
 
