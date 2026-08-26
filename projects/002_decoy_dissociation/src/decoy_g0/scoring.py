@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 import math
-from typing import Iterable
+from typing import Iterable, Sequence
 
 @dataclass(frozen=True)
 class ScoreResult:
@@ -18,41 +18,91 @@ def softmax_dict(logprobs: dict[str, float]) -> dict[str, float]:
 
 
 class HFChoiceScorer:
-    """Deterministic teacher-forced scoring of complete candidate strings."""
+    """Deterministic teacher-forced scoring of complete candidate strings.
+
+    Candidate strings may tokenize to multiple tokens. `score_batch` flattens all
+    prompt/candidate pairs into padded batches, so the full G0 does not require
+    hundreds of thousands of separate model forwards.
+    """
 
     def __init__(self, model_name: str, device_map: str = "auto", dtype: str = "auto"):
         import torch
         from transformers import AutoModelForCausalLM, AutoTokenizer
         self.torch = torch
         self.tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)
+        if self.tokenizer.pad_token_id is None:
+            self.tokenizer.pad_token = self.tokenizer.eos_token
         dtype_arg = dtype if dtype == "auto" else getattr(torch, dtype)
-        self.model = AutoModelForCausalLM.from_pretrained(model_name, device_map=device_map, torch_dtype=dtype_arg, trust_remote_code=True)
+        self.model = AutoModelForCausalLM.from_pretrained(
+            model_name,
+            device_map=device_map,
+            torch_dtype=dtype_arg,
+            trust_remote_code=True,
+        )
         self.model.eval()
 
     def _chat_prefix(self, prompt: str) -> str:
         messages = [{"role": "user", "content": prompt}]
         if hasattr(self.tokenizer, "apply_chat_template") and self.tokenizer.chat_template:
-            return self.tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
+            # Qwen3 accepts enable_thinking=False; templates that do not reference
+            # this variable simply ignore the extra Jinja argument.
+            return self.tokenizer.apply_chat_template(
+                messages,
+                tokenize=False,
+                add_generation_prompt=True,
+                enable_thinking=False,
+            )
         return prompt.rstrip() + "\nAnswer:"
 
-    def score(self, prompt: str, candidates: Iterable[str]) -> ScoreResult:
-        torch = self.torch
+    def _encode_pair(self, prompt: str, candidate: str) -> tuple[list[int], int]:
         prefix = self._chat_prefix(prompt)
         prefix_ids = self.tokenizer(prefix, add_special_tokens=False).input_ids
-        if not prefix_ids:
-            raise ValueError("empty tokenized prefix")
+        full_ids = self.tokenizer(prefix + " " + candidate, add_special_tokens=False).input_ids
+        if not prefix_ids or len(full_ids) <= len(prefix_ids):
+            raise ValueError(f"candidate {candidate!r} produced invalid continuation tokens")
+        return full_ids, len(prefix_ids)
+
+    def score_batch(
+        self,
+        requests: Sequence[tuple[str, Sequence[str]]],
+        sequence_batch_size: int = 96,
+    ) -> list[ScoreResult]:
+        torch = self.torch
+        flat: list[tuple[int, str, list[int], int]] = []
+        for req_idx, (prompt, candidates) in enumerate(requests):
+            for cand in candidates:
+                ids, prefix_len = self._encode_pair(prompt, cand)
+                flat.append((req_idx, cand, ids, prefix_len))
+
+        per_request: list[dict[str, float]] = [dict() for _ in requests]
         device = next(self.model.parameters()).device
-        logprobs: dict[str, float] = {}
-        for cand in candidates:
-            full_ids = self.tokenizer(prefix + " " + cand, add_special_tokens=False).input_ids
-            if len(full_ids) <= len(prefix_ids):
-                raise ValueError(f"candidate {cand!r} produced no continuation tokens")
-            input_ids = torch.tensor([full_ids], device=device)
+
+        for start in range(0, len(flat), sequence_batch_size):
+            chunk = flat[start : start + sequence_batch_size]
+            max_len = max(len(x[2]) for x in chunk)
+            input_ids = []
+            attention_mask = []
+            metadata = []
+            for req_idx, cand, ids, prefix_len in chunk:
+                pad = max_len - len(ids)
+                # Right padding keeps prefix/candidate positions unchanged.
+                input_ids.append(ids + [self.tokenizer.pad_token_id] * pad)
+                attention_mask.append([1] * len(ids) + [0] * pad)
+                metadata.append((req_idx, cand, prefix_len, len(ids)))
+
+            input_ids_t = torch.tensor(input_ids, device=device)
+            attention_mask_t = torch.tensor(attention_mask, device=device)
             with torch.inference_mode():
-                logits = self.model(input_ids=input_ids).logits[0]
-            total = 0.0
-            for pos in range(len(prefix_ids), len(full_ids)):
-                token_id = full_ids[pos]
-                total += float(torch.log_softmax(logits[pos - 1].float(), dim=-1)[token_id].item())
-            logprobs[cand] = total
-        return ScoreResult(logprobs=logprobs, probs=softmax_dict(logprobs))
+                logits = self.model(input_ids=input_ids_t, attention_mask=attention_mask_t).logits
+
+            for row_idx, (req_idx, cand, prefix_len, seq_len) in enumerate(metadata):
+                total = 0.0
+                for pos in range(prefix_len, seq_len):
+                    token_id = input_ids[row_idx][pos]
+                    total += float(torch.log_softmax(logits[row_idx, pos - 1].float(), dim=-1)[token_id].item())
+                per_request[req_idx][cand] = total
+
+        return [ScoreResult(logprobs=d, probs=softmax_dict(d)) for d in per_request]
+
+    def score(self, prompt: str, candidates: Iterable[str]) -> ScoreResult:
+        return self.score_batch([(prompt, tuple(candidates))], sequence_batch_size=16)[0]
