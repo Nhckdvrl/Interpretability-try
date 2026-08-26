@@ -1,25 +1,6 @@
 # 005 — Anti-inference discount after successful comprehension
 
-**Status: KILLED / ARCHIVED.**
-**Do not start mechanism work before this G0 passes.**
-
-## Final G0 decision (2026-08-27)
-
-The frozen 96-scenario G0 was run end-to-end on both primary models. All
-scenarios passed the strict comprehension gate in both models, but the natural
-and same-history discounts were effectively zero and no strong scenario was
-observed.
-
-| Model | Gated | Mean natural discount | Mean bridged discount | Strong | Natural pass | Bridged pass |
-|---|---:|---:|---:|---:|---:|---:|
-| Qwen3-8B | 96 | 0.001324 | 4.79e-12 | 0 | no | no |
-| Gemma3-12B-IT | 96 | 1.38e-05 | 9.94e-08 | 0 | no | no |
-
-The frozen thresholds required natural discount `>= .05`, bridged discount
-`>= .03`, at least ten strong scenarios, and two independently passing models.
-Both primary models fail both sub-gates, so the remaining single confirmation
-model cannot satisfy promotion. The project is killed before mechanism work;
-no thresholds or scenario families were changed.
+**Status: KILLED / ARCHIVED after the frozen behavioral G0.**
 
 ## Mother question
 
@@ -113,6 +94,15 @@ Same-history gate:
 - at least 55% of gated scenarios have positive bridged discount.
 
 At least two open-weight models must independently pass both gates. Do not weaken thresholds, cherry-pick domains/outcomes, add harder inference chains, or switch to weaker models after a null result.
+
+## Final G0 verdict
+
+The outcome-symmetric G0 was completed for the first two frozen models (96 scenarios and 2,688 scored evaluation rows per model):
+
+- Qwen3-8B: `57/96` comprehension-gated scenarios, mean natural discount `0.01343`, natural bootstrap 95% CI `[0.00000007, 0.03569]`, mean bridged discount `0.00000021`, `2` strong scenarios, model fail. Only one of the two outcome directions was positive.
+- Gemma3-12B-IT: `80/96` comprehension-gated scenarios, mean natural discount `0.00000081`, natural bootstrap 95% CI `[-0.00000209, 0.00000365]`, mean bridged discount `0.00000099`, `0` strong scenarios, model fail.
+
+The natural effect is far below the frozen `+.05` gate in both models, and the same-history residual is effectively zero. With only Qwen3-14B remaining in the frozen model list, the requirement that at least two open-weight models pass is mathematically unreachable. Qwen3-14B was therefore not run, and the topic is archived without mechanism work or threshold changes.
 
 ## Interpretation
 

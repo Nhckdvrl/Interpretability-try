@@ -18,5 +18,5 @@
 
 - `002_facts_vs_shortcuts_arbitration/` — 由于近期工作已强覆盖实体数值表示、比较机制与 shortcut/事实竞争相关叙事，停止 active 推进，完整移入 `archive/` 保存失败经验与代码。
 - `003_decoy_dissociation/` — Qwen3-8B 与 Gemma3-12B-IT 完成冻结 G0；Gemma strong-reversal rate 仅 1.70%（门槛 5%），Qwen3-8B 为 0%，不满足晋级规则，已 KILLED / ARCHIVED。
-- `004_deontic_facilitation/` — 两个 primary model 均未达到冻结 effect-size gate，且 strong pairs 均为 0；剩余单个 confirmation model 已不可能满足两模型晋级要求。
-- `005_anti_inference_discount/` — 两个 primary model 的 96/96 scenarios 都通过 comprehension gate，但 natural/bridged discount 近乎为 0，strong scenarios 为 0，未通过冻结双重 gate。
+- `004_deontic_facilitation/` — 修正后的 24 排列全反平衡 G0 中，Qwen3-8B 与 Gemma3-12B-IT 均为 `0/32` strong pairs，两模型均未达冻结 gate，已 KILLED / ARCHIVED。
+- `005_anti_inference_discount/` — outcome-symmetric G0 中，Qwen3-8B 的 natural discount 仅 `0.01343`，Gemma3-12B-IT 仅 `8.1e-7`，两者 bridged effect 均近乎为零，已 KILLED / ARCHIVED。

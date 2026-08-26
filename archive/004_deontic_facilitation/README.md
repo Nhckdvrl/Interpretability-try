@@ -1,23 +1,6 @@
 # 004 — Deontic facilitation in Wason selection
 
-**Status: KILLED / ARCHIVED.**
-**Do not start mechanism work before this G0 passes.**
-
-## Final G0 decision (2026-08-27)
-
-The frozen 32-pair G0 was run end-to-end on both primary models. Neither
-model passed, and neither produced any strong pairs.
-
-| Model | Mean accuracy delta | Mean `p_gold` delta | 95% CI for `p_gold` delta | Strong pairs | Pass |
-|---|---:|---:|---:|---:|---:|
-| Qwen3-8B | 0.0586 | 0.0531 | [0.0383, 0.0689] | 0 | no |
-| Gemma3-12B-IT | 0.0156 | 0.0075 | [-0.0097, 0.0249] | 0 | no |
-
-The model-level gates required accuracy delta `>= .10`, probability delta
-`>= .08`, and at least four strong pairs. Since both primary models fail,
-the remaining single confirmation model cannot satisfy the frozen requirement
-of two passing models. The topic is therefore killed before mechanism work;
-no thresholds were weakened.
+**Status: KILLED / ARCHIVED after the frozen behavioral G0.**
 
 ## Mother question
 
@@ -74,3 +57,12 @@ deontic-summarize --data data/matched_wason.jsonl --results results/qwen3_8b_g0.
 ## STOP rule
 
 If the matched effect is absent, unstable across forms/templates/orderings, or passes only in one model family, archive the topic. Do not rescue it with unmatched official rows, answer examples, easier hand-picked frames, weaker models, or mechanism evidence.
+
+## Final G0 verdict
+
+The corrected, fully counterbalanced G0 was completed for the first two frozen models (3,072 evaluations per model):
+
+- Qwen3-8B: mean accuracy delta `0.0508`, mean gold-probability delta `0.0410`, bootstrap 95% CI `[0.0315, 0.0513]`, `0/32` strong pairs, model fail.
+- Gemma3-12B-IT: mean accuracy delta `-0.0026`, mean gold-probability delta `0.0076`, bootstrap 95% CI `[0.0015, 0.0149]`, `0/32` strong pairs, model fail.
+
+Neither model approaches the frozen effect-size or strong-pair gates. With only Qwen3-14B remaining in the frozen model list, the requirement that at least two open-weight models pass is now mathematically unreachable. Qwen3-14B was therefore not run, and the topic is archived without mechanism work or threshold changes.
