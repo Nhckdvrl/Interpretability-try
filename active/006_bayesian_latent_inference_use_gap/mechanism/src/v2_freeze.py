@@ -131,6 +131,7 @@ def run(project: Path, code_commit: str) -> dict:
         out_dir = project / "datasets/v2" / config["split"]
         metadata[config["split"]] = generate(config_path, out_dir, code_commit)
     audit = cross_split_audit(project, metadata)
+    lattice_path = project / "configs/dev/v2_intervention_lattice.json"
     manifest = {
         "milestone": "M12",
         "freeze_version": "v2-m12-1",
@@ -140,6 +141,10 @@ def run(project: Path, code_commit: str) -> dict:
         "d2_ood_status": "sealed-unopened",
         "primary_independent_unit": "family_id",
         "primary_control": "topology-matched generic decision-score authority",
+        "intervention_lattice": {
+            "path": str(lattice_path.relative_to(project)),
+            "sha256": sha256_file(lattice_path),
+        },
         "splits": metadata,
         "cross_split_audit": audit,
     }
@@ -148,6 +153,7 @@ def run(project: Path, code_commit: str) -> dict:
     manifest_path.write_text(json.dumps(manifest, indent=2, sort_keys=True) + "\n")
     checksum_path = project / "manifests/M12_FREEZE.sha256"
     lines = [f"{sha256_file(manifest_path)}  {manifest_path.relative_to(project)}"]
+    lines.append(f"{sha256_file(lattice_path)}  {lattice_path.relative_to(project)}")
     for split in sorted(metadata):
         split_dir = project / "datasets/v2" / split
         for name in (
