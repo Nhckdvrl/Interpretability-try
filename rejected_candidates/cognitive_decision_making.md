@@ -64,6 +64,22 @@ This file records candidate families that looked natural but failed either becau
 
 **References:** https://arxiv.org/abs/2604.02733 ; https://openreview.net/pdf/0cf99120b6e1d209b18452f9db476edca54678e0.pdf
 
+### D. Causal-ladder degradation (observation → intervention → counterfactual)
+
+**Natural phenomenon:** Pearl's causal hierarchy distinguishes seeing, doing, and imagining a contrary intervention; competence at a lower rung does not logically entail competence at a higher one.
+
+**Why it looked excellent behaviorally:** ACL 2026 Main METER reports a large monotonic drop on modern open models. For example, Qwen3-8B is about 86.3% on causal discovery, 64.5% on intervention, and 51.4% on counterfactual reasoning; Qwen3-14B about 88.0/67.5/52.1; Llama-3.3-70B about 87.2/78.2/62.1. This is exactly the kind of large, cross-family natural phenomenon we now require.
+
+**Kill evidence:** Unfortunately METER itself already goes well beyond benchmarking. It performs internal information-flow tracing and attention masking, identifies context-utilization / evidence-flow failure modes, and demonstrates a lightweight evidence-grounding intervention that improves Counterfactual performance by about 4.8 points. The exact phenomenon → internal flow → intervention narrative therefore has substantial prior occupancy. A new generic mechanistic paper on the same rung gap would be a follow-up, not a fresh mother question.
+
+**Death code:** `MECHANISM_COLLISION`
+
+**Nearest-neighbor warning:** Do not revive by renaming the three rungs, swapping SCM domains, or doing another layer/head localization of evidence use.
+
+**Resurrection condition:** A new causal phenomenon with a decisive behavioral contrast not explained by METER's context-faithfulness/evidence-flow account, ideally with different predictions for multiple mechanisms and a different repair.
+
+**Reference:** https://aclanthology.org/2026.acl-long.1668/
+
 ---
 
 # Current lessons
