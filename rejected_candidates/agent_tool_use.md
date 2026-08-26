@@ -1,213 +1,125 @@
-# Rejected Candidates — Agent / Tool Use / Execution
+# Rejected Candidates — Agent / Tool-Use Failures
 
-**Domain:** tool-augmented LLM agents operating over stateful external environments.  
-**Search status:** active scan, 2026-08-26.  
-**Rule:** only candidates that initially looked genuinely promising are recorded here. Obvious brainstorms are omitted.
+**Domain:** tool-augmented LLM agents, runtime tool failures, result integration, recovery, state tracking, termination.  
+**Status:** active breadth-first scan.  
+**Rule:** only candidates that initially looked genuinely promising are recorded here. Trivial brainstorms are omitted.
 
-## Domain boundary
-
-Natural phenomena in scope include:
-
-- a tool call returns something unexpected or wrong and the agent reacts incorrectly;
-- the environment changes but the agent fails to update its belief about the current state;
-- the agent repeats, skips, or prematurely terminates tool-mediated workflows;
-- external tool evidence conflicts with parametric memory;
-- a task succeeds while the agent nevertheless has a wrong or incomplete model of the environment.
-
-The goal is **not** to study function-calling syntax or benchmark accuracy per se. A surviving interpretability question must isolate a concrete behavioral failure and distinguish competing internal explanations such as observation parsing, state update, planning/routing, and late readout.
+The domain is scanned as a family rather than as isolated paper ideas. Every candidate below should be treated as negative knowledge for future searches unless its explicit resurrection condition is met.
 
 ---
 
-# 1. Generic runtime-tool failure recovery
+## 1. Generic tool-result ignoring
 
-**Natural question:** Why can an agent use tools well on the normal path, yet collapse when a tool becomes unavailable, stale, corrupted, or semantically wrong?
+**Natural question:** The agent calls the correct tool and receives the answer, so why does it still answer from its own memory instead of using the returned result?
 
-**Why it initially looked good:**
+**Why it initially looked good:** Extremely natural agent failure; clean split between missing encoding, memory override, and late routing/readout.
 
-- extremely natural deployment problem;
-- public stateful benchmarks now exist;
-- failures are abundant rather than hypothetical;
-- clean perturbation pairs can be generated automatically.
-
-**Kill evidence:**
-
-This mother question is already densely benchmarked and behaviorally decomposed.
-
-- `FAILING TOOLS: Benchmarking LLM Agent Recovery Under Runtime Tool Failures` explicitly evaluates detection, transient/permanent fault discrimination, retry/fallback, verification, and uncertainty communication under availability denial, data staleness, silent no-ops, corrupted state, schema mismatch, disambiguation failure, and cascades. No tested model exceeds 11.47% under its base recovery evaluator.  
-  https://openreview.net/pdf?id=j7YsSnA64D
-- `When Tools Fail: Benchmarking Dynamic Replanning and Anomaly Recovery in LLM Agents` / ToolMaze separately studies explicit-vs-implicit and transient-vs-permanent failures and reports strong degradation from over-trusting corrupted outputs and futile trial-and-error loops.  
-  https://arxiv.org/abs/2606.05806
-- `PlanBench-XL` further evaluates long-horizon planning when tools are missing, failing, or distracting and shows large degradation when failures lack explicit signals or require longer alternative routes.  
-  https://arxiv.org/abs/2606.22388
-
-A generic mechanism paper asking “what inside the model causes tool failure recovery problems?” would be downstream of an already crowded taxonomy and would have difficulty finding one decisive contrast broad enough for a Main-paper narrative.
+**Kill evidence:** `ToolFailBench` (2026) already makes Result-Ignore an explicit diagnostic failure mode. `Investigating Tool-Memory Conflicts in Tool-Augmented LLMs` (2026) directly studies tool knowledge vs parametric memory and evaluates conflict-resolution methods. A generic hidden-state follow-up risks becoming “context-memory conflict, but tool text.”
 
 **Death code:** `NARRATIVE_COLLISION`
 
-**Nearest-neighbor warning:** Do not revive by swapping in another API domain, another tool benchmark, or another failure type while keeping the mother question “why agents fail when tools fail.”
+**Nearest-neighbor warning:** Do not revive as calculator-vs-memory, search-vs-memory, database-vs-memory, or by changing domain/model.
 
-**Resurrection condition:** A new failure must reveal a qualitatively different internal variable or dissociation not already captured by detection / retry / fallback / verification / replanning.
+**Resurrection condition:** Need a tool-specific decisive contrast unavailable in ordinary static context-memory conflict, especially one involving stateful execution semantics.
+
+**Key references:** https://arxiv.org/abs/2607.04686 ; https://arxiv.org/abs/2601.09760
 
 ---
 
-# 2. Success-shaped tool output / silent no-op trust
+## 2. Trusting tool success without verifying world state
 
-**Natural question:** Why does an agent sometimes believe an action succeeded merely because the tool response looks successful, even when the intended world-state change never occurred?
+**Natural question:** Why does an agent treat a tool’s apparent “success” response as proof that the intended real-world change actually happened?
 
-**Why it initially looked good:**
+**Why it initially looked good:** Concrete deployment failure; possible split between postcondition representation, intention/achievement confusion, and over-trust in success-shaped text.
 
-- one-sentence, production-realistic failure;
-- very clean intended-state vs actual-state contrast;
-- seems to permit observation-understanding vs state-update vs planner-use explanations.
-
-**Kill evidence:**
-
-`FAILING TOOLS` already includes **silent no-ops**, corrupted state, missing verification, and explicit scoring of whether the agent calls confirmation functions when available. Its dominant failure is missing verification/recovery rather than simply choosing the wrong tool.  
-https://openreview.net/pdf?id=j7YsSnA64D
-
-More importantly, the obvious method does not require knowing the internal mechanism: an authoritative postcondition/state check after a mutating tool call directly tests whether the intended effect occurred. State-grounded agent systems likewise enforce a backend-is-truth invariant through an authoritative state manager.  
-https://arxiv.org/abs/2606.16307
-
-Therefore a mechanism result risks becoming scientifically optional: whether the model failed because of observation parsing, optimistic prior, or late planner routing, the engineering repair can remain the same “verify authoritative state before committing.”
+**Kill evidence:** `Failing Tools` already finds missing verification/recovery steps to be a dominant failure mode. More decisively, `Verified Tool Calls Improve LLM Agent Reliability Under Non-Atomic Failures` directly fixes the practical problem using postcondition verification, verify-before-retry, and idempotency keys. This creates a P3 problem: regardless of the internal explanation, the obvious repair is the same external verifier.
 
 **Death code:** `METHOD_COLLISION`
 
-**Nearest-neighbor warning:** “HTTP 200 bias”, “success token bias”, “tool says done so model trusts it”, and “silent write failure” are the same family unless the proposed decisive contrast changes the required repair.
+**Nearest-neighbor warning:** HTTP 200, exit-code 0, acknowledgement text, GUI confirmation, delayed visibility, and partial success are the same family.
 
-**Resurrection condition:** Evidence that two internal failure modes require meaningfully different repair policies and cannot both be solved by authoritative postcondition verification.
+**Resurrection condition:** Reconsider only if authoritative postcondition evidence is already present in-context but the model still behaves as if the intended state had occurred, isolating an internal state-update failure.
+
+**Key references:** https://openreview.net/pdf?id=j7YsSnA64D ; https://arxiv.org/abs/2608.02645
 
 ---
 
-# 3. Blind retry / repeating a failed tool call
+## 3. Blind retry after ambiguous / non-atomic failure
 
-**Natural question:** Why does an agent repeat essentially the same failed action instead of changing strategy after receiving an error?
+**Natural question:** A tool times out after possibly having executed; why does the agent repeat the action instead of checking whether it already happened?
 
-**Why it initially looked good:**
+**Why it initially looked good:** Vivid consequences such as duplicate writes/payments; apparently clean distinction between request-status and effect-status.
 
-- common and immediately understandable;
-- trajectories naturally provide success/failure matched pairs;
-- could in principle separate failure-detection from replanning failure.
+**Kill evidence:** `Verified Tool Calls` formalizes exactly this family of non-atomic failures and shows verify-before-retry + idempotency sharply reduces duplicate actions. The natural problem and obvious repair are already occupied.
 
-**Kill evidence:**
+**Death code:** `METHOD_COLLISION`
 
-This behavior is already a central axis of current recovery benchmarks rather than an unclaimed phenomenon.
+**Nearest-neighbor warning:** Retry bias, timeout confusion, duplicate-action tendency, and non-idempotent tool-use failure are the same mother question.
 
-- `FAILING TOOLS` explicitly evaluates whether the model distinguishes transient from permanent faults and retries or falls back appropriately.  
-  https://openreview.net/pdf?id=j7YsSnA64D
-- ToolMaze reports complex tool topologies trapping agents in futile trial-and-error loops and specifically separates systematic replanning from blind trial-and-error.  
-  https://arxiv.org/abs/2606.05806
+**Resurrection condition:** Need a surprising representation–policy dissociation, e.g. the model explicitly represents that the effect may already have occurred but still causally enters a retry policy.
 
-The likely headline “the model detects the error but fails to route into replanning” is plausible but currently too close to the benchmark authors’ own decomposition; without a much more surprising dissociation, adding activation patching would look like mechanistic annotation of an existing story.
+**Key reference:** https://arxiv.org/abs/2608.02645
+
+---
+
+## 4. Generic recovery from broken / unavailable tools
+
+**Natural question:** When the planned tool fails, why can’t the agent recognize that its original plan is broken and switch to a valid alternative?
+
+**Why it initially looked good:** Natural long-horizon problem; mechanism split between failure detection, alternative-plan search, and persistence to the original path.
+
+**Kill evidence:** `Failing Tools` systematically covers runtime faults and recovery; `PlanBench-XL` explicitly studies planning under missing/failing/distracting tools and reports severe collapse under blocking. The broad mother question is now benchmark-dense and too occupied.
 
 **Death code:** `NARRATIVE_COLLISION`
 
-**Nearest-neighbor warning:** Same-call retry loops, retry-budget misuse, and failure to switch tools are not separate topics by themselves.
+**Nearest-neighbor warning:** Another tool ecosystem, agent framework, or injected failure family does not make this new.
 
-**Resurrection condition:** A strong natural dissociation such as correct explicit diagnosis of a permanent fault coexisting with a causally separable internal action policy that still repeats the blocked path, plus a repair unavailable from ordinary replanning prompts.
+**Resurrection condition:** Find a narrow dissociation where the agent internally knows the current path is impossible but remains causally committed to it, versus never representing failure at all.
 
----
-
-# 4. Generic tool-dependency / prerequisite ordering failures
-
-**Natural question:** Why does an agent skip prerequisites or call later tools before obtaining information required by them?
-
-**Why it initially looked good:**
-
-- natural multi-step workflow failure;
-- dependency DAGs give deterministic gold;
-- ordering errors are cheap to detect and reproduce.
-
-**Kill evidence:**
-
-The planning space is already heavily benchmarked around exactly these long-horizon dependency and blocked-path issues. `PlanBench-XL` uses large tool ecosystems where agents must infer implicit subgoals, retrieve relevant tools, uncover intermediate evidence, and adapt when functions are blocked. Severe blocking drops GPT-5.4 from 51.90% to 11.36%, with longer alternative paths especially difficult.  
-https://arxiv.org/abs/2606.22388
-
-As a mechanism topic, “prerequisite representation vs planner ordering” currently lacks a surprising external phenomenon beyond the expected fact that long dependency chains are harder. It also risks becoming a graph-planning benchmark paper with interpretability appended later.
-
-**Death code:** `LOW_SURPRISE`
-
-**Nearest-neighbor warning:** Do not repackage as “dependency awareness”, “implicit subgoal representation”, or “tool DAG circuit” unless there is a counterintuitive behavioral dissociation first.
-
-**Resurrection condition:** A natural setting where the model demonstrably knows every prerequisite relation individually yet systematically violates one specific class of dependencies during execution, with a non-obvious boundary condition.
+**Key references:** https://openreview.net/pdf?id=j7YsSnA64D ; https://arxiv.org/abs/2606.22388
 
 ---
 
-# 5. Generic Tool–Memory Conflict
+## 5. Generic premature stopping / declaring success too early
 
-**Natural question:** When a tool result contradicts what the model already believes, why does the agent sometimes ignore the tool and fall back to parametric memory?
+**Natural question:** Why does an agent stop and claim the job is finished while required objectives are still unmet?
 
-**Why it initially looked good:**
+**Why it initially looked good:** Instantly understandable; clean potential split among forgotten goals, false world-state belief, and termination/readout failure.
 
-- concrete and important in tool-augmented systems;
-- public behavior paper reports substantial failures, especially on STEM tasks;
-- obvious competing explanations: tool output not encoded, encoded but loses arbitration, or late answer readout reverts to memory.
-
-**Kill evidence:**
-
-The exact behavior has already been introduced as `Tool-Memory Conflict (TMC)` and systematically studied across conditions; prompting and RAG-based resolution methods were also evaluated and found insufficient.  
-https://arxiv.org/abs/2601.09760
-
-More importantly, the nearest parent problem — context vs parametric memory conflict — already has strong mechanistic work. `Taming Knowledge Conflicts in Language Models` (ICML 2025) challenges the simple context-head / memory-head story, finds superposition of contextual and parametric information in influential heads, and introduces a test-time attention intervention (JuICE).  
-https://proceedings.mlr.press/v267/li25c.html
-
-By 2026, task dependence of context-memory conflict has also been studied explicitly across different knowledge requirements.  
-https://aclanthology.org/2026.findings-acl.202/
-
-Thus “find the internal direction/pathway that decides tool vs memory and steer it” risks being a tool-output instantiation of an already mature context-memory conflict narrative.
+**Kill evidence:** Premature termination is already an explicit agent failure category, while `When Agents Commit Too Soon` (2026) studies hidden representational premature commitment, cross-model replication, monitoring, and intervention. It is not identical, but it occupies enough of the hidden early-commitment narrative that the generic version has poor headroom; explicit completion verification also gives an obvious non-mechanistic fix.
 
 **Death code:** `NARRATIVE_COLLISION`
 
-**Nearest-neighbor warning:** Calculator-vs-memory, search-vs-memory, code-execution-vs-memory, and database-vs-memory are not distinct topics unless the tool interaction introduces a genuinely new causal variable beyond external textual evidence.
+**Nearest-neighbor warning:** Early-stop bias, premature completion, premature answer, insufficient persistence are not enough by themselves.
 
-**Resurrection condition:** A decisive contrast unique to *actions/tools* rather than context, e.g. conflict between an agent’s predicted post-action state and an authoritative observed state after the agent itself caused the transition.
+**Resurrection condition:** A clean natural phenomenon where specific unmet goals remain internally represented at the stopping step but the termination policy selectively ignores them.
+
+**Key reference:** https://arxiv.org/abs/2606.22936
 
 ---
 
-# 6. “Agents do not understand their environment” as a generic world-model question
+## 6. Generic “agent should abstain instead of acting”
 
-**Natural question:** Do tool-using agents actually understand the environment they operate in, or can they succeed without a grounded world model?
+**Natural question:** Why does an agent keep taking actions when the request is impossible, underspecified, contradictory, or impossible with the available tools?
 
-**Why it initially looked good:**
+**Why it initially looked good:** Natural action-vs-restraint problem with clean paired tasks and possible inability-detection vs action-policy split.
 
-- highly natural and potentially surprising;
-- `Task2Quiz` gives deterministic, public environment-grounded QA rather than subjective labels;
-- task success and environment understanding are empirically dissociable.
-
-**Why the generic version is rejected:**
-
-`Task2Quiz / T2QBench` already makes this mother question explicit and reports that task success is a poor proxy for environment understanding; recent memory mechanisms do not substantially improve grounded environment understanding, and insufficient proactive exploration is identified as a major bottleneck.  
-https://arxiv.org/abs/2601.09503
-
-A paper that merely adds probes to ask “does the model encode environment state?” would be too close to that narrative and could easily collapse into decodability without a specific failure event.
+**Kill evidence:** `AgentAbstain` (2026) already provides a systematic benchmark of this exact family with 263 paired tasks across 42 executable environments and eight abstention scenarios. Generic “find an abstention direction and steer it” is an obvious follow-up rather than a fresh mother question.
 
 **Death code:** `NARRATIVE_COLLISION`
 
-**Nearest-neighbor warning:** “task success ≠ world understanding”, “agents lack world models”, and “environment knowledge is decodable” are not sufficient mother questions anymore.
+**Nearest-neighbor warning:** Impossible tasks, insufficient tools, contradictory requests, missing prerequisites, and ambiguity are all within the same abstention family.
 
-**Resurrection condition:** Narrow to a concrete **state-transition failure** with matched pre-action / intended-postcondition / observed-postcondition cases and ask where the model’s belief update goes wrong. That is a different question from whether global environment knowledge exists at all.
+**Resurrection condition:** Need a surprising, selective action-compulsion mechanism where impossibility is internally recognized but action proceeds anyway, and intervention does not simply increase blanket refusal.
+
+**Key reference:** https://agentabstain.github.io/
 
 ---
 
-# Domain lesson so far
+# Current lessons from the domain
 
-The crowded part of agent/tool-use research is now clear:
-
-```text
-tool fails
-→ agent should detect / retry / fallback / verify / replan
-```
-
-This is behaviorally important but already benchmark-rich, and many repairs can be implemented in the harness without needing mechanistic understanding.
-
-The more promising unclaimed edge is narrower:
-
-```text
-before action: model represents intended postcondition
-actual tool execution: environment changes (or fails to)
-after observation: model forms some belief about current state
-next action: planner consumes or ignores that belief
-```
-
-A viable interpretability topic must identify a **natural dissociation among these stages**, not merely show that the agent failed. In particular, the potentially interesting question is whether an agent can correctly represent both its intention and the authoritative observation yet still internally overwrite the observed world with its intended world, or whether the failure occurs earlier because the observation never becomes a stable state representation.
-
-This surviving edge is intentionally **not** entered as a rejected candidate yet; it remains under collision audit.
+1. Tool-use behavior papers are moving extremely fast in 2026; many intuitive failure modes are already explicitly benchmarked.
+2. “Behavior exists but mechanism not yet done” is not enough. If a simple external verifier fixes the problem regardless of mechanism, the mechanism fails the method-closure requirement.
+3. The most promising remaining space is **stateful execution semantics**: what internal belief about the world is written after an action, whether intended state and observed state are represented separately, and whether planning consumes the updated state.
+4. A surviving topic should use a decisive contrast unavailable in static RAG/context conflict.
+5. Surprise criterion: “agents are bad when tools fail” is unsurprising. A viable topic should expose a dissociation such as correct internal recognition of failure/unmet goals combined with behavior that still proceeds as if success occurred.
