@@ -5,22 +5,41 @@
 它和 `archive/` 不同：
 
 - `archive/`：已经正式建项目、写过 G0/代码/计划，后来终止；
-- `rejected_candidates/`：多数还停留在搜题 / paper audit 阶段，就因为行为、artifact、novelty 或 exact mechanism collision 被提前杀掉。
+- `rejected_candidates/`：多数还停留在搜题 / paper audit 阶段，就因为行为、artifact、novelty、naturalness、surprise 或 exact mechanism collision 被提前杀掉。
 
-目的：
+## Search organization: one domain at a time
 
-1. 防止后续搜题重新发明已经判死的问题；
-2. 记录每类题真正的死亡原因，而不只记“感觉不行”；
-3. 在新候选出现时，强制与历史失败做 nearest-neighbor 对照；
-4. 保留对未来 search strategy 有用的负结果。
+后续搜题**不再横向混扫若干互不相关的题**，而是一次锁定一个现象领域，尽量把该领域的候选空间扫透：
 
-## Rules
+1. 先定义当前 domain 及其自然现象边界；
+2. 广搜该领域已有 behavior / benchmark / mechanism / method 工作；
+3. 对每个最初看起来值得认真考虑的题做 collision audit；
+4. 被 kill 的题全部写入该 domain 的 rejection log；
+5. 只有仍然存活的题才进入跨领域最终候选池；
+6. 以后重新进入该领域时，必须先读对应 rejection log，避免重新发明旧题。
 
-- 每个 numbered document 最多 **10 个候选**；
-- 满 10 个后冻结，下一批写入下一个文档；
-- 只有“最初确实有希望、后来被证据砍掉”的题进入；
-- 随手 brainstorm 后立刻觉得无聊/不自然的题不记录；
-- 如果一个 rejected candidate 未来因为**新的自然行为证据、公开 artifact 或新的 decisive contrast**重新变得可行，必须明确写 resurrection reason，不能直接删掉旧记录。
+这套目录的目标是逐渐形成一个**按领域组织的负知识库**：不仅记录“哪些题不行”，还记录“为什么不行、以后看到什么相似题应该立即警觉”。
+
+## Mandatory rejection fields
+
+每个值得记录的 rejected candidate 至少写：
+
+- **Natural question**：不提解释工具也能成立的一句话问题；
+- **Why it initially looked good**；
+- **Kill evidence**：行为证据 / 论文 collision / artifact failure 等；
+- **Death code**；
+- **Nearest-neighbor warning**：以后哪些换名、换 benchmark、换模型的版本也不应复活；
+- **Resurrection condition**：只有出现什么新的自然行为证据 / artifact / decisive contrast 才值得重开。
+
+## Surprise test
+
+在 README 的硬门槛之外，再做一个高阶筛选：
+
+> **如果最终结果成立，它是否可能让读者产生“原来模型是这样坏掉的 / 原来直觉错了”的感觉？**
+
+如果无论结果如何都高度符合默认直觉，例如“语义不同所以表示不同”“更灵活的方法比线性方法拟合更准”，即使 technically novel，也应显著降级。
+
+这个标准来自实际选题反馈：研究问题本身必须有趣，结果最好能打破一个自然默认直觉，而不是做完后让人觉得理所当然。
 
 ## Death codes
 
@@ -30,9 +49,11 @@
 - `ARTIFACT_FAILURE`
 - `NATURALNESS_FAILURE`
 - `METHOD_COLLISION`
+- `LOW_SURPRISE`
 
-## Documents
+## Domain logs
 
-- [`001.md`](./001.md) — 第一批 10 个：role-value binding、facts-vs-shortcuts、fan effect、VLM conflict、self-correction、tool irrelevance、irrelevant context、negation、social compliance、overthinking。
+- [`agent_tool_use.md`](./agent_tool_use.md) — Agent / tool-use / execution failures（当前正在系统扫描）
+- [`001.md`](./001.md) — **legacy mixed-domain batch**，保留历史记录，不再继续追加。包含 role-value binding、facts-vs-shortcuts、fan effect、VLM conflict、self-correction、tool irrelevance、irrelevant context、negation、social compliance、overthinking。
 
-后续新增候选从 `002.md` 开始。
+后续新增 rejection **只进入对应 domain log**；如果出现新的领域，就新建 `<domain>.md`。旧 `001.md` 不删除，作为第一轮搜题历史快照。
