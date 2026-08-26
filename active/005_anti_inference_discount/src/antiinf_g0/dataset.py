@@ -36,13 +36,15 @@ def generate_scenarios() -> list[Scenario]:
             dh, dm = divmod(deadline_min, 60)
             ah, am = divmod(actual, 60)
             sid = f"legal-{event_i:02d}-{time_i:02d}"
+            base = f"The official record states that the deadline was {dh:02d}:{dm:02d} and that the {event} occurred at {ah:02d}:{am:02d}."
+            fact = f"The {event} occurred after the deadline."
             rows.append(Scenario(
                 scenario_id=sid,
                 family="legal",
                 context=f"A compliance rule says the {event} violates the timing requirement if it occurs after the stated deadline. Treat the official record as accurate.",
-                critical_fact=f"The {event} occurred after the deadline.",
-                direct_evidence=f"The official record explicitly states: 'The {event} occurred after the deadline.'",
-                inference_evidence=f"The official record states that the deadline was {dh:02d}:{dm:02d} and that the {event} occurred at {ah:02d}:{am:02d}.",
+                critical_fact=fact,
+                direct_evidence=f"{base} The same official record explicitly states: '{fact}'",
+                inference_evidence=base,
                 target_conclusion="The timing requirement was violated.",
                 alternative_conclusion="The timing requirement was satisfied.",
             ))
@@ -55,13 +57,15 @@ def generate_scenarios() -> list[Scenario]:
     for test_i, test in enumerate(tests):
         for value_i, (cutoff, measured) in enumerate(medical_values):
             sid = f"medical-{test_i:02d}-{value_i:02d}"
+            base = f"The laboratory record states that the {test} cutoff was {cutoff} units and the measured value was {measured} units."
+            fact = f"The measured {test} value was above the cutoff."
             rows.append(Scenario(
                 scenario_id=sid,
                 family="medical",
                 context=f"For this screening protocol, the {test} screen is positive exactly when the measured value is above the stated cutoff. Treat the laboratory record as accurate.",
-                critical_fact=f"The measured {test} value was above the cutoff.",
-                direct_evidence=f"The laboratory record explicitly states: 'The measured {test} value was above the cutoff.'",
-                inference_evidence=f"The laboratory record states that the {test} cutoff was {cutoff} units and the measured value was {measured} units.",
+                critical_fact=fact,
+                direct_evidence=f"{base} The same laboratory record explicitly states: '{fact}'",
+                inference_evidence=base,
                 target_conclusion="The screen is positive under the stated protocol.",
                 alternative_conclusion="The screen is negative under the stated protocol.",
             ))
@@ -74,13 +78,15 @@ def generate_scenarios() -> list[Scenario]:
     for q_i, quantity in enumerate(quantities):
         for value_i, (cutoff, observed) in enumerate(eligibility_values):
             sid = f"eligibility-{q_i:02d}-{value_i:02d}"
+            base = f"The application record states that the cutoff for {quantity} was {cutoff} units and the applicant's recorded value was {observed} units."
+            fact = f"The applicant's {quantity} was below the cutoff."
             rows.append(Scenario(
                 scenario_id=sid,
                 family="eligibility",
                 context=f"Under this program, an applicant qualifies exactly when their {quantity} is below the stated cutoff. Treat the application record as accurate.",
-                critical_fact=f"The applicant's {quantity} was below the cutoff.",
-                direct_evidence=f"The application record explicitly states: 'The applicant's {quantity} was below the cutoff.'",
-                inference_evidence=f"The application record states that the cutoff for {quantity} was {cutoff} units and the applicant's recorded value was {observed} units.",
+                critical_fact=fact,
+                direct_evidence=f"{base} The same application record explicitly states: '{fact}'",
+                inference_evidence=base,
                 target_conclusion="The applicant qualifies under the stated rule.",
                 alternative_conclusion="The applicant does not qualify under the stated rule.",
             ))
@@ -102,6 +108,16 @@ def _validate_scenarios(rows: Iterable[Scenario], *, strict: bool) -> list[Scena
             raise ValueError(f"empty field in {row.scenario_id}")
         if row.target_conclusion == row.alternative_conclusion:
             raise ValueError(f"identical conclusions in {row.scenario_id}")
+        # Direct and inference conditions must share the same underlying record;
+        # the direct condition differs only by an explicit restatement of the
+        # critical fact. This prevents missing numerical/detail information from
+        # masquerading as an anti-inference effect.
+        if row.inference_evidence not in row.direct_evidence:
+            raise ValueError(f"direct evidence does not contain the matched base record in {row.scenario_id}")
+        if row.critical_fact.lower().rstrip(".") in row.inference_evidence.lower():
+            raise ValueError(f"inference evidence states the critical fact explicitly in {row.scenario_id}")
+        if row.critical_fact.lower().rstrip(".") not in row.direct_evidence.lower():
+            raise ValueError(f"direct evidence omits the critical fact in {row.scenario_id}")
     if strict:
         if len(rows) != 96:
             raise ValueError(f"expected 96 scenarios, found {len(rows)}")
