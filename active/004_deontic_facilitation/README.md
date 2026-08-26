@@ -1,102 +1,55 @@
 # 004 — Deontic facilitation in Wason selection
 
 **Status: PRE-CANDIDATE — frozen behavioral G0 only.**  
-**Do not start probes, patching, SAE, head searches, or mitigation before this G0 passes.**
+**Do not start mechanism work before this G0 passes.**
 
 ## Mother question
 
-> Why can a language model fail a conditional-rule check in a descriptive setting but solve the same logical form much better when the rule is phrased as an obligation/prohibition?
+> Why can the same conditional reasoning problem become easier when the rule is expressed as an obligation/prohibition rather than as a descriptive regularity?
 
-The behavioral prerequisite is the deontic-facilitation effect reported by Abe et al. (EACL 2026). The official paper introduces a Wason Selection Task dataset with 160 items: 80 epistemic/descriptive and 80 deontic, balanced across four polarity forms (`pos-pos`, `pos-neg`, `neg-pos`, `neg-neg`). The source data are public in `kmineshima/NeuBAROCO` under CC BY 4.0.
+Abe et al. (EACL 2026) provide strong behavioral motivation with NeuBAROCO, but their deontic and epistemic rows are different semantic items, not minimal modality swaps. The official dataset therefore motivates the phenomenon but cannot by itself establish this causal wording.
 
-This project first asks only whether the effect is still large and stable in modern open-weight models under deterministic scoring and presentation controls. If not, kill it before mechanism work.
+## Logic-review correction
 
-## Why this G0 is stricter than a simple replication
+The first draft incorrectly paired unrelated official rows by within-form ordinal and used those pseudo-pairs for bootstrap and strong-pair gates. It also used the word `violated` in the generic task prompt, which could inject the hypothesized deontic cue into the epistemic control. Both are removed.
 
-The original phenomenon is behavioral; our mechanism question would require clean/corrupt contrasts later. Before paying that cost, this G0 adds two controls that do not change the task:
+## Frozen decisive contrast
 
-1. **Card-position counterbalancing.** Every item is run under four cyclic rotations so every original card appears once in every displayed position.
-2. **Full answer-set likelihood.** A Wason item has exactly six possible unordered two-card answers. We teacher-force all six complete strings (`1,2` ... `3,4`) rather than sampling a free-form answer or assuming a single-token label.
+The corrected bank contains **32 true matched problems**:
 
-Two semantically equivalent prompt templates are used. Qwen3 thinking is disabled in the chat template so the initial comparison is ordinary instruction-following behavior, not a hidden mixture of long reasoning budgets.
+- 8 semantic frames;
+- 4 polarity forms (`pos-pos`, `pos-neg`, `neg-pos`, `neg-neg`);
+- 2 modality realizations per base problem.
 
-## Frozen dataset
-
-Pinned source:
+Within each pair, cards, propositions, gold answer, logical form, and semantic frame are identical. Only the consequent modality changes, e.g.:
 
 ```text
-kmineshima/NeuBAROCO
-commit 447929fdabe07bc3d13efae8e0c527fd458df177
-eacl2026/wason.tsv
+epistemic: If the badge is blue, then the employee enters Gate A.
+deontic:   If the badge is blue, then the employee must enter Gate A.
 ```
 
-Fetch it with:
+Negative consequents use `does not` vs `must not`. Total: 64 rows = 32 matched pairs.
 
-```bash
-deontic-fetch --out data/wason.tsv
+The task instruction itself is neutral and does not contain `violation`, `obligation`, `permission`, or similar normative cues.
+
+## Controls and scoring
+
+Each row is evaluated under 4 cyclic card rotations and 2 neutral prompt templates. All six unordered two-card answers are scored as complete teacher-forced continuations. Per model this is `32 × 2 × 4 × 2 = 512` prompt evaluations.
+
+For each true pair:
+
+```text
+delta_accuracy = accuracy_deontic - accuracy_epistemic
+delta_p_gold   = p_gold_deontic - p_gold_epistemic
 ```
 
-Do not add new Wason domains or synthetic items to rescue a failed G0.
+A strong pair requires deontic accuracy `>= .75`, epistemic accuracy `<= .25`, and `delta_p_gold >= .15`.
 
-## Unit of analysis
+A model passes only if mean accuracy delta `>= .10`, mean probability delta `>= .08`, paired-bootstrap CI lower bound `> 0`, at least 3/4 polarity forms are positive, and at least 4/32 pairs are strong. At least two open-weight models must pass. Do not weaken gates after seeing results.
 
-Each official row is evaluated under:
+## Why a pass matters
 
-- 4 card rotations;
-- 2 prompt templates;
-- 6 complete candidate answers.
-
-That yields 8 deterministic variants per item and 1,280 prompt evaluations per model.
-
-At the item level we average:
-
-- exact-choice accuracy across the 8 variants;
-- normalized probability of the logically correct pair.
-
-For the effect estimate, rows are paired **only for balanced form-stratified aggregation**: within each logical form, the 20 epistemic rows and 20 deontic rows are sorted by official ID and paired by ordinal. These are not claimed to be lexical minimal pairs.
-
-## Frozen endpoints
-
-Primary endpoints per model:
-
-- mean paired `deontic_accuracy - epistemic_accuracy`;
-- mean paired `deontic_p_gold - epistemic_p_gold`;
-- paired bootstrap 95% CI for the probability delta;
-- number of polarity forms with positive mean probability delta.
-
-A **strong facilitation pair** requires all of:
-
-- deontic item accuracy `>= 0.75`;
-- paired epistemic item accuracy `<= 0.25`;
-- `deontic_p_gold - epistemic_p_gold >= 0.15`.
-
-## Frozen model-level pass rule
-
-A model passes only if:
-
-- mean paired accuracy delta `>= +0.10`;
-- mean paired correct-answer probability delta `>= +0.08`;
-- paired bootstrap 95% CI lower bound for probability delta is `> 0`;
-- at least 3 of 4 polarity forms have positive mean probability delta;
-- at least 8 of 80 form-stratified pairs are strong facilitation pairs.
-
-Run in order:
-
-1. `Qwen/Qwen3-8B`
-2. `google/gemma-3-12b-it`
-3. `Qwen/Qwen3-14B` only as confirmation
-
-Promote only if at least **two models** independently pass. Do not weaken thresholds after seeing results; do not cherry-pick only `pos-pos`; do not switch to weaker models to manufacture the effect.
-
-## What a pass would justify next
-
-Only after G0 passes do we build true semantic matched pairs and distinguish competing mechanisms such as:
-
-- the descriptive condition never forms the right counterexample representation;
-- both conditions represent `P ∧ ¬Q`, but only deontic language routes into violation search;
-- both routes reason correctly internally and differ only in late answer arbitration.
-
-The decisive later experiment would ask whether a computation induced by deontic rules can causally rescue an abstract/nonce Wason task without importing normative lexical content. None of that belongs in G0.
+A pass establishes the exact behavioral prerequisite for later mechanism work: the same propositions/cards/gold computation are present, but descriptive vs normative modality changes whether the model identifies the required counterexample. Only then test representation failure vs routing into violation-search vs late answer arbitration.
 
 ## Usage
 
@@ -105,36 +58,13 @@ cd active/004_deontic_facilitation
 python -m pip install -e '.[test]'
 pytest -q
 
-deontic-fetch --out data/wason.tsv
+deontic-generate --out data/matched_wason.jsonl
 
-# smoke
-deontic-run \
-  --model Qwen/Qwen3-8B \
-  --data data/wason.tsv \
-  --out results/qwen3_8b_smoke.jsonl \
-  --limit 8
+deontic-run --model Qwen/Qwen3-8B --data data/matched_wason.jsonl --out results/qwen3_8b_g0.jsonl
 
-# full: remove --limit
-deontic-run \
-  --model Qwen/Qwen3-8B \
-  --data data/wason.tsv \
-  --out results/qwen3_8b_g0.jsonl
-
-deontic-summarize \
-  --data data/wason.tsv \
-  --results results/qwen3_8b_g0.jsonl \
-  --config configs/g0.json \
-  --out results/qwen3_8b_g0_summary.json
+deontic-summarize --data data/matched_wason.jsonl --results results/qwen3_8b_g0.jsonl --config configs/g0.json --out results/qwen3_8b_g0_summary.json
 ```
 
-## Integrity checks
+## STOP rule
 
-The loader refuses:
-
-- non-official row count;
-- unbalanced modal/form cells;
-- duplicate IDs;
-- malformed gold pairs;
-- unexpected TSV schema.
-
-The summarizer refuses duplicate variants, unknown item IDs, missing items, or an incomplete number of prompt/order variants. These failures are errors, not silently dropped rows.
+If the matched effect is absent, unstable across forms/templates, or passes only in one model family, archive the topic. Do not rescue it with the unmatched official rows, easier hand-picked frames, weaker models, or mechanism evidence.
