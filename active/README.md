@@ -13,7 +13,7 @@
 当前项目：
 
 - `003_diagnostic_counterevidence_revision/` — 使用 MedEinst 的公开 control/trap 成对数据，研究少量决定性反证出现后，模型的诊断修正究竟失败在证据感知、证据—先验仲裁，还是晚期输出回退。当前只保留研究计划，尚未开始 G0 代码。
-- `006_bayesian_latent_inference_use_gap/` — `ACTIVE-MECHANISM`。Qwen2.5-14B 在 posterior-good cases 上有 33.3% natural policy-use error，显式 posterior bridge 后 14/14 全 rescue；研究 inference quality 与 routing quality 的解耦。
+- `006_bayesian_latent_inference_use_gap/` — `PAUSED / EXTERNAL VALIDITY FAILED`。Qwen2.5-14B 的结果只存在于自构造任务；Qwen3/Gemma 未复现同一 phenotype，跨模型 smoke 另有标签与 mapping artifact。禁止继续 custom V2 或机制实验；只有官方 BayesBench 公共数据跨模型复现通过才可重开，否则归档。
 - `007_choice_supportive_ownership_bias/` — `ACTIVE-MECHANISM / REFRAMED`。可见旧答案稳定抑制 revision，但 source specificity 跨模型不同：Qwen own≠other，Gemma 对 own/other 都形成 anchor；转为比较 attribution-dependent commitment routing。
 - `008_reliability_weighted_cue_integration/` — `ACTIVE-MECHANISM`。Qwen3-VL 几乎完全 text capture；Gemma3 虽随 reliability 调整仍系统性低估 image cue；两路 unimodal readout 均正常。
 

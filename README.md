@@ -8,6 +8,8 @@
 
 当前原则来自连续多轮选题与失败实验，后续新题默认必须遵守。若某个候选与 README 冲突，以 README 为准。
 
+006 的失败说明，仅有“Behavior first”这句话还不够；必须把外部有效性、跨模型复现和停止预算放在机制实验之前。完整复盘见 [`FAILURE_POSTMORTEMS.md`](FAILURE_POSTMORTEMS.md)。
+
 ---
 
 # 1. 三条最高优先级要求
@@ -103,6 +105,70 @@
 ---
 
 # 2. 可解释性选题的额外硬门槛
+
+## G0-A — 外部现象优先，custom-only 禁止晋级
+
+任何自然语言 / 认知 / 决策现象，在进入机制实验前必须满足至少一种：
+
+1. 在正式公开 benchmark 的原始任务与官方 evaluation 上复现；
+2. 在有清楚来源、独立于本项目的数据上复现；
+3. 已有论文在公开数据上稳定报告该现象，我们严格复现其代码或 protocol。
+
+自构造数据只能用于：单测、边界条件、最小因果对照和机制 sandbox。**它不能单独把项目从 behavioral preflight 晋级到 mechanism，也不能单独承担 generality、naturalness 或 paper-level effect size。**
+
+若必须构造数据，项目必须同时提交 provenance、生成规则、随机种子、代表性原始样本、artifact audit，以及一个独立外部验证集。没有外部验证，状态只能是 `SYNTHETIC-PREFLIGHT`。
+
+## G0-B — 跨模型复现必须先于白盒机制
+
+在第一轮 probe、patching、SAE、steering 或 circuit scan 之前，目标 phenotype 必须用同一个预注册 operationalization 在至少：
+
+- 两个独立模型家族；
+- 每个家族至少一个有足够能力完成基础任务的 checkpoint；
+- 一个官方 / 外部数据任务；
+
+上成立。不能把“各模型表现都不一样”事后改写为更一般的 dissociation，除非 taxonomy 本身在实验前提出，并且每个 quadrant 都有独立、可复现、非 artifact 的证据。
+
+单 checkpoint 上再漂亮的异常都只能叫 `anchor observation`，不能叫现象成立。
+
+## G0-C — Novelty audit 必须在 GPU 机制实验之前结束
+
+必须先搜索最接近的 mother question、decisive contrast 和公开 benchmark。发现近邻工作时，要逐句比较 abstract-level claim。
+
+如果已有工作已经提出相同的宽叙事，不能因为我们准备做 mechanism 就自动视为“仍然新”。必须在运行前写清楚：
+
+- 已有工作回答了什么；
+- 我们新增的因果问题是什么；
+- 哪个结果会构成实质新发现；
+- 如果机制不跨任务，为什么论文仍然成立。
+
+答不出来，先 KILL 或降级为 replication，不得进入昂贵实验。
+
+## G0-D — 强制 stop-loss 顺序
+
+每个新题运行前必须冻结一张预算卡：
+
+```text
+Stage 0: paper / dataset / provenance audit
+Stage 1: official-data behavior smoke
+Stage 2: cross-family replication
+Stage 3: artifact and prompt invariance audit
+Stage 4: only then mechanism pilot
+```
+
+每阶段写明最大 GPU、最大 API/token 和最大人工时间预算，以及唯一晋级条件。前一阶段未通过，后一阶段禁止启动。失败后不得通过换弱模型、挑 prompt、挑 subset、改指标或把模型差异重新包装成贡献来续命。
+
+## G0-E — “会报告、不会使用”必须排除任务与接口伪差异
+
+凡是 report/use、belief/action、perception/reasoning 一类解耦题，必须先排除：
+
+- 两个接口难度不同；
+- answer-label / option-order / tokenization 偏置；
+- bridge 泄露答案或把原任务改成更简单任务；
+- report metric 与 action metric 不在同一个语义空间；
+- 模型根本没理解自定义规则；
+- custom generator 制造了训练分布外格式。
+
+在这些 alternative explanations 没被官方任务或独立数据排除前，bridge rescue 不得解释为内部 routing failure。
 
 ## I1 — 从具体问题 / 自然现象出发，而不是从解释工具出发
 
