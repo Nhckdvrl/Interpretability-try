@@ -1,18 +1,15 @@
 from __future__ import annotations
 
 from dataclasses import asdict, dataclass, replace
+import itertools
 import json
 from pathlib import Path
 from typing import Iterable
 
 MODALS = ("epistemic", "deontic")
 FORMS = ("pos-pos", "pos-neg", "neg-pos", "neg-neg")
-CARD_PERMUTATIONS: tuple[tuple[int, int, int, int], ...] = (
-    (0, 1, 2, 3),
-    (1, 2, 3, 0),
-    (2, 3, 0, 1),
-    (3, 0, 1, 2),
-)
+# Full counterbalancing: every ordering of the four visible cards is evaluated.
+CARD_PERMUTATIONS: tuple[tuple[int, int, int, int], ...] = tuple(itertools.permutations(range(4)))
 GOLD_BY_FORM = {
     "pos-pos": (1, 4),
     "pos-neg": (1, 3),
@@ -114,6 +111,8 @@ def _validate_items(rows: Iterable[WasonItem], *, strict: bool) -> list[WasonIte
             n = len({x.pair_id for x in rows if x.form == form})
             if n != 8:
                 raise ValueError(f"expected 8 matched pairs for {form}, found {n}")
+        if len(CARD_PERMUTATIONS) != 24 or len(set(CARD_PERMUTATIONS)) != 24:
+            raise ValueError("card counterbalancing must contain all 24 permutations")
     return rows
 
 
@@ -130,7 +129,7 @@ def write_items(path: str | Path) -> list[WasonItem]:
 def load_items(path: str | Path, *, strict: bool = True) -> list[WasonItem]:
     rows: list[WasonItem] = []
     with Path(path).open("r", encoding="utf-8") as f:
-        for lineno, line in enumerate(f, start=1):
+        for lineno, line in enumerate(f, 1):
             if not line.strip():
                 continue
             try:
