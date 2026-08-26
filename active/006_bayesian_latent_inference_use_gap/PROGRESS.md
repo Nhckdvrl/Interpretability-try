@@ -1,7 +1,7 @@
 # 006 project progress
 
 **Last updated:** 2026-08-27
-**Current phase:** `D0 exploratory mechanism complete / V2 frozen / no confirmatory run started`
+**Current phase:** `PAUSED / synthetic evidence demoted / official-benchmark transfer required`
 **Anchor model:** `Qwen/Qwen2.5-14B-Instruct`
 
 This is the chronological project record. It connects the original topic, behavioral validation, code corrections, mechanism experiments, invalidated interpretations, current evidence, and the next approved work package.
@@ -10,8 +10,8 @@ This is the chronological project record. It connects the original topic, behavi
 
 | Track | Status | Current conclusion |
 |---|---|---|
-| Topic scope | Complete | Mother question is the transition from latent posterior estimation to downstream policy use |
-| Behavioral G0 | Passed | Qwen2.5 shows the anchor formation/use/execution dissociation; Qwen3 and Gemma provide contrasting phenotypes |
+| Topic scope | At risk | BayesBench already makes the broad latent-inference/downstream-prediction gap claim |
+| Behavioral G0 | Synthetic development result only | Qwen2.5 has an anchor phenotype, but Qwen3/Gemma differ and prompt/label artifacts are not excluded |
 | Mechanism design V1 | Complete | Formation, routing, comparator, and binding are competing explanations |
 | Mechanism Phase 0 | Complete, exploratory | Expanded factorial preserves a substantial Qwen2.5 direct/bridge gap but exposes mapping sensitivity |
 | Representation probes | Complete, exploratory | Literal serialized values and direct-task variables are decodable; abstract posterior identity is not established |
@@ -20,7 +20,8 @@ This is the chronological project record. It connects the original topic, behavi
 | Receiver/path localization | Not started | Transport remains a hypothesis |
 | Direct mechanism diagnosis | Not started | Formation versus routing versus comparator/binding remains unresolved |
 | Selective repair | Not started | Reader-gated low-rank repair is a mechanism prediction only |
-| Confirmatory D2-ID / D2-OOD / external transfer | Not started | All current white-box evidence remains D0 discovery |
+| Confirmatory D2-ID / D2-OOD | Paused | Do not spend more compute before official-benchmark transfer |
+| Official external transfer | Required next | Reproduce with unmodified BayesBench code on public-data environments or archive 006 |
 
 ## Milestone history
 
@@ -49,7 +50,7 @@ Decision: do not interpret the first scaffold; correct eligibility and surface-l
 
 ### M2 — Corrected behavioral G0
 
-**Status:** passed
+**Status:** passed as a synthetic development check; demoted after external-validity audit
 **Commit:** `1fe732c` — `Validate and refine G0 designs for projects 006-008`
 **Artifacts:** `g0.py`, `tests/test_006_g0.py`, original `results/*_g0*`
 
@@ -70,7 +71,7 @@ Headline G0:
 | Gemma3-12B-IT | `.255` | 29 | `3.4%` | `0%` | `1/1` |
 | Qwen3-8B | `.253` | 14 | `50.0%` | `42.9%` | `2/7` |
 
-Decision: advance Qwen2.5 as the full-depth anchor. Retain Qwen3 as a posterior-estimation/report-poor behavioral contrast and Gemma as an action-good/bridge-sensitive contrast. Do not infer either internal formation failure or routing from behavior alone.
+Historical decision: advance Qwen2.5 as the full-depth anchor. This decision is no longer sufficient for paper-level work because the other models do not reproduce the phenotype and all cases were custom-generated. Do not infer either internal formation failure or routing from behavior alone.
 
 ### M3 — Logic audit and narrative correction
 
@@ -237,9 +238,30 @@ anomalous source decay with rising decodability
 
 All present data are permanently D0 discovery. The next run cannot begin until D1, D2-ID, and one-factor D2-OOD causal-family splits, fixed-topology controls, manifests, and automatic report schemas are frozen.
 
+### M12 — V2 data and control freeze
+
+**Status:** complete; retained but not approved for execution
+**Commits:** `5d1aa41`, `6f36e5c`, `4f94a16`
+
+The planned D1/D2 datasets, distance-matched donor controls, intervention lattice, manifests, checksums, and report schemas were generated and frozen. This improves reproducibility but does not repair the external-validity problem: every V2 case is still derived from our custom task. These artifacts are preserved as development infrastructure and must not be run as the next scientific milestone.
+
+### M13 — Generality and external-validity audit
+
+**Status:** failed current evidence standard; project paused
+**Date:** 2026-08-27
+
+The attempted meta-G0 does not rescue generality. Qwen3-8B collapsed to one answer label across the action rows, while Gemma had weak mapping consistency; these are prompt/evaluation preflight failures, not interpretable evidence for or against report/use dissociation. The Qwen2.5-7B smoke was stopped before completion. No meta-G0 result may be cited as scientific evidence.
+
+The audit changed two conclusions:
+
+1. the custom closed-form corpus is a mechanism sandbox, not an external validation dataset;
+2. BayesBench already reports across seven 3B–70B models that improved latent inference does not reliably carry over to downstream prediction, using public MovieLens, AITA, and medical-triage sources as well as a synthetic coin environment.
+
+The broad behavioral narrative is therefore neither established by our data nor clearly novel. The only defensible salvage is a mechanism-and-repair extension anchored entirely in an official BayesBench reproduction. New V2 mechanism runs are suspended until an unmodified official-task transfer passes on at least two public-data environments and more than one open-weight model/model size. Failure triggers archival without threshold or prompt rescue.
+
 ## Current claim boundary
 
-The project has established an externalized-source sufficiency phenomenon. It has not yet explained the original direct use gap.
+The project has established an externalized-source sufficiency effect inside one custom Qwen2.5 prompt family. It has not established a general behavioral phenomenon, external validity, or an explanation of the original direct use gap.
 
 The next decisive binary question is:
 
@@ -249,15 +271,16 @@ Possible answers remain formation failure, role-gated transport, coordinate mism
 
 ## Next approved milestone
 
-**M12 — V2 data/control freeze** is pending. It contains no white-box model run:
+**M14 — official-benchmark transfer smoke** supersedes the previous V2 execution plan:
 
-1. generate and checksum D1, D2-ID, and one-factor D2-OOD causal families;
-2. fix the identical-topology content × role factorial;
-3. register the eight-position/prefix/suffix/leave-one-out intervention lattice;
-4. freeze distance-matched crossing/non-crossing donors;
-5. define effective sample units and family-clustered inference;
-6. create run manifests and automatic result tables;
-7. review the freeze before any GPU experiment.
+1. use the upstream BayesBench revision and its unmodified evaluation code;
+2. run public-data MovieLens recommender and medical-triage smoke subsets;
+3. test at least Qwen2.5-14B and one non-Qwen family before any full run;
+4. predeclare the inference and downstream-use metrics from upstream outputs;
+5. archive 006 if the same phenotype is not present across two environments and more than one model/model size;
+6. only after a pass, redesign the mechanism experiment around the official task rather than retrofitting the custom corpus.
+
+The already-frozen V2 data and controls remain reproducibility artifacts, not an approved run queue.
 
 ## Document map
 

@@ -1,7 +1,7 @@
 # 006 — Bayesian latent inference → downstream-use gap
 
-**Status:** `ACTIVE-MECHANISM / BEHAVIORAL G0 PASSED`
-**Validated:** 2026-08-27
+**Status:** `PAUSED / EXTERNAL VALIDITY NOT ESTABLISHED`
+**Last audited:** 2026-08-27
 
 For the complete chronological record from topic registration through G0, exploratory mechanism runs, result audit, and the frozen V2 plan, see [`PROGRESS.md`](PROGRESS.md).
 
@@ -24,7 +24,7 @@ The original scaffold had two invalid shortcuts: posterior error could cross the
 
 A bridge rescue shows that the model can perform the policy comparison when the posterior is made available. By itself it does not distinguish a direct prompt that never forms the posterior from one that forms but fails to route/use it; the mechanism plan tests those alternatives separately.
 
-## G0 results
+## Synthetic G0 results (development evidence only)
 
 | Model | Posterior MAE | Eligible cases | Direct error | Bridged error | Rescues | Mean Δp(gold) |
 |---|---:|---:|---:|---:|---:|---:|
@@ -32,15 +32,23 @@ A bridge rescue shows that the model can perform the policy comparison when the 
 | Gemma3-12B-IT | 0.255 | 29 | 3.4% | 0.0% | 1/1 | +0.382 |
 | Qwen3-8B | 0.253 | 14 | 50.0% | 42.9% | 2/7 | +0.0002 |
 
-The anchor phenotype is Qwen2.5-14B: good posterior reporting, substantial unassisted use failure, and complete bridge rescue. Qwen3-8B instead has poor posterior-estimation/report behavior; Gemma usually selects the right action but its confidence remains strongly bridge-sensitive. This cross-model dissociation is useful rather than disqualifying: inference quality and direct action quality do not improve in lockstep.
+On the custom closed-form prompts, Qwen2.5-14B has good posterior reporting, substantial unassisted use failure, and complete bridge rescue. Qwen3-8B and Gemma do not reproduce the same phenotype. These results are useful for debugging and mechanism development, but they do **not** establish a cross-model phenomenon: custom wording, label binding, task comprehension, and synthetic-distribution artifacts remain viable explanations.
 
-## Mechanism opening and paper scope
+The later cross-model meta-G0 smoke is invalid as scientific evidence. In particular, Qwen3-8B collapsed to one answer label across action rows, and Gemma showed weak mapping consistency. Those runs diagnose prompt/evaluation fragility rather than belief/use dissociation.
 
-- representation: where and how the posterior becomes linearly/causally available;
-- routing: whether posterior-bearing states reach the policy-token computation;
-- readout: whether the information reaches the decision but is lost at label selection.
+An external-validity audit also found that [BayesBench](https://arxiv.org/abs/2606.30850) already states the broad behavioral claim that stronger latent inference does not reliably transfer to downstream prediction across seven models. Its official implementation uses MovieLens, AITA, and medical-triage public datasets in addition to a synthetic coin task. Therefore neither our synthetic behavioral gap nor the broad report/use framing is currently a novel paper contribution.
 
-The conference-sized claim should remain one controlled transition—latent posterior to downstream use—tested in the closed-form task and then confirmed on one official BayesBench environment. It should not expand into a general theory of Bayesian reasoning.
+## Current decision boundary
+
+All new V2 mechanism runs are paused. Existing Qwen2.5 results remain labeled D0 exploratory and may be reused only if the phenotype transfers to an official task.
+
+The project gets one bounded salvage test:
+
+1. reproduce a latent-inference/downstream-use gap with the official BayesBench code on at least two public-data environments;
+2. require the same open-weight anchor phenotype on more than one model or model size;
+3. show that the existing Qwen2.5 mechanism prediction transfers without selecting prompts, layers, or strengths on the test data.
+
+If (1) or (2) fails, archive 006. If behavior transfers but (3) fails, the current mechanism account is rejected; a new mechanism project would need to begin from the official task. Passing this test would support a narrower, potentially novel paper about the mechanism and selective repair of a phenomenon BayesBench already established—not a new behavioral-discovery claim.
 
 ## Files
 
@@ -51,7 +59,7 @@ The conference-sized claim should remain one controlled transition—latent post
 
 ## Next step
 
-Proceed to causal localization on Qwen2.5-14B, retaining Qwen3-8B as a posterior-estimation/report-poor behavioral comparison. Before a paper-level claim, reproduce the same inference→use transition on the official BayesBench recommender or triage environment.
+Do not run the custom V2 matrix. First run a small, unmodified BayesBench reproduction on its MovieLens recommender and public medical-triage environments. Record this as external replication, not as our dataset. No further white-box work is approved until that check passes.
 
 The complete study design is in [`INTERPRETABILITY_PLAN.md`](INTERPRETABILITY_PLAN.md). It treats query-gated posterior formation, posterior routing, comparator failure, and late option binding as competing hypotheses rather than presupposing a routing failure.
 
