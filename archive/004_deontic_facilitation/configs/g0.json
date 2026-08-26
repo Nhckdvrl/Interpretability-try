@@ -5,10 +5,10 @@
   "expected_rows": 64,
   "expected_pairs": 32,
   "pairs_per_form": 8,
-  "card_permutations": 4,
+  "card_permutations": 24,
   "prompt_templates": 2,
   "candidate_answers": ["1,2", "1,3", "1,4", "2,3", "2,4", "3,4"],
   "strong_pair": {"deontic_accuracy_min": 0.75, "epistemic_accuracy_max": 0.25, "delta_p_gold_min": 0.15},
   "model_pass": {"mean_delta_accuracy_min": 0.10, "mean_delta_p_gold_min": 0.08, "bootstrap_ci_lower_min": 0.0, "positive_forms_min": 3, "strong_pairs_min": 4, "strong_forms_min": 2},
-  "promotion": {"passing_models_required": 2, "note": "Do not weaken thresholds, add easier frames, cherry-pick polarity forms, or switch to weaker models after seeing results."}
+  "promotion": {"passing_models_required": 2, "note": "Do not weaken thresholds, add easier frames, cherry-pick polarity forms, reintroduce answer examples, or switch to weaker models after seeing results."}
 }

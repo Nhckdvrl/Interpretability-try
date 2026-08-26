@@ -8,7 +8,7 @@ import random
 from statistics import mean
 from typing import Any
 
-from .dataset import FAMILIES, load_scenarios
+from .dataset import FAMILIES, OUTCOMES, load_scenarios
 from .prompts import COMPREHENSION_TEMPLATES, NATURAL_JUDGMENT_TEMPLATES, BRIDGED_JUDGMENT_TEMPLATES
 
 
@@ -119,7 +119,8 @@ def _aggregate(results: list[dict[str, Any]], scenario_ids: set[str]) -> dict[st
 
 def summarize(*, data_path: str | Path, results_path: str | Path, config_path: str | Path, out_path: str | Path | None = None) -> dict[str, Any]:
     scenarios = load_scenarios(data_path, strict=True)
-    stats = _aggregate(_read_jsonl(results_path), {s.scenario_id for s in scenarios})
+    by_id = {s.scenario_id: s for s in scenarios}
+    stats = _aggregate(_read_jsonl(results_path), set(by_id))
     cfg = json.loads(Path(config_path).read_text(encoding="utf-8"))
     gate = cfg["comprehension_gate"]
     strong_cfg = cfg["strong_scenario"]
@@ -127,7 +128,7 @@ def summarize(*, data_path: str | Path, results_path: str | Path, config_path: s
 
     rows: list[dict[str, Any]] = []
     for sid in sorted(stats):
-        s = stats[sid]
+        s = {**stats[sid], "outcome": by_id[sid].outcome}
         gated = (
             s["p_yes_direct_min"] >= gate["p_yes_direct_min"]
             and s["p_yes_inference_min"] >= gate["p_yes_inference_min"]
@@ -147,15 +148,16 @@ def summarize(*, data_path: str | Path, results_path: str | Path, config_path: s
     natural_ci_lo, natural_ci_hi = _bootstrap_ci(natural_discounts)
     bridged_ci_lo, bridged_ci_hi = _bootstrap_ci(bridged_discounts, seed=1)
 
-    by_family: dict[str, dict[str, Any]] = {}
-    for family in FAMILIES:
-        sub = [r for r in gated_rows if r["family"] == family]
-        by_family[family] = {
+    def group_stats(sub: list[dict[str, Any]]) -> dict[str, Any]:
+        return {
             "gated": len(sub),
             "mean_discount": mean(r["judgment_discount"] for r in sub) if sub else math.nan,
             "mean_bridged_discount": mean(r["bridged_discount"] for r in sub) if sub else math.nan,
             "strong": sum(bool(r["strong"]) for r in sub),
         }
+
+    by_family = {family: group_stats([r for r in gated_rows if r["family"] == family]) for family in FAMILIES}
+    by_outcome = {outcome: group_stats([r for r in gated_rows if r["outcome"] == outcome]) for outcome in OUTCOMES}
 
     positive_families = sum(
         by_family[f]["gated"] >= pass_cfg["gated_per_positive_family_min"] and by_family[f]["mean_discount"] > 0
@@ -166,6 +168,14 @@ def summarize(*, data_path: str | Path, results_path: str | Path, config_path: s
         for f in FAMILIES
     )
     strong_families = sum(by_family[f]["strong"] >= pass_cfg["strong_per_family_min"] for f in FAMILIES)
+    positive_outcomes = sum(
+        by_outcome[o]["gated"] >= pass_cfg["gated_per_positive_outcome_min"] and by_outcome[o]["mean_discount"] > 0
+        for o in OUTCOMES
+    )
+    bridged_positive_outcomes = sum(
+        by_outcome[o]["gated"] >= pass_cfg["gated_per_positive_outcome_min"] and by_outcome[o]["mean_bridged_discount"] > 0
+        for o in OUTCOMES
+    )
 
     aggregate = {
         "total_scenarios": len(rows),
@@ -173,12 +183,14 @@ def summarize(*, data_path: str | Path, results_path: str | Path, config_path: s
         "mean_judgment_discount": mean(natural_discounts) if natural_discounts else math.nan,
         "bootstrap_95_ci": [natural_ci_lo, natural_ci_hi],
         "positive_families": positive_families,
+        "positive_outcomes": positive_outcomes,
         "strong_families": strong_families,
         "strong_scenarios": sum(bool(r["strong"]) for r in gated_rows),
         "positive_discount_fraction": sum(r["judgment_discount"] > 0 for r in gated_rows) / len(gated_rows) if gated_rows else 0.0,
         "mean_bridged_discount": mean(bridged_discounts) if bridged_discounts else math.nan,
         "bridged_bootstrap_95_ci": [bridged_ci_lo, bridged_ci_hi],
         "bridged_positive_families": bridged_positive_families,
+        "bridged_positive_outcomes": bridged_positive_outcomes,
         "bridged_positive_discount_fraction": sum(r["bridged_discount"] > 0 for r in gated_rows) / len(gated_rows) if gated_rows else 0.0,
     }
 
@@ -187,6 +199,7 @@ def summarize(*, data_path: str | Path, results_path: str | Path, config_path: s
         and aggregate["mean_judgment_discount"] >= pass_cfg["mean_judgment_discount_min"]
         and natural_ci_lo > pass_cfg["bootstrap_ci_lower_min"]
         and aggregate["positive_families"] >= pass_cfg["positive_families_min"]
+        and aggregate["positive_outcomes"] >= pass_cfg["positive_outcomes_min"]
         and aggregate["strong_families"] >= pass_cfg["strong_families_min"]
         and aggregate["strong_scenarios"] >= pass_cfg["strong_scenarios_min"]
         and aggregate["positive_discount_fraction"] >= pass_cfg["positive_discount_fraction_min"]
@@ -196,6 +209,7 @@ def summarize(*, data_path: str | Path, results_path: str | Path, config_path: s
         and aggregate["mean_bridged_discount"] >= pass_cfg["mean_bridged_discount_min"]
         and bridged_ci_lo > pass_cfg["bridged_bootstrap_ci_lower_min"]
         and aggregate["bridged_positive_families"] >= pass_cfg["bridged_positive_families_min"]
+        and aggregate["bridged_positive_outcomes"] >= pass_cfg["bridged_positive_outcomes_min"]
         and aggregate["bridged_positive_discount_fraction"] >= pass_cfg["bridged_positive_discount_fraction_min"]
     )
     model_pass = natural_pass and bridged_pass
@@ -206,8 +220,9 @@ def summarize(*, data_path: str | Path, results_path: str | Path, config_path: s
         "bridged_pass": bridged_pass,
         "aggregate": aggregate,
         "by_family": by_family,
+        "by_outcome": by_outcome,
         "scenarios": rows,
-        "note": "Promotion requires both the natural behavioral effect and a residual same-history effect after a high-confidence Yes acknowledgement.",
+        "note": "Promotion requires the direct-over-inference effect in both criterion directions, plus a residual same-history effect after a high-confidence Yes acknowledgement.",
     }
     if out_path is not None:
         out = Path(out_path)
