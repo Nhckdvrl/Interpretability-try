@@ -1,0 +1,26 @@
+{
+  "base_config": "v2_d2_id.json",
+  "changed_factor": "numeric_value_range",
+  "overrides": {
+    "split": "d2_ood_numeric_range",
+    "evidence_class": "confirmatory-ood-sealed",
+    "decision_blocks": [
+      {
+        "threshold": 0.20,
+        "evidence_targets": [0.10, 0.30],
+        "external_pairs": [
+          {"low": 0.08, "high": 0.32, "band": "near_range_low"},
+          {"low": 0.035719, "high": 0.364281, "band": "far_range_low"}
+        ]
+      },
+      {
+        "threshold": 0.80,
+        "evidence_targets": [0.70, 0.90],
+        "external_pairs": [
+          {"low": 0.68, "high": 0.92, "band": "near_range_high"},
+          {"low": 0.635719, "high": 0.964281, "band": "far_range_high"}
+        ]
+      }
+    ]
+  }
+}

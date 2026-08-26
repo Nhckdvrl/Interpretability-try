@@ -1,0 +1,9 @@
+{
+  "base_config": "v2_d2_id.json",
+  "changed_factor": "prompt_template",
+  "overrides": {
+    "split": "d2_ood_template",
+    "evidence_class": "confirmatory-ood-sealed",
+    "template_ids": ["record_v2"]
+  }
+}

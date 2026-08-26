@@ -1,0 +1,9 @@
+{
+  "base_config": "v2_d2_id.json",
+  "changed_factor": "observation_order_family",
+  "overrides": {
+    "split": "d2_ood_observation_order",
+    "evidence_class": "confirmatory-ood-sealed",
+    "observation_orders": ["sequence_blocks"]
+  }
+}

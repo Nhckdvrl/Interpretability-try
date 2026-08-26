@@ -1,0 +1,54 @@
+{
+  "split": "d2_id",
+  "evidence_class": "confirmatory-sealed",
+  "seed": 6021,
+  "model": "Qwen/Qwen2.5-14B-Instruct",
+  "model_revision": "cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8",
+  "likelihood_regimes": [
+    {"id": "sym75", "p_red_a": 0.75, "p_red_b": 0.25},
+    {"id": "asym80_30", "p_red_a": 0.80, "p_red_b": 0.30}
+  ],
+  "count_pairs": [[1, 2], [2, 1], [1, 4], [4, 1], [2, 3], [3, 2], [2, 5], [5, 2], [3, 4], [4, 3]],
+  "decompositions_per_target": 4,
+  "prior_bounds": [0.03, 0.97],
+  "decision_blocks": [
+    {
+      "threshold": 0.43,
+      "evidence_targets": [0.27, 0.57],
+      "external_pairs": [
+        {"low": 0.305, "high": 0.555, "band": "near_round"},
+        {"low": 0.247319, "high": 0.612681, "band": "far_nonround"}
+      ]
+    },
+    {
+      "threshold": 0.515,
+      "evidence_targets": [0.365, 0.665],
+      "external_pairs": [
+        {"low": 0.395, "high": 0.635, "band": "near_round"},
+        {"low": 0.336927, "high": 0.693073, "band": "far_nonround"}
+      ]
+    },
+    {
+      "threshold": 0.605,
+      "evidence_targets": [0.455, 0.755],
+      "external_pairs": [
+        {"low": 0.485, "high": 0.725, "band": "near_round"},
+        {"low": 0.417643, "high": 0.792357, "band": "far_nonround"}
+      ]
+    }
+  ],
+  "numeral_format": "decimal6",
+  "action_vocabularies": {
+    "natural": {"ACT": "ACT", "WAIT": "WAIT"},
+    "pseudoword": {"ACT": "ZORP", "WAIT": "KETA"}
+  },
+  "option_mappings": [["ACT", "WAIT"], ["WAIT", "ACT"]],
+  "rule_forms": ["gt_high_first", "le_low_first"],
+  "observation_orders": ["red_first", "blue_first"],
+  "template_ids": ["record_v1"],
+  "inference_good": {
+    "max_abs_posterior_mean_error": 0.10,
+    "must_imply_evidence_action": true,
+    "frozen_before_action_analysis": true
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "base_config": "v2_d2_id.json",
+  "changed_factor": "likelihood_regime",
+  "overrides": {
+    "split": "d2_ood_likelihood",
+    "evidence_class": "confirmatory-ood-sealed",
+    "likelihood_regimes": [
+      {"id": "sym85", "p_red_a": 0.85, "p_red_b": 0.15},
+      {"id": "asym70_20", "p_red_a": 0.70, "p_red_b": 0.20}
+    ]
+  }
+}

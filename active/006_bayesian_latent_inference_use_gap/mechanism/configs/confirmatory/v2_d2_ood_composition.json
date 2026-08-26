@@ -1,0 +1,9 @@
+{
+  "base_config": "v2_d2_id.json",
+  "changed_factor": "prior_count_composition",
+  "overrides": {
+    "split": "d2_ood_composition",
+    "evidence_class": "confirmatory-ood-sealed",
+    "count_pairs": [[4, 5], [5, 4], [5, 5], [5, 6], [6, 5], [6, 6], [6, 7], [7, 6]]
+  }
+}

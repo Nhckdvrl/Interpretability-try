@@ -1,0 +1,9 @@
+{
+  "base_config": "v2_d2_id.json",
+  "changed_factor": "numeral_format",
+  "overrides": {
+    "split": "d2_ood_numeral_format",
+    "evidence_class": "confirmatory-ood-sealed",
+    "numeral_format": "percent2"
+  }
+}
