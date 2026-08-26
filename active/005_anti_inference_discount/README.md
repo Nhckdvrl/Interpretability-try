@@ -5,18 +5,22 @@
 
 ## Mother question
 
-> When a model has already correctly inferred a fact, does it still give that inferred fact less weight than an equally authoritative direct statement of the same fact?
+> Why can evidence that logically establishes the same fact be used less strongly merely because the model must infer that fact rather than read it directly — and does any discount remain after the model has explicitly acknowledged the inferred fact?
 
-The target phenomenon is not merely that inference is harder than reading. We require a stronger dissociation: both conditions establish the same critical fact; the model recognizes that fact with high confidence in both; yet downstream judgment still discounts the inferred route.
+This G0 deliberately separates two claims that the earlier draft conflated:
 
-## Logic-review correction
+1. **Natural anti-inference behavior:** direct evidence is used more strongly than one-step inferential evidence in an ordinary downstream judgment.
+2. **Post-comprehension residual:** after the model itself is already high-confidence that the critical inferred fact is true, continuing the same conversation still shows a direct-over-inferred discount.
 
-The first draft had two serious confounds.
+The project is promoted only if **both** claims survive. A natural effect alone could simply be inference failure/effort; a bridged effect alone would not establish a naturally occurring behavioral failure.
 
-1. The direct condition literally contained the entire inference condition plus an extra explicit conclusion. Any advantage could therefore be caused by extra text/repetition/lexical overlap rather than provenance.
-2. Comprehension and judgment were separate prompts. Success on one prompt did not guarantee that the compared judgment computation actually started from an acknowledged inferred fact.
+## Logic-review corrections
 
-Both are removed.
+The first draft had two serious confounds and one claim/gate mismatch.
+
+1. The direct condition originally contained the inference condition plus an extra explicit conclusion. Any advantage could therefore be caused by extra text, repetition, or lexical overlap.
+2. The original comprehension check and downstream judgment were unrelated fresh prompts, so success on one did not prove that the compared judgment started from an acknowledged fact.
+3. A later version measured both natural and same-history paths but promoted on the natural path alone while the README/title claimed "after successful comprehension." That mismatch is now removed.
 
 ## Frozen matched evidence
 
@@ -24,11 +28,12 @@ The generator creates 96 scenarios: 32 each for legal/compliance timing, medical
 
 For every scenario:
 
-- `direct`: one authoritative record directly classifies the critical relation;
-- `inference`: an equally authoritative record gives numerical facts from which that same relation follows in one trivial comparison;
+- `direct`: an authoritative record directly classifies the critical relation;
+- `inference`: an equally authoritative record gives numerical facts from which the same relation follows in one trivial comparison;
 - neither evidence string contains the other;
 - neither repeats the exact critical-fact query verbatim;
-- the context explicitly states that direct classification and listed numerical values are equally authoritative and accurate.
+- the context explicitly states that direct classifications and listed numerical values are equally authoritative and accurate;
+- both routes logically entail the same downstream gold conclusion.
 
 All gold structure is programmatic.
 
@@ -36,17 +41,31 @@ All gold structure is programmatic.
 
 For two semantically equivalent templates, score `Yes` vs `No` for the same critical fact under both evidence modes.
 
-A scenario is eligible only if **every comprehension template** satisfies the high-confidence requirement and the matched direct/inference confidence gap remains small:
+A scenario is eligible only if **every** comprehension template satisfies:
 
 - minimum direct `p_yes >= .80`;
 - minimum inference `p_yes >= .80`;
-- maximum template-matched absolute direct/inference gap `<= .10`.
+- maximum matched direct/inference confidence gap `<= .10`.
 
-This prevents a single averaged easy template from hiding an inference failure.
+Thus any same-history analysis is restricted to cases where `Yes` is already the model's own deterministic preferred answer in both conditions.
 
-## Stage 2 — same-history downstream judgment
+## Stage 2A — natural downstream judgment
 
-Judgment is not a fresh prompt. It extends the exact same comprehension history:
+A fresh ordinary judgment prompt receives either the direct or inferential evidence and asks for the warranted conclusion. Two judgment templates and both A/B label orders are scored.
+
+For matched presentation variants:
+
+```text
+natural_discount = p_target_direct - p_target_inference
+```
+
+This is the behavioral prerequisite corresponding to "one extra inferential step makes equally decisive evidence count less."
+
+A strong natural scenario requires the comprehension gate, direct target probability `>= .70`, mean natural discount `>= .12`, and positive discount in at least 75% of matched natural variants.
+
+## Stage 2B — same-history post-comprehension judgment
+
+For the same gated scenarios we also continue the exact comprehension history:
 
 ```text
 user: [context + evidence + critical-fact question]
@@ -54,34 +73,44 @@ assistant: Yes
 user: [which downstream conclusion follows? A/B]
 ```
 
-Thus the measured judgment is explicitly conditioned on the model having acknowledged the critical fact in that same conversation history. Both direct and inference variants receive the identical `assistant: Yes` bridge.
+Because gated cases already have `Yes` as the model's high-confidence preferred response, this continuation conditions the downstream decision on the model's own acknowledged critical fact rather than using an unrelated comprehension probe.
 
-For every comprehension template, judgment template, and A/B label order we compute the matched difference:
+Both direct and inference variants receive the identical acknowledgement structure. The residual quantity is:
 
 ```text
-judgment_discount = p_target_direct - p_target_inference
+bridged_discount = p_target_direct - p_target_inference
 ```
 
-Primary scenario score is the mean of these matched variant-level differences, not the difference between two unrelated averages.
-
-A strong scenario requires the comprehension gate, direct target probability `>= .70`, mean discount `>= .12`, and positive discount in at least 75% of matched presentation variants.
+If the natural effect disappears here, the data support "inference formation/effort" rather than the stronger claim that an already acknowledged inferred fact is still downweighted.
 
 ## Frozen model-level pass rule
 
-A model passes only if:
+A model is promoted only if **both** sub-gates pass.
 
-- at least 60/96 scenarios pass the comprehension gate;
-- mean judgment discount among gated scenarios `>= +.05`;
+Natural gate:
+
+- at least 60/96 scenarios pass comprehension;
+- mean natural discount `>= +.05`;
 - paired bootstrap 95% CI lower bound `> +.01`;
-- at least 2/3 families have positive mean discount;
-- at least 10 gated scenarios are strong;
-- at least 60% of gated scenarios have positive mean discount.
+- at least 2/3 families are positive with at least 16 gated items each;
+- at least 10 strong scenarios, spread across at least 2 families;
+- at least 60% of gated scenarios have positive natural discount.
 
-At least two open-weight models must pass. Do not weaken gates, remove the Yes bridge, add harder inference chains, cherry-pick one family, or switch to weaker models after observing a null result.
+Same-history residual gate:
+
+- mean bridged discount `>= +.03`;
+- paired bootstrap 95% CI lower bound `> 0`;
+- at least 2/3 sufficiently populated families have positive bridged discount;
+- at least 55% of gated scenarios have positive bridged discount.
+
+At least two open-weight models must independently pass both gates. Do not weaken thresholds, cherry-pick families, add harder inference chains, or switch to weaker models after observing a null result.
 
 ## Interpretation
 
-If comprehension fails, this is simply an inference failure and does not support the topic. If comprehension passes but downstream discount is near zero, kill the stronger anti-inference hypothesis. Only a stable pass justifies mechanism work on weakened inferred representations vs provenance-dependent weighting vs late arbitration.
+- Comprehension gate fails → ordinary inference failure; do not call it anti-inference-after-comprehension.
+- Natural gate fails → no stable external phenomenon; kill.
+- Natural passes but bridged fails → interesting inference-cost/formation effect, but **kill the stronger current mother question** or rename/re-scope before mechanism work.
+- Both pass → mechanism work is justified: weakened inferred representation vs provenance-dependent weighting vs late arbitration become genuinely separable explanations.
 
 ## Usage
 
