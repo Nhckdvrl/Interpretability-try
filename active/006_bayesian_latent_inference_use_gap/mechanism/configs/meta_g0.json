@@ -1,0 +1,40 @@
+{
+  "status": "phenomenon generality preflight before deep mechanism",
+  "seed": 6060,
+  "cases_per_task": 24,
+  "task_families": [
+    "iid_source_counts",
+    "heterogeneous_medical_tests",
+    "conflicting_sensor_fusion",
+    "preference_recommender"
+  ],
+  "axes": {
+    "R": "normalized 0.00-1.00 posterior report distribution and report-implied action",
+    "U": "mapping-aware direct policy use",
+    "E": "gold/self supplied-belief policy execution"
+  },
+  "models": [
+    "Qwen/Qwen2.5-7B-Instruct",
+    "Qwen/Qwen2.5-14B-Instruct",
+    "Qwen/Qwen2.5-32B-Instruct",
+    "Qwen/Qwen3-4B",
+    "Qwen/Qwen3-8B",
+    "Qwen/Qwen3-32B",
+    "google/gemma-3-4b-it",
+    "google/gemma-3-12b-it",
+    "mistralai/Mistral-7B-Instruct-v0.3",
+    "mistralai/Mistral-Small-24B-Instruct-2501"
+  ],
+  "primary_metrics": [
+    "posterior_mean_mae",
+    "report_implied_action_accuracy",
+    "direct_use_accuracy",
+    "gold_bridge_execution_accuracy",
+    "self_bridge_execution_accuracy",
+    "report_use_gap",
+    "self_bridge_gain",
+    "direct_error_rate_given_inference_good",
+    "mapping_semantic_consistency"
+  ],
+  "interpretation_rule": "quadrants are descriptive continuous phenotypes, not promotion gates"
+}
