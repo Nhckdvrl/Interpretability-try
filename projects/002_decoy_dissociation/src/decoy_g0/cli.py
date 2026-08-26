@@ -27,25 +27,41 @@ def run_main() -> None:
     p.add_argument("--out", required=True)
     p.add_argument("--limit", type=int, default=None)
     p.add_argument("--dtype", default="auto")
+    p.add_argument("--scenario-batch", type=int, default=8)
+    p.add_argument("--sequence-batch-size", type=int, default=96)
     args = p.parse_args()
 
     scenarios = read_jsonl(args.data)
     if args.limit is not None:
         scenarios = scenarios[: args.limit]
     scorer = HFChoiceScorer(args.model, dtype=args.dtype)
-    out = Path(args.out); out.parent.mkdir(parents=True, exist_ok=True)
+    out = Path(args.out)
+    out.parent.mkdir(parents=True, exist_ok=True)
+
     with out.open("w", encoding="utf-8") as f:
-        for i, s in enumerate(scenarios, start=1):
-            for case in build_choice_cases(s) + build_dominance_cases(s):
-                score = scorer.score(case.prompt, case.labels)
+        for start in range(0, len(scenarios), args.scenario_batch):
+            scenario_chunk = scenarios[start : start + args.scenario_batch]
+            cases = []
+            for s in scenario_chunk:
+                cases.extend(build_choice_cases(s))
+                cases.extend(build_dominance_cases(s))
+            requests = [(case.prompt, case.labels) for case in cases]
+            scores = scorer.score_batch(requests, sequence_batch_size=args.sequence_batch_size)
+            for case, score in zip(cases, scores):
                 row = {
-                    "model": args.model, "scenario_id": case.scenario_id, "case_id": case.case_id,
-                    "kind": case.kind, "template_id": case.template_id, "permutation_id": case.permutation_id,
-                    "semantic_by_label": case.semantic_by_label, "probs": score.probs, "logprobs": score.logprobs,
+                    "model": args.model,
+                    "scenario_id": case.scenario_id,
+                    "case_id": case.case_id,
+                    "kind": case.kind,
+                    "template_id": case.template_id,
+                    "permutation_id": case.permutation_id,
+                    "semantic_by_label": case.semantic_by_label,
+                    "probs": score.probs,
+                    "logprobs": score.logprobs,
                 }
                 f.write(json.dumps(row, ensure_ascii=False) + "\n")
-            if i % 25 == 0:
-                print(f"completed {i}/{len(scenarios)} scenarios", flush=True)
+            done = min(start + len(scenario_chunk), len(scenarios))
+            print(f"completed {done}/{len(scenarios)} scenarios", flush=True)
 
 
 def summarize_main() -> None:
@@ -59,7 +75,11 @@ def summarize_main() -> None:
     with Path(args.results).open("r", encoding="utf-8") as f:
         rows = [json.loads(line) for line in f if line.strip()]
     verdicts = summarize_scenarios(rows, meta, G0Thresholds())
-    payload = {"thresholds": G0Thresholds().__dict__, "aggregate": aggregate(verdicts), "scenarios": verdicts_to_dicts(verdicts)}
+    payload = {
+        "thresholds": G0Thresholds().__dict__,
+        "aggregate": aggregate(verdicts),
+        "scenarios": verdicts_to_dicts(verdicts),
+    }
     Path(args.out).parent.mkdir(parents=True, exist_ok=True)
     Path(args.out).write_text(json.dumps(payload, indent=2), encoding="utf-8")
     print(json.dumps(payload["aggregate"], indent=2))
