@@ -1,0 +1,65 @@
+{
+  "n_rows": 4032,
+  "n_evidence": 15,
+  "posterior_mean_mae": 0.13055294931635206,
+  "posterior_argmax_mae": 0.14410558069381596,
+  "conditions": {
+    "counterfactual_bridge": {
+      "n": 672,
+      "condition_accuracy": 0.8973214285714286,
+      "original_gold_accuracy": 0.10267857142857142,
+      "mean_condition_gold_logit": 17.586495500700202
+    },
+    "direct": {
+      "n": 672,
+      "condition_accuracy": 0.5699404761904762,
+      "original_gold_accuracy": 0.5699404761904762,
+      "mean_condition_gold_logit": 1.9203868946947513
+    },
+    "gold_bridge": {
+      "n": 672,
+      "condition_accuracy": 0.9315476190476191,
+      "original_gold_accuracy": 0.9315476190476191,
+      "mean_condition_gold_logit": 19.618303480394395
+    },
+    "irrelevant_number": {
+      "n": 672,
+      "condition_accuracy": 0.5967261904761905,
+      "original_gold_accuracy": 0.5967261904761905,
+      "mean_condition_gold_logit": 1.9109003067992272
+    },
+    "self_argmax_bridge": {
+      "n": 672,
+      "condition_accuracy": 0.9330357142857143,
+      "original_gold_accuracy": 0.8050595238095238,
+      "mean_condition_gold_logit": 19.825520770339015
+    },
+    "self_mean_bridge": {
+      "n": 672,
+      "condition_accuracy": 0.8958333333333334,
+      "original_gold_accuracy": 0.8095238095238095,
+      "mean_condition_gold_logit": 18.59802819493936
+    }
+  },
+  "direct_by_gold_action": {
+    "ACT": {
+      "n": 336,
+      "accuracy": 0.5148809523809523,
+      "mean_gold_logit": 1.3009672534341614
+    },
+    "WAIT": {
+      "n": 336,
+      "accuracy": 0.625,
+      "mean_gold_logit": 2.539806535955341
+    }
+  },
+  "mapping_semantic_consistency": 0.5505952380952381,
+  "n_mapping_groups": 336,
+  "n_eligible_surface_variants": 480,
+  "n_direct_errors_eligible": 199,
+  "direct_error_rate_eligible": 0.41458333333333336,
+  "gold_bridge_rescue_rate": 0.8743718592964824,
+  "self_mean_bridge_rescue_rate": 0.8391959798994975,
+  "irrelevant_number_accuracy_on_direct_errors": 0.25125628140703515,
+  "counterfactual_follow_rate": 0.8973214285714286
+}

@@ -5,8 +5,9 @@ The decisive comparison is not merely "posterior close, action wrong".  A case
 counts as inference-good only when the model's reported posterior implies the
 Bayes-optimal action.  We then compare an unassisted action probe with a matched
 bridge probe that explicitly supplies the correct posterior.  A bridge rescue
-therefore isolates failure to carry/use the inferred quantity from inability to
-apply the payoff rule itself.
+therefore shows whether explicit posterior availability restores policy
+execution.  It does not by itself distinguish absent posterior formation in
+the direct prompt from failed routing/use of a formed posterior.
 """
 
 from __future__ import annotations
