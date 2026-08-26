@@ -62,8 +62,8 @@ def summarize(*, data_path:str|Path, results_path:str|Path, config_path:str|Path
     for form in FORMS:
         sub=[x for x in paired_rows if x["form"]==form]
         by_form[form]={"n_pairs":len(sub),"mean_delta_accuracy":mean(x["delta_accuracy"] for x in sub),"mean_delta_p_gold":mean(x["delta_p_gold"] for x in sub),"strong_pairs":sum(bool(x["strong"]) for x in sub)}
-    paired={"n_pairs":len(paired_rows),"mean_delta_accuracy":mean(x["delta_accuracy"] for x in paired_rows),"mean_delta_p_gold":mean(delta_ps),"bootstrap_95_ci_delta_p_gold":[ci_lo,ci_hi],"positive_forms":sum(by_form[f]["mean_delta_p_gold"]>0 for f in FORMS),"strong_pairs":sum(bool(x["strong"]) for x in paired_rows)}
-    model_pass=paired["mean_delta_accuracy"]>=pass_cfg["mean_delta_accuracy_min"] and paired["mean_delta_p_gold"]>=pass_cfg["mean_delta_p_gold_min"] and ci_lo>pass_cfg["bootstrap_ci_lower_min"] and paired["positive_forms"]>=pass_cfg["positive_forms_min"] and paired["strong_pairs"]>=pass_cfg["strong_pairs_min"]
+    paired={"n_pairs":len(paired_rows),"mean_delta_accuracy":mean(x["delta_accuracy"] for x in paired_rows),"mean_delta_p_gold":mean(delta_ps),"bootstrap_95_ci_delta_p_gold":[ci_lo,ci_hi],"positive_forms":sum(by_form[f]["mean_delta_p_gold"]>0 for f in FORMS),"strong_pairs":sum(bool(x["strong"]) for x in paired_rows),"strong_forms":sum(by_form[f]["strong_pairs"]>0 for f in FORMS)}
+    model_pass=paired["mean_delta_accuracy"]>=pass_cfg["mean_delta_accuracy_min"] and paired["mean_delta_p_gold"]>=pass_cfg["mean_delta_p_gold_min"] and ci_lo>pass_cfg["bootstrap_ci_lower_min"] and paired["positive_forms"]>=pass_cfg["positive_forms_min"] and paired["strong_pairs"]>=pass_cfg["strong_pairs_min"] and paired["strong_forms"]>=pass_cfg["strong_forms_min"]
     summary={"model_pass":model_pass,"paired":paired,"by_form":by_form,"item_stats":[item_stats[k] for k in sorted(item_stats)],"paired_rows":paired_rows}
     if out_path is not None:
         out=Path(out_path); out.parent.mkdir(parents=True,exist_ok=True); out.write_text(json.dumps(summary,ensure_ascii=False,indent=2),encoding="utf-8")
