@@ -3,7 +3,7 @@
   "models_in_order": ["Qwen/Qwen3-8B", "google/gemma-3-12b-it", "Qwen/Qwen3-14B"],
   "expected_scenarios": 96,
   "expected_per_family": 32,
-  "design": "primary promotion metric uses natural direct-vs-inference downstream judgment after a separate high-confidence comprehension gate; a same-history teacher-forced Yes bridge is recorded only as a secondary diagnostic",
+  "design": "promotion requires both a natural direct-vs-inference judgment discount after a separate high-confidence comprehension gate and a residual discount when the downstream judgment continues from the model's own high-confidence Yes acknowledgement of the same critical fact",
   "comprehension_gate": {"p_yes_direct_min": 0.80, "p_yes_inference_min": 0.80, "max_abs_gap": 0.10},
   "strong_scenario": {"p_target_direct_min": 0.70, "judgment_discount_min": 0.12, "positive_variant_fraction_min": 0.75},
   "model_pass": {
@@ -15,7 +15,11 @@
     "strong_scenarios_min": 10,
     "strong_families_min": 2,
     "strong_per_family_min": 3,
-    "positive_discount_fraction_min": 0.60
+    "positive_discount_fraction_min": 0.60,
+    "mean_bridged_discount_min": 0.03,
+    "bridged_bootstrap_ci_lower_min": 0.00,
+    "bridged_positive_families_min": 2,
+    "bridged_positive_discount_fraction_min": 0.55
   },
-  "promotion": {"passing_models_required": 2, "note": "Do not promote on the bridged diagnostic alone; do not weaken gates, cherry-pick families, add harder chains, or switch to weaker models after a null natural effect."}
+  "promotion": {"passing_models_required": 2, "note": "Both the natural effect and the same-history residual effect must pass. Do not weaken gates, cherry-pick families, add harder chains, or switch to weaker models after a null result."}
 }
