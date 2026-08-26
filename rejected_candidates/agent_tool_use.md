@@ -134,6 +134,29 @@ The domain is scanned as a family rather than as isolated paper ideas. Every can
 
 ---
 
+## 8. LLM-native operational anomalies are not acceptable mother phenomena
+
+**Natural-question test:** If removing `LLM / prompt / tool / CoT / instruction tuning` makes the question disappear, the topic does not satisfy the repository's phenomenon-first requirement.
+
+**Killed examples from the August 27 search round:**
+
+- multilingual tool-call argument serialization mismatch;
+- thinking-mode-induced scope/refusal collapse;
+- reasoning-vs-response instruction-following gap;
+- LLM-judge persuasion by visible reasoning traces.
+
+**Why they initially looked good:** Unlike earlier failed cognitive-bias candidates, these had large, already-reported effects on modern open-weight models, often tens of percentage points, and cheap local evaluation paths.
+
+**Why they are still rejected:** Their mother questions are artifacts of LLM operation itself. They start from a model-specific failure and then search for a mechanism, rather than from a natural phenomenon or independently meaningful concept that happens to reveal a broad LLM failure. This violates the repository's I1 / phenomenon-first preference and is not the style exemplified by the lab's random-choice and real-vs-fictional projects.
+
+**Death code:** `MOTHER_QUESTION_NOT_NATURAL`
+
+**Nearest-neighbor warning:** Do not resurrect by replacing one interface with another, changing language, swapping reasoning mode, or using a different agent benchmark. Large effect size is necessary but not sufficient.
+
+**Resurrection condition:** Only reconsider if the exact behavior can be grounded in an independently established natural phenomenon (not merely an engineering analogue) and the research question remains meaningful after deleting all LLM-specific vocabulary.
+
+---
+
 # Current lessons from the domain
 
 1. Tool-use behavior papers are moving extremely fast in 2026; many intuitive failure modes are already explicitly benchmarked.
@@ -141,3 +164,4 @@ The domain is scanned as a family rather than as isolated paper ideas. Every can
 3. **Stateful execution semantics are no longer a safe generic survivor.** Verified symbolic state, postconditions, and belief-update frameworks now occupy much of the obvious space.
 4. A viable future agent topic needs a decisive contrast that remains broken *despite* correct external verification/state tracking, so that the internal mechanism is genuinely necessary to the fix.
 5. Surprise criterion: “agents are bad when tools fail” is unsurprising. A viable topic should expose a stronger dissociation that existing verified-state wrappers cannot already solve.
+6. **Phenomenon-first is stricter than behavior-first.** A huge open-model failure is still unsuitable if the mother phenomenon only exists because LLMs, prompts, tools, or inference modes exist.
