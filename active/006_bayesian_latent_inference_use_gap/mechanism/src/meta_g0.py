@@ -326,7 +326,13 @@ def action_prompt(row: dict, surface: dict, condition: str, self_p: float) -> di
 def score_model(args: argparse.Namespace) -> dict:
     dataset = read_jsonl_gz(args.dataset)
     if args.limit_cases:
-        dataset = dataset[: args.limit_cases]
+        limited = []
+        by_task: dict[str, list[dict]] = defaultdict(list)
+        for row in dataset:
+            by_task[row["task_family"]].append(row)
+        for task in sorted(by_task):
+            limited.extend(by_task[task][: args.limit_cases])
+        dataset = limited
     scorer = HFScorer(args.model, dtype=args.dtype)
     evidence = {}
     for row in dataset:
