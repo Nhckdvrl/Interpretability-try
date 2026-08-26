@@ -5,7 +5,7 @@ from pathlib import Path
 import pytest
 
 from antiinf_g0.dataset import FAMILIES,generate_scenarios,load_scenarios,write_scenarios
-from antiinf_g0.prompts import build_comprehension_prompt,build_judgment_prompt
+from antiinf_g0.prompts import build_comprehension_prompt,build_natural_judgment_prompt,build_bridged_judgment_prompt
 
 
 def test_generator_has_frozen_size_and_balance() -> None:
@@ -19,14 +19,22 @@ def test_direct_and_inference_are_not_nested_or_verbatim_fact() -> None:
         assert d not in i and i not in d and fact not in d and fact not in i
 
 
-def test_judgment_history_conditions_on_yes_and_same_evidence() -> None:
-    row=generate_scenarios()[0]; comp=build_comprehension_prompt(row,"inference",0); hist,target=build_judgment_prompt(row,"inference",0,0,0)
+def test_natural_judgment_has_no_forced_acknowledgement() -> None:
+    row=generate_scenarios()[0]; hist,target=build_natural_judgment_prompt(row,"inference",0,0)
+    assert target=="A" and len(hist)==1 and hist[0][0]=="user" and row.inference_evidence in hist[0][1]
+    assert all(role!="assistant" for role,_ in hist)
+
+
+def test_bridged_judgment_conditions_on_yes_and_same_evidence() -> None:
+    row=generate_scenarios()[0]; comp=build_comprehension_prompt(row,"inference",0); hist,target=build_bridged_judgment_prompt(row,"inference",0,0,0)
     assert target=="A" and hist[0]==comp[0] and hist[1]==("assistant","Yes") and hist[-1][0]=="user" and row.inference_evidence in hist[0][1]
 
 
-def test_judgment_label_order_swaps_target() -> None:
-    row=generate_scenarios()[0]; h0,t0=build_judgment_prompt(row,"direct",0,0,0); h1,t1=build_judgment_prompt(row,"direct",0,0,1)
-    assert t0=="A" and t1=="B" and row.target_conclusion in h0[-1][1] and row.target_conclusion in h1[-1][1]
+def test_label_order_swaps_target_in_both_paths() -> None:
+    row=generate_scenarios()[0]
+    _,n0=build_natural_judgment_prompt(row,"direct",0,0); _,n1=build_natural_judgment_prompt(row,"direct",0,1)
+    _,b0=build_bridged_judgment_prompt(row,"direct",0,0,0); _,b1=build_bridged_judgment_prompt(row,"direct",0,0,1)
+    assert (n0,n1)==("A","B") and (b0,b1)==("A","B")
 
 
 def test_comprehension_asks_identical_critical_fact() -> None:
