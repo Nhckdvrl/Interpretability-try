@@ -1,6 +1,6 @@
 # 008 — Reliability-weighted multimodal cue integration
 
-**Status:** `ACTIVE-MECHANISM / BEHAVIORAL G0 PASSED`
+**Status:** `ACTIVE-PREFLIGHT / CANDIDATE PHENOTYPE`
 **Validated:** 2026-08-27
 
 ## Mother question
@@ -29,7 +29,7 @@ The initial scaffold explicitly stated both sigmas. That reduced the task to rea
 | Qwen3-VL-2B-Instruct | 1.82 | 0.024 | 0.556 | -0.459 | near-complete text capture; observed image weight ≈0 in every regime |
 | Gemma3-4B-IT | 2.52 | 0.56 | 0.400 | +0.802 | reliability-sensitive, but systematically underweights image |
 
-Both models can read both cues, so this is not an interface failure. Qwen's combined output nearly copies the text cue even when the image should receive 94% weight. Gemma changes direction with reliability but gives the image only about 0.15 observed weight in that same regime. These complementary phenotypes support a causal comparison of reliability representation versus modality routing.
+The unimodal probes show coarse access to both cues, but the interfaces are not matched: the text prompt states its mean explicitly while the image requires visual averaging. Qwen's combined output nearly copies that explicit text scalar; Gemma shows an exploratory reliability trend but remains image-underweighted. These are candidate phenotypes requiring symmetric-access preflight before they can support a reliability-routing claim.
 
 ## Mechanism opening and paper scope
 
@@ -49,4 +49,6 @@ The conference-sized claim is reliability-sensitive but modality-biased fusion a
 
 ## Next step
 
-Begin white-box comparison on Qwen3-VL-2B and Gemma3-4B. Before a paper-level claim, add one second visual magnitude task or an official BayesBench cue-combination subset to establish task generality.
+First refreeze symmetric raw/raw and summary/summary stimuli and identify whether each model exhibits fixed text prior, reliability correction, hard cue selection, or continuous integration. Begin white-box comparison only after that phenotype is stable. Before a paper-level claim, add one second visual magnitude task or an official BayesBench cue-combination subset to establish task generality.
+
+The complete study design is in [`INTERPRETABILITY_PLAN.md`](INTERPRETABILITY_PLAN.md). Its preflight supersedes immediate white-box analysis of the current G0: the explicit text mean versus implicit visual mean is an access/copy confound, so symmetric raw/raw and summary/summary stimuli must be refrozen first.
