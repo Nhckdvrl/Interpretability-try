@@ -1,31 +1,11 @@
 {
   "frozen_on": "2026-08-26",
-  "models_in_order": [
-    "Qwen/Qwen3-8B",
-    "google/gemma-3-12b-it",
-    "Qwen/Qwen3-14B"
-  ],
+  "models_in_order": ["Qwen/Qwen3-8B", "google/gemma-3-12b-it", "Qwen/Qwen3-14B"],
   "expected_scenarios": 96,
   "expected_per_family": 32,
-  "comprehension_gate": {
-    "p_yes_direct_min": 0.80,
-    "p_yes_inference_min": 0.80,
-    "max_abs_gap": 0.10
-  },
-  "strong_scenario": {
-    "p_target_direct_min": 0.70,
-    "judgment_discount_min": 0.12
-  },
-  "model_pass": {
-    "gated_scenarios_min": 60,
-    "mean_judgment_discount_min": 0.05,
-    "bootstrap_ci_lower_min": 0.01,
-    "positive_families_min": 2,
-    "strong_scenarios_min": 10,
-    "positive_discount_fraction_min": 0.60
-  },
-  "promotion": {
-    "passing_models_required": 2,
-    "note": "Do not weaken comprehension gates, add harder chains, cherry-pick families, or switch to weaker models after observing a null result."
-  }
+  "design": "direct and inference evidence are logically matched and non-nested; downstream judgment is conditioned on a teacher-forced Yes acknowledgement to the same critical-fact question",
+  "comprehension_gate": {"p_yes_direct_min": 0.80, "p_yes_inference_min": 0.80, "max_abs_gap": 0.10},
+  "strong_scenario": {"p_target_direct_min": 0.70, "judgment_discount_min": 0.12, "positive_variant_fraction_min": 0.75},
+  "model_pass": {"gated_scenarios_min": 60, "mean_judgment_discount_min": 0.05, "bootstrap_ci_lower_min": 0.01, "positive_families_min": 2, "strong_scenarios_min": 10, "positive_discount_fraction_min": 0.60},
+  "promotion": {"passing_models_required": 2, "note": "Do not weaken comprehension gates, remove the Yes bridge, cherry-pick families, add harder chains, or switch to weaker models after a null result."}
 }
