@@ -35,6 +35,15 @@ def test_instruction_itself_does_not_inject_deontic_cues() -> None:
     for cue in ("violat","oblig","prohibit","permission"): assert cue not in joined
 
 
+def test_instruction_defines_two_sided_card_structure() -> None:
+    for template in TEMPLATES:
+        text=template.lower()
+        assert "condition-side" in text
+        assert "outcome-side" in text
+        assert "hidden" in text
+        assert "turn" in text
+
+
 def test_roundtrip_and_prompt(tmp_path: Path) -> None:
     path=tmp_path/"matched.jsonl"; write_items(path); rows=load_items(path,strict=True); assert len(rows)==64
     p=build_prompt(rows[0],0); assert "exactly one pair" in p.lower() and "1." in p
