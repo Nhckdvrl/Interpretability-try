@@ -10,3 +10,7 @@ cache/
 *.npz
 *.pt
 *.safetensors
+
+phenomenon_miner/results/
+phenomenon_miner/logs/
+phenomenon_miner/__pycache__/

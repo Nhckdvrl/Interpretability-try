@@ -6,6 +6,11 @@
 
 本仓库不是“先挑一个 SAE / attention head / activation patching 工具，再去找能解释什么”的仓库；也不是“看到某个模型在某个 benchmark 上掉分，就把掉分本身包装成机制题”的仓库。
 
+新的 broken-invariant / anomaly-mining 搜题协议见
+[`PHENOMENON_MINING_GUIDE.md`](PHENOMENON_MINING_GUIDE.md)。该 harness 只作为内部选题机器，不作为论文框架贡献。
+对应的领域化公开数据集目录见 [`DATASET_CATALOG.md`](DATASET_CATALOG.md)。权威流程见 [`phenomenon_miner/PROCESS.md`](phenomenon_miner/PROCESS.md)，当前唯一调度表见 [`phenomenon_miner/candidate_pool/AUDIT_REGISTRY.md`](phenomenon_miner/candidate_pool/AUDIT_REGISTRY.md)。旧候选 Tier 不再授权模型验证。
+这项更新不再要求 discovery 之前已有一个被命名的外部 phenomenon：可以从公开自然任务上的理论关系开始扫描，让具体 phenotype 成为搜索输出。它不放松公开数据、跨家族、artifact audit、novelty 与 mechanism prerequisite 等后续门槛。
+
 当前原则来自连续多轮选题与失败实验，后续新题默认必须遵守。若某个候选与 README 冲突，以 README 为准。
 
 006 的失败说明，仅有“Behavior first”这句话还不够；必须把外部有效性、跨模型复现和停止预算放在机制实验之前。完整复盘见 [`FAILURE_POSTMORTEMS.md`](FAILURE_POSTMORTEMS.md)。
