@@ -1,0 +1,13 @@
+{
+  "contract_version": "2026-08-28-r5-final-calibration",
+  "validation_authorized": false,
+  "require_external_source": true,
+  "recognition_gate": {"min_admissibility_probability": 0.8, "min_scope_probability": 0.75, "min_polarity_probability_diagnostic": 0.75, "max_answer_order_probability_gap": 0.35},
+  "capability_gate": {"min_admitted_polarity_delta": 0.16, "min_admitted_variant_positive_fraction": 0.75, "max_never_seen_pair_delta": 0.02},
+  "strong_case": {"min_struck_directional_residual": 0.05, "min_undo_ratio": 0.25, "max_neutral_struck_abs_shift": 0.05, "max_neutral_to_struck_ratio": 0.5, "min_natural_variant_positive_fraction": 0.75},
+  "paired_operator": {"min_gated_pairs": 8, "min_mean_struck_polarity_delta": 0.04, "min_bootstrap_ci_lower": 0.01, "min_struck_variant_positive_fraction": 0.75},
+  "calibration_gate": {"min_pair_capability_fraction": 0.8, "max_neutral_artifact_fraction": 0.1, "min_pairs_per_exclusion_reason": 4},
+  "panel_pass": {"smoke_min_independent_families": 2, "generality_min_independent_families": 3, "generality_panel_size": 5, "required_distinct_sizes_in_one_family": 3},
+  "bootstrap_samples": 5000,
+  "seed": 20260828
+}

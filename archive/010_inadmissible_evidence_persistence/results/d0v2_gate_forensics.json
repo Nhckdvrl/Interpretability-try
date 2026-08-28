@@ -1,0 +1,615 @@
+[
+  {
+    "model": "Qwen/Qwen3-8B",
+    "source_summary": "results/qwen3_8b.d0v2.summary.json",
+    "source_raw": "results/qwen3_8b.d0v2.jsonl",
+    "thresholds": {
+      "inadmissible": 0.8,
+      "scope": 0.75,
+      "polarity": 0.75,
+      "admitted_directional_or_pair_delta": 0.08
+    },
+    "by_polarity": {
+      "supports_target": {
+        "probes": {
+          "inadmissible": {
+            "mean_probability_pass": 19,
+            "both_answer_orders_pass": 18,
+            "total": 20,
+            "mean_probability": 0.9658487004078152,
+            "mean_answer_order_gap": 0.06200790781953415
+          },
+          "scope": {
+            "mean_probability_pass": 13,
+            "both_answer_orders_pass": 7,
+            "total": 20,
+            "mean_probability": 0.7977049479783574,
+            "mean_answer_order_gap": 0.39393004731319137
+          },
+          "polarity": {
+            "mean_probability_pass": 12,
+            "both_answer_orders_pass": 11,
+            "total": 20,
+            "mean_probability": 0.7691586124162437,
+            "mean_answer_order_gap": 0.21780146485232943
+          }
+        },
+        "admitted_directional_pass": 20,
+        "mean_admitted_directional_shift": 0.8075735733380971,
+        "total": 20
+      },
+      "supports_other": {
+        "probes": {
+          "inadmissible": {
+            "mean_probability_pass": 17,
+            "both_answer_orders_pass": 13,
+            "total": 20,
+            "mean_probability": 0.9039259526915431,
+            "mean_answer_order_gap": 0.1782594819360415
+          },
+          "scope": {
+            "mean_probability_pass": 15,
+            "both_answer_orders_pass": 10,
+            "total": 20,
+            "mean_probability": 0.8353876933578572,
+            "mean_answer_order_gap": 0.32078376716557866
+          },
+          "polarity": {
+            "mean_probability_pass": 5,
+            "both_answer_orders_pass": 1,
+            "total": 20,
+            "mean_probability": 0.6082052882435359,
+            "mean_answer_order_gap": 0.5685079492444228
+          }
+        },
+        "admitted_directional_pass": 7,
+        "mean_admitted_directional_shift": 0.054434617404783066,
+        "total": 20
+      }
+    },
+    "pair_decomposition": {
+      "total_pairs": 20,
+      "legal_recognition_pairs": 11,
+      "pair_admitted_operator_candidates": 11,
+      "polarity_probe_induced_failures": 8,
+      "current_fully_gated_pairs": 1,
+      "probe_induced_failure_pair_ids": [
+        "legalbench-hearsay-37",
+        "legalbench-hearsay-38",
+        "legalbench-hearsay-41",
+        "legalbench-hearsay-42",
+        "legalbench-hearsay-44",
+        "legalbench-hearsay-45",
+        "legalbench-hearsay-49",
+        "legalbench-hearsay-51"
+      ]
+    },
+    "pairs": [
+      {
+        "polarity_pair_id": "legalbench-hearsay-33",
+        "legal_recognition_gate": false,
+        "explicit_polarity_gate": false,
+        "both_case_admitted_directional_gate": true,
+        "admitted_polarity_delta": 0.4636726725086755,
+        "admitted_variant_positive_fraction": 1.0,
+        "admitted_variant_min_delta": 0.060081082681378115,
+        "pair_capability_candidate": false,
+        "polarity_probe_induced_failure": false
+      },
+      {
+        "polarity_pair_id": "legalbench-hearsay-34",
+        "legal_recognition_gate": true,
+        "explicit_polarity_gate": true,
+        "both_case_admitted_directional_gate": true,
+        "admitted_polarity_delta": 0.9998413004542587,
+        "admitted_variant_positive_fraction": 1.0,
+        "admitted_variant_min_delta": 0.999446389867907,
+        "pair_capability_candidate": true,
+        "polarity_probe_induced_failure": false
+      },
+      {
+        "polarity_pair_id": "legalbench-hearsay-35",
+        "legal_recognition_gate": false,
+        "explicit_polarity_gate": false,
+        "both_case_admitted_directional_gate": true,
+        "admitted_polarity_delta": 0.9999063823855746,
+        "admitted_variant_positive_fraction": 1.0,
+        "admitted_variant_min_delta": 0.9998183141898797,
+        "pair_capability_candidate": false,
+        "polarity_probe_induced_failure": false
+      },
+      {
+        "polarity_pair_id": "legalbench-hearsay-36",
+        "legal_recognition_gate": false,
+        "explicit_polarity_gate": false,
+        "both_case_admitted_directional_gate": false,
+        "admitted_polarity_delta": 0.9825948427890429,
+        "admitted_variant_positive_fraction": 1.0,
+        "admitted_variant_min_delta": 0.9406606746465901,
+        "pair_capability_candidate": false,
+        "polarity_probe_induced_failure": false
+      },
+      {
+        "polarity_pair_id": "legalbench-hearsay-37",
+        "legal_recognition_gate": true,
+        "explicit_polarity_gate": false,
+        "both_case_admitted_directional_gate": true,
+        "admitted_polarity_delta": 0.9980104524936753,
+        "admitted_variant_positive_fraction": 1.0,
+        "admitted_variant_min_delta": 0.9947776137331071,
+        "pair_capability_candidate": true,
+        "polarity_probe_induced_failure": true
+      },
+      {
+        "polarity_pair_id": "legalbench-hearsay-38",
+        "legal_recognition_gate": true,
+        "explicit_polarity_gate": false,
+        "both_case_admitted_directional_gate": false,
+        "admitted_polarity_delta": 0.9446115747681232,
+        "admitted_variant_positive_fraction": 1.0,
+        "admitted_variant_min_delta": 0.8779179031629971,
+        "pair_capability_candidate": true,
+        "polarity_probe_induced_failure": true
+      },
+      {
+        "polarity_pair_id": "legalbench-hearsay-39",
+        "legal_recognition_gate": true,
+        "explicit_polarity_gate": true,
+        "both_case_admitted_directional_gate": false,
+        "admitted_polarity_delta": 0.9999928338464881,
+        "admitted_variant_positive_fraction": 1.0,
+        "admitted_variant_min_delta": 0.9999784105561024,
+        "pair_capability_candidate": true,
+        "polarity_probe_induced_failure": false
+      },
+      {
+        "polarity_pair_id": "legalbench-hearsay-40",
+        "legal_recognition_gate": false,
+        "explicit_polarity_gate": true,
+        "both_case_admitted_directional_gate": true,
+        "admitted_polarity_delta": 0.9958424395312486,
+        "admitted_variant_positive_fraction": 1.0,
+        "admitted_variant_min_delta": 0.9890122138965338,
+        "pair_capability_candidate": false,
+        "polarity_probe_induced_failure": false
+      },
+      {
+        "polarity_pair_id": "legalbench-hearsay-41",
+        "legal_recognition_gate": true,
+        "explicit_polarity_gate": false,
+        "both_case_admitted_directional_gate": false,
+        "admitted_polarity_delta": 0.43586765685839185,
+        "admitted_variant_positive_fraction": 1.0,
+        "admitted_variant_min_delta": 0.0014558057312916567,
+        "pair_capability_candidate": true,
+        "polarity_probe_induced_failure": true
+      },
+      {
+        "polarity_pair_id": "legalbench-hearsay-42",
+        "legal_recognition_gate": true,
+        "explicit_polarity_gate": false,
+        "both_case_admitted_directional_gate": false,
+        "admitted_polarity_delta": 0.42164700968897595,
+        "admitted_variant_positive_fraction": 1.0,
+        "admitted_variant_min_delta": 0.06603723678483253,
+        "pair_capability_candidate": true,
+        "polarity_probe_induced_failure": true
+      },
+      {
+        "polarity_pair_id": "legalbench-hearsay-43",
+        "legal_recognition_gate": false,
+        "explicit_polarity_gate": false,
+        "both_case_admitted_directional_gate": false,
+        "admitted_polarity_delta": 0.9989349345923138,
+        "admitted_variant_positive_fraction": 1.0,
+        "admitted_variant_min_delta": 0.9959190055805952,
+        "pair_capability_candidate": false,
+        "polarity_probe_induced_failure": false
+      },
+      {
+        "polarity_pair_id": "legalbench-hearsay-44",
+        "legal_recognition_gate": true,
+        "explicit_polarity_gate": false,
+        "both_case_admitted_directional_gate": false,
+        "admitted_polarity_delta": 0.999998434165521,
+        "admitted_variant_positive_fraction": 1.0,
+        "admitted_variant_min_delta": 0.999993850227726,
+        "pair_capability_candidate": true,
+        "polarity_probe_induced_failure": true
+      },
+      {
+        "polarity_pair_id": "legalbench-hearsay-45",
+        "legal_recognition_gate": true,
+        "explicit_polarity_gate": false,
+        "both_case_admitted_directional_gate": false,
+        "admitted_polarity_delta": 0.9108770666973827,
+        "admitted_variant_positive_fraction": 1.0,
+        "admitted_variant_min_delta": 0.7429768823105527,
+        "pair_capability_candidate": true,
+        "polarity_probe_induced_failure": true
+      },
+      {
+        "polarity_pair_id": "legalbench-hearsay-46",
+        "legal_recognition_gate": false,
+        "explicit_polarity_gate": false,
+        "both_case_admitted_directional_gate": false,
+        "admitted_polarity_delta": 0.19114851279975661,
+        "admitted_variant_positive_fraction": 1.0,
+        "admitted_variant_min_delta": 0.01791136248215391,
+        "pair_capability_candidate": false,
+        "polarity_probe_induced_failure": false
+      },
+      {
+        "polarity_pair_id": "legalbench-hearsay-48",
+        "legal_recognition_gate": true,
+        "explicit_polarity_gate": true,
+        "both_case_admitted_directional_gate": false,
+        "admitted_polarity_delta": 0.9781390623920349,
+        "admitted_variant_positive_fraction": 1.0,
+        "admitted_variant_min_delta": 0.9378929852751515,
+        "pair_capability_candidate": true,
+        "polarity_probe_induced_failure": false
+      },
+      {
+        "polarity_pair_id": "legalbench-hearsay-49",
+        "legal_recognition_gate": true,
+        "explicit_polarity_gate": false,
+        "both_case_admitted_directional_gate": true,
+        "admitted_polarity_delta": 0.998498089484599,
+        "admitted_variant_positive_fraction": 1.0,
+        "admitted_variant_min_delta": 0.9957714246695853,
+        "pair_capability_candidate": true,
+        "polarity_probe_induced_failure": true
+      },
+      {
+        "polarity_pair_id": "legalbench-hearsay-50",
+        "legal_recognition_gate": false,
+        "explicit_polarity_gate": false,
+        "both_case_admitted_directional_gate": true,
+        "admitted_polarity_delta": 0.9997671916291796,
+        "admitted_variant_positive_fraction": 1.0,
+        "admitted_variant_min_delta": 0.999461222747168,
+        "pair_capability_candidate": false,
+        "polarity_probe_induced_failure": false
+      },
+      {
+        "polarity_pair_id": "legalbench-hearsay-51",
+        "legal_recognition_gate": true,
+        "explicit_polarity_gate": false,
+        "both_case_admitted_directional_gate": false,
+        "admitted_polarity_delta": 0.9999861672499285,
+        "admitted_variant_positive_fraction": 1.0,
+        "admitted_variant_min_delta": 0.9999546017244699,
+        "pair_capability_candidate": true,
+        "polarity_probe_induced_failure": true
+      },
+      {
+        "polarity_pair_id": "legalbench-hearsay-52",
+        "legal_recognition_gate": false,
+        "explicit_polarity_gate": false,
+        "both_case_admitted_directional_gate": false,
+        "admitted_polarity_delta": 0.976069106351538,
+        "admitted_variant_positive_fraction": 1.0,
+        "admitted_variant_min_delta": 0.9241418188023642,
+        "pair_capability_candidate": false,
+        "polarity_probe_induced_failure": false
+      },
+      {
+        "polarity_pair_id": "legalbench-hearsay-54",
+        "legal_recognition_gate": false,
+        "explicit_polarity_gate": true,
+        "both_case_admitted_directional_gate": false,
+        "admitted_polarity_delta": 0.9447580841708952,
+        "admitted_variant_positive_fraction": 1.0,
+        "admitted_variant_min_delta": 0.8806736880447225,
+        "pair_capability_candidate": false,
+        "polarity_probe_induced_failure": false
+      }
+    ],
+    "interpretation": "POLARITY-PROBE-INDUCED-FALSE-FAILURE is a harness diagnosis, not a claim that every excluded pair is scientifically valid. It flags pairs that pass rule/scope recognition and show the paired admitted content-swap operator, but are rejected only by the asymmetric Yes/No polarity probe."
+  },
+  {
+    "model": "google/gemma-3-12b-it",
+    "source_summary": "results/gemma3_12b.d0v2.summary.json",
+    "source_raw": "results/gemma3_12b.d0v2.jsonl",
+    "thresholds": {
+      "inadmissible": 0.8,
+      "scope": 0.75,
+      "polarity": 0.75,
+      "admitted_directional_or_pair_delta": 0.08
+    },
+    "by_polarity": {
+      "supports_target": {
+        "probes": {
+          "inadmissible": {
+            "mean_probability_pass": 20,
+            "both_answer_orders_pass": 20,
+            "total": 20,
+            "mean_probability": 0.9996843627317126,
+            "mean_answer_order_gap": 0.0005742522238692648
+          },
+          "scope": {
+            "mean_probability_pass": 10,
+            "both_answer_orders_pass": 10,
+            "total": 20,
+            "mean_probability": 0.7199812788009364,
+            "mean_answer_order_gap": 0.21258304280189108
+          },
+          "polarity": {
+            "mean_probability_pass": 10,
+            "both_answer_orders_pass": 9,
+            "total": 20,
+            "mean_probability": 0.6133883761317521,
+            "mean_answer_order_gap": 0.2450962874329993
+          }
+        },
+        "admitted_directional_pass": 17,
+        "mean_admitted_directional_shift": 0.521468483649738,
+        "total": 20
+      },
+      "supports_other": {
+        "probes": {
+          "inadmissible": {
+            "mean_probability_pass": 20,
+            "both_answer_orders_pass": 20,
+            "total": 20,
+            "mean_probability": 0.9998244381358853,
+            "mean_answer_order_gap": 0.0003202264154619383
+          },
+          "scope": {
+            "mean_probability_pass": 18,
+            "both_answer_orders_pass": 17,
+            "total": 20,
+            "mean_probability": 0.9209598789794746,
+            "mean_answer_order_gap": 0.11882198171058203
+          },
+          "polarity": {
+            "mean_probability_pass": 17,
+            "both_answer_orders_pass": 17,
+            "total": 20,
+            "mean_probability": 0.8959963315568931,
+            "mean_answer_order_gap": 0.07558817234431396
+          }
+        },
+        "admitted_directional_pass": 2,
+        "mean_admitted_directional_shift": -0.017551338062427077,
+        "total": 20
+      }
+    },
+    "pair_decomposition": {
+      "total_pairs": 20,
+      "legal_recognition_pairs": 10,
+      "pair_admitted_operator_candidates": 8,
+      "polarity_probe_induced_failures": 3,
+      "current_fully_gated_pairs": 1,
+      "probe_induced_failure_pair_ids": [
+        "legalbench-hearsay-33",
+        "legalbench-hearsay-35",
+        "legalbench-hearsay-44"
+      ]
+    },
+    "pairs": [
+      {
+        "polarity_pair_id": "legalbench-hearsay-33",
+        "legal_recognition_gate": true,
+        "explicit_polarity_gate": false,
+        "both_case_admitted_directional_gate": false,
+        "admitted_polarity_delta": 0.4995884409978812,
+        "admitted_variant_positive_fraction": 1.0,
+        "admitted_variant_min_delta": 0.0007007306653038677,
+        "pair_capability_candidate": true,
+        "polarity_probe_induced_failure": true
+      },
+      {
+        "polarity_pair_id": "legalbench-hearsay-34",
+        "legal_recognition_gate": false,
+        "explicit_polarity_gate": true,
+        "both_case_admitted_directional_gate": false,
+        "admitted_polarity_delta": 0.500683031148427,
+        "admitted_variant_positive_fraction": 1.0,
+        "admitted_variant_min_delta": 9.876692059940778e-05,
+        "pair_capability_candidate": false,
+        "polarity_probe_induced_failure": false
+      },
+      {
+        "polarity_pair_id": "legalbench-hearsay-35",
+        "legal_recognition_gate": true,
+        "explicit_polarity_gate": false,
+        "both_case_admitted_directional_gate": false,
+        "admitted_polarity_delta": 0.9999376430293345,
+        "admitted_variant_positive_fraction": 1.0,
+        "admitted_variant_min_delta": 0.9998938841788546,
+        "pair_capability_candidate": true,
+        "polarity_probe_induced_failure": true
+      },
+      {
+        "polarity_pair_id": "legalbench-hearsay-36",
+        "legal_recognition_gate": false,
+        "explicit_polarity_gate": false,
+        "both_case_admitted_directional_gate": false,
+        "admitted_polarity_delta": 0.44451882767302153,
+        "admitted_variant_positive_fraction": 1.0,
+        "admitted_variant_min_delta": 0.00014513578100294408,
+        "pair_capability_candidate": false,
+        "polarity_probe_induced_failure": false
+      },
+      {
+        "polarity_pair_id": "legalbench-hearsay-37",
+        "legal_recognition_gate": true,
+        "explicit_polarity_gate": true,
+        "both_case_admitted_directional_gate": false,
+        "admitted_polarity_delta": 0.9999510906248428,
+        "admitted_variant_positive_fraction": 1.0,
+        "admitted_variant_min_delta": 0.9998780959278676,
+        "pair_capability_candidate": true,
+        "polarity_probe_induced_failure": false
+      },
+      {
+        "polarity_pair_id": "legalbench-hearsay-38",
+        "legal_recognition_gate": true,
+        "explicit_polarity_gate": false,
+        "both_case_admitted_directional_gate": false,
+        "admitted_polarity_delta": 0.012088883105819083,
+        "admitted_variant_positive_fraction": 1.0,
+        "admitted_variant_min_delta": 0.00012723431315483566,
+        "pair_capability_candidate": false,
+        "polarity_probe_induced_failure": false
+      },
+      {
+        "polarity_pair_id": "legalbench-hearsay-39",
+        "legal_recognition_gate": true,
+        "explicit_polarity_gate": true,
+        "both_case_admitted_directional_gate": false,
+        "admitted_polarity_delta": 0.9999949316971277,
+        "admitted_variant_positive_fraction": 1.0,
+        "admitted_variant_min_delta": 0.9999898504345265,
+        "pair_capability_candidate": true,
+        "polarity_probe_induced_failure": false
+      },
+      {
+        "polarity_pair_id": "legalbench-hearsay-40",
+        "legal_recognition_gate": false,
+        "explicit_polarity_gate": false,
+        "both_case_admitted_directional_gate": false,
+        "admitted_polarity_delta": 0.49998729049592505,
+        "admitted_variant_positive_fraction": 1.0,
+        "admitted_variant_min_delta": 4.721939098005277e-05,
+        "pair_capability_candidate": false,
+        "polarity_probe_induced_failure": false
+      },
+      {
+        "polarity_pair_id": "legalbench-hearsay-41",
+        "legal_recognition_gate": false,
+        "explicit_polarity_gate": false,
+        "both_case_admitted_directional_gate": false,
+        "admitted_polarity_delta": 0.0035534761164643103,
+        "admitted_variant_positive_fraction": 0.75,
+        "admitted_variant_min_delta": -7.46574471303864e-05,
+        "pair_capability_candidate": false,
+        "polarity_probe_induced_failure": false
+      },
+      {
+        "polarity_pair_id": "legalbench-hearsay-42",
+        "legal_recognition_gate": false,
+        "explicit_polarity_gate": false,
+        "both_case_admitted_directional_gate": false,
+        "admitted_polarity_delta": 0.4926291577736346,
+        "admitted_variant_positive_fraction": 1.0,
+        "admitted_variant_min_delta": 3.8583504214558757e-05,
+        "pair_capability_candidate": false,
+        "polarity_probe_induced_failure": false
+      },
+      {
+        "polarity_pair_id": "legalbench-hearsay-43",
+        "legal_recognition_gate": false,
+        "explicit_polarity_gate": false,
+        "both_case_admitted_directional_gate": false,
+        "admitted_polarity_delta": 0.4762589740074492,
+        "admitted_variant_positive_fraction": 1.0,
+        "admitted_variant_min_delta": 0.00010517030901249303,
+        "pair_capability_candidate": false,
+        "polarity_probe_induced_failure": false
+      },
+      {
+        "polarity_pair_id": "legalbench-hearsay-44",
+        "legal_recognition_gate": true,
+        "explicit_polarity_gate": false,
+        "both_case_admitted_directional_gate": false,
+        "admitted_polarity_delta": 0.9999674188075669,
+        "admitted_variant_positive_fraction": 1.0,
+        "admitted_variant_min_delta": 0.99992259251817,
+        "pair_capability_candidate": true,
+        "polarity_probe_induced_failure": true
+      },
+      {
+        "polarity_pair_id": "legalbench-hearsay-45",
+        "legal_recognition_gate": false,
+        "explicit_polarity_gate": true,
+        "both_case_admitted_directional_gate": false,
+        "admitted_polarity_delta": 0.5001147871008257,
+        "admitted_variant_positive_fraction": 1.0,
+        "admitted_variant_min_delta": 0.0001845019224200794,
+        "pair_capability_candidate": false,
+        "polarity_probe_induced_failure": false
+      },
+      {
+        "polarity_pair_id": "legalbench-hearsay-46",
+        "legal_recognition_gate": false,
+        "explicit_polarity_gate": false,
+        "both_case_admitted_directional_gate": false,
+        "admitted_polarity_delta": 0.2261844230928727,
+        "admitted_variant_positive_fraction": 0.75,
+        "admitted_variant_min_delta": -1.0041625169710543e-05,
+        "pair_capability_candidate": false,
+        "polarity_probe_induced_failure": false
+      },
+      {
+        "polarity_pair_id": "legalbench-hearsay-48",
+        "legal_recognition_gate": true,
+        "explicit_polarity_gate": true,
+        "both_case_admitted_directional_gate": false,
+        "admitted_polarity_delta": -0.33899108117108345,
+        "admitted_variant_positive_fraction": 0.5,
+        "admitted_variant_min_delta": -0.9996516428265643,
+        "pair_capability_candidate": false,
+        "polarity_probe_induced_failure": false
+      },
+      {
+        "polarity_pair_id": "legalbench-hearsay-49",
+        "legal_recognition_gate": true,
+        "explicit_polarity_gate": true,
+        "both_case_admitted_directional_gate": true,
+        "admitted_polarity_delta": 0.9999664417417984,
+        "admitted_variant_positive_fraction": 1.0,
+        "admitted_variant_min_delta": 0.9999399483775381,
+        "pair_capability_candidate": true,
+        "polarity_probe_induced_failure": false
+      },
+      {
+        "polarity_pair_id": "legalbench-hearsay-50",
+        "legal_recognition_gate": false,
+        "explicit_polarity_gate": false,
+        "both_case_admitted_directional_gate": false,
+        "admitted_polarity_delta": 0.00018529594025891902,
+        "admitted_variant_positive_fraction": 1.0,
+        "admitted_variant_min_delta": 6.59065445510487e-05,
+        "pair_capability_candidate": false,
+        "polarity_probe_induced_failure": false
+      },
+      {
+        "polarity_pair_id": "legalbench-hearsay-51",
+        "legal_recognition_gate": true,
+        "explicit_polarity_gate": true,
+        "both_case_admitted_directional_gate": false,
+        "admitted_polarity_delta": 0.9998496387709729,
+        "admitted_variant_positive_fraction": 1.0,
+        "admitted_variant_min_delta": 0.9994454611112414,
+        "pair_capability_candidate": true,
+        "polarity_probe_induced_failure": false
+      },
+      {
+        "polarity_pair_id": "legalbench-hearsay-52",
+        "legal_recognition_gate": true,
+        "explicit_polarity_gate": true,
+        "both_case_admitted_directional_gate": false,
+        "admitted_polarity_delta": 0.9999261222946547,
+        "admitted_variant_positive_fraction": 1.0,
+        "admitted_variant_min_delta": 0.999876101033601,
+        "pair_capability_candidate": true,
+        "polarity_probe_induced_failure": false
+      },
+      {
+        "polarity_pair_id": "legalbench-hearsay-54",
+        "legal_recognition_gate": false,
+        "explicit_polarity_gate": true,
+        "both_case_admitted_directional_gate": false,
+        "admitted_polarity_delta": -0.23805188150157636,
+        "admitted_variant_positive_fraction": 0.25,
+        "admitted_variant_min_delta": -0.9523129359451222,
+        "pair_capability_candidate": false,
+        "polarity_probe_induced_failure": false
+      }
+    ],
+    "interpretation": "POLARITY-PROBE-INDUCED-FALSE-FAILURE is a harness diagnosis, not a claim that every excluded pair is scientifically valid. It flags pairs that pass rule/scope recognition and show the paired admitted content-swap operator, but are rejected only by the asymmetric Yes/No polarity probe."
+  }
+]

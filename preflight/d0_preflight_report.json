@@ -41,6 +41,20 @@
     "005_manual_audits": 20,
     "minimum_sample_review_met": true
   },
+  "final_disposition": {
+    "004": "ARCHIVED / HOLD-OPERATIONALIZATION-ARTIFACT",
+    "005_d0v2": "INVALIDATED-HARNESS",
+    "005_d0v3": "ARCHIVED / TERMINAL-HOLD-D0V3-CONTRACT"
+  },
+  "005_d0v3_calibration": {
+    "cases": 24,
+    "polarity_pairs": 12,
+    "procedural_truth_neutral_pairs": 6,
+    "reliability_based_pairs": 6,
+    "baseline_dangling_references": 0,
+    "independent_human_audit_complete": false,
+    "validation_authorized": false
+  },
   "notes": [
     "All gold fields are frozen before model calls.",
     "004 taxonomy is deterministic score-margin refinement anchored to public match records; 005 legal status is anchored to LegalBench hearsay=Yes and pair transformation provenance.",

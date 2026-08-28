@@ -2,7 +2,7 @@ from __future__ import annotations
 from pathlib import Path
 import json
 from .data import load_scenarios
-from .prompts import BINARY_ORDERS, RECOGNITION_ORDERS, VERDICT_TEMPLATES, condition_text, verdict_prompt, recognition_prompt
+from .prompts import BINARY_ORDERS, POLARITY_ORDERS, RECOGNITION_ORDERS, VERDICT_TEMPLATES, condition_text, verdict_prompt, recognition_prompt
 from .scoring import HFChoiceScorer, VLLMChoiceScorer
 
 def _write(path,rows):
@@ -15,7 +15,8 @@ def run(*,data_path:str,out_path:str,model_name:str,family:str,revision:str|None
     scenarios=load_scenarios(data_path,require_external_source=True); scorer=VLLMChoiceScorer(model_name,base_url=base_url,revision=revision,served_model=served_model) if base_url else HFChoiceScorer(model_name,revision=revision,dtype=dtype); requests=[]; meta=[]
     for s in scenarios:
         for probe in ("inadmissible","scope","polarity"):
-            for oid,mapping in enumerate(RECOGNITION_ORDERS):
+            orders=POLARITY_ORDERS if probe=="polarity" else RECOGNITION_ORDERS
+            for oid,mapping in enumerate(orders):
                 prompt,correct=recognition_prompt(s.case_facts,s.evidence_text,s.struck_ruling,s.exclusion_scope,s.target_verdict,s.other_verdict,probe,mapping,s.evidence_polarity)
                 requests.append((prompt,("A","B"))); meta.append({"kind":"recognition","scenario_id":s.scenario_id,"polarity_pair_id":s.polarity_pair_id,"domain":s.domain,"probe":probe,"label_order":oid,"correct_label":correct,"polarity":s.evidence_polarity})
         conditions=[("never_seen",condition_text(s.case_facts,"",None,"never_seen")),

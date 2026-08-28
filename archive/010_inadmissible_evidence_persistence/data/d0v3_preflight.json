@@ -1,0 +1,25 @@
+{
+  "status": "EXPLORATORY-LOCAL / FINAL-D0V3-CONTRACT-CALIBRATION",
+  "validation_authorized": false,
+  "pairs": 12,
+  "cases": 24,
+  "exclusion_reason_distribution": {
+    "procedural_truth_neutral": 6,
+    "reliability_based": 6
+  },
+  "complete_polarity_pairs": 12,
+  "baseline_dangling_references": 0,
+  "independent_human_audit_complete": false,
+  "source_licenses": {
+    "LegalBench hearsay": "CC BY 4.0"
+  },
+  "sources": [
+    "https://huggingface.co/datasets/nguha/legalbench/resolve/main/data/hearsay/test.tsv",
+    "https://github.com/HazyResearch/legalbench/tree/main/tasks/hearsay",
+    "https://www.uscourts.gov/forms-rules/current-rules-practice-procedure/federal-rules-civil-procedure",
+    "https://doi.org/10.1177/01461672972310005",
+    "https://osf.io/mh6ae/"
+  ],
+  "sha256": "d5a34d580fa35160226347ecc9772c86c702902496e32617e95cc49acd1bcc7b",
+  "stop_rule": "One Qwen3-8B + Gemma3-12B calibration only; no D0 v4/v5 rescue loop."
+}

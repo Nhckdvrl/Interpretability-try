@@ -4,6 +4,7 @@ import math
 from typing import Sequence
 import json
 from urllib.request import Request, urlopen
+from concurrent.futures import ThreadPoolExecutor
 
 @dataclass(frozen=True)
 class ScoreResult:
@@ -115,18 +116,23 @@ class VLLMChoiceScorer:
             except TypeError: return self.tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
         return f"USER: {user_text}\nASSISTANT:"
     def score_batch(self, requests: Sequence[tuple[str, tuple[str, ...]]], *, sequence_batch_size: int = 64) -> list[ScoreResult]:
-        out=[]
-        for prompt,candidates in requests:
-            prefix=self._prefix(prompt); vals={}; missing=[]
+        prepared=[(self._prefix(prompt),candidates) for prompt,candidates in requests]
+        pending=[]; seen=set()
+        for prefix,candidates in prepared:
             for cand in candidates:
-                if (prefix,cand) in self._cache: vals[cand]=self._cache[(prefix,cand)]
-                else: missing.append(cand)
-            if missing:
-                for cand in missing:
-                    body=json.dumps({"model":self.model_name,"prompt":prefix+cand,"max_tokens":0,"temperature":0,"logprobs":1,"echo":True}).encode()
-                    req=Request(self.base_url,data=body,headers={"Content-Type":"application/json"})
-                    with urlopen(req,timeout=120) as response: data=json.load(response)
-                    lp=data["choices"][0]["logprobs"]["token_logprobs"][-1]
-                    self._cache[(prefix,cand)]=float(lp); vals[cand]=self._cache[(prefix,cand)]
+                key=(prefix,cand)
+                if key not in self._cache and key not in seen: pending.append(key); seen.add(key)
+        def score_one(key):
+            prefix,cand=key
+            body=json.dumps({"model":self.model_name,"prompt":prefix+cand,"max_tokens":0,"temperature":0,"logprobs":1,"echo":True}).encode()
+            req=Request(self.base_url,data=body,headers={"Content-Type":"application/json"})
+            with urlopen(req,timeout=120) as response: data=json.load(response)
+            return key,float(data["choices"][0]["logprobs"]["token_logprobs"][-1])
+        workers=max(1,min(int(sequence_batch_size),16))
+        with ThreadPoolExecutor(max_workers=workers) as pool:
+            for key,lp in pool.map(score_one,pending): self._cache[key]=lp
+        out=[]
+        for prefix,candidates in prepared:
+            vals={cand:self._cache[(prefix,cand)] for cand in candidates}
             out.append(ScoreResult(vals,softmax_dict(vals)))
         return out

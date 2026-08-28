@@ -1,0 +1,28 @@
+{
+  "status": "EXPLORATORY-LOCAL / TERMINAL-HOLD-D0V3-CONTRACT",
+  "validation_authorized": false,
+  "models": [
+    {
+      "model": "Qwen/Qwen3-8B",
+      "revision": "b968826d9c46dd6066d109eabc6255188de91218",
+      "pair_capability": "12/12",
+      "neutral_artifact_fraction": 0.75,
+      "mean_struck_polarity_delta": -0.28936368880190727,
+      "pair_cluster_bootstrap_95_ci": [-0.5174157873721248, -0.07785796464609061],
+      "verdict": "TERMINAL-HOLD-D0V3-CONTRACT"
+    },
+    {
+      "model": "google/gemma-3-12b-it",
+      "revision": "96b6f1eccf38110c56df3a15bffe176da04bfd80",
+      "pair_capability": "12/12",
+      "neutral_artifact_fraction": 0.8333333333333334,
+      "mean_struck_polarity_delta": -0.8035253075842842,
+      "pair_cluster_bootstrap_95_ci": [-0.9609692741927136, -0.5743432531098512],
+      "verdict": "TERMINAL-HOLD-D0V3-CONTRACT"
+    }
+  ],
+  "combined_verdict": "ARCHIVE-CURRENT-OPERATIONALIZATION",
+  "scientific_question_verdict": "NOT-KILLED",
+  "next_resource_priority": "006_existential_witness_collapse",
+  "stop_rule": "No D0 v4/v5 repair and no inversion pivot from these confounded results."
+}

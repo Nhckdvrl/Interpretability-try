@@ -17,8 +17,6 @@
 当前项目：
 
 - `003_diagnostic_counterevidence_revision/` — 使用 MedEinst 的公开 control/trap 成对数据，研究少量决定性反证出现后，模型的诊断修正究竟失败在证据感知、证据—先验仲裁，还是晚期输出回退。当前只保留研究计划，尚未开始 G0 代码。
-- `004_packed_unpacked_event_splitting/` — 对应 2026-08-28 canonical shortlist **#2 Packed–Unpacked Event Splitting**。已冻结 extensionality recognition gate、packed/paraphrase/strict-subset/repacking controls、branch-count signature、概率与 consequential decision 双 readout，以及跨模型汇总代码。状态：`ACTIVE-PREFLIGHT / HARNESS-READY / NOT READY-TO-SMOKE`。
-- `005_inadmissible_evidence_persistence/` — 对应 2026-08-28 canonical shortlist **#5 Inadmissible-Evidence Persistence**。已冻结 `never_seen / admitted / struck` counterfactual、admissibility/scope/polarity gate、bidirectional evidence polarity、neutral-struck artifact control 与 undo-ratio 指标。状态：`ACTIVE-PREFLIGHT / HARNESS-READY / NOT READY-TO-SMOKE`。
 - `006_existential_witness_collapse/` — 对应 2026-08-28 canonical shortlist **#4 Existential Witness Collapse**。已冻结 existential/identity recognition gate、unknown/same/distinct/paraphrase/neutral matched worlds、真正 downstream action-use 的非法 witness join readout、显式 same/distinct capability controls 与 hard-kill 逻辑。状态：`ACTIVE-PREFLIGHT / HARNESS-READY / NOT READY-TO-SMOKE`。
 - `007_weak_evidence_backfire/` — 对应 2026-08-28 canonical shortlist **#10 Weak-Evidence Backfire**。已冻结 bidirectional positive-evidence sign reversal、真正无 case-specific observation 的 baseline、support/likelihood/strong-evidence capability gates、pragmatic-completeness/length/neutral controls、scenario-level paired bootstrap 与 hard-kill 逻辑。状态：`ACTIVE-PREFLIGHT / HARNESS-READY / NOT READY-TO-SMOKE`。
 
@@ -26,6 +24,8 @@
 
 已归档：
 
+- `009_packed_unpacked_event_splitting/` — 当前 operationalization 的 5/5 scenario groups 均未通过 artifact controls；reorder 超差、repacking 不恢复、within-family branch-count slope 反向。状态：`HOLD-OPERATIONALIZATION-ARTIFACT`，不再跑模型或进入 N1；这不等于抽象母题的 scientific null。
+- `010_inadmissible_evidence_persistence/` — r5 修复 polarity/never-seen 并以 pair 为统计单位后，两模型 admitted capability 均为 12/12，但 neutral artifact fraction 为 0.75/0.833。状态：`TERMINAL-HOLD-D0V3-CONTRACT`；当前 operationalization 停止，抽象科学问题不作 null 宣告。
 - `002_facts_vs_shortcuts_arbitration/` — 由于近期工作已强覆盖实体数值表示、比较机制与 shortcut/事实竞争相关叙事，停止 active 推进，完整移入 `archive/` 保存失败经验与代码。
 - `003_decoy_dissociation/` — Qwen3-8B 与 Gemma3-12B-IT 完成冻结 G0；Gemma strong-reversal rate 仅 1.70%（门槛 5%），Qwen3-8B 为 0%，不满足晋级规则，已 KILLED / ARCHIVED。
 - `004_deontic_facilitation/` — 修正后的 24 排列全反平衡 G0 中，Qwen3-8B 与 Gemma3-12B-IT 均为 `0/32` strong pairs，两模型均未达冻结 gate，已 KILLED / ARCHIVED。

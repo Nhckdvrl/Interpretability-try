@@ -61,9 +61,9 @@ def build004():
                 "license": "Football-Data terms: free for non-commercial use", "url": U004,
                 "provenance": "external-derived; deterministic outcome-taxonomy refinement"},
             "partitions": parts})
-    dump(ROOT / "active/004_packed_unpacked_event_splitting/data/frozen_d0.jsonl", rows)
-    dump(ROOT / "active/004_packed_unpacked_event_splitting/data/pilot_d0.jsonl", rows[:5])
-    dump(ROOT / "active/004_packed_unpacked_event_splitting/data/d0_manual_audit.jsonl", audits)
+    dump(ROOT / "archive/009_packed_unpacked_event_splitting/data/frozen_d0.jsonl", rows)
+    dump(ROOT / "archive/009_packed_unpacked_event_splitting/data/pilot_d0.jsonl", rows[:5])
+    dump(ROOT / "archive/009_packed_unpacked_event_splitting/data/d0_manual_audit.jsonl", audits)
     return len(rows), len(audits)
 
 def build005():
@@ -128,16 +128,16 @@ def build005():
             "neutral_evidence": neutral,
             "human_audit": "Both variants are out-of-court assertions offered for their truth, preserve hearsay status, and reverse only the proposition direction. Base facts, verdicts, rulings, scope and neutral control are byte-identical within the pair.",
             "transformation": "Manual content swap grounded in the source issue; no model-generated taxonomy, legal status, or polarity gold."})
-    dump(ROOT / "active/005_inadmissible_evidence_persistence/data/frozen_d0.jsonl", rows)
-    dump(ROOT / "active/005_inadmissible_evidence_persistence/data/d0_manual_audit.jsonl", audits)
+    dump(ROOT / "archive/010_inadmissible_evidence_persistence/data/frozen_d0.jsonl", rows)
+    dump(ROOT / "archive/010_inadmissible_evidence_persistence/data/d0_manual_audit.jsonl", audits)
     return len(cases), len(rows)
 
 def report():
     def sha(p): return hashlib.sha256(p.read_bytes()).hexdigest()
-    d4 = ROOT / "active/004_packed_unpacked_event_splitting/data/frozen_d0.jsonl"
-    d5 = ROOT / "active/005_inadmissible_evidence_persistence/data/frozen_d0.jsonl"
-    a4 = json.loads("[" + ",".join((ROOT/"active/004_packed_unpacked_event_splitting/data/d0_manual_audit.jsonl").read_text().splitlines()) + "]")
-    a5 = json.loads("[" + ",".join((ROOT/"active/005_inadmissible_evidence_persistence/data/d0_manual_audit.jsonl").read_text().splitlines()) + "]")
+    d4 = ROOT / "archive/009_packed_unpacked_event_splitting/data/frozen_d0.jsonl"
+    d5 = ROOT / "archive/010_inadmissible_evidence_persistence/data/frozen_d0.jsonl"
+    a4 = json.loads("[" + ",".join((ROOT/"archive/009_packed_unpacked_event_splitting/data/d0_manual_audit.jsonl").read_text().splitlines()) + "]")
+    a5 = json.loads("[" + ",".join((ROOT/"archive/010_inadmissible_evidence_persistence/data/d0_manual_audit.jsonl").read_text().splitlines()) + "]")
     out = {"status":"EXPLORATORY-LOCAL", "validation_authorized":False,
            "generated_utc":"2026-08-28", "python":sys.version,
            "platform":platform.platform(), "source_urls":{"004":U004,"005":U005},

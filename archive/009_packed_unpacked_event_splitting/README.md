@@ -1,6 +1,10 @@
 # 004 — Packed–Unpacked Event Splitting
 
-Status: `ACTIVE-PREFLIGHT / HARNESS-READY-r4 / NOT READY-TO-SMOKE`
+Status: `ARCHIVED / HOLD-OPERATIONALIZATION-ARTIFACT`
+
+Archived on 2026-08-28 after the exploratory Qwen3-8B pilot falsified the
+operationalization's required mechanism signatures. This is not a scientific
+null claim about every possible packed/unpacked event representation.
 
 Canonical shortlist mapping: **2026-08-28 adversarial N0 shortlist #2**.
 
@@ -9,6 +13,7 @@ formal_n0_verdict: null
 independent_auditor: null
 d0_verdict: null
 validation_authorized: false
+behavioral_verdict: HOLD-OPERATIONALIZATION-ARTIFACT
 ```
 
 ## Mother question
@@ -121,7 +126,7 @@ Scenario is the statistical unit. Multiple partitions from the same source scena
 ## Commands
 
 ```bash
-cd active/004_packed_unpacked_event_splitting
+cd archive/009_packed_unpacked_event_splitting
 python -m pip install -e '.[run,dev]'
 pytest -q
 

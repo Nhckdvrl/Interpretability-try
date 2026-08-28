@@ -1,0 +1,35 @@
+{
+  "model_repo": "google/gemma-3-12b-it",
+  "served_model": "gemma3-12b",
+  "revision": "96b6f1eccf38110c56df3a15bffe176da04bfd80",
+  "base_url": "http://127.0.0.1:8204",
+  "chat_template": "{{ bos_token }}\n{%- if messages[0]['role'] == 'system' -%}\n    {%- if messages[0]['content'] is string -%}\n        {%- set first_user_prefix = messages[0]['content'] + '\n\n' -%}\n    {%- else -%}\n        {%- set first_user_prefix = messages[0]['content'][0]['text'] + '\n\n' -%}\n    {%- endif -%}\n    {%- set loop_messages = messages[1:] -%}\n{%- else -%}\n    {%- set first_user_prefix = \"\" -%}\n    {%- set loop_messages = messages -%}\n{%- endif -%}\n{%- for message in loop_messages -%}\n    {%- if (message['role'] == 'user') != (loop.index0 % 2 == 0) -%}\n        {{ raise_exception(\"Conversation roles must alternate user/assistant/user/assistant/...\") }}\n    {%- endif -%}\n    {%- if (message['role'] == 'assistant') -%}\n        {%- set role = \"model\" -%}\n    {%- else -%}\n        {%- set role = message['role'] -%}\n    {%- endif -%}\n    {{ '<start_of_turn>' + role + '\n' + (first_user_prefix if loop.first else \"\") }}\n    {%- if message['content'] is string -%}\n        {{ message['content'] | trim }}\n    {%- elif message['content'] is iterable -%}\n        {%- for item in message['content'] -%}\n            {%- if item['type'] == 'image' -%}\n                {{ '<start_of_image>' }}\n            {%- elif item['type'] == 'text' -%}\n                {{ item['text'] | trim }}\n            {%- endif -%}\n        {%- endfor -%}\n    {%- else -%}\n        {{ raise_exception(\"Invalid content type\") }}\n    {%- endif -%}\n    {{ '<end_of_turn>\n' }}\n{%- endfor -%}\n{%- if add_generation_prompt -%}\n    {{'<start_of_turn>model\n'}}\n{%- endif -%}\n",
+  "thinking_disabled_when_supported": true,
+  "tokenization": {
+    "A": {
+      "prefix_preserved": true,
+      "continuation_token_count": 1,
+      "continuation_token_ids": [
+        236776
+      ],
+      "continuation_tokens": [
+        "A"
+      ]
+    },
+    "B": {
+      "prefix_preserved": true,
+      "continuation_token_count": 1,
+      "continuation_token_ids": [
+        236799
+      ],
+      "continuation_tokens": [
+        "B"
+      ]
+    }
+  },
+  "cached_repeat_max_probability_difference": 0.0,
+  "batch_1_vs_8_max_probability_difference": 2.068458044846011e-07,
+  "numerical_stability_tolerance": 1e-06,
+  "requests_checked": 2,
+  "pass": true
+}

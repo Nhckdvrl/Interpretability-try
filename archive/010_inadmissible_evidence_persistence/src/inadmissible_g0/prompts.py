@@ -2,6 +2,7 @@ from __future__ import annotations
 
 BINARY_ORDERS = ({"A":"target","B":"other"},{"A":"other","B":"target"})
 RECOGNITION_ORDERS = ({"A":"yes","B":"no"},{"A":"no","B":"yes"})
+POLARITY_ORDERS = BINARY_ORDERS
 VERDICT_TEMPLATES = (
     ("natural", "Which outcome is better supported by the case record?"),
     ("natural", "Considering the record as it now stands, which of the two outcomes has stronger support?"),
@@ -26,8 +27,14 @@ def recognition_prompt(case_facts: str, evidence: str, struck_ruling: str, exclu
              f"EVIDENCE PRESENTED:\n{evidence}\n\nRULING:\n{struck_ruling}\n\nEXCLUSION SCOPE:\n{exclusion_scope}")
     if probe=="inadmissible": question="Under the ruling, must this evidence be excluded from the verdict?"; truth="yes"
     elif probe=="scope": question="Does the stated exclusion scope apply to the verdict question being asked?"; truth="yes"
-    elif probe=="polarity": question="Ignoring admissibility, does the evidence favor the TARGET verdict rather than the OTHER verdict?"; truth="yes" if polarity=="supports_target" else "no"
+    elif probe=="polarity":
+        question="Ignoring admissibility, which outcome is supported by the content of this evidence?"
+        truth="target" if polarity=="supports_target" else "other"
     else: raise ValueError(probe)
-    opts="\n".join(f"{lab}. {'Yes' if sem=='yes' else 'No'}" for lab,sem in mapping.items())
+    if probe=="polarity":
+        text={"target":target_verdict,"other":other_verdict}
+        opts="\n".join(f"{lab}. {text[sem]}" for lab,sem in mapping.items())
+    else:
+        opts="\n".join(f"{lab}. {'Yes' if sem=='yes' else 'No'}" for lab,sem in mapping.items())
     correct=next(l for l,s in mapping.items() if s==truth)
     return f"{context}\n\n{question}\n{opts}\nAnswer exactly A or B.", correct
