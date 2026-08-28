@@ -20,6 +20,8 @@ def _semantic_probs(label_probs: dict[str, float], mapping: dict[str, str]) -> d
 def run(*, data_path: str, out_path: str, model_name: str, family: str,
         revision: str | None = None, dtype: str = "auto", size_b: float | None = None,
         sequence_batch_size: int = 64) -> None:
+    if size_b is None or size_b <= 0:
+        raise ValueError("size_b must be explicitly provided and > 0")
     scenarios = load_scenarios(data_path, require_external_source=True)
     scorer = HFChoiceScorer(model_name, revision=revision, dtype=dtype)
     requests: list[tuple[str, tuple[str, ...]]] = []; meta: list[dict[str, Any]] = []
@@ -54,7 +56,7 @@ def run(*, data_path: str, out_path: str, model_name: str, family: str,
                             left, right = ((s.packed_text, variant) if side_order == 0 else (variant, s.packed_text))
                             variant_side = "right" if side_order == 0 else "left"
                             for order_id, mapping in enumerate(LABEL_ORDERS):
-                                requests.append((comparison_prompt(left, right, instruction, mapping), ("A","B","C")))
+                                requests.append((comparison_prompt(left, right, instruction, mapping, readout), ("A","B","C")))
                                 meta.append({"kind":"judgment","scenario_id":s.scenario_id,"domain":s.domain,
                                     "partition_id":p.partition_id,"branch_count":p.branch_count,"branch_count_family":p.branch_count_family,
                                     "readout":readout,"template_id":template_id,"template_kind":template_kind,"condition":condition,
@@ -64,7 +66,7 @@ def run(*, data_path: str, out_path: str, model_name: str, family: str,
                             left, right = ((focal_text, alternative_text) if side_order == 0 else (alternative_text, focal_text))
                             focal_side = "left" if side_order == 0 else "right"
                             for order_id, mapping in enumerate(LABEL_ORDERS):
-                                requests.append((comparison_prompt(left, right, instruction, mapping), ("A","B","C")))
+                                requests.append((comparison_prompt(left, right, instruction, mapping, readout), ("A","B","C")))
                                 meta.append({"kind":"focal_alternative","scenario_id":s.scenario_id,"domain":s.domain,
                                     "partition_id":p.partition_id,"branch_count":p.branch_count,"branch_count_family":p.branch_count_family,
                                     "readout":readout,"template_id":template_id,"template_kind":template_kind,"condition":condition,
