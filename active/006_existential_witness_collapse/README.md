@@ -1,6 +1,6 @@
 # 006 — Existential Witness Collapse
 
-Status: `ACTIVE-PREFLIGHT / HARNESS-READY-r1 / NOT READY-TO-SMOKE`
+Status: `ACTIVE-PREFLIGHT / HARNESS-READY-r2 / NOT READY-TO-SMOKE`
 
 Canonical shortlist mapping: **2026-08-28 adversarial N0 shortlist #4**.
 
@@ -43,12 +43,14 @@ Every D0 scenario contains matched controls:
 
 - `unknown`: the two existential claims only;
 - `paraphrase`: equivalent natural wording;
-- `same_explicit`: the record explicitly says the same witness satisfies both properties;
-- `distinct_explicit`: the record explicitly says the witnesses are different;
+- `same_explicit`: the record explicitly establishes that one witness satisfies both properties;
+- `distinct_explicit`: the **complete relevant record explicitly blocks a shared witness**, e.g. states that no individual satisfies both / that the relevant P-witness and Q-witness sets are disjoint;
 - `neutral_control`: matched extra context that does not bear on identity;
 - `relation_reminder`: diagnostic reminder that separate existentials do not establish witness identity.
 
-The harness refuses to call an unknown-world error “witness collapse” unless the model also handles explicit-same and explicit-distinct controls correctly. This prevents ordinary quantifier incompetence from passing as the target phenotype.
+The explicit-distinct control is intentionally stronger than merely saying that two mentioned people are different. `A has P` and `B has Q` with `A != B` would still permit a third person `C` with both P and Q, so it is not a valid negative capability control. Formal D0 therefore requires `distinct_explicit_blocks_shared_gold: true`.
+
+The harness refuses to call an unknown-world error “witness collapse” unless the model also handles explicit-same and explicit-disjoint controls correctly. This prevents ordinary quantifier incompetence from passing as the target phenotype.
 
 ## Formal D0 record
 
@@ -63,15 +65,15 @@ The harness refuses to call an unknown-world error “witness collapse” unless
   "q_property": "inspected the power system",
   "shared_requirement": "The audit requires one technician who personally inspected both systems.",
   "decision_context": "A manager must decide whether that staffing fact is already confirmed.",
-  "same_witness_addendum": "The same technician performed both inspections.",
-  "distinct_witness_addendum": "Different technicians performed the two inspections.",
+  "same_witness_addendum": "The complete record explicitly states that one and the same technician performed both inspections.",
+  "distinct_witness_addendum": "The complete relevant staffing record states that no technician inspected both systems; the cooling- and power-inspection personnel sets are disjoint.",
   "neutral_addendum": "Both records were filed the same afternoon.",
   "p_exists_gold": true,
   "q_exists_gold": true,
   "shared_witness_not_entailed_gold": true,
   "identity_underdetermined_gold": true,
   "same_explicit_establishes_gold": true,
-  "distinct_explicit_does_not_establish_gold": true,
+  "distinct_explicit_blocks_shared_gold": true,
   "paraphrase_equivalent_gold": true,
   "neutral_control_equivalent_gold": true,
   "matched_base_gold": true,
@@ -100,7 +102,7 @@ unknown_vs_distinct = P(established | unknown) - P(established | distinct_explic
 reminder_rescue = P(established | unknown) - P(established | relation_reminder)
 ```
 
-A strong case requires a positive unknown and paraphrase margin, explicit-same/explicit-distinct control success, small neutral shift, and consistency across two natural wordings and both answer orders.
+A strong case requires a positive unknown and paraphrase margin, explicit-same/explicit-disjoint control success, small neutral shift, and consistency across two natural wordings and both answer orders.
 
 ## Hard kills / holds
 
@@ -112,17 +114,16 @@ A strong case requires a positive unknown and paraphrase margin, explicit-same/e
 
 ## No model call before authorization
 
-Unlike older harnesses, `run` reads the frozen config and raises `PermissionError` while `validation_authorized` is false. This is deliberate: registration and code completion do not bypass independent N0 + D0.
+`run` reads the frozen config and raises `PermissionError` while `validation_authorized` is false. Registration and code completion do not bypass independent N0 + D0.
 
 ```bash
 cd active/006_existential_witness_collapse
 python -m pip install -e '.[run,dev]'
 pytest -q
 
-# Safe before authorization: validates D0 structure only.
 existential-witness-run validate-data --data data/frozen_d0.jsonl
 
-# Formal model execution remains blocked until the authoritative gate is signed.
+# Blocked until the authoritative gate is signed.
 existential-witness-run run \
   --data data/frozen_d0.jsonl \
   --config configs/frozen_g0.json \
