@@ -51,6 +51,7 @@ def summarize(*, data_path: str, results_path: str, config_path: str,
     rows = read_jsonl(results_path)
     model, family, size_b, revision = _metadata(rows)
     cfg = json.loads(Path(config_path).read_text(encoding="utf-8"))
+    pcfg = cfg["model_pass"]
     grouped: dict[str, list[dict[str, Any]]] = defaultdict(list)
     seen: set[tuple[Any, ...]] = set()
 
@@ -77,6 +78,25 @@ def summarize(*, data_path: str, results_path: str, config_path: str,
     missing = set(by_id) - set(grouped)
     if missing:
         raise ValueError(f"missing results; first={sorted(missing)[:3]}")
+
+    raw_polarity_counts = {
+        pol: sum(s.evidence_polarity == pol for s in scenarios)
+        for pol in ("supports_target", "supports_other")
+    }
+    raw_neutral_coverage = sum(s.neutral_evidence_text is not None for s in scenarios) / len(scenarios)
+    raw_pair_ids: dict[str, list[Any]] = defaultdict(list)
+    for s in scenarios:
+        if s.polarity_pair_id is not None:
+            raw_pair_ids[s.polarity_pair_id].append(s)
+    raw_complete_pairs = sum(
+        len(ss) == 2 and {s.evidence_polarity for s in ss} == {"supports_target", "supports_other"}
+        for ss in raw_pair_ids.values()
+    )
+    d0_coverage_ok = (
+        all(raw_polarity_counts[p] >= pcfg["min_gated_per_polarity"] for p in raw_polarity_counts)
+        and raw_neutral_coverage >= pcfg["min_neutral_coverage"]
+        and raw_complete_pairs >= pcfg["min_polarity_pairs"]
+    )
 
     rec_cfg = cfg["recognition_gate"]
     cap_cfg = cfg["capability_gate"]
@@ -224,17 +244,14 @@ def summarize(*, data_path: str, results_path: str, config_path: str,
         pid: all(r["struck_directional_residual"] > 0 for r in rr)
         for pid, rr in complete_pairs.items()
     }
-    pair_direction_consistency = (
-        sum(pair_consistent.values()) / len(pair_consistent) if pair_consistent else 0.0
-    )
+    pair_direction_consistency = sum(pair_consistent.values()) / len(pair_consistent) if pair_consistent else 0.0
 
     positive_domains = sum(v["gated"] >= 2 and v["mean_struck_directional_residual"] > 0 for v in by_domain.values())
-    pcfg = cfg["model_pass"]
     aggregate = {
         "total_cases": len(cases), "gated_cases": len(gated),
         "mean_struck_directional_residual": mean(residuals) if residuals else math.nan,
         "bootstrap_95_ci": [ci_lo, ci_hi],
-        "mean_undo_ratio": mean(r["undo_ratio"] for r in gated if not math.isnan(r["undo_ratio"])) if gated else math.nan,
+        "mean_undo_ratio": mean([r["undo_ratio"] for r in gated if not math.isnan(r["undo_ratio"])]) if gated else math.nan,
         "strong_cases": sum(bool(r["strong"]) for r in gated),
         "strong_fraction": sum(bool(r["strong"]) for r in gated) / len(gated) if gated else 0.0,
         "positive_domains": positive_domains,
@@ -242,6 +259,9 @@ def summarize(*, data_path: str, results_path: str, config_path: str,
         "neutral_artifact_fraction": neutral_artifact_fraction,
         "complete_polarity_pairs": len(complete_pairs),
         "pair_direction_consistency": pair_direction_consistency,
+        "raw_polarity_counts": raw_polarity_counts,
+        "raw_neutral_coverage": raw_neutral_coverage,
+        "raw_complete_polarity_pairs": raw_complete_pairs,
     }
     polarity_pass = all(
         by_polarity[p]["gated"] >= pcfg["min_gated_per_polarity"]
@@ -258,7 +278,8 @@ def summarize(*, data_path: str, results_path: str, config_path: str,
         and pair_direction_consistency >= pcfg["min_pair_direction_consistency"]
     )
     model_pass = (
-        aggregate["gated_cases"] >= pcfg["min_gated_cases"]
+        d0_coverage_ok
+        and aggregate["gated_cases"] >= pcfg["min_gated_cases"]
         and aggregate["mean_struck_directional_residual"] >= pcfg["min_mean_struck_directional_residual"]
         and ci_lo >= pcfg["min_bootstrap_ci_lower"]
         and aggregate["strong_fraction"] >= pcfg["min_strong_fraction"]
@@ -268,10 +289,16 @@ def summarize(*, data_path: str, results_path: str, config_path: str,
         and pair_pass
     )
 
-    if aggregate["gated_cases"] >= pcfg["min_gated_cases"] and abs(aggregate["mean_struck_directional_residual"]) < 0.01:
+    if not d0_coverage_ok:
+        verdict = "HOLD-D0-COVERAGE"
+    elif aggregate["gated_cases"] < pcfg["min_gated_cases"]:
+        verdict = "FAIL-CAPABILITY-GATE"
+    elif abs(aggregate["mean_struck_directional_residual"]) < 0.01:
         verdict = "HARD-KILL-NO-PERSISTENCE"
-    elif aggregate["gated_cases"] >= pcfg["min_gated_cases"] and not polarity_pass:
+    elif not polarity_pass:
         verdict = "HARD-KILL-NO-BIDIRECTIONAL-PERSISTENCE"
+    elif not template_pass:
+        verdict = "HOLD-TEMPLATE-DEPENDENCE"
     elif not neutral_coverage_pass:
         verdict = "HOLD-INSUFFICIENT-NEUTRAL-CONTROLS"
     elif neutral_artifact_fraction > pcfg["max_neutral_artifact_fraction"]:
@@ -285,6 +312,7 @@ def summarize(*, data_path: str, results_path: str, config_path: str,
         "contract": "Inadmissible-Evidence Persistence",
         "model": model, "family": family, "size_b": size_b, "revision": revision,
         "model_pass": model_pass, "verdict": verdict,
+        "d0_coverage_ok": d0_coverage_ok,
         "aggregate": aggregate, "by_domain": by_domain,
         "by_polarity": by_polarity, "by_template": by_template,
         "polarity_pairs": {pid: {"consistent": pair_consistent[pid], "cases": [r["scenario_id"] for r in rr]} for pid, rr in complete_pairs.items()},
