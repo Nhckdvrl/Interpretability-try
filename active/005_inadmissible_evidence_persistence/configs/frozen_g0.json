@@ -1,10 +1,11 @@
 {
-  "contract_version": "2026-08-28-r3",
+  "contract_version": "2026-08-28-r4",
   "validation_authorized": false,
   "require_external_source": true,
   "recognition_gate": {"min_admissibility_probability": 0.8, "min_scope_probability": 0.75, "min_polarity_probability": 0.75},
   "capability_gate": {"min_admissible_directional_shift": 0.08},
-  "strong_case": {"min_struck_directional_residual": 0.05, "min_undo_ratio": 0.25, "max_neutral_struck_abs_shift": 0.05, "min_natural_variant_positive_fraction": 0.75},
+  "strong_case": {"min_struck_directional_residual": 0.05, "min_undo_ratio": 0.25, "max_neutral_struck_abs_shift": 0.05, "max_neutral_to_struck_ratio": 0.5, "min_natural_variant_positive_fraction": 0.75},
+  "paired_operator": {"min_gated_pairs": 10, "min_mean_struck_polarity_delta": 0.04, "min_bootstrap_ci_lower": 0.01},
   "model_pass": {"min_gated_cases": 20, "min_mean_struck_directional_residual": 0.035, "min_bootstrap_ci_lower": 0.01, "min_strong_fraction": 0.2, "min_positive_domains": 2, "max_neutral_artifact_fraction": 0.2, "min_gated_per_polarity": 5, "min_mean_residual_per_polarity": 0.02, "min_natural_variant_positive_fraction": 0.75},
   "panel_pass": {"smoke_min_independent_families": 2, "generality_min_independent_families": 3, "generality_panel_size": 5, "required_distinct_sizes_in_one_family": 3},
   "bootstrap_samples": 5000,
