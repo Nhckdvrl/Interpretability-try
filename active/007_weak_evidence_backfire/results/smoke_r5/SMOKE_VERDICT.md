@@ -1,14 +1,16 @@
 # 007 Weak-Evidence Backfire — frozen two-family smoke
 
 Date: 2026-08-29  
-Repository commit: `0ef5ee612ccb251f5ded2fe301487c925455405a`  
+Smoke execution commit: `0ef5ee612ccb251f5ded2fe301487c925455405a`; result is now preserved on merged `main` commit `230e176ab4bd969bf28291c753990055b753c6e8`.  
 Frozen D0 SHA256: `b1f6f88983b68e2764ff99964debd71a307dc0209c2cb9d2bb8f6d7484fd9792`  
 Environment: local `.venv-vllm`, Python 3.12.13, torch 2.13.0+cu130, transformers 5.16.1, dtype `bfloat16`, exact continuation log-probability scorer.  
 Model revisions resolved from the local Hugging Face cache: Qwen3-8B `b968826d9c46dd6066d109eabc6255188de91218`; Gemma3-12B-IT `96b6f1eccf38110c56df3a15bffe176da04bfd80`. The runner summaries record `revision=null` because the revision flag was omitted; the loaded local cache `refs/main` are the frozen revisions above.
 
 ## Execution and completeness
 
-`pytest -q`: **17 passed**. Frozen D0 materialized 25 scenarios and `validate-data` returned 25 validated scenarios. Both model raw outputs contain exactly **3800 lines** (`50 directions × 76 requests`), so the harness completed without result truncation.
+At the smoke commit, `pytest -q` was **17 passed**. Frozen D0 materialized 25 scenarios and `validate-data` returned 25 validated scenarios. Both model raw outputs contain exactly **3800 lines** (`50 directions × 76 requests`), so the harness completed without result truncation.
+
+After the smoke, a concurrent remote main commit (`3cbe5e2`) was merged and pushed. Its stricter validator makes six existing synthetic unit fixtures lack held-out LR metadata, and the current environment lacks the new builder's `sklearn` dependency; a post-merge `pytest -q` therefore reports **12 passed, 6 failed**. This is recorded as an engineering follow-up and does not change or invalidate the already completed raw smoke outputs or their frozen-D0 checksum.
 
 Raw audit: [raw_case_audit.md](raw_case_audit.md)
 
@@ -47,4 +49,3 @@ Do not run N1, mechanism work, or an expanded panel for 007 from this result. Pr
 ## 012 and 013 scope
 
 No model calls were made for 012 or 013 in this round. 012 remains `D0-AUDITING` pending a frozen, task-disjoint natural source set and manual audit; 013 remains `HOLD-D0`.
-
