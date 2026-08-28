@@ -5,7 +5,7 @@ from typing import Any
 import json
 
 REQUIRED_SOURCE_KEYS=("dataset","record_id","license","split")
-REQUIRED_TRUE_GOLD=("p_exists_gold","q_exists_gold","shared_witness_not_entailed_gold","identity_underdetermined_gold","same_explicit_establishes_gold","distinct_explicit_does_not_establish_gold","paraphrase_equivalent_gold","neutral_control_equivalent_gold","matched_base_gold","natural_setting_gold")
+REQUIRED_TRUE_GOLD=("p_exists_gold","q_exists_gold","shared_witness_not_entailed_gold","identity_underdetermined_gold","same_explicit_establishes_gold","distinct_explicit_blocks_shared_gold","paraphrase_equivalent_gold","neutral_control_equivalent_gold","matched_base_gold","natural_setting_gold")
 @dataclass(frozen=True)
 class Scenario:
     scenario_id:str;domain:str;premise_p:str;premise_q:str;premise_paraphrase:str;p_property:str;q_property:str;shared_requirement:str;decision_context:str;same_witness_addendum:str;distinct_witness_addendum:str;neutral_addendum:str;source:dict[str,Any]
