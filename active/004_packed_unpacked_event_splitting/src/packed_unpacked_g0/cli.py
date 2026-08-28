@@ -33,6 +33,7 @@ def main() -> None:
             args.summary,
             smoke_min_families=cfg["smoke_min_independent_families"],
             generality_min_families=cfg["generality_min_independent_families"],
+            generality_panel_size=cfg["generality_panel_size"],
             required_distinct_sizes_in_one_family=cfg["required_distinct_sizes_in_one_family"],
         )
         if args.out:
