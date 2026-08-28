@@ -12,7 +12,7 @@ def main() -> None:
     r = sub.add_parser("run")
     r.add_argument("--data", required=True); r.add_argument("--out", required=True)
     r.add_argument("--model", required=True); r.add_argument("--family", required=True); r.add_argument("--revision")
-    r.add_argument("--dtype", default="auto"); r.add_argument("--size-b", type=float); r.add_argument("--batch-size", type=int, default=64)
+    r.add_argument("--dtype", default="auto"); r.add_argument("--size-b", type=float, required=True); r.add_argument("--batch-size", type=int, default=64)
     s = sub.add_parser("summarize")
     s.add_argument("--data", required=True); s.add_argument("--results", required=True)
     s.add_argument("--config", required=True); s.add_argument("--out")
@@ -33,6 +33,7 @@ def main() -> None:
             args.summary,
             smoke_min_families=cfg["smoke_min_independent_families"],
             generality_min_families=cfg["generality_min_independent_families"],
+            generality_panel_size=cfg["generality_panel_size"],
             required_distinct_sizes_in_one_family=cfg["required_distinct_sizes_in_one_family"],
         )
         if args.out:
