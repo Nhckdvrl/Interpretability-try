@@ -1,6 +1,6 @@
 # 005 — Inadmissible-Evidence Persistence
 
-Status: `ACTIVE-PREFLIGHT / HARNESS-READY-r3 / NOT READY-TO-SMOKE`
+Status: `ACTIVE-PREFLIGHT / HARNESS-READY-r4 / NOT READY-TO-SMOKE`
 
 Canonical shortlist mapping: **2026-08-28 adversarial N0 shortlist #5**.
 
@@ -31,37 +31,34 @@ struck_residual = s * [P(target | struck) - P(target | never_seen)]
 undo_ratio = struck_residual / admitted_shift
 ```
 
-A target case therefore requires both a real admitted update and a positive residual after exclusion; otherwise it is not evidence of failed counterfactual undo.
+The original UDH-11 contract adds an essential causal check: the **same base case** must be paired with inadmissible evidence that is content-swapped from supporting TARGET to supporting OTHER. If struck content still causally votes, the final verdict should move with that swap despite the admissibility mask.
 
-## Why r3 exists
+## r4 fixes
 
-r3 closes the remaining logic holes in the earlier harness:
-
-- the polarity-recognition question now explicitly defines the **TARGET** and **OTHER** verdicts. Previously the probe asked which side the evidence favored without actually telling the model what those labels denoted;
-- D0 must freeze not only exclusion status but also the admitted condition, evidence polarity, exclusion scope, never-seen baseline, neutral-control matching and neutral-ruling matching;
-- the primary verdict behavior is measured with **two neutral natural phrasings**, while the explicit “apply the rule” wording remains a rescue diagnostic;
-- a case/model cannot pass because one answer order or one natural wording drives the entire result: residual direction is audited separately for every natural-template × answer-order cell;
-- the generality panel is locked to **Qwen, Gemma, Phi, Llama, Mistral**; arbitrary extra family names do not count toward the repository’s 3/5 contract.
+- TARGET and OTHER are explicitly defined in the polarity-recognition prompt.
+- Formal D0 requires a `polarity_pair_id`; every pair contains exactly one `supports_target` and one `supports_other` record with the same base facts, verdict definitions, rulings, scope, and neutral control.
+- Model promotion requires a paired content-swap signature, not merely positive pooled residuals from unrelated pro-target/pro-other cases.
+- Neutral struck material must be small both absolutely and relative to the target residual, so a comparable generic context/salience shift cannot pass.
+- Two neutral natural verdict phrasings and both answer orders remain primary robustness checks; explicit rule reminder remains diagnostic only.
+- Panel promotion counts only frozen Qwen/Gemma/Phi/Llama/Mistral families and only summaries whose verdict is actually `PASS-TO-PANEL`.
 
 ## Formal D0 contract
 
 ```json
 {
-  "scenario_id": "...",
+  "scenario_id": "case:17:pro-target",
+  "polarity_pair_id": "case:17",
   "domain": "legal",
-  "case_facts": "...",
-  "evidence_text": "...",
+  "case_facts": "...same in both pair members...",
+  "evidence_text": "...inadmissible content supporting TARGET...",
   "evidence_polarity": "supports_target",
   "target_verdict": "...",
   "other_verdict": "...",
-
-  "admissible_ruling": "...",
-  "struck_ruling": "...",
-  "exclusion_scope": "...",
-
-  "neutral_evidence_text": "...",
-  "neutral_struck_ruling": "...",
-
+  "admissible_ruling": "...same in both pair members...",
+  "struck_ruling": "...same in both pair members...",
+  "exclusion_scope": "...same in both pair members...",
+  "neutral_evidence_text": "...same matched neutral content...",
+  "neutral_struck_ruling": "...same...",
   "admitted_gold": true,
   "struck_gold": true,
   "must_ignore_for_verdict_gold": true,
@@ -71,60 +68,42 @@ r3 closes the remaining logic holes in the earlier harness:
   "neutral_evidence_gold": true,
   "neutral_control_matched_gold": true,
   "neutral_ruling_matched_gold": true,
-
+  "content_swap_gold": true,
+  "matched_base_gold": true,
   "source": {
     "dataset": "...",
     "record_id": "...",
     "split": "...",
     "license": "...",
     "url": "...",
-    "provenance": "external"
+    "provenance": "external-derived"
   }
 }
 ```
 
-Interpretation of the additional D0 gold:
-
-- `admitted_gold`: the evidence is genuinely usable in the admitted world;
-- `evidence_polarity_gold`: an independent audit verifies the evidence favors the stated target/other side;
-- `exclusion_scope_gold`: the exclusion really applies to the verdict being scored;
-- `baseline_excludes_evidence_gold`: the never-seen condition contains none of the disputed evidence or a semantic duplicate;
-- `neutral_control_matched_gold`: the neutral evidence is matched closely enough in presentation/salience to diagnose generic context effects;
-- `neutral_ruling_matched_gold`: the neutral struck ruling has equivalent exclusion force/scope rather than being a weaker instruction.
-
-Formal G0 rejects custom-only provenance. Both `supports_target` and `supports_other` must be represented.
+Each `polarity_pair_id` must occur exactly twice. The loader enforces matching base fields and opposite evidence polarity. The content swap may be an audited transformation derived from public data, but the underlying case/rule/gold must remain externally anchored.
 
 ## What the harness tests
 
-### Recognition gate
+The recognition gate checks inadmissibility, scope, and evidence polarity with reversed labels. The admitted world is a sensitivity gate: if the evidence does not move the model in the audited direction when admissible, the example cannot diagnose failed undo.
 
-The model must separately recognize:
+Natural `never_seen / admitted / struck / neutral_struck` judgments are scored with exact continuation probability across two natural phrasings and both answer orders. Rule-reminder responses are kept separate as a rescue diagnostic.
 
-- the evidence is excluded from the verdict;
-- the supplied exclusion scope applies to the verdict question;
-- ignoring admissibility, the evidence favors the D0-audited side.
+For a matched polarity pair:
 
-TARGET and OTHER verdicts are printed explicitly in this probe. Each binary probe uses both A/B label orders.
+```text
+admitted_polarity_delta =
+    P(target | admitted, pro-target evidence)
+  - P(target | admitted, pro-other evidence)
 
-### Natural three-world behavior
+struck_polarity_delta =
+    P(target | struck, pro-target evidence)
+  - P(target | struck, pro-other evidence)
+```
 
-Two neutral natural verdict questions are run over `never_seen`, `admitted`, `struck` and `neutral_struck`. Both answer-label orders are used.
+The first confirms that the swapped content has real directional force when admissible. The second is the decisive UDH-11 operator: if it remains positive after both evidence items are correctly struck, inadmissible content is still influencing the verdict accumulator. Formal model pass requires enough gated matched pairs and a positive paired bootstrap lower bound.
 
-The admitted condition is a sensitivity gate: if admitted evidence does not move the model in the audited direction, the example cannot diagnose whether striking evidence successfully undoes an update.
-
-For every natural-template × answer-order cell, the struck residual is retained. Strong cases and model pass require a high fraction of those cells to move in the same target direction, preventing one prompt/label slice from creating a pooled false positive.
-
-### Explicit-rule rescue
-
-A separate template explicitly tells the model to apply the evidentiary ruling first. Its residual is not mixed into the primary phenotype. `rule_reminder_rescue` asks whether explicit rule salience restores the counterfactual undo behavior.
-
-### Neutral struck control
-
-A matched neutral piece of excluded material is required. If neutral struck material produces comparable movement away from the never-seen state, the result is better explained as generic context/salience persistence.
-
-### Polarity symmetry
-
-Supports-target and supports-other cases are aggregated separately. Formal model pass requires sufficient gated examples and a positive mean residual in **both** directions. One-sided persistence becomes `HOLD-POLARITY-ASYMMETRY`, not a pooled pass.
+Supports-target and supports-other cases are still audited separately. One-sided persistence is `HOLD-POLARITY-ASYMMETRY`. Comparable neutral movement is `HOLD-GENERIC-SALIENCE-ARTIFACT`. Failing the paired operator after enough pairs is `FAIL-PAIRED-CONTENT-SWAP`.
 
 ## Commands
 
@@ -148,8 +127,4 @@ inadmissible-evidence-run summarize \
   --out results/qwen3_8b.summary.json
 ```
 
-Formal dispatch remains controlled by `phenomenon_miner/candidate_pool/AUDIT_REGISTRY.md`. Exploratory local results must not be relabeled `READY-TO-SMOKE` without independent N0 + D0 sign-off.
-
-## Kill / hold interpretation
-
-Kill/route if the residual vanishes after recognition gating, admitted evidence has no directional effect, neutral struck material moves the verdict comparably, or the behavior does not survive cross-family validation. Hold rather than pass when only one evidence polarity survives or when the effect depends on one natural wording/answer order. No probe/patching/SAE sweep should precede the behavioral/generalization gates.
+Formal dispatch remains controlled by `phenomenon_miner/candidate_pool/AUDIT_REGISTRY.md`; exploratory local runs must not be relabeled formal G0 without independent N0 + D0 sign-off.
