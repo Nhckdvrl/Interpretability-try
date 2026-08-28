@@ -44,20 +44,38 @@ def main() -> None:
         rows = load_scenarios(args.data, require_external_source=True)
         print(json.dumps({"validated_scenarios": len(rows)}, indent=2))
     elif args.cmd == "run":
-        run(data_path=args.data, out_path=args.out, config_path=args.config, model_name=args.model,
-            family=args.family, revision=args.revision, dtype=args.dtype, size_b=args.size_b,
-            sequence_batch_size=args.batch_size)
+        run(
+            data_path=args.data,
+            out_path=args.out,
+            config_path=args.config,
+            model_name=args.model,
+            family=args.family,
+            revision=args.revision,
+            dtype=args.dtype,
+            size_b=args.size_b,
+            sequence_batch_size=args.batch_size,
+        )
     elif args.cmd == "summarize":
-        result = summarize(data_path=args.data, results_path=args.results, config_path=args.config, out_path=args.out)
+        result = summarize(
+            data_path=args.data,
+            results_path=args.results,
+            config_path=args.config,
+            out_path=args.out,
+        )
         print(json.dumps({k: result[k] for k in ("model_pass", "verdict", "aggregate")}, indent=2, allow_nan=True))
     else:
         cfg = json.loads(Path(args.config).read_text(encoding="utf-8"))["panel_pass"]
-        result = evaluate_panel(args.summary,
+        result = evaluate_panel(
+            args.summary,
             smoke_min_families=cfg["smoke_min_independent_families"],
             generality_min_families=cfg["generality_min_independent_families"],
             generality_panel_size=cfg["generality_panel_size"],
-            required_distinct_sizes_in_one_family=cfg["required_distinct_sizes_in_one_family"])
-        if args.out: Path(args.out).write_text(json.dumps(result, indent=2), encoding="utf-8")
+            required_distinct_sizes_in_one_family=cfg["required_distinct_sizes_in_one_family"],
+        )
+        if args.out:
+            Path(args.out).write_text(json.dumps(result, indent=2), encoding="utf-8")
         print(json.dumps(result, indent=2))
 
-if __name__ == "__main__": main()
+
+if __name__ == "__main__":
+    main()
