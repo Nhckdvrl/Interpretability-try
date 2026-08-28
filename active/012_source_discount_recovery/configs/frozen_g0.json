@@ -1,0 +1,57 @@
+{
+  "contract_version": "2026-08-29-r1",
+  "validation_authorized": false,
+  "require_external_source": true,
+  "support_gate": {
+    "min_low_positive_probability": 0.8,
+    "min_high_positive_probability": 0.8,
+    "min_high_gt_low_probability": 0.75,
+    "min_probe_variant_probability": 0.65
+  },
+  "memory_gate": {
+    "min_mean_probe_probability": 0.8,
+    "min_probe_variant_probability": 0.65
+  },
+  "strong_case": {
+    "min_belief_initial_discount_gap": 0.05,
+    "min_action_initial_discount_gap": 0.04,
+    "min_belief_low_rebound": 0.04,
+    "min_action_low_rebound": 0.03,
+    "min_belief_gap_shrink": 0.04,
+    "min_action_gap_shrink": 0.03,
+    "min_high_source_retention_fraction": 0.6,
+    "min_belief_reinstatement_gain": 0.03,
+    "min_action_reinstatement_gain": 0.02,
+    "min_belief_selective_reinstatement": 0.025,
+    "min_action_selective_reinstatement": 0.015,
+    "max_matched_length_gap_change": 0.025,
+    "max_no_message_baseline_drift": 0.08,
+    "min_variant_signature_fraction": 0.75,
+    "min_belief_low_initial_influence": 0.02,
+    "min_belief_high_initial_influence": 0.08,
+    "min_action_low_initial_influence": 0.015,
+    "min_action_high_initial_influence": 0.06
+  },
+  "model_pass": {
+    "min_support_gated_fraction": 0.5,
+    "min_memory_gated_fraction": 0.5,
+    "min_weighting_capable_fraction": 0.4,
+    "min_weighting_capable_pairs": 20,
+    "min_strong_pair_fraction": 0.2,
+    "min_mean_gap_shrink": 0.025,
+    "min_gap_shrink_ci_lower": 0.005,
+    "min_recovery_pair_fraction": 0.5,
+    "min_reinstatement_pair_fraction": 0.5,
+    "max_generic_delay_failure_fraction": 0.25,
+    "min_positive_domains": 2,
+    "no_effect_gap_shrink": 0.01
+  },
+  "panel_pass": {
+    "smoke_min_independent_families": 2,
+    "generality_min_independent_families": 3,
+    "generality_panel_size": 5,
+    "required_distinct_sizes_in_one_family": 3
+  },
+  "bootstrap_samples": 5000,
+  "seed": 20260829
+}
