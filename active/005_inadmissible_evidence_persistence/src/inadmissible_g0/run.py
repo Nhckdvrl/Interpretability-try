@@ -32,7 +32,10 @@ def run(*, data_path: str, out_path: str, model_name: str, family: str, size_b: 
         )
         for probe in ("inadmissible", "scope", "polarity"):
             for order_id, mapping in enumerate(RECOGNITION_ORDERS):
-                prompt, correct = recognition_prompt(struck_context, probe, mapping, s.evidence_polarity)
+                prompt, correct = recognition_prompt(
+                    struck_context, s.target_verdict, s.other_verdict,
+                    probe, mapping, s.evidence_polarity,
+                )
                 requests.append((prompt, ("A", "B")))
                 meta.append({
                     "kind": "recognition", "scenario_id": s.scenario_id, "domain": s.domain,
