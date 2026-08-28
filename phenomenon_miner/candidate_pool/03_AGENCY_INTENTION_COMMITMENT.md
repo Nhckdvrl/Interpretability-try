@@ -195,3 +195,17 @@
 | 6 | AIC-06 evaluates-dead-end/chooses-it | verifier-policy机制很干净 | representation-use母现象过宽 |
 
 AIC-08、AIC-12 只有观察到专属 veto/commit-boundary signature 才能摆脱已有工具和goal-shift论文。
+
+---
+
+## Batch-2 脑暴死亡回填（2026-08-28）
+
+完整账本：[`BATCH2_BRAINSTORM_LEDGER_2026-08-28.md`](BATCH2_BRAINSTORM_LEDGER_2026-08-28.md)。
+
+| 本批主题 | 裁决 | 领域内理由 |
+|---|---|---|
+| **Deontic / free-choice inference（宽版本）** | `NOT-ADDED / MOTHER-OCCUPIED` | may/should/must、许可→义务与条件义务已经是本文件 AIC-07/AIC-10 的母区；只搬一个经典 deontic/free-choice puzzle 不构成新的 operator。 |
+| **Generic delegation confusion** | `ROUTE AIC-09 / F2` | physical actor、causer、responsible party 的分离已在 AIC-09；换成 manager/agent/tool 委托不另建题。 |
+| **Prospective intention / reminder（若只是“以后记得做”）** | `NOT-ADDED` | 若没有独立 temporal trigger/operator，容易退化成 goal memory/state tracking；不占第二批十强。 |
+
+**禁止复活。** 新 proposal 若只是把 `permission/obligation` 或 `delegation` 换成法律、工具、机器人 setting，继续 ROUTE；必须给出本文件现有卡无法预测的错误形状才可重开。
