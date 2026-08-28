@@ -8,13 +8,17 @@ from .prompts import (
     ACTION_ORDERS,
     CONDITIONS,
     DOWNSTREAM_TEMPLATES,
-    YES_NO_ORDERS,
+    SEMANTIC_ORDERS,
     condition_text,
     downstream_prompt,
     recognition_prompt,
 )
 from .scoring import HFChoiceScorer
 
+# Probe ids are kept stable for downstream summaries. In r3, the two identity probes
+# are semantic forced choices rather than Yes/No questions:
+# - shared_entailment: sameness is not established;
+# - identity_determined: distinctness is not established.
 RECOGNITION_PROBES = ("p_exists", "q_exists", "shared_entailment", "identity_determined")
 
 
@@ -49,7 +53,7 @@ def run(*, data_path: str, out_path: str, config_path: str, model_name: str, fam
 
     for scenario in scenarios:
         for probe in RECOGNITION_PROBES:
-            for order_id, mapping in enumerate(YES_NO_ORDERS):
+            for order_id, mapping in enumerate(SEMANTIC_ORDERS):
                 prompt, correct_label = recognition_prompt(
                     premise_p=scenario.premise_p,
                     premise_q=scenario.premise_q,
