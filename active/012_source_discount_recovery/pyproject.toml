@@ -11,7 +11,8 @@ dependencies = []
 
 [project.optional-dependencies]
 run = ["torch>=2.4", "transformers>=4.48"]
-dev = ["pytest>=8"]
+d0 = ["numpy>=1.26", "pandas>=2.1"]
+dev = ["pytest>=8", "numpy>=1.26", "pandas>=2.1"]
 
 [project.scripts]
 source-discount-run = "source_discount_g0.cli:main"

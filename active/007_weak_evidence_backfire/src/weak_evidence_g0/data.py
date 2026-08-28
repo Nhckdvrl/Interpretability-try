@@ -5,6 +5,7 @@ from pathlib import Path
 from typing import Any
 import json
 import re
+import math
 
 REQUIRED_SOURCE_KEYS = ("dataset", "record_id", "license", "split")
 REQUIRED_TRUE = (
@@ -72,8 +73,8 @@ def _f(value: Any, name: str) -> float:
         result = float(value)
     except (TypeError, ValueError) as exc:
         raise ValueError(f"{name} must be numeric") from exc
-    if not result > 0:
-        raise ValueError(f"{name} must be > 0")
+    if not math.isfinite(result) or not result > 0:
+        raise ValueError(f"{name} must be finite and > 0")
     return result
 
 
@@ -137,6 +138,9 @@ def validate_record(row: dict[str, Any], *, require_external_source: bool = True
         "weak_target_lr_validation", "strong_target_lr_validation",
         "weak_other_lr_validation", "strong_other_lr_validation", "neutral_lr_validation",
     )
+    if require_external_source and not all(key in source for key in heldout_keys):
+        missing = [key for key in heldout_keys if key not in source]
+        raise ValueError(f"{sid}: formal external D0 requires complete held-out LR metadata: {missing}")
     if any(key in source for key in heldout_keys):
         missing = [key for key in heldout_keys if key not in source]
         if missing:

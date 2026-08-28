@@ -16,14 +16,8 @@ READOUT_TEMPLATES = (
     ("action", "Given only the information above, which action should be preferred?"),
 )
 CONDITIONS = (
-    "no_evidence",
-    "weak",
-    "strong",
-    "neutral",
-    "no_evidence_complete",
-    "weak_complete",
-    "no_evidence_length",
-    "weak_length",
+    "no_evidence", "weak", "strong", "neutral",
+    "no_evidence_complete", "weak_complete", "no_evidence_length", "weak_length",
 )
 
 
@@ -50,9 +44,6 @@ def condition_text(scenario, *, direction: str, condition: str) -> str:
     else:
         protocol = None
     base = base_text(scenario.background, scenario.calibration_text, protocol)
-
-    # The no-evidence baseline must literally contain no case-specific evidence.
-    # Saying "no cue was observed" would itself be negative evidence and can create a fake sign reversal.
     if condition in {"no_evidence", "no_evidence_complete", "no_evidence_length"}:
         return base
     if condition in {"weak", "weak_complete", "weak_length"}:
@@ -82,19 +73,21 @@ def support_prompt(*, base: str, weak_evidence: str, strong_evidence: str, neutr
         evidence_block = f"OBSERVATION:\n{strong_evidence}"
         question = f"Does this observation provide genuine positive evidence for {focal_hypothesis}?"
     elif probe == "strong_gt_weak":
-        evidence_block = f"WEAK-CANDIDATE OBSERVATION:\n{weak_evidence}\n\nSTRONG-CANDIDATE OBSERVATION:\n{strong_evidence}"
-        question = f"According to the calibration, is the STRONG-CANDIDATE observation more diagnostic in favor of {focal_hypothesis} than the WEAK-CANDIDATE observation?"
+        evidence_block = f"OBSERVATION 1:\n{weak_evidence}\n\nOBSERVATION 2:\n{strong_evidence}"
+        question = f"According to the stated calibration, is OBSERVATION 2 more diagnostic in favor of {focal_hypothesis} than OBSERVATION 1?"
     elif probe == "neutral_non_support":
         evidence_block = f"OBSERVATION:\n{neutral_evidence}"
-        question = f"According to the calibration, is this observation non-diagnostic between {focal_hypothesis} and {other_hypothesis}?"
+        question = (
+            f"According to the stated calibration, is this observation approximately non-diagnostic between "
+            f"{focal_hypothesis} and {other_hypothesis}, with nearly equal class-conditional rates?"
+        )
     else:
         raise ValueError(probe)
     options = "\n".join(f"{lab}. {'Yes' if sem == 'yes' else 'No'}" for lab, sem in mapping.items())
     correct = next(lab for lab, sem in mapping.items() if sem == "yes")
     return (
         f"{base}\n\nFOCAL HYPOTHESIS: {focal_hypothesis}\nOTHER HYPOTHESIS: {other_hypothesis}\n\n"
-        f"{evidence_block}\n\n{question}\n{options}\nAnswer exactly A or B.",
-        correct,
+        f"{evidence_block}\n\n{question}\n{options}\nAnswer exactly A or B.", correct,
     )
 
 

@@ -8,50 +8,49 @@ Canonical shortlist mapping: **2026-08-28 adversarial N0 shortlist #10**.
 formal_n0_verdict: PASS
 n0_basis: 2026-08-28 adversarial N0 accepted by project resolution 2026-08-29
 d0_verdict: PASS
-d0_items: 25
+d0_items: 30
 manual_audit: 20/20 PASS
+frozen_data_sha256: d3ef047882a49b05993f3c00c222e9d922faface3339c4161016594016c4877a
 validation_authorized: true
 ```
 
-The historical 2026-08-29 duplicate independent audit that marked this project `KILLED-COLLISION` is retained for provenance but is superseded by [`N0_RESOLUTION_2026-08-29.md`](N0_RESOLUTION_2026-08-29.md). A known human weak-evidence effect is the natural mother phenomenon, not by itself an LLM collision.
+The historical 2026-08-29 duplicate N0 that killed this project because the human weak-evidence effect is known is retained for provenance but superseded by [`N0_RESOLUTION_2026-08-29.md`](N0_RESOLUTION_2026-08-29.md). In this project, a human/natural mother phenomenon is an anchor; collision means the same LLM phenotype/decisive contrast is already established.
 
-## Mother question
-
-Can a model correctly recognize a cue as genuine positive evidence for a hypothesis, yet integrate it with the wrong sign in downstream belief and action?
+## Target contradiction
 
 ```text
-E supports H
-but P_model(H | E) < P_model(H | same background, no E)
+model recognizes E as genuine positive evidence for H
+strong evidence is used in the correct direction
+but adding weak E makes model preference for H fall below the matched no-evidence baseline
 ```
 
-A valid case must pass support/likelihood gates, ordinary strong-evidence use, neutral non-diagnosticity, pragmatic-completeness, matched-length controls, both evidence directions, and both belief/action readouts. The two directions of one natural scenario are one statistical unit.
+A valid case must survive both evidence directions, belief and consequential-action readouts, neutral control, pragmatic-completeness, length control, and scenario-level paired statistics.
 
-## Frozen natural D0
+## Frozen D0
 
-See [`D0_AUDIT.md`](D0_AUDIT.md). The exact signed JSONL is deterministically materialized by `data/materialize_frozen_d0.py` and checksum-verified before use.
+See [`D0_AUDIT.md`](D0_AUDIT.md).
 
-- 25 natural feature-level scenarios;
-- 15 from UCI Breast Cancer Wisconsin (Diagnostic), DOI `10.24432/C5DW2B`;
-- 10 from UCI Wine, DOI `10.24432/C5PC7J`;
-- both source datasets are CC BY 4.0;
-- fixed stratified 60/40 calibration/held-out split, seed `20260829`;
-- thresholds selected only on calibration rows;
-- weak/strong direction and ordering must reproduce on held-out rows;
-- fixed random manual audit: 20/20 PASS.
+- 30 natural scenarios: 20 Breast Cancer Wisconsin Diagnostic + 10 Wine;
+- external CC BY 4.0 sources with frozen DOI/provenance;
+- fixed class-wise 60/40 calibration/validation split, seed `20260829`;
+- exact model-visible thresholds reproduce source counts and Jeffreys-smoothed LR byte-for-byte;
+- weak/strong ordering and a 20% diagnosticity margin survive held-out rows;
+- real near-neutral controls are stable in both splits;
+- fixed 20-row manual audit: 20/20 PASS.
 
-The r5 data contract fixes one important r4 problem: real finite data are not required to produce an empirical `neutral_lr` exactly equal to 1. A neutral cue must instead be a real cue from the same source data with LR in `[0.90, 1.10]` on both calibration and held-out partitions. The frozen data are substantially tighter than this bound.
+The r5 audit also removes an answer leak in the old `strong_gt_weak` capability probe: model-visible alternatives are now `OBSERVATION 1/2`, not `WEAK/STRONG-CANDIDATE`.
 
 ## Execution
 
-The runner is now authorized for the frozen smoke. Do not change thresholds, controls, prompts, D0 rows, or promotion criteria after seeing model output.
+The runner is authorized only for this frozen D0/config. Do not tune cases, thresholds, prompts or gates after reading model output.
 
 ```bash
 cd active/007_weak_evidence_backfire
 python -m pip install -e '.[dev,run]'
+python data/build_frozen_d0.py --out data/frozen_d0.jsonl
+python data/verify_frozen_d0.py data/frozen_d0.jsonl
 pytest -q
-python data/materialize_frozen_d0.py
 weak-evidence-run validate-data --data data/frozen_d0.jsonl
-# then run the frozen 30–50-case/two-family smoke using the existing CLI/config
 ```
 
-A smoke result still requires raw-case audit and N1 before any generality or mechanism claim.
+Then run the two-family smoke. A positive smoke still requires raw-case/scorer/capability/artifact audit and N1 before expansion or mechanism work.

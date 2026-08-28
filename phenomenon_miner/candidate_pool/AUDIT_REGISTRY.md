@@ -7,7 +7,7 @@
 
 **当前 `READY-TO-SMOKE`：1 — `active/007_weak_evidence_backfire`.**
 
-- 007：`N0-PASS / D0-PASS / READY-TO-SMOKE`，25 个 frozen natural scenarios，20/20 manual audit，`validation_authorized: true`。
+- 007：`N0-PASS / D0-PASS / READY-TO-SMOKE`，30 个 frozen natural scenarios，20/20 manual audit，`validation_authorized: true`。
 - 012：`N0-PASS / D0-AUDITING / NOT READY-TO-SMOKE`，真实 source pool 与 builder 已就绪，但 frozen worker pairs 尚未 materialize/人工签署。
 - 013：`N0-PASS / HOLD-D0 / NOT READY-TO-SMOKE`，强自然 anchor 已找到，但独立 scenario 数量与 adaptation/license 条件不足。
 
@@ -44,10 +44,10 @@ active/007_weak_evidence_backfire:
   formal_n0_verdict: PASS
   n0_basis: 2026-08-28 adversarial audit accepted by project resolution 2026-08-29
   d0_verdict: PASS
-  d0_items: 25
+  d0_items: 30
   d0_domains: 2
   manual_audit: 20/20 PASS
-  frozen_data_sha256: b1f6f88983b68e2764ff99964debd71a307dc0209c2cb9d2bb8f6d7484fd9792
+  frozen_data_sha256: d3ef047882a49b05993f3c00c222e9d922faface3339c4161016594016c4877a
   validation_authorized: true
 
 active/012_source_discount_recovery:
