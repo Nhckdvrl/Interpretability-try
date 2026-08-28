@@ -9,7 +9,7 @@
 
 006 Existential Witness Collapse 已完成冻结 two-family smoke，并因 `HARD-KILL-NO-ILLEGAL-JOIN` 终止；现已完整归档到 `archive/011_existential_witness_collapse`，其 `validation_authorized` 为 false。
 
-007 / 012 / 013 已有 behavioral harness，但都仍处于 `ACTIVE-PREFLIGHT`。未同时具备独立 N0、D0 和 `validation_authorized: true` 的候选一律不运行。
+007 / 012 已在独立 N0 中发现 discovery collision 并终止；013 通过独立 N0 但因 natural D0 缺失保持 `D0-HOLD`。三者均未获得模型运行授权。
 
 ## 保留的审计
 
@@ -61,14 +61,14 @@ Existential Witness Collapse 曾完成 fresh independent N0 与 natural D0，但
 |---:|---|---|---|---|
 | 1 | First-Negative-Evidence Harm | `ADVERSARIAL-N0-SURVIVOR` | — | false |
 | 2 | Packed–Unpacked Event Splitting | `ARCHIVED / HOLD-OPERATIONALIZATION-ARTIFACT` | [`archive/009_packed_unpacked_event_splitting`](../../archive/009_packed_unpacked_event_splitting/) | false |
-| 3 | Publicness–Coordination Dissociation (SEC-01 narrow contract) | `ADVERSARIAL-N0-SURVIVOR / ACTIVE-PREFLIGHT / HARNESS-READY` | [`active/013_publicness_coordination_dissociation`](../../active/013_publicness_coordination_dissociation/) | false |
+| 3 | Publicness–Coordination Dissociation (SEC-01 narrow contract) | `N0-PASS / D0-HOLD / ACTIVE-PREFLIGHT` | [`active/013_publicness_coordination_dissociation`](../../active/013_publicness_coordination_dissociation/) | false |
 | 4 | Existential Witness Collapse (RVC-04 narrow contract) | `ARCHIVED / TERMINAL-KILLED / HARD-KILL-NO-ILLEGAL-JOIN` | [`archive/011_existential_witness_collapse`](../../archive/011_existential_witness_collapse/) | false |
 | 5 | Inadmissible-Evidence Persistence (UDH-11 narrow contract) | `ARCHIVED / TERMINAL-HOLD-D0V3-CONTRACT` | [`archive/010_inadmissible_evidence_persistence`](../../archive/010_inadmissible_evidence_persistence/) | false |
 | 6 | Habitual → Episode Actualization (NG-01 narrow contract) | `ADVERSARIAL-N0-SURVIVOR` | — | false |
 | 7 | Mixed-Status Event Attraction (NG-02 narrow contract) | `ADVERSARIAL-N0-SURVIVOR` | — | false |
 | 8 | Dissent → Holding Role Swap (UDH-09 narrow contract) | `ADVERSARIAL-N0-SURVIVOR` | — | false |
-| 9 | Source-Discount Recovery | `ADVERSARIAL-N0-SURVIVOR / ACTIVE-PREFLIGHT / HARNESS-READY` | [`active/012_source_discount_recovery`](../../active/012_source_discount_recovery/) | false |
-| 10 | Weak-Evidence Backfire | `ADVERSARIAL-N0-SURVIVOR / ACTIVE-PREFLIGHT / HARNESS-READY` | [`active/007_weak_evidence_backfire`](../../active/007_weak_evidence_backfire/) | false |
+| 9 | Source-Discount Recovery | `KILLED-COLLISION` | [`active/012_source_discount_recovery`](../../active/012_source_discount_recovery/) | false |
+| 10 | Weak-Evidence Backfire | `KILLED-COLLISION` | [`active/007_weak_evidence_backfire`](../../active/007_weak_evidence_backfire/) | false |
 
 ### Implementation registration and archived dispositions
 
@@ -110,29 +110,29 @@ archive/011_existential_witness_collapse:
 
 active/007_weak_evidence_backfire:
   canonical_shortlist_number: 10
-  status: ACTIVE-PREFLIGHT
+  status: KILLED-COLLISION
   harness: READY-r4
-  formal_n0_verdict: null
-  independent_auditor: null
+  formal_n0_verdict: KILLED-COLLISION
+  independent_auditor: Codex independent audit 2026-08-29
   d0_verdict: null
   validation_authorized: false
 
 active/012_source_discount_recovery:
   canonical_shortlist_number: 9
-  status: ACTIVE-PREFLIGHT
+  status: KILLED-COLLISION
   harness: READY-r1
-  formal_n0_verdict: null
-  independent_auditor: null
+  formal_n0_verdict: KILLED-COLLISION
+  independent_auditor: Codex independent audit 2026-08-29
   d0_verdict: null
   validation_authorized: false
 
 active/013_publicness_coordination_dissociation:
   canonical_shortlist_number: 3
-  status: ACTIVE-PREFLIGHT
+  status: ACTIVE-PREFLIGHT / D0-HOLD
   harness: READY-r1
-  formal_n0_verdict: null
-  independent_auditor: null
-  d0_verdict: null
+  formal_n0_verdict: PASS
+  independent_auditor: Codex independent audit 2026-08-29
+  d0_verdict: HOLD
   validation_authorized: false
 ```
 

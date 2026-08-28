@@ -1,12 +1,12 @@
 # 007 — Weak-Evidence Backfire
 
-Status: `ACTIVE-PREFLIGHT / HARNESS-READY-r4 / NOT READY-TO-SMOKE`
+Status: `KILLED-COLLISION / DISCOVERY-STOPPED`
 
 Canonical shortlist mapping: **2026-08-28 adversarial N0 shortlist #10**.
 
 ```yaml
-formal_n0_verdict: null
-independent_auditor: null
+formal_n0_verdict: KILLED-COLLISION
+independent_auditor: Codex independent audit 2026-08-29
 d0_verdict: null
 validation_authorized: false
 ```

@@ -1,13 +1,13 @@
 # 013 — Publicness–Coordination Dissociation
 
-Status: `ACTIVE-PREFLIGHT / HARNESS-READY-r1 / NOT READY-TO-SMOKE`
+Status: `ACTIVE-PREFLIGHT / N0-PASS / D0-HOLD / NOT READY-TO-SMOKE`
 
 Canonical shortlist mapping: **2026-08-28 adversarial N0 shortlist #3**.
 
 ```yaml
-formal_n0_verdict: null
-independent_auditor: null
-d0_verdict: null
+formal_n0_verdict: PASS
+independent_auditor: Codex independent audit 2026-08-29
+d0_verdict: HOLD
 validation_authorized: false
 ```
 
