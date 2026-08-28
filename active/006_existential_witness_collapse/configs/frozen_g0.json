@@ -1,19 +1,21 @@
 {
-  "contract_version": "2026-08-28-r1",
+  "contract_version": "2026-08-28-r2",
   "validation_authorized": false,
   "require_external_source": true,
   "recognition_gate": {
     "min_existence_probability": 0.80,
     "min_no_shared_entailment_probability": 0.80,
-    "min_identity_underdetermined_probability": 0.75
+    "min_identity_underdetermined_probability": 0.75,
+    "min_label_order_probability": 0.65
   },
   "capability_gate": {
-    "min_same_explicit_established_probability": 0.70,
-    "max_distinct_explicit_established_probability": 0.30
+    "min_same_explicit_collapse_probability": 0.70,
+    "max_distinct_explicit_collapse_probability": 0.30,
+    "min_control_variant_success_fraction": 0.75
   },
   "strong_case": {
-    "min_unknown_established_probability": 0.55,
-    "min_paraphrase_established_probability": 0.55,
+    "min_unknown_collapse_probability": 0.55,
+    "min_paraphrase_collapse_probability": 0.55,
     "min_unknown_minus_distinct": 0.15,
     "max_neutral_abs_shift": 0.05,
     "min_natural_variant_positive_fraction": 0.75
@@ -29,7 +31,8 @@
     "min_positive_domains": 2,
     "max_neutral_artifact_fraction": 0.20,
     "min_natural_variant_positive_fraction": 0.75,
-    "no_effect_abs_margin": 0.01
+    "no_effect_max_margin": 0.01,
+    "no_effect_ci_upper": 0.03
   },
   "panel_pass": {
     "smoke_min_independent_families": 2,
