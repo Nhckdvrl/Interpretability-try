@@ -22,12 +22,15 @@ results/          原始模型输出
 - [`DEEP_N0_SURVIVORS_10_2026-08-28.md`](DEEP_N0_SURVIVORS_10_2026-08-28.md)：第一批十题 reviewer/adversarial shortlist；
 - [`audits/ADVERSARIAL_N0_TEN_2026-08-28.md`](audits/ADVERSARIAL_N0_TEN_2026-08-28.md)：逐题最强邻居、`why_not_a_rename` 与 hard kill。
 
-### 第二批新十题
+### 第二批新十题（当前 V2）
 
-- [`BATCH2_BRAINSTORM_LEDGER_2026-08-28.md`](BATCH2_BRAINSTORM_LEDGER_2026-08-28.md)：前半轮大规模脑暴、死亡库与早期 9 个 survivor；这是历史过程账本，顶部的 `9 CURRENT SURVIVORS` 状态已被后续文件取代；
-- [`audits/BATCH2_N0_WORKING_REVIEW_2026-08-28.md`](audits/BATCH2_N0_WORKING_REVIEW_2026-08-28.md)：早期 9 个的 proposer-side 攻击稿；
+- [`BATCH2_BRAINSTORM_LEDGER_2026-08-28.md`](BATCH2_BRAINSTORM_LEDGER_2026-08-28.md)：前半轮大规模脑暴、死亡库与早期 survivor；历史过程账本；
+- [`audits/BATCH2_N0_WORKING_REVIEW_2026-08-28.md`](audits/BATCH2_N0_WORKING_REVIEW_2026-08-28.md)：早期 proposer-side 攻击稿；
 - [`BATCH2_INDEPENDENT_N0_LEDGER_2026-08-28.md`](BATCH2_INDEPENDENT_N0_LEDGER_2026-08-28.md)：继续脑暴、reviewer-mode N0、淘汰/Reserve 与补题总账本；
-- [`BATCH2_DEEP_N0_SURVIVORS_10_2026-08-28.md`](BATCH2_DEEP_N0_SURVIVORS_10_2026-08-28.md)：第二批最终 10 个 `REVIEWER-MODE-N0-SURVIVOR`。
+- [`audits/BATCH2_THIRD_PASS_ATTACK_2026-08-28.md`](audits/BATCH2_THIRD_PASS_ATTACK_2026-08-28.md)：strongest-neighbor / mother-inclusion 第三刀；
+- [`audits/BATCH2_FOURTH_PASS_ITEM_LEVEL_2026-08-28.md`](audits/BATCH2_FOURTH_PASS_ITEM_LEVEL_2026-08-28.md)：公开 repo/data item-level 与 operator-identifiability 第四刀；RIF 在此正式 KILL；
+- [`BATCH2_DEEP_N0_SURVIVORS_10_V2_2026-08-28.md`](BATCH2_DEEP_N0_SURVIVORS_10_V2_2026-08-28.md)：**第二批当前 10 个** `REVIEWER-MODE-N0-SURVIVOR`；
+- [`BATCH2_DEEP_N0_SURVIVORS_10_2026-08-28.md`](BATCH2_DEEP_N0_SURVIVORS_10_2026-08-28.md)：第三刀历史快照，已被 V2 取代为当前 shortlist，不删除以保留审计时间线。
 
 两个批次里的 `SURVIVOR` 都**不等于 formal `N0-PASS`**，更不授权 smoke。真正调度权仍只来自 [`AUDIT_REGISTRY.md`](AUDIT_REGISTRY.md)。任何独立 reviewer 发现 exact collision / mother inclusion / D0 failure 后都应直接 KILL/ROUTE，不为维持“十题”数量降低门槛。
 
