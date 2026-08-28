@@ -53,13 +53,13 @@
 | 1 | First-Negative-Evidence Harm | `ADVERSARIAL-N0-SURVIVOR` | — | false |
 | 2 | Packed–Unpacked Event Splitting | `ADVERSARIAL-N0-SURVIVOR / ACTIVE-PREFLIGHT / HARNESS-READY` | [`active/004_packed_unpacked_event_splitting`](../../active/004_packed_unpacked_event_splitting/) | false |
 | 3 | Publicness–Coordination Dissociation (SEC-01 narrow contract) | `ADVERSARIAL-N0-SURVIVOR` | — | false |
-| 4 | Existential Witness Collapse (RVC-04 narrow contract) | `ADVERSARIAL-N0-SURVIVOR` | — | false |
+| 4 | Existential Witness Collapse (RVC-04 narrow contract) | `ADVERSARIAL-N0-SURVIVOR / ACTIVE-PREFLIGHT / HARNESS-READY` | [`active/006_existential_witness_collapse`](../../active/006_existential_witness_collapse/) | false |
 | 5 | Inadmissible-Evidence Persistence (UDH-11 narrow contract) | `ADVERSARIAL-N0-SURVIVOR / ACTIVE-PREFLIGHT / HARNESS-READY` | [`active/005_inadmissible_evidence_persistence`](../../active/005_inadmissible_evidence_persistence/) | false |
 | 6 | Habitual → Episode Actualization (NG-01 narrow contract) | `ADVERSARIAL-N0-SURVIVOR` | — | false |
 | 7 | Mixed-Status Event Attraction (NG-02 narrow contract) | `ADVERSARIAL-N0-SURVIVOR` | — | false |
 | 8 | Dissent → Holding Role Swap (UDH-09 narrow contract) | `ADVERSARIAL-N0-SURVIVOR` | — | false |
 | 9 | Source-Discount Recovery | `ADVERSARIAL-N0-SURVIVOR` | — | false |
-| 10 | Weak-Evidence Backfire | `ADVERSARIAL-N0-SURVIVOR` | — | false |
+| 10 | Weak-Evidence Backfire | `ADVERSARIAL-N0-SURVIVOR / ACTIVE-PREFLIGHT / HARNESS-READY` | [`active/007_weak_evidence_backfire`](../../active/007_weak_evidence_backfire/) | false |
 
 ### Active implementation registration
 
@@ -83,9 +83,29 @@ active/005_inadmissible_evidence_persistence:
   independent_auditor: null
   d0_verdict: null
   validation_authorized: false
+
+active/006_existential_witness_collapse:
+  canonical_shortlist_number: 4
+  status: ACTIVE-PREFLIGHT
+  harness: READY
+  formal_n0_verdict: null
+  independent_auditor: null
+  d0_verdict: null
+  validation_authorized: false
+  decisive_contract: local existential/identity recognition correct -> downstream illegal shared-witness join
+
+active/007_weak_evidence_backfire:
+  canonical_shortlist_number: 10
+  status: ACTIVE-PREFLIGHT
+  harness: READY
+  formal_n0_verdict: null
+  independent_auditor: null
+  d0_verdict: null
+  validation_authorized: false
+  decisive_contract: weak positive evidence recognized as supportive -> bidirectional belief/action sign reversal vs matched no-evidence baseline
 ```
 
-这里的 `HARNESS-READY` 只表示验证代码、scorer、artifact controls、promotion / hard-kill metrics 已冻结并登记；**它不是模型运行授权**。
+这里的 `HARNESS-READY` 只表示验证代码、scorer、artifact controls、promotion / hard-kill metrics 已冻结并登记；**它不是模型运行授权**。006/007 的 `run` 还额外把该约束实现为代码级授权门：config 中 `validation_authorized` 不为 true 时，模型加载前即拒绝执行。
 
 ## 其他未死但不准运行
 
