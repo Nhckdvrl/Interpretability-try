@@ -1,37 +1,106 @@
 from __future__ import annotations
-DIRECTIONS=("supports_target","supports_other")
-YES_NO_ORDERS=({"A":"yes","B":"no"},{"A":"no","B":"yes"})
-CHOICE_ORDERS=({"A":"target","B":"other"},{"A":"other","B":"target"})
-READOUT_TEMPLATES=(("belief","Which hypothesis is better supported by the record as it stands?"),("belief","Based only on the available information, which explanation is more plausible?"),("action","Which action is better justified by the record as it stands?"),("action","Given only the information above, which action should be preferred?"))
-CONDITIONS=("no_evidence","weak","strong","neutral","no_evidence_complete","weak_complete","length_control","weak_length")
 
-def base_text(background:str,calibration:str,protocol:str|None=None)->str:
-    x=f"BACKGROUND:\n{background}\n\nCALIBRATION:\n{calibration}"
-    if protocol:x+=f"\n\nREPORTING PROTOCOL:\n{protocol}"
-    return x
-def evidence_for(s,direction:str,strength:str)->str:
-    if direction=="supports_target":return s.weak_target_evidence if strength=="weak" else s.strong_target_evidence
-    if direction=="supports_other":return s.weak_other_evidence if strength=="weak" else s.strong_other_evidence
+DIRECTIONS = ("supports_target", "supports_other")
+YES_NO_ORDERS = (
+    {"A": "yes", "B": "no"},
+    {"A": "no", "B": "yes"},
+)
+CHOICE_ORDERS = (
+    {"A": "target", "B": "other"},
+    {"A": "other", "B": "target"},
+)
+READOUT_TEMPLATES = (
+    ("belief", "Which hypothesis is better supported by the record as it stands?"),
+    ("belief", "Based only on the available information, which explanation is more plausible?"),
+    ("action", "Which action is better justified by the record as it stands?"),
+    ("action", "Given only the information above, which action should be preferred?"),
+)
+CONDITIONS = (
+    "no_evidence",
+    "weak",
+    "strong",
+    "neutral",
+    "no_evidence_complete",
+    "weak_complete",
+    "no_evidence_length",
+    "weak_length",
+)
+
+
+def base_text(background: str, calibration: str, protocol: str | None = None) -> str:
+    text = f"BACKGROUND:\n{background}\n\nCALIBRATION:\n{calibration}"
+    if protocol:
+        text += f"\n\nREPORTING PROTOCOL:\n{protocol}"
+    return text
+
+
+def evidence_for(scenario, direction: str, strength: str) -> str:
+    if direction == "supports_target":
+        return scenario.weak_target_evidence if strength == "weak" else scenario.strong_target_evidence
+    if direction == "supports_other":
+        return scenario.weak_other_evidence if strength == "weak" else scenario.strong_other_evidence
     raise ValueError(direction)
-def length_control_for(s,direction:str)->str:
-    if direction=="supports_target":return s.target_length_control_evidence
-    if direction=="supports_other":return s.other_length_control_evidence
-    raise ValueError(direction)
-def condition_text(s,*,direction:str,condition:str)->str:
-    protocol=s.pragmatic_completeness_text if condition in {"no_evidence_complete","weak_complete"} else None;base=base_text(s.background,s.calibration_text,protocol)
-    if condition in {"no_evidence","no_evidence_complete"}:return base+"\n\nNo case-specific cue is observed."
-    if condition in {"weak","weak_complete","weak_length"}:ev=evidence_for(s,direction,"weak")
-    elif condition=="strong":ev=evidence_for(s,direction,"strong")
-    elif condition=="neutral":ev=s.neutral_evidence
-    elif condition=="length_control":ev=length_control_for(s,direction)
-    else:raise ValueError(condition)
-    return base+f"\n\nOBSERVATION:\n{ev}"
-def support_prompt(*,base:str,evidence:str,focal_hypothesis:str,other_hypothesis:str,probe:str,mapping:dict[str,str],pragmatic_text:str)->tuple[str,str]:
-    if probe=="support":q=f"Relative to the same background without this observation, does the observation provide genuine positive evidence for {focal_hypothesis}?";truth="yes"
-    elif probe=="likelihood_relation":q=f"According to the stated calibration, is this observation more likely if {focal_hypothesis} is true than if {other_hypothesis} is true?";truth="yes"
-    elif probe=="support_complete":q=f"Even under this reporting rule — {pragmatic_text} — does the observation remain genuine positive evidence for {focal_hypothesis}?";truth="yes"
-    elif probe=="strong_support":q=f"Does this observation provide genuine positive evidence for {focal_hypothesis}?";truth="yes"
-    else:raise ValueError(probe)
-    opts="\n".join(f"{lab}. {'Yes' if sem=='yes' else 'No'}" for lab,sem in mapping.items());correct=next(l for l,s in mapping.items() if s==truth);return f"{base}\n\nFOCAL HYPOTHESIS: {focal_hypothesis}\nOTHER HYPOTHESIS: {other_hypothesis}\nOBSERVATION: {evidence}\n\n{q}\n{opts}\nAnswer exactly A or B.",correct
-def readout_prompt(*,context:str,target_text:str,other_text:str,template:str,mapping:dict[str,str])->tuple[str,str]:
-    text={"target":target_text,"other":other_text};opts="\n".join(f"{lab}. {text[sem]}" for lab,sem in mapping.items());target=next(l for l,s in mapping.items() if s=="target");return f"{context}\n\n{template}\n{opts}\nAnswer exactly A or B.",target
+
+
+def condition_text(scenario, *, direction: str, condition: str) -> str:
+    if condition in {"no_evidence_complete", "weak_complete"}:
+        protocol = scenario.pragmatic_completeness_text
+    elif condition in {"no_evidence_length", "weak_length"}:
+        protocol = scenario.matched_length_control_text
+    else:
+        protocol = None
+    base = base_text(scenario.background, scenario.calibration_text, protocol)
+
+    # The no-evidence baseline must literally contain no case-specific evidence.
+    # Saying "no cue was observed" would itself be negative evidence and can create a fake sign reversal.
+    if condition in {"no_evidence", "no_evidence_complete", "no_evidence_length"}:
+        return base
+    if condition in {"weak", "weak_complete", "weak_length"}:
+        evidence = evidence_for(scenario, direction, "weak")
+    elif condition == "strong":
+        evidence = evidence_for(scenario, direction, "strong")
+    elif condition == "neutral":
+        evidence = scenario.neutral_evidence
+    else:
+        raise ValueError(condition)
+    return base + f"\n\nOBSERVATION:\n{evidence}"
+
+
+def support_prompt(*, base: str, weak_evidence: str, strong_evidence: str, neutral_evidence: str,
+                   focal_hypothesis: str, other_hypothesis: str, probe: str,
+                   mapping: dict[str, str], pragmatic_text: str) -> tuple[str, str]:
+    if probe == "support":
+        evidence_block = f"OBSERVATION:\n{weak_evidence}"
+        question = f"Relative to the same background without this observation, does it provide genuine positive evidence for {focal_hypothesis}?"
+    elif probe == "likelihood_relation":
+        evidence_block = f"OBSERVATION:\n{weak_evidence}"
+        question = f"According to the stated calibration, is this observation more likely if {focal_hypothesis} is true than if {other_hypothesis} is true?"
+    elif probe == "support_complete":
+        evidence_block = f"REPORTING PROTOCOL:\n{pragmatic_text}\n\nOBSERVATION:\n{weak_evidence}"
+        question = f"Under that reporting protocol, does this observation still provide genuine positive evidence for {focal_hypothesis}?"
+    elif probe == "strong_support":
+        evidence_block = f"OBSERVATION:\n{strong_evidence}"
+        question = f"Does this observation provide genuine positive evidence for {focal_hypothesis}?"
+    elif probe == "strong_gt_weak":
+        evidence_block = f"WEAK-CANDIDATE OBSERVATION:\n{weak_evidence}\n\nSTRONG-CANDIDATE OBSERVATION:\n{strong_evidence}"
+        question = f"According to the calibration, is the STRONG-CANDIDATE observation more diagnostic in favor of {focal_hypothesis} than the WEAK-CANDIDATE observation?"
+    elif probe == "neutral_non_support":
+        evidence_block = f"OBSERVATION:\n{neutral_evidence}"
+        question = f"According to the calibration, is this observation non-diagnostic between {focal_hypothesis} and {other_hypothesis}?"
+    else:
+        raise ValueError(probe)
+    options = "\n".join(f"{lab}. {'Yes' if sem == 'yes' else 'No'}" for lab, sem in mapping.items())
+    correct = next(lab for lab, sem in mapping.items() if sem == "yes")
+    return (
+        f"{base}\n\nFOCAL HYPOTHESIS: {focal_hypothesis}\nOTHER HYPOTHESIS: {other_hypothesis}\n\n"
+        f"{evidence_block}\n\n{question}\n{options}\nAnswer exactly A or B.",
+        correct,
+    )
+
+
+def readout_prompt(*, context: str, target_text: str, other_text: str,
+                   template: str, mapping: dict[str, str]) -> tuple[str, str]:
+    text = {"target": target_text, "other": other_text}
+    options = "\n".join(f"{lab}. {text[sem]}" for lab, sem in mapping.items())
+    target_label = next(lab for lab, sem in mapping.items() if sem == "target")
+    return f"{context}\n\n{template}\n{options}\nAnswer exactly A or B.", target_label

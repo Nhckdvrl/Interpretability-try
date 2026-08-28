@@ -92,7 +92,6 @@ active/006_existential_witness_collapse:
   independent_auditor: null
   d0_verdict: null
   validation_authorized: false
-  decisive_contract: local existential/identity recognition correct -> downstream illegal shared-witness join
 
 active/007_weak_evidence_backfire:
   canonical_shortlist_number: 10
@@ -102,10 +101,9 @@ active/007_weak_evidence_backfire:
   independent_auditor: null
   d0_verdict: null
   validation_authorized: false
-  decisive_contract: weak positive evidence recognized as supportive -> bidirectional belief/action sign reversal vs matched no-evidence baseline
 ```
 
-这里的 `HARNESS-READY` 只表示验证代码、scorer、artifact controls、promotion / hard-kill metrics 已冻结并登记；**它不是模型运行授权**。006/007 的 `run` 还额外把该约束实现为代码级授权门：config 中 `validation_authorized` 不为 true 时，模型加载前即拒绝执行。
+这里的 `HARNESS-READY` 只表示验证代码、scorer、artifact controls、promotion / hard-kill metrics 已冻结并登记；**它不是模型运行授权**。
 
 ## 其他未死但不准运行
 

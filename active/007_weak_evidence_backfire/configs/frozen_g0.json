@@ -1,11 +1,53 @@
 {
-  "contract_version":"2026-08-28-r2",
-  "validation_authorized":false,
-  "require_external_source":true,
-  "support_gate":{"min_support_probability":0.80,"min_likelihood_relation_probability":0.80,"min_complete_support_probability":0.80,"min_strong_support_probability":0.80},
-  "capability_gate":{"min_strong_belief_directional_shift":0.08,"min_strong_action_directional_shift":0.05},
-  "strong_case":{"min_belief_backfire":0.04,"min_action_backfire":0.02,"min_complete_belief_backfire":0.03,"min_complete_action_backfire":0.02,"min_length_belief_backfire":0.03,"min_length_action_backfire":0.02,"max_neutral_abs_shift":0.04,"min_variant_backfire_fraction":0.75},
-  "model_pass":{"min_gated_pairs":20,"min_support_gate_fraction":0.50,"min_mean_belief_backfire":0.025,"min_mean_action_backfire":0.015,"min_bootstrap_ci_lower":0.005,"min_mean_pair_backfire":0.025,"min_pair_bootstrap_ci_lower":0.005,"min_strong_pair_fraction":0.20,"min_pragmatic_survival_fraction":0.60,"min_length_survival_fraction":0.60,"max_neutral_artifact_fraction":0.20,"min_positive_domains":2,"no_effect_backfire":0.01},
-  "panel_pass":{"smoke_min_independent_families":2,"generality_min_independent_families":3,"generality_panel_size":5,"required_distinct_sizes_in_one_family":3},
-  "bootstrap_samples":5000,"seed":20260828
+  "contract_version": "2026-08-28-r4",
+  "validation_authorized": false,
+  "require_external_source": true,
+  "support_gate": {
+    "min_support_probability": 0.80,
+    "min_likelihood_relation_probability": 0.80,
+    "min_complete_support_probability": 0.80,
+    "min_strong_support_probability": 0.80,
+    "min_strong_gt_weak_probability": 0.75,
+    "min_neutral_non_support_probability": 0.75,
+    "min_probe_variant_probability": 0.65
+  },
+  "capability_gate": {
+    "min_strong_belief_directional_shift": 0.08,
+    "min_strong_action_directional_shift": 0.05,
+    "min_strong_variant_positive_fraction": 0.75
+  },
+  "strong_case": {
+    "min_belief_backfire": 0.04,
+    "min_action_backfire": 0.02,
+    "min_complete_belief_backfire": 0.03,
+    "min_complete_action_backfire": 0.02,
+    "min_length_belief_backfire": 0.03,
+    "min_length_action_backfire": 0.02,
+    "max_neutral_abs_shift": 0.04,
+    "min_primary_variant_backfire_fraction": 0.75,
+    "min_control_variant_backfire_fraction": 0.75
+  },
+  "model_pass": {
+    "min_gated_pairs": 20,
+    "min_support_gate_fraction": 0.50,
+    "min_mean_pair_belief_backfire": 0.025,
+    "min_mean_pair_action_backfire": 0.015,
+    "min_pair_bootstrap_ci_lower": 0.005,
+    "min_strong_pair_fraction": 0.20,
+    "min_pragmatic_pair_survival_fraction": 0.60,
+    "min_length_pair_survival_fraction": 0.60,
+    "min_bidirectional_backfire_fraction": 0.60,
+    "max_neutral_artifact_fraction": 0.20,
+    "min_positive_domains": 2,
+    "no_effect_backfire": 0.01,
+    "no_effect_ci_upper": 0.01
+  },
+  "panel_pass": {
+    "smoke_min_independent_families": 2,
+    "generality_min_independent_families": 3,
+    "generality_panel_size": 5,
+    "required_distinct_sizes_in_one_family": 3
+  },
+  "bootstrap_samples": 5000,
+  "seed": 20260828
 }

@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "weak-evidence-backfire-g0"
-version = "0.2.0"
+version = "0.1.0"
 description = "Frozen behavioral validation harness for Weak-Evidence Backfire"
 requires-python = ">=3.10"
 dependencies = []
