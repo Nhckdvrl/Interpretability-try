@@ -28,6 +28,11 @@ REQUIRED_TRUE = (
     "natural_setting_gold",
 )
 
+# Finite real datasets virtually never contain a useful empirical cue with LR exactly 1.
+# We require near-neutrality in BOTH the calibration and held-out validation partitions.
+NEUTRAL_LR_MIN = 0.90
+NEUTRAL_LR_MAX = 1.10
+
 
 @dataclass(frozen=True)
 class Scenario:
@@ -94,9 +99,6 @@ def validate_record(row: dict[str, Any], *, require_external_source: bool = True
     if len({weak_t, weak_o, strong_t, strong_o, neutral}) != 5:
         raise ValueError(f"{sid}: evidence texts must be distinct")
 
-    # Prevent the experimental manipulation from being reduced to the literal word "weak".
-    # Domain-internal magnitude wording may still be allowed at D0 if it is part of the source record,
-    # but generic metalinguistic strength labels are disallowed in the core cue text.
     strength_label = re.compile(r"\bweak(?:er|ly)?\s+evidence\b|\bweak\s+support\b|\bminor\s+evidence\b", flags=re.I)
     for name, text in (("weak_target_evidence", weak_t), ("weak_other_evidence", weak_o)):
         if strength_label.search(text):
@@ -115,8 +117,8 @@ def validate_record(row: dict[str, Any], *, require_external_source: bool = True
         raise ValueError(f"{sid}: target likelihood ratios must satisfy 1 < weak < strong")
     if not (0 < strong_o_lr < weak_o_lr < 1):
         raise ValueError(f"{sid}: other-support likelihood ratios must satisfy 0 < strong < weak < 1")
-    if abs(neutral_lr - 1.0) > 1e-6:
-        raise ValueError(f"{sid}: neutral_lr must equal 1")
+    if not (NEUTRAL_LR_MIN <= neutral_lr <= NEUTRAL_LR_MAX):
+        raise ValueError(f"{sid}: neutral_lr must be within [{NEUTRAL_LR_MIN}, {NEUTRAL_LR_MAX}]")
 
     source = row.get("source")
     if not isinstance(source, dict):
@@ -128,6 +130,28 @@ def validate_record(row: dict[str, Any], *, require_external_source: bool = True
         raise ValueError(f"{sid}: custom-only source cannot satisfy formal D0/G0")
     if require_external_source and not (source.get("url") or source.get("path") or source.get("citation")):
         raise ValueError(f"{sid}: external D0 requires url/path/citation")
+
+    # When formal D0 includes a held-out split, enforce the same evidence relation there.
+    # This prevents selecting thresholds that look diagnostic only because of calibration noise.
+    heldout_keys = (
+        "weak_target_lr_validation", "strong_target_lr_validation",
+        "weak_other_lr_validation", "strong_other_lr_validation", "neutral_lr_validation",
+    )
+    if any(key in source for key in heldout_keys):
+        missing = [key for key in heldout_keys if key not in source]
+        if missing:
+            raise ValueError(f"{sid}: incomplete held-out LR metadata: {missing}")
+        wtv = _f(source["weak_target_lr_validation"], f"{sid}.source.weak_target_lr_validation")
+        stv = _f(source["strong_target_lr_validation"], f"{sid}.source.strong_target_lr_validation")
+        wov = _f(source["weak_other_lr_validation"], f"{sid}.source.weak_other_lr_validation")
+        sov = _f(source["strong_other_lr_validation"], f"{sid}.source.strong_other_lr_validation")
+        nv = _f(source["neutral_lr_validation"], f"{sid}.source.neutral_lr_validation")
+        if not (1 < wtv < stv):
+            raise ValueError(f"{sid}: held-out target LRs must satisfy 1 < weak < strong")
+        if not (0 < sov < wov < 1):
+            raise ValueError(f"{sid}: held-out other-support LRs must satisfy 0 < strong < weak < 1")
+        if not (NEUTRAL_LR_MIN <= nv <= NEUTRAL_LR_MAX):
+            raise ValueError(f"{sid}: held-out neutral LR is not near 1")
 
     return Scenario(
         sid, domain, background, calibration, target_h, other_h, target_a, other_a,
