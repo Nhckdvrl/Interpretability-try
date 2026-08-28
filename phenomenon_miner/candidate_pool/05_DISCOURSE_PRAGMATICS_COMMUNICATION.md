@@ -170,7 +170,7 @@ recognize acknowledgment → nevertheless summarize it as agreement
 
 ## DPC-09 — 假前提已经驳回，后续解释仍沿用它的因果框架
 
-`stage: IDEA | audit: HOLD | priority: A | naturalness: N3 | source: CREPE/FalseQA | collision: HIGH`
+`stage: IDEA | audit: HOLD | priority: A | naturalness=N3 | source: CREPE/FalseQA | collision: HIGH`
 
 **一句话矛盾。** 模型正确回答“Lee并没有偷车”，继续解释事件时却仍推断他有逃跑动机或赃物。
 
@@ -186,7 +186,7 @@ recognize acknowledgment → nevertheless summarize it as agreement
 
 ## DPC-10 — “虽然 P，但是 Q”中，被让步的 P 压过了主结论 Q
 
-`stage: IDEA | audit: KILL | priority: B | naturalness: N3 | source: PDTB/CMV | collision: FATAL-CONSTRUCT`
+`stage: IDEA | audit: KILL | priority: B | naturalness=N3 | source: PDTB/CMV | collision: FATAL-CONSTRUCT`
 
 **一句话矛盾。** 模型知道作者最终主张 Q，却在摘要或决策里按被让步的 P 行动。
 
@@ -202,7 +202,7 @@ recognize acknowledgment → nevertheless summarize it as agreement
 
 ## DPC-11 — “我同意这一点”被扩张成同意整套观点
 
-`stage: IDEA | audit: PROMOTE-UNTESTED | priority: A | naturalness: N3 | source: CMV/SAD | collision: MEDIUM-HIGH`
+`stage: IDEA | audit: PROMOTE-UNTESTED | priority: A | naturalness=N3 | source: CMV/SAD | collision: MEDIUM-HIGH`
 
 **一句话矛盾。** 模型能指出说话者只承认一个局部事实，却总结成他接受了对方的总体结论。
 
@@ -218,7 +218,7 @@ recognize acknowledgment → nevertheless summarize it as agreement
 
 ## DPC-12 — 预设已经明确取消，人物档案仍保留它
 
-`stage: ROUTE | audit: KILL-DUPLICATE | priority: B | naturalness: N3 | source: NOPE/IMPPRES | collision: OCCUPIED`
+`stage: ROUTE | audit: KILL-DUPLICATE | priority: B | naturalness=N3 | source: NOPE/IMPPRES | collision: OCCUPIED`
 
 **一句话矛盾。** 模型知道“如果她有孩子，她会接孩子；事实上她没有孩子”取消了有孩子的预设，随后人物摘要仍写她有孩子。
 
@@ -234,7 +234,7 @@ recognize acknowledgment → nevertheless summarize it as agreement
 
 ## DPC-13 — 条件式答应被压成无条件答应
 
-`stage: IDEA | audit: HOLD | priority: B | naturalness: N3 | source: CIRCA/FRIENDS-QIA | collision: HIGH`
+`stage: IDEA | audit: HOLD | priority: B | naturalness=N3 | source: CIRCA/FRIENDS-QIA | collision: HIGH`
 
 **一句话矛盾。** 模型知道“如果能提前下班，我就来”只是有条件的 yes，名单里却把此人标成确定参加。
 
@@ -250,7 +250,7 @@ recognize acknowledgment → nevertheless summarize it as agreement
 
 ## DPC-14 — 引用对方的话被总结成自己承诺了该命题
 
-`stage: ROUTE | audit: KILL-DUPLICATE | priority: B | naturalness: N3 | source: QuoteBank/news/dialogue | collision: OCCUPIED`
+`stage: ROUTE | audit: KILL-DUPLICATE | priority: B | naturalness=N3 | source: QuoteBank/news/dialogue | collision: OCCUPIED`
 
 **一句话矛盾。** 模型正确知道“安全无虞”是公司发言人的说法，却把记者或回应者写成认可该说法。
 
@@ -276,3 +276,17 @@ recognize acknowledgment → nevertheless summarize it as agreement
 | 6 | DPC-13 conditional yes→unconditional | HOLD | 自由文本也删除条件，不依赖 binary schema | CIRCA 已定义条件标签 |
 
 **停止投入：** DPC-02/04/05/06/07/10/12/14。特别是 DPC-07 已被 2026-07 的 implicature recognition-and-cancellation 数据与评测直接占据；DPC-04/05/06 已各有表征/机制近邻；DPC-10 缺少唯一的行动 gold。
+
+---
+
+## Batch-2 脑暴死亡回填（2026-08-28）
+
+完整账本：[`BATCH2_BRAINSTORM_LEDGER_2026-08-28.md`](BATCH2_BRAINSTORM_LEDGER_2026-08-28.md)。
+
+| 本批主题 | 裁决 | 领域内理由 |
+|---|---|---|
+| **Imperfective completion / imperfective paradox** | `KILL-EXACT` | ACL 2026 已有 *The Imperfective Paradox in Large Language Models*，且进入 Outstanding Paper 名单；不能再以“进行中事件被当成已完成”作为新的 behavior discovery。 |
+| **Presupposition projection / existential presupposition（宽版本）** | `KILL/OCCUPIED` | ACL Findings 2025、LREC 2026、CoNLL 2026 已从 presupposition judgments、existential presupposition、conditionals/reasoning 多侧直接研究；本文件 DPC-09/12 也已有历史路由。 |
+| **Scalar implicature cancellation** | `KILL-EXACT/NEAR-EXACT` | 2026 已有 implicature recognition/cancellation 直接工作；本文件 DPC-07 已明确停止投入，不能再换 `some→all`、cancelled inference 等名字重开。 |
+
+**禁止复活。** imperfective、presupposition、scalar-cancellation 若要回来，只能是用户明确授权的机制 follow-up，并必须承认行为母题已占；不得再以“下游 summary/action 不同”单靠 readout replacement 重新宣称行为 novelty。
