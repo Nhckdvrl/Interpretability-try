@@ -21,7 +21,7 @@
 
 任何医学事实变换都必须由原数据标签、公开规范文本或有资格的领域专家确认；不得让生成模型自行发明“正确诊疗规则”。法律候选同理，只能使用数据原标签、原裁判文书或明确写出的规则。首轮只做离线文本评测，不输出给真实患者、当事人或决策者。
 
-## 优先数据架
+## 优先公共数据架
 
 | 数据 | 自然单元 | 可用轴 | 可得性/限制 |
 |---|---|---|---|
@@ -292,3 +292,36 @@
 | 3 | UDH-11 inadmissible evidence still votes | **PROMOTE** | 法定 mask 与 verdict accumulator 可给出确定性因果预测 | 只能靠拼接虚构案件；admissibility 本身失败 |
 
 `HOLD`：UDH-05、UDH-07、UDH-10、UDH-13；先满足审计文档中的解锁条件，不进入默认 smoke queue。其余七张不再作为独立现象验证。尤其 UDH-13 已被 ACL 2026 evolving legal standards 明显压缩，不能再排首位。高风险测试 agent 必须先做数据/标签审计，再请求模型预算。
+
+---
+
+## Batch-2 脑暴死亡回填与 survivor 路由（2026-08-28）
+
+完整账本：[`BATCH2_BRAINSTORM_LEDGER_2026-08-28.md`](BATCH2_BRAINSTORM_LEDGER_2026-08-28.md)。以下是本批在 decision/statistics/legal-science 母区被杀或降级的主题。
+
+| 本批主题 | 裁决 | 领域内理由 |
+|---|---|---|
+| **Generic opportunity-cost neglect** | `KILL/OCCUPIED` | 已进入 LLM human-reasoning / cognitive-bias benchmark 类工作；仅复现“忘记机会成本”没有独立 operator。 |
+| **Mental accounting** | `KILL-EXACT` | 2026 *Do LLMs Keep Mental Accounts? Empirical Evidence from Hedonic Framing, Nonfungibility, and Sunk Cost Sensitivity* 已直接研究该母现象；换账户/预算场景不能重开。 |
+| **Description–experience gap（宽版本）** | `NOT-ADDED` | risky-choice、rare-event probability transformation 邻域已有直接工作；仅把概率描述换成样本序列不足以独立。 |
+| **Peak-end rule / duration neglect** | `NOT-ADDED` | 经典 sequence-evaluation bias 直接搬运，没有形成 components-intact 的独立 downstream operator。 |
+| **Moral outcome bias** | `NOT-ADDED` | outcome/hindsight/moral judgment bias 邻域拥挤，当前版本只会得到 judge preference effect。 |
+| **Preference reversal（宽版本）** | `NOT-ADDED` | framing/context-dependent choice 太宽；没有被外部规范证明的 invariant/operator 时不占新十强。 |
+| **Denominator neglect / ratio bias** | `NOT-ADDED` | 很容易被基础 numeracy failure 完整解释；经典 cognitive-bias 复现本身不够。 |
+| **Regression-to-the-mean neglect** | `NOT-ADDED` | 当前版本退化为统计能力题，未形成“基础计算已正确、独立 operator 仍错”的 decisive contrast。 |
+| **Optional stopping / p-hacking（宽版本）** | `NOT-ADDED` | 若只问显著性/停止规则，就是统计规则应用；未找到超出 generic sequential evidence 的独立算子。 |
+| **Sure-Thing / disjunction effect** | `DISCOVERY-OCCUPIED` | 第一批 adversarial 审计已找到直接以 Savage sure-thing principle 评价 ChatGPT/LLM 的工作，behavior discovery 不再新。 |
+| **Multiplicity-adjusted significance override** | `NOT-TOP10 / F7-RISK` | “知道调整后阈值却回到 .05”极易被 F7 正式规则 vs 熟悉默认完整吸收；没有额外结构预测前不占名额。 |
+
+### 本领域仍活的 Batch-2 新方向
+
+第二批工作稿 [`audits/BATCH2_N0_WORKING_REVIEW_2026-08-28.md`](audits/BATCH2_N0_WORKING_REVIEW_2026-08-28.md) 当前保留：
+
+- **Burden-Placement Null-Case Reversal**：不是 UDH-12 threshold bypass；关键是 evidence 对 P/¬P 都 unresolved 时，burden placement 决定 default loser/winner。
+- **Appellate-Deference Override**：merits disagreement 与 review standard 经独立 procedural gate 决定可否替代下级判断。
+- **Noninferiority → Equivalence Collapse**：one-sided NI relation 被非法升级成 two-sided equivalence。
+- **Surrogate → Clinical-Outcome Promotion**：surrogate role/validation status 控制可允许的 outcome-level 外推。
+- **Harmless-Error → Remedy Collapse**：error existence 与 prejudice/remedy entitlement 是二阶段 operator。
+- **Composite → Component Benefit Projection**：只有能证明不是 F6 普通 reducer、而是 composite super-node 属性向 member outcome 广播时才继续保留。
+
+**禁止复活。** 上表死亡 bias 不得仅以“加入 report/use 解离”重新包装；必须出现母工作无法预测的结构 signature、硬 gold 与独立 operator，才允许重新进入 N0。
