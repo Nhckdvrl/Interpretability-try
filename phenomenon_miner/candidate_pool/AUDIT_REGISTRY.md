@@ -5,13 +5,11 @@
 
 ## 调度结论
 
-**当前 `READY-TO-SMOKE`：1。**
+**当前 `READY-TO-SMOKE`：0。**
 
-唯一授权项：
+006 已完成冻结 two-family smoke，并因 `HARD-KILL-NO-ILLEGAL-JOIN` 终止；其 `validation_authorized` 已恢复为 false。
 
-- `active/006_existential_witness_collapse` — independent N0 `PASS`，natural D0 `PASS`，40 items，20/20 manual audit，`validation_authorized: true`。
-
-其余未同时具备独立 N0、D0 和 `validation_authorized: true` 的候选一律不运行。
+未同时具备独立 N0、D0 和 `validation_authorized: true` 的候选一律不运行。
 
 ## 保留的审计
 
@@ -25,6 +23,7 @@
 - [十题第二轮对抗式 N0](audits/ADVERSARIAL_N0_TEN_2026-08-28.md)
 - [006 fresh independent N0](../../active/006_existential_witness_collapse/N0_INDEPENDENT_AUDIT_2026-08-28.md)
 - [006 natural D0 audit](../../active/006_existential_witness_collapse/D0_AUDIT.md)
+- [006 final behavioral verdict](../../active/006_existential_witness_collapse/FINAL_VERDICT.md)
 
 `AUDIT_ROOT_SIX_DOMAINS.md` 是未完成占位，不作证据。
 
@@ -41,6 +40,7 @@
 | MTR-07 | `HOLD-NOT-DISPATCHABLE` | identity gold 模糊，counting 邻近过强 |
 | **SEC-06** | **`KILLED-COLLISION/ROUTE`** | 2026 *Grounded Continuation* 已把 dependency-graph retraction propagation / stale-premise verification 作为核心 operator；转载链只剩外部 setting |
 | **UDH-03** | **`KILLED-MOTHER-OCCUPIED`** | ACL 2026 *Mitigating Lost in Multi-turn Conversation...* 已直接研究 instruction shards 下的 solvability / abstention / multi-turn degradation；partial→full abstention 只剩 error slice |
+| **RVC-04 / 006 Existential Witness Collapse** | **`TERMINAL-KILLED / HARD-KILL-NO-ILLEGAL-JOIN`** | 冻结 natural D0 上 Qwen3-8B 40/40 capability-gated，却 `p_collapse(unknown)=0.0000944`、8/8 domains 无 positive case；Gemma 无正向 rescue signal |
 | Sure-Thing / disjunction violation | `NOT-ADDED / DISCOVERY-OCCUPIED` | 已有工作直接用 Savage sure-thing principle 评价 ChatGPT |
 | Equivalent-Quantity Decision Split | `KILLED-COLLISION` | quantity comparison / numeral-unit heuristic 机制近 exact |
 | Generation–Reception Trace Asymmetry | `KILLED-MOTHER-OCCUPIED` | self-conditioning / source-monitoring 母区过密 |
@@ -54,14 +54,14 @@
 
 原第二轮 adversarial shortlist 详见 [`DEEP_N0_SURVIVORS_10_2026-08-28.md`](DEEP_N0_SURVIVORS_10_2026-08-28.md) 与 [`audits/ADVERSARIAL_N0_TEN_2026-08-28.md`](audits/ADVERSARIAL_N0_TEN_2026-08-28.md)。
 
-除 006 外，表中的 survivor 仍只通过 proposer-side adversarial search，不是 formal `N0-PASS`。006 已完成 fresh independent N0、natural D0 和授权。
+006 曾完成 fresh independent N0 与 natural D0，但 frozen first-shot behavioral validation 已终止该 candidate。其他 survivor 仍只通过 proposer-side adversarial search，不是 formal `N0-PASS`。
 
 | # | 题目 | 注册状态 | Active 实现 | 授权 |
 |---:|---|---|---|---|
 | 1 | First-Negative-Evidence Harm | `ADVERSARIAL-N0-SURVIVOR` | — | false |
 | 2 | Packed–Unpacked Event Splitting | `ARCHIVED / HOLD-OPERATIONALIZATION-ARTIFACT` | [`archive/009_packed_unpacked_event_splitting`](../../archive/009_packed_unpacked_event_splitting/) | false |
 | 3 | Publicness–Coordination Dissociation (SEC-01 narrow contract) | `ADVERSARIAL-N0-SURVIVOR` | — | false |
-| 4 | Existential Witness Collapse (RVC-04 narrow contract) | `N0-PASS / D0-PASS / READY-TO-SMOKE` | [`active/006_existential_witness_collapse`](../../active/006_existential_witness_collapse/) | **true** |
+| 4 | Existential Witness Collapse (RVC-04 narrow contract) | `TERMINAL-KILLED / HARD-KILL-NO-ILLEGAL-JOIN` | [`active/006_existential_witness_collapse`](../../active/006_existential_witness_collapse/) | false |
 | 5 | Inadmissible-Evidence Persistence (UDH-11 narrow contract) | `ARCHIVED / TERMINAL-HOLD-D0V3-CONTRACT` | [`archive/010_inadmissible_evidence_persistence`](../../archive/010_inadmissible_evidence_persistence/) | false |
 | 6 | Habitual → Episode Actualization (NG-01 narrow contract) | `ADVERSARIAL-N0-SURVIVOR` | — | false |
 | 7 | Mixed-Status Event Attraction (NG-02 narrow contract) | `ADVERSARIAL-N0-SURVIVOR` | — | false |
@@ -96,14 +96,16 @@ archive/010_inadmissible_evidence_persistence:
 
 active/006_existential_witness_collapse:
   canonical_shortlist_number: 4
-  status: READY-TO-SMOKE
+  status: TERMINAL-KILLED
   harness: READY-r4-natural-d0
   formal_n0_verdict: PASS
   independent_auditor: GPT-5.6 Sol (fresh adversarial audit role)
   d0_verdict: PASS
   d0_items: 40
   manual_audit: 20/20 PASS
-  validation_authorized: true
+  behavioral_verdict: HARD-KILL-NO-ILLEGAL-JOIN
+  experiment_commit: aaf03c536e20b5cf83537c4f94a4e8a4476a0001
+  validation_authorized: false
 
 active/007_weak_evidence_backfire:
   canonical_shortlist_number: 10
@@ -115,7 +117,7 @@ active/007_weak_evidence_backfire:
   validation_authorized: false
 ```
 
-006 的授权仅覆盖冻结的 first-shot two-family smoke。跑完 Qwen3-8B + Gemma3-12B 后必须做 raw-case / capability / artifact audit 和 N1；在此之前不得扩 panel、跑 scaling 或进入 mechanism。
+006 不进入 N1、扩展 panel、scaling 或 mechanism。Qwen3-8B 已在 40/40 capability-gated natural cases 上直接满足预注册 `HARD-KILL-NO-ILLEGAL-JOIN`；Gemma 的 recognition answer-order instability 不构成 positive rescue。
 
 ## 其他未死但不准运行
 
@@ -130,4 +132,4 @@ d0_verdict: PASS
 validation_authorized: true
 ```
 
-生成者与 novelty 签署者不得视为同一角色；任何 adversarial survivor 在独立复核中发现 exact collision、mother inclusion、自然 gold 失败或只是 F1–F9 换皮，立即 KILL/ROUTE。
+生成者与 novelty 签署者不得视为同一角色；任何 adversarial survivor 在独立复核中发现 exact collision、mother inclusion、自然 gold 失败、behavioral hard kill 或只是 F1–F9 换皮，立即 KILL/ROUTE。
