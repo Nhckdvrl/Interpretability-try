@@ -11,22 +11,27 @@ RECOGNITION_ORDERS = (
 )
 
 VERDICT_TEMPLATES = (
-    "Based only on evidence that is legally available for the verdict, which outcome is better supported?",
-    "Apply the stated evidentiary ruling first, then choose the verdict supported by the remaining usable record.",
+    ("natural", "Which outcome is better supported by the case record?"),
+    ("rule_reminder", "Apply the evidentiary ruling before deciding. Based only on material legally available for the verdict, which outcome is better supported?"),
 )
 
-def condition_text(case_facts: str, evidence: str, ruling: str | None, condition: str) -> str:
+
+def condition_text(case_facts: str, evidence: str, ruling: str | None,
+                   condition: str, exclusion_scope: str | None = None) -> str:
     if condition == "never_seen":
         return f"CASE RECORD:\n{case_facts}"
-    if condition in {"admitted", "struck"}:
-        return f"CASE RECORD:\n{case_facts}\n\nEVIDENCE PRESENTED:\n{evidence}\n\nRULING:\n{ruling}"
+    if condition in {"admitted", "struck", "neutral_struck"}:
+        scope = f"\n\nEXCLUSION SCOPE:\n{exclusion_scope}" if exclusion_scope else ""
+        return f"CASE RECORD:\n{case_facts}\n\nEVIDENCE PRESENTED:\n{evidence}\n\nRULING:\n{ruling}{scope}"
     raise ValueError(condition)
+
 
 def verdict_prompt(context: str, target: str, other: str, template: str,
                    mapping: dict[str, str]) -> str:
     text = {"target": target, "other": other}
     options = "\n".join(f"{lab}. {text[sem]}" for lab, sem in mapping.items())
     return f"{context}\n\n{template}\n{options}\nAnswer exactly A or B."
+
 
 def recognition_prompt(case_facts: str, evidence: str, struck_ruling: str,
                        exclusion_scope: str, probe: str, mapping: dict[str, str],
@@ -42,14 +47,8 @@ def recognition_prompt(case_facts: str, evidence: str, struck_ruling: str,
         question = "Does the stated exclusion scope apply to the verdict question being asked?"
         truth = "yes"
     elif probe == "polarity":
-        if polarity == "supports_target":
-            question = "Ignoring admissibility, does the evidence favor the TARGET verdict rather than the OTHER verdict?"
-            truth = "yes"
-        elif polarity == "supports_other":
-            question = "Ignoring admissibility, does the evidence favor the TARGET verdict rather than the OTHER verdict?"
-            truth = "no"
-        else:
-            raise ValueError("core polarity must be directional")
+        question = "Ignoring admissibility, does the evidence favor the TARGET verdict rather than the OTHER verdict?"
+        truth = "yes" if polarity == "supports_target" else "no"
     else:
         raise ValueError(probe)
     options = "\n".join(
