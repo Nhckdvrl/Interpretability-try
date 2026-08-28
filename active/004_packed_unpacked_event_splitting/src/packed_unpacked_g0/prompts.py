@@ -6,14 +6,17 @@ LABELS = ("A", "B", "C")
 SEMANTICS = ("left_more", "equal", "right_more")
 LABEL_ORDERS = tuple(dict(zip(LABELS, order)) for order in permutations(SEMANTICS))
 
-PROBABILITY_TEMPLATES = (
-    "Compare the probability of the two event descriptions. Do not use wording length as evidence.",
-    "Treat the descriptions extensionally: compare only which worlds make each event true.",
-)
-DECISION_TEMPLATES = (
-    "Two contracts each pay $100 exactly when their described event occurs. Which contract is worth more, ignoring presentation style?",
-    "Suppose two fair bets have the same payoff and differ only in the described triggering event. Which should command a higher price?",
-)
+READOUT_TEMPLATES = {
+    "probability": (
+        ("natural", "Considering the situation described, compare the probability of the two events."),
+        ("extensional_reminder", "Compare only the sets of possible worlds in which each event occurs; logically equivalent events should receive the same probability."),
+    ),
+    "decision": (
+        ("natural", "Two contracts each pay $100 exactly when the event written on that contract occurs. Which contract is worth more?"),
+        ("extensional_reminder", "Two equal-payoff contracts should have equal value whenever their triggering events are logically equivalent. Compare the two contracts on that basis."),
+    ),
+}
+
 
 def recognition_prompt(packed: str, branches: Iterable[str], probe: str, label_yes: str, label_no: str) -> str:
     branch_text = "\n".join(f"- {b}" for b in branches)
@@ -30,18 +33,15 @@ def recognition_prompt(packed: str, branches: Iterable[str], probe: str, label_y
         f"Answer exactly one letter: {label_yes}=Yes, {label_no}=No."
     )
 
+
 def comparison_prompt(left: str, right: str, instruction: str, mapping: dict[str, str]) -> str:
     semantic_text = {
-        "left_more": "the LEFT description should receive the higher probability/value",
-        "equal": "they should receive the SAME probability/value",
-        "right_more": "the RIGHT description should receive the higher probability/value",
+        "left_more": "the LEFT event should receive the higher probability/value",
+        "equal": "the two events should receive the SAME probability/value",
+        "right_more": "the RIGHT event should receive the higher probability/value",
     }
     options = "\n".join(f"{lab}. {semantic_text[mapping[lab]]}" for lab in LABELS)
     return (
         f"{instruction}\n\nLEFT:\n{left}\n\nRIGHT:\n{right}\n\n"
         f"{options}\nAnswer exactly one letter: A, B, or C."
     )
-
-def partial_text(branches: tuple[str, ...]) -> str:
-    kept = branches[:-1]
-    return " or ".join(f"({x})" for x in kept)

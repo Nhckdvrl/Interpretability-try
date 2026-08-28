@@ -11,7 +11,11 @@ class Partition:
     partition_id: str
     branches: tuple[str, ...]
     unpacked_text: str
-    repacked_text: str | None
+    repacked_text: str
+    partial_text: str
+    complement_text: str
+    complement_branches: tuple[str, ...]
+    complement_unpacked_text: str
     branch_count: int
 
 @dataclass(frozen=True)
@@ -23,10 +27,12 @@ class Scenario:
     partitions: tuple[Partition, ...]
     source: dict[str, Any]
 
+
 def _nonempty_str(x: Any, name: str) -> str:
     if not isinstance(x, str) or not x.strip():
         raise ValueError(f"{name} must be a non-empty string")
     return x.strip()
+
 
 def validate_record(row: dict[str, Any], *, require_external_source: bool = True) -> Scenario:
     sid = _nonempty_str(row.get("scenario_id"), "scenario_id")
@@ -60,23 +66,51 @@ def validate_record(row: dict[str, Any], *, require_external_source: bool = True
         if pid in seen:
             raise ValueError(f"{sid}: duplicate partition_id={pid}")
         seen.add(pid)
+
         branches = p.get("branches")
         if not isinstance(branches, list) or len(branches) < 2:
             raise ValueError(f"{sid}/{pid}: need >=2 mutually exclusive branches")
         b = tuple(_nonempty_str(x, f"{sid}/{pid}.branch") for x in branches)
         if len(set(b)) != len(b):
             raise ValueError(f"{sid}/{pid}: duplicate branch text")
-        if p.get("disjoint_gold") is not True or p.get("exhaustive_gold") is not True or p.get("equivalent_gold") is not True:
-            raise ValueError(f"{sid}/{pid}: D0 must freeze disjoint/exhaustive/equivalent gold=True")
-        if p.get("partial_is_strict_subset") is not True:
-            raise ValueError(f"{sid}/{pid}: partial_is_strict_subset must be frozen True")
+
+        cb_raw = p.get("complement_branches")
+        if not isinstance(cb_raw, list) or len(cb_raw) != len(b):
+            raise ValueError(f"{sid}/{pid}: complement_branches must match focal branch count for focal/alternative diagnostic")
+        cb = tuple(_nonempty_str(x, f"{sid}/{pid}.complement_branch") for x in cb_raw)
+        if len(set(cb)) != len(cb):
+            raise ValueError(f"{sid}/{pid}: duplicate complement branch text")
+
+        required_true = (
+            "disjoint_gold", "exhaustive_gold", "equivalent_gold",
+            "partial_is_strict_subset", "partial_strictly_lower_probability_gold",
+            "complement_gold", "complement_partition_gold",
+        )
+        missing_gold = [name for name in required_true if p.get(name) is not True]
+        if missing_gold:
+            raise ValueError(f"{sid}/{pid}: D0 relation gold must be True for {missing_gold}")
+
         unpacked = _nonempty_str(p.get("unpacked_text"), f"{sid}/{pid}.unpacked_text")
-        repacked = p.get("repacked_text")
-        if repacked is not None:
-            repacked = _nonempty_str(repacked, f"{sid}/{pid}.repacked_text")
-        parts.append(Partition(pid, b, unpacked, repacked, len(b)))
+        repacked = _nonempty_str(p.get("repacked_text"), f"{sid}/{pid}.repacked_text")
+        partial = _nonempty_str(p.get("partial_text"), f"{sid}/{pid}.partial_text")
+        complement = _nonempty_str(p.get("complement_text"), f"{sid}/{pid}.complement_text")
+        complement_unpacked = _nonempty_str(
+            p.get("complement_unpacked_text"), f"{sid}/{pid}.complement_unpacked_text"
+        )
+        if partial in {packed, unpacked}:
+            raise ValueError(f"{sid}/{pid}: partial_text must be a distinct strict-subset description")
+        if repacked == unpacked:
+            raise ValueError(f"{sid}/{pid}: repacked_text must actually repack the branch list")
+        if complement == packed:
+            raise ValueError(f"{sid}/{pid}: complement_text must differ from the focal event")
+
+        parts.append(Partition(
+            pid, b, unpacked, repacked, partial,
+            complement, cb, complement_unpacked, len(b)
+        ))
 
     return Scenario(sid, domain, packed, paraphrase, tuple(parts), dict(source))
+
 
 def load_scenarios(path: str | Path, *, require_external_source: bool = True) -> list[Scenario]:
     rows: list[Scenario] = []

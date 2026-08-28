@@ -4,7 +4,7 @@ from pathlib import Path
 from typing import Any
 import json
 
-POLARITIES = {"supports_target", "supports_other", "neutral"}
+POLARITIES = {"supports_target", "supports_other"}
 REQUIRED_SOURCE_KEYS = ("dataset", "record_id", "license", "split")
 
 @dataclass(frozen=True)
@@ -19,13 +19,16 @@ class Scenario:
     admissible_ruling: str
     struck_ruling: str
     exclusion_scope: str
-    neutral_evidence_text: str | None
+    neutral_evidence_text: str
+    neutral_struck_ruling: str
     source: dict[str, Any]
+
 
 def _s(x: Any, name: str) -> str:
     if not isinstance(x, str) or not x.strip():
         raise ValueError(f"{name} must be a non-empty string")
     return x.strip()
+
 
 def validate_record(row: dict[str, Any], *, require_external_source: bool = True) -> Scenario:
     sid = _s(row.get("scenario_id"), "scenario_id")
@@ -33,8 +36,8 @@ def validate_record(row: dict[str, Any], *, require_external_source: bool = True
     facts = _s(row.get("case_facts"), f"{sid}.case_facts")
     evidence = _s(row.get("evidence_text"), f"{sid}.evidence_text")
     polarity = _s(row.get("evidence_polarity"), f"{sid}.evidence_polarity")
-    if polarity not in POLARITIES - {"neutral"}:
-        raise ValueError(f"{sid}: core evidence_polarity must be supports_target or supports_other")
+    if polarity not in POLARITIES:
+        raise ValueError(f"{sid}: evidence_polarity must be supports_target or supports_other")
     target = _s(row.get("target_verdict"), f"{sid}.target_verdict")
     other = _s(row.get("other_verdict"), f"{sid}.other_verdict")
     if target == other:
@@ -42,11 +45,13 @@ def validate_record(row: dict[str, Any], *, require_external_source: bool = True
     admitted = _s(row.get("admissible_ruling"), f"{sid}.admissible_ruling")
     struck = _s(row.get("struck_ruling"), f"{sid}.struck_ruling")
     scope = _s(row.get("exclusion_scope"), f"{sid}.exclusion_scope")
-    if row.get("struck_gold") is not True or row.get("must_ignore_for_verdict_gold") is not True:
-        raise ValueError(f"{sid}: D0 must freeze struck_gold and must_ignore_for_verdict_gold=True")
-    neutral = row.get("neutral_evidence_text")
-    if neutral is not None:
-        neutral = _s(neutral, f"{sid}.neutral_evidence_text")
+    neutral = _s(row.get("neutral_evidence_text"), f"{sid}.neutral_evidence_text")
+    neutral_ruling = _s(row.get("neutral_struck_ruling"), f"{sid}.neutral_struck_ruling")
+
+    required_true = ("struck_gold", "must_ignore_for_verdict_gold", "neutral_evidence_gold")
+    bad = [name for name in required_true if row.get(name) is not True]
+    if bad:
+        raise ValueError(f"{sid}: D0 gold must be True for {bad}")
 
     source = row.get("source")
     if not isinstance(source, dict):
@@ -60,9 +65,10 @@ def validate_record(row: dict[str, Any], *, require_external_source: bool = True
         raise ValueError(f"{sid}: source must provide url/path/citation provenance")
 
     return Scenario(
-        sid, domain, facts, evidence, polarity, target, other, admitted, struck, scope,
-        neutral, dict(source)
+        sid, domain, facts, evidence, polarity, target, other,
+        admitted, struck, scope, neutral, neutral_ruling, dict(source)
     )
+
 
 def load_scenarios(path: str | Path, *, require_external_source: bool = True) -> list[Scenario]:
     out = []
