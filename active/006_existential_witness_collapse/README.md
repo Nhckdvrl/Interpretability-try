@@ -1,6 +1,6 @@
 # 006 — Existential Witness Collapse
 
-Status: `READY-TO-SMOKE / HARNESS-READY-r4`
+Status: `TERMINAL-KILLED / HARD-KILL-NO-ILLEGAL-JOIN`
 
 Canonical shortlist mapping: **2026-08-28 adversarial N0 shortlist #4**.
 
@@ -8,8 +8,11 @@ Canonical shortlist mapping: **2026-08-28 adversarial N0 shortlist #4**.
 formal_n0_verdict: PASS
 independent_auditor: GPT-5.6 Sol (fresh adversarial audit role)
 d0_verdict: PASS
-validation_authorized: true
+behavioral_verdict: HARD-KILL-NO-ILLEGAL-JOIN
+validation_authorized: false
 ```
+
+See [`FINAL_VERDICT.md`](FINAL_VERDICT.md) for the terminal behavioral disposition.
 
 ## Mother question
 
@@ -26,7 +29,7 @@ The contract also does **not** assert that the witnesses are distinct. In the un
 
 ## Exact phenotype
 
-A case counts only when the model first passes semantic forced-choice recognition for:
+A case counts only when the model passes semantic forced-choice recognition for:
 
 - a P witness exists;
 - a Q witness exists;
@@ -38,7 +41,7 @@ It must also handle the explicit controls:
 - `same_explicit` -> collapse action is justified;
 - `distinct_explicit` -> collapse action is blocked.
 
-The target error is then:
+The target error was:
 
 ```text
 recognition: identity is unresolved
@@ -48,25 +51,11 @@ use:         choose collapse_action in the unknown world anyway
 
 This is `representation-correct -> illegal witness fusion`, not ordinary quantifier failure.
 
-## r4 recognition contract
-
-Recognition uses full semantic A/B alternatives, not Yes/No. A/B order is counterbalanced. Probe ids are retained for metric compatibility:
-
-- `p_exists`
-- `q_exists`
-- `shared_entailment` = sameness is not established
-- `identity_determined` = distinctness is not established
-
-Recognition language is entity-general so the same contract can apply to people, organizations, clubs, or resources.
-
 ## Natural D0
 
 D0 uses 40 real historical domestic-football Double source records from eight national settings. The real-source champion identity is kept in provenance but removed from the model-visible unknown record.
 
 Source definition: a domestic Double requires **the same club** to win the top-tier league and primary domestic cup in the same season.
-
-Source:
-https://en.wikipedia.org/wiki/Double_(association_football)
 
 Frozen assets:
 
@@ -79,57 +68,40 @@ Frozen assets:
 
 Manual audit: `20 / 20 PASS`.
 
-The deterministic builder must produce:
+Frozen D0 SHA256:
 
 ```text
-sha256=6076ad3de2e756b1361799a21baef155586cb641303a9779b4b8c9d3452220e0
+6076ad3de2e756b1361799a21baef155586cb641303a9779b4b8c9d3452220e0
 ```
 
-## Matched conditions
+## Frozen smoke result
 
-- `unknown`: two existential winner facts; identities omitted;
-- `paraphrase`: same information in a natural archival summary;
-- `same_explicit`: same entity explicitly established;
-- `distinct_explicit`: different entities explicitly established;
-- `neutral_control`: extra same-season context with no identity information;
-- `relation_reminder`: diagnostic only.
+Experiment commit: `aaf03c536e20b5cf83537c4f94a4e8a4476a0001`.
 
-## Metrics
+Qwen3-8B:
 
-The scorer uses exact local A/B continuation log probability. No API and no LLM judge.
+- recognition-gated: 40/40
+- capability-gated: 40/40
+- mean `p_collapse(unknown)`: `0.0000944`
+- mean unknown margin: `-0.499906`
+- bootstrap 95% CI: `[-0.499932, -0.499876]`
+- strong cases: 0
+- positive domains: 0/8
+- verdict: `HARD-KILL-NO-ILLEGAL-JOIN`
 
-For a recognition/control-gated item:
+Gemma3-12B:
 
-```text
-unknown_margin       = p_collapse(unknown) - 0.5
-paraphrase_margin    = p_collapse(paraphrase) - 0.5
-unknown_vs_distinct  = p_collapse(unknown) - p_collapse(distinct_explicit)
-reminder_rescue      = p_collapse(unknown) - p_collapse(relation_reminder)
-```
+- recognition-gated: 0/40
+- downstream same/distinct controls handled correctly
+- primary recognition failure was severe answer-order instability on the distinctness/identity probe
+- harness verdict: `HARD-KILL-QUANTIFIER-CAPABILITY-FLOOR`
 
-Promotion thresholds remain frozen in `configs/frozen_g0.json`.
+No source-memory positive concentration was observed.
 
-## Hard kills / holds
+## Final disposition
 
-- recognition floor -> `HARD-KILL-QUANTIFIER-CAPABILITY-FLOOR`;
-- enough gated cases preserve identity correctly -> `HARD-KILL-NO-ILLEGAL-JOIN`;
-- paraphrase removes effect -> `HOLD-WORDING-ARTIFACT`;
-- neutral context moves action comparably -> `HOLD-GENERIC-CONTEXT-ARTIFACT`;
-- effect is concentrated in historically memorable season/country slices -> `HOLD-SOURCE-MEMORY-ARTIFACT`;
-- exact N1 collision with the observed error destination -> KILL/ROUTE.
+The current frozen natural operationalization is terminally killed. Qwen3-8B cleanly passed the entire recognition/control denominator and overwhelmingly preserved identity uncertainty rather than illegally joining the witnesses. This directly satisfies the pre-registered hard-kill condition.
 
-Do not lower thresholds, select favorable countries, switch to weaker models, or modify the phenotype after seeing smoke results.
+This does not prove that existential-witness conflation can never occur in any model or task. It means this discovery-track candidate failed its frozen natural first-shot test and must not be rescued by changing prompts, thresholds, datasets, model strength, or favorable slices.
 
-## Authorized first shot
-
-Only the frozen two-family smoke is authorized now:
-
-```bash
-cd active/006_existential_witness_collapse
-python -m pip install -e '.[dev,run]'
-pytest -q
-python data/build_frozen_d0.py
-existential-witness-run validate-data --data data/frozen_d0.jsonl
-```
-
-Then run exactly the planned Qwen3-8B and Gemma3-12B local models and summarize both with the frozen config. No N1, panel expansion, scaling curve, or mechanism work is authorized until the first-shot behavioral verdict is audited.
+No N1, panel expansion, scaling, or mechanism experiment is authorized.
