@@ -273,3 +273,22 @@
 | 4 | MTR-01 resolved alternatives remain open | HOLD / control | 必须得到稳定的 set-valued closure 失败，而不是任意 stale answer | STALE 已测 state resolution 与 policy adaptation |
 
 **停止投入：** MTR-02/03/04/05/06/08/09/10/11/12。MTR-05 已被 exact rollback-consistency 论文占据；MTR-06 已被 utterance-level temporal fidelity 工作占据；MTR-04/10 为仓库内重复路由。详见总审计。
+
+---
+
+## Batch-2 脑暴死亡回填（2026-08-28）
+
+完整账本：[`BATCH2_BRAINSTORM_LEDGER_2026-08-28.md`](BATCH2_BRAINSTORM_LEDGER_2026-08-28.md)。
+
+| 本批主题 | 裁决 | 领域内理由 |
+|---|---|---|
+| **Fan effect** | `KILL-EXACT` | CoNLL 2024 *Large Language Model Recall Uncertainty is Modulated by the Fan Effect* 已直接把 fan effect 放到 LLM recall uncertainty 上；不得再以“关联越多越难取回”作为新 behavior discovery。 |
+| **Prospective memory（宽版本）** | `NOT-ADDED` | “记得以后要做什么”若没有独立 trigger/operator，会退化为 reminder、goal memory 或 state tracking；本轮未形成独立母算子。 |
+| **Proactive interference（宽版本）** | `NOT-ADDED / ROUTE F3` | 新信息后旧项目继续干扰，本质与本文件旧状态/更新路径及 F3 高度重合；只换实验范式不能单开。 |
+| **Generic retrieval interference** | `NOT-ADDED` | 没有主动 retrieval manipulation 时，容易被 fan effect、context interference、recency/competition 完整解释。 |
+
+### 本领域仍活的 Batch-2 新方向
+
+**Retrieval-Practice-Induced Forgetting** 不是上述死亡主题的换名。它当前位于 [`audits/BATCH2_N0_WORKING_REVIEW_2026-08-28.md`](audits/BATCH2_N0_WORKING_REVIEW_2026-08-28.md)：必须比较 `active retrieval practice` 与 `passive repeated study`，并只在 related-unpracticed items 上出现选择性 suppression。若 passive repetition 同样复现，立即 KILL 并并回 generic interference。
+
+**禁止复活。** 以后提出“记忆竞争/关联干扰”时，必须先证明不是 fan effect、不是 F3 old-state interference，并写出 active operation 特异的预测，否则不进入 N0。
