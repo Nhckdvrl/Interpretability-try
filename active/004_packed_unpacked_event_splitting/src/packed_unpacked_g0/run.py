@@ -4,11 +4,9 @@ from typing import Any
 import json
 
 from .data import load_scenarios
-from .prompts import (
-    LABEL_ORDERS, PROBABILITY_TEMPLATES, DECISION_TEMPLATES,
-    recognition_prompt, comparison_prompt, partial_text,
-)
+from .prompts import LABEL_ORDERS, READOUT_TEMPLATES, recognition_prompt, comparison_prompt
 from .scoring import HFChoiceScorer
+
 
 def _write_jsonl(path: str | Path, rows: list[dict[str, Any]]) -> None:
     p = Path(path)
@@ -17,11 +15,13 @@ def _write_jsonl(path: str | Path, rows: list[dict[str, Any]]) -> None:
         for row in rows:
             f.write(json.dumps(row, ensure_ascii=False) + "\n")
 
+
 def _semantic_probs(label_probs: dict[str, float], mapping: dict[str, str]) -> dict[str, float]:
     return {semantic: label_probs[label] for label, semantic in mapping.items()}
 
+
 def run(*, data_path: str, out_path: str, model_name: str, family: str,
-        revision: str | None = None, dtype: str = "auto",
+        revision: str | None = None, dtype: str = "auto", size_b: float | None = None,
         sequence_batch_size: int = 64) -> None:
     scenarios = load_scenarios(data_path, require_external_source=True)
     scorer = HFChoiceScorer(model_name, revision=revision, dtype=dtype)
@@ -40,40 +40,54 @@ def run(*, data_path: str, out_path: str, model_name: str, family: str,
                         "probe": probe, "label_order": order, "yes_label": yes,
                     })
 
-            readouts = [
-                ("probability", PROBABILITY_TEMPLATES),
-                ("decision", DECISION_TEMPLATES),
-            ]
-            conditions = [
-                ("core", s.packed_text, p.unpacked_text),
-                ("paraphrase", s.packed_text, s.packed_paraphrase),
-                ("partial_subset", s.packed_text, partial_text(p.branches)),
-            ]
-            if p.repacked_text:
-                conditions.append(("repacked", s.packed_text, p.repacked_text))
+            variants = {
+                "core": p.unpacked_text,
+                "paraphrase": s.packed_paraphrase,
+                "partial_subset": p.partial_text,
+                "repacked": p.repacked_text,
+            }
+            for readout, templates in READOUT_TEMPLATES.items():
+                for template_id, (template_kind, instruction) in enumerate(templates):
+                    for condition, variant in variants.items():
+                        for side_order in (0, 1):
+                            left, right = ((s.packed_text, variant) if side_order == 0 else (variant, s.packed_text))
+                            variant_side = "right" if side_order == 0 else "left"
+                            for order_id, mapping in enumerate(LABEL_ORDERS):
+                                requests.append((comparison_prompt(left, right, instruction, mapping), ("A", "B", "C")))
+                                meta.append({
+                                    "kind": "judgment", "scenario_id": s.scenario_id, "domain": s.domain,
+                                    "partition_id": p.partition_id, "branch_count": p.branch_count,
+                                    "readout": readout, "template_id": template_id, "template_kind": template_kind,
+                                    "condition": condition, "side_order": side_order, "variant_side": variant_side,
+                                    "label_order": order_id, "mapping": mapping,
+                                })
 
-            for readout, templates in readouts:
-                for template_id, instruction in enumerate(templates):
-                    for condition, left, right in conditions:
-                        for order_id, mapping in enumerate(LABEL_ORDERS):
-                            prompt = comparison_prompt(left, right, instruction, mapping)
-                            requests.append((prompt, ("A", "B", "C")))
-                            meta.append({
-                                "kind": "judgment", "scenario_id": s.scenario_id, "domain": s.domain,
-                                "partition_id": p.partition_id, "branch_count": p.branch_count,
-                                "readout": readout, "template_id": template_id,
-                                "condition": condition, "label_order": order_id,
-                                "mapping": mapping,
-                            })
+                    focal_contexts = {
+                        "focal_unpacked_context": (p.unpacked_text, p.complement_text),
+                        "alternative_unpacked_context": (s.packed_text, p.complement_unpacked_text),
+                    }
+                    for condition, (focal_text, alternative_text) in focal_contexts.items():
+                        for side_order in (0, 1):
+                            left, right = ((focal_text, alternative_text) if side_order == 0 else (alternative_text, focal_text))
+                            focal_side = "left" if side_order == 0 else "right"
+                            for order_id, mapping in enumerate(LABEL_ORDERS):
+                                requests.append((comparison_prompt(left, right, instruction, mapping), ("A", "B", "C")))
+                                meta.append({
+                                    "kind": "focal_alternative", "scenario_id": s.scenario_id, "domain": s.domain,
+                                    "partition_id": p.partition_id, "branch_count": p.branch_count,
+                                    "readout": readout, "template_id": template_id, "template_kind": template_kind,
+                                    "condition": condition, "side_order": side_order, "focal_side": focal_side,
+                                    "label_order": order_id, "mapping": mapping,
+                                })
 
     scores = scorer.score_batch(requests, sequence_batch_size=sequence_batch_size)
     rows: list[dict[str, Any]] = []
     for m, score in zip(meta, scores):
         row = dict(m)
-        row["model"] = model_name
-        row["family"] = family
-        row["revision"] = revision
-        row["label_probs"] = score.probs
+        row.update({
+            "model": model_name, "family": family, "revision": revision, "size_b": size_b,
+            "requested_dtype": dtype, "label_probs": score.probs,
+        })
         if m["kind"] == "recognition":
             row["p_correct"] = score.probs[m["yes_label"]]
         else:
