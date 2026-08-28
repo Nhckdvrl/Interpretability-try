@@ -10,7 +10,7 @@ def test_end_to_end_bidirectional_summary(tmp_path):
     for d in DIRECTIONS:
         for p in SUPPORT_PROBES:
             for o in (0,1):results.append({**meta,"kind":"support_probe","scenario_id":"machine:1","domain":"diagnostics","direction":d,"probe":p,"label_order":o,"p_correct":.95})
-    vals={"supports_target":{"belief":{"no_evidence":.55,"weak":.45,"strong":.76,"neutral":.55,"no_evidence_complete":.55,"weak_complete":.47,"no_evidence_length":.55,"weak_length":.46},"action":{"no_evidence":.52,"weak":.47,"strong":.72,"neutral":.52,"no_evidence_complete":.52,"weak_complete":.48,"no_evidence_length":.52,"weak_length":.48}},"supports_other":{"belief":{"no_evidence":.55,"weak":.65,"strong":.34,"neutral":.55,"no_evidence_complete":.55,"weak_complete":.63,"no_evidence_length":.55,"weak_length":.64},"action":{"no_evidence":.52,"weak":.57,"strong":.32,"neutral":.52,"no_evidence_complete":.52,"weak_complete":.56,"no_evidence_length":.52,"weak_length":.56}}}
+    vals={"supports_target":{"belief":{"no_evidence":.55,"weak":.45,"strong":.76,"neutral":.55,"no_evidence_complete":.55,"weak_complete":.47,"length_control":.55,"weak_length":.46},"action":{"no_evidence":.52,"weak":.47,"strong":.72,"neutral":.52,"no_evidence_complete":.52,"weak_complete":.48,"length_control":.52,"weak_length":.48}},"supports_other":{"belief":{"no_evidence":.55,"weak":.65,"strong":.34,"neutral":.55,"no_evidence_complete":.55,"weak_complete":.63,"length_control":.55,"weak_length":.64},"action":{"no_evidence":.52,"weak":.57,"strong":.32,"neutral":.52,"no_evidence_complete":.52,"weak_complete":.56,"length_control":.52,"weak_length":.56}}}
     for d in DIRECTIONS:
         for tid,(kind,_) in enumerate(READOUT_TEMPLATES):
             for c in CONDITIONS:
