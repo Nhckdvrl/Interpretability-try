@@ -5,7 +5,13 @@
 
 ## 调度结论
 
-**当前 `READY-TO-SMOKE`：0。** 未同时具备独立 N0、D0 和 `validation_authorized: true` 的候选一律不运行。
+**当前 `READY-TO-SMOKE`：1。**
+
+唯一授权项：
+
+- `active/006_existential_witness_collapse` — independent N0 `PASS`，natural D0 `PASS`，40 items，20/20 manual audit，`validation_authorized: true`。
+
+其余未同时具备独立 N0、D0 和 `validation_authorized: true` 的候选一律不运行。
 
 ## 保留的审计
 
@@ -17,6 +23,8 @@
 - [SEC/KRE](audits/AUDIT_SEC_KRE.md)
 - [UDH/MCC](audits/AUDIT_UDH_MCC.md)
 - [十题第二轮对抗式 N0](audits/ADVERSARIAL_N0_TEN_2026-08-28.md)
+- [006 fresh independent N0](../../active/006_existential_witness_collapse/N0_INDEPENDENT_AUDIT_2026-08-28.md)
+- [006 natural D0 audit](../../active/006_existential_witness_collapse/D0_AUDIT.md)
 
 `AUDIT_ROOT_SIX_DOMAINS.md` 是未完成占位，不作证据。
 
@@ -42,18 +50,18 @@
 
 失败项保留原 ID、审计链接与致死原因，永久去重。路由项只能当 control/外部 setting。
 
-## 当前十题：第二轮 adversarial N0 survivor
+## 当前十题
 
-详见 [`DEEP_N0_SURVIVORS_10_2026-08-28.md`](DEEP_N0_SURVIVORS_10_2026-08-28.md) 与 [`audits/ADVERSARIAL_N0_TEN_2026-08-28.md`](audits/ADVERSARIAL_N0_TEN_2026-08-28.md)。
+原第二轮 adversarial shortlist 详见 [`DEEP_N0_SURVIVORS_10_2026-08-28.md`](DEEP_N0_SURVIVORS_10_2026-08-28.md) 与 [`audits/ADVERSARIAL_N0_TEN_2026-08-28.md`](audits/ADVERSARIAL_N0_TEN_2026-08-28.md)。
 
-**这些不是 formal `N0-PASS`。** 它们只通过了同一 proposer-side 的第二轮 adversarial search / mother-inclusion attack，仍缺仓库规定的独立 auditor。
+除 006 外，表中的 survivor 仍只通过 proposer-side adversarial search，不是 formal `N0-PASS`。006 已完成 fresh independent N0、natural D0 和授权。
 
 | # | 题目 | 注册状态 | Active 实现 | 授权 |
 |---:|---|---|---|---|
 | 1 | First-Negative-Evidence Harm | `ADVERSARIAL-N0-SURVIVOR` | — | false |
 | 2 | Packed–Unpacked Event Splitting | `ARCHIVED / HOLD-OPERATIONALIZATION-ARTIFACT` | [`archive/009_packed_unpacked_event_splitting`](../../archive/009_packed_unpacked_event_splitting/) | false |
 | 3 | Publicness–Coordination Dissociation (SEC-01 narrow contract) | `ADVERSARIAL-N0-SURVIVOR` | — | false |
-| 4 | Existential Witness Collapse (RVC-04 narrow contract) | `ADVERSARIAL-N0-SURVIVOR / ACTIVE-PREFLIGHT / HARNESS-READY` | [`active/006_existential_witness_collapse`](../../active/006_existential_witness_collapse/) | false |
+| 4 | Existential Witness Collapse (RVC-04 narrow contract) | `N0-PASS / D0-PASS / READY-TO-SMOKE` | [`active/006_existential_witness_collapse`](../../active/006_existential_witness_collapse/) | **true** |
 | 5 | Inadmissible-Evidence Persistence (UDH-11 narrow contract) | `ARCHIVED / TERMINAL-HOLD-D0V3-CONTRACT` | [`archive/010_inadmissible_evidence_persistence`](../../archive/010_inadmissible_evidence_persistence/) | false |
 | 6 | Habitual → Episode Actualization (NG-01 narrow contract) | `ADVERSARIAL-N0-SURVIVOR` | — | false |
 | 7 | Mixed-Status Event Attraction (NG-02 narrow contract) | `ADVERSARIAL-N0-SURVIVOR` | — | false |
@@ -88,12 +96,14 @@ archive/010_inadmissible_evidence_persistence:
 
 active/006_existential_witness_collapse:
   canonical_shortlist_number: 4
-  status: ACTIVE-PREFLIGHT
-  harness: READY
-  formal_n0_verdict: null
-  independent_auditor: null
-  d0_verdict: null
-  validation_authorized: false
+  status: READY-TO-SMOKE
+  harness: READY-r4-natural-d0
+  formal_n0_verdict: PASS
+  independent_auditor: GPT-5.6 Sol (fresh adversarial audit role)
+  d0_verdict: PASS
+  d0_items: 40
+  manual_audit: 20/20 PASS
+  validation_authorized: true
 
 active/007_weak_evidence_backfire:
   canonical_shortlist_number: 10
@@ -105,7 +115,7 @@ active/007_weak_evidence_backfire:
   validation_authorized: false
 ```
 
-这里的 `HARNESS-READY` 只表示验证代码、scorer、artifact controls、promotion / hard-kill metrics 已冻结并登记；**它不是模型运行授权**。
+006 的授权仅覆盖冻结的 first-shot two-family smoke。跑完 Qwen3-8B + Gemma3-12B 后必须做 raw-case / capability / artifact audit 和 N1；在此之前不得扩 panel、跑 scaling 或进入 mechanism。
 
 ## 其他未死但不准运行
 
