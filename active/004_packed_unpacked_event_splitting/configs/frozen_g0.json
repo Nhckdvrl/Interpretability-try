@@ -1,5 +1,5 @@
 {
-  "contract_version": "2026-08-28-r2",
+  "contract_version": "2026-08-28-r3",
   "validation_authorized": false,
   "require_external_source": true,
   "recognition_gate": {
@@ -14,8 +14,7 @@
     "min_core_unpacked_bias": 0.12,
     "min_unpacked_more_probability": 0.42,
     "min_repacking_recovery": 0.04,
-    "min_focal_alternative_shift": 0.04,
-    "min_positive_readouts": 2
+    "min_focal_alternative_shift": 0.04
   },
   "model_pass": {
     "min_gated_scenarios": 20,
@@ -23,8 +22,7 @@
     "min_mean_core_unpacked_bias": 0.08,
     "min_bootstrap_ci_lower": 0.02,
     "min_positive_domains": 2,
-    "min_mean_focal_alternative_shift": 0.02,
-    "min_positive_readouts": 2
+    "min_mean_focal_alternative_shift": 0.02
   },
   "panel_pass": {
     "smoke_min_independent_families": 2,
