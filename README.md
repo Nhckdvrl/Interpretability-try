@@ -11,6 +11,14 @@
 对应的领域化公开数据集目录见 [`DATASET_CATALOG.md`](DATASET_CATALOG.md)。权威流程见 [`phenomenon_miner/PROCESS.md`](phenomenon_miner/PROCESS.md)，当前唯一调度表见 [`phenomenon_miner/candidate_pool/AUDIT_REGISTRY.md`](phenomenon_miner/candidate_pool/AUDIT_REGISTRY.md)。旧候选 Tier 不再授权模型验证。
 这项更新不再要求 discovery 之前已有一个被命名的外部 phenomenon：可以从公开自然任务上的理论关系开始扫描，让具体 phenotype 成为搜索输出。它不放松公开数据、跨家族、artifact audit、novelty 与 mechanism prerequisite 等后续门槛。
 
+## 当前找题记录入口
+
+找题过程、幸存题和死亡题统一从 [`phenomenon_miner/README.md`](phenomenon_miner/README.md) 进入。
+
+- **第一批深度 N0 十题**：[`phenomenon_miner/candidate_pool/DEEP_N0_SURVIVORS_10_2026-08-28.md`](phenomenon_miner/candidate_pool/DEEP_N0_SURVIVORS_10_2026-08-28.md)，详细审计在 [`phenomenon_miner/candidate_pool/audits/ADVERSARIAL_N0_TEN_2026-08-28.md`](phenomenon_miner/candidate_pool/audits/ADVERSARIAL_N0_TEN_2026-08-28.md)。
+- **第二批新的十题（进行中）**：完整脑暴、淘汰与当前 survivor 在 [`phenomenon_miner/candidate_pool/BATCH2_BRAINSTORM_LEDGER_2026-08-28.md`](phenomenon_miner/candidate_pool/BATCH2_BRAINSTORM_LEDGER_2026-08-28.md)，逐题 N0 工作稿在 [`phenomenon_miner/candidate_pool/audits/BATCH2_N0_WORKING_REVIEW_2026-08-28.md`](phenomenon_miner/candidate_pool/audits/BATCH2_N0_WORKING_REVIEW_2026-08-28.md)。当前第二批为 **9 个 survivor，第 10 槽 OPEN**，尚未创建假 `FINAL 10`。
+- **死亡题查找规则**：先查第二批中央 ledger，再查 `phenomenon_miner/candidate_pool/01_...`–`12_...` 的对应领域文档底部 `Batch-2 脑暴死亡回填`。已 KILL/ROUTE 的主题不得只靠换领域、换数据、换 readout 或换名字复活。
+
 当前原则来自连续多轮选题与失败实验，后续新题默认必须遵守。若某个候选与 README 冲突，以 README 为准。
 
 006 的失败说明，仅有“Behavior first”这句话还不够；必须把外部有效性、跨模型复现和停止预算放在机制实验之前。完整复盘见 [`FAILURE_POSTMORTEMS.md`](FAILURE_POSTMORTEMS.md)。
