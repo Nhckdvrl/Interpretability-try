@@ -1,0 +1,45 @@
+{
+  "contract_version": "2026-08-28-r1",
+  "validation_authorized": false,
+  "require_external_source": true,
+  "support_gate": {
+    "min_support_probability": 0.80,
+    "min_likelihood_relation_probability": 0.80,
+    "min_complete_support_probability": 0.80
+  },
+  "capability_gate": {
+    "min_strong_directional_shift": 0.08
+  },
+  "strong_case": {
+    "min_belief_backfire": 0.04,
+    "min_action_backfire": 0.02,
+    "min_complete_backfire": 0.03,
+    "min_length_control_backfire": 0.03,
+    "max_neutral_abs_shift": 0.04,
+    "min_belief_variant_backfire_fraction": 0.75
+  },
+  "model_pass": {
+    "min_gated_pairs": 10,
+    "min_gated_per_direction": 10,
+    "min_support_gate_fraction": 0.50,
+    "min_paired_mean_belief_backfire": 0.025,
+    "min_mean_belief_backfire_per_direction": 0.015,
+    "min_bootstrap_ci_lower": 0.005,
+    "min_mean_complete_backfire": 0.015,
+    "min_mean_length_control_backfire": 0.015,
+    "min_mean_action_backfire": 0.005,
+    "min_mean_strong_directional_shift": 0.08,
+    "min_strong_direction_fraction": 0.20,
+    "min_positive_domains": 2,
+    "max_neutral_artifact_fraction": 0.20,
+    "no_backfire_ceiling": 0.0
+  },
+  "panel_pass": {
+    "smoke_min_independent_families": 2,
+    "generality_min_independent_families": 3,
+    "generality_panel_size": 5,
+    "required_distinct_sizes_in_one_family": 3
+  },
+  "bootstrap_samples": 5000,
+  "seed": 20260828
+}
