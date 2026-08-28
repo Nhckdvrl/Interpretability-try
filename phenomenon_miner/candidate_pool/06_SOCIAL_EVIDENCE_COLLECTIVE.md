@@ -87,7 +87,7 @@ descriptive regularity ≠ normative permission
 
 **一句话矛盾。** 模型正确知道每个人私下都支持方案，却认为每个人也知道其他人支持，从而抹掉 pluralistic ignorance。
 
-**日常例子。** 五名员工都私下反对加班，却各自以为别人赞成；真实私好已一致，感知到的群体规范仍可能相反。
+**日常例子与数据。** 五名员工都私下反对加班，却各自以为别人赞成；真实私好已一致，感知到的群体规范仍可能相反。
 
 **自然数据与轴。** FANToM/Reflect 的 private disclosures、匿名调查与公开会议材料；从公开 survey + discussion 数据构造“private response / public response / belief about group”三列，禁止凭空写人格。分别问真实意见分布、人物对分布的看法、公开行为和协调预测。
 
@@ -187,7 +187,7 @@ descriptive regularity ≠ normative permission
 
 **一句话矛盾。** 模型理解人物是在礼貌、战略或代表组织发言，却仍把这句话当作其私人信念。
 
-**日常例子。** 发言人说“公司对前景充满信心”，并不逻辑蕴含发言人私下也乐观。
+**日常例子与数据。** 发言人说“公司对前景充满信心”，并不逻辑蕴含发言人私下也乐观。
 
 **自然数据与轴。** TactfulToM 的 white-lie conversations、FANToM、QuoteBank、公开听证/谈判对话；对照 `sincere assertion / white lie / role-required statement / explicit private aside`。问 utterance content、communicative goal、public commitment、private belief与预测行动。
 
@@ -278,3 +278,18 @@ descriptive regularity ≠ normative permission
 
 **HOLD：** SEC-02 仅在自然通信日志上出现稳定 `delivered→known` gate 时复活；SEC-09 仅在有客观 jurisdiction gold 的 prestige×expertise crossover 时复活。
 **KILL / ROUTE：** SEC-03 被 2026 pluralistic-ignorance 工作直接占位；SEC-08 被 TactfulToM 与公私顺从工作夹住；SEC-05、SEC-11 路由 Lineage–Weight；SEC-07、SEC-12 路由 OIR。完整依据见[残酷审计](audits/AUDIT_SEC_KRE.md)。
+
+---
+
+## Batch-2 脑暴死亡回填（2026-08-28）
+
+完整账本：[`BATCH2_BRAINSTORM_LEDGER_2026-08-28.md`](BATCH2_BRAINSTORM_LEDGER_2026-08-28.md)。
+
+| 本批主题 | 裁决 | 领域内理由 |
+|---|---|---|
+| **Pluralistic ignorance** | `KILL-EXACT` | 2026 *Everyone Conforms, No One Believes: Pluralistic Ignorance in LLM Agent Populations* 已直接研究 private beliefs、public conformity 与群体 cascade；本文件 SEC-03 的旧卡也已经因此 KILL。 |
+| **Generic bystander effect / responsibility diffusion in LLM populations** | `KILL / NEAR-EXACT` | multi-agent social-bias / responsibility-diffusion 工作已经直接逼近经典 bystander 搬运；仅把场景换成 agent population 不构成新 operator。 |
+| **Hidden-profile bias（宽版本）** | `NOT-ADDED / ROUTE SEC-F4-F9` | hidden-profile 是成熟群体信息共享范式；若只是 shared information 被过度加权、private information 未汇合，会被 SEC 来源/分区母族和既有范式吸收。 |
+| **Collective/group→member projection（宽版本）** | `ROUTE SEC-07/12 + OIR-07` | 群体决定、机构立场向成员广播已经在本文件与 OIR 注册；本轮不重复建立“collective predicate”新卡。 |
+
+**禁止复活。** pluralistic ignorance、bystander、hidden-profile 等经典社会心理名称不能因为“我们做 mechanistic interpretability”就重新作为 behavior novelty；必须先指出最近工作和本仓库 SEC/F4/F9 无法预测的独立 operator。
