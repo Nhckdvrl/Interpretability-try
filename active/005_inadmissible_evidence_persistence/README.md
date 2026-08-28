@@ -103,7 +103,7 @@ A matched neutral piece of excluded material is required. If adding neutral stru
 
 ### Polarity symmetry
 
-Supports-target and supports-other cases are aggregated separately. Formal model pass requires a minimum number of gated cases and a positive mean struck residual **in each direction**. A one-sided result is `HOLD-POLARITY-ASYMMETRY`, not a pass.
+Supports-target and supports-other cases are aggregated separately. Formal model pass requires a minimum number of gated cases and a positive mean struck residual **in each direction**. A one-sided result is `HOLD-POLARITY-ASYMMETRY`, not a pass or a pooled hard kill.
 
 ## Reproducibility
 
@@ -119,6 +119,7 @@ inadmissible-evidence-run run \
   --data data/frozen_d0.jsonl \
   --model Qwen/Qwen3-8B \
   --family Qwen \
+  --size-b 8 \
   --out results/qwen3_8b.jsonl
 
 inadmissible-evidence-run summarize \
@@ -129,6 +130,8 @@ inadmissible-evidence-run summarize \
 
 pytest -q
 ```
+
+For formal runs, also freeze and pass the exact model revision whenever the model source provides one; `size_b` is mandatory so the three-size panel cannot be reconstructed from ambiguous model names after the fact.
 
 The registry remains the authority for formal dispatch; exploratory local runs must not be mislabeled as formal G0 before independent N0/D0 sign-off.
 
