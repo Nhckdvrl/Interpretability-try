@@ -270,3 +270,20 @@
 | 6 | RVC-11 true nodes/broken edges | 可验证图结构、mechanistic route清楚 | proof verification相邻 |
 
 RVC-03、RVC-07、RVC-08、RVC-14 先做文献审计，未证明独特 signature 前不应调用模型。
+
+---
+
+## Batch-2 脑暴死亡回填（2026-08-28）
+
+完整账本：[`BATCH2_BRAINSTORM_LEDGER_2026-08-28.md`](BATCH2_BRAINSTORM_LEDGER_2026-08-28.md)。
+
+| 本批主题 | 裁决 | 领域内理由 |
+|---|---|---|
+| **Explaining-away / collider（宽版本）** | `NOT-ADDED / MOTHER-OCCUPIED` | causal reasoning、selection/collider bias benchmark 已覆盖宽母题；仅做“LLM 不懂 collider”没有新 behavior operator。 |
+| **Actual-causality preemption** | `NOT-ADDED` | actual causality / causal reasoning 邻域拥挤，且当前脑暴没有 components-intact 后独立 downstream 错误形状。 |
+| **Ecological fallacy（宽版本）** | `NOT-ADDED / F6-RISK` | aggregation/statistical reasoning 本身拥挤；若只是 aggregate→individual conclusion，会被 F6 或普通 statistical reasoning 完整吸收。 |
+| **Regression-to-the-mean neglect** | `NOT-ADDED` | 当前版本只能证明统计概念/计算不足，尚未形成“regression relation 已正确表示、某个独立 operator 仍错”的结构。 |
+| **Optional stopping / p-hacking（宽版本）** | `NOT-ADDED` | 只问停止规则或显著性是统计规则应用，未形成不可被一般 verification/threshold 母题吸收的 computation。 |
+| **Einstellung / mental set（宽版本）** | `KILL/OCCUPIED` | ACL 2026 MedEinst 已直接把典型先验/反事实证据下的 Einstellung 做成医疗 LLM 主现象；泛“旧策略固着”也落入 anchoring/plan inertia。 |
+
+**禁止复活。** causal/statistical 老现象只有在模型已通过概念、局部关系与关键计算验收后，还出现一个具有明确 wrong destination、结构曲线和独立 operator 的 downstream failure，才可重新进入 N0；换 benchmark 或加 probe 不够。
