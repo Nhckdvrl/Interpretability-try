@@ -1,19 +1,21 @@
 {
-  "contract_version": "2026-08-28",
+  "contract_version": "2026-08-28-r2",
   "validation_authorized": false,
   "require_external_source": true,
   "recognition_gate": {
     "min_admissibility_probability": 0.8,
     "min_scope_probability": 0.75,
-    "min_polarity_probability": 0.75
+    "min_polarity_probability": 0.75,
+    "max_label_order_gap": 0.2
   },
   "capability_gate": {
     "min_admissible_directional_shift": 0.08,
-    "min_baseline_margin": 0.05
+    "max_verdict_label_order_gap": 0.2
   },
   "strong_case": {
     "min_struck_directional_residual": 0.05,
     "min_undo_ratio": 0.25,
+    "min_each_template_residual": 0.01,
     "max_neutral_struck_abs_shift": 0.05
   },
   "model_pass": {
@@ -22,7 +24,20 @@
     "min_bootstrap_ci_lower": 0.01,
     "min_strong_fraction": 0.2,
     "min_positive_domains": 2,
-    "max_neutral_artifact_fraction": 0.2
+    "min_gated_per_polarity": 5,
+    "min_mean_residual_per_polarity": 0.015,
+    "min_mean_residual_per_template": 0.01,
+    "min_neutral_coverage": 0.5,
+    "max_neutral_artifact_fraction": 0.2,
+    "min_polarity_pairs": 5,
+    "min_pair_direction_consistency": 0.6
+  },
+  "panel_pass": {
+    "smoke_min_independent_families": 2,
+    "generality_min_independent_families": 3,
+    "generality_panel_size": 5,
+    "size_sequence_min": 3,
+    "strong_model_min_size_b": 24.0
   },
   "bootstrap_samples": 5000,
   "seed": 20260828
