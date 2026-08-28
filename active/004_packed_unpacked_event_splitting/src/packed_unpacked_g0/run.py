@@ -4,7 +4,7 @@ from typing import Any
 import json
 from .data import load_scenarios
 from .prompts import LABEL_ORDERS, READOUT_TEMPLATES, recognition_prompt, pair_relation_prompt, comparison_prompt
-from .scoring import HFChoiceScorer
+from .scoring import HFChoiceScorer, VLLMChoiceScorer
 
 
 def _write_jsonl(path: str | Path, rows: list[dict[str, Any]]) -> None:
@@ -19,11 +19,11 @@ def _semantic_probs(label_probs: dict[str, float], mapping: dict[str, str]) -> d
 
 def run(*, data_path: str, out_path: str, model_name: str, family: str,
         revision: str | None = None, dtype: str = "auto", size_b: float | None = None,
-        sequence_batch_size: int = 64) -> None:
+        sequence_batch_size: int = 64, base_url: str | None = None, served_model: str | None = None) -> None:
     if size_b is None or size_b <= 0:
         raise ValueError("size_b must be explicitly provided and > 0")
     scenarios = load_scenarios(data_path, require_external_source=True)
-    scorer = HFChoiceScorer(model_name, revision=revision, dtype=dtype)
+    scorer = VLLMChoiceScorer(model_name, base_url=base_url, revision=revision, served_model=served_model) if base_url else HFChoiceScorer(model_name, revision=revision, dtype=dtype)
     requests: list[tuple[str, tuple[str, ...]]] = []; meta: list[dict[str, Any]] = []
     for s in scenarios:
         for p in s.partitions:

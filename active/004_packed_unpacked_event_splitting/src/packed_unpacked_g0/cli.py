@@ -11,7 +11,7 @@ def main() -> None:
     sub = ap.add_subparsers(dest="cmd", required=True)
     r = sub.add_parser("run")
     r.add_argument("--data", required=True); r.add_argument("--out", required=True)
-    r.add_argument("--model", required=True); r.add_argument("--family", required=True); r.add_argument("--revision")
+    r.add_argument("--model", required=True); r.add_argument("--family", required=True); r.add_argument("--revision"); r.add_argument("--base-url"); r.add_argument("--served-model")
     r.add_argument("--dtype", default="auto"); r.add_argument("--size-b", type=float, required=True); r.add_argument("--batch-size", type=int, default=64)
     s = sub.add_parser("summarize")
     s.add_argument("--data", required=True); s.add_argument("--results", required=True)
@@ -21,7 +21,7 @@ def main() -> None:
     args = ap.parse_args()
     if args.cmd == "run":
         run(data_path=args.data, out_path=args.out, model_name=args.model, family=args.family,
-            revision=args.revision, dtype=args.dtype, size_b=args.size_b, sequence_batch_size=args.batch_size)
+            revision=args.revision, dtype=args.dtype, size_b=args.size_b, base_url=args.base_url, served_model=args.served_model, sequence_batch_size=args.batch_size)
     elif args.cmd == "summarize":
         x = summarize(data_path=args.data, results_path=args.results,
                       config_path=args.config, out_path=args.out)

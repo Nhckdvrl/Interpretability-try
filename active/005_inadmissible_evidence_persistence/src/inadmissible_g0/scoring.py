@@ -2,6 +2,8 @@ from __future__ import annotations
 from dataclasses import dataclass
 import math
 from typing import Sequence
+import json
+from urllib.request import Request, urlopen
 
 @dataclass(frozen=True)
 class ScoreResult:
@@ -98,3 +100,33 @@ class HFChoiceScorer:
                 for req_i, cand in destinations:
                     per_req[req_i][cand] = total
         return [ScoreResult(d, softmax_dict(d)) for d in per_req]
+
+class VLLMChoiceScorer:
+    def __init__(self, model_name: str, *, base_url: str, revision: str | None = None, served_model: str | None = None):
+        from transformers import AutoTokenizer
+        self.tokenizer = AutoTokenizer.from_pretrained(model_name, revision=revision, trust_remote_code=True)
+        self.base_url = base_url.rstrip("/") + "/v1/completions"
+        self.model_name = served_model or model_name
+        self._cache = {}
+    def _prefix(self, user_text: str) -> str:
+        messages = [{"role": "user", "content": user_text}]
+        if getattr(self.tokenizer, "chat_template", None):
+            try: return self.tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True, enable_thinking=False)
+            except TypeError: return self.tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
+        return f"USER: {user_text}\nASSISTANT:"
+    def score_batch(self, requests: Sequence[tuple[str, tuple[str, ...]]], *, sequence_batch_size: int = 64) -> list[ScoreResult]:
+        out=[]
+        for prompt,candidates in requests:
+            prefix=self._prefix(prompt); vals={}; missing=[]
+            for cand in candidates:
+                if (prefix,cand) in self._cache: vals[cand]=self._cache[(prefix,cand)]
+                else: missing.append(cand)
+            if missing:
+                for cand in missing:
+                    body=json.dumps({"model":self.model_name,"prompt":prefix+cand,"max_tokens":0,"temperature":0,"logprobs":1,"echo":True}).encode()
+                    req=Request(self.base_url,data=body,headers={"Content-Type":"application/json"})
+                    with urlopen(req,timeout=120) as response: data=json.load(response)
+                    lp=data["choices"][0]["logprobs"]["token_logprobs"][-1]
+                    self._cache[(prefix,cand)]=float(lp); vals[cand]=self._cache[(prefix,cand)]
+            out.append(ScoreResult(vals,softmax_dict(vals)))
+        return out

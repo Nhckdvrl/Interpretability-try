@@ -1,0 +1,49 @@
+{
+  "status": "EXPLORATORY-LOCAL",
+  "validation_authorized": false,
+  "generated_utc": "2026-08-28",
+  "python": "3.13.13 | packaged by Anaconda, Inc. | (main, Apr 14 2026, 06:19:41) [GCC 14.3.0]",
+  "platform": "Linux-6.8.0-79-generic-x86_64-with-glibc2.39",
+  "source_urls": {
+    "004": "https://www.football-data.co.uk/mmz4281/2324/E0.csv",
+    "005": "https://huggingface.co/datasets/nguha/legalbench/resolve/main/data/hearsay/test.tsv"
+  },
+  "datasets": {
+    "004": {
+      "scenarios": 20,
+      "partitions": 60,
+      "domains": [
+        "sports"
+      ],
+      "source_license": "Football-Data terms: free for non-commercial use",
+      "audited_records": 60,
+      "sha256": "3f1f7536d26a654f7a228fefd1efa9b09716ea66f32c9984fccbca2ae66f7589",
+      "within_family_groups": 20,
+      "branch_counts": [
+        2,
+        3,
+        4
+      ]
+    },
+    "005": {
+      "cases": 40,
+      "polarity_pairs": 20,
+      "domains": [
+        "legal"
+      ],
+      "source_license": "CC BY 4.0",
+      "audited_pairs": 20,
+      "sha256": "fd37a7cc92ce8c7a3940252fc150f293b8025a95dbcf1807716aa89607b4ce6b"
+    }
+  },
+  "audit_coverage": {
+    "004_manual_audits": 60,
+    "005_manual_audits": 20,
+    "minimum_sample_review_met": true
+  },
+  "notes": [
+    "All gold fields are frozen before model calls.",
+    "004 taxonomy is deterministic score-margin refinement anchored to public match records; 005 legal status is anchored to LegalBench hearsay=Yes and pair transformation provenance.",
+    "No formal READY-TO-SMOKE or N0/D0 promotion was performed."
+  ]
+}

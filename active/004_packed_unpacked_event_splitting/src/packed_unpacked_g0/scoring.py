@@ -2,6 +2,9 @@ from __future__ import annotations
 from dataclasses import dataclass
 import math
 from typing import Sequence
+import json
+from urllib.request import Request, urlopen
+from concurrent.futures import ThreadPoolExecutor
 
 @dataclass(frozen=True)
 class ScoreResult:
@@ -98,3 +101,46 @@ class HFChoiceScorer:
                 for req_i, cand in destinations:
                     per_req[req_i][cand] = total
         return [ScoreResult(d, softmax_dict(d)) for d in per_req]
+
+class VLLMChoiceScorer:
+    """Exact one-token continuation scorer for an existing local vLLM server."""
+    def __init__(self, model_name: str, *, base_url: str, revision: str | None = None, served_model: str | None = None):
+        from transformers import AutoTokenizer
+        self.tokenizer = AutoTokenizer.from_pretrained(model_name, revision=revision, trust_remote_code=True)
+        self.base_url = base_url.rstrip("/") + "/v1/completions"
+        self.model_name = served_model or model_name
+        self._cache = {}
+
+    def _prefix(self, user_text: str) -> str:
+        messages = [{"role": "user", "content": user_text}]
+        if getattr(self.tokenizer, "chat_template", None):
+            try:
+                return self.tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True, enable_thinking=False)
+            except TypeError:
+                return self.tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
+        return f"USER: {user_text}\nASSISTANT:"
+
+    def score_batch(self, requests: Sequence[tuple[str, tuple[str, ...]]], *, sequence_batch_size: int = 64) -> list[ScoreResult]:
+        prepared = [(self._prefix(prompt), candidates) for prompt, candidates in requests]
+        pending = []
+        seen = set()
+        for prefix, candidates in prepared:
+            for cand in candidates:
+                key = (prefix, cand)
+                if key not in self._cache and key not in seen:
+                    pending.append(key); seen.add(key)
+        def score_one(key):
+            prefix, cand = key
+            body = json.dumps({"model": self.model_name, "prompt": prefix + cand, "max_tokens": 0, "temperature": 0, "logprobs": 1, "echo": True}).encode()
+            req = Request(self.base_url, data=body, headers={"Content-Type": "application/json"})
+            with urlopen(req, timeout=120) as response: data = json.load(response)
+            return key, float(data["choices"][0]["logprobs"]["token_logprobs"][-1])
+        workers = max(1, min(int(sequence_batch_size), 16))
+        with ThreadPoolExecutor(max_workers=workers) as pool:
+            for key, lp in pool.map(score_one, pending):
+                self._cache[key] = lp
+        out = []
+        for prefix, candidates in prepared:
+            vals = {cand: self._cache[(prefix, cand)] for cand in candidates}
+            out.append(ScoreResult(vals, softmax_dict(vals)))
+        return out

@@ -3,16 +3,16 @@ from pathlib import Path
 import json
 from .data import load_scenarios
 from .prompts import BINARY_ORDERS, RECOGNITION_ORDERS, VERDICT_TEMPLATES, condition_text, verdict_prompt, recognition_prompt
-from .scoring import HFChoiceScorer
+from .scoring import HFChoiceScorer, VLLMChoiceScorer
 
 def _write(path,rows):
     p=Path(path); p.parent.mkdir(parents=True,exist_ok=True)
     with p.open("w",encoding="utf-8") as f:
         for r in rows: f.write(json.dumps(r,ensure_ascii=False)+"\n")
 
-def run(*,data_path:str,out_path:str,model_name:str,family:str,revision:str|None=None,dtype:str="auto",size_b:float|None=None,sequence_batch_size:int=64)->None:
+def run(*,data_path:str,out_path:str,model_name:str,family:str,revision:str|None=None,dtype:str="auto",size_b:float|None=None,sequence_batch_size:int=64,base_url:str|None=None,served_model:str|None=None)->None:
     if size_b is None or size_b<=0: raise ValueError("size_b must be explicitly provided and > 0")
-    scenarios=load_scenarios(data_path,require_external_source=True); scorer=HFChoiceScorer(model_name,revision=revision,dtype=dtype); requests=[]; meta=[]
+    scenarios=load_scenarios(data_path,require_external_source=True); scorer=VLLMChoiceScorer(model_name,base_url=base_url,revision=revision,served_model=served_model) if base_url else HFChoiceScorer(model_name,revision=revision,dtype=dtype); requests=[]; meta=[]
     for s in scenarios:
         for probe in ("inadmissible","scope","polarity"):
             for oid,mapping in enumerate(RECOGNITION_ORDERS):

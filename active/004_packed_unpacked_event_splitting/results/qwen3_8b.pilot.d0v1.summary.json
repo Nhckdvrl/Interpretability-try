@@ -1,0 +1,709 @@
+{
+  "contract": "Packed-Unpacked Event Splitting",
+  "model": "Qwen/Qwen3-8B",
+  "family": "Qwen",
+  "revision": null,
+  "size_b": 8.0,
+  "model_pass": false,
+  "verdict": "HOLD-ARTIFACT-CONTROLS",
+  "aggregate": {
+    "gated_scenarios": 5,
+    "mean_core_unpacked_bias": 0.04499366902443836,
+    "bootstrap_95_ci_clustered_by_scenario": [
+      0.0034698817468810927,
+      0.08651745630199563
+    ],
+    "strong_fraction": 0.0,
+    "positive_domains": 1,
+    "mean_focal_alternative_shift": 0.2997710162171166,
+    "mean_repacking_recovery": -0.05082263485492997,
+    "mean_template_positive_fraction": 0.6,
+    "branch_count_matched_groups": 5,
+    "mean_within_family_branch_count_slope": -0.1984927460163772,
+    "artifact_failure_scenarios": 5
+  },
+  "by_domain": {
+    "sports": {
+      "gated_scenarios": 5,
+      "mean_core_unpacked_bias": 0.04499366902443836,
+      "strong_scenarios": 0
+    }
+  },
+  "within_refinement_family_branch_count_slopes": {
+    "football-data-e0-2324-001::football-data-e0-2324-001-home-win-margin-refinement": -0.19327486740752628,
+    "football-data-e0-2324-002::football-data-e0-2324-002-home-win-margin-refinement": -0.18321364506596338,
+    "football-data-e0-2324-003::football-data-e0-2324-003-home-win-margin-refinement": -0.2195694747502764,
+    "football-data-e0-2324-004::football-data-e0-2324-004-home-win-margin-refinement": -0.22272131128000805,
+    "football-data-e0-2324-005::football-data-e0-2324-005-home-win-margin-refinement": -0.17368443157811184
+  },
+  "scenarios": [
+    {
+      "scenario_id": "football-data-e0-2324-001",
+      "domain": "sports",
+      "mean_core_unpacked_bias": -0.02035589517169742,
+      "mean_focal_alternative_shift": 0.38817722211041084,
+      "mean_repacking_recovery": -0.07273280611917844,
+      "mean_template_positive_fraction": 0.5,
+      "control_ok_fraction": 0.0,
+      "strong": false
+    },
+    {
+      "scenario_id": "football-data-e0-2324-002",
+      "domain": "sports",
+      "mean_core_unpacked_bias": 0.10612793196109921,
+      "mean_focal_alternative_shift": 0.271490163390567,
+      "mean_repacking_recovery": -0.008063482815387032,
+      "mean_template_positive_fraction": 0.75,
+      "control_ok_fraction": 0.0,
+      "strong": false
+    },
+    {
+      "scenario_id": "football-data-e0-2324-003",
+      "domain": "sports",
+      "mean_core_unpacked_bias": 0.04494750631281781,
+      "mean_focal_alternative_shift": 0.36956017588112094,
+      "mean_repacking_recovery": -0.06699163398648601,
+      "mean_template_positive_fraction": 0.625,
+      "control_ok_fraction": 0.0,
+      "strong": false
+    },
+    {
+      "scenario_id": "football-data-e0-2324-004",
+      "domain": "sports",
+      "mean_core_unpacked_bias": 0.006556846382491245,
+      "mean_focal_alternative_shift": 0.184175873803266,
+      "mean_repacking_recovery": -0.053895569775639814,
+      "mean_template_positive_fraction": 0.625,
+      "control_ok_fraction": 0.0,
+      "strong": false
+    },
+    {
+      "scenario_id": "football-data-e0-2324-005",
+      "domain": "sports",
+      "mean_core_unpacked_bias": 0.08769195563748096,
+      "mean_focal_alternative_shift": 0.28545164590021815,
+      "mean_repacking_recovery": -0.05242968157795856,
+      "mean_template_positive_fraction": 0.5,
+      "control_ok_fraction": 0.0,
+      "strong": false
+    }
+  ],
+  "cases": [
+    {
+      "scenario_id": "football-data-e0-2324-001",
+      "partition_id": "k2",
+      "domain": "sports",
+      "branch_count": 2,
+      "branch_count_family": "football-data-e0-2324-001-home-win-margin-refinement",
+      "recognition": {
+        "focal_equivalent": 0.3468961089230436,
+        "focal_disjoint": 0.9986844702820417,
+        "focal_exhaustive": 0.9999189185816361,
+        "complement_equivalent": 0.09268704241479431,
+        "complement_disjoint": 0.9956935776112774,
+        "complement_exhaustive": 0.9998316394338498,
+        "pair_disjoint": 0.9992140531276141,
+        "pair_exhaustive": 0.8519528019683105
+      },
+      "gated": false,
+      "core_unpacked_bias": 0.11727855929883882,
+      "core_bias_by_readout": {
+        "probability": -0.08349934464328,
+        "decision": 0.31805646324095765,
+        "frequency": 0.12757804878841195
+      },
+      "natural_template_core_bias": {
+        "probability:0": -0.10075140938272588,
+        "probability:1": -0.06624727990383411,
+        "decision:0": 0.3166516190716804,
+        "decision:1": 0.31946130741023493
+      },
+      "natural_template_positive_fraction": 0.5,
+      "paraphrase_bias": -0.04412037411946994,
+      "partial_subset_discrimination": -0.029994829804982984,
+      "reordered_bias": -0.1575584562377812,
+      "reorder_gap": 0.27483701553662,
+      "repacking_recovery": -0.05209168052410276,
+      "unpacking_specific_focal_alternative_shift": 0.4452575472941736,
+      "reminder_rescue": -0.026833723622623068,
+      "control_ok": false,
+      "structural_ok": false,
+      "strong": false
+    },
+    {
+      "scenario_id": "football-data-e0-2324-001",
+      "partition_id": "k3",
+      "domain": "sports",
+      "branch_count": 3,
+      "branch_count_family": "football-data-e0-2324-001-home-win-margin-refinement",
+      "recognition": {
+        "focal_equivalent": 0.8771612436251989,
+        "focal_disjoint": 0.9976627351294585,
+        "focal_exhaustive": 0.9995153288845985,
+        "complement_equivalent": 0.7538926434773063,
+        "complement_disjoint": 0.988268211069697,
+        "complement_exhaustive": 0.9999380546067481,
+        "pair_disjoint": 0.9992140531276141,
+        "pair_exhaustive": 0.8519528019683105
+      },
+      "gated": true,
+      "core_unpacked_bias": 0.07628153853206572,
+      "core_bias_by_readout": {
+        "probability": -0.09465934507749665,
+        "decision": 0.2472224221416281,
+        "frequency": -0.13207672262670953
+      },
+      "natural_template_core_bias": {
+        "probability:0": 0.009702539619444561,
+        "probability:1": -0.19902122977443787,
+        "decision:0": 0.2841699283278889,
+        "decision:1": 0.2102749159553673
+      },
+      "natural_template_positive_fraction": 0.75,
+      "paraphrase_bias": -0.04412037411946994,
+      "partial_subset_discrimination": 0.09173540706368542,
+      "reordered_bias": -0.09603875702558655,
+      "reorder_gap": 0.17232029555765227,
+      "repacking_recovery": -0.09308870129087586,
+      "unpacking_specific_focal_alternative_shift": 0.4586085095002681,
+      "reminder_rescue": 0.0915061353521294,
+      "control_ok": false,
+      "structural_ok": false,
+      "strong": false
+    },
+    {
+      "scenario_id": "football-data-e0-2324-001",
+      "partition_id": "k4",
+      "domain": "sports",
+      "branch_count": 4,
+      "branch_count_family": "football-data-e0-2324-001-home-win-margin-refinement",
+      "recognition": {
+        "focal_equivalent": 0.9388121847687267,
+        "focal_disjoint": 0.9979319048388389,
+        "focal_exhaustive": 0.9997867320966486,
+        "complement_equivalent": 0.8340958795677553,
+        "complement_disjoint": 0.9760233601111192,
+        "complement_exhaustive": 0.9987605906566575,
+        "pair_disjoint": 0.9992140531276141,
+        "pair_exhaustive": 0.8519528019683105
+      },
+      "gated": true,
+      "core_unpacked_bias": -0.11699332887546056,
+      "core_bias_by_readout": {
+        "probability": -0.2679644558336542,
+        "decision": 0.03397779808273306,
+        "frequency": -0.17336250778773943
+      },
+      "natural_template_core_bias": {
+        "probability:0": -0.2511629918378816,
+        "probability:1": -0.2847659198294268,
+        "decision:0": 0.08465514216633932,
+        "decision:1": -0.0166995460008732
+      },
+      "natural_template_positive_fraction": 0.25,
+      "paraphrase_bias": -0.04412037411946994,
+      "partial_subset_discrimination": 0.026770423954982116,
+      "reordered_bias": -0.140881813919348,
+      "reorder_gap": 0.02388848504388745,
+      "repacking_recovery": -0.05237691094748102,
+      "unpacking_specific_focal_alternative_shift": 0.3177459347205536,
+      "reminder_rescue": -0.006499381807076751,
+      "control_ok": false,
+      "structural_ok": false,
+      "strong": false
+    },
+    {
+      "scenario_id": "football-data-e0-2324-002",
+      "partition_id": "k2",
+      "domain": "sports",
+      "branch_count": 2,
+      "branch_count_family": "football-data-e0-2324-002-home-win-margin-refinement",
+      "recognition": {
+        "focal_equivalent": 0.7655657510839071,
+        "focal_disjoint": 0.9996541002474184,
+        "focal_exhaustive": 0.9999758499037643,
+        "complement_equivalent": 0.061642026416660556,
+        "complement_disjoint": 0.997310727279058,
+        "complement_exhaustive": 0.9998304616369076,
+        "pair_disjoint": 0.9999481554346296,
+        "pair_exhaustive": 0.8647786981438819
+      },
+      "gated": false,
+      "core_unpacked_bias": 0.26498032204659144,
+      "core_bias_by_readout": {
+        "probability": 0.08516968537455484,
+        "decision": 0.44479095871862806,
+        "frequency": 0.32486583944459124
+      },
+      "natural_template_core_bias": {
+        "probability:0": 0.06215548346818796,
+        "probability:1": 0.10818388728092171,
+        "decision:0": 0.4039360540310444,
+        "decision:1": 0.4856458634062117
+      },
+      "natural_template_positive_fraction": 1.0,
+      "paraphrase_bias": -0.03159724198297165,
+      "partial_subset_discrimination": -0.11327881057506797,
+      "reordered_bias": -0.03653732931322001,
+      "reorder_gap": 0.30151765135981146,
+      "repacking_recovery": 0.1507889072701052,
+      "unpacking_specific_focal_alternative_shift": 0.33265849540776316,
+      "reminder_rescue": 0.13203344106906556,
+      "control_ok": false,
+      "structural_ok": true,
+      "strong": false
+    },
+    {
+      "scenario_id": "football-data-e0-2324-002",
+      "partition_id": "k3",
+      "domain": "sports",
+      "branch_count": 3,
+      "branch_count_family": "football-data-e0-2324-002-home-win-margin-refinement",
+      "recognition": {
+        "focal_equivalent": 0.9885796791066241,
+        "focal_disjoint": 0.9991188137913809,
+        "focal_exhaustive": 0.9997620225241547,
+        "complement_equivalent": 0.797437173486085,
+        "complement_disjoint": 0.9971135484656322,
+        "complement_exhaustive": 0.9999704385912453,
+        "pair_disjoint": 0.9999481554346296,
+        "pair_exhaustive": 0.8647786981438819
+      },
+      "gated": true,
+      "core_unpacked_bias": 0.1977347544940809,
+      "core_bias_by_readout": {
+        "probability": 0.049762095220413666,
+        "decision": 0.34570741376774816,
+        "frequency": -0.040198307705656015
+      },
+      "natural_template_core_bias": {
+        "probability:0": 0.08554898541779392,
+        "probability:1": 0.013975205023033408,
+        "decision:0": 0.3516367824567749,
+        "decision:1": 0.33977804507872145
+      },
+      "natural_template_positive_fraction": 1.0,
+      "paraphrase_bias": -0.03159724198297165,
+      "partial_subset_discrimination": -0.07322193051644624,
+      "reordered_bias": -0.00887405861416269,
+      "reorder_gap": 0.20660881310824358,
+      "repacking_recovery": 0.08354333971759466,
+      "unpacking_specific_focal_alternative_shift": 0.31773290205479565,
+      "reminder_rescue": 0.21890337545766927,
+      "control_ok": false,
+      "structural_ok": true,
+      "strong": false
+    },
+    {
+      "scenario_id": "football-data-e0-2324-002",
+      "partition_id": "k4",
+      "domain": "sports",
+      "branch_count": 4,
+      "branch_count_family": "football-data-e0-2324-002-home-win-margin-refinement",
+      "recognition": {
+        "focal_equivalent": 0.9894258694074193,
+        "focal_disjoint": 0.9993522451982684,
+        "focal_exhaustive": 0.9997739990016231,
+        "complement_equivalent": 0.9022634630490025,
+        "complement_disjoint": 0.9960961251137908,
+        "complement_exhaustive": 0.99837604505067,
+        "pair_disjoint": 0.9999481554346296,
+        "pair_exhaustive": 0.8647786981438819
+      },
+      "gated": true,
+      "core_unpacked_bias": 0.014521109428117521,
+      "core_bias_by_readout": {
+        "probability": -0.10239759046409988,
+        "decision": 0.13143980932033492,
+        "frequency": -0.10358281622492663
+      },
+      "natural_template_core_bias": {
+        "probability:0": -0.0718507327283887,
+        "probability:1": -0.13294444819981105,
+        "decision:0": 0.031443961016820836,
+        "decision:1": 0.231435657623849
+      },
+      "natural_template_positive_fraction": 0.5,
+      "paraphrase_bias": -0.03159724198297165,
+      "partial_subset_discrimination": -0.11934879782367305,
+      "reordered_bias": -0.06820022669526454,
+      "reorder_gap": 0.08272133612338206,
+      "repacking_recovery": -0.09967030534836872,
+      "unpacking_specific_focal_alternative_shift": 0.22524742472633835,
+      "reminder_rescue": 0.1241466694267787,
+      "control_ok": false,
+      "structural_ok": false,
+      "strong": false
+    },
+    {
+      "scenario_id": "football-data-e0-2324-003",
+      "partition_id": "k2",
+      "domain": "sports",
+      "branch_count": 2,
+      "branch_count_family": "football-data-e0-2324-003-home-win-margin-refinement",
+      "recognition": {
+        "focal_equivalent": 0.3412127574582676,
+        "focal_disjoint": 0.998245983693174,
+        "focal_exhaustive": 0.9999510686380655,
+        "complement_equivalent": 0.16648605893434482,
+        "complement_disjoint": 0.9956738306679511,
+        "complement_exhaustive": 0.9999379789302592,
+        "pair_disjoint": 0.9996944649969759,
+        "pair_exhaustive": 0.8167006449931273
+      },
+      "gated": false,
+      "core_unpacked_bias": 0.23854692781508266,
+      "core_bias_by_readout": {
+        "probability": 0.10591975347533696,
+        "decision": 0.3711741021548284,
+        "frequency": 0.4334404473063401
+      },
+      "natural_template_core_bias": {
+        "probability:0": 0.014644635996055005,
+        "probability:1": 0.1971948709546189,
+        "decision:0": 0.3945754968991004,
+        "decision:1": 0.3477727074105563
+      },
+      "natural_template_positive_fraction": 1.0,
+      "paraphrase_bias": -0.0006298730137693433,
+      "partial_subset_discrimination": -0.07031507288888811,
+      "reordered_bias": -0.1830248153409279,
+      "reorder_gap": 0.42157174315601054,
+      "repacking_recovery": 0.06177055645345844,
+      "unpacking_specific_focal_alternative_shift": 0.44506842189951584,
+      "reminder_rescue": 0.04770373360555752,
+      "control_ok": false,
+      "structural_ok": true,
+      "strong": false
+    },
+    {
+      "scenario_id": "football-data-e0-2324-003",
+      "partition_id": "k3",
+      "domain": "sports",
+      "branch_count": 3,
+      "branch_count_family": "football-data-e0-2324-003-home-win-margin-refinement",
+      "recognition": {
+        "focal_equivalent": 0.792566222999767,
+        "focal_disjoint": 0.9971746582733787,
+        "focal_exhaustive": 0.9989749982735323,
+        "complement_equivalent": 0.7516282061176824,
+        "complement_disjoint": 0.9971135481342737,
+        "complement_exhaustive": 0.9999707014089669,
+        "pair_disjoint": 0.9996944649969759,
+        "pair_exhaustive": 0.8167006449931273
+      },
+      "gated": true,
+      "core_unpacked_bias": 0.15473224368795602,
+      "core_bias_by_readout": {
+        "probability": -0.058402390061263104,
+        "decision": 0.36786687743717517,
+        "frequency": -0.11485065570271115
+      },
+      "natural_template_core_bias": {
+        "probability:0": 0.007249948191567966,
+        "probability:1": -0.12405472831409417,
+        "decision:0": 0.3598187454550317,
+        "decision:1": 0.37591500941931866
+      },
+      "natural_template_positive_fraction": 0.75,
+      "paraphrase_bias": -0.0006298730137693433,
+      "partial_subset_discrimination": 0.0645502653965084,
+      "reordered_bias": -0.11444673293143312,
+      "reorder_gap": 0.26917897661938917,
+      "repacking_recovery": -0.0220441276736682,
+      "unpacking_specific_focal_alternative_shift": 0.4596995848522302,
+      "reminder_rescue": 0.0983248639404413,
+      "control_ok": false,
+      "structural_ok": false,
+      "strong": false
+    },
+    {
+      "scenario_id": "football-data-e0-2324-003",
+      "partition_id": "k4",
+      "domain": "sports",
+      "branch_count": 4,
+      "branch_count_family": "football-data-e0-2324-003-home-win-margin-refinement",
+      "recognition": {
+        "focal_equivalent": 0.9594608519401449,
+        "focal_disjoint": 0.9955435831667245,
+        "focal_exhaustive": 0.9994055490929965,
+        "complement_equivalent": 0.8663150649692635,
+        "complement_disjoint": 0.9847652066285573,
+        "complement_exhaustive": 0.9990282818263949,
+        "pair_disjoint": 0.9996944649969759,
+        "pair_exhaustive": 0.8167006449931273
+      },
+      "gated": true,
+      "core_unpacked_bias": -0.0648372310623204,
+      "core_bias_by_readout": {
+        "probability": -0.33984259618210816,
+        "decision": 0.21016813405746737,
+        "frequency": -0.14782487482344767
+      },
+      "natural_template_core_bias": {
+        "probability:0": -0.3327178560655484,
+        "probability:1": -0.34696733629866794,
+        "decision:0": 0.243004929302883,
+        "decision:1": 0.1773313388120517
+      },
+      "natural_template_positive_fraction": 0.5,
+      "paraphrase_bias": -0.0006298730137693433,
+      "partial_subset_discrimination": 0.020534963833385957,
+      "reordered_bias": -0.156863343428046,
+      "reorder_gap": 0.09202611236572561,
+      "repacking_recovery": -0.11193914029930382,
+      "unpacking_specific_focal_alternative_shift": 0.27942076691001166,
+      "reminder_rescue": 0.010507208174831764,
+      "control_ok": false,
+      "structural_ok": false,
+      "strong": false
+    },
+    {
+      "scenario_id": "football-data-e0-2324-004",
+      "partition_id": "k2",
+      "domain": "sports",
+      "branch_count": 2,
+      "branch_count_family": "football-data-e0-2324-004-home-win-margin-refinement",
+      "recognition": {
+        "focal_equivalent": 0.47164030601762574,
+        "focal_disjoint": 0.9983762356042685,
+        "focal_exhaustive": 0.9999771046645133,
+        "complement_equivalent": 0.172399793848523,
+        "complement_disjoint": 0.9929631214050871,
+        "complement_exhaustive": 0.9997841875744378,
+        "pair_disjoint": 0.9998146503430405,
+        "pair_exhaustive": 0.982013787142765
+      },
+      "gated": false,
+      "core_unpacked_bias": 0.19074475282557224,
+      "core_bias_by_readout": {
+        "probability": 0.15563372340264942,
+        "decision": 0.22585578224849504,
+        "frequency": 0.42527075709603707
+      },
+      "natural_template_core_bias": {
+        "probability:0": 0.1529879302144368,
+        "probability:1": 0.15827951659086203,
+        "decision:0": 0.15026418520804052,
+        "decision:1": 0.30144737928894955
+      },
+      "natural_template_positive_fraction": 1.0,
+      "paraphrase_bias": -0.03092346053871366,
+      "partial_subset_discrimination": 0.07583400234695777,
+      "reordered_bias": -0.06395328276953245,
+      "reorder_gap": 0.2546980355951047,
+      "repacking_recovery": 0.025488527409928408,
+      "unpacking_specific_focal_alternative_shift": 0.22014973679546398,
+      "reminder_rescue": 0.06490851152560606,
+      "control_ok": false,
+      "structural_ok": false,
+      "strong": false
+    },
+    {
+      "scenario_id": "football-data-e0-2324-004",
+      "partition_id": "k3",
+      "domain": "sports",
+      "branch_count": 3,
+      "branch_count_family": "football-data-e0-2324-004-home-win-margin-refinement",
+      "recognition": {
+        "focal_equivalent": 0.894131113831322,
+        "focal_disjoint": 0.9983712526892541,
+        "focal_exhaustive": 0.9998917829057168,
+        "complement_equivalent": 0.7327445102887238,
+        "complement_disjoint": 0.9812348420061803,
+        "complement_exhaustive": 0.9999518560385097,
+        "pair_disjoint": 0.9998146503430405,
+        "pair_exhaustive": 0.982013787142765
+      },
+      "gated": true,
+      "core_unpacked_bias": 0.11791750202249526,
+      "core_bias_by_readout": {
+        "probability": 0.03234395318825146,
+        "decision": 0.20349105085673908,
+        "frequency": -0.04697627519125086
+      },
+      "natural_template_core_bias": {
+        "probability:0": 0.05788368897055731,
+        "probability:1": 0.006804217405945607,
+        "decision:0": 0.1610685586344963,
+        "decision:1": 0.24591354307898183
+      },
+      "natural_template_positive_fraction": 1.0,
+      "paraphrase_bias": -0.03092346053871366,
+      "partial_subset_discrimination": 0.06050258704650709,
+      "reordered_bias": -0.07326140680730311,
+      "reorder_gap": 0.19117890882979838,
+      "repacking_recovery": -0.04733872339314857,
+      "unpacking_specific_focal_alternative_shift": 0.21646748250188455,
+      "reminder_rescue": 0.10264448899500972,
+      "control_ok": false,
+      "structural_ok": false,
+      "strong": false
+    },
+    {
+      "scenario_id": "football-data-e0-2324-004",
+      "partition_id": "k4",
+      "domain": "sports",
+      "branch_count": 4,
+      "branch_count_family": "football-data-e0-2324-004-home-win-margin-refinement",
+      "recognition": {
+        "focal_equivalent": 0.9239413321262073,
+        "focal_disjoint": 0.9983993323323814,
+        "focal_exhaustive": 0.9998299324099753,
+        "complement_equivalent": 0.7749219200436613,
+        "complement_disjoint": 0.9619691965427802,
+        "complement_exhaustive": 0.9988619101277829,
+        "pair_disjoint": 0.9998146503430405,
+        "pair_exhaustive": 0.982013787142765
+      },
+      "gated": true,
+      "core_unpacked_bias": -0.10480380925751277,
+      "core_bias_by_readout": {
+        "probability": -0.19150453625960653,
+        "decision": -0.018103082255419022,
+        "frequency": -0.20496542317724714
+      },
+      "natural_template_core_bias": {
+        "probability:0": -0.19248547341770716,
+        "probability:1": -0.1905235991015059,
+        "decision:0": -0.06395605200695258,
+        "decision:1": 0.027749887496114536
+      },
+      "natural_template_positive_fraction": 0.25,
+      "paraphrase_bias": -0.03092346053871366,
+      "partial_subset_discrimination": 0.01529109860874248,
+      "reordered_bias": -0.09946099334629652,
+      "reorder_gap": 0.005342815911216256,
+      "repacking_recovery": -0.06045241615813106,
+      "unpacking_specific_focal_alternative_shift": 0.15188426510464745,
+      "reminder_rescue": -0.039391247169784066,
+      "control_ok": false,
+      "structural_ok": false,
+      "strong": false
+    },
+    {
+      "scenario_id": "football-data-e0-2324-005",
+      "partition_id": "k2",
+      "domain": "sports",
+      "branch_count": 2,
+      "branch_count_family": "football-data-e0-2324-005-home-win-margin-refinement",
+      "recognition": {
+        "focal_equivalent": 0.3775406722999737,
+        "focal_disjoint": 0.9982823219645608,
+        "focal_exhaustive": 0.9999352306560885,
+        "complement_equivalent": 0.12914184629630776,
+        "complement_disjoint": 0.9944888498468505,
+        "complement_exhaustive": 0.9997227305024778,
+        "pair_disjoint": 0.9999665767836253,
+        "pair_exhaustive": 0.9760717865391868
+      },
+      "gated": false,
+      "core_unpacked_bias": 0.303682113725388,
+      "core_bias_by_readout": {
+        "probability": 0.21142940267401045,
+        "decision": 0.39593482477676556,
+        "frequency": 0.5196701861440384
+      },
+      "natural_template_core_bias": {
+        "probability:0": 0.26488617341299764,
+        "probability:1": 0.15797263193502326,
+        "decision:0": 0.31888251208965734,
+        "decision:1": 0.4729871374638738
+      },
+      "natural_template_positive_fraction": 1.0,
+      "paraphrase_bias": 0.00558377228042639,
+      "partial_subset_discrimination": -0.08803328351307217,
+      "reordered_bias": -0.02545705582006509,
+      "reorder_gap": 0.3291391695454531,
+      "repacking_recovery": 0.16356047650994848,
+      "unpacking_specific_focal_alternative_shift": 0.2824883238302797,
+      "reminder_rescue": 0.12719522220382265,
+      "control_ok": false,
+      "structural_ok": true,
+      "strong": false
+    },
+    {
+      "scenario_id": "football-data-e0-2324-005",
+      "partition_id": "k3",
+      "domain": "sports",
+      "branch_count": 3,
+      "branch_count_family": "football-data-e0-2324-005-home-win-margin-refinement",
+      "recognition": {
+        "focal_equivalent": 0.8777752513919859,
+        "focal_disjoint": 0.9972881164382805,
+        "focal_exhaustive": 0.9993535474305575,
+        "complement_equivalent": 0.7974371694383879,
+        "complement_disjoint": 0.9943759335059437,
+        "complement_exhaustive": 0.9999772082935405,
+        "pair_disjoint": 0.9999665767836253,
+        "pair_exhaustive": 0.9760717865391868
+      },
+      "gated": true,
+      "core_unpacked_bias": 0.17453417142653688,
+      "core_bias_by_readout": {
+        "probability": 0.03640326438001107,
+        "decision": 0.3126650784730627,
+        "frequency": 0.05137440194088666
+      },
+      "natural_template_core_bias": {
+        "probability:0": 0.08082179842543424,
+        "probability:1": -0.008015269665412097,
+        "decision:0": 0.27808323675192115,
+        "decision:1": 0.3472469201942043
+      },
+      "natural_template_positive_fraction": 0.75,
+      "paraphrase_bias": 0.00558377228042639,
+      "partial_subset_discrimination": -0.03433074940506426,
+      "reordered_bias": -0.006220841117612517,
+      "reorder_gap": 0.18075501254414938,
+      "repacking_recovery": 0.034412534211097356,
+      "unpacking_specific_focal_alternative_shift": 0.3217341870839601,
+      "reminder_rescue": 0.19193722920272002,
+      "control_ok": false,
+      "structural_ok": false,
+      "strong": false
+    },
+    {
+      "scenario_id": "football-data-e0-2324-005",
+      "partition_id": "k4",
+      "domain": "sports",
+      "branch_count": 4,
+      "branch_count_family": "football-data-e0-2324-005-home-win-margin-refinement",
+      "recognition": {
+        "focal_equivalent": 0.9682705431624216,
+        "focal_disjoint": 0.998730662342366,
+        "focal_exhaustive": 0.9996386613022799,
+        "complement_equivalent": 0.906745219429709,
+        "complement_disjoint": 0.9920137799248987,
+        "complement_exhaustive": 0.9995134446806709,
+        "pair_disjoint": 0.9999665767836253,
+        "pair_exhaustive": 0.9760717865391868
+      },
+      "gated": true,
+      "core_unpacked_bias": 0.000849739848425032,
+      "core_bias_by_readout": {
+        "probability": -0.07676863203865025,
+        "decision": 0.07846811173550032,
+        "frequency": -0.018344712632636404
+      },
+      "natural_template_core_bias": {
+        "probability:0": -0.06168331690615029,
+        "probability:1": -0.09185394717115022,
+        "decision:0": -0.0004859984470529562,
+        "decision:1": 0.1574222219180536
+      },
+      "natural_template_positive_fraction": 0.25,
+      "paraphrase_bias": 0.00558377228042639,
+      "partial_subset_discrimination": -0.03592743947227828,
+      "reordered_bias": -0.041268120033559605,
+      "reorder_gap": 0.04211785988198464,
+      "repacking_recovery": -0.13927189736701448,
+      "unpacking_specific_focal_alternative_shift": 0.2491691047164762,
+      "reminder_rescue": 0.025389844513546242,
+      "control_ok": false,
+      "structural_ok": false,
+      "strong": false
+    }
+  ],
+  "hard_kill_note": "Primary evidence is natural probability+decision behavior after focal/complement relation gates. Generic wording/position/order/length effects, an unstructured branch-count pattern, or failure of repacking/focal-alternative diagnostics block promotion."
+}
