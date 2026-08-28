@@ -284,3 +284,22 @@
 | 6 | CSS-14 known affected set / any-edit completion | set reducer机制、SWE-bench自然 | agent stopping母现象 |
 
 优先把 CSS-06/07/13 视为一个候选族，而不是三篇小题；只有出现 equality、alias、shallow-copy 的结构曲线后再决定名称。
+
+---
+
+## Batch-2 脑暴死亡回填与新 survivor 路由（2026-08-28）
+
+完整账本：[`BATCH2_BRAINSTORM_LEDGER_2026-08-28.md`](BATCH2_BRAINSTORM_LEDGER_2026-08-28.md)。
+
+| 本批主题 | 裁决 | 领域内理由 |
+|---|---|---|
+| **Dead/unreachable-code influence（作为新的 Batch-2 题）** | `DUPLICATE / ROUTE CSS-10` | 本文件 CSS-10 已完整登记 `reachability report correct → dead payload still affects output`；本轮再想到 dead code 不能另起卡或换名。 |
+| **Generic exception happy-path continuation** | `DUPLICATE / ROUTE CSS-04` | 已有 CSS-04 `exception known → nominal return`，不重复。 |
+| **Generic concurrency/race confusion** | `NOT-ADDED / F3-RISK` | 若只有 interleaving/race 导致执行预测错误，是普通 execution/state reasoning；若强调历史路径残留又与 CSS-09/ATW-09/F3 重合。 |
+
+### 本领域仍活的 Batch-2 新方向
+
+- **Short-Circuit Side-Effect Leakage**：见 [`audits/BATCH2_N0_WORKING_REVIEW_2026-08-28.md`](audits/BATCH2_N0_WORKING_REVIEW_2026-08-28.md)。它不是 CSS-10 的普通 dead-code 版本，只有在 `RHS not executed` 与 expression value 都判断正确、但 post-state 仍加入 RHS side effect 时才独立；目标 operator 是同一 expression 中的 value/effect short-circuit gate。
+- **SQL UNKNOWN Interface Collapse**：同上。它不是 F8 generic unknown→false，而是正式第三 truth value `UNKNOWN` 已正确表示后，被 `WHERE`、`CHECK` 等 interface 错误使用同一个 Boolean policy；必须用固定 SQL dialect 的执行 oracle。
+
+**禁止复活。** dead code、exception continuation、race/concurrency 以后先查 CSS-04/CSS-09/CSS-10 和 Batch-2 ledger；若只是换语言、换库或换 readout，不进入新 N0。
