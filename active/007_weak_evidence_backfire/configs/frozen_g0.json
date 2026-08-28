@@ -49,5 +49,5 @@
     "required_distinct_sizes_in_one_family": 3
   },
   "bootstrap_samples": 5000,
-  "seed": 20260828
+  "seed": 20260829
 }

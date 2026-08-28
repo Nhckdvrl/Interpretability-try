@@ -11,7 +11,8 @@ dependencies = []
 
 [project.optional-dependencies]
 run = ["torch>=2.4", "transformers>=4.48"]
-dev = ["pytest>=8"]
+d0 = ["numpy>=1.26", "scikit-learn>=1.4"]
+dev = ["pytest>=8", "numpy>=1.26", "scikit-learn>=1.4"]
 
 [project.scripts]
 weak-evidence-run = "weak_evidence_g0.cli:main"

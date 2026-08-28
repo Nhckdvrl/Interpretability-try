@@ -107,20 +107,19 @@ def choose_disjoint_pairs(pairs, *, limit: int) -> list:
 
 
 def make_record(*, dataset_name: str, license_name: str, source_url: str, domain: str,
-                target_label: int, other_label: int, pair, scenario_index: int, seed: int) -> dict:
+                target_label: int, other_label: int, pair, scenario_index: int, seed: int,
+                short_delay: str, long_delay: str) -> dict:
     low, high, low_val, high_val = pair
     target_h = f"the task's true label is {target_label}"
     other_h = f"the task's true label is {other_label}"
-    low_profile = (f"Annotator {low.worker} was correct on {low.accuracy:.1%} of the held-out binary calibration records; "
+    low_profile = (f"Annotator {low.worker} was correct on {low.accuracy:.1%} of the binary calibration records; "
                    f"report-{target_label} LR={low.target_lr:.3f}, report-{other_label} LR={low.other_lr:.3f}.")
-    high_profile = (f"Annotator {high.worker} was correct on {high.accuracy:.1%} of the held-out binary calibration records; "
+    high_profile = (f"Annotator {high.worker} was correct on {high.accuracy:.1%} of the binary calibration records; "
                     f"report-{target_label} LR={high.target_lr:.3f}, report-{other_label} LR={high.other_lr:.3f}.")
     calibration = (
         "Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. "
         "A separate 40% task split preserves the same source ordering in both report directions."
     )
-    short_delay = "The record then lists two unrelated task identifiers and their completion timestamps; neither task shares this label decision or either source identity."
-    long_delay = "The record then lists eight unrelated task identifiers, task-set identifiers, and completion timestamps from other annotators. None shares this label decision, message content, or either source identity."
     hi_re = f"Recall that the earlier report came from Annotator {high.worker}. Its audited calibration profile was: {high_profile}"
     lo_re = f"Recall that the earlier report came from Annotator {low.worker}. Its audited calibration profile was: {low_profile}"
     hi_ctrl = "Before deciding, recall that the earlier report remains part of the same annotation record and that the surrounding administrative metadata was generated under the fixed protocol."
@@ -156,6 +155,10 @@ def make_record(*, dataset_name: str, license_name: str, source_url: str, domain
         "source": {
             "dataset": dataset_name, "record_id": f"workers={low.worker},{high.worker};labels={target_label},{other_label};seed={seed}",
             "license": license_name, "split": "task-disjoint-60/40", "provenance": "external-derived", "url": source_url,
+            "calibration_low_n_target": low.n_target, "calibration_low_n_other": low.n_other,
+            "calibration_high_n_target": high.n_target, "calibration_high_n_other": high.n_other,
+            "validation_low_n_target": low_val.n_target, "validation_low_n_other": low_val.n_other,
+            "validation_high_n_target": high_val.n_target, "validation_high_n_other": high_val.n_other,
             "validation_low_accuracy": low_val.accuracy, "validation_high_accuracy": high_val.accuracy,
             "validation_low_target_lr": low_val.target_lr, "validation_high_target_lr": high_val.target_lr,
             "validation_low_other_lr": low_val.other_lr, "validation_high_other_lr": high_val.other_lr,
@@ -164,14 +167,44 @@ def make_record(*, dataset_name: str, license_name: str, source_url: str, domain
     }
 
 
+def _delay_blocks(g: pd.DataFrame, *, task_col: str, worker_col: str, low_worker: str, high_worker: str,
+                  seed: int, taskset_col: str | None, time_col: str | None) -> tuple[str, str]:
+    pool = g[~g[worker_col].astype(str).isin([low_worker, high_worker])].copy()
+    if len(pool.drop_duplicates(subset=[task_col])) < 8:
+        raise ValueError("fewer than 8 unrelated administrative tasks available for delay controls")
+    pool = pool.drop_duplicates(subset=[task_col]).sort_values(task_col, key=lambda x: x.astype(str))
+    rng = np.random.default_rng(seed)
+    take = min(8, len(pool))
+    chosen = pool.iloc[rng.choice(len(pool), size=take, replace=False)]
+
+    def render(row) -> str:
+        bits = [f"task {row[task_col]}"]
+        if taskset_col and taskset_col in row.index:
+            bits.append(f"task-set {row[taskset_col]}")
+        if time_col and time_col in row.index:
+            bits.append(f"completion-time {row[time_col]}")
+        return " / ".join(bits)
+
+    items = [render(row) for _, row in chosen.iterrows()]
+    short_items = items[:min(2, len(items))]
+    prefix = "Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): "
+    return prefix + "; ".join(short_items) + ".", prefix + "; ".join(items) + "."
+
+
 def build_from_csv(path: str, *, dataset_name: str, license_name: str, source_url: str,
                    domain_col: str, task_col: str, worker_col: str, truth_col: str, answer_col: str,
-                   seed: int, min_per_class: int, pairs_per_domain: int) -> list[dict]:
+                   seed: int, min_per_class: int, pairs_per_domain: int,
+                   taskset_col: str | None = None, time_col: str | None = None) -> list[dict]:
     df = pd.read_csv(path)
     records=[]
+    used_workers: set[str] = set()
+    scenario_counter = 0
     for domain_value, g in df.groupby(domain_col, sort=True):
         labels = sorted(set(g[truth_col].dropna().astype(int).unique()))
+        domain_count = 0
         for target_label, other_label in [(a,b) for i,a in enumerate(labels) for b in labels[i+1:]]:
+            if domain_count >= pairs_per_domain:
+                break
             binary = g[g[truth_col].isin([target_label, other_label])].copy()
             if binary[task_col].nunique() < 2 * min_per_class:
                 continue
@@ -180,11 +213,24 @@ def build_from_csv(path: str, *, dataset_name: str, license_name: str, source_ur
                                target_label=target_label, other_label=other_label, min_per_class=min_per_class)
             val = worker_stats(val_df, worker_col=worker_col, truth_col=truth_col, answer_col=answer_col,
                                target_label=target_label, other_label=other_label, min_per_class=max(5, min_per_class//2))
-            chosen = choose_disjoint_pairs(stable_worker_pairs(cal,val), limit=pairs_per_domain)
-            for i,pair in enumerate(chosen,1):
-                records.append(make_record(dataset_name=dataset_name, license_name=license_name,
-                    source_url=source_url, domain=f"{domain_col}-{domain_value}", target_label=int(target_label),
-                    other_label=int(other_label), pair=pair, scenario_index=i, seed=seed))
+            for pair in stable_worker_pairs(cal, val):
+                low, high = pair[0], pair[1]
+                if low.worker in used_workers or high.worker in used_workers:
+                    continue
+                scenario_counter += 1
+                short_delay, long_delay = _delay_blocks(
+                    g, task_col=task_col, worker_col=worker_col, low_worker=low.worker, high_worker=high.worker,
+                    seed=seed + scenario_counter * 7919, taskset_col=taskset_col, time_col=time_col,
+                )
+                records.append(make_record(
+                    dataset_name=dataset_name, license_name=license_name, source_url=source_url,
+                    domain=f"{domain_col}-{domain_value}", target_label=int(target_label), other_label=int(other_label),
+                    pair=pair, scenario_index=domain_count + 1, seed=seed,
+                    short_delay=short_delay, long_delay=long_delay,
+                ))
+                used_workers.update([low.worker, high.worker])
+                domain_count += 1
+                break
     return records
 
 
@@ -196,10 +242,12 @@ def main():
     ap.add_argument('--worker-col', required=True); ap.add_argument('--truth-col', required=True); ap.add_argument('--answer-col', required=True)
     ap.add_argument('--out', required=True); ap.add_argument('--seed', type=int, default=20260829)
     ap.add_argument('--min-per-class', type=int, default=20); ap.add_argument('--pairs-per-domain', type=int, default=4)
+    ap.add_argument('--taskset-col'); ap.add_argument('--time-col')
     args=ap.parse_args()
     rows=build_from_csv(args.csv,dataset_name=args.dataset_name,license_name=args.license,source_url=args.source_url,
         domain_col=args.domain_col,task_col=args.task_col,worker_col=args.worker_col,truth_col=args.truth_col,answer_col=args.answer_col,
-        seed=args.seed,min_per_class=args.min_per_class,pairs_per_domain=args.pairs_per_domain)
+        seed=args.seed,min_per_class=args.min_per_class,pairs_per_domain=args.pairs_per_domain,
+        taskset_col=args.taskset_col,time_col=args.time_col)
     Path(args.out).write_text(''.join(json.dumps(r,ensure_ascii=False)+'\n' for r in rows),encoding='utf-8')
     print(json.dumps({'records':len(rows),'domains':len({r['domain'] for r in rows})},indent=2))
 
