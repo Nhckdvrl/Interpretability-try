@@ -1,6 +1,6 @@
 # 006 — Existential Witness Collapse
 
-Status: `ACTIVE-PREFLIGHT / HARNESS-READY-r2 / NOT READY-TO-SMOKE`
+Status: `ACTIVE-PREFLIGHT / HARNESS-READY-r3 / NOT READY-TO-SMOKE`
 
 Canonical shortlist mapping: **2026-08-28 adversarial N0 shortlist #4**.
 
@@ -26,11 +26,20 @@ NOT ENTAILED: exists z: P(z) and Q(z)
 
 The contract does **not** assert that the two witnesses are different. A valid D0 item must make both worlds logically possible: one individual could satisfy both properties, and two distinct individuals could satisfy them. The record simply does not identify which world holds.
 
-## Why r2 changes the downstream test
+## Why r3 changes the recognition gate
 
-A direct question such as “do the premises entail one shared witness?” is useful only as a **recognition gate**. Asking essentially the same entailment question again with different wording would not establish a `knows-but-does-not-use` dissociation.
+r2 already separated recognition from consequential action: a direct identity/entailment question is only a **recognition gate**, while the primary phenotype is downstream action use.
 
-The primary downstream readout is therefore an action pair. Each item defines:
+r3 removes the remaining Yes/No semantic-polarity confound from recognition. Every recognition probe is now a full semantic forced choice with A/B order counterbalanced. The four probes test:
+
+- the record establishes an existential witness for `P`;
+- the record establishes an existential witness for `Q`;
+- the record does **not** establish that one shared witness has both properties;
+- the record does **not** establish that the witnesses are distinct, so shared-witness and distinct-witness worlds both remain possible.
+
+The internal probe ids `shared_entailment` and `identity_determined` are retained for metric/backward compatibility, but their r3 surface forms are semantic alternatives rather than Yes/No questions.
+
+The primary downstream readout remains an action pair. Each item defines:
 
 - a `collapse_action` that is justified only if one shared witness has actually been established;
 - a `preserve_action` that keeps identity unresolved / obtains another resource / requests identity evidence.
@@ -38,7 +47,7 @@ The primary downstream readout is therefore an action pair. Each item defines:
 The target phenotype is:
 
 ```text
-recognition: shared witness is NOT entailed; identity is underdetermined
+recognition: sameness is not established; distinctness is not established
 use:         choose collapse_action anyway
 ```
 
@@ -55,7 +64,7 @@ Every item contains six conditions:
 - `neutral_control`: matched extra context that does not bear on identity;
 - `relation_reminder`: a diagnostic reminder that separate existentials do not establish identity.
 
-A case enters the denominator only if the model passes four recognition probes (`exists P`, `exists Q`, no shared-witness entailment, identity underdetermined) **and** handles the explicit-same and explicit-distinct action controls. The same/distinct controls must also be stable across both natural decision phrasings and both answer orders.
+A case enters the denominator only if the model passes all four semantic recognition probes **and** handles the explicit-same and explicit-distinct action controls. The same/distinct controls must also be stable across both natural decision phrasings and both answer orders.
 
 ## Formal D0 contract
 
@@ -107,7 +116,7 @@ Formal G0 rejects custom-only provenance. An audited transformation may be deriv
 
 ## Metrics
 
-The scorer uses local exact-continuation log probability over `A/B`; no API and no LLM judge are involved. Labels are reversed in every probe and decision.
+The scorer uses local exact-continuation log probability over `A/B`; no API and no LLM judge are involved. Full semantic options are reversed in every recognition probe, and actions are reversed in every downstream decision.
 
 For a recognition- and control-gated item, let `p_collapse(c)` be the normalized exact-choice preference for the collapse action under condition `c`:
 
