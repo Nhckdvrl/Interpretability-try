@@ -11,11 +11,15 @@ class Partition:
     partition_id: str
     branches: tuple[str, ...]
     unpacked_text: str
+    reordered_unpacked_text: str
     repacked_text: str
     partial_text: str
     complement_text: str
     complement_branches: tuple[str, ...]
     complement_unpacked_text: str
+    focal_length_control_text: str
+    complement_length_control_text: str
+    branch_count_family: str
     branch_count: int
 
 @dataclass(frozen=True)
@@ -66,49 +70,49 @@ def validate_record(row: dict[str, Any], *, require_external_source: bool = True
         if pid in seen:
             raise ValueError(f"{sid}: duplicate partition_id={pid}")
         seen.add(pid)
-
         branches = p.get("branches")
         if not isinstance(branches, list) or len(branches) < 2:
             raise ValueError(f"{sid}/{pid}: need >=2 mutually exclusive branches")
         b = tuple(_nonempty_str(x, f"{sid}/{pid}.branch") for x in branches)
         if len(set(b)) != len(b):
             raise ValueError(f"{sid}/{pid}: duplicate branch text")
-
         cb_raw = p.get("complement_branches")
         if not isinstance(cb_raw, list) or len(cb_raw) != len(b):
-            raise ValueError(f"{sid}/{pid}: complement_branches must match focal branch count for focal/alternative diagnostic")
+            raise ValueError(f"{sid}/{pid}: complement_branches must match focal branch count")
         cb = tuple(_nonempty_str(x, f"{sid}/{pid}.complement_branch") for x in cb_raw)
         if len(set(cb)) != len(cb):
             raise ValueError(f"{sid}/{pid}: duplicate complement branch text")
-
         required_true = (
             "disjoint_gold", "exhaustive_gold", "equivalent_gold",
             "partial_is_strict_subset", "partial_strictly_lower_probability_gold",
             "complement_gold", "complement_partition_gold",
+            "reordered_equivalent_gold", "length_controls_equivalent_gold",
+            "length_controls_matched_gold", "branch_count_comparable_gold",
         )
-        missing_gold = [name for name in required_true if p.get(name) is not True]
-        if missing_gold:
-            raise ValueError(f"{sid}/{pid}: D0 relation gold must be True for {missing_gold}")
-
+        bad = [name for name in required_true if p.get(name) is not True]
+        if bad:
+            raise ValueError(f"{sid}/{pid}: D0 relation gold must be True for {bad}")
         unpacked = _nonempty_str(p.get("unpacked_text"), f"{sid}/{pid}.unpacked_text")
+        reordered = _nonempty_str(p.get("reordered_unpacked_text"), f"{sid}/{pid}.reordered_unpacked_text")
         repacked = _nonempty_str(p.get("repacked_text"), f"{sid}/{pid}.repacked_text")
         partial = _nonempty_str(p.get("partial_text"), f"{sid}/{pid}.partial_text")
         complement = _nonempty_str(p.get("complement_text"), f"{sid}/{pid}.complement_text")
-        complement_unpacked = _nonempty_str(
-            p.get("complement_unpacked_text"), f"{sid}/{pid}.complement_unpacked_text"
-        )
+        complement_unpacked = _nonempty_str(p.get("complement_unpacked_text"), f"{sid}/{pid}.complement_unpacked_text")
+        focal_length = _nonempty_str(p.get("focal_length_control_text"), f"{sid}/{pid}.focal_length_control_text")
+        complement_length = _nonempty_str(p.get("complement_length_control_text"), f"{sid}/{pid}.complement_length_control_text")
+        family = _nonempty_str(p.get("branch_count_family"), f"{sid}/{pid}.branch_count_family")
         if partial in {packed, unpacked}:
             raise ValueError(f"{sid}/{pid}: partial_text must be a distinct strict-subset description")
         if repacked == unpacked:
             raise ValueError(f"{sid}/{pid}: repacked_text must actually repack the branch list")
+        if reordered == unpacked:
+            raise ValueError(f"{sid}/{pid}: reordered_unpacked_text must change branch order")
         if complement == packed:
             raise ValueError(f"{sid}/{pid}: complement_text must differ from the focal event")
-
-        parts.append(Partition(
-            pid, b, unpacked, repacked, partial,
-            complement, cb, complement_unpacked, len(b)
-        ))
-
+        if focal_length in {packed, unpacked} or complement_length in {complement, complement_unpacked}:
+            raise ValueError(f"{sid}/{pid}: length controls must be distinct surface forms")
+        parts.append(Partition(pid, b, unpacked, reordered, repacked, partial, complement, cb,
+                               complement_unpacked, focal_length, complement_length, family, len(b)))
     return Scenario(sid, domain, packed, paraphrase, tuple(parts), dict(source))
 
 
