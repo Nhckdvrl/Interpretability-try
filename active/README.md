@@ -19,8 +19,10 @@
 - `003_diagnostic_counterevidence_revision/` — 使用 MedEinst 的公开 control/trap 成对数据，研究少量决定性反证出现后，模型的诊断修正究竟失败在证据感知、证据—先验仲裁，还是晚期输出回退。当前只保留研究计划，尚未开始 G0 代码。
 - `004_packed_unpacked_event_splitting/` — 对应 2026-08-28 canonical shortlist **#2 Packed–Unpacked Event Splitting**。已冻结 extensionality recognition gate、packed/paraphrase/strict-subset/repacking controls、branch-count signature、概率与 consequential decision 双 readout，以及跨模型汇总代码。状态：`ACTIVE-PREFLIGHT / HARNESS-READY / NOT READY-TO-SMOKE`。
 - `005_inadmissible_evidence_persistence/` — 对应 2026-08-28 canonical shortlist **#5 Inadmissible-Evidence Persistence**。已冻结 `never_seen / admitted / struck` counterfactual、admissibility/scope/polarity gate、bidirectional evidence polarity、neutral-struck artifact control 与 undo-ratio 指标。状态：`ACTIVE-PREFLIGHT / HARNESS-READY / NOT READY-TO-SMOKE`。
+- `006_existential_witness_collapse/` — 对应 2026-08-28 canonical shortlist **#4 Existential Witness Collapse**。先用 `exists P / exists Q / shared-witness-not-entailed / identity-underdetermined` 四项 recognition gate 验收局部量词理解，再测 identity-unknown 的 downstream single-witness join；同时冻结 natural paraphrase、explicit-same、explicit-distinct、neutral-context 与 relation-reminder controls。状态：`ACTIVE-PREFLIGHT / HARNESS-READY / NOT READY-TO-SMOKE`。
+- `007_weak_evidence_backfire/` — 对应 2026-08-28 canonical shortlist **#10 Weak-Evidence Backfire**。冻结 target/other 双向 evidence polarity、support/likelihood recognition、strong-evidence capability、no-evidence matched baseline、pragmatic-completeness、matched-length、neutral mention，以及 belief + consequential action 双 readout；正式 phenotype 必须是正证据的双向 sign reversal，而非“weak”词义或缺失强证据暗示。状态：`ACTIVE-PREFLIGHT / HARNESS-READY / NOT READY-TO-SMOKE`。
 
-006–008 的 paper search、入选理由与同轮 kill 记录见：
+历史旧 006–008 候选的 paper search、入选理由与同轮 kill 记录见：
 
 `rejected_candidates/search_round_2026-08-27_natural_phenomena_final.md`
 

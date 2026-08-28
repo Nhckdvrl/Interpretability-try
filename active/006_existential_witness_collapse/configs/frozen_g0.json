@@ -1,0 +1,42 @@
+{
+  "contract_version": "2026-08-28-r1",
+  "validation_authorized": false,
+  "require_external_source": true,
+  "recognition_gate": {
+    "min_existence_probability": 0.80,
+    "min_no_shared_entailment_probability": 0.80,
+    "min_identity_underdetermined_probability": 0.75
+  },
+  "capability_gate": {
+    "min_same_explicit_established_probability": 0.70,
+    "max_distinct_explicit_established_probability": 0.30
+  },
+  "strong_case": {
+    "min_unknown_established_probability": 0.55,
+    "min_paraphrase_established_probability": 0.55,
+    "min_unknown_minus_distinct": 0.15,
+    "max_neutral_abs_shift": 0.05,
+    "min_natural_variant_positive_fraction": 0.75
+  },
+  "model_pass": {
+    "min_gated_cases": 20,
+    "min_recognition_gate_fraction": 0.50,
+    "min_mean_unknown_margin": 0.04,
+    "min_bootstrap_ci_lower": 0.01,
+    "min_mean_paraphrase_margin": 0.02,
+    "min_mean_unknown_minus_distinct": 0.10,
+    "min_strong_fraction": 0.20,
+    "min_positive_domains": 2,
+    "max_neutral_artifact_fraction": 0.20,
+    "min_natural_variant_positive_fraction": 0.75,
+    "no_effect_abs_margin": 0.01
+  },
+  "panel_pass": {
+    "smoke_min_independent_families": 2,
+    "generality_min_independent_families": 3,
+    "generality_panel_size": 5,
+    "required_distinct_sizes_in_one_family": 3
+  },
+  "bootstrap_samples": 5000,
+  "seed": 20260828
+}
