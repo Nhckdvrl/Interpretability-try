@@ -1,6 +1,6 @@
 # 004 — Packed–Unpacked Event Splitting
 
-Status: `ACTIVE-PREFLIGHT / HARNESS-READY-r3 / NOT READY-TO-SMOKE`
+Status: `ACTIVE-PREFLIGHT / HARNESS-READY-r4 / NOT READY-TO-SMOKE`
 
 Canonical shortlist mapping: **2026-08-28 adversarial N0 shortlist #2**.
 
@@ -13,23 +13,24 @@ validation_authorized: false
 
 ## Mother question
 
-If a model can explicitly recognize that a packed event `E` and an unpacked mutually-exclusive, exhaustive partition `E1 ∨ ... ∨ Ek` denote the **same extension**, does its probability or equal-payoff decision value still increase merely because that same event is represented as more branches?
+If a model can explicitly recognize that a packed event `E` and an unpacked mutually-exclusive, exhaustive partition `E1 ∨ ... ∨ Ek` denote the **same extension**, does its probability or equal-payoff decision value still increase merely because the event is represented as explicit branches?
 
-This is not generic paraphrase sensitivity. Formal G0 asks whether a representation-only partition operator produces a directional judgment change **after** extensional recognition succeeds, while ordinary paraphrase, strict-subset, repacking, focal/alternative and position controls behave differently.
+The target is not generic paraphrase sensitivity. A useful phenotype must survive relation/capability checks and must separate partition structure from position, labels, wording, list order, verbosity, non-exhaustive subsets and arbitrary taxonomies.
 
-## Why r3 exists
+## Why r4 exists
 
-The first harness was runnable but scientifically incomplete. The hardened contract fixes five important problems:
+The earlier harness was runnable but still allowed several alternative explanations. r4 closes the remaining important holes:
 
-- the core comparison is left/right counterbalanced; A/B/C label permutation alone was not enough to rule out presentation-side bias;
-- the primary readout is a neutral natural question; explicit extensional reminders are a separate rescue diagnostic rather than being averaged into the phenotype;
-- branch-count effects are estimated **within the same source scenario**, and bootstrap uncertainty is clustered at scenario level rather than treating multiple partitions from one record as independent;
-- the D0 contract includes focal-vs-alternative unpacking and a strict-subset control whose omitted mass is frozen as genuinely positive, so “strict subset” is not incorrectly assumed to imply strictly smaller probability by logic alone;
-- the adversarial N0 contract’s **probability-vs-frequency separability** is now measured explicitly. Frequency is a diagnostic readout and cannot substitute for the primary probability + consequential-decision evidence.
+- the relation gate now checks the **focal partition, the complement partition, and the focal/complement pair**; focal-vs-alternative effects are not interpreted when the model fails those relations;
+- each primary readout has **two neutral natural phrasings**; explicit extensional reminders remain rescue diagnostics and are never pooled into the natural phenotype;
+- the same unpacking is tested with a **reordered branch list**, so branch-order sensitivity cannot masquerade as partition dependence;
+- focal-vs-alternative unpacking is measured relative to a packed baseline and then corrected by **length/verbosity-matched equivalent controls**;
+- branch-count evidence is only computed inside a frozen `branch_count_family`, i.e. a D0-audited refinement family for the same source scenario; unrelated taxonomies from the same question cannot create a fake `k` slope;
+- the generality panel is locked to the repository’s five required families: **Qwen, Gemma, Phi, Llama, Mistral**. Extra family names cannot replace a missing required family.
 
 ## Formal D0 contract
 
-Every row must be anchored to an external/public record. Human/D0 audit must freeze the relation before any model output is inspected.
+Every row must be anchored to an external/public record. All relation/gold fields are frozen before model output is inspected.
 
 ```json
 {
@@ -49,78 +50,87 @@ Every row must be anchored to an external/public record. Human/D0 audit must fre
     "partition_id": "k3-a",
     "branches": ["...", "...", "..."],
     "unpacked_text": "...",
+    "reordered_unpacked_text": "...same branches, different order...",
     "repacked_text": "...",
     "partial_text": "...",
+
     "complement_text": "...",
     "complement_branches": ["...", "...", "..."],
     "complement_unpacked_text": "...",
+
+    "focal_length_control_text": "...verbose but still packed/equivalent focal wording...",
+    "complement_length_control_text": "...verbose but still packed/equivalent complement wording...",
+
+    "branch_count_family": "stable-refinement-family-id",
+
     "disjoint_gold": true,
     "exhaustive_gold": true,
     "equivalent_gold": true,
     "partial_is_strict_subset": true,
     "partial_strictly_lower_probability_gold": true,
     "complement_gold": true,
-    "complement_partition_gold": true
+    "complement_partition_gold": true,
+    "reordered_equivalent_gold": true,
+    "length_controls_equivalent_gold": true,
+    "length_controls_matched_gold": true,
+    "branch_count_comparable_gold": true
   }]
 }
 ```
 
-`partial_strictly_lower_probability_gold` is deliberately stronger than set inclusion: the removed branch must have genuine positive probability/viability at the task information state. The loader rejects custom-only provenance for formal G0.
+`partial_strictly_lower_probability_gold` is stronger than set inclusion: the omitted branch must have genuine positive probability/viability at the information state. `branch_count_comparable_gold` means different `k` values sharing the same `branch_count_family` are true refinements of the same underlying event/taxonomy rather than unrelated alternative decompositions.
 
-For the branch-count diagnostic, prefer at least two partitions with different `k` for the **same scenario**. Cross-scenario branch-count comparisons are not treated as evidence for the structural curve.
+For a formal D0, provide enough scenarios with at least two different `k` values in the same refinement family; the frozen model-level contract currently requires at least five matched branch-count groups before a panel pass is possible.
 
-## What is measured
+## What the harness tests
 
-### Capability / relation gate
+### Relation gate
 
-For every partition, equivalence, mutual exclusivity and exhaustiveness are checked independently, each with Yes/No label reversal. The core effect is interpreted only after this gate.
+Before the behavioral effect counts, the model must recognize:
+
+- focal packed ↔ focal unpacked equivalence, focal disjointness and focal exhaustiveness;
+- complement packed ↔ complement unpacked equivalence, complement disjointness and complement exhaustiveness;
+- focal and complement are mutually exclusive and jointly exhaustive for the relevant outcome space.
+
+Each binary probe uses both A/B label orders.
 
 ### Primary natural phenotype
 
-Probability and equal-payoff contract valuation use neutral natural questions. Packed and unpacked/controlled forms appear on both LEFT and RIGHT, and all six A/B/C semantic assignments are run. The directional score is always mapped back to the semantic variant, so position bias cancels rather than being mistaken for unpacking.
+Probability and equal-payoff decision value are primary. Each has two neutral natural question phrasings. Packed/unpacked forms are counterbalanced on LEFT/RIGHT and every A/B/C semantic assignment is run.
 
 ```text
 core_unpacked_bias = P(unpacked judged higher) - P(packed judged higher)
 ```
 
-The primary aggregate uses only natural probability + decision readouts. Both must point in the target direction.
+Frequency remains a diagnostic readout rather than a substitute for failed probability/decision evidence.
 
-### Frequency diagnostic
+### Artifact and structural controls
 
-A repeated-trials frequency question is run under the same counterbalancing. It is reported separately through `core_bias_by_readout.frequency` and the probability-frequency gap. This tests the N0 prediction that description-dependent probability support may separate from an extensional frequency judgment; frequency never counts as a replacement for a failed probability or decision readout.
+- **ordinary paraphrase:** should not reproduce the core effect;
+- **strict subset:** a D0-audited lower-probability subset must be judged below the full event;
+- **branch reorder:** reordering the same branch set should preserve the unpacking effect within tolerance;
+- **repacking:** compressing the branch list back into a packed description should reduce the effect;
+- **focal vs alternative:** compare packed baseline, focal-unpacked and alternative-unpacked judgments;
+- **length-matched controls:** subtract the corresponding shifts from verbose-but-still-packed focal/complement controls before treating focal-vs-alternative movement as Support-Theory-like structure;
+- **branch count:** estimate `k` slope only inside `(scenario_id, branch_count_family)` groups;
+- **natural prompt robustness:** promotion requires the target direction across the natural template/readout cells, not one lucky wording;
+- **explicit extensional reminder:** reported separately as a rescue diagnostic.
 
-### Explicit extensional reminder
-
-A second template for every readout explicitly reminds the model of the extensional invariant. These reminder responses are **not** included in the primary mean. Their purpose is diagnostic: if the natural phenotype is rescued by an explicit invariant reminder, that supports an access/use interpretation rather than changing whether the natural behavior exists.
-
-### Controls and structural signatures
-
-- **packed paraphrase:** a normal equivalent rewording should not reproduce the unpacking bias;
-- **strict subset:** the audited lower-probability subset should be judged below the full event;
-- **repacking:** converting the explicit branch list back to a compact description should shrink the core bias;
-- **focal vs alternative unpacking:** for a matched focal/complement pair, unpacking the focal side should shift the focal-vs-complement judgment differently from unpacking the alternative side;
-- **branch count:** slope is computed only from different `k` partitions of the same scenario;
-- **readout consistency:** probability and consequential decision are primary and must agree in direction; frequency is diagnostic.
-
-## Statistical unit
-
-A source scenario may contribute multiple partitions. Those are correlated manipulations, not independent observations. Model-level mean, strong fraction and bootstrap CI therefore use equal-weight **scenario-level** aggregates. Partition-level rows are still retained for error-shape inspection.
-
-## Reproducibility
-
-Each raw row records model, family, exact revision, explicit parameter size (`size_b`) and requested dtype. Exact continuation log-probability is used; there is no LLM judge or paid API. The local execution log should additionally freeze the environment and chat-template versions used for the run.
+Scenario is the statistical unit. Multiple partitions from the same source scenario are not treated as independent bootstrap observations.
 
 ## Commands
 
 ```bash
 cd active/004_packed_unpacked_event_splitting
 python -m pip install -e '.[run,dev]'
+pytest -q
 
 packed-unpacked-run run \
   --data data/frozen_d0.jsonl \
   --model Qwen/Qwen3-8B \
   --family Qwen \
   --size-b 8 \
+  --revision <exact-revision-if-available> \
   --out results/qwen3_8b.jsonl
 
 packed-unpacked-run summarize \
@@ -128,16 +138,10 @@ packed-unpacked-run summarize \
   --results results/qwen3_8b.jsonl \
   --config configs/frozen_g0.json \
   --out results/qwen3_8b.summary.json
-
-pytest -q
 ```
 
-For formal runs, also freeze and pass the exact model revision whenever the model source provides one; `size_b` is mandatory so the three-size panel cannot be reconstructed from ambiguous model names after the fact.
+Formal dispatch remains controlled by `phenomenon_miner/candidate_pool/AUDIT_REGISTRY.md`. Do not relabel exploratory local results as `READY-TO-SMOKE` without independent N0 + D0 sign-off.
 
-The repository registry still controls formal dispatch. Exploratory local runs must not be relabeled `READY-TO-SMOKE` without independent N0 and D0 sign-off.
+## Kill / hold interpretation
 
-## Kill / hold logic
-
-Kill or route the standalone topic if the natural probability/decision effect vanishes after relation gating, ordinary paraphrase explains comparable movement, the strict-subset control fails, focal/alternative and repacking structure disappear, or cross-family replication fails. A signal surviving only under one prompt slice or one presentation side is an artifact, not the phenomenon. Frequency is interpreted only as a structural diagnostic.
-
-White-box work remains downstream of behavioral/cross-family G0.
+A positive pooled number is not enough. Generic wording/position/order/length effects, failure of focal/complement relations, missing repacking/focal-alternative structure, an unstructured branch-count pattern, prompt-slice dependence, or cross-family failure blocks promotion. White-box mechanism work remains downstream of the behavioral/generalization gates.
