@@ -19,10 +19,14 @@
 - `003_diagnostic_counterevidence_revision/` — 使用 MedEinst 的公开 control/trap 成对数据，研究少量决定性反证出现后，模型的诊断修正究竟失败在证据感知、证据—先验仲裁，还是晚期输出回退。当前只保留研究计划，尚未开始 G0 代码。
 - `004_packed_unpacked_event_splitting/` — 对应 2026-08-28 canonical shortlist **#2 Packed–Unpacked Event Splitting**。已冻结 extensionality recognition gate、packed/paraphrase/strict-subset/repacking controls、branch-count signature、概率与 consequential decision 双 readout，以及跨模型汇总代码。状态：`ACTIVE-PREFLIGHT / HARNESS-READY / NOT READY-TO-SMOKE`。
 - `005_inadmissible_evidence_persistence/` — 对应 2026-08-28 canonical shortlist **#5 Inadmissible-Evidence Persistence**。已冻结 `never_seen / admitted / struck` counterfactual、admissibility/scope/polarity gate、bidirectional evidence polarity、neutral-struck artifact control 与 undo-ratio 指标。状态：`ACTIVE-PREFLIGHT / HARNESS-READY / NOT READY-TO-SMOKE`。
+- `006_existential_witness_collapse/` — 对应 2026-08-28 canonical shortlist **#4 Existential Witness Collapse**。已冻结 independent-existential / identity-underdetermined recognition gate、`unknown / paraphrase / same_explicit / distinct_explicit / neutral_control / relation_reminder` 六世界、可预测 fused-witness wrong destination、exact-continuation scorer 与跨模型汇总。核心 gold 明确**不假定两个 witness 必须不同**；只测“同一 witness 尚未被建立却被 downstream 非法 join”。状态：`ACTIVE-PREFLIGHT / HARNESS-READY / NOT READY-TO-SMOKE`。
+- `007_weak_evidence_backfire/` — 对应 2026-08-28 canonical shortlist **#10 Weak-Evidence Backfire**。已冻结 externally audited likelihood-ratio support relation、target/other 双向 sign-coded pairing、`no_evidence / weak / strong / neutral`、pragmatic-completeness 与 matched-length 各自配对 baseline、belief/action 双 readout、support/likelihood/support-under-completeness gates，以及按 scenario bootstrap 的 sign-reversal 指标。状态：`ACTIVE-PREFLIGHT / HARNESS-READY / NOT READY-TO-SMOKE`。
 
-006–008 的 paper search、入选理由与同轮 kill 记录见：
+历史归档项目中旧编号 `006–008` 的 paper search、入选理由与同轮 kill 记录见：
 
 `rejected_candidates/search_round_2026-08-27_natural_phenomena_final.md`
+
+这些 archive 编号与当前 active 006/007 无映射关系。
 
 已归档：
 
