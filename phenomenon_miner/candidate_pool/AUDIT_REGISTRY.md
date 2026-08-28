@@ -1,154 +1,82 @@
 # 候选审计与调度注册表
 
 版本：2026-08-29
-状态：`AUTHORITATIVE`，覆盖 `00_MASTER_INDEX.md` 的历史 Tier。
+状态：`AUTHORITATIVE`
 
 ## 调度结论
 
-**当前 `READY-TO-SMOKE`：0。**
+**当前 `READY-TO-SMOKE`：1 — `active/007_weak_evidence_backfire`.**
 
-006 Existential Witness Collapse 已完成冻结 two-family smoke，并因 `HARD-KILL-NO-ILLEGAL-JOIN` 终止；现已完整归档到 `archive/011_existential_witness_collapse`，其 `validation_authorized` 为 false。
+- 007：`N0-PASS / D0-PASS / READY-TO-SMOKE`，25 个 frozen natural scenarios，20/20 manual audit，`validation_authorized: true`。
+- 012：`N0-PASS / D0-AUDITING / NOT READY-TO-SMOKE`，真实 source pool 与 builder 已就绪，但 frozen worker pairs 尚未 materialize/人工签署。
+- 013：`N0-PASS / HOLD-D0 / NOT READY-TO-SMOKE`，强自然 anchor 已找到，但独立 scenario 数量与 adaptation/license 条件不足。
 
-007 / 012 已在独立 N0 中发现 discovery collision 并终止；013 通过独立 N0 但因 natural D0 缺失保持 `D0-HOLD`。三者均未获得模型运行授权。
+## N0 范围决议
 
-## 保留的审计
+2026-08-28 的十题 adversarial N0 已对 strongest neighbor、mother inclusion、`why_not_a_rename`、decisive contrast 和 hard kill 做过针对性审计。本项目决定接受该审计作为 007/012/013 的 pre-smoke N0 basis，不再要求形式上重复同一套大规模检索。
 
-- [OIR/BWA/AIC](audits/ROOT_AUDIT_OIR_BWA_AIC.md)
-- [RVC](audits/ROOT_AUDIT_RVC.md)
-- [ATW/CSS](audits/ROOT_AUDIT_ATW_CSS.md)
-- [六领域汇总](audits/AUDIT_OIR_BWA_AIC_RVC_ATW_CSS.md)
-- [MTR/DPC 首轮](audits/AUDIT_MTR_DPC.md)与[二轮](audits/SECOND_PASS_MTR_DPC.md)
-- [SEC/KRE](audits/AUDIT_SEC_KRE.md)
-- [UDH/MCC](audits/AUDIT_UDH_MCC.md)
-- [十题第二轮对抗式 N0](audits/ADVERSARIAL_N0_TEN_2026-08-28.md)
-- [006 fresh independent N0](../../archive/011_existential_witness_collapse/N0_INDEPENDENT_AUDIT_2026-08-28.md)
-- [006 natural D0 audit](../../archive/011_existential_witness_collapse/D0_AUDIT.md)
-- [006 final behavioral verdict](../../archive/011_existential_witness_collapse/FINAL_VERDICT.md)
-- [007/012/013 harness scientific audit](../../active/VALIDATION_AUDIT_007_012_013.md)
+本仓库从人类认知/决策/社会行为中的自然现象出发寻找 LLM failure，因此**人类母现象已知不是 collision 本身**。Collision 要求已有 LLM 工作覆盖 exact/near-exact phenotype、decisive contrast 或机制。007/012 在后续 duplicate independent audit 中因为人类 weak-evidence/sleeper-effect 文献而得到的 `KILLED-COLLISION` 判定已经 superseded；历史文件保留作 provenance，权威状态以本表和各项目 `N0_RESOLUTION_2026-08-29.md` 为准。
 
-`AUDIT_ROOT_SIX_DOMAINS.md` 是未完成占位，不作证据。
-
-## 已杀掉 / 路由
-
-| 范围 | 状态 | 原因 |
-|---|---|---|
-| OIR-01–12 | `KILLED/ROUTED` | 独立候选 0 |
-| AIC-01–12 | `KILLED/OCCUPIED` | 独立候选 0 |
-| ATW-01–15 | `KILLED/OCCUPIED` | 独立候选 0 |
-| CSS-01–15 | `KILLED/OCCUPIED` | 独立候选 0 |
-| MTR-13 | `KILLED-COLLISION` | ContractBench/TicToc exact 覆盖 |
-| MTR-14 | `KILLED` | DCT/event-time 拥挤且 gold 不稳 |
-| MTR-07 | `HOLD-NOT-DISPATCHABLE` | identity gold 模糊，counting 邻近过强 |
-| **SEC-06** | **`KILLED-COLLISION/ROUTE`** | 2026 *Grounded Continuation* 已把 dependency-graph retraction propagation / stale-premise verification 作为核心 operator；转载链只剩外部 setting |
-| **UDH-03** | **`KILLED-MOTHER-OCCUPIED`** | ACL 2026 *Mitigating Lost in Multi-turn Conversation...* 已直接研究 instruction shards 下的 solvability / abstention / multi-turn degradation；partial→full abstention 只剩 error slice |
-| **RVC-04 / Existential Witness Collapse** | **`ARCHIVED / TERMINAL-KILLED / HARD-KILL-NO-ILLEGAL-JOIN`** | 冻结 natural D0 上 Qwen3-8B 40/40 capability-gated，却 `p_collapse(unknown)=0.0000944`、8/8 domains 无 positive case；Gemma 无正向 rescue signal |
-| Sure-Thing / disjunction violation | `NOT-ADDED / DISCOVERY-OCCUPIED` | 已有工作直接用 Savage sure-thing principle 评价 ChatGPT |
-| Equivalent-Quantity Decision Split | `KILLED-COLLISION` | quantity comparison / numeral-unit heuristic 机制近 exact |
-| Generation–Reception Trace Asymmetry | `KILLED-MOTHER-OCCUPIED` | self-conditioning / source-monitoring 母区过密 |
-| Part–Whole Double Counting | `ROUTED-F6` | local→global reducer 的标准实例，无独立 operator |
-| Confidence-Conditioned Correction Relapse | `KILLED-MOTHER-OCCUPIED` | confidence-conditioned persistence/self-correction 已高度占位 |
-| 审计中的其他 KILL/OCCUPIED/REJECT/MERGE/ROUTE | `KILLED/ROUTED` | 逐项理由见原审计 |
-
-失败项保留原 ID、审计链接与致死原因，永久去重。路由项只能当 control/外部 setting。
+N1 仍在 smoke 后、扩模型前强制执行。
 
 ## 当前十题
 
-原第二轮 adversarial shortlist 详见 [`DEEP_N0_SURVIVORS_10_2026-08-28.md`](DEEP_N0_SURVIVORS_10_2026-08-28.md) 与 [`audits/ADVERSARIAL_N0_TEN_2026-08-28.md`](audits/ADVERSARIAL_N0_TEN_2026-08-28.md)。
-
-Existential Witness Collapse 曾完成 fresh independent N0 与 natural D0，但 frozen first-shot behavioral validation 已终止并移入失败归档。其他 survivor 仍只通过 proposer-side adversarial search，不是 formal `N0-PASS`。进入 `active/` 只注册实现，不改变 N0/D0 裁决。
-
-| # | 题目 | 注册状态 | 实现 / 归档 | 授权 |
+| # | 题目 | 当前状态 | 实现 / 归档 | 授权 |
 |---:|---|---|---|---|
 | 1 | First-Negative-Evidence Harm | `ADVERSARIAL-N0-SURVIVOR` | — | false |
-| 2 | Packed–Unpacked Event Splitting | `ARCHIVED / HOLD-OPERATIONALIZATION-ARTIFACT` | [`archive/009_packed_unpacked_event_splitting`](../../archive/009_packed_unpacked_event_splitting/) | false |
-| 3 | Publicness–Coordination Dissociation (SEC-01 narrow contract) | `N0-PASS / D0-HOLD / ACTIVE-PREFLIGHT` | [`active/013_publicness_coordination_dissociation`](../../active/013_publicness_coordination_dissociation/) | false |
-| 4 | Existential Witness Collapse (RVC-04 narrow contract) | `ARCHIVED / TERMINAL-KILLED / HARD-KILL-NO-ILLEGAL-JOIN` | [`archive/011_existential_witness_collapse`](../../archive/011_existential_witness_collapse/) | false |
-| 5 | Inadmissible-Evidence Persistence (UDH-11 narrow contract) | `ARCHIVED / TERMINAL-HOLD-D0V3-CONTRACT` | [`archive/010_inadmissible_evidence_persistence`](../../archive/010_inadmissible_evidence_persistence/) | false |
-| 6 | Habitual → Episode Actualization (NG-01 narrow contract) | `ADVERSARIAL-N0-SURVIVOR` | — | false |
-| 7 | Mixed-Status Event Attraction (NG-02 narrow contract) | `ADVERSARIAL-N0-SURVIVOR` | — | false |
-| 8 | Dissent → Holding Role Swap (UDH-09 narrow contract) | `ADVERSARIAL-N0-SURVIVOR` | — | false |
-| 9 | Source-Discount Recovery | `KILLED-COLLISION` | [`active/012_source_discount_recovery`](../../active/012_source_discount_recovery/) | false |
-| 10 | Weak-Evidence Backfire | `KILLED-COLLISION` | [`active/007_weak_evidence_backfire`](../../active/007_weak_evidence_backfire/) | false |
+| 2 | Packed–Unpacked Event Splitting | `ARCHIVED / HOLD-OPERATIONALIZATION-ARTIFACT` | `archive/009_packed_unpacked_event_splitting/` | false |
+| 3 | Publicness–Coordination Dissociation | `N0-PASS / HOLD-D0 / ACTIVE-PREFLIGHT` | `active/013_publicness_coordination_dissociation/` | false |
+| 4 | Existential Witness Collapse | `ARCHIVED / HARD-KILL-NO-ILLEGAL-JOIN` | `archive/011_existential_witness_collapse/` | false |
+| 5 | Inadmissible-Evidence Persistence | `ARCHIVED / TERMINAL-HOLD-D0V3-CONTRACT` | `archive/010_inadmissible_evidence_persistence/` | false |
+| 6 | Habitual → Episode Actualization | `ADVERSARIAL-N0-SURVIVOR` | — | false |
+| 7 | Mixed-Status Event Attraction | `ADVERSARIAL-N0-SURVIVOR` | — | false |
+| 8 | Dissent → Holding Role Swap | `ADVERSARIAL-N0-SURVIVOR` | — | false |
+| 9 | Source-Discount Recovery | `N0-PASS / D0-AUDITING / ACTIVE-PREFLIGHT` | `active/012_source_discount_recovery/` | false |
+| 10 | Weak-Evidence Backfire | `N0-PASS / D0-PASS / READY-TO-SMOKE` | `active/007_weak_evidence_backfire/` | true |
 
-### Implementation registration and archived dispositions
-
-`active/` 编号按项目**历史进入 active 的先后顺序**继续递增，不复用 shortlist 编号，也不复用后来已移入 `archive/` 的历史 active 编号。因此 008–011 仍视为占用，本轮新增为 012、013。
+## Active registrations
 
 ```yaml
-archive/009_packed_unpacked_event_splitting:
-  canonical_shortlist_number: 2
-  status: ARCHIVED
-  harness: HOLD-OPERATIONALIZATION-ARTIFACT
-  formal_n0_verdict: null
-  independent_auditor: null
-  d0_verdict: HOLD
-  behavioral_verdict: HOLD-OPERATIONALIZATION-ARTIFACT
-  validation_authorized: false
-
-archive/010_inadmissible_evidence_persistence:
-  canonical_shortlist_number: 5
-  status: ARCHIVED
-  harness: TERMINAL-HOLD-D0V3-CONTRACT
-  formal_n0_verdict: null
-  independent_auditor: null
-  d0_verdict: HOLD
-  behavioral_verdict: TERMINAL-HOLD-D0V3-CONTRACT
-  validation_authorized: false
-
-archive/011_existential_witness_collapse:
-  canonical_shortlist_number: 4
-  status: ARCHIVED
-  harness: READY-r4-natural-d0
-  formal_n0_verdict: PASS
-  independent_auditor: GPT-5.6 Sol (fresh adversarial audit role)
-  d0_verdict: PASS
-  d0_items: 40
-  manual_audit: 20/20 PASS
-  behavioral_verdict: HARD-KILL-NO-ILLEGAL-JOIN
-  experiment_commit: aaf03c536e20b5cf83537c4f94a4e8a4476a0001
-  validation_authorized: false
-
 active/007_weak_evidence_backfire:
   canonical_shortlist_number: 10
-  status: KILLED-COLLISION
-  harness: READY-r4
-  formal_n0_verdict: KILLED-COLLISION
-  independent_auditor: Codex independent audit 2026-08-29
-  d0_verdict: null
-  validation_authorized: false
+  status: READY-TO-SMOKE
+  harness: READY-r5-natural-d0
+  formal_n0_verdict: PASS
+  n0_basis: 2026-08-28 adversarial audit accepted by project resolution 2026-08-29
+  d0_verdict: PASS
+  d0_items: 25
+  d0_domains: 2
+  manual_audit: 20/20 PASS
+  frozen_data_sha256: b1f6f88983b68e2764ff99964debd71a307dc0209c2cb9d2bb8f6d7484fd9792
+  validation_authorized: true
 
 active/012_source_discount_recovery:
   canonical_shortlist_number: 9
-  status: KILLED-COLLISION
+  status: ACTIVE-PREFLIGHT / D0-AUDITING
   harness: READY-r1
-  formal_n0_verdict: KILLED-COLLISION
-  independent_auditor: Codex independent audit 2026-08-29
-  d0_verdict: null
+  formal_n0_verdict: PASS
+  n0_basis: 2026-08-28 adversarial audit accepted by project resolution 2026-08-29
+  d0_verdict: AUDITING
+  source_candidates: NetEaseCrowd; CIFAR-10H
   validation_authorized: false
 
 active/013_publicness_coordination_dissociation:
   canonical_shortlist_number: 3
-  status: ACTIVE-PREFLIGHT / D0-HOLD
+  status: ACTIVE-PREFLIGHT / HOLD-D0
   harness: READY-r1
   formal_n0_verdict: PASS
-  independent_auditor: Codex independent audit 2026-08-29
   d0_verdict: HOLD
+  hold_reason: insufficient independent natural scenario pairs and adaptation/license constraints
   validation_authorized: false
 ```
 
-Existential Witness Collapse 不进入 N1、扩展 panel、scaling 或 mechanism。Qwen3-8B 已在 40/40 capability-gated natural cases 上直接满足预注册 `HARD-KILL-NO-ILLEGAL-JOIN`；Gemma 的 recognition answer-order instability 不构成 positive rescue。
+## 已终止 / 归档项目
 
-## 其他未死但不准运行
+原有 KILL/ROUTE/HOLD 记录继续以其 archive/audit 文件为准，包括 OIR/AIC/ATW/CSS 全系、MTR-13/14、SEC-06、UDH-03、Existential Witness Collapse、Packed–Unpacked Event Splitting、Inadmissible-Evidence Persistence，以及历史 active 002–010 的各自失败记录。不得因为本轮流程澄清而复活已由**真实行为结果、数据合同失败或 exact LLM collision**终止的项目。
 
-历史 `SURVIVOR-UNAUDITED / FINALIST-CONDITIONAL` 中，除上表已窄化进入十强者外，仍包括 BWA-01、RVC-01、SEC-04/10、MCC-01/10/11、DPC-11、NG-03 等。它们不因旧 `PROMOTE/ADVANCE` 自动获得优先级或验证授权。
+## 调度纪律
 
-正式进入 smoke 必须补齐：
-
-```yaml
-n0_verdict: PASS
-independent_auditor: <independent reviewer>
-d0_verdict: PASS
-validation_authorized: true
-```
-
-生成者与 novelty 签署者不得视为同一角色；任何 adversarial survivor 在独立复核中发现 exact collision、mother inclusion、自然 gold 失败、behavioral hard kill 或只是 F1–F9 换皮，立即 KILL/ROUTE。
+- 只有 `validation_authorized: true` 可调用模型；当前只有 007。
+- 012 必须先 materialize 真实 worker pairs、冻结 JSONL 并做 20 例人工审计。
+- 013 在 HOLD-D0 解除前不得造 synthetic substitute。
+- 007 smoke 后先做 raw-case/scorer/capability/artifact 审计，再做 N1；未完成 N1 不扩 generality panel、不做 mechanism。
