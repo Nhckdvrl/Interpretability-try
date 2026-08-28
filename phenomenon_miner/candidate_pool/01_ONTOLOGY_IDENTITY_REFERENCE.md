@@ -212,3 +212,17 @@
 | 6 | OIR-07 collective→distributive | 普通人易懂、公开投票可校验 | 可能只是量词能力不足 |
 
 OIR-06 已归入 EIRD；OIR-08 只有在自然数据上摆脱此前接口 artifact 才允许重开。
+
+---
+
+## Batch-2 脑暴死亡回填（2026-08-28）
+
+完整账本：[`BATCH2_BRAINSTORM_LEDGER_2026-08-28.md`](BATCH2_BRAINSTORM_LEDGER_2026-08-28.md)。本节用于阻止同一 ontology/reference 主题换名复活。
+
+| 本批主题 | 裁决 | 领域内理由 |
+|---|---|---|
+| **Collective predicate → every member（宽版本）** | `ROUTE OIR-07 / F6` | 本文件 OIR-07 已登记 collective→distributive；SEC-12 也已路由。除非出现不同于普通 group→member 广播的独立 operator，不另建题。 |
+| **Spatial reference-frame confusion（宽版本）** | `NOT-ADDED / MOTHER-OCCUPIED` | 只做 egocentric/allocentric、left/right 或 viewpoint frame accuracy 会落入成熟 spatial/reference-frame reasoning；本轮没有找到 components-intact 后独立 downstream operator。 |
+| **Generic alias/type/part-whole relabeling** | `ROUTE` | 若错误最终只是 answer slot 在 whole/part、type/token、alias 两端移动，优先检查 OIR-06/EIRD、OIR-08/OIR-10，不能重新取一个新名字。 |
+
+**复活条件。** 只有当新 proposal 能写出不依赖“换数据/换领域”的 `why_not_a_rename`，并给出与 OIR-07/EIRD/F2/F6 不同的结构预测，才允许重新进入 N0。
