@@ -6,8 +6,6 @@ LABELS = ("A", "B", "C")
 SEMANTICS = ("left_more", "equal", "right_more")
 LABEL_ORDERS = tuple(dict(zip(LABELS, order)) for order in permutations(SEMANTICS))
 
-# Two neutral natural phrasings are primary. The explicit invariant reminder is
-# diagnostic only and is never pooled into the natural phenotype.
 READOUT_TEMPLATES = {
     "probability": (
         ("natural", "Considering the situation described, compare the probability of the two events."),
@@ -26,6 +24,23 @@ READOUT_TEMPLATES = {
     ),
 }
 
+SEMANTIC_TEXT = {
+    "probability": {
+        "left_more": "the LEFT event is more probable",
+        "equal": "the two events are equally probable",
+        "right_more": "the RIGHT event is more probable",
+    },
+    "decision": {
+        "left_more": "the LEFT contract/bet has higher value",
+        "equal": "the two contracts/bets have equal value",
+        "right_more": "the RIGHT contract/bet has higher value",
+    },
+    "frequency": {
+        "left_more": "the LEFT event would occur more often",
+        "equal": "the two events would occur equally often",
+        "right_more": "the RIGHT event would occur more often",
+    },
+}
 
 def recognition_prompt(packed: str, branches: Iterable[str], probe: str, label_yes: str, label_no: str) -> str:
     branch_text = "\n".join(f"- {b}" for b in branches)
@@ -37,34 +52,18 @@ def recognition_prompt(packed: str, branches: Iterable[str], probe: str, label_y
         q = "Do the listed branches exhaust the packed event, so every packed-event outcome is in one listed branch?"
     else:
         raise ValueError(probe)
-    return (
-        f"Packed event:\n{packed}\n\nBranches:\n{branch_text}\n\n{q}\n"
-        f"Answer exactly one letter: {label_yes}=Yes, {label_no}=No."
-    )
+    return f"Packed event:\n{packed}\n\nBranches:\n{branch_text}\n\n{q}\nAnswer exactly one letter: {label_yes}=Yes, {label_no}=No."
 
-
-def pair_relation_prompt(focal: str, complement: str, probe: str,
-                         label_yes: str, label_no: str) -> str:
+def pair_relation_prompt(focal: str, complement: str, probe: str, label_yes: str, label_no: str) -> str:
     if probe == "disjoint":
         q = "Are these two events mutually exclusive, so they cannot both occur?"
     elif probe == "exhaustive":
         q = "Do these two events together exhaust the relevant outcome space for this question?"
     else:
         raise ValueError(probe)
-    return (
-        f"EVENT 1:\n{focal}\n\nEVENT 2:\n{complement}\n\n{q}\n"
-        f"Answer exactly one letter: {label_yes}=Yes, {label_no}=No."
-    )
+    return f"EVENT 1:\n{focal}\n\nEVENT 2:\n{complement}\n\n{q}\nAnswer exactly one letter: {label_yes}=Yes, {label_no}=No."
 
-
-def comparison_prompt(left: str, right: str, instruction: str, mapping: dict[str, str]) -> str:
-    semantic_text = {
-        "left_more": "the LEFT event should receive the higher judgment",
-        "equal": "the two events should receive the SAME judgment",
-        "right_more": "the RIGHT event should receive the higher judgment",
-    }
+def comparison_prompt(left: str, right: str, instruction: str, mapping: dict[str, str], readout: str) -> str:
+    semantic_text = SEMANTIC_TEXT[readout]
     options = "\n".join(f"{lab}. {semantic_text[mapping[lab]]}" for lab in LABELS)
-    return (
-        f"{instruction}\n\nLEFT:\n{left}\n\nRIGHT:\n{right}\n\n"
-        f"{options}\nAnswer exactly one letter: A, B, or C."
-    )
+    return f"{instruction}\n\nLEFT:\n{left}\n\nRIGHT:\n{right}\n\n{options}\nAnswer exactly one letter: A, B, or C."
