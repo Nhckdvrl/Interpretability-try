@@ -1,5 +1,5 @@
 {
-  "contract_version": "2026-08-28-r2",
+  "contract_version": "2026-08-28-r3",
   "validation_authorized": false,
   "require_external_source": true,
   "recognition_gate": {
