@@ -7,6 +7,9 @@ import json, math, random
 
 from .data import load_scenarios
 
+READOUTS = ("probability", "decision", "frequency")
+PRIMARY_READOUTS = ("probability", "decision")
+
 
 def read_jsonl(path: str | Path) -> list[dict[str, Any]]:
     rows = []
@@ -95,7 +98,7 @@ def summarize(*, data_path: str, results_path: str, config_path: str,
 
     expected_j_keys = {
         (readout, template_kind, template_id, condition, side_order, label_order)
-        for readout in ("probability", "decision")
+        for readout in READOUTS
         for template_id, template_kind in ((0, "natural"), (1, "extensional_reminder"))
         for condition in ("core", "paraphrase", "partial_subset", "repacked")
         for side_order in (0, 1)
@@ -103,7 +106,7 @@ def summarize(*, data_path: str, results_path: str, config_path: str,
     }
     expected_f_keys = {
         (readout, template_kind, template_id, condition, side_order, label_order)
-        for readout in ("probability", "decision")
+        for readout in READOUTS
         for template_id, template_kind in ((0, "natural"), (1, "extensional_reminder"))
         for condition in ("focal_unpacked_context", "alternative_unpacked_context")
         for side_order in (0, 1)
@@ -146,6 +149,8 @@ def summarize(*, data_path: str, results_path: str, config_path: str,
 
         natural = [r for r in js if r["template_kind"] == "natural"]
         reminder = [r for r in js if r["template_kind"] == "extensional_reminder"]
+        primary_natural = [r for r in natural if r["readout"] in PRIMARY_READOUTS]
+        primary_reminder = [r for r in reminder if r["readout"] in PRIMARY_READOUTS]
 
         def mean_bias(sub: list[dict[str, Any]], condition: str, readout: str | None = None) -> float:
             z = [r for r in sub if r["condition"] == condition and (readout is None or r["readout"] == readout)]
@@ -157,24 +162,27 @@ def summarize(*, data_path: str, results_path: str, config_path: str,
             z = [r for r in sub if r["condition"] == condition]
             return mean(_variant_more_prob(r) for r in z)
 
-        core_bias = mean_bias(natural, "core")
-        paraphrase_bias = mean_bias(natural, "paraphrase")
-        partial_discrimination = -mean_bias(natural, "partial_subset")
-        repacked_bias = mean_bias(natural, "repacked")
+        core_bias = mean_bias(primary_natural, "core")
+        paraphrase_bias = mean_bias(primary_natural, "paraphrase")
+        partial_discrimination = -mean_bias(primary_natural, "partial_subset")
+        repacked_bias = mean_bias(primary_natural, "repacked")
         repacking_recovery = core_bias - repacked_bias
-        reminder_core_bias = mean_bias(reminder, "core")
+        reminder_core_bias = mean_bias(primary_reminder, "core")
         reminder_rescue = core_bias - reminder_core_bias
 
-        natural_f = [r for r in fs if r["template_kind"] == "natural"]
-        focal_unpacked_score = mean(_focal_score(r) for r in natural_f if r["condition"] == "focal_unpacked_context")
-        alternative_unpacked_score = mean(_focal_score(r) for r in natural_f if r["condition"] == "alternative_unpacked_context")
+        primary_natural_f = [
+            r for r in fs
+            if r["template_kind"] == "natural" and r["readout"] in PRIMARY_READOUTS
+        ]
+        focal_unpacked_score = mean(_focal_score(r) for r in primary_natural_f if r["condition"] == "focal_unpacked_context")
+        alternative_unpacked_score = mean(_focal_score(r) for r in primary_natural_f if r["condition"] == "alternative_unpacked_context")
         focal_alternative_shift = focal_unpacked_score - alternative_unpacked_score
 
-        readout_bias = {
-            readout: mean_bias(natural, "core", readout)
-            for readout in ("probability", "decision")
-        }
-        positive_readouts = sum(v > 0 for v in readout_bias.values())
+        readout_bias = {readout: mean_bias(natural, "core", readout) for readout in READOUTS}
+        reminder_bias_by_readout = {readout: mean_bias(reminder, "core", readout) for readout in READOUTS}
+        primary_readouts_ok = all(readout_bias[r] > 0 for r in PRIMARY_READOUTS)
+        probability_frequency_gap = readout_bias["probability"] - readout_bias["frequency"]
+
         control_ok = (
             abs(paraphrase_bias) <= ctrl_cfg["max_abs_paraphrase_bias"]
             and partial_discrimination >= ctrl_cfg["min_partial_subset_discrimination"]
@@ -182,12 +190,12 @@ def summarize(*, data_path: str, results_path: str, config_path: str,
         structural_ok = (
             repacking_recovery >= strong_cfg["min_repacking_recovery"]
             and focal_alternative_shift >= strong_cfg["min_focal_alternative_shift"]
-            and positive_readouts >= strong_cfg["min_positive_readouts"]
+            and primary_readouts_ok
         )
         strong = (
             gated and control_ok and structural_ok
             and core_bias >= strong_cfg["min_core_unpacked_bias"]
-            and mean_variant_more(natural, "core") >= strong_cfg["min_unpacked_more_probability"]
+            and mean_variant_more(primary_natural, "core") >= strong_cfg["min_unpacked_more_probability"]
         )
         case_rows.append({
             "scenario_id": key[0], "partition_id": key[1],
@@ -196,8 +204,10 @@ def summarize(*, data_path: str, results_path: str, config_path: str,
             "recognition": probe_probs, "recognition_min": recognition_min,
             "recognition_mean": recognition_mean, "gated": gated,
             "core_unpacked_bias": core_bias,
-            "core_p_unpacked_more": mean_variant_more(natural, "core"),
+            "core_p_unpacked_more": mean_variant_more(primary_natural, "core"),
             "core_bias_by_readout": readout_bias,
+            "reminder_core_bias_by_readout": reminder_bias_by_readout,
+            "probability_frequency_gap": probability_frequency_gap,
             "paraphrase_bias": paraphrase_bias,
             "partial_subset_discrimination": partial_discrimination,
             "repacked_bias": repacked_bias,
@@ -214,6 +224,7 @@ def summarize(*, data_path: str, results_path: str, config_path: str,
     for r in case_rows:
         if r["gated"]:
             by_scenario_cases[r["scenario_id"]].append(r)
+
     scenario_rows = []
     for sid, sub in sorted(by_scenario_cases.items()):
         scenario_rows.append({
@@ -223,6 +234,7 @@ def summarize(*, data_path: str, results_path: str, config_path: str,
             "mean_core_unpacked_bias": mean(r["core_unpacked_bias"] for r in sub),
             "mean_focal_alternative_shift": mean(r["focal_alternative_shift"] for r in sub),
             "mean_repacking_recovery": mean(r["repacking_recovery"] for r in sub),
+            "mean_probability_frequency_gap": mean(r["probability_frequency_gap"] for r in sub),
             "control_ok_fraction": mean(float(r["control_ok"]) for r in sub),
             "strong_partition_fraction": mean(float(r["strong"]) for r in sub),
             "strong": mean(float(r["strong"]) for r in sub) >= 0.5,
@@ -252,7 +264,7 @@ def summarize(*, data_path: str, results_path: str, config_path: str,
             within_scenario_slopes[sid] = (high - low) / (ks[-1] - ks[0])
 
     readout_scenario_means = {}
-    for readout in ("probability", "decision"):
+    for readout in READOUTS:
         vals = [mean(r["core_bias_by_readout"][readout] for r in sub) for sub in by_scenario_cases.values()]
         readout_scenario_means[readout] = mean(vals) if vals else math.nan
 
@@ -272,11 +284,13 @@ def summarize(*, data_path: str, results_path: str, config_path: str,
         "positive_domains": positive_domains,
         "mean_focal_alternative_shift": mean(r["mean_focal_alternative_shift"] for r in scenario_rows) if scenario_rows else math.nan,
         "mean_repacking_recovery": mean(r["mean_repacking_recovery"] for r in scenario_rows) if scenario_rows else math.nan,
+        "mean_probability_frequency_gap": mean(r["mean_probability_frequency_gap"] for r in scenario_rows) if scenario_rows else math.nan,
         "core_bias_by_readout": readout_scenario_means,
         "branch_count_matched_scenarios": len(within_scenario_slopes),
         "mean_within_scenario_branch_count_slope": mean(within_scenario_slopes.values()) if within_scenario_slopes else math.nan,
         "artifact_failure_scenarios": sum(r["control_ok_fraction"] < 0.75 for r in scenario_rows),
     }
+    primary_readout_pass = all(readout_scenario_means[r] > 0 for r in PRIMARY_READOUTS)
     model_pass = (
         aggregate["gated_scenarios"] >= pcfg["min_gated_scenarios"]
         and aggregate["mean_core_unpacked_bias"] >= pcfg["min_mean_core_unpacked_bias"]
@@ -284,7 +298,7 @@ def summarize(*, data_path: str, results_path: str, config_path: str,
         and aggregate["strong_fraction"] >= pcfg["min_strong_fraction"]
         and positive_domains >= pcfg["min_positive_domains"]
         and aggregate["mean_focal_alternative_shift"] >= pcfg["min_mean_focal_alternative_shift"]
-        and sum(v > 0 for v in readout_scenario_means.values()) >= pcfg["min_positive_readouts"]
+        and primary_readout_pass
     )
 
     if aggregate["gated_scenarios"] >= pcfg["min_gated_scenarios"] and abs(aggregate["mean_core_unpacked_bias"]) < 0.02:
@@ -308,9 +322,9 @@ def summarize(*, data_path: str, results_path: str, config_path: str,
         "scenarios": scenario_rows,
         "cases": case_rows,
         "hard_kill_note": (
-            "Kill standalone novelty if the natural-readout effect vanishes after relation gating, "
-            "is matched by packed-paraphrase bias, fails the strict-subset control, or lacks the "
-            "focal-vs-alternative/repacking structure that distinguishes partition support from generic wording sensitivity."
+            "Kill standalone novelty if the natural probability/decision effect vanishes after relation gating, "
+            "is matched by packed-paraphrase bias, fails the strict-subset control, or lacks the focal-vs-alternative/repacking structure. "
+            "Frequency is a diagnostic readout for probability-vs-frequency separability and cannot substitute for the primary probability+decision contract."
         ),
     }
     if out_path:

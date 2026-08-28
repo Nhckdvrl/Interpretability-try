@@ -1,6 +1,6 @@
 # 004 — Packed–Unpacked Event Splitting
 
-Status: `ACTIVE-PREFLIGHT / HARNESS-READY-r2 / NOT READY-TO-SMOKE`
+Status: `ACTIVE-PREFLIGHT / HARNESS-READY-r3 / NOT READY-TO-SMOKE`
 
 Canonical shortlist mapping: **2026-08-28 adversarial N0 shortlist #2**.
 
@@ -17,14 +17,15 @@ If a model can explicitly recognize that a packed event `E` and an unpacked mutu
 
 This is not generic paraphrase sensitivity. Formal G0 asks whether a representation-only partition operator produces a directional judgment change **after** extensional recognition succeeds, while ordinary paraphrase, strict-subset, repacking, focal/alternative and position controls behave differently.
 
-## Why r2 exists
+## Why r3 exists
 
-The first harness was runnable but scientifically incomplete. r2 fixes four important problems:
+The first harness was runnable but scientifically incomplete. The hardened contract fixes five important problems:
 
-- the core comparison is now left/right counterbalanced; A/B/C label permutation alone was not enough to rule out presentation-side bias;
-- the primary readout is now a neutral natural question; explicit extensional reminders are a separate rescue diagnostic rather than being averaged into the phenotype;
+- the core comparison is left/right counterbalanced; A/B/C label permutation alone was not enough to rule out presentation-side bias;
+- the primary readout is a neutral natural question; explicit extensional reminders are a separate rescue diagnostic rather than being averaged into the phenotype;
 - branch-count effects are estimated **within the same source scenario**, and bootstrap uncertainty is clustered at scenario level rather than treating multiple partitions from one record as independent;
-- the D0 contract now includes focal-vs-alternative unpacking and a strict-subset control whose omitted mass is frozen as genuinely positive, so “strict subset” is not incorrectly assumed to imply strictly smaller probability by logic alone.
+- the D0 contract includes focal-vs-alternative unpacking and a strict-subset control whose omitted mass is frozen as genuinely positive, so “strict subset” is not incorrectly assumed to imply strictly smaller probability by logic alone;
+- the adversarial N0 contract’s **probability-vs-frequency separability** is now measured explicitly. Frequency is a diagnostic readout and cannot substitute for the primary probability + consequential-decision evidence.
 
 ## Formal D0 contract
 
@@ -76,17 +77,21 @@ For every partition, equivalence, mutual exclusivity and exhaustiveness are chec
 
 ### Primary natural phenotype
 
-Both probability and equal-payoff contract valuation use a neutral natural question. Packed and unpacked/controlled forms appear on both LEFT and RIGHT, and all six A/B/C semantic assignments are run. The directional score is always mapped back to the semantic variant, so position bias cancels rather than being mistaken for unpacking.
+Probability and equal-payoff contract valuation use neutral natural questions. Packed and unpacked/controlled forms appear on both LEFT and RIGHT, and all six A/B/C semantic assignments are run. The directional score is always mapped back to the semantic variant, so position bias cancels rather than being mistaken for unpacking.
 
 ```text
 core_unpacked_bias = P(unpacked judged higher) - P(packed judged higher)
 ```
 
-The primary aggregate uses only `template_kind=natural`.
+The primary aggregate uses only natural probability + decision readouts. Both must point in the target direction.
+
+### Frequency diagnostic
+
+A repeated-trials frequency question is run under the same counterbalancing. It is reported separately through `core_bias_by_readout.frequency` and the probability-frequency gap. This tests the N0 prediction that description-dependent probability support may separate from an extensional frequency judgment; frequency never counts as a replacement for a failed probability or decision readout.
 
 ### Explicit extensional reminder
 
-A second template explicitly reminds the model that logically equivalent events should have equal probability/value. This is **not** included in the primary mean. Its purpose is diagnostic: if the natural phenotype is rescued by an explicit invariant reminder, that tells us something about access/use rather than existence of the behavior.
+A second template for every readout explicitly reminds the model of the extensional invariant. These reminder responses are **not** included in the primary mean. Their purpose is diagnostic: if the natural phenotype is rescued by an explicit invariant reminder, that supports an access/use interpretation rather than changing whether the natural behavior exists.
 
 ### Controls and structural signatures
 
@@ -95,7 +100,7 @@ A second template explicitly reminds the model that logically equivalent events 
 - **repacking:** converting the explicit branch list back to a compact description should shrink the core bias;
 - **focal vs alternative unpacking:** for a matched focal/complement pair, unpacking the focal side should shift the focal-vs-complement judgment differently from unpacking the alternative side;
 - **branch count:** slope is computed only from different `k` partitions of the same scenario;
-- **readout consistency:** probability and consequential decision are reported separately and must point in the same direction for a strong case.
+- **readout consistency:** probability and consequential decision are primary and must agree in direction; frequency is diagnostic.
 
 ## Statistical unit
 
@@ -133,6 +138,6 @@ The repository registry still controls formal dispatch. Exploratory local runs m
 
 ## Kill / hold logic
 
-Kill or route the standalone topic if the natural-readout effect vanishes after relation gating, ordinary paraphrase explains comparable movement, the strict-subset control fails, focal/alternative and repacking structure disappear, or cross-family replication fails. A signal surviving only under one prompt slice or one presentation side is an artifact, not the phenomenon.
+Kill or route the standalone topic if the natural probability/decision effect vanishes after relation gating, ordinary paraphrase explains comparable movement, the strict-subset control fails, focal/alternative and repacking structure disappear, or cross-family replication fails. A signal surviving only under one prompt slice or one presentation side is an artifact, not the phenomenon. Frequency is interpreted only as a structural diagnostic.
 
 White-box work remains downstream of behavioral/cross-family G0.

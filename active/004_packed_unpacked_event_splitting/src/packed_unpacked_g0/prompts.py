@@ -15,6 +15,10 @@ READOUT_TEMPLATES = {
         ("natural", "Two contracts each pay $100 exactly when the event written on that contract occurs. Which contract is worth more?"),
         ("extensional_reminder", "Two equal-payoff contracts should have equal value whenever their triggering events are logically equivalent. Compare the two contracts on that basis."),
     ),
+    "frequency": (
+        ("natural", "Imagine many comparable repetitions of the situation. Which event would occur more often?"),
+        ("extensional_reminder", "Across repeated comparable situations, logically equivalent events must occur equally often. Compare the two event descriptions on that basis."),
+    ),
 }
 
 
@@ -36,9 +40,9 @@ def recognition_prompt(packed: str, branches: Iterable[str], probe: str, label_y
 
 def comparison_prompt(left: str, right: str, instruction: str, mapping: dict[str, str]) -> str:
     semantic_text = {
-        "left_more": "the LEFT event should receive the higher probability/value",
-        "equal": "the two events should receive the SAME probability/value",
-        "right_more": "the RIGHT event should receive the higher probability/value",
+        "left_more": "the LEFT event should receive the higher judgment",
+        "equal": "the two events should receive the SAME judgment",
+        "right_more": "the RIGHT event should receive the higher judgment",
     }
     options = "\n".join(f"{lab}. {semantic_text[mapping[lab]]}" for lab in LABELS)
     return (
