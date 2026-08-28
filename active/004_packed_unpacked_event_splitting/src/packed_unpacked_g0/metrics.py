@@ -30,10 +30,16 @@ def _variant_bias(r):
     return (float(r["p_right_more"])-float(r["p_left_more"])) if r["variant_side"]=="right" else (float(r["p_left_more"])-float(r["p_right_more"]))
 def _variant_more_prob(r): return float(r["p_right_more"] if r["variant_side"]=="right" else r["p_left_more"])
 def _focal_score(r): return (float(r["p_left_more"])-float(r["p_right_more"])) if r["focal_side"]=="left" else (float(r["p_right_more"])-float(r["p_left_more"]))
+def _repacking_recovery(core,repacked): return abs(core)-abs(repacked)
+def _assert_run_metadata_consistent(rows):
+    for field in ("model","family","revision","size_b","requested_dtype"):
+        vals={json.dumps(r.get(field),sort_keys=True) for r in rows}
+        if len(vals)!=1: raise ValueError(f"inconsistent run metadata for {field}: {vals}")
 
 def summarize(*, data_path: str, results_path: str, config_path: str, out_path: str | None=None) -> dict[str,Any]:
     scenarios=load_scenarios(data_path, require_external_source=True); valid={(s.scenario_id,p.partition_id) for s in scenarios for p in s.partitions}; rows=read_jsonl(results_path)
     if not rows: raise ValueError("results are empty")
+    _assert_run_metadata_consistent(rows)
     cfg=json.loads(Path(config_path).read_text(encoding="utf-8")); grouped=defaultdict(list); seen=set()
     for r in rows:
         key=(str(r["scenario_id"]),str(r["partition_id"]))
@@ -61,7 +67,7 @@ def summarize(*, data_path: str, results_path: str, config_path: str, out_path: 
         def mb(sub,c,ro=None):
             z=[r for r in sub if r["condition"]==c and (ro is None or r["readout"]==ro)]; return mean(_variant_bias(r) for r in z)
         def mp(sub,c): return mean(_variant_more_prob(r) for r in sub if r["condition"]==c)
-        core=mb(pn,"core"); reordered=mb(pn,"reordered"); paraphrase=mb(pn,"paraphrase"); partial=-mb(pn,"partial_subset"); repacked=mb(pn,"repacked"); reorder_gap=abs(core-reordered); repack_recovery=core-repacked; reminder_core=mb(pr,"core")
+        core=mb(pn,"core"); reordered=mb(pn,"reordered"); paraphrase=mb(pn,"paraphrase"); partial=-mb(pn,"partial_subset"); repacked=mb(pn,"repacked"); reorder_gap=abs(core-reordered); repack_recovery=_repacking_recovery(core,repacked); reminder_core=mb(pr,"core")
         fn=[r for r in fs if r["template_kind"]=="natural" and r["readout"] in PRIMARY_READOUTS]; fscore={c:mean(_focal_score(r) for r in fn if r["condition"]==c) for c in ("baseline","focal_unpacked","alternative_unpacked","focal_length_control","alternative_length_control")}
         focal_unpack=fscore["focal_unpacked"]-fscore["baseline"]; alt_unpack=fscore["alternative_unpacked"]-fscore["baseline"]; focal_len=fscore["focal_length_control"]-fscore["baseline"]; alt_len=fscore["alternative_length_control"]-fscore["baseline"]; focal_alt=(focal_unpack-focal_len)-(alt_unpack-alt_len)
         rb={ro:mb(natural,"core",ro) for ro in READOUTS}; template_bias={f"{ro}:{tid}":mean(_variant_bias(r) for r in natural if r["readout"]==ro and int(r["template_id"])==tid and r["condition"]=="core") for ro in PRIMARY_READOUTS for tid,(kind,_) in enumerate(READOUT_TEMPLATES[ro]) if kind=="natural"}; tpl_frac=mean(float(v>0) for v in template_bias.values())
@@ -86,10 +92,10 @@ def summarize(*, data_path: str, results_path: str, config_path: str, out_path: 
         ks=sorted(bk)
         if len(ks)>=2 and ks[-1]!=ks[0]: slopes[f"{sid}::{fam}"]=(mean(bk[ks[-1]])-mean(bk[ks[0]]))/(ks[-1]-ks[0])
     agg={"gated_scenarios":len(scenarios_out),"mean_core_unpacked_bias":mean(vals) if vals else math.nan,"bootstrap_95_ci_clustered_by_scenario":[lo,hi],"strong_fraction":mean(float(r["strong"]) for r in scenarios_out) if scenarios_out else 0.0,"positive_domains":sum(v["gated_scenarios"]>=2 and v["mean_core_unpacked_bias"]>0 for v in by_domain.values()),"mean_focal_alternative_shift":mean(r["mean_focal_alternative_shift"] for r in scenarios_out) if scenarios_out else math.nan,"mean_template_positive_fraction":mean(r["mean_template_positive_fraction"] for r in scenarios_out) if scenarios_out else math.nan,"branch_count_matched_groups":len(slopes),"mean_within_family_branch_count_slope":mean(slopes.values()) if slopes else math.nan,"artifact_failure_scenarios":sum(r["control_ok_fraction"]<.75 for r in scenarios_out)}
-    pc=cfg["model_pass"]; branch_ok=agg["branch_count_matched_groups"]>=pc["min_branch_count_matched_groups"] and agg["mean_within_family_branch_count_slope"]>=pc["min_mean_branch_count_slope"]
-    model_pass=agg["gated_scenarios"]>=pc["min_gated_scenarios"] and agg["mean_core_unpacked_bias"]>=pc["min_mean_core_unpacked_bias"] and lo>=pc["min_bootstrap_ci_lower"] and agg["strong_fraction"]>=pc["min_strong_fraction"] and agg["positive_domains"]>=pc["min_positive_domains"] and agg["mean_focal_alternative_shift"]>=pc["min_mean_focal_alternative_shift"] and agg["mean_template_positive_fraction"]>=pc["min_natural_template_positive_fraction"] and branch_ok
-    if agg["gated_scenarios"]>=pc["min_gated_scenarios"] and abs(agg["mean_core_unpacked_bias"])<.02: verdict="HARD-KILL-NO-PHENOMENON"
-    elif agg["artifact_failure_scenarios"]>max(2,agg["gated_scenarios"]//4): verdict="HOLD-ARTIFACT-CONTROLS"
+    pc=cfg["model_pass"]; branch_ok=agg["branch_count_matched_groups"]>=pc["min_branch_count_matched_groups"] and agg["mean_within_family_branch_count_slope"]>=pc["min_mean_branch_count_slope"]; artifact_hold=agg["artifact_failure_scenarios"]>max(2,agg["gated_scenarios"]//4)
+    model_pass=(not artifact_hold) and agg["gated_scenarios"]>=pc["min_gated_scenarios"] and agg["mean_core_unpacked_bias"]>=pc["min_mean_core_unpacked_bias"] and lo>=pc["min_bootstrap_ci_lower"] and agg["strong_fraction"]>=pc["min_strong_fraction"] and agg["positive_domains"]>=pc["min_positive_domains"] and agg["mean_focal_alternative_shift"]>=pc["min_mean_focal_alternative_shift"] and agg["mean_template_positive_fraction"]>=pc["min_natural_template_positive_fraction"] and branch_ok
+    if artifact_hold: verdict="HOLD-ARTIFACT-CONTROLS"
+    elif agg["gated_scenarios"]>=pc["min_gated_scenarios"] and abs(agg["mean_core_unpacked_bias"])<.02: verdict="HARD-KILL-NO-PHENOMENON"
     elif not branch_ok: verdict="HOLD-BRANCH-COUNT-STRUCTURE"
     else: verdict="PASS-TO-PANEL" if model_pass else "FAIL-MODEL-G0"
     summary={"contract":"Packed-Unpacked Event Splitting","model":rows[0].get("model"),"family":rows[0].get("family"),"revision":rows[0].get("revision"),"size_b":rows[0].get("size_b"),"model_pass":model_pass,"verdict":verdict,"aggregate":agg,"by_domain":by_domain,"within_refinement_family_branch_count_slopes":slopes,"scenarios":scenarios_out,"cases":cases,"hard_kill_note":"Primary evidence is natural probability+decision behavior after focal/complement relation gates. Generic wording/position/order/length effects, an unstructured branch-count pattern, or failure of repacking/focal-alternative diagnostics block promotion."}
