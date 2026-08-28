@@ -30,7 +30,9 @@ def verdict_prompt(context: str, target: str, other: str, template: str,
     options = "\n".join(f"{lab}. {text[sem]}" for lab, sem in mapping.items())
     return f"{context}\n\n{template}\n{options}\nAnswer exactly A or B."
 
-def recognition_prompt(context: str, probe: str, mapping: dict[str, str], polarity: str) -> tuple[str, str]:
+def recognition_prompt(context: str, target: str, other: str, probe: str,
+                       mapping: dict[str, str], polarity: str) -> tuple[str, str]:
+    verdict_frame = f"TARGET VERDICT:\n{target}\n\nOTHER VERDICT:\n{other}"
     if probe == "inadmissible":
         question = "Under the stated ruling, must the presented evidence be excluded from the verdict?"
         truth = "yes"
@@ -44,4 +46,4 @@ def recognition_prompt(context: str, probe: str, mapping: dict[str, str], polari
         raise ValueError(probe)
     options = "\n".join(f"{lab}. {'Yes' if sem == 'yes' else 'No'}" for lab, sem in mapping.items())
     correct_label = next(lab for lab, sem in mapping.items() if sem == truth)
-    return f"{context}\n\n{question}\n{options}\nAnswer exactly A or B.", correct_label
+    return f"{context}\n\n{verdict_frame}\n\n{question}\n{options}\nAnswer exactly A or B.", correct_label
