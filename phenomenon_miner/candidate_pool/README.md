@@ -15,6 +15,22 @@ promoted/         历史命名；不自动代表当前可投稿
 results/          原始模型输出
 ```
 
+## 2026-08-28 找题批次入口
+
+### 第一批深度 N0 shortlist
+
+- [`DEEP_N0_SURVIVORS_10_2026-08-28.md`](DEEP_N0_SURVIVORS_10_2026-08-28.md)：第一批十题 reviewer/adversarial shortlist；
+- [`audits/ADVERSARIAL_N0_TEN_2026-08-28.md`](audits/ADVERSARIAL_N0_TEN_2026-08-28.md)：逐题最强邻居、`why_not_a_rename` 与 hard kill。
+
+### 第二批新十题
+
+- [`BATCH2_BRAINSTORM_LEDGER_2026-08-28.md`](BATCH2_BRAINSTORM_LEDGER_2026-08-28.md)：前半轮大规模脑暴、死亡库与早期 9 个 survivor；这是历史过程账本，顶部的 `9 CURRENT SURVIVORS` 状态已被后续文件取代；
+- [`audits/BATCH2_N0_WORKING_REVIEW_2026-08-28.md`](audits/BATCH2_N0_WORKING_REVIEW_2026-08-28.md)：早期 9 个的 proposer-side 攻击稿；
+- [`BATCH2_INDEPENDENT_N0_LEDGER_2026-08-28.md`](BATCH2_INDEPENDENT_N0_LEDGER_2026-08-28.md)：继续脑暴、reviewer-mode N0、淘汰/Reserve 与补题总账本；
+- [`BATCH2_DEEP_N0_SURVIVORS_10_2026-08-28.md`](BATCH2_DEEP_N0_SURVIVORS_10_2026-08-28.md)：第二批最终 10 个 `REVIEWER-MODE-N0-SURVIVOR`。
+
+两个批次里的 `SURVIVOR` 都**不等于 formal `N0-PASS`**，更不授权 smoke。真正调度权仍只来自 [`AUDIT_REGISTRY.md`](AUDIT_REGISTRY.md)。任何独立 reviewer 发现 exact collision / mother inclusion / D0 failure 后都应直接 KILL/ROUTE，不为维持“十题”数量降低门槛。
+
 ## 为什么新增这一层
 
 现有 [`PHENOMENON_MINING_GUIDE.md`](../../PHENOMENON_MINING_GUIDE.md) 和
@@ -54,7 +70,7 @@ results/          原始模型输出
 
 ## 候选不是“预言”
 
-每张卡都必须区分：
+每张候选卡必须区分：
 
 - `hypothesis`：可能出现什么异常；
 - `promotion signature`：只有观察到什么结构才值得研究；
