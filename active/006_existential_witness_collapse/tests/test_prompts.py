@@ -35,8 +35,14 @@ def test_identity_probes_require_both_same_and_distinct_to_remain_unestablished(
     same_prompt, _ = _recognition("shared_entailment", SEMANTIC_ORDERS[0])
     distinct_prompt, _ = _recognition("identity_determined", SEMANTIC_ORDERS[0])
     assert "shared witness remains possible but unproven" in same_prompt
-    assert "does not establish that the two witnesses are different individuals" in distinct_prompt
+    assert "does not establish that the two witnesses are different entities" in distinct_prompt
     assert "shared-witness world" in distinct_prompt and "distinct-witness world" in distinct_prompt
+
+
+def test_recognition_is_entity_general_for_people_or_organizations():
+    p, _ = _recognition("p_exists", SEMANTIC_ORDERS[0])
+    assert "at least one entity" in p
+    assert "at least one individual" not in p
 
 
 def test_downstream_is_action_use_not_duplicate_entailment_question():
