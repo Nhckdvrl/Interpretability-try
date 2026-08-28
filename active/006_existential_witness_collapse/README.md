@@ -1,21 +1,19 @@
 # 006 — Existential Witness Collapse
 
-Status: `ACTIVE-PREFLIGHT / HARNESS-READY-r3 / NOT READY-TO-SMOKE`
+Status: `READY-TO-SMOKE / HARNESS-READY-r4`
 
 Canonical shortlist mapping: **2026-08-28 adversarial N0 shortlist #4**.
 
 ```yaml
-formal_n0_verdict: null
-independent_auditor: null
-d0_verdict: null
-validation_authorized: false
+formal_n0_verdict: PASS
+independent_auditor: GPT-5.6 Sol (fresh adversarial audit role)
+d0_verdict: PASS
+validation_authorized: true
 ```
 
 ## Mother question
 
-Can a model explicitly understand that two existential witnesses are **not known to be the same individual**, yet still operationally reuse them as one person/resource when making a downstream staffing, assignment, compliance, or planning decision?
-
-The forbidden inference is:
+Can a model correctly represent that two independent existential witnesses are not known to be identical, yet still operationally reuse them as one entity in a downstream action that requires a single shared witness?
 
 ```text
 exists x: P(x)
@@ -24,101 +22,83 @@ exists y: Q(y)
 NOT ENTAILED: exists z: P(z) and Q(z)
 ```
 
-The contract does **not** assert that the two witnesses are different. A valid D0 item must make both worlds logically possible: one individual could satisfy both properties, and two distinct individuals could satisfy them. The record simply does not identify which world holds.
+The contract also does **not** assert that the witnesses are distinct. In the unknown world, both same-witness and distinct-witness worlds remain possible.
 
-## Why r3 changes the recognition gate
+## Exact phenotype
 
-r2 already separated recognition from consequential action: a direct identity/entailment question is only a **recognition gate**, while the primary phenotype is downstream action use.
+A case counts only when the model first passes semantic forced-choice recognition for:
 
-r3 removes the remaining Yes/No semantic-polarity confound from recognition. Every recognition probe is now a full semantic forced choice with A/B order counterbalanced. The four probes test:
+- a P witness exists;
+- a Q witness exists;
+- one shared witness is not established;
+- distinct witnesses are not established.
 
-- the record establishes an existential witness for `P`;
-- the record establishes an existential witness for `Q`;
-- the record does **not** establish that one shared witness has both properties;
-- the record does **not** establish that the witnesses are distinct, so shared-witness and distinct-witness worlds both remain possible.
+It must also handle the explicit controls:
 
-The internal probe ids `shared_entailment` and `identity_determined` are retained for metric/backward compatibility, but their r3 surface forms are semantic alternatives rather than Yes/No questions.
+- `same_explicit` -> collapse action is justified;
+- `distinct_explicit` -> collapse action is blocked.
 
-The primary downstream readout remains an action pair. Each item defines:
-
-- a `collapse_action` that is justified only if one shared witness has actually been established;
-- a `preserve_action` that keeps identity unresolved / obtains another resource / requests identity evidence.
-
-The target phenotype is:
+The target error is then:
 
 ```text
-recognition: sameness is not established; distinctness is not established
-use:         choose collapse_action anyway
+recognition: identity is unresolved
+controls:    same/distinct worlds handled correctly
+use:         choose collapse_action in the unknown world anyway
 ```
 
-The predicted wrong destination is thus explicit: the model behaves as though the anonymous discourse referents had been joined.
+This is `representation-correct -> illegal witness fusion`, not ordinary quantifier failure.
 
-## Matched identity worlds
+## r4 recognition contract
 
-Every item contains six conditions:
+Recognition uses full semantic A/B alternatives, not Yes/No. A/B order is counterbalanced. Probe ids are retained for metric compatibility:
 
-- `unknown`: only the two existential facts;
-- `paraphrase`: the same facts in an independently audited natural paraphrase;
-- `same_explicit`: explicit evidence that one and the same witness satisfies both;
-- `distinct_explicit`: explicit evidence that different witnesses satisfy them;
-- `neutral_control`: matched extra context that does not bear on identity;
-- `relation_reminder`: a diagnostic reminder that separate existentials do not establish identity.
+- `p_exists`
+- `q_exists`
+- `shared_entailment` = sameness is not established
+- `identity_determined` = distinctness is not established
 
-A case enters the denominator only if the model passes all four semantic recognition probes **and** handles the explicit-same and explicit-distinct action controls. The same/distinct controls must also be stable across both natural decision phrasings and both answer orders.
+Recognition language is entity-general so the same contract can apply to people, organizations, clubs, or resources.
 
-## Formal D0 contract
+## Natural D0
 
-```json
-{
-  "scenario_id": "staff:17",
-  "domain": "staffing",
-  "premise_p": "At least one technician inspected the cooling system.",
-  "premise_q": "At least one technician inspected the power system.",
-  "premise_paraphrase": "...equivalent natural wording preserving two independent existential introductions...",
-  "p_property": "inspected the cooling system",
-  "q_property": "inspected the power system",
-  "shared_requirement": "One technician must personally have inspected both systems before sign-off.",
-  "decision_context": "A compliance manager must decide whether the requirement can be signed off now.",
-  "collapse_action": "Sign off the single-technician requirement as already satisfied.",
-  "preserve_action": "Keep the requirement unresolved until witness identity is established.",
-  "same_witness_addendum": "The log explicitly states that the same technician performed both inspections.",
-  "distinct_witness_addendum": "The log explicitly states that different technicians performed the two inspections.",
-  "neutral_addendum": "Both entries were filed on the same afternoon.",
-  "p_exists_gold": true,
-  "q_exists_gold": true,
-  "shared_witness_not_entailed_gold": true,
-  "identity_underdetermined_gold": true,
-  "joint_witness_possible_gold": true,
-  "distinct_witness_possible_gold": true,
-  "premises_do_not_identify_witnesses_gold": true,
-  "same_explicit_authorizes_collapse_gold": true,
-  "distinct_explicit_blocks_collapse_gold": true,
-  "unknown_requires_identity_check_gold": true,
-  "action_pair_matched_gold": true,
-  "paraphrase_equivalent_gold": true,
-  "neutral_control_equivalent_gold": true,
-  "matched_base_gold": true,
-  "natural_setting_gold": true,
-  "source": {
-    "dataset": "...",
-    "record_id": "...",
-    "split": "...",
-    "license": "...",
-    "url": "...",
-    "provenance": "external-derived"
-  }
-}
+D0 uses 40 real historical domestic-football Double source records from eight national settings. The real-source champion identity is kept in provenance but removed from the model-visible unknown record.
+
+Source definition: a domestic Double requires **the same club** to win the top-tier league and primary domestic cup in the same season.
+
+Source:
+https://en.wikipedia.org/wiki/Double_(association_football)
+
+Frozen assets:
+
+- `N0_INDEPENDENT_AUDIT_2026-08-28.md`
+- `D0_AUDIT.md`
+- `data/frozen_d0_sources.jsonl`
+- `data/build_frozen_d0.py`
+- `data/source_manifest.md`
+- `data/manual_audit_20.md`
+
+Manual audit: `20 / 20 PASS`.
+
+The deterministic builder must produce:
+
+```text
+sha256=6076ad3de2e756b1361799a21baef155586cb641303a9779b4b8c9d3452220e0
 ```
 
-The two `*_possible_gold` fields are not cosmetic. Without them, properties `P` and `Q` might be mutually incompatible or might logically force co-reference, in which case “identity unknown” would be false and the experiment would be invalid.
+## Matched conditions
 
-Formal G0 rejects custom-only provenance. An audited transformation may be derived from public data, but the underlying entities/events/requirements and gold relation must remain externally anchored, and D0 must archive at least 20 randomly sampled manual checks as required by `phenomenon_miner/PROCESS.md`.
+- `unknown`: two existential winner facts; identities omitted;
+- `paraphrase`: same information in a natural archival summary;
+- `same_explicit`: same entity explicitly established;
+- `distinct_explicit`: different entities explicitly established;
+- `neutral_control`: extra same-season context with no identity information;
+- `relation_reminder`: diagnostic only.
 
 ## Metrics
 
-The scorer uses local exact-continuation log probability over `A/B`; no API and no LLM judge are involved. Full semantic options are reversed in every recognition probe, and actions are reversed in every downstream decision.
+The scorer uses exact local A/B continuation log probability. No API and no LLM judge.
 
-For a recognition- and control-gated item, let `p_collapse(c)` be the normalized exact-choice preference for the collapse action under condition `c`:
+For a recognition/control-gated item:
 
 ```text
 unknown_margin       = p_collapse(unknown) - 0.5
@@ -127,27 +107,29 @@ unknown_vs_distinct  = p_collapse(unknown) - p_collapse(distinct_explicit)
 reminder_rescue      = p_collapse(unknown) - p_collapse(relation_reminder)
 ```
 
-A strong case requires positive unknown and paraphrase margins, a large separation from explicit-distinct, stable explicit controls, small neutral-context movement, and consistency over both decision phrasings and both answer orders. `relation_reminder` is diagnostic only; it is not required for promotion.
+Promotion thresholds remain frozen in `configs/frozen_g0.json`.
 
 ## Hard kills / holds
 
-- the model cannot reliably represent the two existentials / identity uncertainty → `HARD-KILL-QUANTIFIER-CAPABILITY-FLOOR`;
-- enough gate-correct cases reliably do **not** choose the collapse action → `HARD-KILL-NO-ILLEGAL-JOIN`;
-- the collapse preference vanishes under the audited natural paraphrase → `HOLD-WORDING-ARTIFACT`;
-- matched neutral context moves the downstream action comparably → `HOLD-GENERIC-CONTEXT-ARTIFACT`;
-- if D0 can produce the effect only with toy FOL-style templates rather than natural staffing/resource/assignment records, kill at D0/N1.
+- recognition floor -> `HARD-KILL-QUANTIFIER-CAPABILITY-FLOOR`;
+- enough gated cases preserve identity correctly -> `HARD-KILL-NO-ILLEGAL-JOIN`;
+- paraphrase removes effect -> `HOLD-WORDING-ARTIFACT`;
+- neutral context moves action comparably -> `HOLD-GENERIC-CONTEXT-ARTIFACT`;
+- effect is concentrated in historically memorable season/country slices -> `HOLD-SOURCE-MEMORY-ARTIFACT`;
+- exact N1 collision with the observed error destination -> KILL/ROUTE.
 
-## Execution gate
+Do not lower thresholds, select favorable countries, switch to weaker models, or modify the phenotype after seeing smoke results.
 
-`configs/frozen_g0.json` deliberately has `validation_authorized: false`. `existential-witness-run run` reads that flag **before loading a model** and raises `PermissionError` while it is false. Code completion is not authorization.
+## Authorized first shot
 
-Safe pre-authorization work:
+Only the frozen two-family smoke is authorized now:
 
 ```bash
 cd active/006_existential_witness_collapse
-python -m pip install -e '.[dev]'
+python -m pip install -e '.[dev,run]'
 pytest -q
+python data/build_frozen_d0.py
 existential-witness-run validate-data --data data/frozen_d0.jsonl
 ```
 
-Formal model execution is permitted only after the authoritative registry records independent `N0-PASS`, `D0-PASS`, and `validation_authorized: true`.
+Then run exactly the planned Qwen3-8B and Gemma3-12B local models and summarize both with the frozen config. No N1, panel expansion, scaling curve, or mechanism work is authorized until the first-shot behavioral verdict is audited.
