@@ -19,6 +19,29 @@
 - [`../DATASET_CATALOG.md`](../DATASET_CATALOG.md)：领域到公开数据集的索引。
 - [`../FAILURE_POSTMORTEMS.md`](../FAILURE_POSTMORTEMS.md)：已经实际消耗研究预算的失败复盘。
 
+## 当前找题批次与文件位置
+
+### 第一批：深度 N0 十题
+
+- [`candidate_pool/DEEP_N0_SURVIVORS_10_2026-08-28.md`](candidate_pool/DEEP_N0_SURVIVORS_10_2026-08-28.md)：第一批当前十题 shortlist；状态是 adversarial/proposer-side N0 survivor，不等于正式 `N0-PASS`。
+- [`candidate_pool/audits/ADVERSARIAL_N0_TEN_2026-08-28.md`](candidate_pool/audits/ADVERSARIAL_N0_TEN_2026-08-28.md)：第一批逐题最强邻居、`why_not_a_rename`、母命题压缩与 hard-kill 审计。
+
+### 第二批：新的十题，正在继续找
+
+- [`candidate_pool/BATCH2_BRAINSTORM_LEDGER_2026-08-28.md`](candidate_pool/BATCH2_BRAINSTORM_LEDGER_2026-08-28.md)：**第二批完整找题目录**。保存大量脑暴、当前 survivor、exact collision、mother-inclusion、ROUTE/KILL 和禁止换名复活的死亡主题。
+- [`candidate_pool/audits/BATCH2_N0_WORKING_REVIEW_2026-08-28.md`](candidate_pool/audits/BATCH2_N0_WORKING_REVIEW_2026-08-28.md)：第二批逐题 adversarial / independent-style N0 工作稿。
+- 当前第二批只有 **9 个达到本轮 survivor 门槛**，第 10 槽保持 OPEN；没有为了凑数降低标准，也没有创建假的 final-ten 文件。
+- 凑齐并重新攻击通过后，才允许新建 `candidate_pool/BATCH2_FINAL_N0_SURVIVORS_10_2026-08-28.md`。
+
+### 淘汰主题在哪里看
+
+淘汰信息必须同时存在两处：
+
+1. **中央死亡账本**：`candidate_pool/BATCH2_BRAINSTORM_LEDGER_2026-08-28.md` 保存本批完整死亡主题、死亡类型和代表碰撞；
+2. **对应领域文档**：`candidate_pool/01_...` 到 `12_...` 的相关文件底部追加本批 `KILL / ROUTE / NOT-ADDED` 记录。
+
+后续任何人重新提出一个旧主题，必须先查中央 ledger 和对应领域死亡区。若只是换数据、换行业、换 readout 或换名字，不得重新进入 discovery queue。
+
 ## 状态必须分开记录
 
 任何候选不得只写一个含糊的 `promising` 或 `promoted`。至少分别记录：
@@ -41,7 +64,7 @@ phenomenon_miner/
 ├── PROCESS.md              # 发现、验证、审计和止损过程
 ├── MODEL_PANEL.md          # 五家族与跨尺寸验证面板
 ├── CONFERENCE_SCALE_AUDIT.md # 会议题目尺度审计
-├── candidate_pool/         # 未验证候选、总排序、去重与分发合同
+├── candidate_pool/         # 未验证候选、总排序、去重、找题账本与N0审计
 ├── phenomena/              # 规范化现象档案
 ├── candidates/             # 历史候选长文，逐步迁移
 ├── promoted/               # 历史命名；不再自动表示可投稿
