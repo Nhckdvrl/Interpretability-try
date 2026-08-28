@@ -4,6 +4,20 @@
 状态：`HISTORICAL IDEATION INVENTORY — NOT A DISPATCH QUEUE`
 权威裁决：[`AUDIT_REGISTRY.md`](AUDIT_REGISTRY.md)。旧 Tier 和“当前首选”全部失去调度权；审计已杀掉的卡不得换名重跑。
 
+## 2026-08-28 找题批次入口
+
+### 第一批深度 N0
+
+- [`DEEP_N0_SURVIVORS_10_2026-08-28.md`](DEEP_N0_SURVIVORS_10_2026-08-28.md)：第一批十题 shortlist。
+- [`audits/ADVERSARIAL_N0_TEN_2026-08-28.md`](audits/ADVERSARIAL_N0_TEN_2026-08-28.md)：第一批逐题 adversarial N0。
+
+### 第二批新十题（进行中）
+
+- [`BATCH2_BRAINSTORM_LEDGER_2026-08-28.md`](BATCH2_BRAINSTORM_LEDGER_2026-08-28.md)：本批**完整找题目录 + 死亡库**；大量脑暴、current survivors、exact collision、mother-inclusion、ROUTE/KILL 都必须落在这里。
+- [`audits/BATCH2_N0_WORKING_REVIEW_2026-08-28.md`](audits/BATCH2_N0_WORKING_REVIEW_2026-08-28.md)：当前 9 个第二批 survivor 的 N0 工作稿；第十槽仍 OPEN。
+- 第二批在凑齐并重新攻击通过 10 个之前，**不得**创建或声称 `FINAL 10`；当前 9 个也不授权 smoke。
+- 本批淘汰主题除了中央 ledger，还必须回填到相应 `01_...`–`12_...` 领域文档的 Batch-2 death-ledger 区。重新提出旧主题时先查两处，禁止换名复活。
+
 ## 先说明这 162 个数字意味着什么
 
 这不是“我们发现了 162 个现象”，而是 162 个可以被证伪的候选卡。每张卡已经具有：
