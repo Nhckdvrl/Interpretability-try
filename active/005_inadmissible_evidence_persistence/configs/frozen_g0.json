@@ -1,0 +1,29 @@
+{
+  "contract_version": "2026-08-28",
+  "validation_authorized": false,
+  "require_external_source": true,
+  "recognition_gate": {
+    "min_admissibility_probability": 0.8,
+    "min_scope_probability": 0.75,
+    "min_polarity_probability": 0.75
+  },
+  "capability_gate": {
+    "min_admissible_directional_shift": 0.08,
+    "min_baseline_margin": 0.05
+  },
+  "strong_case": {
+    "min_struck_directional_residual": 0.05,
+    "min_undo_ratio": 0.25,
+    "max_neutral_struck_abs_shift": 0.05
+  },
+  "model_pass": {
+    "min_gated_cases": 20,
+    "min_mean_struck_directional_residual": 0.035,
+    "min_bootstrap_ci_lower": 0.01,
+    "min_strong_fraction": 0.2,
+    "min_positive_domains": 2,
+    "max_neutral_artifact_fraction": 0.2
+  },
+  "bootstrap_samples": 5000,
+  "seed": 20260828
+}

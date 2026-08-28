@@ -1,0 +1,32 @@
+{
+  "contract_version": "2026-08-28",
+  "validation_authorized": false,
+  "require_external_source": true,
+  "recognition_gate": {
+    "min_probe_probability": 0.7,
+    "min_mean_probability": 0.8
+  },
+  "artifact_controls": {
+    "max_abs_paraphrase_bias": 0.08,
+    "min_partial_subset_discrimination": 0.1
+  },
+  "strong_case": {
+    "min_core_unpacked_bias": 0.12,
+    "min_unpacked_more_probability": 0.42,
+    "min_repacking_recovery": 0.04
+  },
+  "model_pass": {
+    "min_gated_cases": 20,
+    "min_strong_fraction": 0.2,
+    "min_mean_core_unpacked_bias": 0.08,
+    "min_bootstrap_ci_lower": 0.02,
+    "min_positive_domains": 2
+  },
+  "panel_pass": {
+    "smoke_min_independent_families": 2,
+    "generality_min_independent_families": 3,
+    "generality_panel_size": 5
+  },
+  "bootstrap_samples": 5000,
+  "seed": 20260828
+}

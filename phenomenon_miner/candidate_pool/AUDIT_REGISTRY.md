@@ -48,18 +48,44 @@
 
 **这些不是 formal `N0-PASS`。** 它们只通过了同一 proposer-side 的第二轮 adversarial search / mother-inclusion attack，仍缺仓库规定的独立 auditor。
 
-| # | 题目 | 注册状态 | 授权 |
-|---:|---|---|---|
-| 1 | First-Negative-Evidence Harm | `ADVERSARIAL-N0-SURVIVOR` | false |
-| 2 | Packed–Unpacked Event Splitting | `ADVERSARIAL-N0-SURVIVOR` | false |
-| 3 | Publicness–Coordination Dissociation (SEC-01 narrow contract) | `ADVERSARIAL-N0-SURVIVOR` | false |
-| 4 | Existential Witness Collapse (RVC-04 narrow contract) | `ADVERSARIAL-N0-SURVIVOR` | false |
-| 5 | Inadmissible-Evidence Persistence (UDH-11 narrow contract) | `ADVERSARIAL-N0-SURVIVOR` | false |
-| 6 | Habitual → Episode Actualization (NG-01 narrow contract) | `ADVERSARIAL-N0-SURVIVOR` | false |
-| 7 | Mixed-Status Event Attraction (NG-02 narrow contract) | `ADVERSARIAL-N0-SURVIVOR` | false |
-| 8 | Dissent → Holding Role Swap (UDH-09 narrow contract) | `ADVERSARIAL-N0-SURVIVOR` | false |
-| 9 | Source-Discount Recovery | `ADVERSARIAL-N0-SURVIVOR` | false |
-| 10 | Weak-Evidence Backfire | `ADVERSARIAL-N0-SURVIVOR` | false |
+| # | 题目 | 注册状态 | Active 实现 | 授权 |
+|---:|---|---|---|---|
+| 1 | First-Negative-Evidence Harm | `ADVERSARIAL-N0-SURVIVOR` | — | false |
+| 2 | Packed–Unpacked Event Splitting | `ADVERSARIAL-N0-SURVIVOR / ACTIVE-PREFLIGHT / HARNESS-READY` | [`active/004_packed_unpacked_event_splitting`](../../active/004_packed_unpacked_event_splitting/) | false |
+| 3 | Publicness–Coordination Dissociation (SEC-01 narrow contract) | `ADVERSARIAL-N0-SURVIVOR` | — | false |
+| 4 | Existential Witness Collapse (RVC-04 narrow contract) | `ADVERSARIAL-N0-SURVIVOR` | — | false |
+| 5 | Inadmissible-Evidence Persistence (UDH-11 narrow contract) | `ADVERSARIAL-N0-SURVIVOR / ACTIVE-PREFLIGHT / HARNESS-READY` | [`active/005_inadmissible_evidence_persistence`](../../active/005_inadmissible_evidence_persistence/) | false |
+| 6 | Habitual → Episode Actualization (NG-01 narrow contract) | `ADVERSARIAL-N0-SURVIVOR` | — | false |
+| 7 | Mixed-Status Event Attraction (NG-02 narrow contract) | `ADVERSARIAL-N0-SURVIVOR` | — | false |
+| 8 | Dissent → Holding Role Swap (UDH-09 narrow contract) | `ADVERSARIAL-N0-SURVIVOR` | — | false |
+| 9 | Source-Discount Recovery | `ADVERSARIAL-N0-SURVIVOR` | — | false |
+| 10 | Weak-Evidence Backfire | `ADVERSARIAL-N0-SURVIVOR` | — | false |
+
+### Active implementation registration
+
+`active/` 编号按项目进入 active 的先后顺序继续递增，不复用上表 shortlist 编号：
+
+```yaml
+active/004_packed_unpacked_event_splitting:
+  canonical_shortlist_number: 2
+  status: ACTIVE-PREFLIGHT
+  harness: READY
+  formal_n0_verdict: null
+  independent_auditor: null
+  d0_verdict: null
+  validation_authorized: false
+
+active/005_inadmissible_evidence_persistence:
+  canonical_shortlist_number: 5
+  status: ACTIVE-PREFLIGHT
+  harness: READY
+  formal_n0_verdict: null
+  independent_auditor: null
+  d0_verdict: null
+  validation_authorized: false
+```
+
+这里的 `HARNESS-READY` 只表示验证代码、scorer、artifact controls、promotion / hard-kill metrics 已冻结并登记；**它不是模型运行授权**。
 
 ## 其他未死但不准运行
 

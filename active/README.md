@@ -1,6 +1,10 @@
 # Active Interpretability Projects
 
-这个目录只放**已经过纸面 collision audit，值得实际运行行为 G0 的题目**。
+这个目录只放**已经过纸面 collision audit，值得进入 D0 / 行为 G0 实现阶段的题目**。
+
+编号纪律：`active/NNN_*` 按进入 active 的时间顺序递增；**不复用 candidate shortlist 编号，也不与 `archive/` 中历史编号建立一一对应关系。**
+
+进入 `active/` 只表示项目已被选中做正式 D0 / 验证实现，**不等于 `READY-TO-SMOKE`**。模型运行授权仍只看 `phenomenon_miner/candidate_pool/AUDIT_REGISTRY.md`：必须同时具备 independent N0、D0 和 `validation_authorized: true`。
 
 纪律：
 
@@ -8,11 +12,13 @@
 2. 第一枪只验证自然现象是否真实、稳定、规模足够；
 3. 行为 G0 未通过，不做 probe / SAE / attention sweep / activation patching；
 4. 不通过换弱模型、主动制造 failure、缩窄到少数特例来续命；
-5. 通过 G0 后，才把状态从 `PRE-CANDIDATE` 升到 `ACTIVE-MECHANISM`。
+5. 通过 G0 后，才把状态从 `ACTIVE-PREFLIGHT` 升到 `ACTIVE-MECHANISM`。
 
 当前项目：
 
 - `003_diagnostic_counterevidence_revision/` — 使用 MedEinst 的公开 control/trap 成对数据，研究少量决定性反证出现后，模型的诊断修正究竟失败在证据感知、证据—先验仲裁，还是晚期输出回退。当前只保留研究计划，尚未开始 G0 代码。
+- `004_packed_unpacked_event_splitting/` — 对应 2026-08-28 canonical shortlist **#2 Packed–Unpacked Event Splitting**。已冻结 extensionality recognition gate、packed/paraphrase/strict-subset/repacking controls、branch-count signature、概率与 consequential decision 双 readout，以及跨模型汇总代码。状态：`ACTIVE-PREFLIGHT / HARNESS-READY / NOT READY-TO-SMOKE`。
+- `005_inadmissible_evidence_persistence/` — 对应 2026-08-28 canonical shortlist **#5 Inadmissible-Evidence Persistence**。已冻结 `never_seen / admitted / struck` counterfactual、admissibility/scope/polarity gate、bidirectional evidence polarity、neutral-struck artifact control 与 undo-ratio 指标。状态：`ACTIVE-PREFLIGHT / HARNESS-READY / NOT READY-TO-SMOKE`。
 
 006–008 的 paper search、入选理由与同轮 kill 记录见：
 
