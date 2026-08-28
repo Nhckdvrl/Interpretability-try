@@ -115,6 +115,7 @@ packed-unpacked-run run \
   --data data/frozen_d0.jsonl \
   --model Qwen/Qwen3-8B \
   --family Qwen \
+  --size-b 8 \
   --out results/qwen3_8b.jsonl
 
 packed-unpacked-run summarize \
@@ -125,6 +126,8 @@ packed-unpacked-run summarize \
 
 pytest -q
 ```
+
+For formal runs, also freeze and pass the exact model revision whenever the model source provides one; `size_b` is mandatory so the three-size panel cannot be reconstructed from ambiguous model names after the fact.
 
 The repository registry still controls formal dispatch. Exploratory local runs must not be relabeled `READY-TO-SMOKE` without independent N0 and D0 sign-off.
 
