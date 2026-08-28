@@ -120,10 +120,7 @@ def summarize(*, data_path: str, results_path: str, config_path: str,
         reminder_struck_residual = sign * (p_reminder["struck"] - p_reminder["never_seen"])
         reminder_rescue = struck_residual - reminder_struck_residual
 
-        capability_gate = (
-            recognition_gate
-            and admitted_shift >= cap_cfg["min_admissible_directional_shift"]
-        )
+        capability_gate = recognition_gate and admitted_shift >= cap_cfg["min_admissible_directional_shift"]
         neutral_ok = neutral_shift <= strong_cfg["max_neutral_struck_abs_shift"]
         strong = (
             capability_gate and neutral_ok
@@ -175,9 +172,7 @@ def summarize(*, data_path: str, results_path: str, config_path: str,
             "strong": sum(bool(r["strong"]) for r in sub),
         }
 
-    neutral_artifact_fraction = (
-        sum(not r["neutral_ok"] for r in gated) / len(gated) if gated else 0.0
-    )
+    neutral_artifact_fraction = sum(not r["neutral_ok"] for r in gated) / len(gated) if gated else 0.0
     positive_domains = sum(
         v["gated"] >= 2 and v["mean_struck_directional_residual"] > 0
         for v in by_domain.values()
@@ -202,6 +197,10 @@ def summarize(*, data_path: str, results_path: str, config_path: str,
         and polarity_stats[pol]["mean_struck_residual"] >= pcfg["min_mean_residual_per_polarity"]
         for pol in ("supports_target", "supports_other")
     )
+    enough_for_polarity_diagnosis = all(
+        polarity_stats[pol]["gated"] >= pcfg["min_gated_per_polarity"]
+        for pol in ("supports_target", "supports_other")
+    )
     model_pass = (
         aggregate["gated_cases"] >= pcfg["min_gated_cases"]
         and aggregate["mean_struck_directional_residual"] >= pcfg["min_mean_struck_directional_residual"]
@@ -212,12 +211,12 @@ def summarize(*, data_path: str, results_path: str, config_path: str,
         and polarity_pass
     )
 
-    if aggregate["gated_cases"] >= pcfg["min_gated_cases"] and abs(aggregate["mean_struck_directional_residual"]) < 0.01:
-        verdict = "HARD-KILL-NO-PERSISTENCE"
-    elif neutral_artifact_fraction > pcfg["max_neutral_artifact_fraction"]:
+    if neutral_artifact_fraction > pcfg["max_neutral_artifact_fraction"]:
         verdict = "HOLD-GENERIC-SALIENCE-ARTIFACT"
-    elif aggregate["gated_cases"] >= pcfg["min_gated_cases"] and not polarity_pass:
+    elif enough_for_polarity_diagnosis and not polarity_pass:
         verdict = "HOLD-POLARITY-ASYMMETRY"
+    elif aggregate["gated_cases"] >= pcfg["min_gated_cases"] and abs(aggregate["mean_struck_directional_residual"]) < 0.01:
+        verdict = "HARD-KILL-NO-PERSISTENCE"
     else:
         verdict = "PASS-TO-PANEL" if model_pass else "FAIL-MODEL-G0"
 
@@ -234,8 +233,8 @@ def summarize(*, data_path: str, results_path: str, config_path: str,
         "by_polarity": polarity_stats,
         "cases": cases,
         "hard_kill_note": (
-            "Kill standalone novelty if persistence disappears after admissibility/scope/polarity gates, "
-            "does not reproduce in both evidence directions, or neutral struck material produces a comparable shift. "
+            "Kill standalone novelty if persistence disappears after admissibility/scope/polarity gates. "
+            "A one-sided polarity result is HOLD rather than a pooled hard kill; neutral salience artifacts also take precedence. "
             "Natural verdict readout is primary; explicit rule reminders are a rescue diagnostic, not part of the primary mean."
         ),
     }
