@@ -303,3 +303,33 @@
 | 7 | ATW-10 dry-run actualization | 一句话自然、错误状态明确 | event factuality母现象 |
 
 ATW-05、ATW-09、ATW-06 最像“行为先于名字”的候选；ATW-01 若没有 recognition/action 解离则已被 FAIL-TaLMs 完整包含。
+
+---
+
+## Batch-2 脑暴死亡回填与历史卡 override（2026-08-28）
+
+完整账本：[`BATCH2_BRAINSTORM_LEDGER_2026-08-28.md`](BATCH2_BRAINSTORM_LEDGER_2026-08-28.md)。本节的 override 优先级高于上面的历史“首轮排序”。
+
+### ATW-08 override — `KILL-EXACT / MECHANISM-FOLLOWUP-ONLY`
+
+本轮发现 2026 ARR-under-review 的 **IdempotencyBench / “Do LLM Agents Act Exactly Once? Measuring Idempotency Violations Under Retries”** 已直接把 retry 下 duplicate side effects、idempotent/non-idempotent actions、retry modes、idempotency keys/receipts 做成系统 benchmark（320 deterministic tasks）。因此 ATW-08 的**行为发现线关闭**：
+
+```text
+ambiguous outcome
+× idempotent/non-idempotent
+→ retry
+→ duplicate side effect
+```
+
+不能再以换 AppWorld/τ-bench、换支付/邮件 API 或加入“模型知道风险”作为新的 behavior paper。只有用户明确授权做该现象的 mechanism follow-up 时可复用历史卡，而且必须承认 behavior prior art。
+
+### 其他 Batch-2 死亡/路由
+
+| 本批主题 | 裁决 | 领域内理由 |
+|---|---|---|
+| **Generic idempotent retry / duplicate side effects** | `KILL-EXACT` | 同上，IdempotencyBench 正面占位。 |
+| **Generic concurrency/race confusion** | `NOT-ADDED / F3-RISK` | 若只是 arrival order、race 或 eventual-state 错误，容易退化成 state tracking；路径残留又已有 ATW-09/11/14 与 F3。没有独立 operator 不新开。 |
+| **Generic delegation** | `ROUTE AIC-09 / F2` | physical actor / causer / responsible party 已在 AIC-09；agent/tool setting 不构成新题。 |
+| **Generic error-recovery retry** | `NOT-ADDED` | FAIL-TaLMs、stateful tool-use、IdempotencyBench 已使宽 error recovery 母区过密；必须有新的 call-identity/transaction operator 才重开。 |
+
+**禁止复活。** 任何“超时→重试→重复扣款/重复发送”新名字先判为 ATW-08/IdempotencyBench 已占；不得因为增加 `knows-risk` probe 就重新宣称新行为。
