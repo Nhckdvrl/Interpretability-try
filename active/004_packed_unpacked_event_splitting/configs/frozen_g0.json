@@ -1,31 +1,44 @@
 {
-  "contract_version": "2026-08-28",
+  "contract_version": "2026-08-28-r2",
   "validation_authorized": false,
   "require_external_source": true,
+  "readout": {
+    "probability_thresholds": [0.1, 0.3, 0.5, 0.7, 0.9],
+    "decision_thresholds": [10, 30, 50, 70, 90]
+  },
   "recognition_gate": {
     "min_probe_probability": 0.7,
-    "min_mean_probability": 0.8
+    "min_mean_probability": 0.8,
+    "max_label_order_gap": 0.2
   },
   "artifact_controls": {
     "max_abs_paraphrase_bias": 0.08,
-    "min_partial_subset_discrimination": 0.1
+    "max_partial_subset_violation": 0.03,
+    "max_abs_repacked_bias": 0.08,
+    "max_threshold_monotonicity_violation": 0.12,
+    "max_readout_label_order_gap": 0.2
   },
   "strong_case": {
     "min_core_unpacked_bias": 0.12,
-    "min_unpacked_more_probability": 0.42,
-    "min_repacking_recovery": 0.04
+    "min_any_readout_core_bias": 0.12,
+    "min_each_readout_core_bias": -0.02,
+    "min_positive_variant_fraction": 0.75
   },
   "model_pass": {
     "min_gated_cases": 20,
     "min_strong_fraction": 0.2,
     "min_mean_core_unpacked_bias": 0.08,
     "min_bootstrap_ci_lower": 0.02,
-    "min_positive_domains": 2
+    "min_positive_domains": 2,
+    "min_positive_readouts": 1,
+    "min_each_readout_bias": -0.02
   },
   "panel_pass": {
     "smoke_min_independent_families": 2,
     "generality_min_independent_families": 3,
-    "generality_panel_size": 5
+    "generality_panel_size": 5,
+    "size_sequence_min": 3,
+    "strong_model_min_size_b": 24.0
   },
   "bootstrap_samples": 5000,
   "seed": 20260828
