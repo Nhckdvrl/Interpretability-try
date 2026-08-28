@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "publicness-coordination-g0"
+version = "0.1.0"
+description = "Frozen behavioral validation harness for Publicness-Coordination Dissociation"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+run = ["torch>=2.4", "transformers>=4.48"]
+dev = ["pytest>=8"]
+
+[project.scripts]
+publicness-coordination-run = "publicness_coordination_g0.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

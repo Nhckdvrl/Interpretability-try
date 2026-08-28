@@ -1,0 +1,38 @@
+{
+  "contract_version": "2026-08-29-r1",
+  "validation_authorized": false,
+  "require_external_source": true,
+  "capability_gate": {
+    "min_mean_probe_probability": 0.80,
+    "min_probe_variant_probability": 0.65
+  },
+  "strong_case": {
+    "min_explicit_ck_gain": 0.10,
+    "min_dissociation": 0.06,
+    "max_public_use_ratio": 0.45,
+    "min_control_dissociation": 0.05,
+    "max_control_public_use_ratio": 0.55,
+    "min_variant_signature_fraction": 0.75,
+    "max_participant_dissociation_asymmetry": 0.08
+  },
+  "model_pass": {
+    "min_capability_gated_fraction": 0.50,
+    "min_action_capable_fraction": 0.40,
+    "min_action_capable_pairs": 20,
+    "min_strong_pair_fraction": 0.20,
+    "min_controls_robust_fraction": 0.60,
+    "min_mean_dissociation": 0.04,
+    "min_dissociation_ci_lower": 0.005,
+    "max_agent_asymmetry_fraction": 0.25,
+    "min_positive_domains": 2,
+    "no_effect_dissociation": 0.015
+  },
+  "panel_pass": {
+    "smoke_min_independent_families": 2,
+    "generality_min_independent_families": 3,
+    "generality_panel_size": 5,
+    "required_distinct_sizes_in_one_family": 3
+  },
+  "bootstrap_samples": 5000,
+  "seed": 20260829
+}

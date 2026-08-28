@@ -1,15 +1,15 @@
 # 候选审计与调度注册表
 
-版本：2026-08-28
+版本：2026-08-29
 状态：`AUTHORITATIVE`，覆盖 `00_MASTER_INDEX.md` 的历史 Tier。
 
 ## 调度结论
 
 **当前 `READY-TO-SMOKE`：0。**
 
-006 已完成冻结 two-family smoke，并因 `HARD-KILL-NO-ILLEGAL-JOIN` 终止；现已完整归档到 `archive/011_existential_witness_collapse`，其 `validation_authorized` 为 false。
+006 Existential Witness Collapse 已完成冻结 two-family smoke，并因 `HARD-KILL-NO-ILLEGAL-JOIN` 终止；现已完整归档到 `archive/011_existential_witness_collapse`，其 `validation_authorized` 为 false。
 
-未同时具备独立 N0、D0 和 `validation_authorized: true` 的候选一律不运行。
+007 / 012 / 013 已有 behavioral harness，但都仍处于 `ACTIVE-PREFLIGHT`。未同时具备独立 N0、D0 和 `validation_authorized: true` 的候选一律不运行。
 
 ## 保留的审计
 
@@ -24,6 +24,7 @@
 - [006 fresh independent N0](../../archive/011_existential_witness_collapse/N0_INDEPENDENT_AUDIT_2026-08-28.md)
 - [006 natural D0 audit](../../archive/011_existential_witness_collapse/D0_AUDIT.md)
 - [006 final behavioral verdict](../../archive/011_existential_witness_collapse/FINAL_VERDICT.md)
+- [007/012/013 harness scientific audit](../../active/VALIDATION_AUDIT_007_012_013.md)
 
 `AUDIT_ROOT_SIX_DOMAINS.md` 是未完成占位，不作证据。
 
@@ -40,7 +41,7 @@
 | MTR-07 | `HOLD-NOT-DISPATCHABLE` | identity gold 模糊，counting 邻近过强 |
 | **SEC-06** | **`KILLED-COLLISION/ROUTE`** | 2026 *Grounded Continuation* 已把 dependency-graph retraction propagation / stale-premise verification 作为核心 operator；转载链只剩外部 setting |
 | **UDH-03** | **`KILLED-MOTHER-OCCUPIED`** | ACL 2026 *Mitigating Lost in Multi-turn Conversation...* 已直接研究 instruction shards 下的 solvability / abstention / multi-turn degradation；partial→full abstention 只剩 error slice |
-| **RVC-04 / 006 Existential Witness Collapse** | **`ARCHIVED / TERMINAL-KILLED / HARD-KILL-NO-ILLEGAL-JOIN`** | 冻结 natural D0 上 Qwen3-8B 40/40 capability-gated，却 `p_collapse(unknown)=0.0000944`、8/8 domains 无 positive case；Gemma 无正向 rescue signal |
+| **RVC-04 / Existential Witness Collapse** | **`ARCHIVED / TERMINAL-KILLED / HARD-KILL-NO-ILLEGAL-JOIN`** | 冻结 natural D0 上 Qwen3-8B 40/40 capability-gated，却 `p_collapse(unknown)=0.0000944`、8/8 domains 无 positive case；Gemma 无正向 rescue signal |
 | Sure-Thing / disjunction violation | `NOT-ADDED / DISCOVERY-OCCUPIED` | 已有工作直接用 Savage sure-thing principle 评价 ChatGPT |
 | Equivalent-Quantity Decision Split | `KILLED-COLLISION` | quantity comparison / numeral-unit heuristic 机制近 exact |
 | Generation–Reception Trace Asymmetry | `KILLED-MOTHER-OCCUPIED` | self-conditioning / source-monitoring 母区过密 |
@@ -54,24 +55,24 @@
 
 原第二轮 adversarial shortlist 详见 [`DEEP_N0_SURVIVORS_10_2026-08-28.md`](DEEP_N0_SURVIVORS_10_2026-08-28.md) 与 [`audits/ADVERSARIAL_N0_TEN_2026-08-28.md`](audits/ADVERSARIAL_N0_TEN_2026-08-28.md)。
 
-006 曾完成 fresh independent N0 与 natural D0，但 frozen first-shot behavioral validation 已终止该 candidate，并已移入失败归档。其他 survivor 仍只通过 proposer-side adversarial search，不是 formal `N0-PASS`。
+Existential Witness Collapse 曾完成 fresh independent N0 与 natural D0，但 frozen first-shot behavioral validation 已终止并移入失败归档。其他 survivor 仍只通过 proposer-side adversarial search，不是 formal `N0-PASS`。进入 `active/` 只注册实现，不改变 N0/D0 裁决。
 
 | # | 题目 | 注册状态 | 实现 / 归档 | 授权 |
 |---:|---|---|---|---|
 | 1 | First-Negative-Evidence Harm | `ADVERSARIAL-N0-SURVIVOR` | — | false |
 | 2 | Packed–Unpacked Event Splitting | `ARCHIVED / HOLD-OPERATIONALIZATION-ARTIFACT` | [`archive/009_packed_unpacked_event_splitting`](../../archive/009_packed_unpacked_event_splitting/) | false |
-| 3 | Publicness–Coordination Dissociation (SEC-01 narrow contract) | `ADVERSARIAL-N0-SURVIVOR` | — | false |
+| 3 | Publicness–Coordination Dissociation (SEC-01 narrow contract) | `ADVERSARIAL-N0-SURVIVOR / ACTIVE-PREFLIGHT / HARNESS-READY` | [`active/013_publicness_coordination_dissociation`](../../active/013_publicness_coordination_dissociation/) | false |
 | 4 | Existential Witness Collapse (RVC-04 narrow contract) | `ARCHIVED / TERMINAL-KILLED / HARD-KILL-NO-ILLEGAL-JOIN` | [`archive/011_existential_witness_collapse`](../../archive/011_existential_witness_collapse/) | false |
 | 5 | Inadmissible-Evidence Persistence (UDH-11 narrow contract) | `ARCHIVED / TERMINAL-HOLD-D0V3-CONTRACT` | [`archive/010_inadmissible_evidence_persistence`](../../archive/010_inadmissible_evidence_persistence/) | false |
 | 6 | Habitual → Episode Actualization (NG-01 narrow contract) | `ADVERSARIAL-N0-SURVIVOR` | — | false |
 | 7 | Mixed-Status Event Attraction (NG-02 narrow contract) | `ADVERSARIAL-N0-SURVIVOR` | — | false |
 | 8 | Dissent → Holding Role Swap (UDH-09 narrow contract) | `ADVERSARIAL-N0-SURVIVOR` | — | false |
-| 9 | Source-Discount Recovery | `ADVERSARIAL-N0-SURVIVOR` | — | false |
+| 9 | Source-Discount Recovery | `ADVERSARIAL-N0-SURVIVOR / ACTIVE-PREFLIGHT / HARNESS-READY` | [`active/012_source_discount_recovery`](../../active/012_source_discount_recovery/) | false |
 | 10 | Weak-Evidence Backfire | `ADVERSARIAL-N0-SURVIVOR / ACTIVE-PREFLIGHT / HARNESS-READY` | [`active/007_weak_evidence_backfire`](../../active/007_weak_evidence_backfire/) | false |
 
 ### Implementation registration and archived dispositions
 
-`active/` 编号按项目进入 active 的先后顺序继续递增，不复用上表 shortlist 编号：
+`active/` 编号按项目**历史进入 active 的先后顺序**继续递增，不复用 shortlist 编号，也不复用后来已移入 `archive/` 的历史 active 编号。因此 008–011 仍视为占用，本轮新增为 012、013。
 
 ```yaml
 archive/009_packed_unpacked_event_splitting:
@@ -110,14 +111,32 @@ archive/011_existential_witness_collapse:
 active/007_weak_evidence_backfire:
   canonical_shortlist_number: 10
   status: ACTIVE-PREFLIGHT
-  harness: READY
+  harness: READY-r4
+  formal_n0_verdict: null
+  independent_auditor: null
+  d0_verdict: null
+  validation_authorized: false
+
+active/012_source_discount_recovery:
+  canonical_shortlist_number: 9
+  status: ACTIVE-PREFLIGHT
+  harness: READY-r1
+  formal_n0_verdict: null
+  independent_auditor: null
+  d0_verdict: null
+  validation_authorized: false
+
+active/013_publicness_coordination_dissociation:
+  canonical_shortlist_number: 3
+  status: ACTIVE-PREFLIGHT
+  harness: READY-r1
   formal_n0_verdict: null
   independent_auditor: null
   d0_verdict: null
   validation_authorized: false
 ```
 
-006 不进入 N1、扩展 panel、scaling 或 mechanism。Qwen3-8B 已在 40/40 capability-gated natural cases 上直接满足预注册 `HARD-KILL-NO-ILLEGAL-JOIN`；Gemma 的 recognition answer-order instability 不构成 positive rescue。
+Existential Witness Collapse 不进入 N1、扩展 panel、scaling 或 mechanism。Qwen3-8B 已在 40/40 capability-gated natural cases 上直接满足预注册 `HARD-KILL-NO-ILLEGAL-JOIN`；Gemma 的 recognition answer-order instability 不构成 positive rescue。
 
 ## 其他未死但不准运行
 
