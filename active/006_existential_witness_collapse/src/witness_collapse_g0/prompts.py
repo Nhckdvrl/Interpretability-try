@@ -44,7 +44,7 @@ def condition_text(*, premise_p: str, premise_q: str, premise_paraphrase: str,
         return (
             f"{base}\n"
             "Logical note: two separate existential statements do not by themselves establish "
-            "that their witnesses are the same individual."
+            "that their witnesses are the same entity."
         )
     raise ValueError(f"unknown condition={condition}")
 
@@ -52,36 +52,36 @@ def condition_text(*, premise_p: str, premise_q: str, premise_paraphrase: str,
 def _recognition_options(*, p_property: str, q_property: str, probe: str) -> tuple[str, str, str]:
     """Return (question, gold_option, foil_option) without Yes/No semantics.
 
-    Probe ids remain stable for metric compatibility, but r3 changes their surface form:
-    `shared_entailment` tests that sameness is not established; `identity_determined`
-    tests that distinctness is not established. Together they require both identity
-    worlds to remain open in the unknown condition.
+    Probe ids remain stable for metric compatibility. `shared_entailment` tests that
+    sameness is not established; `identity_determined` tests that distinctness is
+    not established. Together they require both identity worlds to remain open in
+    the unknown condition.
     """
     if probe == "p_exists":
         question = "Which statement about the first existential claim is supported by the record?"
-        gold = f"The record establishes that at least one individual has this property: {p_property}."
-        foil = f"The record does not establish that any individual has this property: {p_property}."
+        gold = f"The record establishes that at least one entity has this property: {p_property}."
+        foil = f"The record does not establish that any entity has this property: {p_property}."
     elif probe == "q_exists":
         question = "Which statement about the second existential claim is supported by the record?"
-        gold = f"The record establishes that at least one individual has this property: {q_property}."
-        foil = f"The record does not establish that any individual has this property: {q_property}."
+        gold = f"The record establishes that at least one entity has this property: {q_property}."
+        foil = f"The record does not establish that any entity has this property: {q_property}."
     elif probe == "shared_entailment":
         question = "What does the record establish about a single shared witness?"
         gold = (
-            "The record does not establish that one and the same individual has both properties "
+            "The record does not establish that one and the same entity has both properties "
             f"({p_property}) and ({q_property}); a shared witness remains possible but unproven."
         )
         foil = (
-            "The record establishes that one and the same individual has both properties "
+            "The record establishes that one and the same entity has both properties "
             f"({p_property}) and ({q_property})."
         )
     elif probe == "identity_determined":
-        question = "What does the record establish about the witnesses being different individuals?"
+        question = "What does the record establish about the witnesses being different entities?"
         gold = (
-            "The record does not establish that the two witnesses are different individuals; "
+            "The record does not establish that the two witnesses are different entities; "
             "both a shared-witness world and a distinct-witness world remain possible."
         )
-        foil = "The record establishes that the two witnesses are different individuals."
+        foil = "The record establishes that the two witnesses are different entities."
     else:
         raise ValueError(f"unknown probe={probe}")
     return question, gold, foil
