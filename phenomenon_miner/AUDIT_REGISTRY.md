@@ -15,9 +15,10 @@
 n0_breadth_verdict: PASS
 n1_depth_verdict: PASS
 d0_source_feasibility_verdict: PASS
+scope_integrity_verdict: PASS   # D0 PASS 的强制组成，见 DATASET_SCOPE_AUDIT.md
 ```
 
-之后还要 materialize/freeze 已锁定 D0，才能把 `validation_authorized` 设为 true。
+之后还要 materialize/freeze 已锁定 D0，并完成 scope summary / attrition audit，才能把 `validation_authorized` 设为 true。
 
 ## 2026-08-29 discovery re-audit note
 
@@ -30,7 +31,7 @@ d0_source_feasibility_verdict: PASS
 | `active/007_weak_evidence_backfire` | legacy `D0-PASS / READY-TO-SMOKE` | **true** |
 | `active/013_publicness_coordination_dissociation` | legacy `HOLD-D0` | false |
 | `active/003_diagnostic_counterevidence_revision` | legacy `PRE-CANDIDATE / G0-NOT-RUN` | false |
-| `active/014_alias_entrainment_transfer` | `KEEP / HOLD-FOR-CONSTRUCT-VALIDATION` — phenotype holds, entity reading unearned; phase 4 blocked on D1 | **true** |
+| `active/014_alias_entrainment_transfer` | `KEEP / HOLD-FOR-R4-CONSTRUCT-VALIDATION` — phenotype holds, entity reading unearned; phase 4 blocked on corrected broad D1 | **true** |
 
 ## Contract records
 
@@ -82,9 +83,9 @@ active/014_alias_entrainment_transfer:
     heads' direct write generalizes lexically, not by entity.
   phase3_reading: >
     phase 2 (ablation removes the alias effect) and phase 3 (direct write does not
-    carry it) together imply the entity component is routed through these heads
-    INDIRECTLY. That joint inference is not itself tested; path patching from these
-    heads into later layers is what would test it.
+    carry it) together imply the cross-surface component is routed through these
+    heads INDIRECTLY. That joint inference is not itself tested; path patching
+    from these heads into later layers is what would test it.
   phase3_validation: DLA implementation checked against per-head ablation on
     last-layer heads, r=0.959, slope=0.938
   d0_alias_audit_2026-08-29: >
@@ -100,36 +101,50 @@ active/014_alias_entrainment_transfer:
   bugs_fixed_for_d1: >
     (1) UNREL was drawn from URI order, not the similarity bottom tercile -- a bug
     introduced by the earlier SEMREL fix; all UNREL-based claims including H2 and
-    Gemma UNREL=+6.51 are void. (2) is_compositional() added; codes, initials with
-    middle names, title+numeral and full legal names no longer reach opaque_strict.
-    The frozen discovery D0 is deliberately NOT rebuilt.
+    Gemma UNREL=+6.51 are void. (2) the Wikipedia sentence splitter cut names at
+    initials such as P. Diddy/L. L. Zamenhof; fixed. (3) r4 co-occurrence uses a
+    versioned Unicode-aware multi-ID matcher so casefold-equivalent surface forms
+    do not overwrite each other. Historical pre-fix shards are forbidden.
   interpretation_correction: >
     mechanism_B is re-read as SHARED UPSTREAM CAUSE, not shared entity
     representation. Phase 2 excluded a fully independent alias pathway only.
   open_question: >
     ALIAS > SEMREL excludes embedding-matched priming but NOT pair-specific
     learned association; the knowledge gate does not separate them either.
-  d1_contract: configs/contract_d1.yaml (2026-08-29-d1), frozen before D1 is built
-  d1_decisive_test: ALIAS > ASSOC on RedirectQA, where ASSOC is a strongly
-    associated NON-coreferent entity; phase 4 blocked until it passes
-  d1_amendment_r2: >
-    2026-08-29-d1-r2, frozen before any D1 candidate materialization, closing 8
-    holes from external review: (1) the `len<=4 -> compositional` rule removed --
-    it killed Bono/Paul David Hewson and Pele/Edson Arantes do Nascimento, the
-    most valuable opaque identity pairs; (2) ASSOC strength fixed to raw-text
-    sentence co-occurrence on a frozen Wikipedia dump, with redirect pages and
-    link counts forbidden because a redirect mechanically links alias to
-    canonical; (3) primary ASSOC must be same-type and frequency/length matched,
-    with person<->character and country<->capital demoted to ASSOC_XTYPE;
-    (4) statistical unit frozen to subject_id x one redirect form, since
-    RedirectQA is 61,120 rows over only 11,453 subject_id; (5) primary direction
-    fixed to alias->canonical, the direction friendliest to the association
-    account; (6) capability floor >=60 gated entities per family restored;
-    (7) `ASSOCIATION-ONLY` renamed `NO-REFERENTIAL-EVIDENCE` -- non-significance
-    is not equivalence, and no TOST margin is declared; (8) exact RedirectQA
-    category literals, the multi-label rule (4.3% of rows), and carrier/readout
-    all written down.
-  d1_status: FROZEN, ready to build; no D1 data materialized yet
+
+  d1_scope_failure_discovered_2026-08-29: >
+    The original d1-r2/r3 construction unintentionally changed the scientific
+    population: RedirectQA was narrowed to four alias categories, non-compositional
+    forms, person entities, opaque_strict, one redirect per entity, and one
+    alias->canonical direction. The final pre-r4 builder additionally hard-coded
+    every output row as person/opaque_strict/alias2canon. This was estimand drift,
+    not merely a low-yield feasibility choice.
+  d1_scope_correction: >
+    configs/contract_d1_r4.yaml is now canonical. D1 construction preserves the
+    broad RedirectQA surface-form population across entity types, structural
+    strata, multiple surface forms per entity, and both valid directions.
+    Surface relation/type/direction/capability are factors or analysis strata,
+    not construction filters. ASSOC_ANY is the primary strong-association control;
+    ASSOC_SAMETYPE is a sensitivity control.
+  d1_contract: configs/contract_d1_r4.yaml (2026-08-29-d1-r4-scope-correction)
+  d1_raw_bank: data/d1_surface_pairs_r4.json
+  d1_assoc_candidates: data/d1_assoc_candidates_r4.json
+  d1_cooccurrence: results/d1_build/cooc_r4/ (d1-r4-cooc-v2 required)
+  d1_matched_bank: data/frozen_d1_r4.jsonl
+  historical_d1_artifacts: >
+    data/d1_candidates.json, data/d1_assoc_candidates.json and
+    results/d1_build/cooc/ are pre-r4 historical artefacts and MUST NOT be
+    consumed by the r4 pipeline. The misleading pre-r4 data/frozen_d1.jsonl was
+    removed from the current tree; git history preserves it.
+  d1_status: >
+    R4 BUILDERS/CONTRACT READY; corrected broad raw/matched banks have not yet
+    been materialized and audited in this registry. Before any new D1 model call,
+    run the r4 pipeline, inspect the scope/attrition summary and sample audit, and
+    record the frozen r4 SHA here.
+  d1_decisive_tests: >
+    Q1 broad ALIAS > ASSOC_ANY over intended surface pairs; Q2 hard-identity-gated
+    opaque_strict ALIAS > ASSOC_ANY as the stricter reference-specific residue.
+    Phase 4 remains blocked until the referential Q2 criterion passes.
   results: active/014_alias_entrainment_transfer/results/
   validation_authorized: true
 ```
@@ -138,6 +153,7 @@ active/014_alias_entrainment_transfer:
 
 - `active/` 本身不代表授权。
 - `Tier S/A/B`、`survivor`、旧 `promoted` 标签都不代表授权。
-- 运行前确认 project README、config、frozen D0 SHA 与本表一致。
+- 运行前确认 project README、canonical contract、frozen data SHA 与本表一致。
+- 新项目的 `D0-PASS` 必须包含 [`DATASET_SCOPE_AUDIT.md`](DATASET_SCOPE_AUDIT.md) 的 scope-integrity PASS。
 - 旧 result 不得跨 contract / D0 SHA 继承 verdict。
 - terminal project 不得通过换 readout、阈值、模型或名字重新获得授权。
