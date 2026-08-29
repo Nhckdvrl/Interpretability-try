@@ -1,12 +1,12 @@
 # 007 — Weak-Evidence Backfire
 
-Status: `N0-PASS / D0-PASS / READY-TO-SMOKE / HARNESS-READY-r5-natural-d0`
+Status: `LEGACY-v3 / D0-PASS / READY-TO-SMOKE / HARNESS-READY-r5-natural-d0`
 
 Canonical shortlist mapping: **2026-08-28 adversarial N0 shortlist #10**.
 
 ```yaml
+policy_generation: legacy-v3
 formal_n0_verdict: PASS
-n0_basis: 2026-08-28 adversarial N0 accepted by project resolution 2026-08-29
 d0_verdict: PASS
 d0_items: 30
 manual_audit: 20/20 PASS
@@ -14,7 +14,7 @@ frozen_data_sha256: d3ef047882a49b05993f3c00c222e9d922faface3339c4161016594016c4
 validation_authorized: true
 ```
 
-The historical 2026-08-29 duplicate N0 that killed this project because the human weak-evidence effect is known is retained for provenance but superseded by [`N0_RESOLUTION_2026-08-29.md`](N0_RESOLUTION_2026-08-29.md). In this project, a human/natural mother phenomenon is an anchor; collision means the same LLM phenotype/decisive contrast is already established.
+> v4 policy now requires N0 breadth + N1 depth + D0 source feasibility before new project registration. 007 predates that rule. Do **not** run a duplicate post-smoke N1 merely for process symmetry; only perform a targeted novelty refresh if the claim changes or a concrete new collision appears.
 
 ## Target contradiction
 
@@ -38,13 +38,11 @@ See [`D0_AUDIT.md`](D0_AUDIT.md).
 - real near-neutral controls are stable in both splits;
 - fixed 20-row manual audit: 20/20 PASS.
 
-The r5 audit also removes an answer leak in the old `strong_gt_weak` capability probe: model-visible alternatives are now `OBSERVATION 1/2`, not `WEAK/STRONG-CANDIDATE`.
-
 ## Historical smoke lineage
 
-`results/smoke_r5/` is a valid historical run, but it belongs to an **older 25-case D0** (SHA `b1f6f889...`, execution commit `0ef5ee6...`). That run produced a two-family capability-floor hard kill.
+`results/smoke_r5/` belongs to an older **25-case D0** (SHA `b1f6f889...`, execution commit `0ef5ee6...`) and produced a two-family capability-floor hard kill.
 
-Commit `3cbe5e2` later made a material D0 change: provenance, held-out LR verification and the deterministic builder were tightened, yielding the current **30-case D0** with SHA `d3ef0478...`. Therefore the old smoke verdict must not be inherited by the current contract. Any new smoke must use a new result directory and record the current D0 SHA, execution commit and model revisions.
+Commit `3cbe5e2` later made a material D0 change: provenance, held-out LR verification and deterministic builder were tightened, yielding the current **30-case D0** with SHA `d3ef0478...`. The old aggregate cannot be inherited by the current contract.
 
 ## Execution
 
@@ -59,4 +57,4 @@ pytest -q
 weak-evidence-run validate-data --data data/frozen_d0.jsonl
 ```
 
-Then run the two-family smoke. A positive smoke still requires raw-case/scorer/capability/artifact audit and N1 before expansion or mechanism work.
+Then run the two-family smoke. If it survives raw-case/scorer/capability/artifact audit, proceed to generality/strong-model checks; **there is no routine post-smoke N1 in v4**.

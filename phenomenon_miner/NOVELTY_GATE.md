@@ -1,59 +1,112 @@
-# 前置新颖性门：先杀撞车题，再花模型预算
+# Discovery-stage Novelty Gate
 
-版本：2026-08-28
+版本：2026-08-29  
+状态：`v2 — N0/N1 均在 formal registration 之前完成`
 
-## 两条路线
+## 原则
 
-- **Discovery lane：** exact behavior 尚未被报道。
-- **Mechanism-followup lane：** 行为已知但机制未解；只有用户明确授权才进入，不能冒充新现象。
+Novelty 不是模型实验后的补票。一个题目值得投入 GPU 之前，必须已经把“是否撞车”查到足够深。
 
-默认只允许 discovery lane。
+```text
+N0 = breadth screen
+N1 = depth closure
+N0 + N1 = registration 前的一套完整 novelty audit
+```
 
-## N0：模型前全文审计
+没有常规的 post-smoke N1。
 
-主张必须冻结成：“模型能正确完成 A；但在自然条件 B 下，会系统地把 C 写成 D。”
+## N0 — breadth screen
 
-检索四轮：exact task + relation；普通语言 anomaly；mother phenomenon + decisive contrast/wrong destination；mechanism vocabulary + downstream interface。覆盖近义词、旧术语、2024–2026 ACL/EMNLP/NAACL、ICLR/ICML/NeurIPS、arXiv 和引用链。
+冻结 candidate claim：
 
-最近 3–5 篇邻近论文必须检查主文、appendix、limitations、引用/被引链和后续版本。只看标题/摘要不能签署通过。
+> 模型能正确完成 A；但在自然条件 B 下，会系统地把 C 写成 D。
 
-## 包含测试
+N0 搜：
 
-去掉数据集、语言、领域和对象名后主张相同，默认按 rename KILL。必须判断：exact behavior 是否已有；是否只是母现象切片；是否只换 payload 或加 readout；既有 probe/patch/intervention 是否已回答机制；邻近工作是否显示随规模消失。
+- exact task / relation / phenotype；
+- 普通语言 anomaly；
+- mother phenomenon + LLM；
+- decisive contrast / wrong destination；
+- repo death families / rename；
+- mechanism vocabulary 的明显占位。
 
-## 独立复核
+目标是快速淘汰 obvious collision / rename / mother inclusion。
 
-候选提出者不得是唯一签署者。第二位审计者只负责找杀题证据。裁决：`N0-PASS`、`HOLD`、`KILLED-COLLISION`。
+## N1 — depth closure
 
-## D0 数据门
+N1 只对 N0 survivor 做，而且**必须在 project registration 前完成**。
 
-N0 后才检查公开路径/版本/license、独立 gold、relation 有效性、至少 20 个随机原例和 IDs。N0/D0 均过，才能 `validation_authorized: true`。
+必须检查：
 
-## N1
+- strongest 3–5 papers 的全文；
+- appendix / supplement / limitations；
+- public code / released prompts / dataset notes；
+- predecessor / successor / citation chain；
+- mother paper 是否已经顺手覆盖下一问；
+- exact decisive contrast 是否已存在；
+- 已有机制工作是否完整吸收我们的 causal question；
+- 邻近现象是否已有 scale-disappearance 证据。
 
-Smoke 后按真实错误目的地、形状、reader/use 解离、scale law 和 controls 再检索。N1 撞车立即 KILL，不得因 sunk cost 压窄续命。
+输出必须写清：
+
+```text
+strongest_neighbor
+what_it_already_solves
+our_decisive_difference
+why_not_a_rename
+mother_inclusion_test
+mechanism_occupancy
+scale_survival_risk
+hard_kill
+search_date
+```
+
+裁决：`PASS / HOLD / KILLED-COLLISION`。
+
+## Discovery 之后不重复 novelty search
+
+一旦 `N1-PASS` 并正式注册，novelty audit 视为 closed。模型输出不应该成为“现在再查一次文献”的理由。
+
+只在以下情况做 `NOVELTY-REFRESH`：
+
+1. core claim / decisive contrast / mechanism question 实质改变；
+2. 审计日期以后出现具体新论文；
+3. 外部 reviewer 指出此前漏掉的具体近邻。
+
+Refresh 只检查受影响部分，不重新跑一整套 N0/N1 仪式。
+
+## 与 D0 的关系
+
+Novelty 通过还不够。formal registration 之前必须同时通过 `D0-SOURCE-FEASIBILITY`：具体 source/version/license/gold/unit/count/construction recipe 都要可落地。
+
+完整要求见 [`PROCESS.md`](PROCESS.md) 与 [`REQUIREMENTS.md`](REQUIREMENTS.md)。
+
+## 新候选审计模板
 
 ```yaml
 candidate_id:
 claim_sentence:
 lane: discovery
-search_date:
-search_queries: []
-closest_papers: []
-full_text_checked: false
-mother_inclusion_test:
-why_not_a_rename:
-mechanism_occupancy:
-scale_survival_evidence:
-proposer:
-independent_auditor:
-n0_verdict: PASS | HOLD | KILLED-COLLISION
-data_path:
-license:
-gold_source:
-sample_audit_ids: []
-d0_verdict: PASS | HOLD | KILLED-DATA
-validation_authorized: false
+
+n0:
+  search_date:
+  search_queries: []
+  obvious_neighbors: []
+  verdict: PASS | HOLD | KILLED-COLLISION
+
+n1:
+  strongest_papers: []
+  full_text_checked: true
+  appendix_checked: true
+  code_or_supplement_checked: true
+  citation_chain_checked: true
+  mother_inclusion_test:
+  why_not_a_rename:
+  mechanism_occupancy:
+  scale_survival_risk:
+  verdict: PASS | HOLD | KILLED-COLLISION
+
+novelty_refresh_trigger: null
 ```
 
-只能写“截至某日未检索到完整覆盖”，不能写“没人做过”或 `first`。
+只能写“截至 audit date 未检索到完整覆盖”，不能写绝对的 `first` / `nobody has studied`。
