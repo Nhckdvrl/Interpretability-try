@@ -1,0 +1,9 @@
+llama31_8b_it: discovery 60 items (opaque_strict), evaluation 145 items of which 66 opaque_strict
+  32 layers x 32 heads = 1024
+  evaluation: 2610 prompts per condition set
+  k=10 (1%) done, 54s
+  k=31 (3%) done, 92s
+  k=51 (5%) done, 130s
+  k=102 (10%) done, 168s
+  wrote results/phase2_r1/llama31_8b_it__ablate.json
+llama31_8b_it: ablate done in 168s

@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "alias-entrainment-transfer"
+version = "0.1.0"
+description = "Phase-1 behavioural harness for Alias Entrainment Transfer (014)"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+run = ["torch>=2.4", "transformers>=4.48"]
+d0 = ["datasets>=2.18", "sentence-transformers>=3.0", "numpy>=1.26"]
+dev = ["pytest>=8", "numpy>=1.26"]
+
+[tool.setuptools.packages.find]
+where = ["src"]

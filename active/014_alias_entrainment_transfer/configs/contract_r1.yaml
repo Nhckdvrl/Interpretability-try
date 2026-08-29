@@ -1,0 +1,254 @@
+# 014 Alias Entrainment Transfer — frozen analysis contract
+# id: 2026-08-29-r1
+# FROZEN BEFORE ANY MODEL CALL. Nothing below may be changed to rescue a null.
+
+contract_id: 2026-08-29-r1
+phase: 1-behavioral
+mechanism_allowed: false          # no probe / patching / head ablation in phase 1
+
+data:
+  source: akariasai/PopQA          # local HF cache, split=test, 14267 rows
+  alias_field: [s_aliases, o_aliases]   # Wikidata aliases bundled with PopQA (CC0)
+  popularity_field: [s_pop, o_pop]
+  seed: 20260829
+  target_items: 300                # ordered (seen_form -> target_form) pairs
+  carriers_per_item: 3
+  frames:
+    F1: "{M} was in the news last week."
+    F2: "Yesterday's report briefly mentioned {M}."
+  entity_types: [person, city, country]
+  carrier_relation_by_type:
+    person: [director, screenwriter, author, composer]
+    city: [capital]
+    country: [country]
+
+pair_filters:
+  ascii_only: true
+  allowed_chars: "A-Za-z0-9 .&'-"
+  min_norm_len: 3
+  max_words: 5
+  no_substring_either_direction: true   # after lowercasing + stripping non-alphanumerics
+  distinct_after_normalization: true
+
+orthography_strata:
+  acronym: "one form is the initial-letter sequence of the other"
+  partial: "shares at least one whole word token, neither is a substring of the other"
+  opaque: "no shared word token, not an acronym"
+  # --- amendment r1a, 2026-08-29, added BEFORE any model call ---------------
+  # D0 inspection showed opaque aliases can still be character-similar
+  # (`Italia` -> `Italy`, median orth_sim 0.40 vs 0.29 for SEMREL), which would
+  # mimic transfer without entity identity. This amendment only TIGHTENS the
+  # test; no threshold was loosened and no result had been observed.
+  opaque_strict: "opaque AND SequenceMatcher ratio on normalized strings < 0.40"   # money stratum
+orthography_covariate:
+  orth_sim: "character-level SequenceMatcher ratio between mention and target, normalized strings"
+  use: "mandatory covariate in the H3 regression"
+
+conditions:
+  NOCTX: "no context sentence"
+  EXACT: "context mention = target form B itself"
+  ALIAS: "context mention = alias A; the string B does not occur anywhere in the prompt"
+  SEMREL: "context mention = C, the max-similarity NON-coreferent same-type entity name"
+  UNREL: "context mention = D, a low-similarity same-type entity name"
+
+similarity:
+  encoder: BAAI/bge-large-en-v1.5   # model-external, not the LM under test
+  semrel_rule: argmax cosine(C, B) over same-type non-coreferent entities with no shared word token
+  unrel_rule: sampled from the bottom similarity tercile of the same-type pool
+
+metric:
+  primary: "delta = logP(B | frame(mention) + carrier) - logP(B | carrier)"
+  primary_units: nats, teacher-forced sum over all tokens of ' B'
+  secondary: "delta of first-token logit of ' B' (mother-faithful)"
+  aggregation: "mean over 3 carriers x 2 frames within item, then median over items"
+
+capability_gate:
+  probe: counterbalanced two-content-option alias probe (both option orders must be correct)
+  probe_template: |
+    Q: Which of the following is another name for {SEEN}?
+    Options: (A) {opt_a}  (B) {opt_b}
+    A: (
+  foil: the SEMREL entity for that item
+  # amendment r1b, 2026-08-29, before the main run: the free-form beam-search
+  # readout was discarded because chat-tuned models answer the fragment rather
+  # than complete it (Qwen3 returns "which of the following..." for every item).
+  # Replaced by a paired, length-normalized log-prob comparison at one and the
+  # same position, which cannot carry an order artifact. SECONDARY only; the
+  # gating probe above is unchanged.
+  secondary_probe: "logP(target | '{SEEN} is another name for') > logP(SEMREL | same prompt), length-normalized"
+  min_gated_items_per_family: 60
+  below_floor_verdict: CAPABILITY-FLOOR   # alias numbers not interpreted for that family
+
+models:
+  - meta-llama/Llama-3.1-8B-Instruct
+  - Qwen/Qwen3-8B
+  - google/gemma-3-12b-it
+  prompt_format: plain completion (no chat template), mother-faithful
+
+hypotheses:
+  H1_replication:
+    test: median(delta_EXACT) >= 1.0 and frac(delta_EXACT > 0) >= 0.80
+    scope: every family
+    on_failure: HARNESS-BUG — fix the harness, do not interpret alias numbers
+  H2_necessary:
+    test: median(delta_ALIAS - delta_UNREL) > 0, bootstrap 95% CI excludes 0
+  H3_decisive:
+    test: median(delta_ALIAS - delta_SEMREL) > 0, bootstrap 95% CI excludes 0
+    must_also_hold:
+      - same sign on the similarity-matched subset (sim(C,B) >= sim(A,B))
+      - same sign within the `opaque_strict` orthography stratum (amendment r1a)
+      - is_alias coefficient > 0 in
+        delta ~ sim(mention,B) + orth_sim(mention,B) + n_tokens(mention) + is_alias + (1|item)
+  H4_consistency:
+    test: H3 same sign in >= 2 of 3 families
+  transfer_ratio:
+    definition: (delta_ALIAS - delta_SEMREL) / (delta_EXACT - delta_SEMREL)
+    test: point estimate >= 0.15
+
+verdicts:
+  PROMOTE: all of H1, H2, H3, H4, transfer_ratio satisfied -> phase 2 (entrainment-head ablation selectivity)
+  KILL:
+    - H3 fails in any of its four forms
+    - transfer present only in the `acronym` or `partial` strata
+    - transfer disappears once orth_sim is controlled
+  HARNESS-BUG: H1 fails
+
+forbidden_rescues:
+  - swapping in a weaker SEMREL control
+  - adding or dropping frames / carriers after seeing results
+  - relaxing the capability gate
+  - adding models until one is significant
+  - reinterpreting a null as "entrainment is lexical" without H1 having passed
+
+statistics:
+  unit: item (entity x direction)
+  clustering: bootstrap resamples ENTITIES, not items, because the two directions
+    of one entity are not independent
+  n_boot: 10000
+  seed: 20260829
+
+amendments:
+  r1b:
+    date: 2026-08-29
+    before_main_run: true
+    change: secondary knowledge readout switched from top-5 beam search to a paired log-prob comparison
+    affects_gate: false
+  r1a:
+    date: 2026-08-29
+    before_any_model_call: true
+    change: added `opaque_strict` stratum and the mandatory orth_sim covariate
+    direction: tightening only
+
+# ---------------------------------------------------------------------------
+# Amendment r1c — scale axis. Frozen 2026-08-29, BEFORE any scale model call.
+# Phase 1 already returned PROMOTE; this axis is GENERALITY/DESCRIPTIVE and
+# carries no promote/kill authority of its own. Its purpose is to decide which
+# of two stories the paper tells, and both readings are written down here in
+# advance so neither can be chosen after seeing the curve.
+# ---------------------------------------------------------------------------
+scale_axis:
+  contract_id: 2026-08-29-r1c
+  data: data/frozen_d0.jsonl, unchanged (sha c744ae319600fc79e80195ca5b5774b0af6b812714371812e0f61259dae37239)
+  metric: unchanged
+  ladder_primary:            # one family, one tokenizer, one pretraining recipe
+    - Qwen/Qwen3-0.6B
+    - Qwen/Qwen3-1.7B
+    - Qwen/Qwen3-4B
+    - Qwen/Qwen3-8B          # already run
+    - Qwen/Qwen3-14B
+    - Qwen/Qwen3-32B
+  ladder_secondary:
+    - google/gemma-3-4b-it
+    - google/gemma-3-12b-it  # already run
+
+  # Capability grows with scale, so each model gates a different item set and a
+  # naive across-size comparison is confounded. The primary scale readout is
+  # therefore on the COMMON GATED SET: items every rung of the ladder passes.
+  primary_readout: transfer_ratio_opaque_strict on the common gated set
+  secondary_readout: same quantity on each model's own gated set
+  statistic: Spearman rho of the readout against log10(parameters), n=6 rungs
+
+  # Both readings declared in advance.
+  reading_if_rising: >
+    the entity-level component is capability-linked; it grows as the model gets
+    better at knowing that two forms denote one entity, which strengthens the
+    entity account and makes scale part of the paper's story.
+  reading_if_flat_or_falling: >
+    the entity-level component is not a by-product of scale-linked capability;
+    it is a structural property of the entrainment mechanism present already at
+    small scale. Note this would run OPPOSITE to the 2026 scale sign-split
+    result for semantic contexts, which is itself reportable.
+
+  forbidden:
+    - dropping a rung after seeing its value
+    - switching to the own-gated readout because the common-set curve is flat
+    - reading a monotone trend from fewer than 4 rungs clearing the capability floor
+  capability_floor: a rung with fewer than 60 gated items is reported but excluded from rho
+
+# ---------------------------------------------------------------------------
+# Phase 2 — contract 2026-08-29-r2. Frozen BEFORE any ablation is run.
+# Authorized because phase 1 returned PROMOTE on every frozen criterion.
+# ---------------------------------------------------------------------------
+phase2:
+  contract_id: 2026-08-29-r2
+  question: >
+    Do the entrainment heads that carry exact-form reappearance also carry the
+    alias-transfer component, or is the alias component a separate pathway?
+
+  analysis_set: opaque_strict x gate-passed items only -- the only cell where the
+    phase-1 behavioural effect is not confounded with lexical overlap
+  split: >
+    items are split by ENTITY into a discovery half and an evaluation half. Heads
+    are ranked on the discovery half using the EXACT condition ONLY -- the head
+    ranking never sees an alias -- and every reported number comes from the
+    held-out evaluation half. This is what makes the selectivity test non-circular.
+
+  ablation: zero the head's slice of the input to o_proj (removes that head's
+    write to the residual stream, leaves all other heads intact)
+  ranking: individual per-head ablation, ranked by drop in median delta_EXACT
+  k: [1%, 3%, 5%, 10%] of all attention heads
+  control: >
+    layer-matched random heads -- same count, drawn from the same layers as the
+    selected heads, 5 seeds. Without this, any ablation that merely damages the
+    model would look like a positive result.
+
+  validity_gate:
+    test: top-k ablation must cut median delta_EXACT on the evaluation half by
+      >= 30%, and by significantly more than the layer-matched random control
+    on_failure: HEAD-DISCOVERY-FAILED -- report and stop; do not interpret any
+      alias number, and do not go hunting for a k that works
+
+  readouts:
+    retain_exact: delta_EXACT(ablated) / delta_EXACT(clean)
+    retain_alias: (delta_ALIAS - delta_SEMREL)(ablated) / (delta_ALIAS - delta_SEMREL)(clean)
+    selectivity: retain_alias - retain_exact
+
+  verdicts:
+    mechanism_B_shared_entity_representation: >
+      |selectivity| <= 0.25 and its bootstrap CI includes 0 -- the same heads carry
+      both components proportionately, so entrainment operates on a representation
+      that has already abstracted over surface form.
+    mechanism_C_two_pathways: >
+      selectivity > +0.25 with CI excluding 0 -- the exact component is removed
+      while the alias component survives; there are two kinds of entrainment.
+    mechanism_A_prime_alias_downstream: >
+      selectivity < -0.25 with CI excluding 0 -- the alias component is removed
+      more than the exact one, i.e. it is downstream of the same copy circuit.
+
+  families: Llama-3.1-8B-Instruct first (mother's family, cleanest phase-1 gate
+    interaction), then Qwen3-8B as an independent replication
+  amendment_r2a:
+    date: 2026-08-29
+    before_ablate_run: true
+    change: >
+      evaluation half now scores ALL held-out gate-passed items instead of only
+      the opaque_strict ones. The PRIMARY readout is unchanged (opaque_strict);
+      this only adds a better-powered secondary at no extra ablation cost, after
+      noticing the opaque_strict evaluation half is only ~64 items.
+    affects_primary: false
+
+  forbidden:
+    - choosing k after seeing the selectivity value
+    - dropping the layer-matched random control
+    - re-ranking heads using the alias conditions
+    - reporting evaluation-half numbers from heads ranked on the same items

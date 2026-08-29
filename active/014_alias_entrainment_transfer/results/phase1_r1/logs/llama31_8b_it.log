@@ -1,0 +1,4 @@
+llama31_8b_it: 300 items
+  probe jobs: 1200
+  main jobs: 8100
+llama31_8b_it: done in 34s, tokenizer boundary shifts = 0

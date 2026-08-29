@@ -1,0 +1,9 @@
+qwen3_8b: discovery 51 items (opaque_strict), evaluation 126 items of which 52 opaque_strict
+  36 layers x 32 heads = 1152
+  evaluation: 2268 prompts per condition set
+  k=12 (1%) done, 49s
+  k=35 (3%) done, 84s
+  k=58 (5%) done, 120s
+  k=115 (10%) done, 156s
+  wrote results/phase2_r1/qwen3_8b__ablate.json
+qwen3_8b: ablate done in 156s

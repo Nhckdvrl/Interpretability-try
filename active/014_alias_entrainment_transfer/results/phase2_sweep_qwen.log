@@ -1,0 +1,56 @@
+qwen3_8b: discovery 51 items (opaque_strict), evaluation 126 items of which 52 opaque_strict
+  36 layers x 32 heads = 1152
+  clean EXACT on discovery subset: +15.460 nats (102 prompts/ablation)
+  layer 1/36 (32 heads, 17s)
+  layer 2/36 (64 heads, 25s)
+  layer 3/36 (96 heads, 33s)
+  layer 4/36 (128 heads, 42s)
+  layer 5/36 (160 heads, 50s)
+  layer 6/36 (192 heads, 58s)
+  layer 7/36 (224 heads, 67s)
+  layer 8/36 (256 heads, 75s)
+  layer 9/36 (288 heads, 84s)
+  layer 10/36 (320 heads, 92s)
+  layer 11/36 (352 heads, 101s)
+  layer 12/36 (384 heads, 109s)
+  layer 13/36 (416 heads, 118s)
+  layer 14/36 (448 heads, 126s)
+  layer 15/36 (480 heads, 135s)
+  layer 16/36 (512 heads, 143s)
+  layer 17/36 (544 heads, 152s)
+  layer 18/36 (576 heads, 160s)
+  layer 19/36 (608 heads, 169s)
+  layer 20/36 (640 heads, 178s)
+  layer 21/36 (672 heads, 186s)
+  layer 22/36 (704 heads, 195s)
+  layer 23/36 (736 heads, 203s)
+  layer 24/36 (768 heads, 212s)
+  layer 25/36 (800 heads, 220s)
+  layer 26/36 (832 heads, 229s)
+  layer 27/36 (864 heads, 237s)
+  layer 28/36 (896 heads, 246s)
+  layer 29/36 (928 heads, 255s)
+  layer 30/36 (960 heads, 263s)
+  layer 31/36 (992 heads, 272s)
+  layer 32/36 (1024 heads, 280s)
+  layer 33/36 (1056 heads, 289s)
+  layer 34/36 (1088 heads, 297s)
+  layer 35/36 (1120 heads, 306s)
+  layer 36/36 (1152 heads, 314s)
+  top 15 entrainment heads (layer, head, drop in nats):
+    L34 H13  +1.387
+    L35 H 8  +1.369
+    L22 H 0  +1.022
+    L35 H25  +0.961
+    L31 H 3  +0.899
+    L21 H12  +0.848
+    L16 H10  +0.832
+    L34 H 1  +0.749
+    L34 H 7  +0.741
+    L14 H16  +0.695
+    L15 H30  +0.693
+    L19 H 9  +0.673
+    L15 H21  +0.666
+    L15 H24  +0.663
+    L28 H 3  +0.639
+qwen3_8b: sweep done in 315s

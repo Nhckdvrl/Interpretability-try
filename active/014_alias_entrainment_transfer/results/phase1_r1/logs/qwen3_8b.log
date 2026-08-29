@@ -1,0 +1,4 @@
+qwen3_8b: 300 items
+  probe jobs: 1200
+  main jobs: 8100
+qwen3_8b: done in 34s, tokenizer boundary shifts = 0

@@ -26,6 +26,7 @@ d0_source_feasibility_verdict: PASS
 | `active/007_weak_evidence_backfire` | legacy `D0-PASS / READY-TO-SMOKE` | **true** |
 | `active/013_publicness_coordination_dissociation` | legacy `HOLD-D0` | false |
 | `active/003_diagnostic_counterevidence_revision` | legacy `PRE-CANDIDATE / G0-NOT-RUN` | false |
+| `active/014_alias_entrainment_transfer` | legacy self-authorized, ran before v4; **not v4-registered** | false |
 
 ## Contract records
 
@@ -45,6 +46,29 @@ active/003_diagnostic_counterevidence_revision:
   policy_generation: legacy-v3
   status: PRE-CANDIDATE / G0-NOT-RUN
   validation_authorized: false
+
+active/014_alias_entrainment_transfer:
+  policy_generation: legacy-v3-SELF-AUTHORIZED
+  note: >
+    phase 1 (3 families) and phase 2 head ablation (2 families) were run on
+    2026-08-29 under the deleted candidate_pool/AUDIT_REGISTRY.md, before the v4
+    rules existed. The results stand as data; the AUTHORIZATION did not meet the
+    registration rule above and is recorded here as such rather than backdated.
+  n0_breadth_verdict: PASS (Batch-3 adversarial audit, SURVIVE-A)
+  n1_depth_verdict: NOT DONE
+  d0_source_feasibility_verdict: NOT DONE
+  d0_blocker: >
+    CURRENT_TOPICS.md Tier S requires a 20-pair human audit of alias
+    conventionality, ambiguity and frequency stratification. Item sampling was
+    inspected twice during construction but no documented 20-pair audit artifact
+    with IDs and verdicts exists.
+  frozen_data_sha256: c744ae319600fc79e80195ca5b5774b0af6b812714371812e0f61259dae37239
+  results: active/014_alias_entrainment_transfer/results/
+  validation_authorized: false
+  reauthorization_condition: >
+    complete the 20-pair D0 audit and an N1 closure against the real result
+    shape, then re-register. Existing results may not be inherited across a
+    changed D0 SHA or contract.
 ```
 
 ## Discipline
