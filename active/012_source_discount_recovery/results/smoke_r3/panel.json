@@ -1,0 +1,29 @@
+{
+  "required_families": [
+    "Qwen",
+    "Gemma",
+    "Phi",
+    "Llama",
+    "Mistral"
+  ],
+  "independent_families": [
+    "Gemma",
+    "Qwen"
+  ],
+  "missing_required_families": [
+    "Llama",
+    "Mistral",
+    "Phi"
+  ],
+  "passed_families": [],
+  "passed_sizes_b_by_family": {
+    "Qwen": [],
+    "Gemma": [],
+    "Phi": [],
+    "Llama": [],
+    "Mistral": []
+  },
+  "three_size_families": [],
+  "smoke_cross_family_pass": false,
+  "generality_pass": false
+}

@@ -1,6 +1,6 @@
 # 012 — Source-Discount Recovery
 
-Status: `N0-PASS / D0-PASS / R2-HOLD-INSTRUMENTATION-ARTIFACT / HARNESS-r3 / RE-RUNNING`
+Status: `N0-PASS / D0-PASS / R3-RUN / WEIGHTING-DENOMINATOR-ZERO / TERMINAL CALL PENDING`
 
 Canonical shortlist mapping: **2026-08-28 adversarial N0 shortlist #9**.
 
@@ -26,6 +26,10 @@ r2_disposition: R2-HOLD-INSTRUMENTATION-ARTIFACT
 **r3 — contract `2026-08-29-r3`.** Exactly one instrumentation item changes: `source_credibility` becomes a counterbalanced two-content-option item whose gold flips with which source spoke, so a standing position preference scores at chance. Everything else — the bank, the 101/7 stratification, the cell bootstrap, the support probes, the readout wording, `p_target` aggregation and every threshold — is byte-identical to r2. Both models are fully re-run rather than spliced.
 
 The r3 decision rule was fixed before the run: if the memory gate recovers but `belief_initial_gap` still leaves the weighting denominator near zero, that is a real `HARD-KILL-SOURCE-WEIGHTING-CAPABILITY-FLOOR` and this operationalization ends — the belief readout will not be swapped for a log-odds measure to rescue it.
+
+**r3 result.** The probe change worked as instrumentation: the always-Yes degeneracy is gone and the residual failure is now diagnosable as a content-level response bias, opposite in the two models, with large discrimination underneath it. But the memory gate did not recover (Qwen 3/108, Gemma 11/108), so the summarizer again stops at `HARD-KILL-SOURCE-MEMORY-CAPABILITY-FLOOR`.
+
+What settles the project is separate. The readout conditions were untouched and reproduced bit-identically, so the second denominator can be evaluated without the memory probe: granting the memory gate outright, **0 of 108 pairs would be weighting-capable in either family**, against a floor of 20, with `belief_initial_gap` the dominant blocker. Re-instrumenting the credibility probe again cannot change that. See [`results/smoke_r3/SMOKE_VERDICT.md`](results/smoke_r3/SMOKE_VERDICT.md); the terminal call belongs to the project owner.
 
 The historical duplicate N0 that killed this project as a sleeper-effect collision is superseded by [`N0_RESOLUTION_2026-08-29.md`](N0_RESOLUTION_2026-08-29.md). The sleeper effect/source-message dissociation is the natural human mother phenomenon; the LLM target is the stricter source-memory-intact, weighting-use dissociation with selective cue reinstatement.
 
