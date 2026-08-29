@@ -1,10 +1,10 @@
 # Interpretability Topic Search
 
-这个仓库现在只做一件事：
+这个仓库主要是负责科研选题，题目的题材主要是 LLM 可解释性相关的，简单来说我们希望：
 
-> **寻找从具体现象 / 具体问题 / 自然概念出发、真正需要可解释性手段来回答、题目尺度与 novelty package 对齐 ACL / EMNLP / NAACL Main，并且能够自然导出后续方法的研究问题。**
+> **寻找从具体现象 / 具体问题 / 自然概念出发、寻找真正需要可解释性手段来回答、题目尺度与 novelty package 对齐 ACL / EMNLP / NAACL Main，并且能够自然导出后续方法的研究问题。**
 
-本仓库不是“先挑一个 SAE / attention head / activation patching 工具，再去找能解释什么”的仓库；也不是“看到某个模型在某个 benchmark 上掉分，就把掉分本身包装成机制题”的仓库。
+因此本仓库不是“先挑一个 SAE / attention head / activation patching 工具，再去找能解释什么”的仓库；也不是“看到某个模型在某个 benchmark 上掉分，就把掉分本身包装成机制题”的仓库。
 
 新的 broken-invariant / anomaly-mining 搜题协议见
 [`PHENOMENON_MINING_GUIDE.md`](PHENOMENON_MINING_GUIDE.md)。该 harness 只作为内部选题机器，不作为论文框架贡献。
@@ -13,15 +13,14 @@
 
 ## 当前找题记录入口
 
-找题过程、幸存题和死亡题统一从 [`phenomenon_miner/README.md`](phenomenon_miner/README.md) 进入。
+我们有一个负责现象挖掘的文件夹： [`phenomenon_miner/README.md`](phenomenon_miner/README.md)
 
+目前从中挖掘到的现象有：
 - **第一批深度 N0 十题**：[`phenomenon_miner/candidate_pool/DEEP_N0_SURVIVORS_10_2026-08-28.md`](phenomenon_miner/candidate_pool/DEEP_N0_SURVIVORS_10_2026-08-28.md)，详细审计在 [`phenomenon_miner/candidate_pool/audits/ADVERSARIAL_N0_TEN_2026-08-28.md`](phenomenon_miner/candidate_pool/audits/ADVERSARIAL_N0_TEN_2026-08-28.md)。
 - **第二批新的十题（进行中）**：完整脑暴、淘汰与当前 survivor 在 [`phenomenon_miner/candidate_pool/BATCH2_BRAINSTORM_LEDGER_2026-08-28.md`](phenomenon_miner/candidate_pool/BATCH2_BRAINSTORM_LEDGER_2026-08-28.md)，逐题 N0 工作稿在 [`phenomenon_miner/candidate_pool/audits/BATCH2_N0_WORKING_REVIEW_2026-08-28.md`](phenomenon_miner/candidate_pool/audits/BATCH2_N0_WORKING_REVIEW_2026-08-28.md)。当前第二批为 **9 个 survivor，第 10 槽 OPEN**，尚未创建假 `FINAL 10`。
 - **死亡题查找规则**：先查第二批中央 ledger，再查 `phenomenon_miner/candidate_pool/01_...`–`12_...` 的对应领域文档底部 `Batch-2 脑暴死亡回填`。已 KILL/ROUTE 的主题不得只靠换领域、换数据、换 readout 或换名字复活。
 
 当前原则来自连续多轮选题与失败实验，后续新题默认必须遵守。若某个候选与 README 冲突，以 README 为准。
-
-006 的失败说明，仅有“Behavior first”这句话还不够；必须把外部有效性、跨模型复现和停止预算放在机制实验之前。完整复盘见 [`FAILURE_POSTMORTEMS.md`](FAILURE_POSTMORTEMS.md)。
 
 ---
 
@@ -93,7 +92,6 @@
 研究不能停在：
 
 > “我们证明模型内部有 X。”
->
 > 然后呢？
 
 在正式进入实验前，就应该至少能写出：
@@ -117,7 +115,7 @@
 
 ---
 
-# 2. 可解释性选题的额外硬门槛
+# 2. 其他门槛
 
 ## G0-A — 外部现象优先，custom-only 禁止晋级
 
@@ -479,13 +477,3 @@ archive/<NNN_topic_name>/
 - STOP verdict；
 - 为什么不能续命；
 - 哪些经验影响下一轮找题。
-
----
-
-# 6. 当前状态
-
-**ACTIVE interpretability project：暂无。**
-
-第一个尝试 `role-value binding in structured generation` 已于 2026-08-26 归档：BFCL V4 `simple_python` 公共预检中，Qwen3-4B 与 Gemma3-4B 在 174 个 eligible 样本上都得到 **0 个严格自然 binding failure**，因此按预注册 STOP gate 终止，不进入本地模型、SAE 或 attention 分析。
-
-详见：`archive/001_role_value_binding/README.md`。
