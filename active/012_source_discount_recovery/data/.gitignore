@@ -1,0 +1,3 @@
+# The NetEaseCrowd release itself is ~585 MB; only its manifest and SHA256s are tracked.
+raw/
+__pycache__/

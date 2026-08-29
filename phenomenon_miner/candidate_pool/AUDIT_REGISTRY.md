@@ -8,7 +8,7 @@
 **当前 `READY-TO-SMOKE`：1 — `active/007_weak_evidence_backfire`.**
 
 - 007：`N0-PASS / D0-PASS / READY-TO-SMOKE`，30 个 frozen natural scenarios，20/20 manual audit，`validation_authorized: true`。
-- 012：`N0-PASS / D0-AUDITING / NOT READY-TO-SMOKE`，真实 source pool 与 builder 已就绪，但 frozen worker pairs 尚未 materialize/人工签署。
+- 012：`N0-PASS / D0-AUDITING / NOT READY-TO-SMOKE`，NetEaseCrowd 已 materialize 并产出 28 条候选 scenario（5 capability / 56 annotator），机械检查全过，但固定种子 20 条人工阅读未完成，未签署。
 - 013：`N0-PASS / HOLD-D0 / NOT READY-TO-SMOKE`，强自然 anchor 已找到，但独立 scenario 数量与 adaptation/license 条件不足。
 
 ## N0 范围决议
@@ -77,6 +77,6 @@ active/013_publicness_coordination_dissociation:
 ## 调度纪律
 
 - 只有 `validation_authorized: true` 可调用模型；当前只有 007。
-- 012 必须先 materialize 真实 worker pairs、冻结 JSONL 并做 20 例人工审计。
+- 012 已 materialize worker pairs，仍必须完成 20 例人工审计并冻结 JSONL 后才能授权。
 - 013 在 HOLD-D0 解除前不得造 synthetic substitute。
 - 007 smoke 后先做 raw-case/scorer/capability/artifact 审计，再做 N1；未完成 N1 不扩 generality panel、不做 mechanism。

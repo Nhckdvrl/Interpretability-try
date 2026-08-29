@@ -1,0 +1,34 @@
+# Raw source manifest — NetEaseCrowd
+
+Retrieved: 2026-08-29
+Dataset: NetEaseCrowd (Wang et al., arXiv:2403.08826)
+Repository: https://github.com/fuxiAIlab/NetEaseCrowd-Dataset
+Release path: `data/NetEaseCrowd_part_{1..15}.csv` on branch `main`
+License: CC BY-SA 4.0
+Hugging Face mirror: https://huggingface.co/datasets/liuhyuu/NetEaseCrowd
+
+Columns as released: `tasksetId, taskId, workerId, answer, completeTime, truth, capability`.
+`netease_normalized.csv` is the 15 parts concatenated in numeric order with a single header row; no other transformation is applied.
+
+Annotations: 6016319 (published figure: 6,016,319)
+
+## SHA256
+
+```text
+6522bf2194e014ba5c33df7101457efdb47d516cffde8f0b6fc98e200c5cd5a6  NetEaseCrowd_part_1.csv
+351acbf5fe1bdb7e50df754f7034cfdfb836f4856888f7dfe16ef98d5fd8cf7f  NetEaseCrowd_part_2.csv
+f744a25da0b8a3c785e95a4109a1a4d59ff70e307349f049240e0671bc79ff67  NetEaseCrowd_part_3.csv
+ebc19dee7bee906fa9d64487cef77c49c852ca07041fd7110d75bb5e85f2507c  NetEaseCrowd_part_4.csv
+61f272bb1b21462138b9113a499e324216abbaec3550e2a971798193d1458f4d  NetEaseCrowd_part_5.csv
+cc5b71e258b0d4367e44b6b712e2c0b1b0457cc81a6c4882fc54cfa0d1417a2c  NetEaseCrowd_part_6.csv
+e84ed9ab1c31c8cf63ab0dc91f8aadd3004f7ba6229600dfd4cac97c28072596  NetEaseCrowd_part_7.csv
+0fe72b6019167020ce3bf7e974e01e969ed94ae705a47e9a784b7db8c07c20e2  NetEaseCrowd_part_8.csv
+b9cf561aa3879c0f9a2af75fa89a494ab801514d599c9fe5e3b292e6bb2c38e4  NetEaseCrowd_part_9.csv
+a84afdb61cd8cb8fd92eb0677bcd2f96587e35bc6f4c94cd9a68ac8ff0bd3078  NetEaseCrowd_part_10.csv
+f931a44de1ed71514a36c9bc616505c34917d660831a3b81e061f48607254916  NetEaseCrowd_part_11.csv
+b8f04129771c80531a7d954d24835a4dff90db7219a28702c25aaef7b3a762b8  NetEaseCrowd_part_12.csv
+4bf5abd5bab606a238e26999813260349394f21426724ba8278cbf8ddad1bdef  NetEaseCrowd_part_13.csv
+8513146fb2f0dbf285555960f24b1b5dc9f7ff72d1539e69f6a356fd89a01b2d  NetEaseCrowd_part_14.csv
+4b8095bb5214e83b16fcb775d5d7a36727d6b9d351e4001efb58a46736649d4d  NetEaseCrowd_part_15.csv
+e9ebddfee58aaba5f64b1759506d5b7c3839b04bfb80a61b471358b4372430ee  netease_normalized.csv
+```

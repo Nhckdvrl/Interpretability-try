@@ -1,0 +1,83 @@
+{
+  "provenance": {
+    "dataset": "NetEaseCrowd",
+    "source": "NetEaseCrowd-Dataset README, section 'Task'",
+    "url": "https://github.com/fuxiAIlab/NetEaseCrowd-Dataset#task",
+    "retrieved": "2026-08-29",
+    "license": "CC BY-SA 4.0"
+  },
+  "label_rendering": "The released answer/truth codes 0, 1 and 2 are rendered in order as response options A, B and C. This is a presentational relabelling only; every likelihood ratio is computed on the raw codes.",
+  "option_letters": {
+    "0": "A",
+    "1": "B",
+    "2": "C"
+  },
+  "domains": {
+    "50": {
+      "documented": true,
+      "title": "expression-similarity filtering",
+      "question": "Select the image from A, B, and C that looks the least similar in expression to the other two images.",
+      "presentation": "shows three images",
+      "options": {
+        "0": "image A",
+        "1": "image B",
+        "2": "image C"
+      }
+    },
+    "52": {
+      "documented": true,
+      "title": "naturalness-of-expression judgment",
+      "question": "Select the most natural expression from the three images below.",
+      "presentation": "shows three images",
+      "options": {
+        "0": "image A",
+        "1": "image B",
+        "2": "image C"
+      }
+    },
+    "53": {
+      "documented": true,
+      "title": "facial-similarity screening",
+      "question": "Choose the face that is least like the other two from the following three faces.",
+      "presentation": "shows three faces",
+      "options": {
+        "0": "face A",
+        "1": "face B",
+        "2": "face C"
+      }
+    },
+    "56": {
+      "documented": true,
+      "title": "gesture-similarity filtering",
+      "question": "Select the gesture that looks the least similar to the other two gestures.",
+      "presentation": "shows three gestures",
+      "options": {
+        "0": "gesture A",
+        "1": "gesture B",
+        "2": "gesture C"
+      }
+    },
+    "69": {
+      "documented": true,
+      "title": "article-continuation classification",
+      "question": "Please select the best continuation between A and B based on information richness, sentence fluency, coherence with the previous text and logical consistency, or select 'undecided'.",
+      "presentation": "shows a passage and two candidate continuations",
+      "options": {
+        "0": "continuation A",
+        "1": "continuation B",
+        "2": "undecided"
+      }
+    },
+    "126": {
+      "documented": false,
+      "title": "an internal task type",
+      "question": null,
+      "presentation": "offers three response options",
+      "options": {
+        "0": "option A",
+        "1": "option B",
+        "2": "option C"
+      }
+    }
+  }
+}

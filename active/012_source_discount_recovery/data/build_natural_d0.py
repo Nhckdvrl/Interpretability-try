@@ -106,16 +106,62 @@ def choose_disjoint_pairs(pairs, *, limit: int) -> list:
     return out
 
 
+DEFAULT_OPTION_LETTERS = {"0": "A", "1": "B", "2": "C"}
+
+
+def load_domain_specs(path: str | None) -> dict:
+    """Load published per-domain task descriptions (optional).
+
+    Keeping these out of the builder keeps it dataset-agnostic: without the file the
+    records fall back to bare domain/label codes, which is correct but unnatural.
+    """
+    if not path:
+        return {}
+    return json.loads(Path(path).read_text(encoding="utf-8"))
+
+
+def _option(specs: dict, domain_value, label: int) -> tuple[str, str]:
+    """Return (letter, human phrase) for a raw label code in a domain."""
+    letters = specs.get("option_letters", DEFAULT_OPTION_LETTERS)
+    letter = letters.get(str(label), str(label))
+    dom = specs.get("domains", {}).get(str(domain_value), {})
+    phrase = dom.get("options", {}).get(str(label))
+    return letter, (phrase or f"option {letter}")
+
+
+def _background(specs: dict, domain_col: str, domain_value, target_letter: str, other_letter: str) -> str:
+    dom = specs.get("domains", {}).get(str(domain_value))
+    tail = (f"For the task at hand the audited gold answer is known to be "
+            f"option {target_letter} or option {other_letter}.")
+    if not dom:
+        return (f"A new annotation task in {domain_col}-{domain_value} is known, for this binary "
+                f"decision, to have true label {target_letter} or {other_letter}.")
+    presentation = dom.get("presentation", "presents the task material")
+    if dom.get("documented") and dom.get("question"):
+        return (f"NetEaseCrowd task set for {domain_col} {domain_value} — {dom['title']}. "
+                f"Each task {presentation}, and the annotator answers: \"{dom['question']}\" {tail}")
+    return (f"NetEaseCrowd task set for {domain_col} {domain_value} — {dom['title']}. "
+            f"Each task {presentation}; the public release records the annotations and audited gold "
+            f"answers but not the question text. {tail}")
+
+
 def make_record(*, dataset_name: str, license_name: str, source_url: str, domain: str,
+                domain_col: str, domain_value, specs: dict,
                 target_label: int, other_label: int, pair, scenario_index: int, seed: int,
                 short_delay: str, long_delay: str) -> dict:
     low, high, low_val, high_val = pair
-    target_h = f"the task's true label is {target_label}"
-    other_h = f"the task's true label is {other_label}"
+    t_letter, t_phrase = _option(specs, domain_value, target_label)
+    o_letter, o_phrase = _option(specs, domain_value, other_label)
+    def _hyp(letter: str, phrase: str) -> str:
+        gloss = "" if phrase == f"option {letter}" else f" ({phrase})"
+        return f"the audited gold answer for this task is option {letter}{gloss}"
+
+    target_h = _hyp(t_letter, t_phrase)
+    other_h = _hyp(o_letter, o_phrase)
     low_profile = (f"Annotator {low.worker} was correct on {low.accuracy:.1%} of the binary calibration records; "
-                   f"report-{target_label} LR={low.target_lr:.3f}, report-{other_label} LR={low.other_lr:.3f}.")
+                   f"report-{t_letter} LR={low.target_lr:.3f}, report-{o_letter} LR={low.other_lr:.3f}.")
     high_profile = (f"Annotator {high.worker} was correct on {high.accuracy:.1%} of the binary calibration records; "
-                    f"report-{target_label} LR={high.target_lr:.3f}, report-{other_label} LR={high.other_lr:.3f}.")
+                    f"report-{t_letter} LR={high.target_lr:.3f}, report-{o_letter} LR={high.other_lr:.3f}.")
     calibration = (
         "Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. "
         "A separate 40% task split preserves the same source ordering in both report directions."
@@ -135,26 +181,32 @@ def make_record(*, dataset_name: str, license_name: str, source_url: str, domain
         "reinstatement_only_restores_source_metadata_gold": True, "matched_length_control_semantically_inert_gold": True,
         "direction_pair_matched_gold": True, "actions_symmetric_gold": True, "natural_setting_gold": True,
     }
+    dom_spec = specs.get("domains", {}).get(str(domain_value), {})
     return {
         "scenario_id": f"{dataset_name}:{domain}:{target_label}v{other_label}:{scenario_index:03d}",
         "domain": domain,
-        "background": f"A new annotation task in {domain} is known, for this binary decision, to have true label {target_label} or {other_label}.",
+        "background": _background(specs, domain_col, domain_value, t_letter, o_letter),
         "calibration_text": calibration,
         "target_hypothesis": target_h, "other_hypothesis": other_h,
-        "target_action": f"accept label {target_label} for the task", "other_action": f"accept label {other_label} for the task",
+        "target_action": f"record option {t_letter} as the accepted answer for this task",
+        "other_action": f"record option {o_letter} as the accepted answer for this task",
         "high_source": f"Annotator {high.worker}", "low_source": f"Annotator {low.worker}",
         "high_source_profile": high_profile, "low_source_profile": low_profile,
         "high_source_reliability": high.accuracy, "low_source_reliability": low.accuracy,
         "low_target_lr": low.target_lr, "high_target_lr": high.target_lr,
         "low_other_lr": low.other_lr, "high_other_lr": high.other_lr,
-        "target_message": f"The annotator reports label {target_label}.",
-        "other_message": f"The annotator reports label {other_label}.",
+        "target_message": f"The annotator reports option {t_letter}.",
+        "other_message": f"The annotator reports option {o_letter}.",
         "short_delay_text": short_delay, "long_delay_text": long_delay,
         "high_source_reinstatement": hi_re, "low_source_reinstatement": lo_re,
         "high_source_length_control": hi_ctrl, "low_source_length_control": lo_ctrl,
         "source": {
             "dataset": dataset_name, "record_id": f"workers={low.worker},{high.worker};labels={target_label},{other_label};seed={seed}",
             "license": license_name, "split": "task-disjoint-60/40", "provenance": "external-derived", "url": source_url,
+            "raw_target_label": int(target_label), "raw_other_label": int(other_label),
+            "option_letters": {str(target_label): t_letter, str(other_label): o_letter},
+            "domain_documented": bool(dom_spec.get("documented", False)),
+            "domain_description_url": specs.get("provenance", {}).get("url"),
             "calibration_low_n_target": low.n_target, "calibration_low_n_other": low.n_other,
             "calibration_high_n_target": high.n_target, "calibration_high_n_other": high.n_other,
             "validation_low_n_target": low_val.n_target, "validation_low_n_other": low_val.n_other,
@@ -169,7 +221,11 @@ def make_record(*, dataset_name: str, license_name: str, source_url: str, domain
 
 def _delay_blocks(g: pd.DataFrame, *, task_col: str, worker_col: str, low_worker: str, high_worker: str,
                   seed: int, taskset_col: str | None, time_col: str | None) -> tuple[str, str]:
-    pool = g[~g[worker_col].astype(str).isin([low_worker, high_worker])].copy()
+    # Exclude whole tasks either focal annotator touched, not merely their own rows: a
+    # task survives row-level filtering through some other worker's annotation, which would
+    # put a focal-source task into the supposedly unrelated administrative delay material.
+    focal_tasks = set(g.loc[g[worker_col].astype(str).isin([low_worker, high_worker]), task_col])
+    pool = g[~g[task_col].isin(focal_tasks)].copy()
     if len(pool.drop_duplicates(subset=[task_col])) < 8:
         raise ValueError("fewer than 8 unrelated administrative tasks available for delay controls")
     pool = pool.drop_duplicates(subset=[task_col]).sort_values(task_col, key=lambda x: x.astype(str))
@@ -193,62 +249,110 @@ def _delay_blocks(g: pd.DataFrame, *, task_col: str, worker_col: str, low_worker
 
 def build_from_csv(path: str, *, dataset_name: str, license_name: str, source_url: str,
                    domain_col: str, task_col: str, worker_col: str, truth_col: str, answer_col: str,
-                   seed: int, min_per_class: int, pairs_per_domain: int,
+                   seed: int, min_per_class: int, max_pairs_per_cell: int = 2,
+                   lr_margin: float = 2.0, domain_specs: dict | None = None,
+                   exclude_domains: Iterable[str] = (),
                    taskset_col: str | None = None, time_col: str | None = None) -> list[dict]:
+    """Freeze source pairs cell-by-cell, where a cell is one (domain, binary label pair).
+
+    A single pair per cell caps the bank at #domains * #label-pairs, which for NetEaseCrowd
+    is 18 — below the frozen >=20 requirement even though the data hold hundreds of
+    qualifying pairs. Allocation is therefore round-robin over cells: every cell contributes
+    its best pair before any cell contributes a second, so extra scenarios never pile up in
+    one capability. Workers stay globally unique across the whole bank.
+    """
+    specs = domain_specs or {}
+    excluded = {str(d) for d in exclude_domains}
     df = pd.read_csv(path)
-    records=[]
-    used_workers: set[str] = set()
-    scenario_counter = 0
+    groups: dict = {}
+    cells: list = []
     for domain_value, g in df.groupby(domain_col, sort=True):
+        # Excluding a domain has to happen before selection, not after: annotators are
+        # unique across the whole bank, so a dropped domain releases its workers back to
+        # the domains that follow it.
+        if str(domain_value) in excluded:
+            continue
+        groups[domain_value] = g
         labels = sorted(set(g[truth_col].dropna().astype(int).unique()))
-        domain_count = 0
-        for target_label, other_label in [(a,b) for i,a in enumerate(labels) for b in labels[i+1:]]:
-            if domain_count >= pairs_per_domain:
-                break
+        for target_label, other_label in [(a, b) for i, a in enumerate(labels) for b in labels[i + 1:]]:
             binary = g[g[truth_col].isin([target_label, other_label])].copy()
             if binary[task_col].nunique() < 2 * min_per_class:
                 continue
-            cal_df, val_df = split_by_task(binary, task_col=task_col, seed=seed + int(target_label)*101 + int(other_label)*1009)
+            cal_df, val_df = split_by_task(binary, task_col=task_col,
+                                           seed=seed + int(target_label) * 101 + int(other_label) * 1009)
             cal = worker_stats(cal_df, worker_col=worker_col, truth_col=truth_col, answer_col=answer_col,
                                target_label=target_label, other_label=other_label, min_per_class=min_per_class)
             val = worker_stats(val_df, worker_col=worker_col, truth_col=truth_col, answer_col=answer_col,
-                               target_label=target_label, other_label=other_label, min_per_class=max(5, min_per_class//2))
-            for pair in stable_worker_pairs(cal, val):
+                               target_label=target_label, other_label=other_label,
+                               min_per_class=max(5, min_per_class // 2))
+            ranked = stable_worker_pairs(cal, val, min_lr_margin=lr_margin)
+            if ranked:
+                cells.append({"domain_value": domain_value, "target": int(target_label),
+                              "other": int(other_label), "ranked": ranked, "taken": 0})
+
+    records: list[dict] = []
+    used_workers: set[str] = set()
+    scenario_counter = 0
+    for slot in range(max_pairs_per_cell):
+        for cell in cells:
+            if cell["taken"] > slot:
+                continue
+            for pair in cell["ranked"]:
                 low, high = pair[0], pair[1]
                 if low.worker in used_workers or high.worker in used_workers:
                     continue
                 scenario_counter += 1
                 short_delay, long_delay = _delay_blocks(
-                    g, task_col=task_col, worker_col=worker_col, low_worker=low.worker, high_worker=high.worker,
+                    groups[cell["domain_value"]], task_col=task_col, worker_col=worker_col,
+                    low_worker=low.worker, high_worker=high.worker,
                     seed=seed + scenario_counter * 7919, taskset_col=taskset_col, time_col=time_col,
                 )
                 records.append(make_record(
                     dataset_name=dataset_name, license_name=license_name, source_url=source_url,
-                    domain=f"{domain_col}-{domain_value}", target_label=int(target_label), other_label=int(other_label),
-                    pair=pair, scenario_index=domain_count + 1, seed=seed,
+                    domain=f"{domain_col}-{cell['domain_value']}", domain_col=domain_col,
+                    domain_value=cell["domain_value"], specs=specs,
+                    target_label=cell["target"], other_label=cell["other"],
+                    pair=pair, scenario_index=cell["taken"] + 1, seed=seed,
                     short_delay=short_delay, long_delay=long_delay,
                 ))
                 used_workers.update([low.worker, high.worker])
-                domain_count += 1
+                cell["taken"] += 1
                 break
     return records
 
 
 def main():
-    ap=argparse.ArgumentParser()
+    ap = argparse.ArgumentParser()
     ap.add_argument('--csv', required=True); ap.add_argument('--dataset-name', required=True)
     ap.add_argument('--license', required=True); ap.add_argument('--source-url', required=True)
     ap.add_argument('--domain-col', required=True); ap.add_argument('--task-col', required=True)
-    ap.add_argument('--worker-col', required=True); ap.add_argument('--truth-col', required=True); ap.add_argument('--answer-col', required=True)
+    ap.add_argument('--worker-col', required=True); ap.add_argument('--truth-col', required=True)
+    ap.add_argument('--answer-col', required=True)
     ap.add_argument('--out', required=True); ap.add_argument('--seed', type=int, default=20260829)
-    ap.add_argument('--min-per-class', type=int, default=20); ap.add_argument('--pairs-per-domain', type=int, default=4)
+    ap.add_argument('--min-per-class', type=int, default=20)
+    ap.add_argument('--max-pairs-per-cell', type=int, default=2,
+                    help='scenarios per (domain, label pair); allocated round-robin across cells')
+    ap.add_argument('--lr-margin', type=float, default=2.0,
+                    help='required high/low separation in both report directions, on both splits')
+    ap.add_argument('--domain-descriptions', help='optional JSON of published per-domain task text')
+    ap.add_argument('--exclude-domain', action='append', default=[],
+                    help='drop a domain value entirely; repeatable')
     ap.add_argument('--taskset-col'); ap.add_argument('--time-col')
-    args=ap.parse_args()
-    rows=build_from_csv(args.csv,dataset_name=args.dataset_name,license_name=args.license,source_url=args.source_url,
-        domain_col=args.domain_col,task_col=args.task_col,worker_col=args.worker_col,truth_col=args.truth_col,answer_col=args.answer_col,
-        seed=args.seed,min_per_class=args.min_per_class,pairs_per_domain=args.pairs_per_domain,
-        taskset_col=args.taskset_col,time_col=args.time_col)
-    Path(args.out).write_text(''.join(json.dumps(r,ensure_ascii=False)+'\n' for r in rows),encoding='utf-8')
-    print(json.dumps({'records':len(rows),'domains':len({r['domain'] for r in rows})},indent=2))
+    args = ap.parse_args()
+    rows = build_from_csv(
+        args.csv, dataset_name=args.dataset_name, license_name=args.license, source_url=args.source_url,
+        domain_col=args.domain_col, task_col=args.task_col, worker_col=args.worker_col,
+        truth_col=args.truth_col, answer_col=args.answer_col, seed=args.seed,
+        min_per_class=args.min_per_class, max_pairs_per_cell=args.max_pairs_per_cell,
+        lr_margin=args.lr_margin, domain_specs=load_domain_specs(args.domain_descriptions),
+        exclude_domains=args.exclude_domain,
+        taskset_col=args.taskset_col, time_col=args.time_col)
+    Path(args.out).write_text(''.join(json.dumps(r, ensure_ascii=False) + '\n' for r in rows), encoding='utf-8')
+    domains = sorted({r['domain'] for r in rows})
+    print(json.dumps({'records': len(rows), 'domains': len(domains),
+                      'unique_workers': len({w for r in rows for w in (r['high_source'], r['low_source'])}),
+                      'per_domain': {d: sum(1 for r in rows if r['domain'] == d) for d in domains}}, indent=2))
 
-if __name__=='__main__': main()
+
+if __name__ == '__main__':
+    main()

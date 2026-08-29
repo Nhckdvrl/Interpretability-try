@@ -1,0 +1,2779 @@
+====================================================================================================
+NetEaseCrowd:capability-126:0v1:002
+====================================================================================================
+
+----- condition: low_immediate  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 126 — an internal task type. Each task offers three response options; the public release records the annotations and audited gold answers but not the question text. For the task at hand the audited gold answer is known to be option A or option B.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 6000: Annotator 6000 was correct on 89.6% of the binary calibration records; report-A LR=22.008, report-B LR=0.042.
+Annotator 6884: Annotator 6884 was correct on 62.4% of the binary calibration records; report-A LR=4.195, report-B LR=0.108.
+
+HYPOTHESES:
+- the audited gold answer for this task is option A
+- the audited gold answer for this task is option B
+
+MESSAGE FROM Annotator 6884:
+The annotator reports option A.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option A
+B. the audited gold answer for this task is option B
+Answer exactly A or B.
+
+----- condition: high_immediate  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 126 — an internal task type. Each task offers three response options; the public release records the annotations and audited gold answers but not the question text. For the task at hand the audited gold answer is known to be option A or option B.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 6000: Annotator 6000 was correct on 89.6% of the binary calibration records; report-A LR=22.008, report-B LR=0.042.
+Annotator 6884: Annotator 6884 was correct on 62.4% of the binary calibration records; report-A LR=4.195, report-B LR=0.108.
+
+HYPOTHESES:
+- the audited gold answer for this task is option A
+- the audited gold answer for this task is option B
+
+MESSAGE FROM Annotator 6000:
+The annotator reports option A.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option A
+B. the audited gold answer for this task is option B
+Answer exactly A or B.
+
+----- condition: low_long  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 126 — an internal task type. Each task offers three response options; the public release records the annotations and audited gold answers but not the question text. For the task at hand the audited gold answer is known to be option A or option B.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 6000: Annotator 6000 was correct on 89.6% of the binary calibration records; report-A LR=22.008, report-B LR=0.042.
+Annotator 6884: Annotator 6884 was correct on 62.4% of the binary calibration records; report-A LR=4.195, report-B LR=0.108.
+
+HYPOTHESES:
+- the audited gold answer for this task is option A
+- the audited gold answer for this task is option B
+
+MESSAGE FROM Annotator 6884:
+The annotator reports option A.
+
+INTERVENING MATERIAL:
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 3000041390764756066 / task-set 8485 / completion-time 1671624972325; task 3000041888980960638 / task-set 8488 / completion-time 1671626163520; task 3000041390764756509 / task-set 8485 / completion-time 1671626486524; task 3000041871801097004 / task-set 8488 / completion-time 1671620153575; task 3000041390764756353 / task-set 8485 / completion-time 1671627567176; task 3000041888980959349 / task-set 8488 / completion-time 1671623251706; task 3000041407944629053 / task-set 8486 / completion-time 1671626001890; task 3000040256893390391 / task-set 8476 / completion-time 1671621463865.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option A
+B. the audited gold answer for this task is option B
+Answer exactly A or B.
+
+----- condition: low_long_reinstated  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 126 — an internal task type. Each task offers three response options; the public release records the annotations and audited gold answers but not the question text. For the task at hand the audited gold answer is known to be option A or option B.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 6000: Annotator 6000 was correct on 89.6% of the binary calibration records; report-A LR=22.008, report-B LR=0.042.
+Annotator 6884: Annotator 6884 was correct on 62.4% of the binary calibration records; report-A LR=4.195, report-B LR=0.108.
+
+HYPOTHESES:
+- the audited gold answer for this task is option A
+- the audited gold answer for this task is option B
+
+MESSAGE FROM Annotator 6884:
+The annotator reports option A.
+
+INTERVENING MATERIAL:
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 3000041390764756066 / task-set 8485 / completion-time 1671624972325; task 3000041888980960638 / task-set 8488 / completion-time 1671626163520; task 3000041390764756509 / task-set 8485 / completion-time 1671626486524; task 3000041871801097004 / task-set 8488 / completion-time 1671620153575; task 3000041390764756353 / task-set 8485 / completion-time 1671627567176; task 3000041888980959349 / task-set 8488 / completion-time 1671623251706; task 3000041407944629053 / task-set 8486 / completion-time 1671626001890; task 3000040256893390391 / task-set 8476 / completion-time 1671621463865.
+
+SOURCE REMINDER:
+Recall that the earlier report came from Annotator 6884. Its audited calibration profile was: Annotator 6884 was correct on 62.4% of the binary calibration records; report-A LR=4.195, report-B LR=0.108.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option A
+B. the audited gold answer for this task is option B
+Answer exactly A or B.
+
+----- condition: low_long_length  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 126 — an internal task type. Each task offers three response options; the public release records the annotations and audited gold answers but not the question text. For the task at hand the audited gold answer is known to be option A or option B.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 6000: Annotator 6000 was correct on 89.6% of the binary calibration records; report-A LR=22.008, report-B LR=0.042.
+Annotator 6884: Annotator 6884 was correct on 62.4% of the binary calibration records; report-A LR=4.195, report-B LR=0.108.
+
+HYPOTHESES:
+- the audited gold answer for this task is option A
+- the audited gold answer for this task is option B
+
+MESSAGE FROM Annotator 6884:
+The annotator reports option A.
+
+INTERVENING MATERIAL:
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 3000041390764756066 / task-set 8485 / completion-time 1671624972325; task 3000041888980960638 / task-set 8488 / completion-time 1671626163520; task 3000041390764756509 / task-set 8485 / completion-time 1671626486524; task 3000041871801097004 / task-set 8488 / completion-time 1671620153575; task 3000041390764756353 / task-set 8485 / completion-time 1671627567176; task 3000041888980959349 / task-set 8488 / completion-time 1671623251706; task 3000041407944629053 / task-set 8486 / completion-time 1671626001890; task 3000040256893390391 / task-set 8476 / completion-time 1671621463865.
+
+CONTROL REMINDER:
+Before deciding, recall that the earlier report remains part of the same annotation record and that the surrounding administrative metadata was generated under the fixed protocol.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option A
+B. the audited gold answer for this task is option B
+Answer exactly A or B.
+
+====================================================================================================
+NetEaseCrowd:capability-126:1v2:002
+====================================================================================================
+
+----- condition: low_immediate  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 126 — an internal task type. Each task offers three response options; the public release records the annotations and audited gold answers but not the question text. For the task at hand the audited gold answer is known to be option B or option C.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 5710: Annotator 5710 was correct on 86.3% of the binary calibration records; report-B LR=8.275, report-C LR=0.067.
+Annotator 8356: Annotator 8356 was correct on 56.4% of the binary calibration records; report-B LR=3.253, report-C LR=0.527.
+
+HYPOTHESES:
+- the audited gold answer for this task is option B
+- the audited gold answer for this task is option C
+
+MESSAGE FROM Annotator 8356:
+The annotator reports option B.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option B
+B. the audited gold answer for this task is option C
+Answer exactly A or B.
+
+----- condition: high_immediate  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 126 — an internal task type. Each task offers three response options; the public release records the annotations and audited gold answers but not the question text. For the task at hand the audited gold answer is known to be option B or option C.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 5710: Annotator 5710 was correct on 86.3% of the binary calibration records; report-B LR=8.275, report-C LR=0.067.
+Annotator 8356: Annotator 8356 was correct on 56.4% of the binary calibration records; report-B LR=3.253, report-C LR=0.527.
+
+HYPOTHESES:
+- the audited gold answer for this task is option B
+- the audited gold answer for this task is option C
+
+MESSAGE FROM Annotator 5710:
+The annotator reports option B.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option B
+B. the audited gold answer for this task is option C
+Answer exactly A or B.
+
+----- condition: low_long  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 126 — an internal task type. Each task offers three response options; the public release records the annotations and audited gold answers but not the question text. For the task at hand the audited gold answer is known to be option B or option C.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 5710: Annotator 5710 was correct on 86.3% of the binary calibration records; report-B LR=8.275, report-C LR=0.067.
+Annotator 8356: Annotator 8356 was correct on 56.4% of the binary calibration records; report-B LR=3.253, report-C LR=0.527.
+
+HYPOTHESES:
+- the audited gold answer for this task is option B
+- the audited gold answer for this task is option C
+
+MESSAGE FROM Annotator 8356:
+The annotator reports option B.
+
+INTERVENING MATERIAL:
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 3000041871801091094 / task-set 8487 / completion-time 1671624448735; task 3000041871801091013 / task-set 8487 / completion-time 1671624278670; task 3000041888980959868 / task-set 8488 / completion-time 1671625598491; task 3000041854621227915 / task-set 8487 / completion-time 1671617400156; task 3000041888980960651 / task-set 8488 / completion-time 1671626150216; task 3000040256893390284 / task-set 8476 / completion-time 1671622006038; task 3000041906160830277 / task-set 8489 / completion-time 1671621087696; task 3000040256893392114 / task-set 8476 / completion-time 1671625957488.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option B
+B. the audited gold answer for this task is option C
+Answer exactly A or B.
+
+----- condition: low_long_reinstated  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 126 — an internal task type. Each task offers three response options; the public release records the annotations and audited gold answers but not the question text. For the task at hand the audited gold answer is known to be option B or option C.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 5710: Annotator 5710 was correct on 86.3% of the binary calibration records; report-B LR=8.275, report-C LR=0.067.
+Annotator 8356: Annotator 8356 was correct on 56.4% of the binary calibration records; report-B LR=3.253, report-C LR=0.527.
+
+HYPOTHESES:
+- the audited gold answer for this task is option B
+- the audited gold answer for this task is option C
+
+MESSAGE FROM Annotator 8356:
+The annotator reports option B.
+
+INTERVENING MATERIAL:
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 3000041871801091094 / task-set 8487 / completion-time 1671624448735; task 3000041871801091013 / task-set 8487 / completion-time 1671624278670; task 3000041888980959868 / task-set 8488 / completion-time 1671625598491; task 3000041854621227915 / task-set 8487 / completion-time 1671617400156; task 3000041888980960651 / task-set 8488 / completion-time 1671626150216; task 3000040256893390284 / task-set 8476 / completion-time 1671622006038; task 3000041906160830277 / task-set 8489 / completion-time 1671621087696; task 3000040256893392114 / task-set 8476 / completion-time 1671625957488.
+
+SOURCE REMINDER:
+Recall that the earlier report came from Annotator 8356. Its audited calibration profile was: Annotator 8356 was correct on 56.4% of the binary calibration records; report-B LR=3.253, report-C LR=0.527.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option B
+B. the audited gold answer for this task is option C
+Answer exactly A or B.
+
+----- condition: low_long_length  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 126 — an internal task type. Each task offers three response options; the public release records the annotations and audited gold answers but not the question text. For the task at hand the audited gold answer is known to be option B or option C.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 5710: Annotator 5710 was correct on 86.3% of the binary calibration records; report-B LR=8.275, report-C LR=0.067.
+Annotator 8356: Annotator 8356 was correct on 56.4% of the binary calibration records; report-B LR=3.253, report-C LR=0.527.
+
+HYPOTHESES:
+- the audited gold answer for this task is option B
+- the audited gold answer for this task is option C
+
+MESSAGE FROM Annotator 8356:
+The annotator reports option B.
+
+INTERVENING MATERIAL:
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 3000041871801091094 / task-set 8487 / completion-time 1671624448735; task 3000041871801091013 / task-set 8487 / completion-time 1671624278670; task 3000041888980959868 / task-set 8488 / completion-time 1671625598491; task 3000041854621227915 / task-set 8487 / completion-time 1671617400156; task 3000041888980960651 / task-set 8488 / completion-time 1671626150216; task 3000040256893390284 / task-set 8476 / completion-time 1671622006038; task 3000041906160830277 / task-set 8489 / completion-time 1671621087696; task 3000040256893392114 / task-set 8476 / completion-time 1671625957488.
+
+CONTROL REMINDER:
+Before deciding, recall that the earlier report remains part of the same annotation record and that the surrounding administrative metadata was generated under the fixed protocol.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option B
+B. the audited gold answer for this task is option C
+Answer exactly A or B.
+
+====================================================================================================
+NetEaseCrowd:capability-50:0v1:001
+====================================================================================================
+
+----- condition: low_immediate  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 50 — expression-similarity filtering. Each task shows three images, and the annotator answers: "Select the image from A, B, and C that looks the least similar in expression to the other two images." For the task at hand the audited gold answer is known to be option A or option B.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 114: Annotator 114 was correct on 96.2% of the binary calibration records; report-A LR=18.750, report-B LR=0.022.
+Annotator 2185: Annotator 2185 was correct on 55.1% of the binary calibration records; report-A LR=2.455, report-B LR=0.837.
+
+HYPOTHESES:
+- the audited gold answer for this task is option A (image A)
+- the audited gold answer for this task is option B (image B)
+
+MESSAGE FROM Annotator 2185:
+The annotator reports option A.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option A (image A)
+B. the audited gold answer for this task is option B (image B)
+Answer exactly A or B.
+
+----- condition: high_immediate  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 50 — expression-similarity filtering. Each task shows three images, and the annotator answers: "Select the image from A, B, and C that looks the least similar in expression to the other two images." For the task at hand the audited gold answer is known to be option A or option B.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 114: Annotator 114 was correct on 96.2% of the binary calibration records; report-A LR=18.750, report-B LR=0.022.
+Annotator 2185: Annotator 2185 was correct on 55.1% of the binary calibration records; report-A LR=2.455, report-B LR=0.837.
+
+HYPOTHESES:
+- the audited gold answer for this task is option A (image A)
+- the audited gold answer for this task is option B (image B)
+
+MESSAGE FROM Annotator 114:
+The annotator reports option A.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option A (image A)
+B. the audited gold answer for this task is option B (image B)
+Answer exactly A or B.
+
+----- condition: low_long  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 50 — expression-similarity filtering. Each task shows three images, and the annotator answers: "Select the image from A, B, and C that looks the least similar in expression to the other two images." For the task at hand the audited gold answer is known to be option A or option B.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 114: Annotator 114 was correct on 96.2% of the binary calibration records; report-A LR=18.750, report-B LR=0.022.
+Annotator 2185: Annotator 2185 was correct on 55.1% of the binary calibration records; report-A LR=2.455, report-B LR=0.837.
+
+HYPOTHESES:
+- the audited gold answer for this task is option A (image A)
+- the audited gold answer for this task is option B (image B)
+
+MESSAGE FROM Annotator 2185:
+The annotator reports option A.
+
+INTERVENING MATERIAL:
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 2999780754969368756 / task-set 8202 / completion-time 1670297525076; task 2999780720609627408 / task-set 8201 / completion-time 1670335574006; task 2999619676515897250 / task-set 7786 / completion-time 1667969949621; task 2999780772149232726 / task-set 8202 / completion-time 1670397126985; task 2999781717042043620 / task-set 8204 / completion-time 1670375509941; task 3000250675931154794 / task-set 8851 / completion-time 1673409773695; task 2999781699862169594 / task-set 8203 / completion-time 1670391952753; task 2999781717042042424 / task-set 8204 / completion-time 1670375549099.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option A (image A)
+B. the audited gold answer for this task is option B (image B)
+Answer exactly A or B.
+
+----- condition: low_long_reinstated  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 50 — expression-similarity filtering. Each task shows three images, and the annotator answers: "Select the image from A, B, and C that looks the least similar in expression to the other two images." For the task at hand the audited gold answer is known to be option A or option B.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 114: Annotator 114 was correct on 96.2% of the binary calibration records; report-A LR=18.750, report-B LR=0.022.
+Annotator 2185: Annotator 2185 was correct on 55.1% of the binary calibration records; report-A LR=2.455, report-B LR=0.837.
+
+HYPOTHESES:
+- the audited gold answer for this task is option A (image A)
+- the audited gold answer for this task is option B (image B)
+
+MESSAGE FROM Annotator 2185:
+The annotator reports option A.
+
+INTERVENING MATERIAL:
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 2999780754969368756 / task-set 8202 / completion-time 1670297525076; task 2999780720609627408 / task-set 8201 / completion-time 1670335574006; task 2999619676515897250 / task-set 7786 / completion-time 1667969949621; task 2999780772149232726 / task-set 8202 / completion-time 1670397126985; task 2999781717042043620 / task-set 8204 / completion-time 1670375509941; task 3000250675931154794 / task-set 8851 / completion-time 1673409773695; task 2999781699862169594 / task-set 8203 / completion-time 1670391952753; task 2999781717042042424 / task-set 8204 / completion-time 1670375549099.
+
+SOURCE REMINDER:
+Recall that the earlier report came from Annotator 2185. Its audited calibration profile was: Annotator 2185 was correct on 55.1% of the binary calibration records; report-A LR=2.455, report-B LR=0.837.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option A (image A)
+B. the audited gold answer for this task is option B (image B)
+Answer exactly A or B.
+
+----- condition: low_long_length  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 50 — expression-similarity filtering. Each task shows three images, and the annotator answers: "Select the image from A, B, and C that looks the least similar in expression to the other two images." For the task at hand the audited gold answer is known to be option A or option B.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 114: Annotator 114 was correct on 96.2% of the binary calibration records; report-A LR=18.750, report-B LR=0.022.
+Annotator 2185: Annotator 2185 was correct on 55.1% of the binary calibration records; report-A LR=2.455, report-B LR=0.837.
+
+HYPOTHESES:
+- the audited gold answer for this task is option A (image A)
+- the audited gold answer for this task is option B (image B)
+
+MESSAGE FROM Annotator 2185:
+The annotator reports option A.
+
+INTERVENING MATERIAL:
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 2999780754969368756 / task-set 8202 / completion-time 1670297525076; task 2999780720609627408 / task-set 8201 / completion-time 1670335574006; task 2999619676515897250 / task-set 7786 / completion-time 1667969949621; task 2999780772149232726 / task-set 8202 / completion-time 1670397126985; task 2999781717042043620 / task-set 8204 / completion-time 1670375509941; task 3000250675931154794 / task-set 8851 / completion-time 1673409773695; task 2999781699862169594 / task-set 8203 / completion-time 1670391952753; task 2999781717042042424 / task-set 8204 / completion-time 1670375549099.
+
+CONTROL REMINDER:
+Before deciding, recall that the earlier report remains part of the same annotation record and that the surrounding administrative metadata was generated under the fixed protocol.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option A (image A)
+B. the audited gold answer for this task is option B (image B)
+Answer exactly A or B.
+
+====================================================================================================
+NetEaseCrowd:capability-50:0v2:001
+====================================================================================================
+
+----- condition: low_immediate  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 50 — expression-similarity filtering. Each task shows three images, and the annotator answers: "Select the image from A, B, and C that looks the least similar in expression to the other two images." For the task at hand the audited gold answer is known to be option A or option C.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 7736: Annotator 7736 was correct on 85.1% of the binary calibration records; report-A LR=6.621, report-C LR=0.138.
+Annotator 7799: Annotator 7799 was correct on 56.5% of the binary calibration records; report-A LR=2.440, report-C LR=0.334.
+
+HYPOTHESES:
+- the audited gold answer for this task is option A (image A)
+- the audited gold answer for this task is option C (image C)
+
+MESSAGE FROM Annotator 7799:
+The annotator reports option A.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option A (image A)
+B. the audited gold answer for this task is option C (image C)
+Answer exactly A or B.
+
+----- condition: high_immediate  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 50 — expression-similarity filtering. Each task shows three images, and the annotator answers: "Select the image from A, B, and C that looks the least similar in expression to the other two images." For the task at hand the audited gold answer is known to be option A or option C.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 7736: Annotator 7736 was correct on 85.1% of the binary calibration records; report-A LR=6.621, report-C LR=0.138.
+Annotator 7799: Annotator 7799 was correct on 56.5% of the binary calibration records; report-A LR=2.440, report-C LR=0.334.
+
+HYPOTHESES:
+- the audited gold answer for this task is option A (image A)
+- the audited gold answer for this task is option C (image C)
+
+MESSAGE FROM Annotator 7736:
+The annotator reports option A.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option A (image A)
+B. the audited gold answer for this task is option C (image C)
+Answer exactly A or B.
+
+----- condition: low_long  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 50 — expression-similarity filtering. Each task shows three images, and the annotator answers: "Select the image from A, B, and C that looks the least similar in expression to the other two images." For the task at hand the audited gold answer is known to be option A or option C.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 7736: Annotator 7736 was correct on 85.1% of the binary calibration records; report-A LR=6.621, report-C LR=0.138.
+Annotator 7799: Annotator 7799 was correct on 56.5% of the binary calibration records; report-A LR=2.440, report-C LR=0.334.
+
+HYPOTHESES:
+- the audited gold answer for this task is option A (image A)
+- the audited gold answer for this task is option C (image C)
+
+MESSAGE FROM Annotator 7799:
+The annotator reports option A.
+
+INTERVENING MATERIAL:
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 2999781906020598320 / task-set 8205 / completion-time 1670322857212; task 2999780720609628589 / task-set 8201 / completion-time 1670338764740; task 3000250624391550535 / task-set 8850 / completion-time 1673340256772; task 3000306733844300849 / task-set 8879 / completion-time 1673417524202; task 2999619676515897032 / task-set 7786 / completion-time 1667965361525; task 2999595281101653305 / task-set 7712 / completion-time 1665887414975; task 3000250572851945169 / task-set 8848 / completion-time 1673343391995; task 3000250658751285775 / task-set 8850 / completion-time 1673347874446.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option A (image A)
+B. the audited gold answer for this task is option C (image C)
+Answer exactly A or B.
+
+----- condition: low_long_reinstated  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 50 — expression-similarity filtering. Each task shows three images, and the annotator answers: "Select the image from A, B, and C that looks the least similar in expression to the other two images." For the task at hand the audited gold answer is known to be option A or option C.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 7736: Annotator 7736 was correct on 85.1% of the binary calibration records; report-A LR=6.621, report-C LR=0.138.
+Annotator 7799: Annotator 7799 was correct on 56.5% of the binary calibration records; report-A LR=2.440, report-C LR=0.334.
+
+HYPOTHESES:
+- the audited gold answer for this task is option A (image A)
+- the audited gold answer for this task is option C (image C)
+
+MESSAGE FROM Annotator 7799:
+The annotator reports option A.
+
+INTERVENING MATERIAL:
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 2999781906020598320 / task-set 8205 / completion-time 1670322857212; task 2999780720609628589 / task-set 8201 / completion-time 1670338764740; task 3000250624391550535 / task-set 8850 / completion-time 1673340256772; task 3000306733844300849 / task-set 8879 / completion-time 1673417524202; task 2999619676515897032 / task-set 7786 / completion-time 1667965361525; task 2999595281101653305 / task-set 7712 / completion-time 1665887414975; task 3000250572851945169 / task-set 8848 / completion-time 1673343391995; task 3000250658751285775 / task-set 8850 / completion-time 1673347874446.
+
+SOURCE REMINDER:
+Recall that the earlier report came from Annotator 7799. Its audited calibration profile was: Annotator 7799 was correct on 56.5% of the binary calibration records; report-A LR=2.440, report-C LR=0.334.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option A (image A)
+B. the audited gold answer for this task is option C (image C)
+Answer exactly A or B.
+
+----- condition: low_long_length  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 50 — expression-similarity filtering. Each task shows three images, and the annotator answers: "Select the image from A, B, and C that looks the least similar in expression to the other two images." For the task at hand the audited gold answer is known to be option A or option C.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 7736: Annotator 7736 was correct on 85.1% of the binary calibration records; report-A LR=6.621, report-C LR=0.138.
+Annotator 7799: Annotator 7799 was correct on 56.5% of the binary calibration records; report-A LR=2.440, report-C LR=0.334.
+
+HYPOTHESES:
+- the audited gold answer for this task is option A (image A)
+- the audited gold answer for this task is option C (image C)
+
+MESSAGE FROM Annotator 7799:
+The annotator reports option A.
+
+INTERVENING MATERIAL:
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 2999781906020598320 / task-set 8205 / completion-time 1670322857212; task 2999780720609628589 / task-set 8201 / completion-time 1670338764740; task 3000250624391550535 / task-set 8850 / completion-time 1673340256772; task 3000306733844300849 / task-set 8879 / completion-time 1673417524202; task 2999619676515897032 / task-set 7786 / completion-time 1667965361525; task 2999595281101653305 / task-set 7712 / completion-time 1665887414975; task 3000250572851945169 / task-set 8848 / completion-time 1673343391995; task 3000250658751285775 / task-set 8850 / completion-time 1673347874446.
+
+CONTROL REMINDER:
+Before deciding, recall that the earlier report remains part of the same annotation record and that the surrounding administrative metadata was generated under the fixed protocol.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option A (image A)
+B. the audited gold answer for this task is option C (image C)
+Answer exactly A or B.
+
+====================================================================================================
+NetEaseCrowd:capability-50:1v2:001
+====================================================================================================
+
+----- condition: low_immediate  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 50 — expression-similarity filtering. Each task shows three images, and the annotator answers: "Select the image from A, B, and C that looks the least similar in expression to the other two images." For the task at hand the audited gold answer is known to be option B or option C.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 1679: Annotator 1679 was correct on 96.2% of the binary calibration records; report-B LR=15.805, report-C LR=0.018.
+Annotator 4802: Annotator 4802 was correct on 56.0% of the binary calibration records; report-B LR=2.562, report-C LR=0.390.
+
+HYPOTHESES:
+- the audited gold answer for this task is option B (image B)
+- the audited gold answer for this task is option C (image C)
+
+MESSAGE FROM Annotator 4802:
+The annotator reports option B.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option B (image B)
+B. the audited gold answer for this task is option C (image C)
+Answer exactly A or B.
+
+----- condition: high_immediate  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 50 — expression-similarity filtering. Each task shows three images, and the annotator answers: "Select the image from A, B, and C that looks the least similar in expression to the other two images." For the task at hand the audited gold answer is known to be option B or option C.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 1679: Annotator 1679 was correct on 96.2% of the binary calibration records; report-B LR=15.805, report-C LR=0.018.
+Annotator 4802: Annotator 4802 was correct on 56.0% of the binary calibration records; report-B LR=2.562, report-C LR=0.390.
+
+HYPOTHESES:
+- the audited gold answer for this task is option B (image B)
+- the audited gold answer for this task is option C (image C)
+
+MESSAGE FROM Annotator 1679:
+The annotator reports option B.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option B (image B)
+B. the audited gold answer for this task is option C (image C)
+Answer exactly A or B.
+
+----- condition: low_long  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 50 — expression-similarity filtering. Each task shows three images, and the annotator answers: "Select the image from A, B, and C that looks the least similar in expression to the other two images." For the task at hand the audited gold answer is known to be option B or option C.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 1679: Annotator 1679 was correct on 96.2% of the binary calibration records; report-B LR=15.805, report-C LR=0.018.
+Annotator 4802: Annotator 4802 was correct on 56.0% of the binary calibration records; report-B LR=2.562, report-C LR=0.390.
+
+HYPOTHESES:
+- the audited gold answer for this task is option B (image B)
+- the audited gold answer for this task is option C (image C)
+
+MESSAGE FROM Annotator 4802:
+The annotator reports option B.
+
+INTERVENING MATERIAL:
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 3000250624391545078 / task-set 8849 / completion-time 1673354114588; task 3000250624391548827 / task-set 8850 / completion-time 1673334453218; task 3000250675931160478 / task-set 8851 / completion-time 1673415993877; task 2999619693695763056 / task-set 7787 / completion-time 1667972340724; task 3000250658751285834 / task-set 8850 / completion-time 1673349495515; task 2999780720609628026 / task-set 8201 / completion-time 1670394537666; task 3000250624391550760 / task-set 8850 / completion-time 1673339899275; task 2999781923200470426 / task-set 8206 / completion-time 1670314577549.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option B (image B)
+B. the audited gold answer for this task is option C (image C)
+Answer exactly A or B.
+
+----- condition: low_long_reinstated  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 50 — expression-similarity filtering. Each task shows three images, and the annotator answers: "Select the image from A, B, and C that looks the least similar in expression to the other two images." For the task at hand the audited gold answer is known to be option B or option C.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 1679: Annotator 1679 was correct on 96.2% of the binary calibration records; report-B LR=15.805, report-C LR=0.018.
+Annotator 4802: Annotator 4802 was correct on 56.0% of the binary calibration records; report-B LR=2.562, report-C LR=0.390.
+
+HYPOTHESES:
+- the audited gold answer for this task is option B (image B)
+- the audited gold answer for this task is option C (image C)
+
+MESSAGE FROM Annotator 4802:
+The annotator reports option B.
+
+INTERVENING MATERIAL:
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 3000250624391545078 / task-set 8849 / completion-time 1673354114588; task 3000250624391548827 / task-set 8850 / completion-time 1673334453218; task 3000250675931160478 / task-set 8851 / completion-time 1673415993877; task 2999619693695763056 / task-set 7787 / completion-time 1667972340724; task 3000250658751285834 / task-set 8850 / completion-time 1673349495515; task 2999780720609628026 / task-set 8201 / completion-time 1670394537666; task 3000250624391550760 / task-set 8850 / completion-time 1673339899275; task 2999781923200470426 / task-set 8206 / completion-time 1670314577549.
+
+SOURCE REMINDER:
+Recall that the earlier report came from Annotator 4802. Its audited calibration profile was: Annotator 4802 was correct on 56.0% of the binary calibration records; report-B LR=2.562, report-C LR=0.390.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option B (image B)
+B. the audited gold answer for this task is option C (image C)
+Answer exactly A or B.
+
+----- condition: low_long_length  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 50 — expression-similarity filtering. Each task shows three images, and the annotator answers: "Select the image from A, B, and C that looks the least similar in expression to the other two images." For the task at hand the audited gold answer is known to be option B or option C.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 1679: Annotator 1679 was correct on 96.2% of the binary calibration records; report-B LR=15.805, report-C LR=0.018.
+Annotator 4802: Annotator 4802 was correct on 56.0% of the binary calibration records; report-B LR=2.562, report-C LR=0.390.
+
+HYPOTHESES:
+- the audited gold answer for this task is option B (image B)
+- the audited gold answer for this task is option C (image C)
+
+MESSAGE FROM Annotator 4802:
+The annotator reports option B.
+
+INTERVENING MATERIAL:
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 3000250624391545078 / task-set 8849 / completion-time 1673354114588; task 3000250624391548827 / task-set 8850 / completion-time 1673334453218; task 3000250675931160478 / task-set 8851 / completion-time 1673415993877; task 2999619693695763056 / task-set 7787 / completion-time 1667972340724; task 3000250658751285834 / task-set 8850 / completion-time 1673349495515; task 2999780720609628026 / task-set 8201 / completion-time 1670394537666; task 3000250624391550760 / task-set 8850 / completion-time 1673339899275; task 2999781923200470426 / task-set 8206 / completion-time 1670314577549.
+
+CONTROL REMINDER:
+Before deciding, recall that the earlier report remains part of the same annotation record and that the surrounding administrative metadata was generated under the fixed protocol.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option B (image B)
+B. the audited gold answer for this task is option C (image C)
+Answer exactly A or B.
+
+====================================================================================================
+NetEaseCrowd:capability-52:0v1:001
+====================================================================================================
+
+----- condition: low_immediate  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 52 — naturalness-of-expression judgment. Each task shows three images, and the annotator answers: "Select the most natural expression from the three images below." For the task at hand the audited gold answer is known to be option A or option B.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 91: Annotator 91 was correct on 88.7% of the binary calibration records; report-A LR=6.668, report-B LR=0.032.
+Annotator 249: Annotator 249 was correct on 65.3% of the binary calibration records; report-A LR=1.740, report-B LR=0.464.
+
+HYPOTHESES:
+- the audited gold answer for this task is option A (image A)
+- the audited gold answer for this task is option B (image B)
+
+MESSAGE FROM Annotator 249:
+The annotator reports option A.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option A (image A)
+B. the audited gold answer for this task is option B (image B)
+Answer exactly A or B.
+
+----- condition: high_immediate  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 52 — naturalness-of-expression judgment. Each task shows three images, and the annotator answers: "Select the most natural expression from the three images below." For the task at hand the audited gold answer is known to be option A or option B.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 91: Annotator 91 was correct on 88.7% of the binary calibration records; report-A LR=6.668, report-B LR=0.032.
+Annotator 249: Annotator 249 was correct on 65.3% of the binary calibration records; report-A LR=1.740, report-B LR=0.464.
+
+HYPOTHESES:
+- the audited gold answer for this task is option A (image A)
+- the audited gold answer for this task is option B (image B)
+
+MESSAGE FROM Annotator 91:
+The annotator reports option A.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option A (image A)
+B. the audited gold answer for this task is option B (image B)
+Answer exactly A or B.
+
+----- condition: low_long  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 52 — naturalness-of-expression judgment. Each task shows three images, and the annotator answers: "Select the most natural expression from the three images below." For the task at hand the audited gold answer is known to be option A or option B.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 91: Annotator 91 was correct on 88.7% of the binary calibration records; report-A LR=6.668, report-B LR=0.032.
+Annotator 249: Annotator 249 was correct on 65.3% of the binary calibration records; report-A LR=1.740, report-B LR=0.464.
+
+HYPOTHESES:
+- the audited gold answer for this task is option A (image A)
+- the audited gold answer for this task is option B (image B)
+
+MESSAGE FROM Annotator 249:
+The annotator reports option A.
+
+INTERVENING MATERIAL:
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 984447162295255392 / task-set 2347 / completion-time 1654763737700; task 984412902276464704 / task-set 2308 / completion-time 1654748334499; task 984452937180774464 / task-set 2376 / completion-time 1654755038002; task 984447161712247168 / task-set 2347 / completion-time 1654763661000; task 984418993961959488 / task-set 2330 / completion-time 1654764854316; task 984412365233586560 / task-set 2305 / completion-time 1654745933920; task 984447348077756768 / task-set 2348 / completion-time 1654759942113; task 984453786531529024 / task-set 2382 / completion-time 1654755394372.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option A (image A)
+B. the audited gold answer for this task is option B (image B)
+Answer exactly A or B.
+
+----- condition: low_long_reinstated  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 52 — naturalness-of-expression judgment. Each task shows three images, and the annotator answers: "Select the most natural expression from the three images below." For the task at hand the audited gold answer is known to be option A or option B.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 91: Annotator 91 was correct on 88.7% of the binary calibration records; report-A LR=6.668, report-B LR=0.032.
+Annotator 249: Annotator 249 was correct on 65.3% of the binary calibration records; report-A LR=1.740, report-B LR=0.464.
+
+HYPOTHESES:
+- the audited gold answer for this task is option A (image A)
+- the audited gold answer for this task is option B (image B)
+
+MESSAGE FROM Annotator 249:
+The annotator reports option A.
+
+INTERVENING MATERIAL:
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 984447162295255392 / task-set 2347 / completion-time 1654763737700; task 984412902276464704 / task-set 2308 / completion-time 1654748334499; task 984452937180774464 / task-set 2376 / completion-time 1654755038002; task 984447161712247168 / task-set 2347 / completion-time 1654763661000; task 984418993961959488 / task-set 2330 / completion-time 1654764854316; task 984412365233586560 / task-set 2305 / completion-time 1654745933920; task 984447348077756768 / task-set 2348 / completion-time 1654759942113; task 984453786531529024 / task-set 2382 / completion-time 1654755394372.
+
+SOURCE REMINDER:
+Recall that the earlier report came from Annotator 249. Its audited calibration profile was: Annotator 249 was correct on 65.3% of the binary calibration records; report-A LR=1.740, report-B LR=0.464.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option A (image A)
+B. the audited gold answer for this task is option B (image B)
+Answer exactly A or B.
+
+----- condition: low_long_length  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 52 — naturalness-of-expression judgment. Each task shows three images, and the annotator answers: "Select the most natural expression from the three images below." For the task at hand the audited gold answer is known to be option A or option B.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 91: Annotator 91 was correct on 88.7% of the binary calibration records; report-A LR=6.668, report-B LR=0.032.
+Annotator 249: Annotator 249 was correct on 65.3% of the binary calibration records; report-A LR=1.740, report-B LR=0.464.
+
+HYPOTHESES:
+- the audited gold answer for this task is option A (image A)
+- the audited gold answer for this task is option B (image B)
+
+MESSAGE FROM Annotator 249:
+The annotator reports option A.
+
+INTERVENING MATERIAL:
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 984447162295255392 / task-set 2347 / completion-time 1654763737700; task 984412902276464704 / task-set 2308 / completion-time 1654748334499; task 984452937180774464 / task-set 2376 / completion-time 1654755038002; task 984447161712247168 / task-set 2347 / completion-time 1654763661000; task 984418993961959488 / task-set 2330 / completion-time 1654764854316; task 984412365233586560 / task-set 2305 / completion-time 1654745933920; task 984447348077756768 / task-set 2348 / completion-time 1654759942113; task 984453786531529024 / task-set 2382 / completion-time 1654755394372.
+
+CONTROL REMINDER:
+Before deciding, recall that the earlier report remains part of the same annotation record and that the surrounding administrative metadata was generated under the fixed protocol.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option A (image A)
+B. the audited gold answer for this task is option B (image B)
+Answer exactly A or B.
+
+====================================================================================================
+NetEaseCrowd:capability-52:0v1:002
+====================================================================================================
+
+----- condition: low_immediate  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 52 — naturalness-of-expression judgment. Each task shows three images, and the annotator answers: "Select the most natural expression from the three images below." For the task at hand the audited gold answer is known to be option A or option B.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 126: Annotator 126 was correct on 82.5% of the binary calibration records; report-A LR=5.274, report-B LR=0.065.
+Annotator 67: Annotator 67 was correct on 68.6% of the binary calibration records; report-A LR=2.059, report-B LR=0.367.
+
+HYPOTHESES:
+- the audited gold answer for this task is option A (image A)
+- the audited gold answer for this task is option B (image B)
+
+MESSAGE FROM Annotator 67:
+The annotator reports option A.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option A (image A)
+B. the audited gold answer for this task is option B (image B)
+Answer exactly A or B.
+
+----- condition: high_immediate  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 52 — naturalness-of-expression judgment. Each task shows three images, and the annotator answers: "Select the most natural expression from the three images below." For the task at hand the audited gold answer is known to be option A or option B.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 126: Annotator 126 was correct on 82.5% of the binary calibration records; report-A LR=5.274, report-B LR=0.065.
+Annotator 67: Annotator 67 was correct on 68.6% of the binary calibration records; report-A LR=2.059, report-B LR=0.367.
+
+HYPOTHESES:
+- the audited gold answer for this task is option A (image A)
+- the audited gold answer for this task is option B (image B)
+
+MESSAGE FROM Annotator 126:
+The annotator reports option A.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option A (image A)
+B. the audited gold answer for this task is option B (image B)
+Answer exactly A or B.
+
+----- condition: low_long  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 52 — naturalness-of-expression judgment. Each task shows three images, and the annotator answers: "Select the most natural expression from the three images below." For the task at hand the audited gold answer is known to be option A or option B.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 126: Annotator 126 was correct on 82.5% of the binary calibration records; report-A LR=5.274, report-B LR=0.065.
+Annotator 67: Annotator 67 was correct on 68.6% of the binary calibration records; report-A LR=2.059, report-B LR=0.367.
+
+HYPOTHESES:
+- the audited gold answer for this task is option A (image A)
+- the audited gold answer for this task is option B (image B)
+
+MESSAGE FROM Annotator 67:
+The annotator reports option A.
+
+INTERVENING MATERIAL:
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 984412013545390464 / task-set 2303 / completion-time 1654748054006; task 984456333921091936 / task-set 2388 / completion-time 1654763384770; task 984094083079209024 / task-set 2288 / completion-time 1654670452908; task 984456331559698496 / task-set 2388 / completion-time 1654763367309; task 984092660320960864 / task-set 2283 / completion-time 1654674460763; task 984450020805706048 / task-set 2361 / completion-time 1654758525916; task 984412535945953664 / task-set 2306 / completion-time 1654749439464; task 984458013148447072 / task-set 2399 / completion-time 1654761846145.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option A (image A)
+B. the audited gold answer for this task is option B (image B)
+Answer exactly A or B.
+
+----- condition: low_long_reinstated  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 52 — naturalness-of-expression judgment. Each task shows three images, and the annotator answers: "Select the most natural expression from the three images below." For the task at hand the audited gold answer is known to be option A or option B.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 126: Annotator 126 was correct on 82.5% of the binary calibration records; report-A LR=5.274, report-B LR=0.065.
+Annotator 67: Annotator 67 was correct on 68.6% of the binary calibration records; report-A LR=2.059, report-B LR=0.367.
+
+HYPOTHESES:
+- the audited gold answer for this task is option A (image A)
+- the audited gold answer for this task is option B (image B)
+
+MESSAGE FROM Annotator 67:
+The annotator reports option A.
+
+INTERVENING MATERIAL:
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 984412013545390464 / task-set 2303 / completion-time 1654748054006; task 984456333921091936 / task-set 2388 / completion-time 1654763384770; task 984094083079209024 / task-set 2288 / completion-time 1654670452908; task 984456331559698496 / task-set 2388 / completion-time 1654763367309; task 984092660320960864 / task-set 2283 / completion-time 1654674460763; task 984450020805706048 / task-set 2361 / completion-time 1654758525916; task 984412535945953664 / task-set 2306 / completion-time 1654749439464; task 984458013148447072 / task-set 2399 / completion-time 1654761846145.
+
+SOURCE REMINDER:
+Recall that the earlier report came from Annotator 67. Its audited calibration profile was: Annotator 67 was correct on 68.6% of the binary calibration records; report-A LR=2.059, report-B LR=0.367.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option A (image A)
+B. the audited gold answer for this task is option B (image B)
+Answer exactly A or B.
+
+----- condition: low_long_length  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 52 — naturalness-of-expression judgment. Each task shows three images, and the annotator answers: "Select the most natural expression from the three images below." For the task at hand the audited gold answer is known to be option A or option B.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 126: Annotator 126 was correct on 82.5% of the binary calibration records; report-A LR=5.274, report-B LR=0.065.
+Annotator 67: Annotator 67 was correct on 68.6% of the binary calibration records; report-A LR=2.059, report-B LR=0.367.
+
+HYPOTHESES:
+- the audited gold answer for this task is option A (image A)
+- the audited gold answer for this task is option B (image B)
+
+MESSAGE FROM Annotator 67:
+The annotator reports option A.
+
+INTERVENING MATERIAL:
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 984412013545390464 / task-set 2303 / completion-time 1654748054006; task 984456333921091936 / task-set 2388 / completion-time 1654763384770; task 984094083079209024 / task-set 2288 / completion-time 1654670452908; task 984456331559698496 / task-set 2388 / completion-time 1654763367309; task 984092660320960864 / task-set 2283 / completion-time 1654674460763; task 984450020805706048 / task-set 2361 / completion-time 1654758525916; task 984412535945953664 / task-set 2306 / completion-time 1654749439464; task 984458013148447072 / task-set 2399 / completion-time 1654761846145.
+
+CONTROL REMINDER:
+Before deciding, recall that the earlier report remains part of the same annotation record and that the surrounding administrative metadata was generated under the fixed protocol.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option A (image A)
+B. the audited gold answer for this task is option B (image B)
+Answer exactly A or B.
+
+====================================================================================================
+NetEaseCrowd:capability-52:0v2:001
+====================================================================================================
+
+----- condition: low_immediate  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 52 — naturalness-of-expression judgment. Each task shows three images, and the annotator answers: "Select the most natural expression from the three images below." For the task at hand the audited gold answer is known to be option A or option C.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 113: Annotator 113 was correct on 84.8% of the binary calibration records; report-A LR=7.761, report-C LR=0.084.
+Annotator 59: Annotator 59 was correct on 59.9% of the binary calibration records; report-A LR=2.147, report-C LR=0.410.
+
+HYPOTHESES:
+- the audited gold answer for this task is option A (image A)
+- the audited gold answer for this task is option C (image C)
+
+MESSAGE FROM Annotator 59:
+The annotator reports option A.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option A (image A)
+B. the audited gold answer for this task is option C (image C)
+Answer exactly A or B.
+
+----- condition: high_immediate  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 52 — naturalness-of-expression judgment. Each task shows three images, and the annotator answers: "Select the most natural expression from the three images below." For the task at hand the audited gold answer is known to be option A or option C.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 113: Annotator 113 was correct on 84.8% of the binary calibration records; report-A LR=7.761, report-C LR=0.084.
+Annotator 59: Annotator 59 was correct on 59.9% of the binary calibration records; report-A LR=2.147, report-C LR=0.410.
+
+HYPOTHESES:
+- the audited gold answer for this task is option A (image A)
+- the audited gold answer for this task is option C (image C)
+
+MESSAGE FROM Annotator 113:
+The annotator reports option A.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option A (image A)
+B. the audited gold answer for this task is option C (image C)
+Answer exactly A or B.
+
+----- condition: low_long  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 52 — naturalness-of-expression judgment. Each task shows three images, and the annotator answers: "Select the most natural expression from the three images below." For the task at hand the audited gold answer is known to be option A or option C.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 113: Annotator 113 was correct on 84.8% of the binary calibration records; report-A LR=7.761, report-C LR=0.084.
+Annotator 59: Annotator 59 was correct on 59.9% of the binary calibration records; report-A LR=2.147, report-C LR=0.410.
+
+HYPOTHESES:
+- the audited gold answer for this task is option A (image A)
+- the audited gold answer for this task is option C (image C)
+
+MESSAGE FROM Annotator 59:
+The annotator reports option A.
+
+INTERVENING MATERIAL:
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 984449728013926720 / task-set 2359 / completion-time 1654758732875; task 984418852869767488 / task-set 2329 / completion-time 1654754882676; task 984416534459842912 / task-set 2323 / completion-time 1654748560717; task 984415463268155744 / task-set 2321 / completion-time 1654745581094; task 984457087977259072 / task-set 2393 / completion-time 1654761707433; task 984093456479551840 / task-set 2286 / completion-time 1654671945081; task 984416530634637664 / task-set 2323 / completion-time 1654748409564; task 984414962979963200 / task-set 2318 / completion-time 1654744779714.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option A (image A)
+B. the audited gold answer for this task is option C (image C)
+Answer exactly A or B.
+
+----- condition: low_long_reinstated  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 52 — naturalness-of-expression judgment. Each task shows three images, and the annotator answers: "Select the most natural expression from the three images below." For the task at hand the audited gold answer is known to be option A or option C.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 113: Annotator 113 was correct on 84.8% of the binary calibration records; report-A LR=7.761, report-C LR=0.084.
+Annotator 59: Annotator 59 was correct on 59.9% of the binary calibration records; report-A LR=2.147, report-C LR=0.410.
+
+HYPOTHESES:
+- the audited gold answer for this task is option A (image A)
+- the audited gold answer for this task is option C (image C)
+
+MESSAGE FROM Annotator 59:
+The annotator reports option A.
+
+INTERVENING MATERIAL:
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 984449728013926720 / task-set 2359 / completion-time 1654758732875; task 984418852869767488 / task-set 2329 / completion-time 1654754882676; task 984416534459842912 / task-set 2323 / completion-time 1654748560717; task 984415463268155744 / task-set 2321 / completion-time 1654745581094; task 984457087977259072 / task-set 2393 / completion-time 1654761707433; task 984093456479551840 / task-set 2286 / completion-time 1654671945081; task 984416530634637664 / task-set 2323 / completion-time 1654748409564; task 984414962979963200 / task-set 2318 / completion-time 1654744779714.
+
+SOURCE REMINDER:
+Recall that the earlier report came from Annotator 59. Its audited calibration profile was: Annotator 59 was correct on 59.9% of the binary calibration records; report-A LR=2.147, report-C LR=0.410.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option A (image A)
+B. the audited gold answer for this task is option C (image C)
+Answer exactly A or B.
+
+----- condition: low_long_length  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 52 — naturalness-of-expression judgment. Each task shows three images, and the annotator answers: "Select the most natural expression from the three images below." For the task at hand the audited gold answer is known to be option A or option C.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 113: Annotator 113 was correct on 84.8% of the binary calibration records; report-A LR=7.761, report-C LR=0.084.
+Annotator 59: Annotator 59 was correct on 59.9% of the binary calibration records; report-A LR=2.147, report-C LR=0.410.
+
+HYPOTHESES:
+- the audited gold answer for this task is option A (image A)
+- the audited gold answer for this task is option C (image C)
+
+MESSAGE FROM Annotator 59:
+The annotator reports option A.
+
+INTERVENING MATERIAL:
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 984449728013926720 / task-set 2359 / completion-time 1654758732875; task 984418852869767488 / task-set 2329 / completion-time 1654754882676; task 984416534459842912 / task-set 2323 / completion-time 1654748560717; task 984415463268155744 / task-set 2321 / completion-time 1654745581094; task 984457087977259072 / task-set 2393 / completion-time 1654761707433; task 984093456479551840 / task-set 2286 / completion-time 1654671945081; task 984416530634637664 / task-set 2323 / completion-time 1654748409564; task 984414962979963200 / task-set 2318 / completion-time 1654744779714.
+
+CONTROL REMINDER:
+Before deciding, recall that the earlier report remains part of the same annotation record and that the surrounding administrative metadata was generated under the fixed protocol.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option A (image A)
+B. the audited gold answer for this task is option C (image C)
+Answer exactly A or B.
+
+====================================================================================================
+NetEaseCrowd:capability-53:0v1:001
+====================================================================================================
+
+----- condition: low_immediate  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 53 — facial-similarity screening. Each task shows three faces, and the annotator answers: "Choose the face that is least like the other two from the following three faces." For the task at hand the audited gold answer is known to be option A or option B.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 99: Annotator 99 was correct on 79.9% of the binary calibration records; report-A LR=6.142, report-B LR=0.159.
+Annotator 3322: Annotator 3322 was correct on 56.7% of the binary calibration records; report-A LR=2.641, report-B LR=0.425.
+
+HYPOTHESES:
+- the audited gold answer for this task is option A (face A)
+- the audited gold answer for this task is option B (face B)
+
+MESSAGE FROM Annotator 3322:
+The annotator reports option A.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option A (face A)
+B. the audited gold answer for this task is option B (face B)
+Answer exactly A or B.
+
+----- condition: high_immediate  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 53 — facial-similarity screening. Each task shows three faces, and the annotator answers: "Choose the face that is least like the other two from the following three faces." For the task at hand the audited gold answer is known to be option A or option B.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 99: Annotator 99 was correct on 79.9% of the binary calibration records; report-A LR=6.142, report-B LR=0.159.
+Annotator 3322: Annotator 3322 was correct on 56.7% of the binary calibration records; report-A LR=2.641, report-B LR=0.425.
+
+HYPOTHESES:
+- the audited gold answer for this task is option A (face A)
+- the audited gold answer for this task is option B (face B)
+
+MESSAGE FROM Annotator 99:
+The annotator reports option A.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option A (face A)
+B. the audited gold answer for this task is option B (face B)
+Answer exactly A or B.
+
+----- condition: low_long  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 53 — facial-similarity screening. Each task shows three faces, and the annotator answers: "Choose the face that is least like the other two from the following three faces." For the task at hand the audited gold answer is known to be option A or option B.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 99: Annotator 99 was correct on 79.9% of the binary calibration records; report-A LR=6.142, report-B LR=0.159.
+Annotator 3322: Annotator 3322 was correct on 56.7% of the binary calibration records; report-A LR=2.641, report-B LR=0.425.
+
+HYPOTHESES:
+- the audited gold answer for this task is option A (face A)
+- the audited gold answer for this task is option B (face B)
+
+MESSAGE FROM Annotator 3322:
+The annotator reports option A.
+
+INTERVENING MATERIAL:
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 2999587481441047659 / task-set 7377 / completion-time 1665556111382; task 987376088638292352 / task-set 3627 / completion-time 1655945327916; task 2999615793865460576 / task-set 7750 / completion-time 1667892193449; task 2999587447081310165 / task-set 7374 / completion-time 1666690191885; task 987378092240535872 / task-set 3650 / completion-time 1655902001358; task 2999603630518076165 / task-set 7756 / completion-time 1667387214099; task 2999618800342567821 / task-set 7751 / completion-time 1667741127001; task 2999582963135453036 / task-set 7371 / completion-time 1667535067294.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option A (face A)
+B. the audited gold answer for this task is option B (face B)
+Answer exactly A or B.
+
+----- condition: low_long_reinstated  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 53 — facial-similarity screening. Each task shows three faces, and the annotator answers: "Choose the face that is least like the other two from the following three faces." For the task at hand the audited gold answer is known to be option A or option B.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 99: Annotator 99 was correct on 79.9% of the binary calibration records; report-A LR=6.142, report-B LR=0.159.
+Annotator 3322: Annotator 3322 was correct on 56.7% of the binary calibration records; report-A LR=2.641, report-B LR=0.425.
+
+HYPOTHESES:
+- the audited gold answer for this task is option A (face A)
+- the audited gold answer for this task is option B (face B)
+
+MESSAGE FROM Annotator 3322:
+The annotator reports option A.
+
+INTERVENING MATERIAL:
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 2999587481441047659 / task-set 7377 / completion-time 1665556111382; task 987376088638292352 / task-set 3627 / completion-time 1655945327916; task 2999615793865460576 / task-set 7750 / completion-time 1667892193449; task 2999587447081310165 / task-set 7374 / completion-time 1666690191885; task 987378092240535872 / task-set 3650 / completion-time 1655902001358; task 2999603630518076165 / task-set 7756 / completion-time 1667387214099; task 2999618800342567821 / task-set 7751 / completion-time 1667741127001; task 2999582963135453036 / task-set 7371 / completion-time 1667535067294.
+
+SOURCE REMINDER:
+Recall that the earlier report came from Annotator 3322. Its audited calibration profile was: Annotator 3322 was correct on 56.7% of the binary calibration records; report-A LR=2.641, report-B LR=0.425.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option A (face A)
+B. the audited gold answer for this task is option B (face B)
+Answer exactly A or B.
+
+----- condition: low_long_length  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 53 — facial-similarity screening. Each task shows three faces, and the annotator answers: "Choose the face that is least like the other two from the following three faces." For the task at hand the audited gold answer is known to be option A or option B.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 99: Annotator 99 was correct on 79.9% of the binary calibration records; report-A LR=6.142, report-B LR=0.159.
+Annotator 3322: Annotator 3322 was correct on 56.7% of the binary calibration records; report-A LR=2.641, report-B LR=0.425.
+
+HYPOTHESES:
+- the audited gold answer for this task is option A (face A)
+- the audited gold answer for this task is option B (face B)
+
+MESSAGE FROM Annotator 3322:
+The annotator reports option A.
+
+INTERVENING MATERIAL:
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 2999587481441047659 / task-set 7377 / completion-time 1665556111382; task 987376088638292352 / task-set 3627 / completion-time 1655945327916; task 2999615793865460576 / task-set 7750 / completion-time 1667892193449; task 2999587447081310165 / task-set 7374 / completion-time 1666690191885; task 987378092240535872 / task-set 3650 / completion-time 1655902001358; task 2999603630518076165 / task-set 7756 / completion-time 1667387214099; task 2999618800342567821 / task-set 7751 / completion-time 1667741127001; task 2999582963135453036 / task-set 7371 / completion-time 1667535067294.
+
+CONTROL REMINDER:
+Before deciding, recall that the earlier report remains part of the same annotation record and that the surrounding administrative metadata was generated under the fixed protocol.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option A (face A)
+B. the audited gold answer for this task is option B (face B)
+Answer exactly A or B.
+
+====================================================================================================
+NetEaseCrowd:capability-53:0v1:002
+====================================================================================================
+
+----- condition: low_immediate  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 53 — facial-similarity screening. Each task shows three faces, and the annotator answers: "Choose the face that is least like the other two from the following three faces." For the task at hand the audited gold answer is known to be option A or option B.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 2359: Annotator 2359 was correct on 78.8% of the binary calibration records; report-A LR=6.979, report-B LR=0.146.
+Annotator 2443: Annotator 2443 was correct on 55.4% of the binary calibration records; report-A LR=2.971, report-B LR=0.490.
+
+HYPOTHESES:
+- the audited gold answer for this task is option A (face A)
+- the audited gold answer for this task is option B (face B)
+
+MESSAGE FROM Annotator 2443:
+The annotator reports option A.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option A (face A)
+B. the audited gold answer for this task is option B (face B)
+Answer exactly A or B.
+
+----- condition: high_immediate  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 53 — facial-similarity screening. Each task shows three faces, and the annotator answers: "Choose the face that is least like the other two from the following three faces." For the task at hand the audited gold answer is known to be option A or option B.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 2359: Annotator 2359 was correct on 78.8% of the binary calibration records; report-A LR=6.979, report-B LR=0.146.
+Annotator 2443: Annotator 2443 was correct on 55.4% of the binary calibration records; report-A LR=2.971, report-B LR=0.490.
+
+HYPOTHESES:
+- the audited gold answer for this task is option A (face A)
+- the audited gold answer for this task is option B (face B)
+
+MESSAGE FROM Annotator 2359:
+The annotator reports option A.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option A (face A)
+B. the audited gold answer for this task is option B (face B)
+Answer exactly A or B.
+
+----- condition: low_long  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 53 — facial-similarity screening. Each task shows three faces, and the annotator answers: "Choose the face that is least like the other two from the following three faces." For the task at hand the audited gold answer is known to be option A or option B.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 2359: Annotator 2359 was correct on 78.8% of the binary calibration records; report-A LR=6.979, report-B LR=0.146.
+Annotator 2443: Annotator 2443 was correct on 55.4% of the binary calibration records; report-A LR=2.971, report-B LR=0.490.
+
+HYPOTHESES:
+- the audited gold answer for this task is option A (face A)
+- the audited gold answer for this task is option B (face B)
+
+MESSAGE FROM Annotator 2443:
+The annotator reports option A.
+
+INTERVENING MATERIAL:
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 2999582963135448965 / task-set 7370 / completion-time 1665472974696; task 2999587464261174549 / task-set 7375 / completion-time 1666861531695; task 2999587447081307142 / task-set 7374 / completion-time 1666706960109; task 2999602840244100317 / task-set 7753 / completion-time 1667291608686; task 2999618800342569170 / task-set 7751 / completion-time 1667809040904; task 2999602874603837949 / task-set 7756 / completion-time 1667309649044; task 2999582945955582701 / task-set 7369 / completion-time 1665363101055; task 2999587447081309304 / task-set 7374 / completion-time 1666856491809.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option A (face A)
+B. the audited gold answer for this task is option B (face B)
+Answer exactly A or B.
+
+----- condition: low_long_reinstated  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 53 — facial-similarity screening. Each task shows three faces, and the annotator answers: "Choose the face that is least like the other two from the following three faces." For the task at hand the audited gold answer is known to be option A or option B.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 2359: Annotator 2359 was correct on 78.8% of the binary calibration records; report-A LR=6.979, report-B LR=0.146.
+Annotator 2443: Annotator 2443 was correct on 55.4% of the binary calibration records; report-A LR=2.971, report-B LR=0.490.
+
+HYPOTHESES:
+- the audited gold answer for this task is option A (face A)
+- the audited gold answer for this task is option B (face B)
+
+MESSAGE FROM Annotator 2443:
+The annotator reports option A.
+
+INTERVENING MATERIAL:
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 2999582963135448965 / task-set 7370 / completion-time 1665472974696; task 2999587464261174549 / task-set 7375 / completion-time 1666861531695; task 2999587447081307142 / task-set 7374 / completion-time 1666706960109; task 2999602840244100317 / task-set 7753 / completion-time 1667291608686; task 2999618800342569170 / task-set 7751 / completion-time 1667809040904; task 2999602874603837949 / task-set 7756 / completion-time 1667309649044; task 2999582945955582701 / task-set 7369 / completion-time 1665363101055; task 2999587447081309304 / task-set 7374 / completion-time 1666856491809.
+
+SOURCE REMINDER:
+Recall that the earlier report came from Annotator 2443. Its audited calibration profile was: Annotator 2443 was correct on 55.4% of the binary calibration records; report-A LR=2.971, report-B LR=0.490.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option A (face A)
+B. the audited gold answer for this task is option B (face B)
+Answer exactly A or B.
+
+----- condition: low_long_length  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 53 — facial-similarity screening. Each task shows three faces, and the annotator answers: "Choose the face that is least like the other two from the following three faces." For the task at hand the audited gold answer is known to be option A or option B.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 2359: Annotator 2359 was correct on 78.8% of the binary calibration records; report-A LR=6.979, report-B LR=0.146.
+Annotator 2443: Annotator 2443 was correct on 55.4% of the binary calibration records; report-A LR=2.971, report-B LR=0.490.
+
+HYPOTHESES:
+- the audited gold answer for this task is option A (face A)
+- the audited gold answer for this task is option B (face B)
+
+MESSAGE FROM Annotator 2443:
+The annotator reports option A.
+
+INTERVENING MATERIAL:
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 2999582963135448965 / task-set 7370 / completion-time 1665472974696; task 2999587464261174549 / task-set 7375 / completion-time 1666861531695; task 2999587447081307142 / task-set 7374 / completion-time 1666706960109; task 2999602840244100317 / task-set 7753 / completion-time 1667291608686; task 2999618800342569170 / task-set 7751 / completion-time 1667809040904; task 2999602874603837949 / task-set 7756 / completion-time 1667309649044; task 2999582945955582701 / task-set 7369 / completion-time 1665363101055; task 2999587447081309304 / task-set 7374 / completion-time 1666856491809.
+
+CONTROL REMINDER:
+Before deciding, recall that the earlier report remains part of the same annotation record and that the surrounding administrative metadata was generated under the fixed protocol.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option A (face A)
+B. the audited gold answer for this task is option B (face B)
+Answer exactly A or B.
+
+====================================================================================================
+NetEaseCrowd:capability-53:0v2:001
+====================================================================================================
+
+----- condition: low_immediate  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 53 — facial-similarity screening. Each task shows three faces, and the annotator answers: "Choose the face that is least like the other two from the following three faces." For the task at hand the audited gold answer is known to be option A or option C.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 1329: Annotator 1329 was correct on 70.0% of the binary calibration records; report-A LR=6.307, report-C LR=0.228.
+Annotator 1874: Annotator 1874 was correct on 55.7% of the binary calibration records; report-A LR=3.009, report-C LR=0.472.
+
+HYPOTHESES:
+- the audited gold answer for this task is option A (face A)
+- the audited gold answer for this task is option C (face C)
+
+MESSAGE FROM Annotator 1874:
+The annotator reports option A.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option A (face A)
+B. the audited gold answer for this task is option C (face C)
+Answer exactly A or B.
+
+----- condition: high_immediate  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 53 — facial-similarity screening. Each task shows three faces, and the annotator answers: "Choose the face that is least like the other two from the following three faces." For the task at hand the audited gold answer is known to be option A or option C.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 1329: Annotator 1329 was correct on 70.0% of the binary calibration records; report-A LR=6.307, report-C LR=0.228.
+Annotator 1874: Annotator 1874 was correct on 55.7% of the binary calibration records; report-A LR=3.009, report-C LR=0.472.
+
+HYPOTHESES:
+- the audited gold answer for this task is option A (face A)
+- the audited gold answer for this task is option C (face C)
+
+MESSAGE FROM Annotator 1329:
+The annotator reports option A.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option A (face A)
+B. the audited gold answer for this task is option C (face C)
+Answer exactly A or B.
+
+----- condition: low_long  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 53 — facial-similarity screening. Each task shows three faces, and the annotator answers: "Choose the face that is least like the other two from the following three faces." For the task at hand the audited gold answer is known to be option A or option C.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 1329: Annotator 1329 was correct on 70.0% of the binary calibration records; report-A LR=6.307, report-C LR=0.228.
+Annotator 1874: Annotator 1874 was correct on 55.7% of the binary calibration records; report-A LR=3.009, report-C LR=0.472.
+
+HYPOTHESES:
+- the audited gold answer for this task is option A (face A)
+- the audited gold answer for this task is option C (face C)
+
+MESSAGE FROM Annotator 1874:
+The annotator reports option A.
+
+INTERVENING MATERIAL:
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 2999602874603833317 / task-set 7755 / completion-time 1667400637420; task 987373111479370048 / task-set 3593 / completion-time 1655956253108; task 987374415673033088 / task-set 3608 / completion-time 1655954060988; task 987376345275171168 / task-set 3630 / completion-time 1655951372318; task 2999618783162701925 / task-set 7752 / completion-time 1667609897849; task 2999587481441049293 / task-set 7377 / completion-time 1665566274958; task 2999618800342567183 / task-set 7751 / completion-time 1667632728531; task 2999618800342568452 / task-set 7751 / completion-time 1667633690485.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option A (face A)
+B. the audited gold answer for this task is option C (face C)
+Answer exactly A or B.
+
+----- condition: low_long_reinstated  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 53 — facial-similarity screening. Each task shows three faces, and the annotator answers: "Choose the face that is least like the other two from the following three faces." For the task at hand the audited gold answer is known to be option A or option C.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 1329: Annotator 1329 was correct on 70.0% of the binary calibration records; report-A LR=6.307, report-C LR=0.228.
+Annotator 1874: Annotator 1874 was correct on 55.7% of the binary calibration records; report-A LR=3.009, report-C LR=0.472.
+
+HYPOTHESES:
+- the audited gold answer for this task is option A (face A)
+- the audited gold answer for this task is option C (face C)
+
+MESSAGE FROM Annotator 1874:
+The annotator reports option A.
+
+INTERVENING MATERIAL:
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 2999602874603833317 / task-set 7755 / completion-time 1667400637420; task 987373111479370048 / task-set 3593 / completion-time 1655956253108; task 987374415673033088 / task-set 3608 / completion-time 1655954060988; task 987376345275171168 / task-set 3630 / completion-time 1655951372318; task 2999618783162701925 / task-set 7752 / completion-time 1667609897849; task 2999587481441049293 / task-set 7377 / completion-time 1665566274958; task 2999618800342567183 / task-set 7751 / completion-time 1667632728531; task 2999618800342568452 / task-set 7751 / completion-time 1667633690485.
+
+SOURCE REMINDER:
+Recall that the earlier report came from Annotator 1874. Its audited calibration profile was: Annotator 1874 was correct on 55.7% of the binary calibration records; report-A LR=3.009, report-C LR=0.472.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option A (face A)
+B. the audited gold answer for this task is option C (face C)
+Answer exactly A or B.
+
+----- condition: low_long_length  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 53 — facial-similarity screening. Each task shows three faces, and the annotator answers: "Choose the face that is least like the other two from the following three faces." For the task at hand the audited gold answer is known to be option A or option C.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 1329: Annotator 1329 was correct on 70.0% of the binary calibration records; report-A LR=6.307, report-C LR=0.228.
+Annotator 1874: Annotator 1874 was correct on 55.7% of the binary calibration records; report-A LR=3.009, report-C LR=0.472.
+
+HYPOTHESES:
+- the audited gold answer for this task is option A (face A)
+- the audited gold answer for this task is option C (face C)
+
+MESSAGE FROM Annotator 1874:
+The annotator reports option A.
+
+INTERVENING MATERIAL:
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 2999602874603833317 / task-set 7755 / completion-time 1667400637420; task 987373111479370048 / task-set 3593 / completion-time 1655956253108; task 987374415673033088 / task-set 3608 / completion-time 1655954060988; task 987376345275171168 / task-set 3630 / completion-time 1655951372318; task 2999618783162701925 / task-set 7752 / completion-time 1667609897849; task 2999587481441049293 / task-set 7377 / completion-time 1665566274958; task 2999618800342567183 / task-set 7751 / completion-time 1667632728531; task 2999618800342568452 / task-set 7751 / completion-time 1667633690485.
+
+CONTROL REMINDER:
+Before deciding, recall that the earlier report remains part of the same annotation record and that the surrounding administrative metadata was generated under the fixed protocol.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option A (face A)
+B. the audited gold answer for this task is option C (face C)
+Answer exactly A or B.
+
+====================================================================================================
+NetEaseCrowd:capability-53:0v2:002
+====================================================================================================
+
+----- condition: low_immediate  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 53 — facial-similarity screening. Each task shows three faces, and the annotator answers: "Choose the face that is least like the other two from the following three faces." For the task at hand the audited gold answer is known to be option A or option C.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 1054: Annotator 1054 was correct on 69.2% of the binary calibration records; report-A LR=6.321, report-C LR=0.162.
+Annotator 2731: Annotator 2731 was correct on 55.5% of the binary calibration records; report-A LR=2.535, report-C LR=0.392.
+
+HYPOTHESES:
+- the audited gold answer for this task is option A (face A)
+- the audited gold answer for this task is option C (face C)
+
+MESSAGE FROM Annotator 2731:
+The annotator reports option A.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option A (face A)
+B. the audited gold answer for this task is option C (face C)
+Answer exactly A or B.
+
+----- condition: high_immediate  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 53 — facial-similarity screening. Each task shows three faces, and the annotator answers: "Choose the face that is least like the other two from the following three faces." For the task at hand the audited gold answer is known to be option A or option C.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 1054: Annotator 1054 was correct on 69.2% of the binary calibration records; report-A LR=6.321, report-C LR=0.162.
+Annotator 2731: Annotator 2731 was correct on 55.5% of the binary calibration records; report-A LR=2.535, report-C LR=0.392.
+
+HYPOTHESES:
+- the audited gold answer for this task is option A (face A)
+- the audited gold answer for this task is option C (face C)
+
+MESSAGE FROM Annotator 1054:
+The annotator reports option A.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option A (face A)
+B. the audited gold answer for this task is option C (face C)
+Answer exactly A or B.
+
+----- condition: low_long  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 53 — facial-similarity screening. Each task shows three faces, and the annotator answers: "Choose the face that is least like the other two from the following three faces." For the task at hand the audited gold answer is known to be option A or option C.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 1054: Annotator 1054 was correct on 69.2% of the binary calibration records; report-A LR=6.321, report-C LR=0.162.
+Annotator 2731: Annotator 2731 was correct on 55.5% of the binary calibration records; report-A LR=2.535, report-C LR=0.392.
+
+HYPOTHESES:
+- the audited gold answer for this task is option A (face A)
+- the audited gold answer for this task is option C (face C)
+
+MESSAGE FROM Annotator 2731:
+The annotator reports option A.
+
+INTERVENING MATERIAL:
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 2999582963135453954 / task-set 7371 / completion-time 1665378825584; task 2999618800342567298 / task-set 7751 / completion-time 1667652515270; task 2999615793865457964 / task-set 7750 / completion-time 1667784542082; task 987370744193220960 / task-set 3566 / completion-time 1655959625967; task 2999602857423970274 / task-set 7755 / completion-time 1667303274819; task 2999615793865460466 / task-set 7750 / completion-time 1667889791495; task 987373812586643840 / task-set 3601 / completion-time 1655956118511; task 2999602840244097811 / task-set 7753 / completion-time 1667219434288.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option A (face A)
+B. the audited gold answer for this task is option C (face C)
+Answer exactly A or B.
+
+----- condition: low_long_reinstated  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 53 — facial-similarity screening. Each task shows three faces, and the annotator answers: "Choose the face that is least like the other two from the following three faces." For the task at hand the audited gold answer is known to be option A or option C.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 1054: Annotator 1054 was correct on 69.2% of the binary calibration records; report-A LR=6.321, report-C LR=0.162.
+Annotator 2731: Annotator 2731 was correct on 55.5% of the binary calibration records; report-A LR=2.535, report-C LR=0.392.
+
+HYPOTHESES:
+- the audited gold answer for this task is option A (face A)
+- the audited gold answer for this task is option C (face C)
+
+MESSAGE FROM Annotator 2731:
+The annotator reports option A.
+
+INTERVENING MATERIAL:
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 2999582963135453954 / task-set 7371 / completion-time 1665378825584; task 2999618800342567298 / task-set 7751 / completion-time 1667652515270; task 2999615793865457964 / task-set 7750 / completion-time 1667784542082; task 987370744193220960 / task-set 3566 / completion-time 1655959625967; task 2999602857423970274 / task-set 7755 / completion-time 1667303274819; task 2999615793865460466 / task-set 7750 / completion-time 1667889791495; task 987373812586643840 / task-set 3601 / completion-time 1655956118511; task 2999602840244097811 / task-set 7753 / completion-time 1667219434288.
+
+SOURCE REMINDER:
+Recall that the earlier report came from Annotator 2731. Its audited calibration profile was: Annotator 2731 was correct on 55.5% of the binary calibration records; report-A LR=2.535, report-C LR=0.392.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option A (face A)
+B. the audited gold answer for this task is option C (face C)
+Answer exactly A or B.
+
+----- condition: low_long_length  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 53 — facial-similarity screening. Each task shows three faces, and the annotator answers: "Choose the face that is least like the other two from the following three faces." For the task at hand the audited gold answer is known to be option A or option C.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 1054: Annotator 1054 was correct on 69.2% of the binary calibration records; report-A LR=6.321, report-C LR=0.162.
+Annotator 2731: Annotator 2731 was correct on 55.5% of the binary calibration records; report-A LR=2.535, report-C LR=0.392.
+
+HYPOTHESES:
+- the audited gold answer for this task is option A (face A)
+- the audited gold answer for this task is option C (face C)
+
+MESSAGE FROM Annotator 2731:
+The annotator reports option A.
+
+INTERVENING MATERIAL:
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 2999582963135453954 / task-set 7371 / completion-time 1665378825584; task 2999618800342567298 / task-set 7751 / completion-time 1667652515270; task 2999615793865457964 / task-set 7750 / completion-time 1667784542082; task 987370744193220960 / task-set 3566 / completion-time 1655959625967; task 2999602857423970274 / task-set 7755 / completion-time 1667303274819; task 2999615793865460466 / task-set 7750 / completion-time 1667889791495; task 987373812586643840 / task-set 3601 / completion-time 1655956118511; task 2999602840244097811 / task-set 7753 / completion-time 1667219434288.
+
+CONTROL REMINDER:
+Before deciding, recall that the earlier report remains part of the same annotation record and that the surrounding administrative metadata was generated under the fixed protocol.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option A (face A)
+B. the audited gold answer for this task is option C (face C)
+Answer exactly A or B.
+
+====================================================================================================
+NetEaseCrowd:capability-53:1v2:001
+====================================================================================================
+
+----- condition: low_immediate  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 53 — facial-similarity screening. Each task shows three faces, and the annotator answers: "Choose the face that is least like the other two from the following three faces." For the task at hand the audited gold answer is known to be option B or option C.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 2274: Annotator 2274 was correct on 79.7% of the binary calibration records; report-B LR=6.657, report-C LR=0.096.
+Annotator 2116: Annotator 2116 was correct on 55.2% of the binary calibration records; report-B LR=1.927, report-C LR=0.504.
+
+HYPOTHESES:
+- the audited gold answer for this task is option B (face B)
+- the audited gold answer for this task is option C (face C)
+
+MESSAGE FROM Annotator 2116:
+The annotator reports option B.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option B (face B)
+B. the audited gold answer for this task is option C (face C)
+Answer exactly A or B.
+
+----- condition: high_immediate  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 53 — facial-similarity screening. Each task shows three faces, and the annotator answers: "Choose the face that is least like the other two from the following three faces." For the task at hand the audited gold answer is known to be option B or option C.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 2274: Annotator 2274 was correct on 79.7% of the binary calibration records; report-B LR=6.657, report-C LR=0.096.
+Annotator 2116: Annotator 2116 was correct on 55.2% of the binary calibration records; report-B LR=1.927, report-C LR=0.504.
+
+HYPOTHESES:
+- the audited gold answer for this task is option B (face B)
+- the audited gold answer for this task is option C (face C)
+
+MESSAGE FROM Annotator 2274:
+The annotator reports option B.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option B (face B)
+B. the audited gold answer for this task is option C (face C)
+Answer exactly A or B.
+
+----- condition: low_long  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 53 — facial-similarity screening. Each task shows three faces, and the annotator answers: "Choose the face that is least like the other two from the following three faces." For the task at hand the audited gold answer is known to be option B or option C.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 2274: Annotator 2274 was correct on 79.7% of the binary calibration records; report-B LR=6.657, report-C LR=0.096.
+Annotator 2116: Annotator 2116 was correct on 55.2% of the binary calibration records; report-B LR=1.927, report-C LR=0.504.
+
+HYPOTHESES:
+- the audited gold answer for this task is option B (face B)
+- the audited gold answer for this task is option C (face C)
+
+MESSAGE FROM Annotator 2116:
+The annotator reports option B.
+
+INTERVENING MATERIAL:
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 2999615759505727080 / task-set 7750 / completion-time 1667711195969; task 2999587464261173271 / task-set 7375 / completion-time 1666929462042; task 2999587464261179166 / task-set 7376 / completion-time 1665558623603; task 2999615793865464765 / task-set 7749 / completion-time 1667830152630; task 987370396275704192 / task-set 3562 / completion-time 1655956163776; task 2999587481441048419 / task-set 7377 / completion-time 1665733136308; task 2999618800342565594 / task-set 7752 / completion-time 1667742042513; task 2999582945955582717 / task-set 7369 / completion-time 1665316084083.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option B (face B)
+B. the audited gold answer for this task is option C (face C)
+Answer exactly A or B.
+
+----- condition: low_long_reinstated  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 53 — facial-similarity screening. Each task shows three faces, and the annotator answers: "Choose the face that is least like the other two from the following three faces." For the task at hand the audited gold answer is known to be option B or option C.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 2274: Annotator 2274 was correct on 79.7% of the binary calibration records; report-B LR=6.657, report-C LR=0.096.
+Annotator 2116: Annotator 2116 was correct on 55.2% of the binary calibration records; report-B LR=1.927, report-C LR=0.504.
+
+HYPOTHESES:
+- the audited gold answer for this task is option B (face B)
+- the audited gold answer for this task is option C (face C)
+
+MESSAGE FROM Annotator 2116:
+The annotator reports option B.
+
+INTERVENING MATERIAL:
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 2999615759505727080 / task-set 7750 / completion-time 1667711195969; task 2999587464261173271 / task-set 7375 / completion-time 1666929462042; task 2999587464261179166 / task-set 7376 / completion-time 1665558623603; task 2999615793865464765 / task-set 7749 / completion-time 1667830152630; task 987370396275704192 / task-set 3562 / completion-time 1655956163776; task 2999587481441048419 / task-set 7377 / completion-time 1665733136308; task 2999618800342565594 / task-set 7752 / completion-time 1667742042513; task 2999582945955582717 / task-set 7369 / completion-time 1665316084083.
+
+SOURCE REMINDER:
+Recall that the earlier report came from Annotator 2116. Its audited calibration profile was: Annotator 2116 was correct on 55.2% of the binary calibration records; report-B LR=1.927, report-C LR=0.504.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option B (face B)
+B. the audited gold answer for this task is option C (face C)
+Answer exactly A or B.
+
+----- condition: low_long_length  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 53 — facial-similarity screening. Each task shows three faces, and the annotator answers: "Choose the face that is least like the other two from the following three faces." For the task at hand the audited gold answer is known to be option B or option C.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 2274: Annotator 2274 was correct on 79.7% of the binary calibration records; report-B LR=6.657, report-C LR=0.096.
+Annotator 2116: Annotator 2116 was correct on 55.2% of the binary calibration records; report-B LR=1.927, report-C LR=0.504.
+
+HYPOTHESES:
+- the audited gold answer for this task is option B (face B)
+- the audited gold answer for this task is option C (face C)
+
+MESSAGE FROM Annotator 2116:
+The annotator reports option B.
+
+INTERVENING MATERIAL:
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 2999615759505727080 / task-set 7750 / completion-time 1667711195969; task 2999587464261173271 / task-set 7375 / completion-time 1666929462042; task 2999587464261179166 / task-set 7376 / completion-time 1665558623603; task 2999615793865464765 / task-set 7749 / completion-time 1667830152630; task 987370396275704192 / task-set 3562 / completion-time 1655956163776; task 2999587481441048419 / task-set 7377 / completion-time 1665733136308; task 2999618800342565594 / task-set 7752 / completion-time 1667742042513; task 2999582945955582717 / task-set 7369 / completion-time 1665316084083.
+
+CONTROL REMINDER:
+Before deciding, recall that the earlier report remains part of the same annotation record and that the surrounding administrative metadata was generated under the fixed protocol.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option B (face B)
+B. the audited gold answer for this task is option C (face C)
+Answer exactly A or B.
+
+====================================================================================================
+NetEaseCrowd:capability-53:1v2:002
+====================================================================================================
+
+----- condition: low_immediate  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 53 — facial-similarity screening. Each task shows three faces, and the annotator answers: "Choose the face that is least like the other two from the following three faces." For the task at hand the audited gold answer is known to be option B or option C.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 773: Annotator 773 was correct on 73.0% of the binary calibration records; report-B LR=7.000, report-C LR=0.158.
+Annotator 1682: Annotator 1682 was correct on 56.6% of the binary calibration records; report-B LR=2.287, report-C LR=0.439.
+
+HYPOTHESES:
+- the audited gold answer for this task is option B (face B)
+- the audited gold answer for this task is option C (face C)
+
+MESSAGE FROM Annotator 1682:
+The annotator reports option B.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option B (face B)
+B. the audited gold answer for this task is option C (face C)
+Answer exactly A or B.
+
+----- condition: high_immediate  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 53 — facial-similarity screening. Each task shows three faces, and the annotator answers: "Choose the face that is least like the other two from the following three faces." For the task at hand the audited gold answer is known to be option B or option C.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 773: Annotator 773 was correct on 73.0% of the binary calibration records; report-B LR=7.000, report-C LR=0.158.
+Annotator 1682: Annotator 1682 was correct on 56.6% of the binary calibration records; report-B LR=2.287, report-C LR=0.439.
+
+HYPOTHESES:
+- the audited gold answer for this task is option B (face B)
+- the audited gold answer for this task is option C (face C)
+
+MESSAGE FROM Annotator 773:
+The annotator reports option B.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option B (face B)
+B. the audited gold answer for this task is option C (face C)
+Answer exactly A or B.
+
+----- condition: low_long  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 53 — facial-similarity screening. Each task shows three faces, and the annotator answers: "Choose the face that is least like the other two from the following three faces." For the task at hand the audited gold answer is known to be option B or option C.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 773: Annotator 773 was correct on 73.0% of the binary calibration records; report-B LR=7.000, report-C LR=0.158.
+Annotator 1682: Annotator 1682 was correct on 56.6% of the binary calibration records; report-B LR=2.287, report-C LR=0.439.
+
+HYPOTHESES:
+- the audited gold answer for this task is option B (face B)
+- the audited gold answer for this task is option C (face C)
+
+MESSAGE FROM Annotator 1682:
+The annotator reports option B.
+
+INTERVENING MATERIAL:
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 2999582963135451455 / task-set 7370 / completion-time 1665327675008; task 2999615793865465702 / task-set 7749 / completion-time 1667875070705; task 2999602840244095932 / task-set 7753 / completion-time 1667210472406; task 2999602857423967874 / task-set 7754 / completion-time 1667223809050; task 2999615793865459482 / task-set 7750 / completion-time 1667888513796; task 2999587481441048138 / task-set 7377 / completion-time 1665718774923; task 2999615793865459163 / task-set 7750 / completion-time 1667811544496; task 2999618800342569890 / task-set 7751 / completion-time 1667813263476.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option B (face B)
+B. the audited gold answer for this task is option C (face C)
+Answer exactly A or B.
+
+----- condition: low_long_reinstated  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 53 — facial-similarity screening. Each task shows three faces, and the annotator answers: "Choose the face that is least like the other two from the following three faces." For the task at hand the audited gold answer is known to be option B or option C.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 773: Annotator 773 was correct on 73.0% of the binary calibration records; report-B LR=7.000, report-C LR=0.158.
+Annotator 1682: Annotator 1682 was correct on 56.6% of the binary calibration records; report-B LR=2.287, report-C LR=0.439.
+
+HYPOTHESES:
+- the audited gold answer for this task is option B (face B)
+- the audited gold answer for this task is option C (face C)
+
+MESSAGE FROM Annotator 1682:
+The annotator reports option B.
+
+INTERVENING MATERIAL:
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 2999582963135451455 / task-set 7370 / completion-time 1665327675008; task 2999615793865465702 / task-set 7749 / completion-time 1667875070705; task 2999602840244095932 / task-set 7753 / completion-time 1667210472406; task 2999602857423967874 / task-set 7754 / completion-time 1667223809050; task 2999615793865459482 / task-set 7750 / completion-time 1667888513796; task 2999587481441048138 / task-set 7377 / completion-time 1665718774923; task 2999615793865459163 / task-set 7750 / completion-time 1667811544496; task 2999618800342569890 / task-set 7751 / completion-time 1667813263476.
+
+SOURCE REMINDER:
+Recall that the earlier report came from Annotator 1682. Its audited calibration profile was: Annotator 1682 was correct on 56.6% of the binary calibration records; report-B LR=2.287, report-C LR=0.439.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option B (face B)
+B. the audited gold answer for this task is option C (face C)
+Answer exactly A or B.
+
+----- condition: low_long_length  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 53 — facial-similarity screening. Each task shows three faces, and the annotator answers: "Choose the face that is least like the other two from the following three faces." For the task at hand the audited gold answer is known to be option B or option C.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 773: Annotator 773 was correct on 73.0% of the binary calibration records; report-B LR=7.000, report-C LR=0.158.
+Annotator 1682: Annotator 1682 was correct on 56.6% of the binary calibration records; report-B LR=2.287, report-C LR=0.439.
+
+HYPOTHESES:
+- the audited gold answer for this task is option B (face B)
+- the audited gold answer for this task is option C (face C)
+
+MESSAGE FROM Annotator 1682:
+The annotator reports option B.
+
+INTERVENING MATERIAL:
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 2999582963135451455 / task-set 7370 / completion-time 1665327675008; task 2999615793865465702 / task-set 7749 / completion-time 1667875070705; task 2999602840244095932 / task-set 7753 / completion-time 1667210472406; task 2999602857423967874 / task-set 7754 / completion-time 1667223809050; task 2999615793865459482 / task-set 7750 / completion-time 1667888513796; task 2999587481441048138 / task-set 7377 / completion-time 1665718774923; task 2999615793865459163 / task-set 7750 / completion-time 1667811544496; task 2999618800342569890 / task-set 7751 / completion-time 1667813263476.
+
+CONTROL REMINDER:
+Before deciding, recall that the earlier report remains part of the same annotation record and that the surrounding administrative metadata was generated under the fixed protocol.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option B (face B)
+B. the audited gold answer for this task is option C (face C)
+Answer exactly A or B.
+
+====================================================================================================
+NetEaseCrowd:capability-56:0v1:001
+====================================================================================================
+
+----- condition: low_immediate  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 56 — gesture-similarity filtering. Each task shows three gestures, and the annotator answers: "Select the gesture that looks the least similar to the other two gestures." For the task at hand the audited gold answer is known to be option A or option B.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 9082: Annotator 9082 was correct on 89.1% of the binary calibration records; report-A LR=8.478, report-B LR=0.072.
+Annotator 9490: Annotator 9490 was correct on 56.1% of the binary calibration records; report-A LR=1.533, report-B LR=0.513.
+
+HYPOTHESES:
+- the audited gold answer for this task is option A (gesture A)
+- the audited gold answer for this task is option B (gesture B)
+
+MESSAGE FROM Annotator 9490:
+The annotator reports option A.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option A (gesture A)
+B. the audited gold answer for this task is option B (gesture B)
+Answer exactly A or B.
+
+----- condition: high_immediate  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 56 — gesture-similarity filtering. Each task shows three gestures, and the annotator answers: "Select the gesture that looks the least similar to the other two gestures." For the task at hand the audited gold answer is known to be option A or option B.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 9082: Annotator 9082 was correct on 89.1% of the binary calibration records; report-A LR=8.478, report-B LR=0.072.
+Annotator 9490: Annotator 9490 was correct on 56.1% of the binary calibration records; report-A LR=1.533, report-B LR=0.513.
+
+HYPOTHESES:
+- the audited gold answer for this task is option A (gesture A)
+- the audited gold answer for this task is option B (gesture B)
+
+MESSAGE FROM Annotator 9082:
+The annotator reports option A.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option A (gesture A)
+B. the audited gold answer for this task is option B (gesture B)
+Answer exactly A or B.
+
+----- condition: low_long  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 56 — gesture-similarity filtering. Each task shows three gestures, and the annotator answers: "Select the gesture that looks the least similar to the other two gestures." For the task at hand the audited gold answer is known to be option A or option B.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 9082: Annotator 9082 was correct on 89.1% of the binary calibration records; report-A LR=8.478, report-B LR=0.072.
+Annotator 9490: Annotator 9490 was correct on 56.1% of the binary calibration records; report-A LR=1.533, report-B LR=0.513.
+
+HYPOTHESES:
+- the audited gold answer for this task is option A (gesture A)
+- the audited gold answer for this task is option B (gesture B)
+
+MESSAGE FROM Annotator 9490:
+The annotator reports option A.
+
+INTERVENING MATERIAL:
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 3000328517918430166 / task-set 8910 / completion-time 1673435493061; task 3000242635752381522 / task-set 8827 / completion-time 1673057500619; task 3000080526506760122 / task-set 8534 / completion-time 1672127460653; task 3000247033798893402 / task-set 8838 / completion-time 1673144497509; task 3000247136878103177 / task-set 8842 / completion-time 1673231395253; task 3000363667930782419 / task-set 8946 / completion-time 1673688877338; task 3000246312244383564 / task-set 8781 / completion-time 1673171138798; task 3000080217269112887 / task-set 8529 / completion-time 1671877486749.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option A (gesture A)
+B. the audited gold answer for this task is option B (gesture B)
+Answer exactly A or B.
+
+----- condition: low_long_reinstated  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 56 — gesture-similarity filtering. Each task shows three gestures, and the annotator answers: "Select the gesture that looks the least similar to the other two gestures." For the task at hand the audited gold answer is known to be option A or option B.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 9082: Annotator 9082 was correct on 89.1% of the binary calibration records; report-A LR=8.478, report-B LR=0.072.
+Annotator 9490: Annotator 9490 was correct on 56.1% of the binary calibration records; report-A LR=1.533, report-B LR=0.513.
+
+HYPOTHESES:
+- the audited gold answer for this task is option A (gesture A)
+- the audited gold answer for this task is option B (gesture B)
+
+MESSAGE FROM Annotator 9490:
+The annotator reports option A.
+
+INTERVENING MATERIAL:
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 3000328517918430166 / task-set 8910 / completion-time 1673435493061; task 3000242635752381522 / task-set 8827 / completion-time 1673057500619; task 3000080526506760122 / task-set 8534 / completion-time 1672127460653; task 3000247033798893402 / task-set 8838 / completion-time 1673144497509; task 3000247136878103177 / task-set 8842 / completion-time 1673231395253; task 3000363667930782419 / task-set 8946 / completion-time 1673688877338; task 3000246312244383564 / task-set 8781 / completion-time 1673171138798; task 3000080217269112887 / task-set 8529 / completion-time 1671877486749.
+
+SOURCE REMINDER:
+Recall that the earlier report came from Annotator 9490. Its audited calibration profile was: Annotator 9490 was correct on 56.1% of the binary calibration records; report-A LR=1.533, report-B LR=0.513.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option A (gesture A)
+B. the audited gold answer for this task is option B (gesture B)
+Answer exactly A or B.
+
+----- condition: low_long_length  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 56 — gesture-similarity filtering. Each task shows three gestures, and the annotator answers: "Select the gesture that looks the least similar to the other two gestures." For the task at hand the audited gold answer is known to be option A or option B.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 9082: Annotator 9082 was correct on 89.1% of the binary calibration records; report-A LR=8.478, report-B LR=0.072.
+Annotator 9490: Annotator 9490 was correct on 56.1% of the binary calibration records; report-A LR=1.533, report-B LR=0.513.
+
+HYPOTHESES:
+- the audited gold answer for this task is option A (gesture A)
+- the audited gold answer for this task is option B (gesture B)
+
+MESSAGE FROM Annotator 9490:
+The annotator reports option A.
+
+INTERVENING MATERIAL:
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 3000328517918430166 / task-set 8910 / completion-time 1673435493061; task 3000242635752381522 / task-set 8827 / completion-time 1673057500619; task 3000080526506760122 / task-set 8534 / completion-time 1672127460653; task 3000247033798893402 / task-set 8838 / completion-time 1673144497509; task 3000247136878103177 / task-set 8842 / completion-time 1673231395253; task 3000363667930782419 / task-set 8946 / completion-time 1673688877338; task 3000246312244383564 / task-set 8781 / completion-time 1673171138798; task 3000080217269112887 / task-set 8529 / completion-time 1671877486749.
+
+CONTROL REMINDER:
+Before deciding, recall that the earlier report remains part of the same annotation record and that the surrounding administrative metadata was generated under the fixed protocol.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option A (gesture A)
+B. the audited gold answer for this task is option B (gesture B)
+Answer exactly A or B.
+
+====================================================================================================
+NetEaseCrowd:capability-56:0v1:002
+====================================================================================================
+
+----- condition: low_immediate  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 56 — gesture-similarity filtering. Each task shows three gestures, and the annotator answers: "Select the gesture that looks the least similar to the other two gestures." For the task at hand the audited gold answer is known to be option A or option B.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 9257: Annotator 9257 was correct on 91.6% of the binary calibration records; report-A LR=87.587, report-B LR=0.103.
+Annotator 6160: Annotator 6160 was correct on 57.3% of the binary calibration records; report-A LR=2.534, report-B LR=0.264.
+
+HYPOTHESES:
+- the audited gold answer for this task is option A (gesture A)
+- the audited gold answer for this task is option B (gesture B)
+
+MESSAGE FROM Annotator 6160:
+The annotator reports option A.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option A (gesture A)
+B. the audited gold answer for this task is option B (gesture B)
+Answer exactly A or B.
+
+----- condition: high_immediate  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 56 — gesture-similarity filtering. Each task shows three gestures, and the annotator answers: "Select the gesture that looks the least similar to the other two gestures." For the task at hand the audited gold answer is known to be option A or option B.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 9257: Annotator 9257 was correct on 91.6% of the binary calibration records; report-A LR=87.587, report-B LR=0.103.
+Annotator 6160: Annotator 6160 was correct on 57.3% of the binary calibration records; report-A LR=2.534, report-B LR=0.264.
+
+HYPOTHESES:
+- the audited gold answer for this task is option A (gesture A)
+- the audited gold answer for this task is option B (gesture B)
+
+MESSAGE FROM Annotator 9257:
+The annotator reports option A.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option A (gesture A)
+B. the audited gold answer for this task is option B (gesture B)
+Answer exactly A or B.
+
+----- condition: low_long  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 56 — gesture-similarity filtering. Each task shows three gestures, and the annotator answers: "Select the gesture that looks the least similar to the other two gestures." For the task at hand the audited gold answer is known to be option A or option B.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 9257: Annotator 9257 was correct on 91.6% of the binary calibration records; report-A LR=87.587, report-B LR=0.103.
+Annotator 6160: Annotator 6160 was correct on 57.3% of the binary calibration records; report-A LR=2.534, report-B LR=0.264.
+
+HYPOTHESES:
+- the audited gold answer for this task is option A (gesture A)
+- the audited gold answer for this task is option B (gesture B)
+
+MESSAGE FROM Annotator 6160:
+The annotator reports option A.
+
+INTERVENING MATERIAL:
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 3000121225616853602 / task-set 8603 / completion-time 1672220756607; task 3000247033798891727 / task-set 8838 / completion-time 1673143703649; task 3000250779010370599 / task-set 8854 / completion-time 1673005363167; task 3000247033798888833 / task-set 8838 / completion-time 1673144897944; task 3000362430980197526 / task-set 8940 / completion-time 1673662660742; task 3000334067016174214 / task-set 8926 / completion-time 1673606742037; task 3000080509326889002 / task-set 8533 / completion-time 1672107910796; task 3000332641087032066 / task-set 8917 / completion-time 1673492711152.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option A (gesture A)
+B. the audited gold answer for this task is option B (gesture B)
+Answer exactly A or B.
+
+----- condition: low_long_reinstated  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 56 — gesture-similarity filtering. Each task shows three gestures, and the annotator answers: "Select the gesture that looks the least similar to the other two gestures." For the task at hand the audited gold answer is known to be option A or option B.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 9257: Annotator 9257 was correct on 91.6% of the binary calibration records; report-A LR=87.587, report-B LR=0.103.
+Annotator 6160: Annotator 6160 was correct on 57.3% of the binary calibration records; report-A LR=2.534, report-B LR=0.264.
+
+HYPOTHESES:
+- the audited gold answer for this task is option A (gesture A)
+- the audited gold answer for this task is option B (gesture B)
+
+MESSAGE FROM Annotator 6160:
+The annotator reports option A.
+
+INTERVENING MATERIAL:
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 3000121225616853602 / task-set 8603 / completion-time 1672220756607; task 3000247033798891727 / task-set 8838 / completion-time 1673143703649; task 3000250779010370599 / task-set 8854 / completion-time 1673005363167; task 3000247033798888833 / task-set 8838 / completion-time 1673144897944; task 3000362430980197526 / task-set 8940 / completion-time 1673662660742; task 3000334067016174214 / task-set 8926 / completion-time 1673606742037; task 3000080509326889002 / task-set 8533 / completion-time 1672107910796; task 3000332641087032066 / task-set 8917 / completion-time 1673492711152.
+
+SOURCE REMINDER:
+Recall that the earlier report came from Annotator 6160. Its audited calibration profile was: Annotator 6160 was correct on 57.3% of the binary calibration records; report-A LR=2.534, report-B LR=0.264.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option A (gesture A)
+B. the audited gold answer for this task is option B (gesture B)
+Answer exactly A or B.
+
+----- condition: low_long_length  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 56 — gesture-similarity filtering. Each task shows three gestures, and the annotator answers: "Select the gesture that looks the least similar to the other two gestures." For the task at hand the audited gold answer is known to be option A or option B.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 9257: Annotator 9257 was correct on 91.6% of the binary calibration records; report-A LR=87.587, report-B LR=0.103.
+Annotator 6160: Annotator 6160 was correct on 57.3% of the binary calibration records; report-A LR=2.534, report-B LR=0.264.
+
+HYPOTHESES:
+- the audited gold answer for this task is option A (gesture A)
+- the audited gold answer for this task is option B (gesture B)
+
+MESSAGE FROM Annotator 6160:
+The annotator reports option A.
+
+INTERVENING MATERIAL:
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 3000121225616853602 / task-set 8603 / completion-time 1672220756607; task 3000247033798891727 / task-set 8838 / completion-time 1673143703649; task 3000250779010370599 / task-set 8854 / completion-time 1673005363167; task 3000247033798888833 / task-set 8838 / completion-time 1673144897944; task 3000362430980197526 / task-set 8940 / completion-time 1673662660742; task 3000334067016174214 / task-set 8926 / completion-time 1673606742037; task 3000080509326889002 / task-set 8533 / completion-time 1672107910796; task 3000332641087032066 / task-set 8917 / completion-time 1673492711152.
+
+CONTROL REMINDER:
+Before deciding, recall that the earlier report remains part of the same annotation record and that the surrounding administrative metadata was generated under the fixed protocol.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option A (gesture A)
+B. the audited gold answer for this task is option B (gesture B)
+Answer exactly A or B.
+
+====================================================================================================
+NetEaseCrowd:capability-56:0v2:001
+====================================================================================================
+
+----- condition: low_immediate  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 56 — gesture-similarity filtering. Each task shows three gestures, and the annotator answers: "Select the gesture that looks the least similar to the other two gestures." For the task at hand the audited gold answer is known to be option A or option C.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 7974: Annotator 7974 was correct on 90.7% of the binary calibration records; report-A LR=11.927, report-C LR=0.008.
+Annotator 7597: Annotator 7597 was correct on 55.0% of the binary calibration records; report-A LR=2.477, report-C LR=0.500.
+
+HYPOTHESES:
+- the audited gold answer for this task is option A (gesture A)
+- the audited gold answer for this task is option C (gesture C)
+
+MESSAGE FROM Annotator 7597:
+The annotator reports option A.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option A (gesture A)
+B. the audited gold answer for this task is option C (gesture C)
+Answer exactly A or B.
+
+----- condition: high_immediate  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 56 — gesture-similarity filtering. Each task shows three gestures, and the annotator answers: "Select the gesture that looks the least similar to the other two gestures." For the task at hand the audited gold answer is known to be option A or option C.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 7974: Annotator 7974 was correct on 90.7% of the binary calibration records; report-A LR=11.927, report-C LR=0.008.
+Annotator 7597: Annotator 7597 was correct on 55.0% of the binary calibration records; report-A LR=2.477, report-C LR=0.500.
+
+HYPOTHESES:
+- the audited gold answer for this task is option A (gesture A)
+- the audited gold answer for this task is option C (gesture C)
+
+MESSAGE FROM Annotator 7974:
+The annotator reports option A.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option A (gesture A)
+B. the audited gold answer for this task is option C (gesture C)
+Answer exactly A or B.
+
+----- condition: low_long  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 56 — gesture-similarity filtering. Each task shows three gestures, and the annotator answers: "Select the gesture that looks the least similar to the other two gestures." For the task at hand the audited gold answer is known to be option A or option C.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 7974: Annotator 7974 was correct on 90.7% of the binary calibration records; report-A LR=11.927, report-C LR=0.008.
+Annotator 7597: Annotator 7597 was correct on 55.0% of the binary calibration records; report-A LR=2.477, report-C LR=0.500.
+
+HYPOTHESES:
+- the audited gold answer for this task is option A (gesture A)
+- the audited gold answer for this task is option C (gesture C)
+
+MESSAGE FROM Annotator 7597:
+The annotator reports option A.
+
+INTERVENING MATERIAL:
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 3000245848387918827 / task-set 8779 / completion-time 1673170390462; task 3000246312244382207 / task-set 8781 / completion-time 1673168931529; task 3000332623907165133 / task-set 8916 / completion-time 1673496008070; task 3000334084196042334 / task-set 8927 / completion-time 1673603607028; task 3000247119698239139 / task-set 8842 / completion-time 1673234688619; task 3000243202688064673 / task-set 8828 / completion-time 1673057455184; task 3000366021572855460 / task-set 8961 / completion-time 1673839570962; task 3000333139303239827 / task-set 8918 / completion-time 1673490053248.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option A (gesture A)
+B. the audited gold answer for this task is option C (gesture C)
+Answer exactly A or B.
+
+----- condition: low_long_reinstated  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 56 — gesture-similarity filtering. Each task shows three gestures, and the annotator answers: "Select the gesture that looks the least similar to the other two gestures." For the task at hand the audited gold answer is known to be option A or option C.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 7974: Annotator 7974 was correct on 90.7% of the binary calibration records; report-A LR=11.927, report-C LR=0.008.
+Annotator 7597: Annotator 7597 was correct on 55.0% of the binary calibration records; report-A LR=2.477, report-C LR=0.500.
+
+HYPOTHESES:
+- the audited gold answer for this task is option A (gesture A)
+- the audited gold answer for this task is option C (gesture C)
+
+MESSAGE FROM Annotator 7597:
+The annotator reports option A.
+
+INTERVENING MATERIAL:
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 3000245848387918827 / task-set 8779 / completion-time 1673170390462; task 3000246312244382207 / task-set 8781 / completion-time 1673168931529; task 3000332623907165133 / task-set 8916 / completion-time 1673496008070; task 3000334084196042334 / task-set 8927 / completion-time 1673603607028; task 3000247119698239139 / task-set 8842 / completion-time 1673234688619; task 3000243202688064673 / task-set 8828 / completion-time 1673057455184; task 3000366021572855460 / task-set 8961 / completion-time 1673839570962; task 3000333139303239827 / task-set 8918 / completion-time 1673490053248.
+
+SOURCE REMINDER:
+Recall that the earlier report came from Annotator 7597. Its audited calibration profile was: Annotator 7597 was correct on 55.0% of the binary calibration records; report-A LR=2.477, report-C LR=0.500.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option A (gesture A)
+B. the audited gold answer for this task is option C (gesture C)
+Answer exactly A or B.
+
+----- condition: low_long_length  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 56 — gesture-similarity filtering. Each task shows three gestures, and the annotator answers: "Select the gesture that looks the least similar to the other two gestures." For the task at hand the audited gold answer is known to be option A or option C.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 7974: Annotator 7974 was correct on 90.7% of the binary calibration records; report-A LR=11.927, report-C LR=0.008.
+Annotator 7597: Annotator 7597 was correct on 55.0% of the binary calibration records; report-A LR=2.477, report-C LR=0.500.
+
+HYPOTHESES:
+- the audited gold answer for this task is option A (gesture A)
+- the audited gold answer for this task is option C (gesture C)
+
+MESSAGE FROM Annotator 7597:
+The annotator reports option A.
+
+INTERVENING MATERIAL:
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 3000245848387918827 / task-set 8779 / completion-time 1673170390462; task 3000246312244382207 / task-set 8781 / completion-time 1673168931529; task 3000332623907165133 / task-set 8916 / completion-time 1673496008070; task 3000334084196042334 / task-set 8927 / completion-time 1673603607028; task 3000247119698239139 / task-set 8842 / completion-time 1673234688619; task 3000243202688064673 / task-set 8828 / completion-time 1673057455184; task 3000366021572855460 / task-set 8961 / completion-time 1673839570962; task 3000333139303239827 / task-set 8918 / completion-time 1673490053248.
+
+CONTROL REMINDER:
+Before deciding, recall that the earlier report remains part of the same annotation record and that the surrounding administrative metadata was generated under the fixed protocol.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option A (gesture A)
+B. the audited gold answer for this task is option C (gesture C)
+Answer exactly A or B.
+
+====================================================================================================
+NetEaseCrowd:capability-56:0v2:002
+====================================================================================================
+
+----- condition: low_immediate  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 56 — gesture-similarity filtering. Each task shows three gestures, and the annotator answers: "Select the gesture that looks the least similar to the other two gestures." For the task at hand the audited gold answer is known to be option A or option C.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 7316: Annotator 7316 was correct on 83.1% of the binary calibration records; report-A LR=6.738, report-C LR=0.162.
+Annotator 13587: Annotator 13587 was correct on 56.2% of the binary calibration records; report-A LR=2.949, report-C LR=0.337.
+
+HYPOTHESES:
+- the audited gold answer for this task is option A (gesture A)
+- the audited gold answer for this task is option C (gesture C)
+
+MESSAGE FROM Annotator 13587:
+The annotator reports option A.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option A (gesture A)
+B. the audited gold answer for this task is option C (gesture C)
+Answer exactly A or B.
+
+----- condition: high_immediate  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 56 — gesture-similarity filtering. Each task shows three gestures, and the annotator answers: "Select the gesture that looks the least similar to the other two gestures." For the task at hand the audited gold answer is known to be option A or option C.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 7316: Annotator 7316 was correct on 83.1% of the binary calibration records; report-A LR=6.738, report-C LR=0.162.
+Annotator 13587: Annotator 13587 was correct on 56.2% of the binary calibration records; report-A LR=2.949, report-C LR=0.337.
+
+HYPOTHESES:
+- the audited gold answer for this task is option A (gesture A)
+- the audited gold answer for this task is option C (gesture C)
+
+MESSAGE FROM Annotator 7316:
+The annotator reports option A.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option A (gesture A)
+B. the audited gold answer for this task is option C (gesture C)
+Answer exactly A or B.
+
+----- condition: low_long  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 56 — gesture-similarity filtering. Each task shows three gestures, and the annotator answers: "Select the gesture that looks the least similar to the other two gestures." For the task at hand the audited gold answer is known to be option A or option C.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 7316: Annotator 7316 was correct on 83.1% of the binary calibration records; report-A LR=6.738, report-C LR=0.162.
+Annotator 13587: Annotator 13587 was correct on 56.2% of the binary calibration records; report-A LR=2.949, report-C LR=0.337.
+
+HYPOTHESES:
+- the audited gold answer for this task is option A (gesture A)
+- the audited gold answer for this task is option C (gesture C)
+
+MESSAGE FROM Annotator 13587:
+The annotator reports option A.
+
+INTERVENING MATERIAL:
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 3000247136878106819 / task-set 8842 / completion-time 1673231144589; task 3000245195552884550 / task-set 8832 / completion-time 1673084465766; task 3000243202688061320 / task-set 8827 / completion-time 1673060425503; task 3000080251628854235 / task-set 8532 / completion-time 1672107763539; task 3000080217269111819 / task-set 8529 / completion-time 1671880244581; task 3000297336455859898 / task-set 8867 / completion-time 1673318629400; task 3000365987213121486 / task-set 8960 / completion-time 1673839458437; task 3000362413800330027 / task-set 8939 / completion-time 1673673140213.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option A (gesture A)
+B. the audited gold answer for this task is option C (gesture C)
+Answer exactly A or B.
+
+----- condition: low_long_reinstated  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 56 — gesture-similarity filtering. Each task shows three gestures, and the annotator answers: "Select the gesture that looks the least similar to the other two gestures." For the task at hand the audited gold answer is known to be option A or option C.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 7316: Annotator 7316 was correct on 83.1% of the binary calibration records; report-A LR=6.738, report-C LR=0.162.
+Annotator 13587: Annotator 13587 was correct on 56.2% of the binary calibration records; report-A LR=2.949, report-C LR=0.337.
+
+HYPOTHESES:
+- the audited gold answer for this task is option A (gesture A)
+- the audited gold answer for this task is option C (gesture C)
+
+MESSAGE FROM Annotator 13587:
+The annotator reports option A.
+
+INTERVENING MATERIAL:
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 3000247136878106819 / task-set 8842 / completion-time 1673231144589; task 3000245195552884550 / task-set 8832 / completion-time 1673084465766; task 3000243202688061320 / task-set 8827 / completion-time 1673060425503; task 3000080251628854235 / task-set 8532 / completion-time 1672107763539; task 3000080217269111819 / task-set 8529 / completion-time 1671880244581; task 3000297336455859898 / task-set 8867 / completion-time 1673318629400; task 3000365987213121486 / task-set 8960 / completion-time 1673839458437; task 3000362413800330027 / task-set 8939 / completion-time 1673673140213.
+
+SOURCE REMINDER:
+Recall that the earlier report came from Annotator 13587. Its audited calibration profile was: Annotator 13587 was correct on 56.2% of the binary calibration records; report-A LR=2.949, report-C LR=0.337.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option A (gesture A)
+B. the audited gold answer for this task is option C (gesture C)
+Answer exactly A or B.
+
+----- condition: low_long_length  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 56 — gesture-similarity filtering. Each task shows three gestures, and the annotator answers: "Select the gesture that looks the least similar to the other two gestures." For the task at hand the audited gold answer is known to be option A or option C.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 7316: Annotator 7316 was correct on 83.1% of the binary calibration records; report-A LR=6.738, report-C LR=0.162.
+Annotator 13587: Annotator 13587 was correct on 56.2% of the binary calibration records; report-A LR=2.949, report-C LR=0.337.
+
+HYPOTHESES:
+- the audited gold answer for this task is option A (gesture A)
+- the audited gold answer for this task is option C (gesture C)
+
+MESSAGE FROM Annotator 13587:
+The annotator reports option A.
+
+INTERVENING MATERIAL:
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 3000247136878106819 / task-set 8842 / completion-time 1673231144589; task 3000245195552884550 / task-set 8832 / completion-time 1673084465766; task 3000243202688061320 / task-set 8827 / completion-time 1673060425503; task 3000080251628854235 / task-set 8532 / completion-time 1672107763539; task 3000080217269111819 / task-set 8529 / completion-time 1671880244581; task 3000297336455859898 / task-set 8867 / completion-time 1673318629400; task 3000365987213121486 / task-set 8960 / completion-time 1673839458437; task 3000362413800330027 / task-set 8939 / completion-time 1673673140213.
+
+CONTROL REMINDER:
+Before deciding, recall that the earlier report remains part of the same annotation record and that the surrounding administrative metadata was generated under the fixed protocol.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option A (gesture A)
+B. the audited gold answer for this task is option C (gesture C)
+Answer exactly A or B.
+
+====================================================================================================
+NetEaseCrowd:capability-56:1v2:001
+====================================================================================================
+
+----- condition: low_immediate  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 56 — gesture-similarity filtering. Each task shows three gestures, and the annotator answers: "Select the gesture that looks the least similar to the other two gestures." For the task at hand the audited gold answer is known to be option B or option C.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 9159: Annotator 9159 was correct on 90.7% of the binary calibration records; report-B LR=15.809, report-C LR=0.068.
+Annotator 9347: Annotator 9347 was correct on 56.0% of the binary calibration records; report-B LR=2.462, report-C LR=0.386.
+
+HYPOTHESES:
+- the audited gold answer for this task is option B (gesture B)
+- the audited gold answer for this task is option C (gesture C)
+
+MESSAGE FROM Annotator 9347:
+The annotator reports option B.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option B (gesture B)
+B. the audited gold answer for this task is option C (gesture C)
+Answer exactly A or B.
+
+----- condition: high_immediate  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 56 — gesture-similarity filtering. Each task shows three gestures, and the annotator answers: "Select the gesture that looks the least similar to the other two gestures." For the task at hand the audited gold answer is known to be option B or option C.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 9159: Annotator 9159 was correct on 90.7% of the binary calibration records; report-B LR=15.809, report-C LR=0.068.
+Annotator 9347: Annotator 9347 was correct on 56.0% of the binary calibration records; report-B LR=2.462, report-C LR=0.386.
+
+HYPOTHESES:
+- the audited gold answer for this task is option B (gesture B)
+- the audited gold answer for this task is option C (gesture C)
+
+MESSAGE FROM Annotator 9159:
+The annotator reports option B.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option B (gesture B)
+B. the audited gold answer for this task is option C (gesture C)
+Answer exactly A or B.
+
+----- condition: low_long  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 56 — gesture-similarity filtering. Each task shows three gestures, and the annotator answers: "Select the gesture that looks the least similar to the other two gestures." For the task at hand the audited gold answer is known to be option B or option C.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 9159: Annotator 9159 was correct on 90.7% of the binary calibration records; report-B LR=15.809, report-C LR=0.068.
+Annotator 9347: Annotator 9347 was correct on 56.0% of the binary calibration records; report-B LR=2.462, report-C LR=0.386.
+
+HYPOTHESES:
+- the audited gold answer for this task is option B (gesture B)
+- the audited gold answer for this task is option C (gesture C)
+
+MESSAGE FROM Annotator 9347:
+The annotator reports option B.
+
+INTERVENING MATERIAL:
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 3000297611333768044 / task-set 8868 / completion-time 1673320679162; task 3000332641087034514 / task-set 8917 / completion-time 1673492584433; task 3000242584212771049 / task-set 8824 / completion-time 1673057594979; task 3000240831866112686 / task-set 8819 / completion-time 1673260254754; task 3000121225616856304 / task-set 8603 / completion-time 1672225980865; task 3000250710290896381 / task-set 8853 / completion-time 1673001080580; task 3000081282421000918 / task-set 8539 / completion-time 1672023862564; task 3000365987213117921 / task-set 8960 / completion-time 1673835967415.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option B (gesture B)
+B. the audited gold answer for this task is option C (gesture C)
+Answer exactly A or B.
+
+----- condition: low_long_reinstated  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 56 — gesture-similarity filtering. Each task shows three gestures, and the annotator answers: "Select the gesture that looks the least similar to the other two gestures." For the task at hand the audited gold answer is known to be option B or option C.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 9159: Annotator 9159 was correct on 90.7% of the binary calibration records; report-B LR=15.809, report-C LR=0.068.
+Annotator 9347: Annotator 9347 was correct on 56.0% of the binary calibration records; report-B LR=2.462, report-C LR=0.386.
+
+HYPOTHESES:
+- the audited gold answer for this task is option B (gesture B)
+- the audited gold answer for this task is option C (gesture C)
+
+MESSAGE FROM Annotator 9347:
+The annotator reports option B.
+
+INTERVENING MATERIAL:
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 3000297611333768044 / task-set 8868 / completion-time 1673320679162; task 3000332641087034514 / task-set 8917 / completion-time 1673492584433; task 3000242584212771049 / task-set 8824 / completion-time 1673057594979; task 3000240831866112686 / task-set 8819 / completion-time 1673260254754; task 3000121225616856304 / task-set 8603 / completion-time 1672225980865; task 3000250710290896381 / task-set 8853 / completion-time 1673001080580; task 3000081282421000918 / task-set 8539 / completion-time 1672023862564; task 3000365987213117921 / task-set 8960 / completion-time 1673835967415.
+
+SOURCE REMINDER:
+Recall that the earlier report came from Annotator 9347. Its audited calibration profile was: Annotator 9347 was correct on 56.0% of the binary calibration records; report-B LR=2.462, report-C LR=0.386.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option B (gesture B)
+B. the audited gold answer for this task is option C (gesture C)
+Answer exactly A or B.
+
+----- condition: low_long_length  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 56 — gesture-similarity filtering. Each task shows three gestures, and the annotator answers: "Select the gesture that looks the least similar to the other two gestures." For the task at hand the audited gold answer is known to be option B or option C.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 9159: Annotator 9159 was correct on 90.7% of the binary calibration records; report-B LR=15.809, report-C LR=0.068.
+Annotator 9347: Annotator 9347 was correct on 56.0% of the binary calibration records; report-B LR=2.462, report-C LR=0.386.
+
+HYPOTHESES:
+- the audited gold answer for this task is option B (gesture B)
+- the audited gold answer for this task is option C (gesture C)
+
+MESSAGE FROM Annotator 9347:
+The annotator reports option B.
+
+INTERVENING MATERIAL:
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 3000297611333768044 / task-set 8868 / completion-time 1673320679162; task 3000332641087034514 / task-set 8917 / completion-time 1673492584433; task 3000242584212771049 / task-set 8824 / completion-time 1673057594979; task 3000240831866112686 / task-set 8819 / completion-time 1673260254754; task 3000121225616856304 / task-set 8603 / completion-time 1672225980865; task 3000250710290896381 / task-set 8853 / completion-time 1673001080580; task 3000081282421000918 / task-set 8539 / completion-time 1672023862564; task 3000365987213117921 / task-set 8960 / completion-time 1673835967415.
+
+CONTROL REMINDER:
+Before deciding, recall that the earlier report remains part of the same annotation record and that the surrounding administrative metadata was generated under the fixed protocol.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option B (gesture B)
+B. the audited gold answer for this task is option C (gesture C)
+Answer exactly A or B.
+
+====================================================================================================
+NetEaseCrowd:capability-56:1v2:002
+====================================================================================================
+
+----- condition: low_immediate  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 56 — gesture-similarity filtering. Each task shows three gestures, and the annotator answers: "Select the gesture that looks the least similar to the other two gestures." For the task at hand the audited gold answer is known to be option B or option C.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 8744: Annotator 8744 was correct on 89.4% of the binary calibration records; report-B LR=6.621, report-C LR=0.075.
+Annotator 8683: Annotator 8683 was correct on 56.6% of the binary calibration records; report-B LR=2.721, report-C LR=0.706.
+
+HYPOTHESES:
+- the audited gold answer for this task is option B (gesture B)
+- the audited gold answer for this task is option C (gesture C)
+
+MESSAGE FROM Annotator 8683:
+The annotator reports option B.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option B (gesture B)
+B. the audited gold answer for this task is option C (gesture C)
+Answer exactly A or B.
+
+----- condition: high_immediate  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 56 — gesture-similarity filtering. Each task shows three gestures, and the annotator answers: "Select the gesture that looks the least similar to the other two gestures." For the task at hand the audited gold answer is known to be option B or option C.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 8744: Annotator 8744 was correct on 89.4% of the binary calibration records; report-B LR=6.621, report-C LR=0.075.
+Annotator 8683: Annotator 8683 was correct on 56.6% of the binary calibration records; report-B LR=2.721, report-C LR=0.706.
+
+HYPOTHESES:
+- the audited gold answer for this task is option B (gesture B)
+- the audited gold answer for this task is option C (gesture C)
+
+MESSAGE FROM Annotator 8744:
+The annotator reports option B.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option B (gesture B)
+B. the audited gold answer for this task is option C (gesture C)
+Answer exactly A or B.
+
+----- condition: low_long  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 56 — gesture-similarity filtering. Each task shows three gestures, and the annotator answers: "Select the gesture that looks the least similar to the other two gestures." For the task at hand the audited gold answer is known to be option B or option C.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 8744: Annotator 8744 was correct on 89.4% of the binary calibration records; report-B LR=6.621, report-C LR=0.075.
+Annotator 8683: Annotator 8683 was correct on 56.6% of the binary calibration records; report-B LR=2.721, report-C LR=0.706.
+
+HYPOTHESES:
+- the audited gold answer for this task is option B (gesture B)
+- the audited gold answer for this task is option C (gesture C)
+
+MESSAGE FROM Annotator 8683:
+The annotator reports option B.
+
+INTERVENING MATERIAL:
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 3000329291012541071 / task-set 8913 / completion-time 1673434379347; task 3000247136878102819 / task-set 8842 / completion-time 1673231971838; task 3000250796190239165 / task-set 8855 / completion-time 1673001173260; task 3000242635752377165 / task-set 8826 / completion-time 1673060304027; task 3000297628513634711 / task-set 8868 / completion-time 1673320529955; task 3000081248061263955 / task-set 8537 / completion-time 1672125956011; task 3000242635752381723 / task-set 8827 / completion-time 1673057503232; task 3000364045887899265 / task-set 8952 / completion-time 1673775898317.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option B (gesture B)
+B. the audited gold answer for this task is option C (gesture C)
+Answer exactly A or B.
+
+----- condition: low_long_reinstated  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 56 — gesture-similarity filtering. Each task shows three gestures, and the annotator answers: "Select the gesture that looks the least similar to the other two gestures." For the task at hand the audited gold answer is known to be option B or option C.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 8744: Annotator 8744 was correct on 89.4% of the binary calibration records; report-B LR=6.621, report-C LR=0.075.
+Annotator 8683: Annotator 8683 was correct on 56.6% of the binary calibration records; report-B LR=2.721, report-C LR=0.706.
+
+HYPOTHESES:
+- the audited gold answer for this task is option B (gesture B)
+- the audited gold answer for this task is option C (gesture C)
+
+MESSAGE FROM Annotator 8683:
+The annotator reports option B.
+
+INTERVENING MATERIAL:
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 3000329291012541071 / task-set 8913 / completion-time 1673434379347; task 3000247136878102819 / task-set 8842 / completion-time 1673231971838; task 3000250796190239165 / task-set 8855 / completion-time 1673001173260; task 3000242635752377165 / task-set 8826 / completion-time 1673060304027; task 3000297628513634711 / task-set 8868 / completion-time 1673320529955; task 3000081248061263955 / task-set 8537 / completion-time 1672125956011; task 3000242635752381723 / task-set 8827 / completion-time 1673057503232; task 3000364045887899265 / task-set 8952 / completion-time 1673775898317.
+
+SOURCE REMINDER:
+Recall that the earlier report came from Annotator 8683. Its audited calibration profile was: Annotator 8683 was correct on 56.6% of the binary calibration records; report-B LR=2.721, report-C LR=0.706.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option B (gesture B)
+B. the audited gold answer for this task is option C (gesture C)
+Answer exactly A or B.
+
+----- condition: low_long_length  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 56 — gesture-similarity filtering. Each task shows three gestures, and the annotator answers: "Select the gesture that looks the least similar to the other two gestures." For the task at hand the audited gold answer is known to be option B or option C.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 8744: Annotator 8744 was correct on 89.4% of the binary calibration records; report-B LR=6.621, report-C LR=0.075.
+Annotator 8683: Annotator 8683 was correct on 56.6% of the binary calibration records; report-B LR=2.721, report-C LR=0.706.
+
+HYPOTHESES:
+- the audited gold answer for this task is option B (gesture B)
+- the audited gold answer for this task is option C (gesture C)
+
+MESSAGE FROM Annotator 8683:
+The annotator reports option B.
+
+INTERVENING MATERIAL:
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 3000329291012541071 / task-set 8913 / completion-time 1673434379347; task 3000247136878102819 / task-set 8842 / completion-time 1673231971838; task 3000250796190239165 / task-set 8855 / completion-time 1673001173260; task 3000242635752377165 / task-set 8826 / completion-time 1673060304027; task 3000297628513634711 / task-set 8868 / completion-time 1673320529955; task 3000081248061263955 / task-set 8537 / completion-time 1672125956011; task 3000242635752381723 / task-set 8827 / completion-time 1673057503232; task 3000364045887899265 / task-set 8952 / completion-time 1673775898317.
+
+CONTROL REMINDER:
+Before deciding, recall that the earlier report remains part of the same annotation record and that the surrounding administrative metadata was generated under the fixed protocol.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option B (gesture B)
+B. the audited gold answer for this task is option C (gesture C)
+Answer exactly A or B.

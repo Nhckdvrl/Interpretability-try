@@ -1,4 +1,5 @@
 import importlib.util
+import sys
 from pathlib import Path
 
 import pandas as pd
@@ -9,6 +10,9 @@ def _builder():
     spec = importlib.util.spec_from_file_location("build_012_d0", path)
     module = importlib.util.module_from_spec(spec)
     assert spec and spec.loader
+    # Register before executing: the module defines a dataclass, whose field-type
+    # resolution looks the defining module up in sys.modules.
+    sys.modules[spec.name] = module
     spec.loader.exec_module(module)
     return module
 
