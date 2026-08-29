@@ -40,6 +40,12 @@ See [`D0_AUDIT.md`](D0_AUDIT.md).
 
 The r5 audit also removes an answer leak in the old `strong_gt_weak` capability probe: model-visible alternatives are now `OBSERVATION 1/2`, not `WEAK/STRONG-CANDIDATE`.
 
+## Historical smoke lineage
+
+`results/smoke_r5/` is a valid historical run, but it belongs to an **older 25-case D0** (SHA `b1f6f889...`, execution commit `0ef5ee6...`). That run produced a two-family capability-floor hard kill.
+
+Commit `3cbe5e2` later made a material D0 change: provenance, held-out LR verification and the deterministic builder were tightened, yielding the current **30-case D0** with SHA `d3ef0478...`. Therefore the old smoke verdict must not be inherited by the current contract. Any new smoke must use a new result directory and record the current D0 SHA, execution commit and model revisions.
+
 ## Execution
 
 The runner is authorized only for this frozen D0/config. Do not tune cases, thresholds, prompts or gates after reading model output.
