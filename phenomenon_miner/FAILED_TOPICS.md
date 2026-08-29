@@ -27,6 +27,25 @@
 | **Short-Circuit Side-Effect Leakage** | `ROUTE → CoRE` | CoRE 已系统建立 `correct final output + wrong intermediate execution state` 的 Superficial Execution；value/effect gate 是漂亮 subtype，但不够独立成为 main-paper mother question | 可作为 CoRE-style diagnostic/control，不 standalone 重命名 |
 | **SQL UNKNOWN Interface Collapse** | `ROUTE → Squirrel-Semantic` | Squirrel-Semantic 已显式覆盖 SQL NULL/3VL semantic error family；WHERE/CHECK designated-value pair 过窄 | 可作为 taxonomy item，不占独立 research slot |
 | **Synonym-Saturation Escape in Semantic BM25** | `ROUTE-OUT-OF-SCOPE` | scientific question 可做，但 mother 是 cross-encoder IR circuit；剩余 saturation counting-unit 过窄，偏离当前 LLM/agent natural-phenomenon主线 | 不因已有 circuit 很方便解释就降低选题范围标准 |
+| **GeoTemporal Binding Bottleneck** | `ROUTE → MOTHER-MECHANISM-FOLLOWUP` | GeoTemp mother 已经直接建立“geography/time components individually work but joint composition fails”的 headline；剩余 retrieval vs arithmetic vs binding 只是解释 mother failure 的 localization，不再有独立 phenotype budget | 不把 mother 已有的 component-good/joint-bad 重写成新现象；若以后做，只能明确作为 GeoTemp mechanism follow-up，并先冻结与 mother 不同的 causal question |
+| **Causal Retrieval Schedule** | `ROUTE → TARGETED-MECH-FOLLOWUP` | mother 已有 hidden state 对 future retrieval-head schedule 的预测信号；剩余问题主要是 `predictive representation → causal plan?`。它没有独立 natural behavioral phenotype/D0，而且与 `candidate_topics` Topic 15 “predictive state formed but downstream action did not use it”属于同一高风险 identification pattern | 不因“如果 causal 会很酷”就把 correlation→causal validation 伪装成 phenomenon candidate；除非先出现一个独立行为 anomaly，需要该 schedule 才能解释 |
+| **Dead-Branch Residue after Invalidation** | `KILL / ROUTE-STANDALONE` | Belief revision、stale premise propagation、stale memory→policy adaptation 已占据“新证据使旧 state 失效但 downstream 行为仍沿旧 state”的 mother question；把 stale state 换成 planning branch 尚不足以形成新 title-level conclusion | 不仅靠 ALFWorld/PDDL 或“branch”名词重开。只有出现 predecessor work 没覆盖的 branch-graph structural signature（例如 closure-descendant-specific attraction 且 sibling/shared-prefix 不受影响）时，才能以全新 claim 重新做 N0 |
+
+### 2026-08-29 re-audit lesson
+
+这三条新移出题暴露了一个需要长期记住的选题偏差：
+
+```text
+mother behavior 已经成立
++ mother/neighbor 又给了一个漂亮 representation / decomposition
+→ 很容易误把“下一步机制问题”当成“新的现象题”
+```
+
+v4 以后必须问：
+
+1. **我们的 headline behavior 是否真的不是 mother 的 headline？**
+2. **D0 是否能在不看 hidden state 的情况下定义一个独立、自然、可冻结的 phenotype？**
+3. 如果答案是否定的，它应进入 `MECH-FOLLOWUP`，而不是占用 phenomenon discovery Tier S。
 
 ---
 
@@ -85,6 +104,7 @@
 6. **mother collision**：剩余所谓 novelty 只是 subtype / domain swap / readout swap。
 7. **强模型消失**：只有弱 checkpoint 存在，没有重要 scaling transition。
 8. **post-hoc rescue**：看结果后换 subset、threshold、prompt、readout、模型或名字。
+9. **mechanism masquerading as phenomenon**：mother behavior 已经成立，只剩 `representation exists → is it causal / where does it route?`，却仍占 phenomenon shortlist。
 
 ### 一句 stop-loss
 
