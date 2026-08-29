@@ -113,7 +113,7 @@ representation / predictive signal exists
 ```text
 N0 breadth PASS
 + N1 depth PASS
-+ D0 source-feasibility PASS
++ D0 source-feasibility PASS（其中 scope-integrity 必须 PASS）
 = DISCOVERY-PASS
 ```
 
@@ -196,6 +196,7 @@ extraction_or_construction_recipe:
 estimated_eligible_count:
 feasibility_audit_ids: []   # >=20 real examples
 external_validation_anchor:
+scope_integrity_verdict: PASS | HOLD-SCOPE
 ```
 
 最低要求：
@@ -206,7 +207,12 @@ external_validation_anchor:
 - statistical unit 真实独立；
 - dry-run 能估出足够 eligible cases；
 - 随机人工看至少 20 个真实 source examples/pairs；
-- nuisance/confound 在模型调用前列清楚。
+- nuisance/confound 在模型调用前列清楚；
+- **scientific population 必须在强过滤前写清楚；**
+- **raw bank、validity-eligible bank、matched-control bank、analysis strata 必须分离；**
+- **理论上有意义的 moderator 默认 factor-not-filter；**
+- **必须输出完整 attrition table，并审计主要 drop reason；**
+- **必须通过 [`DATASET_SCOPE_AUDIT.md`](DATASET_SCOPE_AUDIT.md)。**
 
 #### D0 的 independent-phenotype test
 
@@ -215,6 +221,26 @@ D0 不只是“有数据能喂模型”。还必须问：
 > **这个 D0 是否独立定义了我们的 behavioral scientific object，还是只给 mechanism experiment 提供输入？**
 
 如果 source 只能定义 mother 已知 behavior，而我们的新 claim 必须查看 head/probe/patch 才出现，则它不能作为新 phenomenon 的 D0-PASS；应 route 到 `MECH-FOLLOWUP`。
+
+#### D0 的 scope-integrity test
+
+除了“source/gold/count 能不能用”，还必须问：
+
+> **经过 construction/matching 后，剩下的数据还是原来的 scientific population，还是已经因为 clean subset、control availability、domain/type、direction、difficulty、capability gate 等条件换了题？**
+
+强制原则：
+
+```text
+scientific population 先冻结
+→ raw bank 尽量保留自然 variation
+→ 只把测量定义本身无效的样本从 validity bank 删除
+→ control availability 只决定 matched bank
+→ domain/type/direction/difficulty/structure/gate 默认作为 factor/stratum
+```
+
+若为了“更干净”“更独立”“更好匹配”“更容易达到 capability floor”而删掉一个理论 factor level，默认判 `HOLD-SCOPE`，除非显式改 mother question / estimand 并留下 amendment。
+
+详细合同、attrition table、双轮人工 audit 和 builder regression-test 要求见 [`DATASET_SCOPE_AUDIT.md`](DATASET_SCOPE_AUDIT.md)。
 
 #### 没有现成 paired data 时
 
@@ -226,11 +252,12 @@ public natural source
 → independently provable gold
 → dry-run confirms yield
 → >=20 sample naturalness/artifact audit
+→ scope-integrity audit
 ```
 
 不允许：先注册题目，再发明 generator 或到处换数据源凑数量。
 
-如果 source/gold/license/count 仍答不清，只能是 `HOLD-DISCOVERY-DATA`。
+如果 source/gold/license/count **或 scope-integrity** 仍答不清，只能是 `HOLD-DISCOVERY-DATA` / `HOLD-SCOPE`。
 
 ---
 
@@ -276,7 +303,14 @@ d0_feasibility:
   feasibility_audit_ids: []
   external_validation_anchor:
   independent_phenotype_without_MI:
-  verdict: PASS | HOLD | KILLED
+  scientific_population:
+  theoretical_factors: []
+  raw_bank_artifact:
+  validity_exclusions: []
+  matched_control_recipe:
+  attrition_table_artifact:
+  scope_integrity_verdict: PASS | HOLD-SCOPE
+  verdict: PASS | HOLD | HOLD-SCOPE | KILLED
 ```
 
 填不完整就继续 discovery；不要创建 active project 等以后补洞。
@@ -290,7 +324,8 @@ d0_feasibility:
 ```text
 DISCOVERY-PASS
 → formal registration
-→ materialize/freeze 已锁定 D0
+→ materialize/freeze 已锁定 D0 raw/eligible/matched artefacts
+→ scope summary + attrition audit
 → READY-TO-SMOKE
 → two-family behavioral smoke
 → raw-case/scorer/capability/artifact audit
@@ -301,7 +336,7 @@ DISCOVERY-PASS
 → mechanism-derived prediction/method
 ```
 
-注册后的 D0 **只做 materialization/freeze**：exact IDs、hash、split、provenance、gold verification。若发现必须换 source 或核心 recipe，退回 discovery。
+注册后的 D0 **只做 materialization/freeze**：exact IDs、hash、split、provenance、gold verification、scope summary。若发现必须换 source、核心 recipe、scientific population 或关键 factor levels，退回 discovery；不能把这种改变包装成普通 feasibility adaptation。
 
 模型 panel 的具体 checkpoint 约定见 [`MODEL_PANEL.md`](MODEL_PANEL.md)。
 
@@ -334,7 +369,8 @@ DISCOVERY-PASS
 - effect 主要由 answer order、length、format、prompt artifact 解释；
 - 跨模型不是同一个 phenotype；
 - 强模型几乎消失且没有重要 scaling transition；
-- 需要看完结果后改 subset、阈值、readout 或名字才能续命。
+- 需要看完结果后改 subset、阈值、readout 或名字才能续命；
+- **dataset construction 把 mother question 的理论 factor 当 filter 删除，导致 estimand drift，且无法恢复原 population。**
 
 失败后记录到 [`FAILED_TOPICS.md`](FAILED_TOPICS.md)。**失败知识的价值是阻止 rename revival，不是给旧题找补。**
 
@@ -354,6 +390,4 @@ DISCOVERY-PASS
 
 ## 9. 最终一句原则
 
-> **找题阶段的目标不是尽快拥有一个题，而是尽快知道这个题是否值得存在。**
-
-一个真正进入实验的题，应该已经做到：文献边界清楚、自然数据可拿、gold 可冻结、hard kill 已写好。GPU 只负责证伪现象，不负责替选题收拾残局。
+> **找题阶段的目标不是尽快拥有一个题，而是尽快知道这个题是否值得存在。数据构建的目标不是尽快得到一个“干净小数据集”，而是先忠实保存 scientific population，再用 contrast / strata / statistics 收敛解释。GPU 只负责证伪现象，不负责替选题和 scope drift 收拾残局。**
