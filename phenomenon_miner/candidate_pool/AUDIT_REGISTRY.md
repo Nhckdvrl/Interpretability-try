@@ -8,7 +8,7 @@
 **当前 `READY-TO-SMOKE`：2 — `active/007_weak_evidence_backfire`、`active/012_source_discount_recovery`.**
 
 - 007：`N0-PASS / D0-PASS / READY-TO-SMOKE`，30 个 frozen natural scenarios，20/20 manual audit，`validation_authorized: true`。
-- 012：`N0-PASS / D0-PASS / READY-TO-SMOKE`，108 条 NetEaseCrowd natural D0（4 capability / 12 cell / 216 annotator），机械检查 108/108 全过，分层 20 条人工审计 20/20 PASS；统计合同 r2（primary = 8 cell / 101 条等权 + cell→scenario 重抽，7 条 undersized 仅描述性）；`validation_authorized: true`。
+- 012：`N0-PASS / D0-PASS / SMOKE-RUN`，108 条 natural D0 已跑完两家族 first shot，两家均 `HARD-KILL-SOURCE-MEMORY-CAPABILITY-FLOOR`、denominator = 0。kill 来源单一 probe（`source_credibility`）且证实为答案位置 artifact；另有 belief 侧 immediate discount gap 近 0 的独立 floor。进 N1/panel 前必须先完成 raw-case/scorer/capability/artifact 审计。
 - 013：`N0-PASS / HOLD-D0 / NOT READY-TO-SMOKE`，强自然 anchor 已找到，但独立 scenario 数量与 adaptation/license 条件不足。
 
 ## N0 范围决议
@@ -31,7 +31,7 @@ N1 仍在 smoke 后、扩模型前强制执行。
 | 6 | Habitual → Episode Actualization | `ADVERSARIAL-N0-SURVIVOR` | — | false |
 | 7 | Mixed-Status Event Attraction | `ADVERSARIAL-N0-SURVIVOR` | — | false |
 | 8 | Dissent → Holding Role Swap | `ADVERSARIAL-N0-SURVIVOR` | — | false |
-| 9 | Source-Discount Recovery | `N0-PASS / D0-PASS / READY-TO-SMOKE` | `active/012_source_discount_recovery/` | true |
+| 9 | Source-Discount Recovery | `N0-PASS / D0-PASS / SMOKE-RUN / CAPABILITY-FLOOR` | `active/012_source_discount_recovery/` | true |
 | 10 | Weak-Evidence Backfire | `N0-PASS / D0-PASS / READY-TO-SMOKE` | `active/007_weak_evidence_backfire/` | true |
 
 ## Active registrations
@@ -66,6 +66,10 @@ active/012_source_discount_recovery:
   unique_annotators: 216
   manual_audit: 20/20 PASS
   analysis_contract: 2026-08-29-r2
+  smoke: 2026-08-29 two-family, Qwen3-8B + Gemma-3-12B-IT
+  smoke_verdict: HARD-KILL-SOURCE-MEMORY-CAPABILITY-FLOOR (both families)
+  smoke_denominator: 0 weighting-capable pairs in both families
+  smoke_caveat: kill driven solely by the source_credibility yes/no probe, which shows a large answer-position effect absent from the other two memory probes
   frozen_data_sha256: cde7f3fa9dfeb94645fa2e254507013c26cb2ffb01793b9bd889a86668af1c3a
   validation_authorized: true
 

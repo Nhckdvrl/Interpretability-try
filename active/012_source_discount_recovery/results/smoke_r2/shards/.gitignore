@@ -1,0 +1,3 @@
+# Per-shard scorer output is concatenated into ../<model>.raw.jsonl; only the merged
+# file and the shard *inputs* are tracked.
+*.raw.*.jsonl
