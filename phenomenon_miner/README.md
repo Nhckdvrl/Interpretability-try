@@ -13,16 +13,21 @@
 N0 breadth PASS
 + N1 depth PASS
 + D0 source-feasibility PASS
+    └─ dataset scope-integrity PASS
 = DISCOVERY-PASS
 ```
 
-定义与完整流程看 [`FINDING_RULES.md`](FINDING_RULES.md)。
+定义与完整流程看 [`FINDING_RULES.md`](FINDING_RULES.md)。数据寻找/构建还必须通过 [`DATASET_SCOPE_AUDIT.md`](DATASET_SCOPE_AUDIT.md)：先冻结 scientific population，再分离 raw bank、validity bank、matched-control bank 和 analysis strata，禁止为了“干净/独立/好匹配”把理论 moderator 在 builder 里提前删掉。
 
-最重要的纪律：
+最重要的两条纪律：
 
 > **phenomenon before mechanism。**
 >
 > strong mother paper 可以提供 motivation、behavioral object 和 mechanism opening；但如果 mother 已经拥有 headline behavior，而我们只剩 `representation → causal? / route? / where?`，它应被标成 `MECH-FOLLOWUP`，不能伪装成新的 phenomenon candidate。
+
+> **population before clean subset。**
+>
+> 控制 confound 应靠 contrast、matching、strata 和统计模型，而不是把原科学问题不断筛窄。小而干净的 money cell 可以决定一个强解释是否成立，但不能冒充整个 phenomenon 的数据集。
 
 ## 当前入口
 
@@ -30,6 +35,7 @@ N0 breadth PASS
 - [`AUDIT_REGISTRY.md`](AUDIT_REGISTRY.md) — **唯一 model-call authorization**。Tier S/A/B、active directory、survivor 等标签都不代表模型授权。
 - [`FAILED_TOPICS.md`](FAILED_TOPICS.md) — KILL / ROUTE / HOLD-DATA 与 anti-revival lessons。新一轮搜索必须先查这里。
 - [`FINDING_RULES.md`](FINDING_RULES.md) — N0、N1、D0、behavior-first、strong-model kill、stop-loss 的正式合同。
+- [`DATASET_SCOPE_AUDIT.md`](DATASET_SCOPE_AUDIT.md) — D0 强制 scope gate：scientific population、factor-not-filter、attrition、双轮人工审计、builder regression tests。
 - [`MODEL_PANEL.md`](MODEL_PANEL.md) — behavioral smoke / generality 的 checkpoint panel 约定。
 
 ## 2026-08-29 re-audit 后的调度
@@ -49,7 +55,7 @@ N0 breadth PASS
 
 特殊轨道：
 
-- **Alias Entrainment Transfer** — 已有 phenotype，但 N1/v4 D0 曾被 owner waiver；当前只允许完成冻结的 construct validation，entity interpretation 未成立。
+- **Alias Entrainment Transfer** — 已有 phenotype，但 N1/v4 D0 曾被 owner waiver；当前只允许完成 r4 broad construct validation。旧 person/opaque-strict D1 scope 已 superseded；entity interpretation 未成立。
 - **Action-Boundary State Routing** — 明确标为 `MECH-FOLLOWUP`，不占新的 behavioral-phenomenon slot。
 
 不再占当前高优先级 discovery 资源：
@@ -62,4 +68,4 @@ N0 breadth PASS
 
 ## 一句原则
 
-> **找题阶段的目标不是尽快拥有一个题，而是尽快知道这个题是否值得存在。GPU 负责证伪现象，不负责替 N0/N1/D0 收拾残局。**
+> **找题阶段的目标不是尽快拥有一个题，而是尽快知道这个题是否值得存在；数据阶段的目标不是尽快拥有一个“干净小样本”，而是先保存 scientific population，再收敛解释。GPU 负责证伪现象，不负责替 N0/N1/D0 或 scope drift 收拾残局。**
