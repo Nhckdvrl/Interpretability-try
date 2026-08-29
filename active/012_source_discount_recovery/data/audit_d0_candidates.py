@@ -182,6 +182,7 @@ def main() -> None:
     ap.add_argument("--min-cal-per-class", type=int, default=20)
     ap.add_argument("--min-val-per-class", type=int, default=10)
     ap.add_argument("--sample", type=int, default=20)
+    ap.add_argument("--min-primary-cell-size", type=int, default=5)
     args = ap.parse_args()
 
     rows = [json.loads(line) for line in Path(args.candidates).read_text(encoding="utf-8").splitlines() if line.strip()]
@@ -254,6 +255,20 @@ def main() -> None:
 
     L.append("Per (domain, label-pair) cell: " +
              ", ".join(f"`{d.replace('capability-', '')}:{lp}` {n}" for (d, lp), n in sorted(cells.items())) + "\n")
+    floor = args.min_primary_cell_size
+    primary = {k: n for k, n in cells.items() if n >= floor}
+    secondary = {k: n for k, n in cells.items() if n < floor}
+    short_cell = lambda d, lp: f"{d.replace('capability-', '')}:{lp}"
+    secondary_list = ", ".join(f"`{short_cell(d, lp)}` {n}" for (d, lp), n in sorted(secondary.items()))
+    L.append(
+        f"Inferential stratification, fixed here rather than after the model runs: a cell is "
+        f"**primary** when the frozen bank gave it at least {floor} scenarios. "
+        f"**{len(primary)} primary cells / {sum(primary.values())} scenarios** across "
+        f"{len({d for d, _ in primary})} capabilities carry promotion, equally weighted by cell mean, "
+        f"with the interval from a bootstrap that resamples eligible cells and then scenarios within "
+        f"each resampled cell. **{len(secondary)} undersized cells / {sum(secondary.values())} "
+        f"scenarios** ({secondary_list}) are executed and reported, but cannot move PASS/HOLD/KILL "
+        f"and can never be promoted into the primary set afterwards.\n")
     L.append(f"## Fixed-seed manual audit sample (n={len(sample)})\n")
     L.append("Drawn stratified by cell, so every cell is represented before any cell is "
              "sampled twice. Read these rows against the rendered prompts in the companion "

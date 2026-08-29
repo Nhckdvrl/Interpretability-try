@@ -34,6 +34,7 @@ REQUIRED_TRUE = (
 class Scenario:
     scenario_id: str
     domain: str
+    cell_id: str
     background: str
     calibration_text: str
     target_hypothesis: str
@@ -86,6 +87,10 @@ def validate_record(row: dict[str, Any], *, require_external_source: bool = True
         raise ValueError(f"{sid}: D0 gold must be True for {bad}")
 
     domain = _s(row.get("domain"), f"{sid}.domain")
+    # A cell is one (domain, binary label pair). It is the stratum the analysis averages
+    # within, so it is stored rather than parsed out of the scenario id. Datasets whose
+    # domain is already the finest stratum may omit it.
+    cell_id = _s(row.get("cell_id"), f"{sid}.cell_id") if row.get("cell_id") is not None else domain
     background = _s(row.get("background"), f"{sid}.background")
     calibration = _s(row.get("calibration_text"), f"{sid}.calibration_text")
     target_h = _s(row.get("target_hypothesis"), f"{sid}.target_hypothesis")
@@ -155,7 +160,7 @@ def validate_record(row: dict[str, Any], *, require_external_source: bool = True
         raise ValueError(f"{sid}: external D0 requires url/path/citation")
 
     return Scenario(
-        sid, domain, background, calibration, target_h, other_h, target_a, other_a,
+        sid, domain, cell_id, background, calibration, target_h, other_h, target_a, other_a,
         high_source, low_source, high_profile, low_profile, high_r, low_r,
         low_target_lr, high_target_lr, low_other_lr, high_other_lr,
         target_msg, other_msg, short_delay, long_delay, high_re, low_re,

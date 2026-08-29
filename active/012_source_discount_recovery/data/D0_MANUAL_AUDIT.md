@@ -29,6 +29,8 @@ No row fails any check.
 
 Per (domain, label-pair) cell: `50:0v1` 15, `50:0v2` 15, `50:1v2` 15, `52:0v1` 2, `52:0v2` 1, `52:1v2` 1, `53:0v1` 6, `53:0v2` 3, `53:1v2` 5, `56:0v1` 15, `56:0v2` 15, `56:1v2` 15
 
+Inferential stratification, fixed here rather than after the model runs: a cell is **primary** when the frozen bank gave it at least 5 scenarios. **8 primary cells / 101 scenarios** across 3 capabilities carry promotion, equally weighted by cell mean, with the interval from a bootstrap that resamples eligible cells and then scenarios within each resampled cell. **4 undersized cells / 7 scenarios** (`52:0v1` 2, `52:0v2` 1, `52:1v2` 1, `53:0v2` 3) are executed and reported, but cannot move PASS/HOLD/KILL and can never be promoted into the primary set afterwards.
+
 ## Fixed-seed manual audit sample (n=20)
 
 Drawn stratified by cell, so every cell is represented before any cell is sampled twice. Read these rows against the rendered prompts in the companion file before signing.

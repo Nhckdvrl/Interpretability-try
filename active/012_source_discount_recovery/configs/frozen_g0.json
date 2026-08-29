@@ -1,5 +1,5 @@
 {
-  "contract_version": "2026-08-29-r1",
+  "contract_version": "2026-08-29-r2",
   "validation_authorized": false,
   "require_external_source": true,
   "support_gate": {
@@ -37,6 +37,8 @@
     "min_memory_gated_fraction": 0.5,
     "min_weighting_capable_fraction": 0.4,
     "min_weighting_capable_pairs": 20,
+    "min_primary_cell_size": 5,
+    "min_primary_cells": 6,
     "min_strong_pair_fraction": 0.2,
     "min_mean_gap_shrink": 0.025,
     "min_gap_shrink_ci_lower": 0.005,

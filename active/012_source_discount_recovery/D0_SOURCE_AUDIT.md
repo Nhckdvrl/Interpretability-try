@@ -129,7 +129,7 @@ A balanced nine per cell is therefore not reachable: 50 and 56 fill their nine, 
 | 56 | 15 | 15 | 15 | 45 |
 | **total** | | | | **108** |
 
-So the bank reaches the 108 target with 216 distinct annotators and no relaxed threshold, but it is not balanced across capabilities, and it cannot be: 83% of it sits in capabilities 50 and 56. This matters for how the result is aggregated, since the cluster count is 12 cells whether the bank holds 72 scenarios or 108.
+So the bank reaches the 108 target with 216 distinct annotators and no relaxed threshold, but it is not balanced across capabilities, and it cannot be: 83% of it sits in capabilities 50 and 56, and the cluster count is 12 cells whether the bank holds 72 scenarios or 108. The statistical contract answers this by splitting the bank before any model call: the 8 cells sized `>= 5` (101 scenarios, capabilities 50, 53 and 56) form the primary inferential set with equal weight per cell, and the 4 undersized cells (7 scenarios) are executed and reported but cannot move the verdict. See the project README for the frozen aggregation rule.
 
 ### Audit status
 

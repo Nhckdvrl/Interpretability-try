@@ -36,6 +36,35 @@ def bootstrap_ci(values: list[float], *, seed: int, n_boot: int) -> tuple[float,
     return draws[int(.025 * (n_boot - 1))], draws[int(.975 * (n_boot - 1))]
 
 
+def cell_bootstrap_ci(cell_values: dict[str, list[float]], *, seed: int, n_boot: int) -> tuple[float, float]:
+    """Resample eligible cells, then scenarios within each resampled cell.
+
+    The estimator weights every eligible cell equally, so the cell is the unit the
+    interval must be built on: a cell holding fifteen source pairs is not fifteen
+    independent draws on the question the headline asks. Capability is deliberately not
+    a third level — the primary set has three capabilities contributing two, three and
+    three eligible cells, so resampling capabilities first would hand capability 53 the
+    same third of the weight as the two capabilities that carry more cells, which is a
+    new arbitrary weighting rather than a correction for one.
+    """
+    keys = sorted(cell_values)
+    if not keys:
+        return math.nan, math.nan
+    if n_boot <= 0:
+        raise ValueError("n_boot must be > 0")
+    rng = random.Random(seed)
+    draws = []
+    for _ in range(n_boot):
+        cell_means = []
+        for _ in range(len(keys)):
+            values = cell_values[keys[rng.randrange(len(keys))]]
+            n = len(values)
+            cell_means.append(mean(values[rng.randrange(n)] for _ in range(n)))
+        draws.append(mean(cell_means))
+    draws.sort()
+    return draws[int(.025 * (n_boot - 1))], draws[int(.975 * (n_boot - 1))]
+
+
 def signed_influence(direction: str, p_message: float, p_baseline: float) -> float:
     raw = p_message - p_baseline
     if direction == "supports_target":
@@ -266,7 +295,7 @@ def summarize(*, data_path: str, results_path: str, config_path: str,
                 support=support, support_min=support_min, memory=memory, memory_min=memory_min,
                 readouts=norm, variant_readouts=variants, cfg=cfg,
             )
-            entry = {"scenario_id": sid, "domain": by_id[sid].domain, "direction": direction,
+            entry = {"scenario_id": sid, "domain": by_id[sid].domain, "cell_id": by_id[sid].cell_id, "direction": direction,
                      "support": support, "memory": {"|".join(k): v for k, v in memory.items()}, **features}
             directions.append(entry)
             dir_entries.append(entry)
@@ -274,6 +303,7 @@ def summarize(*, data_path: str, results_path: str, config_path: str,
         pair = {
             "scenario_id": sid,
             "domain": by_id[sid].domain,
+            "cell_id": by_id[sid].cell_id,
             "support_gated": all(x["support_gate"] for x in dir_entries),
             "memory_gated": all(x["memory_gate"] for x in dir_entries),
             "weighting_capable": all(x["weighting_capability"] for x in dir_entries),
@@ -290,28 +320,80 @@ def summarize(*, data_path: str, results_path: str, config_path: str,
         }
         pairs.append(pair)
 
+    pc = cfg["model_pass"]
+
+    # Stratum membership is fixed by the frozen bank, before any model call: a cell is
+    # primary if the D0 bank gave it at least `min_primary_cell_size` scenarios. It is
+    # never decided from how the cell performed, and an undersized cell can never be
+    # promoted into the inferential set after the fact.
+    min_cell = int(pc["min_primary_cell_size"])
+    bank_cell_size: dict[str, int] = defaultdict(int)
+    cell_domain: dict[str, str] = {}
+    for s in scenarios:
+        bank_cell_size[s.cell_id] += 1
+        cell_domain[s.cell_id] = s.domain
+    primary_cells = {c for c, n in bank_cell_size.items() if n >= min_cell}
+    secondary_cells = set(bank_cell_size) - primary_cells
+
+    def gap_of(p: dict) -> float:
+        return mean((p["belief_gap_shrink_mean"], p["action_gap_shrink_mean"]))
+
     eligible = [p for p in pairs if p["weighting_capable"]]
-    gap_vals = [mean((p["belief_gap_shrink_mean"], p["action_gap_shrink_mean"])) for p in eligible]
-    ci = bootstrap_ci(gap_vals, seed=cfg["seed"], n_boot=cfg["bootstrap_samples"])
+    primary_pairs = [p for p in pairs if p["cell_id"] in primary_cells]
+    primary_eligible = [p for p in eligible if p["cell_id"] in primary_cells]
+    gap_vals = [gap_of(p) for p in eligible]
+
+    cell_values: dict[str, list[float]] = defaultdict(list)
+    for p in primary_eligible:
+        cell_values[p["cell_id"]].append(gap_of(p))
+    cell_means = {c: mean(v) for c, v in sorted(cell_values.items())}
+    cell_mean_gap_shrink = mean(cell_means.values()) if cell_means else math.nan
+    ci = cell_bootstrap_ci(dict(cell_values), seed=cfg["seed"], n_boot=cfg["bootstrap_samples"])
+
+    # Capability is reported for heterogeneity only and gates nothing.
+    by_capability: dict[str, list[float]] = defaultdict(list)
+    for c, m in cell_means.items():
+        by_capability[cell_domain[c]].append(m)
+
+    def frac(rows: list[dict], key: str, negate: bool = False) -> float:
+        if not rows:
+            return 0.0
+        return mean(float(not r[key] if negate else r[key]) for r in rows)
+
     agg = {
         "scenario_pairs": len(pairs),
         "support_gated_pairs": sum(p["support_gated"] for p in pairs),
         "memory_gated_pairs": sum(p["memory_gated"] for p in pairs),
         "weighting_capable_pairs": len(eligible),
         "strong_pairs": sum(p["strong"] for p in eligible),
-        "strong_pair_fraction": mean(float(p["strong"]) for p in eligible) if eligible else 0.0,
-        "generic_delay_failure_fraction": mean(float(not p["generic_delay_ok"]) for p in eligible) if eligible else 0.0,
-        "recovery_pair_fraction": mean(float(p["recovery"]) for p in eligible) if eligible else 0.0,
-        "reinstatement_pair_fraction": mean(float(p["reinstatement"]) for p in eligible) if eligible else 0.0,
+        "strong_pair_fraction": frac(eligible, "strong"),
         "mean_gap_shrink": mean(gap_vals) if gap_vals else math.nan,
+        # --- primary inferential set: cells the frozen bank sized at >= min_primary_cell_size
+        "min_primary_cell_size": min_cell,
+        "primary_cells": sorted(primary_cells),
+        "secondary_cells": sorted(secondary_cells),
+        "primary_scenarios": len(primary_pairs),
+        "secondary_scenarios": len(pairs) - len(primary_pairs),
+        "eligible_cells": sorted(cell_values),
+        "primary_weighting_capable_pairs": len(primary_eligible),
+        "cell_mean_gap_shrink": cell_mean_gap_shrink,
+        "cell_means": cell_means,
         "gap_shrink_ci95": ci,
-        "positive_domains": len({p["domain"] for p in eligible if p["strong"]}),
+        "primary_strong_pair_fraction": frac(primary_eligible, "strong"),
+        "generic_delay_failure_fraction": frac(primary_eligible, "generic_delay_ok", negate=True),
+        "recovery_pair_fraction": frac(primary_eligible, "recovery"),
+        "reinstatement_pair_fraction": frac(primary_eligible, "reinstatement"),
+        "positive_domains": len({p["domain"] for p in primary_eligible if p["strong"]}),
+        "capability_cell_means": {d: sorted(v) for d, v in sorted(by_capability.items())},
+        # --- secondary cells are executed and described, but gate nothing
+        "secondary_weighting_capable_pairs": len(eligible) - len(primary_eligible),
+        "secondary_strong_pair_fraction": frac([p for p in eligible if p["cell_id"] in secondary_cells], "strong"),
     }
-    pc = cfg["model_pass"]
     model_pass = (
-        len(eligible) >= pc["min_weighting_capable_pairs"]
-        and agg["strong_pair_fraction"] >= pc["min_strong_pair_fraction"]
-        and agg["mean_gap_shrink"] >= pc["min_mean_gap_shrink"]
+        len(cell_values) >= pc["min_primary_cells"]
+        and len(primary_eligible) >= pc["min_weighting_capable_pairs"]
+        and agg["primary_strong_pair_fraction"] >= pc["min_strong_pair_fraction"]
+        and cell_mean_gap_shrink >= pc["min_mean_gap_shrink"]
         and ci[0] >= pc["min_gap_shrink_ci_lower"]
         and agg["recovery_pair_fraction"] >= pc["min_recovery_pair_fraction"]
         and agg["reinstatement_pair_fraction"] >= pc["min_reinstatement_pair_fraction"]
@@ -319,6 +401,8 @@ def summarize(*, data_path: str, results_path: str, config_path: str,
         and agg["positive_domains"] >= pc["min_positive_domains"]
     )
 
+    # Capability floors are read over the whole executed bank: whether the model can do
+    # the task at all is not a question about the inferential stratification.
     total = len(pairs)
     support_frac = agg["support_gated_pairs"] / total if total else 0.0
     memory_frac = agg["memory_gated_pairs"] / total if total else 0.0
@@ -331,7 +415,7 @@ def summarize(*, data_path: str, results_path: str, config_path: str,
         verdict = "HARD-KILL-SOURCE-WEIGHTING-CAPABILITY-FLOOR"
     elif agg["generic_delay_failure_fraction"] > pc["max_generic_delay_failure_fraction"]:
         verdict = "HOLD-GENERIC-DELAY-DEGRADATION"
-    elif agg["recovery_pair_fraction"] < pc["min_recovery_pair_fraction"] or (math.isfinite(agg["mean_gap_shrink"]) and agg["mean_gap_shrink"] < pc["no_effect_gap_shrink"]):
+    elif agg["recovery_pair_fraction"] < pc["min_recovery_pair_fraction"] or (math.isfinite(cell_mean_gap_shrink) and cell_mean_gap_shrink < pc["no_effect_gap_shrink"]):
         verdict = "HARD-KILL-NO-SOURCE-DISCOUNT-RECOVERY"
     elif agg["reinstatement_pair_fraction"] < pc["min_reinstatement_pair_fraction"]:
         verdict = "HOLD-NO-SELECTIVE-SOURCE-CUE-REINSTATEMENT"

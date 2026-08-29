@@ -16,7 +16,7 @@ The three harnesses follow the frozen discovery process rather than treating imp
 - external provenance is mandatory for formal D0; custom-only rows are rejected;
 - model construction is blocked while `validation_authorized` is false;
 - prompt variants, evidence directions, participant perspectives, and repeated measurements are not promoted to independent statistical samples;
-- model-level bootstrap statistics use the natural scenario pair as the unit;
+- model-level bootstrap statistics use the natural scenario pair as the unit, or the stratum containing it where a materialized bank puts many pairs inside one natural task type (see 012's `2026-08-29-r2` contract);
 - capability-floor and artifact verdicts can never count toward panel promotion;
 - mechanism experiments remain forbidden until behavior, N1, cross-family/scale, and strong-model gates survive.
 
@@ -86,13 +86,17 @@ The long-delay source-metadata reminder may name the source and its credibility 
 
 ### Statistical contract
 
-Target- and other-support directions are sign-normalized and must both pass. Belief/action are co-primary. The natural scenario, not the two directions or prompt variants, is the bootstrap unit.
+Target- and other-support directions are sign-normalized and must both pass. Belief/action are co-primary. The natural scenario, not the two directions or prompt variants, is the unit of measurement.
+
+Contract `2026-08-29-r2` adds the stratification the materialized bank forced. The 108 NetEaseCrowd scenarios sit in 12 `(capability, label pair)` cells of very unequal size, so the bootstrap unit is the **cell**, not the scenario: the headline is the equal-weighted mean of eligible cell means over the 8 cells the frozen bank sized at `>= 5` (101 scenarios), and the interval resamples eligible cells and then scenarios within each. The 4 undersized cells (7 scenarios) are executed and described but cannot move `PASS` / `HOLD` / `KILL`, and cannot be promoted into the primary set after the fact. Capability is not a bootstrap level, because the three primary capabilities contribute unequal numbers of cells; per-capability cell means are reported for heterogeneity only.
 
 ### Offline verification
 
-`14` tests pass. They include full result-matrix integration tests showing:
+`22` tests pass. They include full result-matrix integration tests showing:
 
 - an injected source-discount-recovery + selective-reinstatement signature reaches `PASS-TO-PANEL` under a one-case test config;
+- an undersized cell cannot move the verdict, and flipping its results leaves the headline effect and its interval bit-identical;
+- cells are weighted equally regardless of how many source pairs they hold;
 - normal stable source discount with no recovery yields `HARD-KILL-NO-SOURCE-DISCOUNT-RECOVERY`;
 - short-delay source-memory failure yields `HARD-KILL-SOURCE-MEMORY-CAPABILITY-FLOOR`;
 - below-chance reliability, invalid directional LR, message-repeating reinstatement, generic high-source decay, and non-selective matched-length rescue are rejected or held;

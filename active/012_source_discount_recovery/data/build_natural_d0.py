@@ -262,6 +262,7 @@ def make_record(*, dataset_name: str, license_name: str, source_url: str, domain
     return {
         "scenario_id": f"{dataset_name}:{domain}:{target_label}v{other_label}:{scenario_index:03d}",
         "domain": domain,
+        "cell_id": f"{domain}:{target_label}v{other_label}",
         "background": _background(specs, domain_col, domain_value, t_letter, o_letter),
         "calibration_text": calibration,
         "target_hypothesis": target_h, "other_hypothesis": other_h,
