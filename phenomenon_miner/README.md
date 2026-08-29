@@ -1,28 +1,27 @@
 # Phenomenon Miner
 
-`phenomenon_miner/` 是本仓库的**选题发现、novelty 审计、D0 构造与实验调度中枢**。它是内部研究流程，不是准备投稿的“测试框架贡献”。
+`phenomenon_miner/` 是本仓库的 **discovery 与 dispatch 中枢**。
 
 ## 权威文档
 
 | file | role |
 |---|---|
-| [`REQUIREMENTS.md`](REQUIREMENTS.md) | 选题与晋级硬门槛 |
-| [`PROCESS.md`](PROCESS.md) | N0 → D0 → smoke → N1 → panel → mechanism |
-| [`NOVELTY_GATE.md`](NOVELTY_GATE.md) | exact collision、mother inclusion、successor、independent N0/N1 |
+| [`PROCESS.md`](PROCESS.md) | discovery → registration → D0 freeze → behavior → mechanism |
+| [`REQUIREMENTS.md`](REQUIREMENTS.md) | 题目、novelty、data feasibility 与一般性硬门槛 |
+| [`NOVELTY_GATE.md`](NOVELTY_GATE.md) | registration 前的 N0 breadth + N1 depth |
 | [`candidate_pool/AUDIT_REGISTRY.md`](candidate_pool/AUDIT_REGISTRY.md) | **唯一模型调用授权表** |
 | [`MODEL_PANEL.md`](MODEL_PANEL.md) | 跨家族 / 跨尺寸 panel |
-| [`CONFERENCE_SCALE_AUDIT.md`](CONFERENCE_SCALE_AUDIT.md) | 主会题目尺度校准 |
-| [`FAILURE_REVIEW_2026-08-28.md`](FAILURE_REVIEW_2026-08-28.md) | validation 后失败的流程复盘 |
 
-Batch 1 / 2 / 3、brainstorm ledger、领域 idea inventory 与 N0 工作稿统一从 [`candidate_pool/README.md`](candidate_pool/README.md) 进入；这里不再重复列一遍。
+Batch、brainstorm ledger、领域 idea inventory 与 discovery audits 统一从 [`candidate_pool/README.md`](candidate_pool/README.md) 进入。
+
+## 新的目录语义
 
 ```text
-candidate_pool/   discovery inventory + N0 workspace + authoritative registry
-phenomena/        规范化现象档案（逐步迁移）
-candidates/       legacy 长文候选
-promoted/         legacy 命名；不自动代表可投稿
-data/results/logs 历史扫描与验证资产
-run_*.py          历史/当前扫描脚本
+candidate_pool/  还在“把题目做透”的地方：N0 + N1 + D0 source feasibility
+active/          已正式注册的项目；不再用于继续找论文/找数据
+archive/         terminal projects
 ```
 
-整理原则：**当前入口单一化，实验与历史 provenance 不为目录美观而批量移动。**
+新题只有拿到 `DISCOVERY-PASS` 才能从 candidate pool 进入正式 project registration。
+
+如果在 active 里才发现“数据不够、license 不清、需要换 source、最强邻居没读 appendix”，说明 discovery 没做完；新流程要求退回 discovery，而不是继续打补丁。

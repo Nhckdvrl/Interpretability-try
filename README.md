@@ -1,50 +1,58 @@
 # Interpretability Topic Search
 
-这个仓库用于寻找和验证 **LLM 可解释性研究题目**。核心原则是：先确认一个自然、可复现、值得解释的行为对象，再进入机制与方法；不是先选 SAE / attention head / activation patching 再找故事。
+这个仓库用于寻找和验证 **LLM 可解释性研究题目**。核心原则是：先把题目本身查透、数据路径做实，再投入模型预算；不是先建 active 项目以后再慢慢补 novelty、找数据或找机制故事。
 
-> 目标尺度：ACL / EMNLP / NAACL Main 级别的 mother question + decisive contrasts + mechanism fork + natural method opening。
+> 目标尺度：ACL / EMNLP / NAACL Main 级别的 mother question + decisive contrast + mechanism fork + 可落地自然数据 + natural method opening。
 
 ## 当前状态
 
 | lane | project | status | model calls |
 |---|---|---|---|
-| behavioral validation | [`active/007_weak_evidence_backfire/`](active/007_weak_evidence_backfire/) | `N0-PASS / D0-PASS / READY-TO-SMOKE`，当前为 30-case natural D0 contract | **authorized** |
-| blocked | [`active/013_publicness_coordination_dissociation/`](active/013_publicness_coordination_dissociation/) | `N0-PASS / HOLD-D0` | no |
-| pre-candidate | [`active/003_diagnostic_counterevidence_revision/`](active/003_diagnostic_counterevidence_revision/) | `PAPER-AUDIT-PASSED / G0-NOT-RUN` | no |
-| discovery | [`phenomenon_miner/candidate_pool/`](phenomenon_miner/candidate_pool/) | Batch 3 mother-paper extensions 为当前优先线；survivor 不是 formal N0 | no |
-| terminal history | [`archive/`](archive/) | 已停止项目与完整证据链 | no |
+| behavioral validation | [`active/007_weak_evidence_backfire/`](active/007_weak_evidence_backfire/) | legacy registered project；当前 30-case frozen D0 | **authorized** |
+| blocked legacy | [`active/013_publicness_coordination_dissociation/`](active/013_publicness_coordination_dissociation/) | `HOLD-D0` | no |
+| pre-candidate legacy | [`active/003_diagnostic_counterevidence_revision/`](active/003_diagnostic_counterevidence_revision/) | `G0-NOT-RUN` | no |
+| discovery | [`phenomenon_miner/candidate_pool/`](phenomenon_miner/candidate_pool/) | 新题必须在这里完成 N0+N1+D0 feasibility | no |
+| terminal history | [`archive/`](archive/) | 已停止项目与最终证据链 | no |
 
-**唯一模型调用授权源是 [`phenomenon_miner/candidate_pool/AUDIT_REGISTRY.md`](phenomenon_miner/candidate_pool/AUDIT_REGISTRY.md)。** `active/`、`SURVIVE`、`promising` 或旧 result verdict 都不能自行授权。
+**唯一模型调用授权源是 [`phenomenon_miner/candidate_pool/AUDIT_REGISTRY.md`](phenomenon_miner/candidate_pool/AUDIT_REGISTRY.md)。**
 
-007 的旧 two-family smoke 使用的是更早的 25-case D0；当前项目已经切换到实质修订后的 30-case contract。两者的 lineage 只在 [`active/007_weak_evidence_backfire/README.md`](active/007_weak_evidence_backfire/README.md) 维护，不在其他入口重复抄写。
+## 新题现在怎么走
+
+```text
+idea / mother question
+→ N0 breadth novelty audit
+→ N1 depth novelty audit
+→ D0 source-feasibility audit
+→ DISCOVERY-PASS
+→ formal registration
+→ materialize + freeze 已锁定 D0
+→ smoke
+→ generality
+→ mechanism
+```
+
+关键变化：
+
+- **N0/N1 都在选题阶段做完。** 不再规定 smoke 后常规再查一次 novelty。
+- **数据搜索也在选题阶段做完。** source/version/license/gold/unit/count/构造 recipe 都要先有答案。
+- `active/` 不再用来继续“完善题目”。新题没通过 discovery package，就留在 candidate pool。
+- 注册以后 D0 只做 materialization/freeze；若必须换数据源或核心 recipe，退回 discovery。
 
 ## 权威入口
 
-1. [`phenomenon_miner/candidate_pool/AUDIT_REGISTRY.md`](phenomenon_miner/candidate_pool/AUDIT_REGISTRY.md) — 当前授权与 canonical mapping。
-2. [`phenomenon_miner/PROCESS.md`](phenomenon_miner/PROCESS.md) — N0 → D0 → smoke → N1 → panel → mechanism。
-3. [`phenomenon_miner/REQUIREMENTS.md`](phenomenon_miner/REQUIREMENTS.md) — 选题和晋级硬门槛。
-4. [`phenomenon_miner/NOVELTY_GATE.md`](phenomenon_miner/NOVELTY_GATE.md) — collision / mother inclusion / successor / N1。
-5. [`phenomenon_miner/candidate_pool/README.md`](phenomenon_miner/candidate_pool/README.md) — Batch 1 / 2 / 3 与长期 idea inventory。
-6. [`archive/README.md`](archive/README.md) — terminal project 索引。
+1. [`phenomenon_miner/PROCESS.md`](phenomenon_miner/PROCESS.md) — 新版完整状态机。
+2. [`phenomenon_miner/REQUIREMENTS.md`](phenomenon_miner/REQUIREMENTS.md) — 选题、novelty、data feasibility、behavior/generality 硬门槛。
+3. [`phenomenon_miner/NOVELTY_GATE.md`](phenomenon_miner/NOVELTY_GATE.md) — N0 breadth + N1 depth 的前置审计规则。
+4. [`PHENOMENON_MINING_GUIDE.md`](PHENOMENON_MINING_GUIDE.md) — 精简后的找题执行指南。
+5. [`phenomenon_miner/candidate_pool/README.md`](phenomenon_miner/candidate_pool/README.md) — Batch 与长期 idea inventory。
+6. [`phenomenon_miner/candidate_pool/AUDIT_REGISTRY.md`](phenomenon_miner/candidate_pool/AUDIT_REGISTRY.md) — 当前模型调用授权。
 
-长版搜索方法见 [`PHENOMENON_MINING_GUIDE.md`](PHENOMENON_MINING_GUIDE.md)，公开数据集见 [`DATASET_CATALOG.md`](DATASET_CATALOG.md)，真实失败复盘见 [`FAILURE_POSTMORTEMS.md`](FAILURE_POSTMORTEMS.md)。
-
-## 目录角色
-
-```text
-active/              当前仍可能继续的具体项目；不等于授权
-archive/             已终止项目；保留最终证据与复现材料
-phenomenon_miner/    选题、N0/D0、candidate pool 与正式调度
-preflight/           历史共享 preflight 工具/环境记录
-rejected_candidates/ 早期 rejected idea / postmortem 档案
-```
+公开数据集索引见 [`DATASET_CATALOG.md`](DATASET_CATALOG.md)，失败复盘见 [`FAILURE_POSTMORTEMS.md`](FAILURE_POSTMORTEMS.md)。
 
 ## 不变规则
 
-- N0 / D0 在模型调用之前；formal authorization 只看 registry。
-- Behavior first；行为 prerequisite 没过，不靠 hidden-state evidence 救题。
-- custom-only 不能承担 paper-level naturalness / generality。
-- 失败后不换弱模型、subset、readout、阈值或名字续命。
-- 若 contract 被独立审计实质修订，旧结果与新 contract 必须按 D0 SHA / version 分开。
-
-历史文本、被 supersede 的 snapshot 和 pre-merge audit 不再为了“看得见”复制到当前树；需要时直接查 Git history。
+- Behavior first；现象没过行为与一般性，不靠 hidden-state evidence 救题。
+- custom-only 不能独立承担 paper-level naturalness / generality。
+- terminal failure 不靠换弱模型、subset、readout、阈值或名字续命。
+- claim 或 source 若实质改变，退回 discovery，而不是在 active 中悄悄换 contract。
+- novelty 只在出现具体新 collision 或 claim 实质变化时 targeted refresh，不做流程性重复搜索。
