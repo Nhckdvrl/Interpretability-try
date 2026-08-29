@@ -72,6 +72,38 @@
 - 结果只有“模型会犯错”，没有为什么这个错误特别奇怪；
 - 方法贡献与科学问题彼此可替换，换个 probe 也能讲同样故事。
 
+### 2.1 Mother-paper extension 不等于新 phenomenon
+
+Hamdi-style extension 是重要找题方式，但必须区分两种合法产物：
+
+```text
+A. NEW PHENOMENON
+mother 已证明 scientific object X 重要
+→ 我们发现一个 mother 没有拥有的 behavioral contradiction / structural signature Y
+→ Y 有独立自然 D0
+
+B. MECH-FOLLOWUP
+mother 已经拥有 headline behavior X
+→ 我们只问 X 的 representation / causal role / routing / localization
+```
+
+B 可以是好 interpretability project，但**不能因为机制问题很漂亮就占用 phenomenon discovery Tier S**。
+
+尤其警惕这个高风险模板：
+
+```text
+representation / predictive signal exists
+→ is it causal?
+```
+
+内部历史已经多次证明：decodability/predictiveness 与 downstream use 可以完全分离。此类题若没有独立 behavioral anomaly，只能标 `MECH-FOLLOWUP`。
+
+一个简单 gate：
+
+> **不看 hidden state，只看自然输入/输出，我们的新 headline 还能成立吗？**
+
+若不能，默认不是新 phenomenon。
+
 ---
 
 ## 3. 题目必须在 discovery 阶段一次做透
@@ -99,6 +131,25 @@ N0 breadth PASS
 - 明显已经占位的 mechanism story。
 
 N0 的任务是尽快杀掉明显撞车，不是证明绝对“没人做过”。
+
+#### N0 的 mother-ownership test
+
+必须额外回答：
+
+```yaml
+mother_headline_behavior:
+our_headline_behavior:
+can_our_headline_be_seen_without_hidden_state: true|false
+independent_behavioral_D0_exists: true|false
+```
+
+若 `our_headline_behavior` 实际就是 mother 已经报告的行为，而 novelty 只剩 `where/why/causal?`，则默认：
+
+```text
+ROUTE → MECH-FOLLOWUP
+```
+
+而不是 N0-PASS phenomenon。
 
 ### 3.2 N1 — depth novelty closure
 
@@ -157,6 +208,14 @@ external_validation_anchor:
 - 随机人工看至少 20 个真实 source examples/pairs；
 - nuisance/confound 在模型调用前列清楚。
 
+#### D0 的 independent-phenotype test
+
+D0 不只是“有数据能喂模型”。还必须问：
+
+> **这个 D0 是否独立定义了我们的 behavioral scientific object，还是只给 mechanism experiment 提供输入？**
+
+如果 source 只能定义 mother 已知 behavior，而我们的新 claim 必须查看 head/probe/patch 才出现，则它不能作为新 phenomenon 的 D0-PASS；应 route 到 `MECH-FOLLOWUP`。
+
 #### 没有现成 paired data 时
 
 允许：
@@ -188,7 +247,11 @@ hard_kill:
 
 n0:
   obvious_neighbors: []
-  verdict: PASS | HOLD | KILLED
+  mother_headline_behavior:
+  our_headline_behavior:
+  can_our_headline_be_seen_without_hidden_state:
+  independent_behavioral_D0_exists:
+  verdict: PASS | HOLD | ROUTE-MECH-FOLLOWUP | KILLED
 
 n1:
   strongest_papers: []
@@ -212,6 +275,7 @@ d0_feasibility:
   estimated_eligible_count:
   feasibility_audit_ids: []
   external_validation_anchor:
+  independent_phenotype_without_MI:
   verdict: PASS | HOLD | KILLED
 ```
 
@@ -263,6 +327,7 @@ DISCOVERY-PASS
 - exact/near-exact collision；
 - mother paper 已逻辑包含 decisive contrast；
 - 剩余 novelty 只是换 benchmark/domain/readout；
+- mother 已拥有 headline behavior，剩余只有 representation/causal/routing/localization，且没有独立 behavioral D0 → `ROUTE-MECH-FOLLOWUP`；
 - 自然数据不存在，只能依赖任意 synthetic prompt；
 - gold 需要研究者主观判断；
 - capability gate 没过；
