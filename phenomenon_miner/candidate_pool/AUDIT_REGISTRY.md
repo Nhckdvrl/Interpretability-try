@@ -5,10 +5,10 @@
 
 ## 调度结论
 
-**当前 `READY-TO-SMOKE`：1 — `active/007_weak_evidence_backfire`.**
+**当前 `READY-TO-SMOKE`：2 — `active/007_weak_evidence_backfire`、`active/012_source_discount_recovery`.**
 
 - 007：`N0-PASS / D0-PASS / READY-TO-SMOKE`，30 个 frozen natural scenarios，20/20 manual audit，`validation_authorized: true`。
-- 012：`N0-PASS / D0-AUDITING / NOT READY-TO-SMOKE`，NetEaseCrowd 已 materialize；首轮人工审计 18/20 PASS、2 条 126 naturalness HOLD 后排除 126。selector 改为全局 matching 后冻出 108 条候选 scenario（4 capability / 12 cell / 216 annotator），机械检查 108/108 全过；统计合同冻结为 r2（8 个 primary cell / 101 条等权，7 条 undersized 仅描述性）；分层重抽的 20 条人工阅读未完成，未签署。
+- 012：`N0-PASS / D0-PASS / READY-TO-SMOKE`，108 条 NetEaseCrowd natural D0（4 capability / 12 cell / 216 annotator），机械检查 108/108 全过，分层 20 条人工审计 20/20 PASS；统计合同 r2（primary = 8 cell / 101 条等权 + cell→scenario 重抽，7 条 undersized 仅描述性）；`validation_authorized: true`。
 - 013：`N0-PASS / HOLD-D0 / NOT READY-TO-SMOKE`，强自然 anchor 已找到，但独立 scenario 数量与 adaptation/license 条件不足。
 
 ## N0 范围决议
@@ -31,7 +31,7 @@ N1 仍在 smoke 后、扩模型前强制执行。
 | 6 | Habitual → Episode Actualization | `ADVERSARIAL-N0-SURVIVOR` | — | false |
 | 7 | Mixed-Status Event Attraction | `ADVERSARIAL-N0-SURVIVOR` | — | false |
 | 8 | Dissent → Holding Role Swap | `ADVERSARIAL-N0-SURVIVOR` | — | false |
-| 9 | Source-Discount Recovery | `N0-PASS / D0-AUDITING / ACTIVE-PREFLIGHT` | `active/012_source_discount_recovery/` | false |
+| 9 | Source-Discount Recovery | `N0-PASS / D0-PASS / READY-TO-SMOKE` | `active/012_source_discount_recovery/` | true |
 | 10 | Weak-Evidence Backfire | `N0-PASS / D0-PASS / READY-TO-SMOKE` | `active/007_weak_evidence_backfire/` | true |
 
 ## Active registrations
@@ -52,13 +52,22 @@ active/007_weak_evidence_backfire:
 
 active/012_source_discount_recovery:
   canonical_shortlist_number: 9
-  status: ACTIVE-PREFLIGHT / D0-AUDITING
-  harness: READY-r1
+  status: READY-TO-SMOKE
+  harness: READY-r2
   formal_n0_verdict: PASS
   n0_basis: 2026-08-28 adversarial audit accepted by project resolution 2026-08-29
-  d0_verdict: AUDITING
-  source_candidates: NetEaseCrowd; CIFAR-10H
-  validation_authorized: false
+  d0_verdict: PASS
+  d0_source: NetEaseCrowd (CC BY-SA 4.0)
+  d0_items: 108
+  d0_primary_items: 101
+  d0_primary_cells: 8
+  d0_secondary_items: 7
+  d0_capabilities: 4
+  unique_annotators: 216
+  manual_audit: 20/20 PASS
+  analysis_contract: 2026-08-29-r2
+  frozen_data_sha256: cde7f3fa9dfeb94645fa2e254507013c26cb2ffb01793b9bd889a86668af1c3a
+  validation_authorized: true
 
 active/013_publicness_coordination_dissociation:
   canonical_shortlist_number: 3
@@ -76,7 +85,8 @@ active/013_publicness_coordination_dissociation:
 
 ## 调度纪律
 
-- 只有 `validation_authorized: true` 可调用模型；当前只有 007。
-- 012 已 materialize worker pairs，仍必须完成 20 例人工审计并冻结 JSONL 后才能授权。
+- 只有 `validation_authorized: true` 可调用模型；当前为 007 与 012。
+- 012 已签署 D0（`data/frozen_d0.jsonl`，20/20 人工审计），D0、cell membership、LR margin、统计阈值与 prompt 自此冻结，不得再改。
 - 013 在 HOLD-D0 解除前不得造 synthetic substitute。
 - 007 smoke 后先做 raw-case/scorer/capability/artifact 审计，再做 N1；未完成 N1 不扩 generality panel、不做 mechanism。
+- 012 smoke 先读 immediate source-weighting capability 与 short/long 的 source/message/credibility memory gate；这两个 denominator 不足时，后续 recovery 数字一律不解释。

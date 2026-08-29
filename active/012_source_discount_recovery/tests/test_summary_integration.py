@@ -173,3 +173,16 @@ def test_cells_are_equally_weighted_regardless_of_how_many_pairs_they_hold(tmp_p
     assert out['aggregate']['cell_mean_gap_shrink'] == pytest.approx(mean(means.values()))
     # a pair-level mean would have been dragged three-to-one toward the larger cell
     assert out['aggregate']['cell_mean_gap_shrink'] != pytest.approx(out['aggregate']['mean_gap_shrink'])
+
+
+def test_secondary_cells_cannot_supply_a_positive_domain(tmp_path: Path):
+    cfg = strat_cfg(tmp_path)
+    # two primary cells in one capability, plus a strong undersized cell in another
+    dp, rp = write_stratified(tmp_path, [('d1:0v1', 5, 'pass'), ('d1:0v2', 5, 'pass'),
+                                         ('d2:0v1', 2, 'pass')])
+    out = summarize(data_path=str(dp), results_path=str(rp), config_path=str(cfg))
+    agg = out['aggregate']
+    assert agg['secondary_cells'] == ['d2:0v1']
+    assert agg['secondary_strong_pair_fraction'] == 1.0
+    # d2 is strong, but only through scenarios that are secondary-only
+    assert agg['positive_domains'] == 1

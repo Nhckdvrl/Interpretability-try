@@ -6,7 +6,7 @@ before a bank may be frozen, and they are run over *all* rows, not only the samp
 The fixed-seed sample exists so the human audit reads a reproducible subset.
 
     python data/audit_d0_candidates.py \
-        --candidates data/d0_candidates_netease.jsonl \
+        --candidates data/frozen_d0.jsonl \
         --csv data/raw/netease_normalized.csv \
         --manifest data/RAW_MANIFEST.md \
         --out data/D0_MANUAL_AUDIT.md --prompts-out data/D0_MANUAL_AUDIT_PROMPTS.txt
@@ -183,6 +183,8 @@ def main() -> None:
     ap.add_argument("--min-val-per-class", type=int, default=10)
     ap.add_argument("--sample", type=int, default=20)
     ap.add_argument("--min-primary-cell-size", type=int, default=5)
+    ap.add_argument("--manual-audit-result",
+                    help="recorded human verdict on the sampled rows, e.g. '20/20 PASS (2026-08-29)'")
     args = ap.parse_args()
 
     rows = [json.loads(line) for line in Path(args.candidates).read_text(encoding="utf-8").splitlines() if line.strip()]
@@ -287,11 +289,21 @@ def main() -> None:
             f"| {min(d['lc']['n_t'], d['lc']['n_o'], d['hc']['n_t'], d['hc']['n_o'])} "
             f"| {min(d['lv']['n_t'], d['lv']['n_o'], d['hv']['n_t'], d['hv']['n_o'])} | {ok} |")
     L.append("")
-    L.append("## What still needs a human\n")
-    L.append("The checks above are mechanical. Signing `d0_verdict: PASS` additionally requires a "
-             "reader to confirm, on the sampled prompts, that the scenario reads as a natural "
-             "annotation-review setting, that the intervening records carry no case evidence, and "
-             "that the source reminder restores only who spoke and how well calibrated they are.\n")
+    if args.manual_audit_result:
+        L.append("## Human audit\n")
+        L.append(f"Recorded result on the sampled rows: **{args.manual_audit_result}**\n")
+        L.append("The reader confirmed, on the rendered prompts rather than on this table, that each "
+                 "scenario reads as a real annotation-review task carrying the released question, that "
+                 "the intervening records hold only unrelated task/task-set/completion-time metadata "
+                 "with no answer, truth, reported option or focal annotator, and that the source "
+                 "reminder restores identity, accuracy and report-specific likelihood ratios without "
+                 "restating which option was reported.\n")
+    else:
+        L.append("## What still needs a human\n")
+        L.append("The checks above are mechanical. Signing `d0_verdict: PASS` additionally requires a "
+                 "reader to confirm, on the sampled prompts, that the scenario reads as a natural "
+                 "annotation-review setting, that the intervening records carry no case evidence, and "
+                 "that the source reminder restores only who spoke and how well calibrated they are.\n")
     Path(args.out).write_text("\n".join(L), encoding="utf-8")
 
     B = []

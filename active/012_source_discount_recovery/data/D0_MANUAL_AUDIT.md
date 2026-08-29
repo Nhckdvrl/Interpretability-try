@@ -1,6 +1,6 @@
 # D0 candidate audit — NetEaseCrowd source pairs
 
-Candidates: `d0_candidates_netease.jsonl`  
+Candidates: `frozen_d0.jsonl`  
 Raw CSV SHA256: `e9ebddfee58aaba5f64b1759506d5b7c3839b04bfb80a61b471358b4372430ee` (matches `RAW_MANIFEST.md`: yes)  
 Audit seed: `20260829`  ·  LR margin: `2.0`  ·  min per class: cal `20` / val `10`
 
@@ -58,6 +58,8 @@ Drawn stratified by cell, so every cell is represented before any cell is sample
 | `56:0v2:010` | 8818 | 9385 | 0.601 → 0.876 | 0.632 → 0.868 | 4.45 → 18.27 | 4.49 → 14.03 | 0.206 → 0.076 | 0.174 → 0.073 | 494 | 353 | all pass |
 | `56:1v2:011` | 6884 | 6646 | 0.603 → 0.824 | 0.605 → 0.885 | 3.07 → 7.43 | 3.11 → 12.27 | 0.354 → 0.118 | 0.340 → 0.158 | 67 | 38 | all pass |
 
-## What still needs a human
+## Human audit
 
-The checks above are mechanical. Signing `d0_verdict: PASS` additionally requires a reader to confirm, on the sampled prompts, that the scenario reads as a natural annotation-review setting, that the intervening records carry no case evidence, and that the source reminder restores only who spoke and how well calibrated they are.
+Recorded result on the sampled rows: **20/20 PASS (2026-08-29)**
+
+The reader confirmed, on the rendered prompts rather than on this table, that each scenario reads as a real annotation-review task carrying the released question, that the intervening records hold only unrelated task/task-set/completion-time metadata with no answer, truth, reported option or focal annotator, and that the source reminder restores identity, accuracy and report-specific likelihood ratios without restating which option was reported.

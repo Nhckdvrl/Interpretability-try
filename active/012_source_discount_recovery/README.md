@@ -1,14 +1,21 @@
 # 012 — Source-Discount Recovery
 
-Status: `N0-PASS / D0-AUDITING / ACTIVE-PREFLIGHT / HARNESS-READY-r1 / NOT READY-TO-SMOKE`
+Status: `N0-PASS / D0-PASS / HARNESS-READY-r2 / READY-TO-SMOKE`
 
 Canonical shortlist mapping: **2026-08-28 adversarial N0 shortlist #9**.
 
 ```yaml
 formal_n0_verdict: PASS
 n0_basis: 2026-08-28 adversarial N0 accepted by project resolution 2026-08-29
-d0_verdict: AUDITING
-validation_authorized: false
+d0_verdict: PASS
+d0_items: 108
+d0_primary_items: 101
+d0_primary_cells: 8
+d0_secondary_items: 7
+d0_capabilities: 4
+unique_annotators: 216
+manual_audit: 20/20 PASS
+validation_authorized: true
 ```
 
 The historical duplicate N0 that killed this project as a sleeper-effect collision is superseded by [`N0_RESOLUTION_2026-08-29.md`](N0_RESOLUTION_2026-08-29.md). The sleeper effect/source-message dissociation is the natural human mother phenomenon; the LLM target is the stricter source-memory-intact, weighting-use dissociation with selective cue reinstatement.
@@ -29,9 +36,11 @@ The reproducible extractor [`data/build_natural_d0.py`](data/build_natural_d0.py
 
 Workers must be above chance, the same message content must be paired across sources, target-task gold is never exposed, each selected worker is used at most once, and delay/reinstatement controls may not leak the message.
 
-**No frozen JSONL is signed yet.** As of 2026-08-29 the NetEaseCrowd release is materialized and hashed, and [`data/d0_candidates_netease.jsonl`](data/d0_candidates_netease.jsonl) holds **108 candidate scenarios over 4 capabilities and 216 distinct annotators**, with a required high/low report-LR separation of 2.0 in both directions on both splits. Capability 69 is excluded because its third response option is "undecided", and capability 126 because the release does not publish its question text; every remaining capability carries a published question. [`data/audit_d0_candidates.py`](data/audit_d0_candidates.py) re-derives every statistic from the raw release; all ten checks pass on all 108 rows ([`data/D0_MANUAL_AUDIT.md`](data/D0_MANUAL_AUDIT.md)).
+**D0 is signed.** [`data/frozen_d0.jsonl`](data/frozen_d0.jsonl) holds **108 scenarios over 4 capabilities and 216 distinct annotators**, with a required high/low report-LR separation of 2.0 in both directions on both splits. Capability 69 is excluded because its third response option is "undecided", and capability 126 because the release does not publish its question text; every remaining capability carries a published question. [`data/audit_d0_candidates.py`](data/audit_d0_candidates.py) re-derives every statistic from the raw release; all ten checks pass on all 108 rows ([`data/D0_MANUAL_AUDIT.md`](data/D0_MANUAL_AUDIT.md)).
 
-Pairs are chosen by a global matching rather than a scan: contract-valid pairs are enumerated per cell, then selected with a maximum matching inside each cell and scarcest-cell-first across cells, so annotators are never spent where alternatives existed. The bank is not balanced across capabilities and cannot be — capability 52 holds only 28 annotators in the whole release and 53 has few that clear the 2.0 separation — so 45/4/14/45 is the ceiling shape at this target. The first human audit, on the earlier 28-row bank, returned 18/20 PASS with 2 holds on capability 126's naturalness; that is what removed 126. What is still missing is the human read of the re-drawn 20-row sample in `data/D0_MANUAL_AUDIT_PROMPTS.txt`. Until that reading is recorded, this stays a candidate: do not rename it `frozen_d0.jsonl` and do not set `validation_authorized` true.
+Pairs are chosen by a global matching rather than a scan: contract-valid pairs are enumerated per cell, then selected with a maximum matching inside each cell and scarcest-cell-first across cells, so annotators are never spent where alternatives existed. The bank is not balanced across capabilities and cannot be — capability 52 holds only 28 annotators in the whole release and 53 has few that clear the 2.0 separation — so 45/4/14/45 is the ceiling shape at this target. The first human audit, on the earlier 28-row bank, returned 18/20 PASS with 2 holds on capability 126's naturalness; that is what removed 126. The stratified re-draw over the final bank was read on 2026-08-29 and returned **20/20 PASS**, covering all 12 cells including the four secondary-only ones, so `d0_verdict` is `PASS` and `validation_authorized` is `true`.
+
+Nothing in D0 moves from here. The bank, the cell membership rule, the LR margin, the per-class minimums, the statistical thresholds and the prompt text are frozen; changing any of them after a model call would make the result post-hoc.
 
 ## Statistical contract (frozen `2026-08-29-r2`, before any model call)
 

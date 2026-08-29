@@ -1,7 +1,7 @@
 # D0 source audit — Source-Discount Recovery
 
 Date: 2026-08-29  
-Verdict: `D0-AUDITING` — **the release is materialized and a 108-scenario candidate bank passes every mechanical check; awaiting the human read of the re-drawn fixed-seed sample**.
+Verdict: `D0-PASS` — **signed 2026-08-29 on a 20/20 human read of the stratified fixed-seed sample over the frozen 108-scenario bank**.
 
 The purpose of this audit is to prevent a shortcut in which a prompt merely calls one source “high reliability” and another “low reliability.” Formal D0 requires real source histories from which report-specific likelihood ratios can be recomputed on disjoint tasks.
 
@@ -135,7 +135,21 @@ So the bank reaches the 108 target with 216 distinct annotators and no relaxed t
 
 `data/audit_d0_candidates.py` re-derives every stored statistic from the raw release and checks it against the model-visible text. All ten checks pass on all 108 rows: global worker uniqueness, calibration/validation task disjointness, accuracy floor and ordering on both splits, both-direction LR ordering and margin on both splits, profile text matching the raw history, message text identical across sources, delay records drawn from unrelated tasks, delay material free of truths/answers/focal identities, reinstatement restoring source only, and complete provenance including the raw SHA256.
 
-## Why D0 is not signed yet
+## Human sign-off — 2026-08-29
+
+The stratified 20-row sample over the final bank was read on the rendered prompts, not on the audit table, and returned **20/20 PASS**. The sample covered all twelve cells, including the four secondary-only ones, and deliberately included rows with small held-out counts — `53:0v2:003` and `56:0v1:010` among them — to check that the sample was not avoiding the fragile pairs; both hold their two-direction separation on validation.
+
+Three questions decided it:
+
+- **Naturalness.** All four capabilities carry the released question — expression outlier, natural expression, face outlier, gesture outlier — rather than an invented abstract A/B task, with one of the original three labels conditioned out to form the binary review. The binary restriction sentence is not part of the original interface; it is the minimum transformation needed for an exclusive and exhaustive hypothesis pair, it does not name the answer, and it does not touch the direction of the source evidence.
+- **Delay.** Every long block in the sample held only other tasks' `task id / task-set / completion-time`, with no answer, truth, reported option, focal annotator or case semantics. This is the fixed builder, not the version that filtered focal rows instead of focal tasks.
+- **Reinstatement.** Every reminder restored identity, accuracy and the report-specific likelihood ratios and never restated which option was reported.
+
+`min_positive_domains` stays at `2`. With three primary capabilities, requiring three would demand the phenomenon in every natural task domain and requiring one would let a single capability carry promotion on its own. `positive_domains` is counted over primary eligible pairs only, so the seven secondary scenarios cannot supply a positive domain for any capability.
+
+The bank, the `n_cell >= 5` membership rule, the LR margin, the per-class minimums, the statistical thresholds and the prompt text are now frozen.
+
+## Why D0 was not signed earlier
 
 A dataset card and a correct builder are not D0-PASS. The actual released NetEaseCrowd files must be materialized, hashed, passed through the builder, and produce at least 20 source-disjoint scenarios spanning at least two real capability domains. Then a fixed random sample of 20 generated rows must be manually checked for:
 
@@ -147,4 +161,4 @@ A dataset card and a correct builder are not D0-PASS. The actual released NetEas
 - reinstatement not repeating the message;
 - license/provenance and prompt naturalness.
 
-The concrete rows now exist and pass every mechanical check, and the first human audit is recorded above. What remains is the human read of the **re-drawn** 20-row sample, which is now stratified by cell so that all twelve cells are represented before any cell is read twice. Until that reading is recorded, `d0_verdict` stays `AUDITING` and `validation_authorized` remains `false`.
+The concrete rows now exist, pass every mechanical check, and have been read. Both human audits are recorded above: 18/20 on the 28-row bank, which removed capability 126, and 20/20 on the stratified re-draw over the frozen 108-scenario bank, which signed it. Until that reading is recorded, `d0_verdict` stays `AUDITING` and `validation_authorized` remains `false`.

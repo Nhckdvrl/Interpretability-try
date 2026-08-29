@@ -1,6 +1,6 @@
 {
   "contract_version": "2026-08-29-r2",
-  "validation_authorized": false,
+  "validation_authorized": true,
   "require_external_source": true,
   "support_gate": {
     "min_low_positive_probability": 0.8,
