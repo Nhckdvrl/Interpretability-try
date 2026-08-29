@@ -1,7 +1,7 @@
 # D0 source audit — Source-Discount Recovery
 
 Date: 2026-08-29  
-Verdict: `D0-AUDITING` — **the release is materialized and a 22-scenario candidate bank passes every mechanical check; awaiting the human read of the re-drawn fixed-seed sample**.
+Verdict: `D0-AUDITING` — **the release is materialized and a 108-scenario candidate bank passes every mechanical check; awaiting the human read of the re-drawn fixed-seed sample**.
 
 The purpose of this audit is to prevent a shortcut in which a prompt merely calls one source “high reliability” and another “low reliability.” Formal D0 requires real source histories from which report-specific likelihood ratios can be recomputed on disjoint tasks.
 
@@ -78,7 +78,7 @@ At the original 1.15 margin the weakest frozen rows had a high/low report-LR rat
 | 2.0 | 3 | 44 | 6 | 2.08 |
 | 3.0 | 2 | 23 | 6 | 3.07 |
 
-The setting is margin 2.0 with at most two pairs per cell. Over all six capabilities that yields 31 scenarios; capabilities 69 and 126 are then excluded (below), leaving **22 scenarios over 4 capabilities and 44 distinct annotators**, with no marginal rows.
+The setting is margin 2.0. Nothing below relaxes it, nor `--min-per-class`, nor the held-out requirement.
 
 ### Capabilities 69 and 126 are excluded
 
@@ -100,9 +100,40 @@ The 28-row bank's fixed-seed sample was read and returned **18/20 PASS, 2/20 HOL
 
 Scenarios previously read "A new annotation task in capability-50", with bare labels 0/1/2. The release documents the actual question for five of the six capabilities (50 expression-similarity filtering, 52 naturalness-of-expression judgment, 53 facial-similarity screening, 56 gesture-similarity filtering, 69 article-continuation classification); capability 126's question text is not published, and its background says so rather than inventing one. Label codes 0/1/2 are rendered in order as options A/B/C — a presentational relabelling recorded in `data/netease_capability_tasks.json`; all likelihood ratios are computed on the raw codes.
 
+### Selection is a matching problem, not a scan
+
+Scanning a cell's ranked list and taking whatever still fits wastes annotators, because a strong annotator consumed by an easy pairing can be the only partner some other pairing had. Enumeration and selection are now separate: every contract-valid pair is enumerated per cell, then pairs are chosen globally. Inside a cell the choice is a maximum-cardinality, maximum-weight matching on the annotators still free; across cells the scarcest cell picks first, measured by the size of its own standalone matching.
+
+The difference is large. Taking the ranked list in order finds 69 / 63 / 73 disjoint pairs in capability 50's three cells and 125 / 116 / 113 in capability 56's; the matching finds 103 / 96 / 105 and 205 / 191 / 176.
+
+### What the four capabilities can actually supply
+
+Standalone maximum matching per cell at margin 2.0, and the capability ceiling once its three cells compete for the same annotators:
+
+| capability | 0v1 | 0v2 | 1v2 | ceiling for the capability |
+|---|---|---|---|---|
+| 50 | 103 | 96 | 105 | effectively unbounded here |
+| 52 | 3 | 1 | 1 | **4** |
+| 53 | 6 | 3 | 6 | **14** |
+| 56 | 205 | 191 | 176 | effectively unbounded here |
+
+Capability 52 has only 28 annotators in the entire release, of which 14 clear `min-per-class` on both splits, so it cannot exceed four scenarios however the selector is written. Capability 53 has 847 annotators but very few clear the accuracy gap and the 2.0 separation in both directions on both splits.
+
+A balanced nine per cell is therefore not reachable: 50 and 56 fill their nine, 52 and 53 cannot, and the total stops at **72**. Reaching 108 requires letting the two rich capabilities carry the overflow, which the top-up pass does least-loaded-cell first:
+
+| capability | 0v1 | 0v2 | 1v2 | total |
+|---|---|---|---|---|
+| 50 | 15 | 15 | 15 | 45 |
+| 52 | 2 | 1 | 1 | 4 |
+| 53 | 6 | 3 | 5 | 14 |
+| 56 | 15 | 15 | 15 | 45 |
+| **total** | | | | **108** |
+
+So the bank reaches the 108 target with 216 distinct annotators and no relaxed threshold, but it is not balanced across capabilities, and it cannot be: 83% of it sits in capabilities 50 and 56. This matters for how the result is aggregated, since the cluster count is 12 cells whether the bank holds 72 scenarios or 108.
+
 ### Audit status
 
-`data/audit_d0_candidates.py` re-derives every stored statistic from the raw release and checks it against the model-visible text. All ten checks pass on all 22 rows: global worker uniqueness, calibration/validation task disjointness, accuracy floor and ordering on both splits, both-direction LR ordering and margin on both splits, profile text matching the raw history, message text identical across sources, delay records drawn from unrelated tasks, delay material free of truths/answers/focal identities, reinstatement restoring source only, and complete provenance including the raw SHA256.
+`data/audit_d0_candidates.py` re-derives every stored statistic from the raw release and checks it against the model-visible text. All ten checks pass on all 108 rows: global worker uniqueness, calibration/validation task disjointness, accuracy floor and ordering on both splits, both-direction LR ordering and margin on both splits, profile text matching the raw history, message text identical across sources, delay records drawn from unrelated tasks, delay material free of truths/answers/focal identities, reinstatement restoring source only, and complete provenance including the raw SHA256.
 
 ## Why D0 is not signed yet
 
@@ -116,4 +147,4 @@ A dataset card and a correct builder are not D0-PASS. The actual released NetEas
 - reinstatement not repeating the message;
 - license/provenance and prompt naturalness.
 
-The concrete rows now exist and pass every mechanical check, and the first human audit is recorded above. What remains is the human read of the **re-drawn** 20-row sample for the 22-row bank, since dropping capability 126 changes which rows the fixed seed selects. The sample covers 20 of the 22 rows; the two outside it are `50:1v2:001` and `50:0v1:002`. Until that reading is recorded, `d0_verdict` stays `AUDITING` and `validation_authorized` remains `false`.
+The concrete rows now exist and pass every mechanical check, and the first human audit is recorded above. What remains is the human read of the **re-drawn** 20-row sample, which is now stratified by cell so that all twelve cells are represented before any cell is read twice. Until that reading is recorded, `d0_verdict` stays `AUDITING` and `validation_authorized` remains `false`.

@@ -202,9 +202,24 @@ def main() -> None:
                           csv_sha=csv_sha, manifest_text=manifest_text)
     results, detail = out["results"], out["detail"]
 
+    # Stratify by cell. A uniform draw of 20 from a bank whose cells range from one
+    # scenario to fifteen would leave whole cells unread, and the cells most worth
+    # reading are the small ones.
     rng = np.random.default_rng(args.seed)
     ids = sorted(results)
-    sample = sorted(rng.choice(ids, size=min(args.sample, len(ids)), replace=False).tolist())
+    by_cell: dict[tuple[str, str], list[str]] = collections.defaultdict(list)
+    for sid in ids:
+        by_cell[(sid.split(":")[1], sid.split(":")[2])].append(sid)
+    quota = min(args.sample, len(ids))
+    sample: list[str] = []
+    remaining = dict(sorted(by_cell.items()))
+    while len(sample) < quota and any(remaining.values()):
+        for key in sorted(remaining):
+            pool = [s for s in remaining[key] if s not in sample]
+            if not pool or len(sample) >= quota:
+                continue
+            sample.append(str(rng.choice(sorted(pool))))
+    sample = sorted(sample)
 
     per_domain = collections.Counter(r["domain"] for r in rows)
     cells = collections.Counter((r["domain"], r["scenario_id"].split(":")[2]) for r in rows)
@@ -237,8 +252,12 @@ def main() -> None:
     else:
         L.append("No row fails any check.\n")
 
+    L.append("Per (domain, label-pair) cell: " +
+             ", ".join(f"`{d.replace('capability-', '')}:{lp}` {n}" for (d, lp), n in sorted(cells.items())) + "\n")
     L.append(f"## Fixed-seed manual audit sample (n={len(sample)})\n")
-    L.append("Read these rows against the rendered prompts in the companion file before signing.\n")
+    L.append("Drawn stratified by cell, so every cell is represented before any cell is "
+             "sampled twice. Read these rows against the rendered prompts in the companion "
+             "file before signing.\n")
     L.append("| scenario | low | high | cal acc | val acc | cal tLR lo→hi | val tLR lo→hi | "
              "cal oLR hi←lo | val oLR hi←lo | cal n/class | val n/class | 10 checks |")
     L.append("|---|---|---|---|---|---|---|---|---|---|---|---|")

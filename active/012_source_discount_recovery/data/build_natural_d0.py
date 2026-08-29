@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import collections
 import json
 import math
 from dataclasses import dataclass
@@ -104,6 +105,82 @@ def choose_disjoint_pairs(pairs, *, limit: int) -> list:
         if len(out) >= limit:
             break
     return out
+
+
+def _pair_score(pair) -> float:
+    lc, hc, lv, hv = pair
+    return (hc.accuracy - lc.accuracy) + (hv.accuracy - lv.accuracy)
+
+
+def _cell_matching(ranked, free: set[str], limit: int) -> list:
+    """Best vertex-disjoint set of at most `limit` pairs from one cell.
+
+    Scanning a cell's ranked list and taking whatever fits is what wastes annotators:
+    a strong annotator consumed by an easy pairing can be the only partner some other
+    pairing had. Selecting a maximum-cardinality, maximum-weight matching instead lets
+    the cell keep as many disjoint pairs as its candidate graph actually supports.
+    """
+    if limit <= 0:
+        return []
+    try:
+        import networkx as nx
+    except ModuleNotFoundError as exc:  # pragma: no cover - dependency guard
+        raise RuntimeError("pair selection needs networkx; install the 'd0' extra") from exc
+    graph = nx.Graph()
+    for pair in sorted(ranked, key=lambda p: (-_pair_score(p), p[0].worker, p[1].worker)):
+        low, high = pair[0].worker, pair[1].worker
+        if low not in free or high not in free:
+            continue
+        if graph.has_edge(low, high):
+            continue  # the ranked list is score-sorted, so the first orientation wins
+        graph.add_edge(low, high, weight=_pair_score(pair), pair=pair)
+    if graph.number_of_edges() == 0:
+        return []
+    matched = nx.max_weight_matching(graph, maxcardinality=True)
+    chosen = [graph[u][v]["pair"] for u, v in matched]
+    chosen.sort(key=lambda p: (-_pair_score(p), p[0].worker, p[1].worker))
+    return chosen[:limit]
+
+
+def select_global_pairs(cells: list[dict], *, pairs_per_cell: int,
+                        target_total: int | None = None) -> None:
+    """Choose globally annotator-disjoint pairs across cells, filling `cells[i]["chosen"]`.
+
+    Two stages. First a balanced pass in which every cell is offered `pairs_per_cell`,
+    scarcest cell first — a cell whose candidate graph supports only a handful of
+    disjoint pairs must pick before a cell with hundreds of alternatives, or its few
+    usable annotators get spent elsewhere. Then, if `target_total` is set and the
+    balanced pass fell short, a top-up pass repeatedly gives one more pair to whichever
+    cell currently holds the fewest, so the overflow lands as evenly as supply allows.
+    """
+    for cell in cells:
+        cell["chosen"] = []
+        cell["ceiling"] = len(_cell_matching(cell["ranked"], cell["vertices"], 10 ** 6))
+    used: set[str] = set()
+
+    for cell in sorted(cells, key=lambda c: (c["ceiling"], str(c["key"]))):
+        free = cell["vertices"] - used
+        cell["chosen"] = _cell_matching(cell["ranked"], free, pairs_per_cell)
+        used.update(w.worker for pair in cell["chosen"] for w in pair[:2])
+
+    if target_total is None:
+        return
+    exhausted: set = set()
+    while sum(len(c["chosen"]) for c in cells) < target_total:
+        order = sorted((c for c in cells if c["key"] not in exhausted),
+                       key=lambda c: (len(c["chosen"]), c["ceiling"], str(c["key"])))
+        if not order:
+            return
+        for cell in order:
+            extra = _cell_matching(cell["ranked"], cell["vertices"] - used, 1)
+            if not extra:
+                exhausted.add(cell["key"])
+                continue
+            cell["chosen"].extend(extra)
+            used.update(w.worker for w in extra[0][:2])
+            break
+        else:
+            return
 
 
 DEFAULT_OPTION_LETTERS = {"0": "A", "1": "B", "2": "C"}
@@ -249,17 +326,18 @@ def _delay_blocks(g: pd.DataFrame, *, task_col: str, worker_col: str, low_worker
 
 def build_from_csv(path: str, *, dataset_name: str, license_name: str, source_url: str,
                    domain_col: str, task_col: str, worker_col: str, truth_col: str, answer_col: str,
-                   seed: int, min_per_class: int, max_pairs_per_cell: int = 2,
+                   seed: int, min_per_class: int, pairs_per_cell: int = 9,
+                   target_scenarios: int | None = None,
                    lr_margin: float = 2.0, domain_specs: dict | None = None,
                    exclude_domains: Iterable[str] = (),
                    taskset_col: str | None = None, time_col: str | None = None) -> list[dict]:
     """Freeze source pairs cell-by-cell, where a cell is one (domain, binary label pair).
 
-    A single pair per cell caps the bank at #domains * #label-pairs, which for NetEaseCrowd
-    is 18 — below the frozen >=20 requirement even though the data hold hundreds of
-    qualifying pairs. Allocation is therefore round-robin over cells: every cell contributes
-    its best pair before any cell contributes a second, so extra scenarios never pile up in
-    one capability. Workers stay globally unique across the whole bank.
+    Enumeration and selection are separate. Every contract-valid pair a cell can offer is
+    enumerated first; only then are pairs chosen globally, so that a cell with few usable
+    annotators is not starved by a cell that had hundreds of alternatives. Annotators stay
+    unique across the whole bank, which is what makes each scenario an independent
+    source-pair unit rather than a re-use of a strong annotator.
     """
     specs = domain_specs or {}
     excluded = {str(d) for d in exclude_domains}
@@ -269,7 +347,7 @@ def build_from_csv(path: str, *, dataset_name: str, license_name: str, source_ur
     for domain_value, g in df.groupby(domain_col, sort=True):
         # Excluding a domain has to happen before selection, not after: annotators are
         # unique across the whole bank, so a dropped domain releases its workers back to
-        # the domains that follow it.
+        # the domains that remain.
         if str(domain_value) in excluded:
             continue
         groups[domain_value] = g
@@ -287,37 +365,31 @@ def build_from_csv(path: str, *, dataset_name: str, license_name: str, source_ur
                                min_per_class=max(5, min_per_class // 2))
             ranked = stable_worker_pairs(cal, val, min_lr_margin=lr_margin)
             if ranked:
-                cells.append({"domain_value": domain_value, "target": int(target_label),
-                              "other": int(other_label), "ranked": ranked, "taken": 0})
+                cells.append({"key": (domain_value, int(target_label), int(other_label)),
+                              "domain_value": domain_value, "target": int(target_label),
+                              "other": int(other_label), "ranked": ranked,
+                              "vertices": {w.worker for pair in ranked for w in pair[:2]}})
+
+    select_global_pairs(cells, pairs_per_cell=pairs_per_cell, target_total=target_scenarios)
 
     records: list[dict] = []
-    used_workers: set[str] = set()
     scenario_counter = 0
-    for slot in range(max_pairs_per_cell):
-        for cell in cells:
-            if cell["taken"] > slot:
-                continue
-            for pair in cell["ranked"]:
-                low, high = pair[0], pair[1]
-                if low.worker in used_workers or high.worker in used_workers:
-                    continue
-                scenario_counter += 1
-                short_delay, long_delay = _delay_blocks(
-                    groups[cell["domain_value"]], task_col=task_col, worker_col=worker_col,
-                    low_worker=low.worker, high_worker=high.worker,
-                    seed=seed + scenario_counter * 7919, taskset_col=taskset_col, time_col=time_col,
-                )
-                records.append(make_record(
-                    dataset_name=dataset_name, license_name=license_name, source_url=source_url,
-                    domain=f"{domain_col}-{cell['domain_value']}", domain_col=domain_col,
-                    domain_value=cell["domain_value"], specs=specs,
-                    target_label=cell["target"], other_label=cell["other"],
-                    pair=pair, scenario_index=cell["taken"] + 1, seed=seed,
-                    short_delay=short_delay, long_delay=long_delay,
-                ))
-                used_workers.update([low.worker, high.worker])
-                cell["taken"] += 1
-                break
+    for cell in cells:
+        for index, pair in enumerate(cell["chosen"], start=1):
+            scenario_counter += 1
+            short_delay, long_delay = _delay_blocks(
+                groups[cell["domain_value"]], task_col=task_col, worker_col=worker_col,
+                low_worker=pair[0].worker, high_worker=pair[1].worker,
+                seed=seed + scenario_counter * 7919, taskset_col=taskset_col, time_col=time_col,
+            )
+            records.append(make_record(
+                dataset_name=dataset_name, license_name=license_name, source_url=source_url,
+                domain=f"{domain_col}-{cell['domain_value']}", domain_col=domain_col,
+                domain_value=cell["domain_value"], specs=specs,
+                target_label=cell["target"], other_label=cell["other"],
+                pair=pair, scenario_index=index, seed=seed,
+                short_delay=short_delay, long_delay=long_delay,
+            ))
     return records
 
 
@@ -330,8 +402,10 @@ def main():
     ap.add_argument('--answer-col', required=True)
     ap.add_argument('--out', required=True); ap.add_argument('--seed', type=int, default=20260829)
     ap.add_argument('--min-per-class', type=int, default=20)
-    ap.add_argument('--max-pairs-per-cell', type=int, default=2,
-                    help='scenarios per (domain, label pair); allocated round-robin across cells')
+    ap.add_argument('--pairs-per-cell', type=int, default=9,
+                    help='balanced quota offered to every (domain, label pair) cell, scarcest cell first')
+    ap.add_argument('--target-scenarios', type=int,
+                    help='if the balanced pass falls short, top up least-loaded cell first until this total')
     ap.add_argument('--lr-margin', type=float, default=2.0,
                     help='required high/low separation in both report directions, on both splits')
     ap.add_argument('--domain-descriptions', help='optional JSON of published per-domain task text')
@@ -343,15 +417,18 @@ def main():
         args.csv, dataset_name=args.dataset_name, license_name=args.license, source_url=args.source_url,
         domain_col=args.domain_col, task_col=args.task_col, worker_col=args.worker_col,
         truth_col=args.truth_col, answer_col=args.answer_col, seed=args.seed,
-        min_per_class=args.min_per_class, max_pairs_per_cell=args.max_pairs_per_cell,
+        min_per_class=args.min_per_class, pairs_per_cell=args.pairs_per_cell,
+        target_scenarios=args.target_scenarios,
         lr_margin=args.lr_margin, domain_specs=load_domain_specs(args.domain_descriptions),
         exclude_domains=args.exclude_domain,
         taskset_col=args.taskset_col, time_col=args.time_col)
     Path(args.out).write_text(''.join(json.dumps(r, ensure_ascii=False) + '\n' for r in rows), encoding='utf-8')
     domains = sorted({r['domain'] for r in rows})
+    cells = collections.Counter((r['domain'], r['scenario_id'].split(':')[2]) for r in rows)
     print(json.dumps({'records': len(rows), 'domains': len(domains),
                       'unique_workers': len({w for r in rows for w in (r['high_source'], r['low_source'])}),
-                      'per_domain': {d: sum(1 for r in rows if r['domain'] == d) for d in domains}}, indent=2))
+                      'cells': len(cells), 'per_domain': {d: sum(1 for r in rows if r['domain'] == d) for d in domains},
+                      'per_cell': {f'{d}:{lp}': n for (d, lp), n in sorted(cells.items())}}, indent=2))
 
 
 if __name__ == '__main__':

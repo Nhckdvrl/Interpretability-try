@@ -5,7 +5,7 @@
 当前与本轮现象发现相关：
 
 - `007_weak_evidence_backfire/` — **N0-PASS / D0-PASS / READY-TO-SMOKE**。30 条 UCI natural D0（Breast Cancer Wisconsin Diagnostic + Wine），20/20 人工审计通过；harness r5 已允许真实 finite-data neutral cue，且 calibration/held-out 两边都必须近似 non-diagnostic。
-- `012_source_discount_recovery/` — **N0-PASS / D0-AUDITING / NOT READY-TO-SMOKE**。NetEaseCrowd release 已下载、哈希并跑通 builder。首轮人工审计 18/20 PASS，2 条因 capability 126 无官方题面而 HOLD-NATURALNESS，遂在 selection 前排除 126 重新冻结：22 条候选 scenario、4 个都有官方题面的 capability、44 个不重复 annotator，双方向 LR 分离 ≥2.0 且 cal/val 都成立，独立复算的 10 项机械检查 22/22 通过。仍缺重抽的固定种子 20 条人工阅读，未签署。
+- `012_source_discount_recovery/` — **N0-PASS / D0-AUDITING / NOT READY-TO-SMOKE**。NetEaseCrowd release 已下载、哈希并跑通 builder；69 与 126 已在 selection 前排除（后者因首轮人工审计 18/20 PASS、2 条 naturalness HOLD）。pair selection 已从 greedy 扫描升级为全局 matching（cell 内最大匹配，跨 cell 稀缺优先），在不放松任何门槛的前提下得到 108 条候选 scenario、216 个不重复 annotator，机械检查 108/108 通过。注意 capability 52 全库仅 28 个 annotator、53 少有 annotator 能过 2.0 分离，因此 45/4/14/45 已是该 target 下的上限形状，cluster 数固定为 12 个 cell。仍缺重抽的分层固定种子 20 条人工阅读，未签署。
 - `013_publicness_coordination_dissociation/` — **N0-PASS / HOLD-D0 / NOT READY-TO-SMOKE**。找到强 human common-knowledge coordination anchor，但独立 natural scenarios 数量与可适配 license 仍不足，禁止 synthetic 扩写。
 - `003_diagnostic_counterevidence_revision/` — 已报告 failure 的 mechanism-followup，不属于本轮新自然现象 discovery shortlist。
 

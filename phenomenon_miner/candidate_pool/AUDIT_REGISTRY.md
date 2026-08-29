@@ -8,7 +8,7 @@
 **当前 `READY-TO-SMOKE`：1 — `active/007_weak_evidence_backfire`.**
 
 - 007：`N0-PASS / D0-PASS / READY-TO-SMOKE`，30 个 frozen natural scenarios，20/20 manual audit，`validation_authorized: true`。
-- 012：`N0-PASS / D0-AUDITING / NOT READY-TO-SMOKE`，NetEaseCrowd 已 materialize；首轮人工审计 18/20 PASS、2 条 126 naturalness HOLD，排除 126 后重冻为 22 条候选 scenario（4 capability / 44 annotator），机械检查 22/22 全过，重抽的 20 条人工阅读未完成，未签署。
+- 012：`N0-PASS / D0-AUDITING / NOT READY-TO-SMOKE`，NetEaseCrowd 已 materialize；首轮人工审计 18/20 PASS、2 条 126 naturalness HOLD 后排除 126。selector 改为全局 matching 后冻出 108 条候选 scenario（4 capability / 12 cell / 216 annotator），机械检查 108/108 全过；分层重抽的 20 条人工阅读未完成，未签署。
 - 013：`N0-PASS / HOLD-D0 / NOT READY-TO-SMOKE`，强自然 anchor 已找到，但独立 scenario 数量与 adaptation/license 条件不足。
 
 ## N0 范围决议

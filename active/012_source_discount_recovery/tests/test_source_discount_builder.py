@@ -47,7 +47,7 @@ def test_builder_uses_task_disjoint_source_histories_and_global_worker_disjointn
     rows=mod.build_from_csv(
         str(csv), dataset_name='fixture', license_name='test', source_url='https://example.org',
         domain_col='capability', task_col='taskId', worker_col='workerId', truth_col='truth', answer_col='answer',
-        seed=20260829, min_per_class=20, max_pairs_per_cell=2, lr_margin=1.05,
+        seed=20260829, min_per_class=20, pairs_per_cell=2, lr_margin=1.05,
         taskset_col='tasksetId', time_col='completeTime',
     )
     assert len(rows)==2
@@ -99,16 +99,15 @@ def test_round_robin_caps_scenarios_per_cell_and_balances_domains(tmp_path: Path
                   domain_col='capability', task_col='taskId', worker_col='workerId',
                   truth_col='truth', answer_col='answer', seed=20260829, min_per_class=20,
                   lr_margin=1.05, taskset_col='tasksetId', time_col='completeTime')
-    two = mod.build_from_csv(str(csv), max_pairs_per_cell=2, **kwargs)
-    one = mod.build_from_csv(str(csv), max_pairs_per_cell=1, **kwargs)
+    two = mod.build_from_csv(str(csv), pairs_per_cell=2, **kwargs)
+    one = mod.build_from_csv(str(csv), pairs_per_cell=1, **kwargs)
     # one cell per capability here, so the cap is what sets the bank size
     assert len(one) == 2 and len(two) == 4
     per_domain = collections.Counter(r['domain'] for r in two)
     assert set(per_domain.values()) == {2}, per_domain
     workers = [w for r in two for w in (r['low_source'], r['high_source'])]
     assert len(workers) == len(set(workers))
-    # the first pass keeps the strongest pair of each cell ahead of any second pick
-    assert [r['scenario_id'] for r in one] == [r['scenario_id'] for r in two[:2]]
+    assert {r['scenario_id'] for r in one} <= {r['scenario_id'] for r in two}
 
 
 def test_excluding_a_domain_drops_it_before_selection(tmp_path: Path):
@@ -116,6 +115,47 @@ def test_excluding_a_domain_drops_it_before_selection(tmp_path: Path):
     kwargs = dict(dataset_name='fixture', license_name='test', source_url='https://example.org',
                   domain_col='capability', task_col='taskId', worker_col='workerId',
                   truth_col='truth', answer_col='answer', seed=20260829, min_per_class=20,
-                  lr_margin=1.05, max_pairs_per_cell=2, taskset_col='tasksetId', time_col='completeTime')
+                  lr_margin=1.05, pairs_per_cell=2, taskset_col='tasksetId', time_col='completeTime')
     kept = mod.build_from_csv(str(csv), exclude_domains=['1'], **kwargs)
     assert kept and all(r['domain'] == 'capability-2' for r in kept)
+
+
+def _scarce_and_rich_fixture() -> pd.DataFrame:
+    """One annotator, S, is the only possible partner in the scarce capability.
+
+    In the rich capability S is merely one of three usable high-reliability annotators.
+    A selector that serves the rich capability first can spend S there and leave the
+    scarce capability with nothing.
+    """
+    rows = []
+    task = 0
+    for capability, roster in ((2, (('S', 12), ('T', 4))),
+                               (1, (('S', 12), ('Ha', 13), ('Hb', 14), ('La', 4), ('Lb', 5)))):
+        for i in range(300):
+            truth = i % 2
+            task += 1
+            for worker, miss in roster:
+                answer = truth if (i % miss) != 0 else 1 - truth
+                rows.append({'taskId': task, 'tasksetId': 200 + capability, 'workerId': worker,
+                             'answer': answer, 'completeTime': 1_000_000 + task,
+                             'truth': truth, 'capability': capability})
+        for i in range(60):
+            task += 1
+            rows.append({'taskId': task, 'tasksetId': 210 + capability, 'workerId': f'Z{capability}',
+                         'answer': i % 2, 'completeTime': 3_000_000 + task,
+                         'truth': i % 2, 'capability': capability})
+    return pd.DataFrame(rows)
+
+
+def test_scarce_cell_is_served_before_a_cell_with_alternatives(tmp_path: Path):
+    df = _scarce_and_rich_fixture(); csv = tmp_path / 'scarce.csv'; df.to_csv(csv, index=False)
+    rows = mod.build_from_csv(
+        str(csv), dataset_name='fixture', license_name='test', source_url='https://example.org',
+        domain_col='capability', task_col='taskId', worker_col='workerId', truth_col='truth',
+        answer_col='answer', seed=20260829, min_per_class=20, pairs_per_cell=2, lr_margin=1.05,
+        taskset_col='tasksetId', time_col='completeTime')
+    per_domain = collections.Counter(r['domain'] for r in rows)
+    assert per_domain['capability-2'] == 1, per_domain
+    assert per_domain['capability-1'] == 2, per_domain
+    workers = [w for r in rows for w in (r['low_source'], r['high_source'])]
+    assert len(workers) == len(set(workers))
