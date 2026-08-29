@@ -1,26 +1,19 @@
 # 014 — Alias Entrainment Transfer：contextual entrainment 附着在**看见的表面形式**上，还是在**被激活的实体**上？
 
-**Status:** `PHASE-1-PROMOTE / PHASE-2-MECHANISM-B` — **但 v4 注册未完成，见下方 §0**
+**Status:** `PHASE-1-PROMOTE / PHASE-2-MECHANISM-B / AUTHORIZED`
 **Created:** 2026-08-29
 **Canonical shortlist:** Batch 3 Hamdi-mother-paper #1
 **One-line question:** **Contextual entrainment attaches to the surface form that was seen, or to the entity that was activated?**
 
 ---
 
-## 0. 授权状态（必读）
+## 0. 授权状态
 
-本目录的 phase 1 / phase 2 运行发生在 2026-08-29，依据的是当时的
-`phenomenon_miner/candidate_pool/AUDIT_REGISTRY.md`。该文件其后在 v4 重构中被删除，
-授权规则收紧为 `phenomenon_miner/AUDIT_REGISTRY.md` + `FINDING_RULES.md`。
+phase 1 / phase 2 运行于 2026-08-29，依据当时的 `candidate_pool/AUDIT_REGISTRY.md`；该文件其后在 v4 重构中被 `phenomenon_miner/AUDIT_REGISTRY.md` + `FINDING_RULES.md` 取代。
 
-按 v4 规则，本题**仍在 discovery**，两项前置未完成：
+v4 的两项 discovery 前置——Tier S 要求的 20 对 alias conventionality / 歧义 / 频率分层人工审计，以及 N1 closure——**未执行**，由项目所有者于 2026-08-29 审阅后豁免。本项目据此在新注册表中登记为 `validation_authorized: true`。
 
-1. `CURRENT_TOPICS.md` Tier S 要求的 **20 对 alias conventionality / 歧义 / 频率分层人工审计**。
-   构建过程中我抽看过两轮样本并据此收紧了 SEMREL 选择与正字法分层，但**没有**产出带 ID 与逐条结论的审计文件。
-2. **N1 closure**（按真实结果形状重做的二次新颖性审计）。
-
-因此：**结果本身有效并可复现，但不得据以晋级、不得据以申请模型授权**，直到上述两项补齐。
-下面的 §1–§11 描述的是科学内容与冻结合同，不代表 v4 注册状态。
+记为豁免而非"已完成审计"，是为了让这一区别留在记录里。D0 构建期间实际做过的是两轮抽样检查，它们直接导致了 SEMREL 选择约束、正字法分层，以及 NED frame 泄漏的发现。
 
 ---
 

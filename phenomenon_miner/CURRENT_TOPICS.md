@@ -24,7 +24,7 @@ new_model_authorization: 0
 
 | topic | 一句话 scientific object | 数据路径 | 当前唯一 blocker |
 |---|---|---|---|
-| **Alias Entrainment Transfer** | context 只出现 alias A，未出现的同实体 alias B 会不会也被 entrain？ | Wikidata CC0 entity IDs + 真实 labels/aliases；exact-target / alias-only / semantic-related / unrelated 四路对照。**已在 `active/014_alias_entrainment_transfer/` 实现（PopQA 自带 Wikidata alias），并在 v4 之前自行授权跑完 phase 1 与 phase 2 —— 见该目录 `results/`** | **blocker 未解**：20 对人工检查 alias conventionality、歧义与频率分层（禁止自造缩写）仍未做，N1 closure 亦未做。已有 result 不构成晋级依据 |
+| **Alias Entrainment Transfer** | context 只出现 alias A，未出现的同实体 alias B 会不会也被 entrain？ | 已在 `active/014_alias_entrainment_transfer/` 实现（PopQA 自带 Wikidata CC0 alias），四路对照 exact-target / alias-only / semantic-related / unrelated | **已晋级**：phase 1 三家族 PROMOTE，phase 2 两家族 `mechanism_B`。Tier S 的 20 对人工审计与 N1 closure 经 owner 豁免（2026-08-29，未执行） |
 | **Task-Switch TR/TL Desynchronization** | task switch 后 Task Recognition 已切换但 Task Learning 仍沿用旧 mapping，或反之？ | EMNLP 2024 task-switch repo + ICLR 2026 TR/TL repo 的共同 ICL classification 子集 | 20 switch pairs 排除 context length / label-token artifact；确认 appendix/code 未做过 exact decomposition |
 | **GeoTemporal Binding Bottleneck** | geography 与时间算术分别会，joint 失败到底卡在 retrieval、arithmetic 还是 binding？ | GeoTemp CC BY 4.0；同一 item 派生 geography-only / arithmetic-only / joint | 20 joint cases 审计 component view 没改变语义 |
 | **Causal Retrieval Schedule** | 当前 hidden state 对未来 retrieval-head schedule 的预测信号是不是 causal plan？ | mother Needle/multi-hop setup + HotpotQA-style support chains | 20 matched chains 做 content-preservation audit；确认母论文没有 pre-activation causal schedule intervention |
