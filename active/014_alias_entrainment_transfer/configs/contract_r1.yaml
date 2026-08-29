@@ -252,3 +252,71 @@ phase2:
     - dropping the layer-matched random control
     - re-ranking heads using the alias conditions
     - reporting evaluation-half numbers from heads ranked on the same items
+
+# ---------------------------------------------------------------------------
+# Phase 3 — contract 2026-08-29-r3. Frozen BEFORE any phase-3 forward pass.
+# Motivation: phase 2 established that entrainment heads carry the alias
+# component (retain_ALIAS 0.15-0.73 vs random 1.00-1.48), but the PROPORTIONALITY
+# half rested on a ratio-of-medians whose CI always included zero, with all the
+# imprecision in retain_ALIAS. Phase 3 replaces the ratio with a per-item
+# continuous quantity measured directly off the heads' own write.
+# ---------------------------------------------------------------------------
+phase3:
+  contract_id: 2026-08-29-r3
+  question: >
+    Do the entrainment heads THEMSELVES write toward an alias that never
+    appeared, or do they only write toward strings that did appear?
+
+  method: direct logit attribution (DLA) of the selected head set to the
+    target's FIRST token, at the position that predicts it (last prompt token)
+  formula: >
+    DLA = ((sum_h W_O[:, h-slice] @ x_h) / rms(x_final)) * ln_weight  dot  W_U[target]
+    where x_final is the full residual stream entering the final RMSNorm on that
+    same forward pass. RMSNorm has no mean subtraction, so no centering is applied.
+  readout: dDLA_cond = DLA(cond) - DLA(NOCTX)
+
+  head_sets:
+    entrainment: top-k from the phase-2 sweep, k = 3% and 5% (the k values that
+      cleared the phase-2 validity gate in both families)
+    control: layer-matched random heads, same count, same layers, 5 seeds
+      (identical construction to phase 2)
+  analysis_set: >
+    the phase-2 EVALUATION half only. Head ranking came from the discovery half
+    and used EXACT only, so this stays non-circular. Primary = opaque_strict
+    subset; secondary = all held-out gate-passed items.
+
+  hypotheses:
+    validity:
+      test: median(dDLA_EXACT) > 0 for the entrainment set and materially above
+        the random set
+      on_failure: DLA-IMPLEMENTATION-FAILED -- fix the attribution, interpret nothing
+    H_repr_primary:
+      test: median(dDLA_ALIAS - dDLA_SEMREL) > 0 for the entrainment head set,
+        bootstrap 95% CI (clustered on entities) excluding 0
+      meaning: the heads' own write carries the unseen alias, above a
+        similarity-matched non-coreferent control
+    H_repr_selectivity:
+      test: that quantity is greater for the entrainment set than for the
+        layer-matched random set, CI on the difference excluding 0
+    H_align_secondary:
+      test: >
+        cos(w_ALIAS - w_NOCTX, w_EXACT - w_NOCTX) >
+        cos(w_SEMREL - w_NOCTX, w_EXACT - w_NOCTX)
+      meaning: the write DIRECTION in the alias condition resembles the write
+        direction when the target itself appeared, more than a semantic control
+        does -- i.e. the write is partly alias-invariant
+
+  verdicts:
+    ALIAS-INVARIANT-WRITE: H_repr_primary and H_repr_selectivity both hold
+      -> phase 2's proportionality claim is upgraded from "cannot distinguish"
+         to positive representational evidence
+    SEEN-FORM-ONLY-WRITE: median(dDLA_ALIAS - dDLA_SEMREL) <= 0 or its CI
+      includes 0 -> the heads write only toward strings that appeared, and the
+      phase-1 alias effect must be routed through something other than these
+      heads' direct write (report as a genuine negative; do NOT re-rank heads)
+
+  forbidden:
+    - selecting k after seeing the DLA result
+    - ranking heads on anything other than the phase-2 EXACT-only discovery half
+    - dropping the layer-matched random control
+    - switching the target token or measurement position to rescue a null

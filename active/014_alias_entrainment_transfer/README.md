@@ -1,6 +1,6 @@
 # 014 — Alias Entrainment Transfer：contextual entrainment 附着在**看见的表面形式**上，还是在**被激活的实体**上？
 
-**Status:** `PHASE-1-PROMOTE / PHASE-2-MECHANISM-B / AUTHORIZED`
+**Status:** `PHASE-1-PROMOTE / PHASE-2-MECHANISM-B / PHASE-3-SEEN-FORM-ONLY-WRITE / AUTHORIZED`
 **Created:** 2026-08-29
 **Canonical shortlist:** Batch 3 Hamdi-mother-paper #1
 **One-line question:** **Contextual entrainment attaches to the surface form that was seen, or to the entity that was activated?**
