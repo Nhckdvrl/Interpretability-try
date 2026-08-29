@@ -82,18 +82,33 @@ def is_compositional(short: str, long: str) -> bool:
     if len(s) > len(l):
         s, l = l, s
         short, long = long, short
-    if len(s) <= 4:
-        return True                       # country/postal codes and initialisms
+    # NOTE (amendment d1-r2): a `len(s) <= 4 -> True` rule used to live here. It
+    # was a false-positive machine: `Bono -> Paul David Hewson` and
+    # `Pele -> Edson Arantes do Nascimento` are the single most valuable opaque
+    # identity pairs and it killed both. SHORT IS NOT COMPOSITIONAL; only
+    # DERIVABLE is. Length plays no part below.
     letters = re.sub(r"[^A-Za-z]", "", short)
-    if letters.isupper() and len(letters) <= 6:
-        return True                       # all-caps code form
     caps = "".join(w[0] for w in re.sub(r"[^A-Za-z ]", " ", long).split()
                    if w and w[0].isupper()).lower()
+    initials = "".join(w[0] for w in re.sub(r"[^A-Za-z ]", " ", long).split()
+                       if w).lower()
     core = re.sub(r"[^a-z]", "", s)
-    if core and (core in caps or all(c in caps for c in core)):
+    if core and len(core) >= 2 and (core == caps or core == initials
+                                    or (letters.isupper() and core in caps)):
         return True                       # initials, with or without middle names
+    # an all-caps initialism that carries extra middle initials: DJT, BHO
+    if letters.isupper() and 2 <= len(core) <= 5 and initials \
+            and core[0] == initials[0] and core[-1] == initials[-1]:
+        return True
     if words(short) < words(long) or words(long) < words(short):
-        return True                       # one name is a subset of the other's words
+        return True                       # one name is a word-subset of the other
+    # every word of one is a prefix of the aligned word of the other:
+    # Rob Kardashian / Robert Kardashian, Steve / Steven
+    strip = lambda t: [re.sub(r"[^a-z0-9]", "", w) for w in t.lower().split()]
+    ws, wl = [w for w in strip(short) if w], [w for w in strip(long) if w]
+    if len(ws) == len(wl) and ws != wl \
+            and all(a.startswith(b) or b.startswith(a) for a, b in zip(ws, wl)):
+        return True
     return False
 
 

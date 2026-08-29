@@ -108,6 +108,24 @@ active/014_alias_entrainment_transfer:
   d1_contract: configs/contract_d1.yaml (2026-08-29-d1), frozen before D1 is built
   d1_decisive_test: ALIAS > ASSOC on RedirectQA, where ASSOC is a strongly
     associated NON-coreferent entity; phase 4 blocked until it passes
+  d1_amendment_r2: >
+    2026-08-29-d1-r2, frozen before any D1 candidate materialization, closing 8
+    holes from external review: (1) the `len<=4 -> compositional` rule removed --
+    it killed Bono/Paul David Hewson and Pele/Edson Arantes do Nascimento, the
+    most valuable opaque identity pairs; (2) ASSOC strength fixed to raw-text
+    sentence co-occurrence on a frozen Wikipedia dump, with redirect pages and
+    link counts forbidden because a redirect mechanically links alias to
+    canonical; (3) primary ASSOC must be same-type and frequency/length matched,
+    with person<->character and country<->capital demoted to ASSOC_XTYPE;
+    (4) statistical unit frozen to subject_id x one redirect form, since
+    RedirectQA is 61,120 rows over only 11,453 subject_id; (5) primary direction
+    fixed to alias->canonical, the direction friendliest to the association
+    account; (6) capability floor >=60 gated entities per family restored;
+    (7) `ASSOCIATION-ONLY` renamed `NO-REFERENTIAL-EVIDENCE` -- non-significance
+    is not equivalence, and no TOST margin is declared; (8) exact RedirectQA
+    category literals, the multi-label rule (4.3% of rows), and carrier/readout
+    all written down.
+  d1_status: FROZEN, ready to build; no D1 data materialized yet
   results: active/014_alias_entrainment_transfer/results/
   validation_authorized: true
 ```

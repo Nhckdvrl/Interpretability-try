@@ -89,13 +89,29 @@ def test_compositional_forms_are_excluded_from_opaque_strict():
     and ISO/postal codes, so these reached the money stratum. NOTE: the frozen
     discovery D0 predates this fix and is deliberately NOT rebuilt.
     """
-    for short, long in [("DJT", "Donald Trump"), ("QE2", "Elizabeth II"),
-                        ("GBR", "United Kingdom"), ("US-MA", "Massachusetts"),
-                        ("Fla.", "Florida"), ("CCCP", "Soviet Union")]:
+    for short, long in [("DJT", "Donald Trump"), ("BHO", "Barack Obama"),
+                        ("USA", "United States of America"),
+                        ("E. A. Poe", "Edgar Allan Poe"),
+                        ("Rob Kardashian", "Robert Kardashian"),
+                        ("Steve Martin", "Steve Glenn Martin")]:
         assert is_compositional(short, long), (short, long)
         assert strict_stratum(long, short) == "compositional", (short, long)
     # title+name is caught one step earlier, by the shared-word `partial` rule
     assert strict_stratum("Mao Zedong", "Chairman Mao") == "partial"
+
+
+def test_short_is_not_compositional():
+    """Amendment d1-r2: a `len <= 4 -> compositional` rule used to live in
+    is_compositional and killed exactly the most valuable opaque identity pairs.
+    Short is not derivable; only derivable is derivable."""
+    for a, b in [("Bono", "Paul David Hewson"),
+                 ("Pele", "Edson Arantes do Nascimento"),
+                 ("Sting", "Gordon Sumner"),
+                 ("Katy Perry", "Katheryn Hudson"),
+                 ("Muhammad Ali", "Cassius Clay"),
+                 ("Freddie Mercury", "Farrokh Bulsara"),
+                 ("Iran", "Persia")]:
+        assert not is_compositional(a, b), (a, b)
     for a, b in [("Katy Perry", "Katheryn Hudson"), ("Mumbai", "Bombay"),
                  ("Muhammad Ali", "Cassius Clay"),
                  ("Freddie Mercury", "Farrokh Bulsara")]:

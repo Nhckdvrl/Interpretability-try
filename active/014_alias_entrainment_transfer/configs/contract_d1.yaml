@@ -94,3 +94,152 @@ sequencing:
   - phase 4 (path patching / causal mediation) is BLOCKED until this contract
     returns REFERENTIAL-IDENTITY-EFFECT
   - the scale axis is considered closed; no further sizes
+
+# ===========================================================================
+# AMENDMENT 2026-08-29-d1-r2 — frozen BEFORE any D1 candidate materialization.
+# Closes 8 holes found in external review of d1-r1. Nothing below was written
+# after seeing a D1 sample; no D1 data exists yet.
+# ===========================================================================
+amendment_d1_r2:
+  status: FROZEN / D1 NOT YET BUILT
+
+  # --- 1. compositional detection ----------------------------------------
+  compositional_rule:
+    removed: "len(short) <= 4 -> compositional"
+    why: >
+      it was a false-positive machine. `Bono -> Paul David Hewson` and
+      `Pele -> Edson Arantes do Nascimento` are the highest-value opaque identity
+      pairs in the whole design and it killed both. Verified against the code
+      before amending. SHORT IS NOT COMPOSITIONAL; only DERIVABLE is.
+    retained_tests: >
+      initials matching the long form's first letters (with or without middle
+      initials); word-subset either direction; per-word prefix alignment
+      (Rob/Robert, E. A. Poe/Edgar Allan Poe).
+    known_limit: >
+      `WJC -> Bill Clinton` is not detectable from the surface strings, since the
+      initials come from the birth name. This is acceptable because for D1 the
+      AUTHORITATIVE exclusion is RedirectQA's own human-screened category labels;
+      is_compositional() is only a belt-and-braces second check.
+
+  # --- 2. ASSOC association strength -------------------------------------
+  assoc_strength:
+    forbidden: >
+      Wikipedia link counts and any redirect-derived score. A redirect page
+      mechanically links the alias to the canonical page, so `alias -> canonical`
+      and `Orlando Bloom -> Katy Perry` are not the same statistical object.
+    measure: raw-text surface co-occurrence on one frozen Wikipedia dump
+    definition: "S(X->B) = log( (c(X,B) + alpha) / (c(X) + beta) )"
+    window: sentence-level (chosen now, not later)
+    matching: casefold + word-boundary exact string matching
+    smoothing: alpha = 1, beta = 100
+    excluded_text: redirect pages and all redirect metadata are removed from the
+      dump before counting
+    snapshot: the dump snapshot id is written into the contract before any
+      candidate selection
+    conservative_rule: "S(ASSOC->B) >= S(ALIAS->B)"
+    on_failure: drop the item. Lowering the bar to find a weaker ASSOC is forbidden.
+
+  # --- 3. ASSOC must match the mention, not only the association ----------
+  assoc_mention_matching:
+    required:
+      - same coarse entity type as the ALIAS mention
+      - raw surface frequency roughly matched
+      - word and token length roughly matched
+      - no character leakage of the target or the alias
+      - ASSOC not in the target's alias/redirect closure
+      - different Wikidata QID
+    primary_relations: [spouse, sibling, collaborator, bandmate, co-star]
+    secondary_only: >
+      person<->character, country<->capital, creator<->work go to ASSOC_XTYPE and
+      may NOT enter the primary test -- their lexical neighbourhood differs from a
+      person-name alias, which is a fair reviewer attack.
+
+  # --- 4. statistical unit ------------------------------------------------
+  statistical_unit:
+    unit: "subject_id x ONE selected redirect form"
+    why: >
+      RedirectQA ships 61,120 question rows = 30,560 surface instances x 2
+      templates, over 11,453 unique subject_id and 14,672 triplet_id (verified
+      against the released dataset). One row is NOT one sample; triples and
+      templates would reweight the same entity many times over.
+    selection: fixed category priority, then a deterministic tie-break; exactly
+      one redirect form per entity enters the primary test
+    bootstrap: cluster on subject_id
+    every_entity_equally_weighted: true
+
+  # --- 5. direction -------------------------------------------------------
+  direction:
+    primary: "seen = redirect alias  ->  target = canonical wiki title"
+    secondary: canonical -> alias, run but never pooled into the primary
+    why: >
+      alias->canonical is the direction the association account should find
+      EASIEST, because "X, also known as Y" and redirect structure both reinforce
+      it. Winning in the conservative direction is the stronger result.
+
+  # --- 6. capability floor ------------------------------------------------
+  capability_floor:
+    rule: ">= 60 gated unique entities per family in the primary cell"
+    below: that family is CAPABILITY-FLOOR and does not count toward replication
+    promotion_requires: ">= 2 families, each with n_entity >= 60, and lower CI > 0
+      in BOTH frames"
+
+  # --- 7. verdict names ---------------------------------------------------
+  verdicts_supersede_d1_r1:
+    REFERENTIAL-IDENTITY-EFFECT: lower CI > 0 and the replication criteria pass
+    NO-REFERENTIAL-EVIDENCE: >
+      the superiority criterion fails. The entity interpretation is killed and
+      phase 4 stays blocked. This REPLACES the name `ASSOCIATION-ONLY`, which was
+      statistically overclaiming: "not significantly greater" is not "equal", and
+      +0.30 [-0.25,+0.91] would not license an association-only claim. Asserting
+      equivalence would need a pre-registered TOST margin, which is deliberately
+      NOT declared -- the scientific decision only needs the superiority test.
+    INCONCLUSIVE: precision or capability floor not met; no scientific verdict
+
+  # --- 8. category literals, multi-label rule, carrier, readout -----------
+  category_literals:
+    source: RedirectQA `subject_surface_category`, verified against the release
+    note: "`__MAIN__` marks the canonical (non-redirect) surface"
+    multilabel: 4.3% of rows carry more than one category, so the rule is
+      "has >=1 allowed primary label AND has NO excluded label"
+    primary_allowed:
+      - Redirects_from_birth_names
+      - Redirects_from_pseudonyms
+      - Redirects_from_former_names
+      - Redirects_from_alternative_names
+    excluded:
+      - Redirects_from_abbreviations
+      - Redirects_from_initialisms
+      - Redirects_from_acronyms
+      - Redirects_to_initialisms
+      - Redirects_to_acronyms
+      - Redirects_from_letter–word_combinations
+      - Redirects_from_numerals
+      - Redirects_from_short_names
+      - Redirects_from_long_names
+      - Redirects_from_surnames
+      - Redirects_from_given_names
+      - Redirects_from_personal_names
+      - Redirects_from_married_names
+      - Redirects_from_titles_with_diacritics
+      - Redirects_from_titles_without_diacritics
+      - Redirects_from_titles_without_ligatures
+      - Redirects_from_ASCII-only_titles
+      - Redirects_to_ASCII-only_titles
+      - Redirects_from_alternative_spellings
+      - Redirects_from_misspellings
+      - Redirects_from_incorrect_names
+      - Redirects_from_miscapitalisations
+      - Redirects_from_other_capitalisations
+      - Redirects_from_stylizations
+      - Redirects_from_modifications
+      - Redirects_from_technical_names
+      - Redirects_from_plurals
+      - Redirects_to_plurals
+      - Redirects_from_synonyms
+  carrier_and_readout:
+    frames: byte-identical to D0 F1 and F2
+    carriers: 3 per entity, identical across EXACT/ALIAS/ASSOC/SEMREL/UNREL
+    carrier_constraints: carrier QID differs from target, alias and ASSOC; hard
+      full-string leakage check over the whole prompt, as in D0's test suite
+    primary_metric: full-target logP, byte-identical definition to D0
+    secondary_metric: first-token logit delta (mother-faithful)
