@@ -1,38 +1,65 @@
 # Phenomenon Miner
 
-这里是仓库的 **LLM 可解释性选题工作台**。只保留四类当前有决策价值的信息：
+版本：2026-08-29  
+状态：`v4 / DISCOVERY-FIRST / N0+N1+D0 BEFORE REGISTRATION`
 
-1. **怎么找题** → [`FINDING_RULES.md`](FINDING_RULES.md)
-2. **现在做哪些题** → [`CURRENT_TOPICS.md`](CURRENT_TOPICS.md)
-3. **哪些题死了、为什么死** → [`FAILED_TOPICS.md`](FAILED_TOPICS.md)
-4. **哪些正式项目可以调用模型** → [`AUDIT_REGISTRY.md`](AUDIT_REGISTRY.md)
+本目录是当前 LLM 可解释性选题的唯一 discovery 工作区。
 
-模型家族与 scaling 验证约定单独见 [`MODEL_PANEL.md`](MODEL_PANEL.md)。
+## 当前规则
 
-## 核心哲学
+正式注册一个新题之前，必须同时完成：
 
 ```text
-先找到自然、重要、能一句话讲清的 scientific object
-→ 找题阶段把 novelty 和数据路径一次做透
-→ DISCOVERY-PASS 后才正式注册
-→ 行为先过关
-→ 再做机制
+N0 breadth PASS
++ N1 depth PASS
++ D0 source-feasibility PASS
+= DISCOVERY-PASS
 ```
 
-这里不再保存多代 Batch shortlist、working N0 audit、旧 `promoted/phenomena/candidates` 状态树或 162-card 大库存。它们对当前决策已经失去权威性，完整历史仍可从 Git history 追溯。
+定义与完整流程看 [`FINDING_RULES.md`](FINDING_RULES.md)。
 
-## 当前状态
+最重要的纪律：
 
-- **19 个**新题继续 discovery；其中 7 个 Tier S 优先完成最后的 N1/data feasibility closure。
-- `active/007_weak_evidence_backfire` 是当前唯一 authorized smoke。
-- `active/013_publicness_coordination_dissociation` 继续 legacy HOLD。
-- 新题没有任何一个因为“看起来 promising”就自动获得 `DISCOVERY-PASS` 或模型授权。
+> **phenomenon before mechanism。**
+>
+> strong mother paper 可以提供 motivation、behavioral object 和 mechanism opening；但如果 mother 已经拥有 headline behavior，而我们只剩 `representation → causal? / route? / where?`，它应被标成 `MECH-FOLLOWUP`，不能伪装成新的 phenomenon candidate。
 
-## 目录边界
+## 当前入口
 
-- `phenomenon_miner/`：找题规则、当前题、失败知识、dispatch。
-- `active/`：已正式注册且仍可能继续的项目。
-- `archive/`：terminal 项目及完整实验/裁决证据。
-- `rejected_candidates/`：更早期 brainstorming/rejection 历史；不参与当前调度。
+- [`CURRENT_TOPICS.md`](CURRENT_TOPICS.md) — **唯一 authoritative current queue**。2026-08-29 re-audit 后，Tier S 只保留优先补完 N1+D0 的 phenotype-first 题；Alias 单列 construct-validation；Action Boundary 单列 mechanism follow-up；GeoTemporal / Causal Retrieval / Dead-Branch 已移出高优先级队列。
+- [`AUDIT_REGISTRY.md`](AUDIT_REGISTRY.md) — **唯一 model-call authorization**。Tier S/A/B、active directory、survivor 等标签都不代表模型授权。
+- [`FAILED_TOPICS.md`](FAILED_TOPICS.md) — KILL / ROUTE / HOLD-DATA 与 anti-revival lessons。新一轮搜索必须先查这里。
+- [`FINDING_RULES.md`](FINDING_RULES.md) — N0、N1、D0、behavior-first、strong-model kill、stop-loss 的正式合同。
+- [`MODEL_PANEL.md`](MODEL_PANEL.md) — behavioral smoke / generality 的 checkpoint panel 约定。
 
-**不要从旧 commit 里的 Batch/Tier/Promoted 标签推断当前状态。当前选题只看 `CURRENT_TOPICS.md`，模型调用只看 `AUDIT_REGISTRY.md`。**
+## 2026-08-29 re-audit 后的调度
+
+当前最优先完成 discovery package：
+
+1. **Task-Switch TR/TL Desynchronization**
+2. **Resolved-Ambiguity Neuron Persistence**
+3. **Stock–Flow Correlation Intrusion**
+
+下一梯队：
+
+- Subgroup-Significance → Interaction Promotion
+- Mixed-Status Event Attraction
+- Noninferiority → Equivalence Collapse
+- Correlation → Agreement / Interchangeability Promotion
+
+特殊轨道：
+
+- **Alias Entrainment Transfer** — 已有 phenotype，但 N1/v4 D0 曾被 owner waiver；当前只允许完成冻结的 construct validation，entity interpretation 未成立。
+- **Action-Boundary State Routing** — 明确标为 `MECH-FOLLOWUP`，不占新的 behavioral-phenomenon slot。
+
+不再占当前高优先级 discovery 资源：
+
+- GeoTemporal Binding Bottleneck → `ROUTE / MOTHER-MECHANISM-FOLLOWUP`
+- Causal Retrieval Schedule → `ROUTE / TARGETED-MECH-FOLLOWUP`
+- Dead-Branch Residue after Invalidation → `KILL/ROUTE-STANDALONE`
+
+具体理由见 [`CURRENT_TOPICS.md`](CURRENT_TOPICS.md) 与 [`FAILED_TOPICS.md`](FAILED_TOPICS.md)。
+
+## 一句原则
+
+> **找题阶段的目标不是尽快拥有一个题，而是尽快知道这个题是否值得存在。GPU 负责证伪现象，不负责替 N0/N1/D0 收拾残局。**
