@@ -1,0 +1,82 @@
+699 distinct surface strings, 575 pairs to count
+  shard 11: 200000 articles
+  shard 13: 200000 articles
+  shard 12: 200000 articles
+  shard 10: 200000 articles
+  shard 4: 200000 articles
+  shard 8: 200000 articles
+  shard 9: 200000 articles
+  shard 5: 200000 articles
+  shard 7: 200000 articles
+  shard 2: 200000 articles
+  shard 3: 200000 articles
+  shard 1: 200000 articles
+  shard 0: 200000 articles
+  shard 11: 400000 articles
+shard 11 done
+  shard 12: 400000 articles
+shard 12 done
+  shard 8: 400000 articles
+shard 8 done
+  shard 13: 400000 articles
+shard 13 done
+  shard 10: 400000 articles
+shard 10 done
+  shard 6: 200000 articles
+  shard 7: 400000 articles
+shard 7 done
+  shard 5: 400000 articles
+shard 5 done
+  shard 4: 400000 articles
+shard 4 done
+  shard 9: 400000 articles
+shard 9 done
+  shard 3: 400000 articles
+shard 3 done
+  shard 2: 400000 articles
+shard 2 done
+  shard 15: 200000 articles
+  shard 14: 200000 articles
+  shard 1: 400000 articles
+shard 1 done
+  shard 6: 400000 articles
+shard 6 done
+  shard 0: 400000 articles
+shard 0 done
+  shard 15: 400000 articles
+shard 15 done
+  shard 14: 400000 articles
+Process SpawnPoolWorker-16:
+Traceback (most recent call last):
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/multiprocessing/pool.py", line 131, in worker
+    put((job, i, result))
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/multiprocessing/queues.py", line 399, in put
+    self._writer.send_bytes(obj)
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/multiprocessing/connection.py", line 427, in _send_bytes
+    self._send(header + buf)
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/multiprocessing/connection.py", line 384, in _send
+    n = write(self._handle, buf)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+BrokenPipeError: [Errno 32] Broken pipe
+During handling of the above exception, another exception occurred:
+Traceback (most recent call last):
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/multiprocessing/pool.py", line 136, in worker
+    put((job, i, (False, wrapped)))
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/multiprocessing/queues.py", line 399, in put
+    self._writer.send_bytes(obj)
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/multiprocessing/connection.py", line 427, in _send_bytes
+    self._send(header + buf)
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/multiprocessing/connection.py", line 384, in _send
+    n = write(self._handle, buf)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+BrokenPipeError: [Errno 32] Broken pipe
+/home/xiang/miniconda3/envs/fgvd/lib/python3.12/multiprocessing/resource_tracker.py:279: UserWarning: resource_tracker: There appear to be 6 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '

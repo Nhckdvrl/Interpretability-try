@@ -1,0 +1,3963 @@
+{
+ "Q106337645": {
+  "seen_form": "Charles Kidd II",
+  "target_form": "Calmatic",
+  "cats": [
+   "Redirects_from_birth_names"
+  ],
+  "pageviews": 22433,
+  "assoc": [
+   {
+    "qid": "Q51566",
+    "label": "Spike Lee",
+    "relation": "influenced_by",
+    "sitelinks": 67
+   },
+   {
+    "qid": "Q259913",
+    "label": "Spike Jonze",
+    "relation": "influenced_by",
+    "sitelinks": 47
+   }
+  ]
+ },
+ "Q1075328": {
+  "seen_form": "Takafumi Sugimoto",
+  "target_form": "Sanma Akashiya",
+  "cats": [
+   "Redirects_from_birth_names"
+  ],
+  "pageviews": 25985,
+  "assoc": [
+   {
+    "qid": "Q1054660",
+    "label": "Shinobu \u014ctake",
+    "relation": "spouse",
+    "sitelinks": 9
+   },
+   {
+    "qid": "Q2380788",
+    "label": "Imalu",
+    "relation": "child",
+    "sitelinks": 2
+   },
+   {
+    "qid": "Q11599649",
+    "label": "Matsunosuke Sh\u014dfukutei",
+    "relation": "student_of",
+    "sitelinks": 1
+   }
+  ]
+ },
+ "Q1081888": {
+  "seen_form": "Frank S. Shawn",
+  "target_form": "Ron Goulart",
+  "cats": [
+   "Redirects_from_alternative_names"
+  ],
+  "pageviews": 9871,
+  "assoc": [
+   {
+    "qid": "Q246303",
+    "label": "Anthony Boucher",
+    "relation": "influenced_by",
+    "sitelinks": 21
+   }
+  ]
+ },
+ "Q1088241": {
+  "seen_form": "Calvin Alan Byrd",
+  "target_form": "40 Cal.",
+  "cats": [
+   "Redirects_from_birth_names"
+  ],
+  "pageviews": 10036,
+  "assoc": [
+   {
+    "qid": "Q434913",
+    "label": "Cam'ron",
+    "relation": "bandmate",
+    "sitelinks": 21
+   }
+  ]
+ },
+ "Q11341858": {
+  "seen_form": "RECKONING",
+  "target_form": "Mia Yim",
+  "cats": [
+   "Redirects_from_alternative_names"
+  ],
+  "pageviews": 455177,
+  "assoc": [
+   {
+    "qid": "Q39070891",
+    "label": "Keith Lee",
+    "relation": "spouse",
+    "sitelinks": 21
+   }
+  ]
+ },
+ "Q1134261": {
+  "seen_form": "John Abeel III",
+  "target_form": "Cornplanter",
+  "cats": [
+   "Redirects_from_alternative_names"
+  ],
+  "pageviews": 24101,
+  "assoc": [
+   {
+    "qid": "Q320426",
+    "label": "Handsome Lake",
+    "relation": "sibling",
+    "sitelinks": 7
+   },
+   {
+    "qid": "Q108623885",
+    "label": "Johannes \"John\" Abeel, II",
+    "relation": "father",
+    "sitelinks": 0
+   },
+   {
+    "qid": "Q130363439",
+    "label": "Aliquipiso, of the Turtle Clan of the Senecca Nation",
+    "relation": "mother",
+    "sitelinks": 0
+   },
+   {
+    "qid": "Q5622813",
+    "label": "Guyasuta",
+    "relation": "relative",
+    "sitelinks": 6
+   },
+   {
+    "qid": "Q5589524",
+    "label": "Governor Blacksnake",
+    "relation": "relative",
+    "sitelinks": 2
+   }
+  ]
+ },
+ "Q1139993": {
+  "seen_form": "Windham Rotunda",
+  "target_form": "Bray Wyatt",
+  "cats": [
+   "Redirects_from_birth_names"
+  ],
+  "pageviews": 1965429,
+  "assoc": [
+   {
+    "qid": "Q14512449",
+    "label": "JoJo Offerman",
+    "relation": "spouse",
+    "sitelinks": 13
+   },
+   {
+    "qid": "Q1867265",
+    "label": "Bo Dallas",
+    "relation": "sibling",
+    "sitelinks": 26
+   },
+   {
+    "qid": "Q586503",
+    "label": "Blackjack Mulligan",
+    "relation": "relative",
+    "sitelinks": 14
+   }
+  ]
+ },
+ "Q11637": {
+  "seen_form": "Frances Ethel Gumm",
+  "target_form": "Judy Garland",
+  "cats": [
+   "Redirects_from_birth_names"
+  ],
+  "pageviews": 4459914,
+  "assoc": [
+   {
+    "qid": "Q937852",
+    "label": "David Rose",
+    "relation": "spouse",
+    "sitelinks": 19
+   },
+   {
+    "qid": "Q51535",
+    "label": "Vincente Minnelli",
+    "relation": "spouse",
+    "sitelinks": 53
+   },
+   {
+    "qid": "Q323781",
+    "label": "Sidney Luft",
+    "relation": "spouse",
+    "sitelinks": 9
+   },
+   {
+    "qid": "Q3294107",
+    "label": "Mark Herron",
+    "relation": "spouse",
+    "sitelinks": 8
+   },
+   {
+    "qid": "Q6838610",
+    "label": "Mickey Deans",
+    "relation": "spouse",
+    "sitelinks": 9
+   },
+   {
+    "qid": "Q14441",
+    "label": "Liza Minnelli",
+    "relation": "child",
+    "sitelinks": 93
+   },
+   {
+    "qid": "Q448983",
+    "label": "Lorna Luft",
+    "relation": "child",
+    "sitelinks": 20
+   },
+   {
+    "qid": "Q50768273",
+    "label": "Joey Luft",
+    "relation": "child",
+    "sitelinks": 1
+   },
+   {
+    "qid": "Q64260",
+    "label": "Uta Hagen",
+    "relation": "student_of",
+    "sitelinks": 32
+   }
+  ]
+ },
+ "Q11758": {
+  "seen_form": "Dr. Esperanto",
+  "target_form": "L. L. Zamenhof",
+  "cats": [
+   "Redirects_from_pseudonyms"
+  ],
+  "pageviews": 106973,
+  "assoc": [
+   {
+    "qid": "Q15063359",
+    "label": "Fani Pikover",
+    "relation": "sibling",
+    "sitelinks": 1
+   },
+   {
+    "qid": "Q58327494",
+    "label": "A\u016dgusta Hermelin",
+    "relation": "sibling",
+    "sitelinks": 1
+   }
+  ]
+ },
+ "Q11835565": {
+  "seen_form": "Ernestine Mahoney",
+  "target_form": "Jean Howard",
+  "cats": [
+   "Redirects_from_birth_names"
+  ],
+  "pageviews": 21955,
+  "assoc": [
+   {
+    "qid": "Q2448548",
+    "label": "Charles K. Feldman",
+    "relation": "spouse",
+    "sitelinks": 10
+   }
+  ]
+ },
+ "Q1189386": {
+  "seen_form": "Sam McGraw",
+  "target_form": "Bull Buchanan",
+  "cats": [
+   "Redirects_from_alternative_names"
+  ],
+  "pageviews": 104250,
+  "assoc": [
+   {
+    "qid": "Q109669680",
+    "label": "Brooks Jensen",
+    "relation": "child",
+    "sitelinks": 7
+   }
+  ]
+ },
+ "Q1320658": {
+  "seen_form": "Ryan Parmeter",
+  "target_form": "Konnor",
+  "cats": [
+   "Redirects_from_birth_names"
+  ],
+  "pageviews": 71569,
+  "assoc": [
+   {
+    "qid": "Q263228",
+    "label": "Viktor",
+    "relation": "bandmate",
+    "sitelinks": 19
+   }
+  ]
+ },
+ "Q133665": {
+  "seen_form": "Margaret Theresa Bradley",
+  "target_form": "Marla Gibbs",
+  "cats": [
+   "Redirects_from_birth_names"
+  ],
+  "pageviews": 411608,
+  "assoc": [
+   {
+    "qid": "Q293275",
+    "label": "Susie Garrett",
+    "relation": "sibling",
+    "sitelinks": 12
+   }
+  ]
+ },
+ "Q13476175": {
+  "seen_form": "Ella Yelich-O'Connor",
+  "target_form": "Lorde",
+  "cats": [
+   "Redirects_from_birth_names"
+  ],
+  "pageviews": 1067715,
+  "assoc": [
+   {
+    "qid": "Q135471269",
+    "label": "Indy",
+    "relation": "sibling",
+    "sitelinks": 1
+   },
+   {
+    "qid": "Q16196348",
+    "label": "Sonja Yelich",
+    "relation": "mother",
+    "sitelinks": 3
+   }
+  ]
+ },
+ "Q13560423": {
+  "seen_form": "Chloe Celeste Hosterman",
+  "target_form": "Dove Cameron",
+  "cats": [
+   "Redirects_from_birth_names"
+  ],
+  "pageviews": 1761602,
+  "assoc": [
+   {
+    "qid": "Q19864737",
+    "label": "Ryan McCartan",
+    "relation": "partner",
+    "sitelinks": 10
+   },
+   {
+    "qid": "Q27909349",
+    "label": "Thomas Doherty",
+    "relation": "partner",
+    "sitelinks": 23
+   },
+   {
+    "qid": "Q57415344",
+    "label": "Damiano David",
+    "relation": "partner",
+    "sitelinks": 42
+   }
+  ]
+ },
+ "Q13582314": {
+  "seen_form": "Alia Ghanem",
+  "target_form": "Hamida al-Attas",
+  "cats": [
+   "Redirects_from_birth_names"
+  ],
+  "pageviews": 111645,
+  "assoc": [
+   {
+    "qid": "Q1317",
+    "label": "Osama bin Laden",
+    "relation": "child",
+    "sitelinks": 177
+   }
+  ]
+ },
+ "Q138576": {
+  "seen_form": "Bernice Frankel",
+  "target_form": "Bea Arthur",
+  "cats": [
+   "Redirects_from_birth_names"
+  ],
+  "pageviews": 1174171,
+  "assoc": [
+   {
+    "qid": "Q1519933",
+    "label": "Robert Alan Aurthur",
+    "relation": "spouse",
+    "sitelinks": 7
+   },
+   {
+    "qid": "Q1388109",
+    "label": "Gene Saks",
+    "relation": "spouse",
+    "sitelinks": 19
+   },
+   {
+    "qid": "Q60978",
+    "label": "Erwin Piscator",
+    "relation": "student_of",
+    "sitelinks": 35
+   }
+  ]
+ },
+ "Q1509377": {
+  "seen_form": "Clare Woodgate",
+  "target_form": "Georgina Cates",
+  "cats": [
+   "Redirects_from_birth_names"
+  ],
+  "pageviews": 138720,
+  "assoc": [
+   {
+    "qid": "Q472320",
+    "label": "Skeet Ulrich",
+    "relation": "spouse",
+    "sitelinks": 36
+   }
+  ]
+ },
+ "Q15137086": {
+  "seen_form": "Im Soeun",
+  "target_form": "NC.A",
+  "cats": [
+   "Redirects_from_birth_names"
+  ],
+  "pageviews": 9225,
+  "assoc": [
+   {
+    "qid": "Q50109116",
+    "label": "Jinyea",
+    "relation": "bandmate",
+    "sitelinks": 5
+   },
+   {
+    "qid": "Q24857307",
+    "label": "Lee Su-ji",
+    "relation": "bandmate",
+    "sitelinks": 12
+   },
+   {
+    "qid": "Q27920084",
+    "label": "Lee Hyun-joo",
+    "relation": "bandmate",
+    "sitelinks": 12
+   },
+   {
+    "qid": "Q30243794",
+    "label": "Yebin",
+    "relation": "bandmate",
+    "sitelinks": 11
+   },
+   {
+    "qid": "Q43111227",
+    "label": "Hong Eui-jin",
+    "relation": "bandmate",
+    "sitelinks": 5
+   },
+   {
+    "qid": "Q15865012",
+    "label": "Yoonjo",
+    "relation": "bandmate",
+    "sitelinks": 6
+   },
+   {
+    "qid": "Q16090396",
+    "label": "Woohee",
+    "relation": "bandmate",
+    "sitelinks": 20
+   },
+   {
+    "qid": "Q3207955",
+    "label": "Yang Ji-won",
+    "relation": "bandmate",
+    "sitelinks": 14
+   }
+  ]
+ },
+ "Q15291033": {
+  "seen_form": "Tahliah Barnett",
+  "target_form": "FKA Twigs",
+  "cats": [
+   "Redirects_from_birth_names"
+  ],
+  "pageviews": 1535798,
+  "assoc": [
+   {
+    "qid": "Q180942",
+    "label": "Shia LaBeouf",
+    "relation": "partner",
+    "sitelinks": 90
+   },
+   {
+    "qid": "Q17103606",
+    "label": "Matty Healy",
+    "relation": "partner",
+    "sitelinks": 17
+   }
+  ]
+ },
+ "Q1534357": {
+  "seen_form": "Wu Weisheng",
+  "target_form": "Goh V Shem",
+  "cats": [
+   "Redirects_from_alternative_names"
+  ],
+  "pageviews": 48829,
+  "assoc": [
+   {
+    "qid": "Q2391965",
+    "label": "Tan Wee Kiong",
+    "relation": "professional_partner",
+    "sitelinks": 19
+   }
+  ]
+ },
+ "Q158436": {
+  "seen_form": "Thornton Winsloe",
+  "target_form": "Ernst Krenek",
+  "cats": [
+   "Redirects_from_pseudonyms"
+  ],
+  "pageviews": 15102,
+  "assoc": [
+   {
+    "qid": "Q215588",
+    "label": "Anna Mahler",
+    "relation": "spouse",
+    "sitelinks": 26
+   },
+   {
+    "qid": "Q95662656",
+    "label": "Berta Hermann",
+    "relation": "spouse",
+    "sitelinks": 0
+   },
+   {
+    "qid": "Q1366526",
+    "label": "Gladys Nordenstrom",
+    "relation": "spouse",
+    "sitelinks": 6
+   },
+   {
+    "qid": "Q201359",
+    "label": "George Perle",
+    "relation": "student",
+    "sitelinks": 18
+   },
+   {
+    "qid": "Q331437",
+    "label": "Roque Cordero",
+    "relation": "student",
+    "sitelinks": 7
+   },
+   {
+    "qid": "Q1497551",
+    "label": "Samuel Dolin",
+    "relation": "student",
+    "sitelinks": 5
+   },
+   {
+    "qid": "Q2157033",
+    "label": "Robert Erickson",
+    "relation": "student",
+    "sitelinks": 6
+   },
+   {
+    "qid": "Q3109811",
+    "label": "Halim El-Dabh",
+    "relation": "student",
+    "sitelinks": 13
+   },
+   {
+    "qid": "Q6681429",
+    "label": "Lorne Betts",
+    "relation": "student",
+    "sitelinks": 5
+   },
+   {
+    "qid": "Q6860991",
+    "label": "Milton Barnes",
+    "relation": "student",
+    "sitelinks": 8
+   },
+   {
+    "qid": "Q8002993",
+    "label": "Will Ogdon",
+    "relation": "student",
+    "sitelinks": 2
+   },
+   {
+    "qid": "Q5298471",
+    "label": "Dorothy James",
+    "relation": "student",
+    "sitelinks": 6
+   },
+   {
+    "qid": "Q154770",
+    "label": "Arnold Schoenberg",
+    "relation": "student_of",
+    "sitelinks": 84
+   },
+   {
+    "qid": "Q78528",
+    "label": "Franz Schreker",
+    "relation": "student_of",
+    "sitelinks": 25
+   }
+  ]
+ },
+ "Q16097542": {
+  "seen_form": "L.Joe",
+  "target_form": "Byung Hun",
+  "cats": [
+   "Redirects_from_pseudonyms"
+  ],
+  "pageviews": 22220,
+  "assoc": [
+   {
+    "qid": "Q12590744",
+    "label": "Ahn Daniel",
+    "relation": "bandmate",
+    "sitelinks": 14
+   },
+   {
+    "qid": "Q16097737",
+    "label": "Changjo",
+    "relation": "bandmate",
+    "sitelinks": 11
+   },
+   {
+    "qid": "Q12580794",
+    "label": "C.A.P.",
+    "relation": "bandmate",
+    "sitelinks": 4
+   },
+   {
+    "qid": "Q12618970",
+    "label": "Chunji",
+    "relation": "bandmate",
+    "sitelinks": 4
+   },
+   {
+    "qid": "Q12594449",
+    "label": "Ricky",
+    "relation": "bandmate",
+    "sitelinks": 2
+   }
+  ]
+ },
+ "Q162202": {
+  "seen_form": "Female Weezy",
+  "target_form": "Nicki Minaj",
+  "cats": [
+   "Redirects_from_pseudonyms"
+  ],
+  "pageviews": 3158495,
+  "assoc": [
+   {
+    "qid": "Q71948883",
+    "label": "Kenneth Petty",
+    "relation": "spouse",
+    "sitelinks": 1
+   },
+   {
+    "qid": "Q106678927",
+    "label": "Ming Maraj",
+    "relation": "sibling",
+    "sitelinks": 0
+   },
+   {
+    "qid": "Q20744680",
+    "label": "Safaree Samuels",
+    "relation": "partner",
+    "sitelinks": 4
+   },
+   {
+    "qid": "Q140070835",
+    "label": "Papa Bear",
+    "relation": "child",
+    "sitelinks": 0
+   },
+   {
+    "qid": "Q242620",
+    "label": "Foxy Brown",
+    "relation": "influenced_by",
+    "sitelinks": 25
+   }
+  ]
+ },
+ "Q163366": {
+  "seen_form": "T. J. V.",
+  "target_form": "Ezra Pound",
+  "cats": [
+   "Redirects_from_pseudonyms"
+  ],
+  "pageviews": 454082,
+  "assoc": [
+   {
+    "qid": "Q751416",
+    "label": "Dorothy Shakespear",
+    "relation": "spouse",
+    "sitelinks": 10
+   },
+   {
+    "qid": "Q15303126",
+    "label": "Iseult Gonne",
+    "relation": "partner",
+    "sitelinks": 5
+   },
+   {
+    "qid": "Q101040263",
+    "label": "Isabel Weston",
+    "relation": "mother",
+    "sitelinks": 0
+   },
+   {
+    "qid": "Q137683",
+    "label": "Mary de Rachewiltz",
+    "relation": "child",
+    "sitelinks": 11
+   },
+   {
+    "qid": "Q15945076",
+    "label": "Herman Vandenburg Ames",
+    "relation": "student_of",
+    "sitelinks": 7
+   }
+  ]
+ },
+ "Q16409": {
+  "seen_form": "Samy Rosenstock",
+  "target_form": "Tristan Tzara",
+  "cats": [
+   "Redirects_from_former_names"
+  ],
+  "pageviews": 56413,
+  "assoc": [
+   {
+    "qid": "Q4959262",
+    "label": "Greta Knutson",
+    "relation": "spouse",
+    "sitelinks": 15
+   },
+   {
+    "qid": "Q380275",
+    "label": "Jules Laforgue",
+    "relation": "influenced_by",
+    "sitelinks": 39
+   }
+  ]
+ },
+ "Q164446": {
+  "seen_form": "Joseph Junior Adenuga",
+  "target_form": "Skepta",
+  "cats": [
+   "Redirects_from_birth_names"
+  ],
+  "pageviews": 431348,
+  "assoc": [
+   {
+    "qid": "Q1385721",
+    "label": "Jme",
+    "relation": "sibling",
+    "sitelinks": 10
+   }
+  ]
+ },
+ "Q166663": {
+  "seen_form": "Unknown Prime Minister",
+  "target_form": "Bonar Law",
+  "cats": [
+   "Redirects_from_pseudonyms"
+  ],
+  "pageviews": 171938,
+  "assoc": [
+   {
+    "qid": "Q75611495",
+    "label": "Annie Pitcairn Robley",
+    "relation": "spouse",
+    "sitelinks": 0
+   },
+   {
+    "qid": "Q75611490",
+    "label": "Eliza Kidston",
+    "relation": "mother",
+    "sitelinks": 0
+   },
+   {
+    "qid": "Q12411364",
+    "label": "Richard Law, 1st Baron Coleraine",
+    "relation": "child",
+    "sitelinks": 6
+   }
+  ]
+ },
+ "Q16728588": {
+  "seen_form": "William Grigahcine",
+  "target_form": "DJ Snake",
+  "cats": [
+   "Redirects_from_alternative_names"
+  ],
+  "pageviews": 213495,
+  "assoc": [
+   {
+    "qid": "Q17151338",
+    "label": "Tchami",
+    "relation": "bandmate",
+    "sitelinks": 15
+   },
+   {
+    "qid": "Q48976227",
+    "label": "Malaa",
+    "relation": "bandmate",
+    "sitelinks": 4
+   }
+  ]
+ },
+ "Q16775487": {
+  "seen_form": "Ponysmasher",
+  "target_form": "David F. Sandberg",
+  "cats": [
+   "Redirects_from_pseudonyms"
+  ],
+  "pageviews": 91063,
+  "assoc": [
+   {
+    "qid": "Q26210816",
+    "label": "Lotta Losten",
+    "relation": "spouse",
+    "sitelinks": 6
+   }
+  ]
+ },
+ "Q168633": {
+  "seen_form": "Quincy Hanley",
+  "target_form": "Schoolboy Q",
+  "cats": [
+   "Redirects_from_birth_names"
+  ],
+  "pageviews": 501492,
+  "assoc": [
+   {
+    "qid": "Q3449364",
+    "label": "Ab-Soul",
+    "relation": "bandmate",
+    "sitelinks": 18
+   },
+   {
+    "qid": "Q152632",
+    "label": "Jay Rock",
+    "relation": "bandmate",
+    "sitelinks": 24
+   }
+  ]
+ },
+ "Q17086369": {
+  "seen_form": "Ramona Lisa",
+  "target_form": "Caroline Polachek",
+  "cats": [
+   "Redirects_from_pseudonyms"
+  ],
+  "pageviews": 535182,
+  "assoc": [
+   {
+    "qid": "Q370711",
+    "label": "S\u00e9bastien Tellier",
+    "relation": "influenced_by",
+    "sitelinks": 22
+   },
+   {
+    "qid": "Q24258641",
+    "label": "Aaron Pfenning",
+    "relation": "bandmate",
+    "sitelinks": 1
+   },
+   {
+    "qid": "Q18217727",
+    "label": "Patrick Wimberly",
+    "relation": "bandmate",
+    "sitelinks": 2
+   }
+  ]
+ },
+ "Q171905": {
+  "seen_form": "Eric Marlon Bishop",
+  "target_form": "Jamie Foxx",
+  "cats": [
+   "Redirects_from_alternative_names",
+   "Redirects_from_birth_names"
+  ],
+  "pageviews": 2135144,
+  "assoc": [
+   {
+    "qid": "Q174346",
+    "label": "Katie Holmes",
+    "relation": "partner",
+    "sitelinks": 77
+   }
+  ]
+ },
+ "Q172383": {
+  "seen_form": "Gerbert d'Aurillac",
+  "target_form": "Pope Sylvester II",
+  "cats": [
+   "Redirects_from_birth_names"
+  ],
+  "pageviews": 69434,
+  "assoc": [
+   {
+    "qid": "Q347198",
+    "label": "Adalberon of Laon",
+    "relation": "student",
+    "sitelinks": 20
+   },
+   {
+    "qid": "Q741439",
+    "label": "Richerus",
+    "relation": "student",
+    "sitelinks": 14
+   },
+   {
+    "qid": "Q15984783",
+    "label": "Bernelinus",
+    "relation": "student",
+    "sitelinks": 0
+   },
+   {
+    "qid": "Q192238",
+    "label": "Guido of Arezzo",
+    "relation": "student",
+    "sitelinks": 63
+   },
+   {
+    "qid": "Q151090",
+    "label": "Otto III",
+    "relation": "student",
+    "sitelinks": 64
+   },
+   {
+    "qid": "Q4276",
+    "label": "Dudo of Saint-Quentin",
+    "relation": "student",
+    "sitelinks": 19
+   },
+   {
+    "qid": "Q529302",
+    "label": "Fulbert of Chartres",
+    "relation": "student",
+    "sitelinks": 28
+   },
+   {
+    "qid": "Q4072199",
+    "label": "Atto",
+    "relation": "student_of",
+    "sitelinks": 4
+   }
+  ]
+ },
+ "Q173158": {
+  "seen_form": "Krishna Pandit Bhanji",
+  "target_form": "Ben Kingsley",
+  "cats": [
+   "Redirects_from_birth_names"
+  ],
+  "pageviews": 1770814,
+  "assoc": [
+   {
+    "qid": "Q5219229",
+    "label": "Daniela Lavender",
+    "relation": "spouse",
+    "sitelinks": 3
+   },
+   {
+    "qid": "Q16105709",
+    "label": "Angela Morant",
+    "relation": "spouse",
+    "sitelinks": 3
+   },
+   {
+    "qid": "Q4727196",
+    "label": "Alison Sutcliffe",
+    "relation": "spouse",
+    "sitelinks": 1
+   }
+  ]
+ },
+ "Q173637": {
+  "seen_form": "O'Shea Jackson",
+  "target_form": "Ice Cube",
+  "cats": [
+   "Redirects_from_birth_names"
+  ],
+  "pageviews": 2236211,
+  "assoc": [
+   {
+    "qid": "Q36804",
+    "label": "Eazy-E",
+    "relation": "bandmate",
+    "sitelinks": 57
+   },
+   {
+    "qid": "Q470609",
+    "label": "DJ Yella",
+    "relation": "bandmate",
+    "sitelinks": 24
+   },
+   {
+    "qid": "Q348615",
+    "label": "MC Ren",
+    "relation": "bandmate",
+    "sitelinks": 33
+   },
+   {
+    "qid": "Q2256420",
+    "label": "Arabian Prince",
+    "relation": "bandmate",
+    "sitelinks": 21
+   },
+   {
+    "qid": "Q162634",
+    "label": "E-40",
+    "relation": "bandmate",
+    "sitelinks": 26
+   },
+   {
+    "qid": "Q158223",
+    "label": "Too Short",
+    "relation": "bandmate",
+    "sitelinks": 24
+   }
+  ]
+ },
+ "Q191966": {
+  "seen_form": "Jerome Silberman",
+  "target_form": "Gene Wilder",
+  "cats": [
+   "Redirects_from_alternative_names",
+   "Redirects_from_birth_names"
+  ],
+  "pageviews": 2643517,
+  "assoc": [
+   {
+    "qid": "Q266808",
+    "label": "Gilda Radner",
+    "relation": "spouse",
+    "sitelinks": 37
+   }
+  ]
+ },
+ "Q193676": {
+  "seen_form": "Christopher Bridges",
+  "target_form": "Ludacris",
+  "cats": [
+   "Redirects_from_birth_names"
+  ],
+  "pageviews": 1294244,
+  "assoc": [
+   {
+    "qid": "Q20982377",
+    "label": "Eudoxie Mbouguiengue",
+    "relation": "spouse",
+    "sitelinks": 3
+   },
+   {
+    "qid": "Q294912",
+    "label": "Richard Pryor",
+    "relation": "relative",
+    "sitelinks": 54
+   },
+   {
+    "qid": "Q13218387",
+    "label": "Rain Pryor",
+    "relation": "relative",
+    "sitelinks": 5
+   },
+   {
+    "qid": "Q231487",
+    "label": "Monica",
+    "relation": "relative",
+    "sitelinks": 33
+   }
+  ]
+ },
+ "Q193710": {
+  "seen_form": "Shaffer Smith",
+  "target_form": "Ne-Yo",
+  "cats": [
+   "Redirects_from_birth_names"
+  ],
+  "pageviews": 755172,
+  "assoc": [
+   {
+    "qid": "Q2831",
+    "label": "Michael Jackson",
+    "relation": "influenced_by",
+    "sitelinks": 322
+   }
+  ]
+ },
+ "Q19559884": {
+  "seen_form": "Mercedes Grabowski",
+  "target_form": "August Ames",
+  "cats": [
+   "Redirects_from_birth_names"
+  ],
+  "pageviews": 880287,
+  "assoc": [
+   {
+    "qid": "Q114241407",
+    "label": "Kevin Moore",
+    "relation": "spouse",
+    "sitelinks": 0
+   }
+  ]
+ },
+ "Q19816655": {
+  "seen_form": "Niles Hollowell-Dhar",
+  "target_form": "Kshmr",
+  "cats": [
+   "Redirects_from_birth_names"
+  ],
+  "pageviews": 87600,
+  "assoc": [
+   {
+    "qid": "Q55434946",
+    "label": "David Singer-Vine",
+    "relation": "professional_partner",
+    "sitelinks": 1
+   }
+  ]
+ },
+ "Q19874057": {
+  "seen_form": "Dick Delaware",
+  "target_form": "Aaron Brink",
+  "cats": [
+   "Redirects_from_pseudonyms"
+  ],
+  "pageviews": 45736,
+  "assoc": [
+   {
+    "qid": "Q1048221",
+    "label": "Cassandra Cruz",
+    "relation": "spouse",
+    "sitelinks": 7
+   },
+   {
+    "qid": "Q115416326",
+    "label": "Anderson Lee Aldrich",
+    "relation": "child",
+    "sitelinks": 3
+   }
+  ]
+ },
+ "Q1988024": {
+  "seen_form": "Billie Beck",
+  "target_form": "Sally Rand",
+  "cats": [
+   "Redirects_from_alternative_names",
+   "Redirects_from_pseudonyms"
+  ],
+  "pageviews": 62916,
+  "assoc": [
+   {
+    "qid": "Q3679108",
+    "label": "Tod Robbins",
+    "relation": "spouse",
+    "sitelinks": 7
+   }
+  ]
+ },
+ "Q200188": {
+  "seen_form": "Sano no Mikoto",
+  "target_form": "Emperor Jimmu",
+  "cats": [
+   "Redirects_from_former_names"
+  ],
+  "pageviews": 359291,
+  "assoc": [
+   {
+    "qid": "Q10919837",
+    "label": "Ahiratsuhime",
+    "relation": "spouse",
+    "sitelinks": 5
+   },
+   {
+    "qid": "Q11075750",
+    "label": "Tagishimimi",
+    "relation": "child",
+    "sitelinks": 4
+   },
+   {
+    "qid": "Q11086120",
+    "label": "Hikoyai-no-mikoto",
+    "relation": "child",
+    "sitelinks": 4
+   },
+   {
+    "qid": "Q11588756",
+    "label": "Kamuyaimimi-no-mikoto",
+    "relation": "child",
+    "sitelinks": 6
+   }
+  ]
+ },
+ "Q207544": {
+  "seen_form": "Floyd Akens",
+  "target_form": "L. Frank Baum",
+  "cats": [
+   "Redirects_from_pseudonyms"
+  ],
+  "pageviews": 603283,
+  "assoc": [
+   {
+    "qid": "Q96241341",
+    "label": "Cynthia  Stanton",
+    "relation": "mother",
+    "sitelinks": 0
+   }
+  ]
+ },
+ "Q21062238": {
+  "seen_form": "Mencius Moldbug",
+  "target_form": "Curtis Yarvin",
+  "cats": [
+   "Redirects_from_pseudonyms"
+  ],
+  "pageviews": 652319,
+  "assoc": [
+   {
+    "qid": "Q151403",
+    "label": "Thomas Carlyle",
+    "relation": "influenced_by",
+    "sitelinks": 119
+   },
+   {
+    "qid": "Q76688",
+    "label": "Hans-Hermann Hoppe",
+    "relation": "influenced_by",
+    "sitelinks": 44
+   },
+   {
+    "qid": "Q183266",
+    "label": "Samuel Johnson",
+    "relation": "influenced_by",
+    "sitelinks": 134
+   },
+   {
+    "qid": "Q1399",
+    "label": "Niccol\u00f2 Machiavelli",
+    "relation": "influenced_by",
+    "sitelinks": 227
+   },
+   {
+    "qid": "Q707787",
+    "label": "Robert Filmer",
+    "relation": "influenced_by",
+    "sitelinks": 27
+   },
+   {
+    "qid": "Q2634091",
+    "label": "Albert Jay Nock",
+    "relation": "influenced_by",
+    "sitelinks": 21
+   },
+   {
+    "qid": "Q57314",
+    "label": "Robert Michels",
+    "relation": "influenced_by",
+    "sitelinks": 37
+   },
+   {
+    "qid": "Q84233",
+    "label": "Ludwig von Mises",
+    "relation": "influenced_by",
+    "sitelinks": 79
+   },
+   {
+    "qid": "Q77148",
+    "label": "Carl Schmitt",
+    "relation": "influenced_by",
+    "sitelinks": 65
+   },
+   {
+    "qid": "Q297079",
+    "label": "Murray Rothbard",
+    "relation": "influenced_by",
+    "sitelinks": 59
+   },
+   {
+    "qid": "Q113951",
+    "label": "Erik von Kuehnelt-Leddihn",
+    "relation": "influenced_by",
+    "sitelinks": 22
+   },
+   {
+    "qid": "Q828641",
+    "label": "Bertrand de Jouvenel",
+    "relation": "influenced_by",
+    "sitelinks": 21
+   },
+   {
+    "qid": "Q1240178",
+    "label": "James Burnham",
+    "relation": "influenced_by",
+    "sitelinks": 22
+   },
+   {
+    "qid": "Q4392664",
+    "label": "Glenn Reynolds",
+    "relation": "influenced_by",
+    "sitelinks": 6
+   }
+  ]
+ },
+ "Q2113829": {
+  "seen_form": "Mark Spade",
+  "target_form": "Nigel Balchin",
+  "cats": [
+   "Redirects_from_pseudonyms"
+  ],
+  "pageviews": 5872,
+  "assoc": [
+   {
+    "qid": "Q18528498",
+    "label": "Elisabeth Ayrton",
+    "relation": "spouse",
+    "sitelinks": 2
+   },
+   {
+    "qid": "Q7162574",
+    "label": "Penelope Leach",
+    "relation": "child",
+    "sitelinks": 2
+   }
+  ]
+ },
+ "Q2165440": {
+  "seen_form": "Ronald Eaglesham Porter",
+  "target_form": "Ron Donachie",
+  "cats": [
+   "Redirects_from_birth_names"
+  ],
+  "pageviews": 52920,
+  "assoc": [
+   {
+    "qid": "Q5218475",
+    "label": "Daniel Portman",
+    "relation": "child",
+    "sitelinks": 18
+   }
+  ]
+ },
+ "Q216936": {
+  "seen_form": "P. Diddy",
+  "target_form": "Sean Combs",
+  "cats": [
+   "Redirects_from_pseudonyms"
+  ],
+  "pageviews": 13815086,
+  "assoc": [
+   {
+    "qid": "Q58772926",
+    "label": "Kim Porter",
+    "relation": "spouse",
+    "sitelinks": 5
+   },
+   {
+    "qid": "Q40715",
+    "label": "Jennifer Lopez",
+    "relation": "spouse",
+    "sitelinks": 136
+   },
+   {
+    "qid": "Q72832",
+    "label": "Cassie Ventura",
+    "relation": "partner",
+    "sitelinks": 34
+   },
+   {
+    "qid": "Q97959266",
+    "label": "Yung Miami",
+    "relation": "partner",
+    "sitelinks": 6
+   },
+   {
+    "qid": "Q44380",
+    "label": "Cameron Diaz",
+    "relation": "partner",
+    "sitelinks": 107
+   },
+   {
+    "qid": "Q443073",
+    "label": "Emma Heming Willis",
+    "relation": "partner",
+    "sitelinks": 16
+   },
+   {
+    "qid": "Q4726249",
+    "label": "Alicia Douvall",
+    "relation": "partner",
+    "sitelinks": 1
+   },
+   {
+    "qid": "Q199369",
+    "label": "Naomi Campbell",
+    "relation": "partner",
+    "sitelinks": 84
+   },
+   {
+    "qid": "Q21062646",
+    "label": "Quincy",
+    "relation": "child",
+    "sitelinks": 6
+   }
+  ]
+ },
+ "Q222134": {
+  "seen_form": "University and Airline Bomber",
+  "target_form": "Ted Kaczynski",
+  "cats": [
+   "Redirects_from_alternative_names"
+  ],
+  "pageviews": 3436849,
+  "assoc": [
+   {
+    "qid": "Q61769929",
+    "label": "Wanda Dombek",
+    "relation": "mother",
+    "sitelinks": 0
+   },
+   {
+    "qid": "Q322922",
+    "label": "Jacques Ellul",
+    "relation": "influenced_by",
+    "sitelinks": 37
+   },
+   {
+    "qid": "Q4731760",
+    "label": "Allen Lowell Shields",
+    "relation": "doctoral_advisor",
+    "sitelinks": 6
+   }
+  ]
+ },
+ "Q2306099": {
+  "seen_form": "Ellen Lewis Herndon",
+  "target_form": "Nell Arthur",
+  "cats": [
+   "Redirects_from_birth_names"
+  ],
+  "pageviews": 27927,
+  "assoc": [
+   {
+    "qid": "Q96322067",
+    "label": "Frances Elizabeth Hansbrough",
+    "relation": "mother",
+    "sitelinks": 0
+   }
+  ]
+ },
+ "Q2355896": {
+  "seen_form": "Bir Narsingh Kunwar",
+  "target_form": "Jung Bahadur Rana",
+  "cats": [
+   "Redirects_from_alternative_names"
+  ],
+  "pageviews": 58193,
+  "assoc": [
+   {
+    "qid": "Q90722484",
+    "label": "Ganesh Kumari Thapa",
+    "relation": "mother",
+    "sitelinks": 0
+   },
+   {
+    "qid": "Q35497286",
+    "label": "Lalit Rajeshwari Rajya Lakshmi Devi",
+    "relation": "child",
+    "sitelinks": 3
+   },
+   {
+    "qid": "Q27468352",
+    "label": "Nain Singh Thapa",
+    "relation": "relative",
+    "sitelinks": 5
+   },
+   {
+    "qid": "Q19671234",
+    "label": "Ujir Singh Thapa",
+    "relation": "relative",
+    "sitelinks": 5
+   },
+   {
+    "qid": "Q12495999",
+    "label": "Mathabar Singh Thapa",
+    "relation": "relative",
+    "sitelinks": 16
+   }
+  ]
+ },
+ "Q240509": {
+  "seen_form": "Tammy Ampersand",
+  "target_form": "Kim Deal",
+  "cats": [
+   "Redirects_from_pseudonyms"
+  ],
+  "pageviews": 516648,
+  "assoc": [
+   {
+    "qid": "Q3185915",
+    "label": "Josephine Wiggs",
+    "relation": "bandmate",
+    "sitelinks": 3
+   },
+   {
+    "qid": "Q434464",
+    "label": "Tanya Donelly",
+    "relation": "bandmate",
+    "sitelinks": 16
+   },
+   {
+    "qid": "Q4971564",
+    "label": "Britt Walford",
+    "relation": "bandmate",
+    "sitelinks": 2
+   },
+   {
+    "qid": "Q5046209",
+    "label": "Carrie Bradley",
+    "relation": "bandmate",
+    "sitelinks": 1
+   },
+   {
+    "qid": "Q6279478",
+    "label": "Jos\u00e9 Medeles",
+    "relation": "bandmate",
+    "sitelinks": 2
+   },
+   {
+    "qid": "Q739636",
+    "label": "David Lovering",
+    "relation": "bandmate",
+    "sitelinks": 20
+   },
+   {
+    "qid": "Q576535",
+    "label": "Joey Santiago",
+    "relation": "bandmate",
+    "sitelinks": 25
+   },
+   {
+    "qid": "Q11627",
+    "label": "Black Francis",
+    "relation": "bandmate",
+    "sitelinks": 25
+   }
+  ]
+ },
+ "Q242945": {
+  "seen_form": "Shannen Cassidy",
+  "target_form": "Mary Kay Bergman",
+  "cats": [
+   "Redirects_from_pseudonyms"
+  ],
+  "pageviews": 527994,
+  "assoc": [
+   {
+    "qid": "Q5278485",
+    "label": "Dino Andrade",
+    "relation": "spouse",
+    "sitelinks": 8
+   }
+  ]
+ },
+ "Q24752": {
+  "seen_form": "Richard Abidin Breen",
+  "target_form": "Abz Love",
+  "cats": [
+   "Redirects_from_birth_names"
+  ],
+  "pageviews": 107021,
+  "assoc": [
+   {
+    "qid": "Q6173534",
+    "label": "Jeff Caxide",
+    "relation": "bandmate",
+    "sitelinks": 4
+   }
+  ]
+ },
+ "Q2494": {
+  "seen_form": "Joseph Alois Ratzinger",
+  "target_form": "Pope Benedict XVI",
+  "cats": [
+   "Redirects_from_former_names"
+  ],
+  "pageviews": 1476061,
+  "assoc": [
+   {
+    "qid": "Q100441774",
+    "label": "Maria Peintner",
+    "relation": "mother",
+    "sitelinks": 0
+   },
+   {
+    "qid": "Q993742",
+    "label": "Bruno Schmid",
+    "relation": "student",
+    "sitelinks": 1
+   },
+   {
+    "qid": "Q107169",
+    "label": "Michael Schmaus",
+    "relation": "doctoral_advisor",
+    "sitelinks": 7
+   },
+   {
+    "qid": "Q46378450",
+    "label": "Hub Schnackers",
+    "relation": "doctoral_student",
+    "sitelinks": 1
+   }
+  ]
+ },
+ "Q26255308": {
+  "seen_form": "William Kalubi Mwamba",
+  "target_form": "Damso",
+  "cats": [
+   "Redirects_from_alternative_names"
+  ],
+  "pageviews": 31259,
+  "assoc": [
+   {
+    "qid": "Q131308890",
+    "label": "Michkavie",
+    "relation": "sibling",
+    "sitelinks": 0
+   }
+  ]
+ },
+ "Q2724440": {
+  "seen_form": "Jodha Begum",
+  "target_form": "Mariam-uz-Zamani",
+  "cats": [
+   "Redirects_from_former_names"
+  ],
+  "pageviews": 499621,
+  "assoc": [
+   {
+    "qid": "Q8597",
+    "label": "Akbar",
+    "relation": "spouse",
+    "sitelinks": 167
+   },
+   {
+    "qid": "Q4901295",
+    "label": "Bharmal",
+    "relation": "father",
+    "sitelinks": 13
+   },
+   {
+    "qid": "Q83653",
+    "label": "Jahangir I",
+    "relation": "child",
+    "sitelinks": 81
+   },
+   {
+    "qid": "Q112845469",
+    "label": "Mirza Hassan",
+    "relation": "child",
+    "sitelinks": 1
+   },
+   {
+    "qid": "Q112619742",
+    "label": "Hussain Mirza",
+    "relation": "child",
+    "sitelinks": 1
+   }
+  ]
+ },
+ "Q2918270": {
+  "seen_form": "Allan P Sachs",
+  "target_form": "Alan Merrill",
+  "cats": [
+   "Redirects_from_former_names"
+  ],
+  "pageviews": 27897,
+  "assoc": [
+   {
+    "qid": "Q3663573",
+    "label": "Cathee Dahmen",
+    "relation": "spouse",
+    "sitelinks": 2
+   }
+  ]
+ },
+ "Q309941": {
+  "seen_form": "Tracy Lauren Marrow",
+  "target_form": "Ice-T",
+  "cats": [
+   "Redirects_from_birth_names"
+  ],
+  "pageviews": 1598975,
+  "assoc": [
+   {
+    "qid": "Q814",
+    "label": "Coco Austin",
+    "relation": "spouse",
+    "sitelinks": 26
+   },
+   {
+    "qid": "Q3011013",
+    "label": "D-Roc the Executioner",
+    "relation": "bandmate",
+    "sitelinks": 1
+   }
+  ]
+ },
+ "Q310683": {
+  "seen_form": "Nick Metro",
+  "target_form": "Dolph Ziggler",
+  "cats": [
+   "Redirects_from_pseudonyms"
+  ],
+  "pageviews": 750056,
+  "assoc": [
+   {
+    "qid": "Q1058982",
+    "label": "Ryan Nemeth",
+    "relation": "sibling",
+    "sitelinks": 8
+   },
+   {
+    "qid": "Q4749380",
+    "label": "Amy Schumer",
+    "relation": "partner",
+    "sitelinks": 45
+   }
+  ]
+ },
+ "Q310775": {
+  "seen_form": "Baby Doc",
+  "target_form": "Jean-Claude Duvalier",
+  "cats": [
+   "Redirects_from_alternative_names"
+  ],
+  "pageviews": 277876,
+  "assoc": [
+   {
+    "qid": "Q4291089",
+    "label": "Mich\u00e8le Bennett",
+    "relation": "spouse",
+    "sitelinks": 12
+   }
+  ]
+ },
+ "Q313135": {
+  "seen_form": "Immanuel 123",
+  "target_form": "Reginald Arvizu",
+  "cats": [
+   "Redirects_from_alternative_names"
+  ],
+  "pageviews": 229660,
+  "assoc": [
+   {
+    "qid": "Q270692",
+    "label": "Jonathan Davis",
+    "relation": "bandmate",
+    "sitelinks": 43
+   },
+   {
+    "qid": "Q314343",
+    "label": "James \"Munky\" Shaffer",
+    "relation": "bandmate",
+    "sitelinks": 27
+   },
+   {
+    "qid": "Q331733",
+    "label": "Brian Welch",
+    "relation": "bandmate",
+    "sitelinks": 29
+   },
+   {
+    "qid": "Q345190",
+    "label": "David Silveria",
+    "relation": "bandmate",
+    "sitelinks": 23
+   },
+   {
+    "qid": "Q438935",
+    "label": "Ray Luzier",
+    "relation": "bandmate",
+    "sitelinks": 22
+   }
+  ]
+ },
+ "Q314640": {
+  "seen_form": "Young Sandwich",
+  "target_form": "Andy Samberg",
+  "cats": [
+   "Redirects_from_pseudonyms"
+  ],
+  "pageviews": 2005710,
+  "assoc": [
+   {
+    "qid": "Q233061",
+    "label": "Joanna Newsom",
+    "relation": "spouse",
+    "sitelinks": 38
+   }
+  ]
+ },
+ "Q315202": {
+  "seen_form": "Will B. Good",
+  "target_form": "Roscoe Arbuckle",
+  "cats": [
+   "Redirects_from_pseudonyms"
+  ],
+  "pageviews": 486575,
+  "assoc": [
+   {
+    "qid": "Q443110",
+    "label": "Minta Durfee",
+    "relation": "spouse",
+    "sitelinks": 23
+   },
+   {
+    "qid": "Q3605092",
+    "label": "Addie McPhail",
+    "relation": "spouse",
+    "sitelinks": 11
+   },
+   {
+    "qid": "Q2404347",
+    "label": "Doris Deane",
+    "relation": "spouse",
+    "sitelinks": 7
+   }
+  ]
+ },
+ "Q315989": {
+  "seen_form": "Richard Quongti",
+  "target_form": "Thomas Babington Macaulay",
+  "cats": [
+   "Redirects_from_pseudonyms"
+  ],
+  "pageviews": 136416,
+  "assoc": [
+   {
+    "qid": "Q51711668",
+    "label": "Selina Mills",
+    "relation": "mother",
+    "sitelinks": 1
+   }
+  ]
+ },
+ "Q320621": {
+  "seen_form": "Jeff Isbell",
+  "target_form": "Izzy Stradlin",
+  "cats": [
+   "Redirects_from_alternative_names",
+   "Redirects_from_birth_names"
+  ],
+  "pageviews": 318047,
+  "assoc": [
+   {
+    "qid": "Q11885",
+    "label": "Axl Rose",
+    "relation": "bandmate",
+    "sitelinks": 66
+   },
+   {
+    "qid": "Q251865",
+    "label": "Duff McKagan",
+    "relation": "bandmate",
+    "sitelinks": 42
+   },
+   {
+    "qid": "Q444021",
+    "label": "Richard Fortus",
+    "relation": "bandmate",
+    "sitelinks": 22
+   },
+   {
+    "qid": "Q516730",
+    "label": "Frank Ferrer",
+    "relation": "bandmate",
+    "sitelinks": 20
+   },
+   {
+    "qid": "Q39672",
+    "label": "Matt Sorum",
+    "relation": "bandmate",
+    "sitelinks": 26
+   },
+   {
+    "qid": "Q313502",
+    "label": "Dizzy Reed",
+    "relation": "bandmate",
+    "sitelinks": 28
+   },
+   {
+    "qid": "Q129880",
+    "label": "Ashba",
+    "relation": "bandmate",
+    "sitelinks": 25
+   },
+   {
+    "qid": "Q343304",
+    "label": "Gilby Clarke",
+    "relation": "bandmate",
+    "sitelinks": 23
+   },
+   {
+    "qid": "Q352473",
+    "label": "Dave Navarro",
+    "relation": "bandmate",
+    "sitelinks": 32
+   },
+   {
+    "qid": "Q1291701",
+    "label": "Steven Adler",
+    "relation": "bandmate",
+    "sitelinks": 37
+   },
+   {
+    "qid": "Q34166",
+    "label": "Slash",
+    "relation": "bandmate",
+    "sitelinks": 66
+   },
+   {
+    "qid": "Q23702493",
+    "label": "Melissa Reese",
+    "relation": "bandmate",
+    "sitelinks": 14
+   },
+   {
+    "qid": "Q265252",
+    "label": "Buckethead",
+    "relation": "bandmate",
+    "sitelinks": 35
+   }
+  ]
+ },
+ "Q323463": {
+  "seen_form": "Dennis Coles",
+  "target_form": "Ghostface Killah",
+  "cats": [
+   "Redirects_from_birth_names"
+  ],
+  "pageviews": 533878,
+  "assoc": [
+   {
+    "qid": "Q52447",
+    "label": "RZA",
+    "relation": "bandmate",
+    "sitelinks": 47
+   },
+   {
+    "qid": "Q361657",
+    "label": "GZA",
+    "relation": "bandmate",
+    "sitelinks": 31
+   },
+   {
+    "qid": "Q298694",
+    "label": "Method Man",
+    "relation": "bandmate",
+    "sitelinks": 44
+   },
+   {
+    "qid": "Q336924",
+    "label": "Ol' Dirty Bastard",
+    "relation": "bandmate",
+    "sitelinks": 34
+   },
+   {
+    "qid": "Q733198",
+    "label": "U-God",
+    "relation": "bandmate",
+    "sitelinks": 23
+   },
+   {
+    "qid": "Q320167",
+    "label": "Raekwon",
+    "relation": "bandmate",
+    "sitelinks": 31
+   },
+   {
+    "qid": "Q470619",
+    "label": "Inspectah Deck",
+    "relation": "bandmate",
+    "sitelinks": 27
+   },
+   {
+    "qid": "Q733802",
+    "label": "Masta Killa",
+    "relation": "bandmate",
+    "sitelinks": 26
+   },
+   {
+    "qid": "Q969016",
+    "label": "Cappadonna",
+    "relation": "bandmate",
+    "sitelinks": 17
+   }
+  ]
+ },
+ "Q325403": {
+  "seen_form": "Celticus",
+  "target_form": "Aneurin Bevan",
+  "cats": [
+   "Redirects_from_pseudonyms"
+  ],
+  "pageviews": 315933,
+  "assoc": [
+   {
+    "qid": "Q1686926",
+    "label": "Jennie Lee, Baroness Lee of Asheridge",
+    "relation": "spouse",
+    "sitelinks": 10
+   }
+  ]
+ },
+ "Q326297": {
+  "seen_form": "Muggles King",
+  "target_form": "Mezz Mezzrow",
+  "cats": [
+   "Redirects_from_alternative_names",
+   "Redirects_from_pseudonyms"
+  ],
+  "pageviews": 17663,
+  "assoc": [
+   {
+    "qid": "Q313519",
+    "label": "Sidney Bechet",
+    "relation": "influenced_by",
+    "sitelinks": 40
+   }
+  ]
+ },
+ "Q3331076": {
+  "seen_form": "Koavf",
+  "target_form": "Justin Knapp",
+  "cats": [
+   "Redirects_from_alternative_names",
+   "Redirects_from_pseudonyms"
+  ],
+  "pageviews": 14217,
+  "assoc": [
+   {
+    "qid": "Q7383385",
+    "label": "Ruthie Morris",
+    "relation": "relative",
+    "sitelinks": 5
+   },
+   {
+    "qid": "Q22004317",
+    "label": "Margaret Ferguson",
+    "relation": "student_of",
+    "sitelinks": 3
+   }
+  ]
+ },
+ "Q33391": {
+  "seen_form": "Lev Davidovich Bronshtein",
+  "target_form": "Leon Trotsky",
+  "cats": [
+   "Redirects_from_birth_names"
+  ],
+  "pageviews": 1446163,
+  "assoc": [
+   {
+    "qid": "Q262376",
+    "label": "Natalia Sedova",
+    "relation": "spouse",
+    "sitelinks": 20
+   },
+   {
+    "qid": "Q270084",
+    "label": "Aleksandra Sokolovskaya",
+    "relation": "spouse",
+    "sitelinks": 13
+   },
+   {
+    "qid": "Q452517",
+    "label": "Olga Kameneva",
+    "relation": "sibling",
+    "sitelinks": 20
+   },
+   {
+    "qid": "Q58419633",
+    "label": "David Bronstein",
+    "relation": "father",
+    "sitelinks": 0
+   },
+   {
+    "qid": "Q25677832",
+    "label": "Anna Bronstein",
+    "relation": "mother",
+    "sitelinks": 0
+   },
+   {
+    "qid": "Q1456019",
+    "label": "Sergei Sedov",
+    "relation": "child",
+    "sitelinks": 7
+   },
+   {
+    "qid": "Q529934",
+    "label": "Zinaida Volkova",
+    "relation": "child",
+    "sitelinks": 14
+   },
+   {
+    "qid": "Q4415594",
+    "label": "Semen Semkovski",
+    "relation": "relative",
+    "sitelinks": 6
+   }
+  ]
+ },
+ "Q3629960": {
+  "seen_form": "Austin Matelson",
+  "target_form": "Luchasaurus",
+  "cats": [
+   "Redirects_from_alternative_names"
+  ],
+  "pageviews": 198074,
+  "assoc": [
+   {
+    "qid": "Q87394627",
+    "label": "Jack Perry",
+    "relation": "bandmate",
+    "sitelinks": 14
+   },
+   {
+    "qid": "Q82348244",
+    "label": "Marko Stunt",
+    "relation": "bandmate",
+    "sitelinks": 5
+   }
+  ]
+ },
+ "Q3657052": {
+  "seen_form": "Frank Pitcairn",
+  "target_form": "Claud Cockburn",
+  "cats": [
+   "Redirects_from_pseudonyms"
+  ],
+  "pageviews": 57223,
+  "assoc": [
+   {
+    "qid": "Q16832221",
+    "label": "Jean Ross",
+    "relation": "spouse",
+    "sitelinks": 7
+   },
+   {
+    "qid": "Q30224297",
+    "label": "Hope Hale Davis",
+    "relation": "spouse",
+    "sitelinks": 2
+   },
+   {
+    "qid": "Q76014247",
+    "label": "Elizabeth Gordon Stevenson",
+    "relation": "mother",
+    "sitelinks": 0
+   },
+   {
+    "qid": "Q3459129",
+    "label": "Sarah Caudwell",
+    "relation": "child",
+    "sitelinks": 5
+   },
+   {
+    "qid": "Q200355",
+    "label": "Olivia Wilde",
+    "relation": "relative",
+    "sitelinks": 77
+   }
+  ]
+ },
+ "Q37175": {
+  "seen_form": "Oprah Noodlemantra",
+  "target_form": "Johnny Depp",
+  "cats": [
+   "Redirects_from_pseudonyms"
+  ],
+  "pageviews": 4183036,
+  "assoc": [
+   {
+    "qid": "Q20971283",
+    "label": "Lori Allison",
+    "relation": "spouse",
+    "sitelinks": 0
+   },
+   {
+    "qid": "Q229166",
+    "label": "Amber Heard",
+    "relation": "spouse",
+    "sitelinks": 84
+   },
+   {
+    "qid": "Q111729487",
+    "label": "Christi Dembrowski",
+    "relation": "sibling",
+    "sitelinks": 0
+   },
+   {
+    "qid": "Q229993",
+    "label": "Sherilyn Fenn",
+    "relation": "partner",
+    "sitelinks": 42
+   },
+   {
+    "qid": "Q232927",
+    "label": "Jennifer Grey",
+    "relation": "partner",
+    "sitelinks": 40
+   },
+   {
+    "qid": "Q101797",
+    "label": "Winona Ryder",
+    "relation": "partner",
+    "sitelinks": 99
+   },
+   {
+    "qid": "Q109577550",
+    "label": "Tally Chanel",
+    "relation": "partner",
+    "sitelinks": 0
+   },
+   {
+    "qid": "Q212531",
+    "label": "Kate Moss",
+    "relation": "partner",
+    "sitelinks": 68
+   },
+   {
+    "qid": "Q51023",
+    "label": "Vanessa Paradis",
+    "relation": "partner",
+    "sitelinks": 74
+   },
+   {
+    "qid": "Q109577571",
+    "label": "Polina Glen",
+    "relation": "partner",
+    "sitelinks": 0
+   },
+   {
+    "qid": "Q96299390",
+    "label": "Betty Sue Wells",
+    "relation": "mother",
+    "sitelinks": 0
+   },
+   {
+    "qid": "Q332032",
+    "label": "Alice Cooper",
+    "relation": "bandmate",
+    "sitelinks": 82
+   },
+   {
+    "qid": "Q313378",
+    "label": "Joe Perry",
+    "relation": "bandmate",
+    "sitelinks": 43
+   }
+  ]
+ },
+ "Q3858830": {
+  "seen_form": "Myriam Petacci",
+  "target_form": "Miriam di San Servolo",
+  "cats": [
+   "Redirects_from_pseudonyms"
+  ],
+  "pageviews": 13575,
+  "assoc": [
+   {
+    "qid": "Q106302951",
+    "label": "Giuseppina Persichetti",
+    "relation": "mother",
+    "sitelinks": 0
+   }
+  ]
+ },
+ "Q39246": {
+  "seen_form": "Ofey",
+  "target_form": "Richard Feynman",
+  "cats": [
+   "Redirects_from_pseudonyms"
+  ],
+  "pageviews": 1251373,
+  "assoc": [
+   {
+    "qid": "Q439687",
+    "label": "Robert Barro",
+    "relation": "student",
+    "sitelinks": 26
+   },
+   {
+    "qid": "Q92942",
+    "label": "William Daniel Hillis",
+    "relation": "student",
+    "sitelinks": 21
+   },
+   {
+    "qid": "Q54086433",
+    "label": "Abram Bader",
+    "relation": "student_of",
+    "sitelinks": 0
+   },
+   {
+    "qid": "Q202631",
+    "label": "John Archibald Wheeler",
+    "relation": "student_of",
+    "sitelinks": 60
+   },
+   {
+    "qid": "Q47480",
+    "label": "Paul Dirac",
+    "relation": "influenced_by",
+    "sitelinks": 123
+   },
+   {
+    "qid": "Q547674",
+    "label": "George Zweig",
+    "relation": "doctoral_student",
+    "sitelinks": 30
+   },
+   {
+    "qid": "Q7788761",
+    "label": "Thomas Curtright",
+    "relation": "doctoral_student",
+    "sitelinks": 2
+   },
+   {
+    "qid": "Q1465941",
+    "label": "Michel Baranger",
+    "relation": "doctoral_student",
+    "sitelinks": 4
+   },
+   {
+    "qid": "Q3710550",
+    "label": "Al Hibbs",
+    "relation": "doctoral_student",
+    "sitelinks": 6
+   },
+   {
+    "qid": "Q1808331",
+    "label": "Laurie Brown",
+    "relation": "doctoral_student",
+    "sitelinks": 4
+   },
+   {
+    "qid": "Q102163279",
+    "label": "Howard Arthur Kabakow",
+    "relation": "doctoral_student",
+    "sitelinks": 0
+   },
+   {
+    "qid": "Q102352442",
+    "label": "Philip Moss Platzman",
+    "relation": "doctoral_student",
+    "sitelinks": 0
+   },
+   {
+    "qid": "Q16091755",
+    "label": "Marvin Chester",
+    "relation": "doctoral_student",
+    "sitelinks": 3
+   },
+   {
+    "qid": "Q102352667",
+    "label": "Koichi Mano",
+    "relation": "doctoral_student",
+    "sitelinks": 0
+   },
+   {
+    "qid": "Q102352668",
+    "label": "Michael Cohen",
+    "relation": "doctoral_student",
+    "sitelinks": 2
+   },
+   {
+    "qid": "Q102352669",
+    "label": "Sam M. Berman",
+    "relation": "doctoral_student",
+    "sitelinks": 0
+   },
+   {
+    "qid": "Q64597245",
+    "label": "Frank Lee Vernon, Jr.",
+    "relation": "doctoral_student",
+    "sitelinks": 0
+   },
+   {
+    "qid": "Q102352674",
+    "label": "Willard Henry Wells",
+    "relation": "doctoral_student",
+    "sitelinks": 0
+   },
+   {
+    "qid": "Q102352677",
+    "label": "Carl Iddings",
+    "relation": "doctoral_student",
+    "sitelinks": 0
+   },
+   {
+    "qid": "Q102352678",
+    "label": "Henry Hoyt Hilton",
+    "relation": "doctoral_student",
+    "sitelinks": 0
+   },
+   {
+    "qid": "Q5563970",
+    "label": "Giovanni Rossi Lomanitz",
+    "relation": "doctoral_student",
+    "sitelinks": 8
+   },
+   {
+    "qid": "Q12714647",
+    "label": "Finn Ravndal",
+    "relation": "doctoral_student",
+    "sitelinks": 5
+   },
+   {
+    "qid": "Q102419477",
+    "label": "Elisha R. Huggins",
+    "relation": "doctoral_student",
+    "sitelinks": 0
+   },
+   {
+    "qid": "Q102419478",
+    "label": "Steven Kenneth Kauffmann",
+    "relation": "doctoral_student",
+    "sitelinks": 0
+   },
+   {
+    "qid": "Q3161262",
+    "label": "James M. Bardeen",
+    "relation": "doctoral_student",
+    "sitelinks": 16
+   },
+   {
+    "qid": "Q102487617",
+    "label": "Frank Edward Barnes",
+    "relation": "doctoral_student",
+    "sitelinks": 0
+   },
+   {
+    "qid": "Q1615",
+    "label": "Neil Armstrong",
+    "relation": "bandmate",
+    "sitelinks": 219
+   },
+   {
+    "qid": "Q49285",
+    "label": "Sally Ride",
+    "relation": "bandmate",
+    "sitelinks": 86
+   },
+   {
+    "qid": "Q271939",
+    "label": "Chuck Yeager",
+    "relation": "bandmate",
+    "sitelinks": 57
+   },
+   {
+    "qid": "Q433180",
+    "label": "William P. Rogers",
+    "relation": "bandmate",
+    "sitelinks": 33
+   },
+   {
+    "qid": "Q3030888",
+    "label": "Joe Sutter",
+    "relation": "bandmate",
+    "sitelinks": 20
+   },
+   {
+    "qid": "Q4736884",
+    "label": "Alton G. Keel, Jr.",
+    "relation": "bandmate",
+    "sitelinks": 4
+   },
+   {
+    "qid": "Q4797877",
+    "label": "Arthur B. C. Walker, Jr.",
+    "relation": "bandmate",
+    "sitelinks": 2
+   },
+   {
+    "qid": "Q5294576",
+    "label": "Donald J. Kutyna",
+    "relation": "bandmate",
+    "sitelinks": 6
+   },
+   {
+    "qid": "Q5407190",
+    "label": "Eugene E. Covert",
+    "relation": "bandmate",
+    "sitelinks": 3
+   },
+   {
+    "qid": "Q22958317",
+    "label": "David Campion Acheson",
+    "relation": "bandmate",
+    "sitelinks": 3
+   },
+   {
+    "qid": "Q139568477",
+    "label": "Albert D. Wheelon",
+    "relation": "bandmate",
+    "sitelinks": 0
+   },
+   {
+    "qid": "Q139568586",
+    "label": "Robert B. Hotz",
+    "relation": "bandmate",
+    "sitelinks": 0
+   }
+  ]
+ },
+ "Q40946": {
+  "seen_form": "A Jobber",
+  "target_form": "Daniel Defoe",
+  "cats": [
+   "Redirects_from_pseudonyms"
+  ],
+  "pageviews": 336582,
+  "assoc": [
+   {
+    "qid": "Q22328736",
+    "label": "Mary Tuffley",
+    "relation": "spouse",
+    "sitelinks": 0
+   },
+   {
+    "qid": "Q76282177",
+    "label": "James Foe",
+    "relation": "father",
+    "sitelinks": 0
+   },
+   {
+    "qid": "Q76282179",
+    "label": "Alice Marsh",
+    "relation": "mother",
+    "sitelinks": 0
+   }
+  ]
+ },
+ "Q43044": {
+  "seen_form": "Demetria Guynes",
+  "target_form": "Demi Moore",
+  "cats": [
+   "Redirects_from_birth_names"
+  ],
+  "pageviews": 4510967,
+  "assoc": [
+   {
+    "qid": "Q164782",
+    "label": "Ashton Kutcher",
+    "relation": "spouse",
+    "sitelinks": 83
+   },
+   {
+    "qid": "Q310324",
+    "label": "Timothy Hutton",
+    "relation": "partner",
+    "sitelinks": 57
+   },
+   {
+    "qid": "Q220918",
+    "label": "Emilio Estevez",
+    "relation": "partner",
+    "sitelinks": 79
+   },
+   {
+    "qid": "Q108841505",
+    "label": "Charles Harmon",
+    "relation": "father",
+    "sitelinks": 0
+   },
+   {
+    "qid": "Q108841506",
+    "label": "Virginia King",
+    "relation": "mother",
+    "sitelinks": 0
+   },
+   {
+    "qid": "Q234566",
+    "label": "Rumer Willis",
+    "relation": "child",
+    "sitelinks": 36
+   },
+   {
+    "qid": "Q22350889",
+    "label": "Scout Willis",
+    "relation": "child",
+    "sitelinks": 0
+   },
+   {
+    "qid": "Q22350891",
+    "label": "Tallulah Willis",
+    "relation": "child",
+    "sitelinks": 1
+   }
+  ]
+ },
+ "Q43718": {
+  "seen_form": "V. Alof",
+  "target_form": "Nikolai Gogol",
+  "cats": [
+   "Redirects_from_pseudonyms"
+  ],
+  "pageviews": 398595,
+  "assoc": [
+   {
+    "qid": "Q6538314",
+    "label": "Vasyl Panasovych Gogol-Yanovsky",
+    "relation": "father",
+    "sitelinks": 7
+   },
+   {
+    "qid": "Q4141049",
+    "label": "Mariia Hohol",
+    "relation": "mother",
+    "sitelinks": 3
+   },
+   {
+    "qid": "Q18156519",
+    "label": "Nikolay Belousov",
+    "relation": "student_of",
+    "sitelinks": 2
+   },
+   {
+    "qid": "Q18764074",
+    "label": "Ekaterina Mikhailovna Khomyakova",
+    "relation": "influenced_by",
+    "sitelinks": 4
+   },
+   {
+    "qid": "Q317160",
+    "label": "Thomas De Quincey",
+    "relation": "influenced_by",
+    "sitelinks": 60
+   },
+   {
+    "qid": "Q7200",
+    "label": "Alexander Pushkin",
+    "relation": "influenced_by",
+    "sitelinks": 243
+   },
+   {
+    "qid": "Q150471",
+    "label": "E. T. A. Hoffmann",
+    "relation": "influenced_by",
+    "sitelinks": 92
+   }
+  ]
+ },
+ "Q438400": {
+  "seen_form": "Michael McGillicutty",
+  "target_form": "Curtis Axel",
+  "cats": [
+   "Redirects_from_alternative_names"
+  ],
+  "pageviews": 243373,
+  "assoc": [
+   {
+    "qid": "Q282078",
+    "label": "Curt Hennig",
+    "relation": "father",
+    "sitelinks": 27
+   },
+   {
+    "qid": "Q438691",
+    "label": "Ryback",
+    "relation": "bandmate",
+    "sitelinks": 32
+   },
+   {
+    "qid": "Q1867265",
+    "label": "Bo Dallas",
+    "relation": "bandmate",
+    "sitelinks": 26
+   },
+   {
+    "qid": "Q349625",
+    "label": "Heath Slater",
+    "relation": "bandmate",
+    "sitelinks": 31
+   },
+   {
+    "qid": "Q762506",
+    "label": "Adam Rose",
+    "relation": "bandmate",
+    "sitelinks": 20
+   }
+  ]
+ },
+ "Q44176": {
+  "seen_form": "Terry Gene Bollea",
+  "target_form": "Hulk Hogan",
+  "cats": [
+   "Redirects_from_birth_names"
+  ],
+  "pageviews": 3081875,
+  "assoc": [
+   {
+    "qid": "Q135455352",
+    "label": "Sky Daily",
+    "relation": "spouse",
+    "sitelinks": 0
+   },
+   {
+    "qid": "Q3274973",
+    "label": "Hiro Matsuda",
+    "relation": "student_of",
+    "sitelinks": 10
+   }
+  ]
+ },
+ "Q446490": {
+  "seen_form": "Henrietta Howland Robinson",
+  "target_form": "Hetty Green",
+  "cats": [
+   "Redirects_from_birth_names"
+  ],
+  "pageviews": 305197,
+  "assoc": [
+   {
+    "qid": "Q5664339",
+    "label": "Sylvia Wilks",
+    "relation": "child",
+    "sitelinks": 5
+   }
+  ]
+ },
+ "Q483158": {
+  "seen_form": "Kim Jong Woon",
+  "target_form": "Yesung",
+  "cats": [
+   "Redirects_from_birth_names"
+  ],
+  "pageviews": 64424,
+  "assoc": [
+   {
+    "qid": "Q489838",
+    "label": "Leeteuk",
+    "relation": "bandmate",
+    "sitelinks": 29
+   },
+   {
+    "qid": "Q483175",
+    "label": "Kangin",
+    "relation": "bandmate",
+    "sitelinks": 24
+   },
+   {
+    "qid": "Q483171",
+    "label": "Shindong",
+    "relation": "bandmate",
+    "sitelinks": 21
+   },
+   {
+    "qid": "Q494222",
+    "label": "Lee Sungmin",
+    "relation": "bandmate",
+    "sitelinks": 23
+   },
+   {
+    "qid": "Q483161",
+    "label": "Eunhyuk",
+    "relation": "bandmate",
+    "sitelinks": 21
+   }
+  ]
+ },
+ "Q483382": {
+  "seen_form": "Rocky Clark",
+  "target_form": "Steve Wozniak",
+  "cats": [
+   "Redirects_from_pseudonyms"
+  ],
+  "pageviews": 1026421,
+  "assoc": [
+   {
+    "qid": "Q22442738",
+    "label": "Suzanne Mulker",
+    "relation": "spouse",
+    "sitelinks": 0
+   },
+   {
+    "qid": "Q22442739",
+    "label": "Janet Hill",
+    "relation": "spouse",
+    "sitelinks": 0
+   },
+   {
+    "qid": "Q22442735",
+    "label": "Alice Robertson",
+    "relation": "spouse",
+    "sitelinks": 0
+   }
+  ]
+ },
+ "Q49001": {
+  "seen_form": "Caryn Johnson",
+  "target_form": "Whoopi Goldberg",
+  "cats": [
+   "Redirects_from_birth_names"
+  ],
+  "pageviews": 2460182,
+  "assoc": [
+   {
+    "qid": "Q20966048",
+    "label": "Alvin Martin",
+    "relation": "spouse",
+    "sitelinks": 0
+   },
+   {
+    "qid": "Q20966045",
+    "label": "David Claessen",
+    "relation": "spouse",
+    "sitelinks": 2
+   },
+   {
+    "qid": "Q20966040",
+    "label": "Lyle Trachtenberg",
+    "relation": "spouse",
+    "sitelinks": 0
+   },
+   {
+    "qid": "Q4717435",
+    "label": "Alex Martin",
+    "relation": "child",
+    "sitelinks": 8
+   },
+   {
+    "qid": "Q64260",
+    "label": "Uta Hagen",
+    "relation": "student_of",
+    "sitelinks": 32
+   }
+  ]
+ },
+ "Q4935658": {
+  "seen_form": "Robert Jack Stein",
+  "target_form": "Bobby Van",
+  "cats": [
+   "Redirects_from_alternative_names"
+  ],
+  "pageviews": 99757,
+  "assoc": [
+   {
+    "qid": "Q3050392",
+    "label": "Elaine Joyce",
+    "relation": "spouse",
+    "sitelinks": 13
+   }
+  ]
+ },
+ "Q5006980": {
+  "seen_form": "Lucy Douglas Cochrane",
+  "target_form": "C. Z. Guest",
+  "cats": [
+   "Redirects_from_birth_names"
+  ],
+  "pageviews": 680020,
+  "assoc": [
+   {
+    "qid": "Q98400494",
+    "label": "Vivian Wessell",
+    "relation": "mother",
+    "sitelinks": 1
+   }
+  ]
+ },
+ "Q535972": {
+  "seen_form": "Antonio Hardy",
+  "target_form": "Big Daddy Kane",
+  "cats": [
+   "Redirects_from_birth_names"
+  ],
+  "pageviews": 207579,
+  "assoc": [
+   {
+    "qid": "Q5205464",
+    "label": "DJ Spinderella",
+    "relation": "spouse",
+    "sitelinks": 5
+   }
+  ]
+ },
+ "Q536979": {
+  "seen_form": "Joseph Shearing",
+  "target_form": "Marjorie Bowen",
+  "cats": [
+   "Redirects_from_pseudonyms"
+  ],
+  "pageviews": 8187,
+  "assoc": [
+   {
+    "qid": "Q116155918",
+    "label": "Zeffirino Emilio Costanzo",
+    "relation": "spouse",
+    "sitelinks": 0
+   },
+   {
+    "qid": "Q116155957",
+    "label": "Arthur Leonard Long",
+    "relation": "spouse",
+    "sitelinks": 0
+   },
+   {
+    "qid": "Q116153951",
+    "label": "Phyllis Vere Campbell",
+    "relation": "sibling",
+    "sitelinks": 0
+   },
+   {
+    "qid": "Q116155492",
+    "label": "Vere Douglas Campbell",
+    "relation": "father",
+    "sitelinks": 0
+   },
+   {
+    "qid": "Q64685572",
+    "label": "Josephine Campbell",
+    "relation": "mother",
+    "sitelinks": 0
+   },
+   {
+    "qid": "Q116156077",
+    "label": "Michael Magnus Vere Custance",
+    "relation": "child",
+    "sitelinks": 0
+   },
+   {
+    "qid": "Q108274261",
+    "label": "Athelstan Long",
+    "relation": "child",
+    "sitelinks": 1
+   }
+  ]
+ },
+ "Q540597": {
+  "seen_form": "Jessica Bennett Lester",
+  "target_form": "Asia Carrera",
+  "cats": [
+   "Redirects_from_alternative_names"
+  ],
+  "pageviews": 290435,
+  "assoc": [
+   {
+    "qid": "Q1000505",
+    "label": "Bud Lee",
+    "relation": "spouse",
+    "sitelinks": 8
+   },
+   {
+    "qid": "Q1239254",
+    "label": "Don Lemmon",
+    "relation": "spouse",
+    "sitelinks": 1
+   }
+  ]
+ },
+ "Q543198": {
+  "seen_form": "Willis Marie Van Schaack",
+  "target_form": "Lili St. Cyr",
+  "cats": [
+   "Redirects_from_former_names"
+  ],
+  "pageviews": 50845,
+  "assoc": [
+   {
+    "qid": "Q1292944",
+    "label": "Paul Valentine",
+    "relation": "spouse",
+    "sitelinks": 10
+   },
+   {
+    "qid": "Q940002",
+    "label": "Cordy Milne",
+    "relation": "spouse",
+    "sitelinks": 4
+   }
+  ]
+ },
+ "Q54861040": {
+  "seen_form": "Danielle Balbuena",
+  "target_form": "070 Shake",
+  "cats": [
+   "Redirects_from_birth_names"
+  ],
+  "pageviews": 743589,
+  "assoc": [
+   {
+    "qid": "Q20670730",
+    "label": "Lily-Rose Depp",
+    "relation": "partner",
+    "sitelinks": 56
+   }
+  ]
+ },
+ "Q55759610": {
+  "seen_form": "Matthew Olshefski",
+  "target_form": "The Shirtless Violinist",
+  "cats": [
+   "Redirects_from_birth_names"
+  ],
+  "pageviews": 7446,
+  "assoc": [
+   {
+    "qid": "Q131339714",
+    "label": "Paul Castle",
+    "relation": "spouse",
+    "sitelinks": 2
+   }
+  ]
+ },
+ "Q5608": {
+  "seen_form": "Marshall Bruce Mathers III",
+  "target_form": "Eminem",
+  "cats": [
+   "Redirects_from_birth_names"
+  ],
+  "pageviews": 8678537,
+  "assoc": [
+   {
+    "qid": "Q12366988",
+    "label": "Kim Scott",
+    "relation": "spouse",
+    "sitelinks": 1
+   },
+   {
+    "qid": "Q314909",
+    "label": "Royce da 5'9\"",
+    "relation": "professional_partner",
+    "sitelinks": 26
+   },
+   {
+    "qid": "Q47108853",
+    "label": "Debbie Nelson",
+    "relation": "mother",
+    "sitelinks": 4
+   },
+   {
+    "qid": "Q107023583",
+    "label": "Todd K. Nelson",
+    "relation": "relative",
+    "sitelinks": 0
+   },
+   {
+    "qid": "Q114880010",
+    "label": "Ronnie Polkingharn",
+    "relation": "relative",
+    "sitelinks": 0
+   },
+   {
+    "qid": "Q364526",
+    "label": "Bizarre",
+    "relation": "bandmate",
+    "sitelinks": 21
+   },
+   {
+    "qid": "Q465127",
+    "label": "Mr. Porter",
+    "relation": "bandmate",
+    "sitelinks": 19
+   },
+   {
+    "qid": "Q1344631",
+    "label": "Swifty McVay",
+    "relation": "bandmate",
+    "sitelinks": 10
+   },
+   {
+    "qid": "Q463621",
+    "label": "Rah Digga",
+    "relation": "bandmate",
+    "sitelinks": 11
+   },
+   {
+    "qid": "Q27972767",
+    "label": "Young Zee",
+    "relation": "bandmate",
+    "sitelinks": 4
+   }
+  ]
+ },
+ "Q5625339": {
+  "seen_form": "Robert Bootzin",
+  "target_form": "Gypsy Boots",
+  "cats": [
+   "Redirects_from_birth_names"
+  ],
+  "pageviews": 15880,
+  "assoc": [
+   {
+    "qid": "Q426657",
+    "label": "Eden Ahbez",
+    "relation": "influenced_by",
+    "sitelinks": 12
+   }
+  ]
+ },
+ "Q56259738": {
+  "seen_form": "Demi Bennett",
+  "target_form": "Rhea Ripley",
+  "cats": [
+   "Redirects_from_alternative_names"
+  ],
+  "pageviews": 2345696,
+  "assoc": [
+   {
+    "qid": "Q18822524",
+    "label": "Buddy Matthews",
+    "relation": "spouse",
+    "sitelinks": 21
+   }
+  ]
+ },
+ "Q57242609": {
+  "seen_form": "Jorden Thorpe",
+  "target_form": "Pardison Fontaine",
+  "cats": [
+   "Redirects_from_birth_names"
+  ],
+  "pageviews": 443551,
+  "assoc": [
+   {
+    "qid": "Q59268408",
+    "label": "Megan Thee Stallion",
+    "relation": "partner",
+    "sitelinks": 54
+   }
+  ]
+ },
+ "Q5748559": {
+  "seen_form": "Tom Gabel",
+  "target_form": "Laura Jane Grace",
+  "cats": [
+   "Redirects_from_alternative_names"
+  ],
+  "pageviews": 319140,
+  "assoc": [
+   {
+    "qid": "Q118594025",
+    "label": "Andrew Seward",
+    "relation": "bandmate",
+    "sitelinks": 1
+   },
+   {
+    "qid": "Q26844392",
+    "label": "James Bowman",
+    "relation": "bandmate",
+    "sitelinks": 1
+   },
+   {
+    "qid": "Q351187",
+    "label": "Atom Willard",
+    "relation": "bandmate",
+    "sitelinks": 17
+   },
+   {
+    "qid": "Q6396839",
+    "label": "Kevin Mahon",
+    "relation": "bandmate",
+    "sitelinks": 1
+   },
+   {
+    "qid": "Q12175469",
+    "label": "George Rebelo",
+    "relation": "bandmate",
+    "sitelinks": 2
+   },
+   {
+    "qid": "Q6167323",
+    "label": "Jay Weinberg",
+    "relation": "bandmate",
+    "sitelinks": 18
+   },
+   {
+    "qid": "Q5886341",
+    "label": "Inge Johansson",
+    "relation": "bandmate",
+    "sitelinks": 4
+   },
+   {
+    "qid": "Q12064079",
+    "label": "Franz Nicolay",
+    "relation": "bandmate",
+    "sitelinks": 3
+   }
+  ]
+ },
+ "Q57535": {
+  "seen_form": "Raimund Pretzel",
+  "target_form": "Sebastian Haffner",
+  "cats": [
+   "Redirects_from_birth_names"
+  ],
+  "pageviews": 21563,
+  "assoc": [
+   {
+    "qid": "Q90281",
+    "label": "Kurt Hirsch",
+    "relation": "relative",
+    "sitelinks": 8
+   }
+  ]
+ },
+ "Q60676338": {
+  "seen_form": "Tyron Kaymone Frampton",
+  "target_form": "Slowthai",
+  "cats": [
+   "Redirects_from_alternative_names"
+  ],
+  "pageviews": 490529,
+  "assoc": [
+   {
+    "qid": "Q25396976",
+    "label": "Anne-Marie",
+    "relation": "spouse",
+    "sitelinks": 53
+   }
+  ]
+ },
+ "Q6107": {
+  "seen_form": "Makaveli the don",
+  "target_form": "Tupac Shakur",
+  "cats": [
+   "Redirects_from_pseudonyms"
+  ],
+  "pageviews": 4654158,
+  "assoc": [
+   {
+    "qid": "Q57055903",
+    "label": "Keisha Morris",
+    "relation": "spouse",
+    "sitelinks": 0
+   },
+   {
+    "qid": "Q111490920",
+    "label": "Takerra Allen",
+    "relation": "sibling",
+    "sitelinks": 0
+   },
+   {
+    "qid": "Q1744",
+    "label": "Madonna",
+    "relation": "partner",
+    "sitelinks": 191
+   },
+   {
+    "qid": "Q2153802",
+    "label": "Kastro",
+    "relation": "relative",
+    "sitelinks": 4
+   },
+   {
+    "qid": "Q711080",
+    "label": "Geronimo Pratt",
+    "relation": "relative",
+    "sitelinks": 6
+   },
+   {
+    "qid": "Q922830",
+    "label": "Shock G",
+    "relation": "bandmate",
+    "sitelinks": 18
+   },
+   {
+    "qid": "Q5640221",
+    "label": "Stretch",
+    "relation": "bandmate",
+    "sitelinks": 11
+   },
+   {
+    "qid": "Q1343066",
+    "label": "Big Syke",
+    "relation": "bandmate",
+    "sitelinks": 17
+   },
+   {
+    "qid": "Q2634305",
+    "label": "E.D.I. Mean",
+    "relation": "bandmate",
+    "sitelinks": 10
+   },
+   {
+    "qid": "Q2015559",
+    "label": "Young Noble",
+    "relation": "bandmate",
+    "sitelinks": 13
+   },
+   {
+    "qid": "Q456076",
+    "label": "Yaki Kadafi",
+    "relation": "bandmate",
+    "sitelinks": 19
+   },
+   {
+    "qid": "Q2394507",
+    "label": "Napoleon",
+    "relation": "bandmate",
+    "sitelinks": 10
+   }
+  ]
+ },
+ "Q61591325": {
+  "seen_form": "Minnie Ashley",
+  "target_form": "Beatrice Chanler",
+  "cats": [
+   "Redirects_from_pseudonyms"
+  ],
+  "pageviews": 6198,
+  "assoc": [
+   {
+    "qid": "Q122363089",
+    "label": "Elizabeth Campbell",
+    "relation": "mother",
+    "sitelinks": 0
+   }
+  ]
+ },
+ "Q6175882": {
+  "seen_form": "Timothy Stafford",
+  "target_form": "Jeffrey Byron",
+  "cats": [
+   "Redirects_from_birth_names"
+  ],
+  "pageviews": 37883,
+  "assoc": [
+   {
+    "qid": "Q270743",
+    "label": "Gail O'Grady",
+    "relation": "spouse",
+    "sitelinks": 25
+   },
+   {
+    "qid": "Q460474",
+    "label": "Anna Lee",
+    "relation": "mother",
+    "sitelinks": 26
+   }
+  ]
+ },
+ "Q6204172": {
+  "seen_form": "Luke Warm",
+  "target_form": "Jo Callis",
+  "cats": [
+   "Redirects_from_pseudonyms"
+  ],
+  "pageviews": 30977,
+  "assoc": [
+   {
+    "qid": "Q103562124",
+    "label": "Eugene Reynolds",
+    "relation": "bandmate",
+    "sitelinks": 0
+   },
+   {
+    "qid": "Q1350596",
+    "label": "Philip Oakey",
+    "relation": "bandmate",
+    "sitelinks": 14
+   },
+   {
+    "qid": "Q2005919",
+    "label": "Joanne Catherall",
+    "relation": "bandmate",
+    "sitelinks": 10
+   }
+  ]
+ },
+ "Q62107457": {
+  "seen_form": "Jonathan Lyndale Kirk",
+  "target_form": "DaBaby",
+  "cats": [
+   "Redirects_from_birth_names"
+  ],
+  "pageviews": 558346,
+  "assoc": [
+   {
+    "qid": "Q81698554",
+    "label": "Pop Smoke",
+    "relation": "professional_partner",
+    "sitelinks": 33
+   },
+   {
+    "qid": "Q73673846",
+    "label": "Stunna 4 Vegas",
+    "relation": "professional_partner",
+    "sitelinks": 7
+   }
+  ]
+ },
+ "Q623627": {
+  "seen_form": "Eo Nam-seon",
+  "target_form": "Ryu Soo-young",
+  "cats": [
+   "Redirects_from_birth_names"
+  ],
+  "pageviews": 96727,
+  "assoc": [
+   {
+    "qid": "Q496413",
+    "label": "Park Ha-sun",
+    "relation": "spouse",
+    "sitelinks": 20
+   }
+  ]
+ },
+ "Q62558": {
+  "seen_form": "Tula Ellice Finklea",
+  "target_form": "Cyd Charisse",
+  "cats": [
+   "Redirects_from_birth_names"
+  ],
+  "pageviews": 379530,
+  "assoc": [
+   {
+    "qid": "Q725874",
+    "label": "Tony Martin",
+    "relation": "spouse",
+    "sitelinks": 25
+   },
+   {
+    "qid": "Q231576",
+    "label": "Nana Visitor",
+    "relation": "relative",
+    "sitelinks": 33
+   },
+   {
+    "qid": "Q3136619",
+    "label": "Liv Lindeland",
+    "relation": "relative",
+    "sitelinks": 9
+   }
+  ]
+ },
+ "Q63943": {
+  "seen_form": "Schwester S.",
+  "target_form": "Sabrina Setlur",
+  "cats": [
+   "Redirects_from_alternative_names",
+   "Redirects_from_former_names"
+  ],
+  "pageviews": 13894,
+  "assoc": [
+   {
+    "qid": "Q76334",
+    "label": "Boris Becker",
+    "relation": "partner",
+    "sitelinks": 78
+   }
+  ]
+ },
+ "Q649667": {
+  "seen_form": "Keenan Hollahan",
+  "target_form": "Dan Savage",
+  "cats": [
+   "Redirects_from_pseudonyms"
+  ],
+  "pageviews": 140161,
+  "assoc": [
+   {
+    "qid": "Q61806885",
+    "label": "Terry Miller",
+    "relation": "spouse",
+    "sitelinks": 0
+   }
+  ]
+ },
+ "Q698102": {
+  "seen_form": "Willy Hitler",
+  "target_form": "William Stuart-Houston",
+  "cats": [
+   "Redirects_from_alternative_names"
+  ],
+  "pageviews": 278312,
+  "assoc": [
+   {
+    "qid": "Q66225",
+    "label": "Alois Hitler, Jr.",
+    "relation": "father",
+    "sitelinks": 16
+   },
+   {
+    "qid": "Q454576",
+    "label": "Bridget Dowling",
+    "relation": "mother",
+    "sitelinks": 16
+   },
+   {
+    "qid": "Q85046",
+    "label": "Leo Rudolf Raubal",
+    "relation": "relative",
+    "sitelinks": 15
+   },
+   {
+    "qid": "Q84642",
+    "label": "Geli Raubal",
+    "relation": "relative",
+    "sitelinks": 39
+   },
+   {
+    "qid": "Q22086756",
+    "label": "Elfriede Hochegger",
+    "relation": "relative",
+    "sitelinks": 0
+   },
+   {
+    "qid": "Q385804",
+    "label": "Johann Georg Hiedler",
+    "relation": "relative",
+    "sitelinks": 17
+   },
+   {
+    "qid": "Q2779550",
+    "label": "Maria Schicklgruber",
+    "relation": "relative",
+    "sitelinks": 20
+   }
+  ]
+ },
+ "Q7123406": {
+  "seen_form": "Patrick Seacor",
+  "target_form": "Paddy Boom",
+  "cats": [
+   "Redirects_from_alternative_names"
+  ],
+  "pageviews": 28328,
+  "assoc": [
+   {
+    "qid": "Q460908",
+    "label": "Jake Shears",
+    "relation": "bandmate",
+    "sitelinks": 20
+   },
+   {
+    "qid": "Q2594253",
+    "label": "Ana Matronic",
+    "relation": "bandmate",
+    "sitelinks": 17
+   },
+   {
+    "qid": "Q2414249",
+    "label": "Babydaddy",
+    "relation": "bandmate",
+    "sitelinks": 6
+   },
+   {
+    "qid": "Q13583805",
+    "label": "Del Marquis",
+    "relation": "bandmate",
+    "sitelinks": 6
+   },
+   {
+    "qid": "Q109324090",
+    "label": "Randy Real",
+    "relation": "bandmate",
+    "sitelinks": 0
+   }
+  ]
+ },
+ "Q71976779": {
+  "seen_form": "Mama Burna",
+  "target_form": "Bose Ogulu",
+  "cats": [
+   "Redirects_from_alternative_names"
+  ],
+  "pageviews": 37942,
+  "assoc": [
+   {
+    "qid": "Q25859454",
+    "label": "Benson Idonije",
+    "relation": "father",
+    "sitelinks": 1
+   }
+  ]
+ },
+ "Q7210": {
+  "seen_form": "Liu Bang",
+  "target_form": "Emperor Gaozu of Han",
+  "cats": [
+   "Redirects_from_birth_names"
+  ],
+  "pageviews": 233773,
+  "assoc": [
+   {
+    "qid": "Q298039",
+    "label": "Empress L\u00fc Zhi",
+    "relation": "spouse",
+    "sitelinks": 28
+   },
+   {
+    "qid": "Q1207228",
+    "label": "Concubine Qi",
+    "relation": "spouse",
+    "sitelinks": 11
+   },
+   {
+    "qid": "Q997681",
+    "label": "Empress Dowager Bo",
+    "relation": "spouse",
+    "sitelinks": 10
+   },
+   {
+    "qid": "Q15943848",
+    "label": "Zhao Ji",
+    "relation": "spouse",
+    "sitelinks": 2
+   }
+  ]
+ },
+ "Q7312983": {
+  "seen_form": "Vera Haal",
+  "target_form": "Renee Godfrey",
+  "cats": [
+   "Redirects_from_birth_names"
+  ],
+  "pageviews": 17972,
+  "assoc": [
+   {
+    "qid": "Q45042574",
+    "label": "Bobbie Poledouris",
+    "relation": "child",
+    "sitelinks": 0
+   }
+  ]
+ },
+ "Q7425114": {
+  "seen_form": "Buzzy Lee",
+  "target_form": "Sasha Spielberg",
+  "cats": [
+   "Redirects_from_pseudonyms"
+  ],
+  "pageviews": 281167,
+  "assoc": [
+   {
+    "qid": "Q40057",
+    "label": "Jessica Capshaw",
+    "relation": "sibling",
+    "sitelinks": 37
+   },
+   {
+    "qid": "Q40162",
+    "label": "Kate Capshaw",
+    "relation": "mother",
+    "sitelinks": 44
+   }
+  ]
+ },
+ "Q76826629": {
+  "seen_form": "ProZD",
+  "target_form": "SungWon Cho",
+  "cats": [
+   "Redirects_from_alternative_names"
+  ],
+  "pageviews": 224264,
+  "assoc": [
+   {
+    "qid": "Q95585442",
+    "label": "Anne Marie Salter",
+    "relation": "spouse",
+    "sitelinks": 0
+   }
+  ]
+ },
+ "Q76906": {
+  "seen_form": "Howard Houston",
+  "target_form": "Dieter Bohlen",
+  "cats": [
+   "Redirects_from_alternative_names"
+  ],
+  "pageviews": 327669,
+  "assoc": [
+   {
+    "qid": "Q68027",
+    "label": "Verona Pooth",
+    "relation": "spouse",
+    "sitelinks": 18
+   },
+   {
+    "qid": "Q134893173",
+    "label": "Erika Sauerland",
+    "relation": "spouse",
+    "sitelinks": 0
+   },
+   {
+    "qid": "Q85776",
+    "label": "Stefanie K\u00fcster",
+    "relation": "partner",
+    "sitelinks": 3
+   },
+   {
+    "qid": "Q97160",
+    "label": "Nadja Abd el Farrag",
+    "relation": "partner",
+    "sitelinks": 7
+   },
+   {
+    "qid": "Q77143",
+    "label": "Thomas Anders",
+    "relation": "bandmate",
+    "sitelinks": 46
+   },
+   {
+    "qid": "Q1232924",
+    "label": "Luis Rodr\u00edguez",
+    "relation": "bandmate",
+    "sitelinks": 15
+   },
+   {
+    "qid": "Q9206563",
+    "label": "Detlef Wiedeke",
+    "relation": "bandmate",
+    "sitelinks": 5
+   },
+   {
+    "qid": "Q69266",
+    "label": "Rolf K\u00f6hler",
+    "relation": "bandmate",
+    "sitelinks": 9
+   },
+   {
+    "qid": "Q3303506",
+    "label": "Michael Scholz",
+    "relation": "bandmate",
+    "sitelinks": 5
+   }
+  ]
+ },
+ "Q77006": {
+  "seen_form": "Curly M.C.",
+  "target_form": "Michael Cretu",
+  "cats": [
+   "Redirects_from_pseudonyms"
+  ],
+  "pageviews": 126013,
+  "assoc": [
+   {
+    "qid": "Q76901",
+    "label": "Sandra",
+    "relation": "spouse",
+    "sitelinks": 46
+   },
+   {
+    "qid": "Q17325861",
+    "label": "Reinhard Tarrach",
+    "relation": "bandmate",
+    "sitelinks": 2
+   },
+   {
+    "qid": "Q24200815",
+    "label": "Nils Tuxen",
+    "relation": "bandmate",
+    "sitelinks": 2
+   }
+  ]
+ },
+ "Q78469": {
+  "seen_form": "Rosemarie Magdalena Albach",
+  "target_form": "Romy Schneider",
+  "cats": [
+   "Redirects_from_former_names"
+  ],
+  "pageviews": 1001534,
+  "assoc": [
+   {
+    "qid": "Q72819",
+    "label": "Harry Meyen",
+    "relation": "spouse",
+    "sitelinks": 15
+   },
+   {
+    "qid": "Q1160090",
+    "label": "Daniel Biasini",
+    "relation": "spouse",
+    "sitelinks": 4
+   },
+   {
+    "qid": "Q106529",
+    "label": "Alain Delon",
+    "relation": "partner",
+    "sitelinks": 138
+   },
+   {
+    "qid": "Q3219466",
+    "label": "Laurent P\u00e9tin",
+    "relation": "partner",
+    "sitelinks": 2
+   },
+   {
+    "qid": "Q38302",
+    "label": "Wolf Albach-Retty",
+    "relation": "father",
+    "sitelinks": 18
+   },
+   {
+    "qid": "Q441822",
+    "label": "Sarah Biasini",
+    "relation": "child",
+    "sitelinks": 22
+   },
+   {
+    "qid": "Q18223622",
+    "label": "David Haubenstock",
+    "relation": "child",
+    "sitelinks": 1
+   },
+   {
+    "qid": "Q78870",
+    "label": "Rosa Albach-Retty",
+    "relation": "relative",
+    "sitelinks": 17
+   }
+  ]
+ },
+ "Q80732": {
+  "seen_form": "Namgyal Wangdi",
+  "target_form": "Tenzing Norgay",
+  "cats": [
+   "Redirects_from_birth_names"
+  ],
+  "pageviews": 426729,
+  "assoc": [
+   {
+    "qid": "Q109320649",
+    "label": "Dawa Phuti",
+    "relation": "spouse",
+    "sitelinks": 0
+   },
+   {
+    "qid": "Q109320653",
+    "label": "Ang Lahmu",
+    "relation": "spouse",
+    "sitelinks": 0
+   },
+   {
+    "qid": "Q109320654",
+    "label": "Dakku",
+    "relation": "spouse",
+    "sitelinks": 0
+   },
+   {
+    "qid": "Q3420974",
+    "label": "Raymond Lambert",
+    "relation": "professional_partner",
+    "sitelinks": 7
+   }
+  ]
+ },
+ "Q80805": {
+  "seen_form": "Arab Attack",
+  "target_form": "DJ Khaled",
+  "cats": [
+   "Redirects_from_former_names"
+  ],
+  "pageviews": 1372898,
+  "assoc": [
+   {
+    "qid": "Q104474029",
+    "label": "Nicole Tuck",
+    "relation": "spouse",
+    "sitelinks": 0
+   },
+   {
+    "qid": "Q380656",
+    "label": "Big Pun",
+    "relation": "bandmate",
+    "sitelinks": 37
+   }
+  ]
+ },
+ "Q81796": {
+  "seen_form": "Gavin Ogilvy",
+  "target_form": "J. M. Barrie",
+  "cats": [
+   "Redirects_from_pseudonyms"
+  ],
+  "pageviews": 324027,
+  "assoc": [
+   {
+    "qid": "Q21185975",
+    "label": "Mary Ansell",
+    "relation": "spouse",
+    "sitelinks": 3
+   },
+   {
+    "qid": "Q1512",
+    "label": "Robert Louis Stevenson",
+    "relation": "influenced_by",
+    "sitelinks": 153
+   }
+  ]
+ },
+ "Q8298": {
+  "seen_form": "Jack Back",
+  "target_form": "David Guetta",
+  "cats": [
+   "Redirects_from_pseudonyms"
+  ],
+  "pageviews": 722188,
+  "assoc": [
+   {
+    "qid": "Q2942199",
+    "label": "Cathy Lob\u00e9",
+    "relation": "spouse",
+    "sitelinks": 5
+   }
+  ]
+ },
+ "Q835175": {
+  "seen_form": "Felix Battle",
+  "target_form": "Bernard Levin",
+  "cats": [
+   "Redirects_from_pseudonyms"
+  ],
+  "pageviews": 40170,
+  "assoc": [
+   {
+    "qid": "Q233397",
+    "label": "Arianna Huffington",
+    "relation": "partner",
+    "sitelinks": 46
+   }
+  ]
+ },
+ "Q955144": {
+  "seen_form": "Raymond Spum",
+  "target_form": "John Kricfalusi",
+  "cats": [
+   "Redirects_from_pseudonyms"
+  ],
+  "pageviews": 327886,
+  "assoc": [
+   {
+    "qid": "Q315441",
+    "label": "Ralph Bakshi",
+    "relation": "professional_partner",
+    "sitelinks": 37
+   }
+  ]
+ }
+}
