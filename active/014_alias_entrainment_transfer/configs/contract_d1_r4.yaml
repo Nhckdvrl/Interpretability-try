@@ -1,0 +1,202 @@
+# 014 — D1 r4 scope-correction contract
+# FROZEN 2026-08-29 after inspecting candidate metadata/build code, but BEFORE
+# any D1 model call or D1 effect size. This file supersedes the sampling/estimand
+# restrictions in contract_d1.yaml r2/r3. The older contract remains in git as
+# provenance of the mistaken narrowing; it is not silently rewritten.
+
+contract_id: 2026-08-29-d1-r4-scope-correction
+status: FROZEN / NO D1 MODEL OUTCOME SEEN
+supersedes_for_d1_construction:
+  - contract_d1.yaml:r2.primary_allowed/excluded
+  - contract_d1.yaml:r2.statistical_unit.ONE-selected-redirect
+  - contract_d1.yaml:r2.direction.alias-to-canonical-only
+  - contract_d1.yaml:r3.primary_entity_type.person
+  - contract_d1.yaml:r3.primary_cell.person-and-opaque-strict
+  - contract_d1.yaml:r2.assoc_mention_matching.same-type-as-hard-requirement
+
+why_r4_exists: >
+  r2/r3 accidentally changed the mother question. The project asks whether
+  contextual salience transfers across SURFACE FORMS of the same referent, and
+  how that transfer changes with the surface relationship. Restricting the data
+  to person entities, four lexical-alias categories, non-compositional pairs,
+  one redirect per entity, one direction, and opaque_strict turned that into the
+  narrower question "does an opaque person alias transfer to its canonical
+  name?". That is a useful stratum, not the population of the scientific
+  question. The error was detected from metadata/build inspection, before any
+  D1 model delta was observed.
+
+scientific_population:
+  unit_of_phenomenon: >
+    an ordered pair (A -> B) of attested surface forms that refer to the same
+    RedirectQA/Wikipedia entity, where A is inserted in context and B is scored
+    and is absent from the prompt
+  entity_types: ALL
+  directions: BOTH
+  surface_relationship_is_a_factor_not_a_filter: true
+  rationale: >
+    IBM/International Business Machines, Bombay/Mumbai, spelling/transliteration
+    variants, short/full names, former names and pseudonyms are all instances of
+    the same mother question. Compositional and orthographic pairs are especially
+    important because Phase 3 predicts a lexical-direct path there; excluding
+    them would erase the mechanism gradient we are trying to explain.
+
+redirectqa_surface_bank:
+  source: naist-nlp/RedirectQA v1.0.0
+  row_deduplication: unique (subject_id, subject_surface)
+  keep_multiple_surfaces_per_entity: true
+  pageview_floor_for_construction: NONE
+  ascii_only_filter: false
+  substring_filter: false
+  compositional_filter: false
+  entity_type_filter: false
+  orthographic_stratum_filter: false
+  raw_bank: >
+    retain all RedirectQA redirect surfaces with their category metadata; do not
+    throw information away during extraction
+  confirmatory_intended_surface_population:
+    include_high_level_types:
+      - Aliases_and_Abbreviations
+      - Spelling_variants
+    note: >
+      Typical_Errors is retained in the bank as a diagnostic/error-normalisation
+      stratum but is not allowed to establish a referential-identity claim by
+      itself. This is a scientific analysis distinction, not a data deletion.
+  metadata_source: metadata/redirect_category_to_type.csv from the pinned
+    RedirectQA release; do not maintain a hand-written whitelist of four labels
+
+surface_structure_labels:
+  retain_redirect_category: true
+  retain_redirect_high_level_type: true
+  structural_strata:
+    - compositional
+    - partial
+    - opaque
+    - opaque_strict
+  principle: >
+    These labels are moderators. No stratum is removed during dataset
+    construction. In particular, compositional pairs are NOT contaminants: D0
+    found their transfer largest, and Phase 3 independently predicts stronger
+    direct lexical write as surface overlap/derivability increases.
+
+statistical_unit:
+  raw_observation: ordered surface pair
+  dependence_cluster: subject_id
+  weighting: >
+    entity-equal inference. Compute pair/direction contrasts first, average or
+    median within subject_id, then aggregate across entities; alternatively use
+    an explicitly entity-clustered bootstrap with inverse number-of-pairs weight.
+    Multiple aliases of a famous entity may not count as independent entities.
+
+association_controls:
+  purpose: >
+    distinguish referential identity from a generic learned pair-specific
+    association. ASSOC must be a different referent with an independently
+    attested strong real-world relation to the target entity.
+  forbidden_relation:
+    P1889_different_from: >
+      keep excluded from ASSOC. It is a confusability/disambiguation relation,
+      not a real-world association. It may be reported separately as CONFUSABLE.
+  primary_control: ASSOC_ANY
+  ASSOC_ANY:
+    entity_type_match_required: false
+    why: >
+      the association hypothesis does not require the associate to share a
+      coarse Wikidata type. Actor-character, creator-work and country-capital are
+      legitimate strong learned associations. Hard type filtering was a source
+      of estimand drift and unnecessary data loss.
+    matching: >
+      S(C->B) >= S(A->B) on the pinned raw-Wikipedia sentence co-occurrence
+      measure; among eligible candidates choose the smallest association margin,
+      then closest surface frequency, token length and deterministic QID tie-break
+  sensitivity_control: ASSOC_SAMETYPE
+  ASSOC_SAMETYPE:
+    definition: same as ASSOC_ANY but restricted to the same coarse entity type
+    role: >
+      a stricter nuisance-controlled sensitivity analysis wherever available;
+      absence of a same-type associate does NOT remove the surface pair from the
+      broad D1 bank
+  target_token_leakage: >
+    For each ORDERED direction, an ASSOC surface containing a scored target token
+    is ineligible for that direction because it would recreate exact lexical
+    entrainment. Do not ban overlap with the non-scored counterpart globally.
+
+association_strength:
+  corpus_snapshot: wikimedia/wikipedia 20231101.en
+  window: sentence
+  surface_matching: Unicode-aware casefolded exact surface matching at token
+    boundaries
+  score: "S(X->B) = log((c(X,B)+1)/(c(X)+100))"
+  redirect_metadata_or_link_counts: FORBIDDEN
+  stale_pre_fix_cooc_shards: FORBIDDEN
+  implementation_version_required: d1-r4-cooc-v2
+
+ordered_directions:
+  - alias_to_canonical
+  - canonical_to_alias
+  rule: >
+    Both directions are constructed and reported. Direction is a factor because
+    surface frequency and lexicalisation are asymmetric. Neither direction may
+    be silently designated the only primary population.
+
+capability_gate:
+  construction_filter: false
+  role: model-specific analysis stratum
+  analyses:
+    - all matched intended surface pairs
+    - hard-identity-gate-passed pairs
+  why: >
+    A model-specific gate must not redefine the dataset. It answers whether lack
+    of explicit identity knowledge moderates transfer. Phase-4 promotion can
+    still require a sufficiently large gated opaque subset, but the broad
+    phenotype is estimated on the full matched population.
+
+confirmatory_questions:
+  Q1_broad_cross_surface_transfer:
+    estimand: median(delta_ALIAS - delta_ASSOC_ANY) over intended surface pairs
+    requirement: positive bootstrap CI in >=2 model families and both frames
+  Q2_reference_specific_residue:
+    estimand: >
+      delta_ALIAS - delta_ASSOC_ANY in hard-identity-gated opaque_strict pairs
+    requirement: positive bootstrap CI in >=2 model families and both frames
+    capability_floor: 60 unique subject_id per family in this STRATUM
+    interpretation: >
+      this is the decisive evidence needed before calling the downstream
+      mediation referential/reference-sensitive
+  Q3_structure_gradient:
+    estimand: contrast as a function of compositional/partial/opaque/
+      opaque_strict and RedirectQA high-level surface type
+    prediction: >
+      lexical-direct contribution should be strongest for compositional/overlap
+      forms, while a genuinely downstream identity-mediated fraction should be
+      relatively more important as lexical derivability decreases
+  Q4_directionality:
+    estimand: alias->canonical versus canonical->alias; never pooled without
+      reporting the interaction
+  sensitivity:
+    - repeat Q1/Q2 against ASSOC_SAMETYPE where available
+    - ALIAS > SEMREL remains a secondary continuity check with D0
+    - Typical_Errors reported separately, never used alone for Q2
+
+verdicts:
+  REFERENTIAL-IDENTITY-EFFECT: >
+    Q1 and Q2 pass. Phase 4 is unblocked and the claim is specifically that a
+    non-lexical cross-surface residue survives a matched strong-association
+    control.
+  CROSS-SURFACE-BUT-NOT-REFERENCE-SPECIFIC: >
+    broad transfer exists but Q2 fails; keep the cross-surface phenomenon and
+    drop the entity/reference-specific interpretation.
+  INCONCLUSIVE: >
+    Q2 cannot meet its predeclared capability/precision floor. This does not
+    erase Q1 or the structural gradient, but it cannot license Phase 4's
+    referential claim.
+
+build_artifacts_r4:
+  candidates: data/d1_surface_pairs_r4.json
+  wikidata: data/d1_wikidata_r4.json
+  assoc_candidates: data/d1_assoc_candidates_r4.json
+  cooccurrence_dir: results/d1_build/cooc_r4
+  matched_bank: data/frozen_d1_r4.jsonl
+  note: >
+    d1_candidates.json, d1_assoc_candidates.json, frozen_d1.jsonl and the old
+    results/d1_build/cooc/ shards are historical pre-r4 artefacts and MUST NOT be
+    consumed by the r4 pipeline.
