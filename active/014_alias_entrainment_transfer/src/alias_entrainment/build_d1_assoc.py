@@ -1,16 +1,17 @@
-"""D1 stage 3: same-type ASSOC candidates, across ALL strata and entity types.
+"""D1 r4 stage 3: attach strong non-coreferent ASSOC candidates to every surface pair.
 
-ASSOC = a DIFFERENT referent with a strong, specific real-world tie to the
-target. The tie must be SAME-TYPE (person<->person, org<->org, place<->place),
-because a person-name alias contrasted against a city or a film would differ in
-lexical neighbourhood, not just in referential identity.
+r3 made SAME-TYPE a construction requirement.  That was unnecessary estimand
+narrowing: the association hypothesis is pair-specific and real-world, not
+"same Wikidata coarse type".  r4 therefore builds:
 
-`different_from` (P1889) is never a tie source: it is Wikidata's disambiguation
-property, so it links NAME-SIMILAR entities and would hand ASSOC exactly the
-lexical confound this design exists to remove. It is kept aside as CONFUSABLE.
+  ASSOC_ANY      all strong related, different-referent candidates (primary)
+  ASSOC_SAMETYPE the same list restricted by coarse type (sensitivity)
 
-The dataset is built BROAD and fully labelled. Strictness belongs to the
-analysis (which cell is confirmatory), not to dataset construction.
+P1889 `different_from` remains forbidden: it encodes confusability, not a
+real-world association.  No surface pair is deleted at this stage; missing
+controls are a later matching outcome, not a reason to redefine the source bank.
+
+Canonical contract: configs/contract_d1_r4.yaml
 """
 from __future__ import annotations
 
@@ -21,6 +22,8 @@ import urllib.parse
 import urllib.request
 from collections import Counter
 from pathlib import Path
+
+from build_d1_candidates import normu
 
 API = "https://www.wikidata.org/w/api.php"
 UA = ("Interpretability-research/014-alias-entrainment "
@@ -79,18 +82,20 @@ def eids(claims, pid):
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--cands", default="data/d1_candidates.json")
-    ap.add_argument("--wikidata", default="data/d1_wikidata_all.json")
-    ap.add_argument("--out", default="data/d1_assoc_candidates.json")
+    ap.add_argument("--cands", default="data/d1_surface_pairs_r4.json")
+    ap.add_argument("--wikidata", default="data/d1_wikidata_r4.json")
+    ap.add_argument("--out", default="data/d1_assoc_candidates_r4.json")
     args = ap.parse_args()
 
     W = json.load(open(args.wikidata))
-    C = {c["subject_id"]: c for c in json.load(open(args.cands))}
-    print(f"candidates: {len(C)} across all strata and types")
+    C = json.load(open(args.cands))
+    by_qid = {c["subject_id"] for c in C}
+    print(f"surface pairs: {len(C)} across {len(by_qid)} entities")
 
-    # ---- second hop through groups / labels / works --------------------------
-    hop = sorted({g for q, v in W.items() for t in SECOND_HOP
-                  for g in v["ties"].get(t, [])})
+    # Expand group/work/team relations to co-members, but retain the directly
+    # related group/work itself too.  Cross-type relations are valid ASSOC_ANY.
+    hop = sorted({g for q, v in W.items() if q in by_qid
+                  for t in SECOND_HOP for g in v.get("ties", {}).get(t, [])})
     print(f"second-hop entities to expand: {len(hop)}")
     hents = fetch(hop, "claims")
     hop_members = {}
@@ -99,67 +104,75 @@ def main() -> None:
         hop_members[g] = (eids(cl, "P527") + eids(cl, "P161") + eids(cl, "P175")
                           + eids(cl, "P54") + eids(cl, "P710"))
 
-    # ---- gather candidates ----------------------------------------------------
-    per_target = {}
-    for q, v in W.items():
-        if q not in C: continue
-        cand = {}
-        for t, xs in v["ties"].items():
-            if t in EXCLUDED_TIES: continue
-            if t in SECOND_HOP:
-                for g in xs:
-                    for m in hop_members.get(g, []):
-                        if m != q: cand.setdefault(m, t + "_comember")
-            else:
-                for x in xs:
-                    if x != q: cand.setdefault(x, t)
-        if cand: per_target[q] = cand
-    print(f"targets with >=1 tie candidate: {len(per_target)}")
+    per_entity: dict[str, dict[str, str]] = {}
+    for q in sorted(by_qid):
+        v = W.get(q) or {}
+        cand: dict[str, str] = {}
+        for t, xs in (v.get("ties") or {}).items():
+            if t in EXCLUDED_TIES:
+                continue
+            for x in xs:
+                if x == q:
+                    continue
+                cand.setdefault(x, t)  # direct relation is itself a valid ASSOC_ANY
+                if t in SECOND_HOP:
+                    for m in hop_members.get(x, []):
+                        if m != q:
+                            cand.setdefault(m, t + "_comember")
+        per_entity[q] = cand
 
-    need = sorted({x for v in per_target.values() for x in v})
-    print(f"resolving {len(need)} ASSOC candidate entities")
+    need = sorted({x for v in per_entity.values() for x in v})
+    print(f"resolving {len(need)} related entities")
     ents = fetch(need, "labels|claims|sitelinks")
     info = {}
     for qid, e in ents.items():
         lab = ((e.get("labels") or {}).get("en") or {}).get("value")
-        info[qid] = dict(label=lab, ctype=coarse(eids(e.get("claims") or {}, "P31")),
-                         sitelinks=len(e.get("sitelinks") or {}))
+        info[qid] = dict(
+            label=lab,
+            ctype=coarse(eids(e.get("claims") or {}, "P31")),
+            sitelinks=len(e.get("sitelinks") or {}),
+        )
 
-    out, drop = {}, Counter()
-    for tgt, cands in per_target.items():
-        c = C[tgt]
-        ttype = W[tgt]["coarse_type"]
-        banned = {w.lower() for w in (c["seen_form"] + " " + c["target_form"]).split()}
-        alias_lc = {a.lower() for a in c["aliases"]}
+    out = []
+    n_any, n_same = 0, 0
+    type_counts, relation_counts = Counter(), Counter()
+    for c in C:
+        q = c["subject_id"]
+        ttype = (W.get(q) or {}).get("coarse_type", "other")
+        alias_closure = {normu(x) for x in c.get("aliases", []) if x}
         rows = []
-        for qid, rel in cands.items():
+        for qid, rel in per_entity.get(q, {}).items():
             i = info.get(qid) or {}
             lab = i.get("label")
-            if not lab: continue
-            if i.get("ctype") != ttype:            # SAME-TYPE requirement
+            if not lab or qid == q:
                 continue
-            if set(lab.lower().split()) & banned:  # no character leakage
+            # Only true coreference is forbidden here.  Lexical overlap with the
+            # SCORED target is direction-specific and is checked in stage 5.
+            if normu(lab) in alias_closure:
                 continue
-            if lab.lower() in alias_lc:            # not an alias of the target
-                continue
-            rows.append(dict(qid=qid, label=lab, relation=rel,
-                             sitelinks=i.get("sitelinks", 0)))
+            rows.append(dict(
+                qid=qid,
+                label=lab,
+                relation=rel,
+                entity_type=i.get("ctype", "other"),
+                same_type=i.get("ctype") == ttype,
+                sitelinks=i.get("sitelinks", 0),
+            ))
+            relation_counts[rel] += 1
+        rows.sort(key=lambda r: (r["qid"], r["relation"]))
         if rows:
-            out[tgt] = dict(seen_form=c["seen_form"], target_form=c["target_form"],
-                            cats=c["cats"], pageviews=c["pageviews"],
-                            stratum=c["stratum"], entity_type=ttype,
-                            aliases=c["aliases"], assoc=rows)
-        else:
-            drop[f"no same-type ASSOC ({ttype})"] += 1
+            n_any += 1
+        if any(r["same_type"] for r in rows):
+            n_same += 1
+        type_counts[ttype] += 1
+        out.append(dict(**c, entity_type=ttype, assoc=rows))
 
-    Path(args.out).write_text(json.dumps(out, indent=1))
+    Path(args.out).write_text(json.dumps(out, indent=1, ensure_ascii=False))
     print(f"\nwrote {args.out}")
-    print(f"targets with >=1 same-type ASSOC: {len(out)}")
-    for k, n in drop.most_common(6): print(f"   dropped {n:>4}  {k}")
-    print("by stratum:", dict(Counter(v["stratum"] for v in out.values())))
-    print("by type   :", dict(Counter(v["entity_type"] for v in out.values())))
-    n = sorted(len(v["assoc"]) for v in out.values())
-    print(f"ASSOC candidates per target: median {n[len(n)//2]}, max {n[-1]}")
+    print(f"pairs with >=1 ASSOC_ANY candidate: {n_any}/{len(out)}")
+    print(f"pairs with >=1 ASSOC_SAMETYPE candidate: {n_same}/{len(out)}")
+    print("source entity types:", dict(type_counts))
+    print("top relations:", dict(relation_counts.most_common(20)))
 
 
 if __name__ == "__main__":
