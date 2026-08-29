@@ -1,19 +1,24 @@
 # Current Topics
 
-日期：2026-08-29  
-状态：`AUTHORITATIVE CURRENT TOPIC QUEUE / DATA-FIRST RE-AUDITED / NOT MODEL-AUTHORIZING`
+日期：2026-08-30  
+状态：`AUTHORITATIVE CURRENT TOPIC QUEUE / OFF-THE-SHELF-D0-FIRST / NOT MODEL-AUTHORIZING`
 
 这是 `phenomenon_miner/` 中**唯一的当前 phenomenon discovery 清单**。旧 Batch 1/2/3、162-card inventory、历史 `promoted/phenomena/candidates` 标签都不再有当前状态含义。
 
-2026-08-29 晚间依据 [`DATASET_SCOPE_AUDIT.md`](DATASET_SCOPE_AUDIT.md) 对现有题重新做 data-first 审查后，当前状态为：
+最新调度原则进一步收紧：
+
+> **近线 D0 默认只做“公开 dataset 已经提供 natural units + source labels / deterministic quantities，我们最多程序化抽样、配对、切窗口”的题。**
+>
+> 需要人工逐篇论文、逐个判例、跨多个数据库手工拼 20+ gold units 的题，即使 scientific question 不差，也先 PARK，不与低成本 phenomenon discovery 抢时间。
+
+当前状态：
 
 ```yaml
-phenomenon_discovery: 7
-near_term_d0_build: 4
-manual_source_audit_first: 3
+near_term_off_the_shelf_d0: 2
+manual_extraction_parked: 5
 active_construct_validation: 1
 mechanism_followups_or_routed: 4
-hold_data_or_parked: 5
+other_hold_data_or_parked: 5
 new_discovery_pass: 0
 new_model_authorization: 0
 ```
@@ -28,133 +33,139 @@ N0 breadth PASS
 = DISCOVERY-PASS
 ```
 
-**Tier 只表示 discovery / data 优先级，不表示模型授权。** 模型调用只看 [`AUDIT_REGISTRY.md`](AUDIT_REGISTRY.md)。
-
-完整数据复审见 [`DATA_REVIEW_2026-08-29.md`](DATA_REVIEW_2026-08-29.md)。
+模型调用只看 [`AUDIT_REGISTRY.md`](AUDIT_REGISTRY.md)。
 
 ---
 
-## Tier S — 现在最值得投入 D0 数据工作的 4 题
+## Tier S — 只保留两个“现成 dataset -> 程序化 D0”题
 
-这四题都能在 hidden state 之前定义一个独立、自然、可冻结的 phenotype，并已有相对明确的自然 source + 外部/确定性 gold 路径。
+### 1. Mixed-Status Event Attraction
 
-| topic | 一句话 scientific object | data path | 当前 blocker |
-|---|---|---|---|
-| **Mixed-Status Event Attraction** | 两个 event 的 factuality 单独判断都对，放进同一 discourse 后是否发生有方向的 status pooling / attraction？ | **MAVEN-FACT**：自然 document 内 event mentions + factuality labels；只采同文档 mixed-status pairs，document-clustered | D0：审 20+ same-document pairs；确认 pair count、距离/关系覆盖与 prompt 不泄漏 annotation |
-| **Subgroup-Significance → Interaction Promotion** | A subgroup 显著、B 不显著且 interaction 不显著，模型是否仍宣称 subgroup treatment effects 不同？ | **开放获取 RCT**：显式 subgroup estimates + `P for interaction` / interaction CI；gold 是“没有充分 interaction evidence”，不是“effects equal” | D0：20+ 独立 trials，锁同 endpoint/subgroup/timepoint；人工双审 provenance |
-| **Stock–Flow Correlation Intrusion** | net flow 已算对，但 downstream stock trajectory / peak 是否仍追随 salient inflow 走势？ | **ResOpsUS reservoirs + official population accounting**：真实 stock/inflow/outflow/birth/death/migration time series，可由 balance equation 外部计算 gold | D0：两类 source family 各审自然 windows；要求 source accounting 可闭合；table/text 先行，chart 仅作 modality factor |
-| **Harmless-Error → Remedy Collapse** | 模型认出 legal error 且认出 harmless/no prejudice 后，是否仍把 error 推成 reversal/new trial/remedy entitlement？ | **CourtListener / public appellate opinions**：冻结 error finding、harmlessness analysis、final disposition 三个 source spans | D0：20+ 独立 cases；排除存在其他独立 reversible ground 的案件；标准类型只做 factor 不硬过滤 |
+**Phenotype**：两个 event 的 factuality 单独判断都对，但在同一自然 discourse 中联合出现后，是否发生有方向的 status pooling / attraction？
 
-### Tier S 的共同数据纪律
+**现成数据**：MAVEN-FACT。数据本身已经提供自然文档、event mentions、event type、sentence position 和 `CT+ / PS+ / PS- / CT- / Uu` factuality labels；不需要自造 scenario 或人工写 gold。
 
-- 先冻结 natural scientific population，再构建 matched/control bank。
-- 不能用 synthetic story 代替自然行为锚点。
-- 不能为了得到“干净 money cell”把 domain、direction、difficulty、relation type 等理论 factor 从 builder 中删掉。
-- 20-example source audit 失败就降级/删除，不换 source 续命。
+**D0 只做程序化抽取**：
+
+```text
+same MAVEN-FACT document
+-> flatten source-annotated event mentions
+-> enumerate different-factuality event pairs
+-> keep factuality direction / sentence distance / event type as factors
+-> deterministic source-audit sample
+```
+
+Builder 已放到：
+
+`preflight/d0_mixed_status_event_attraction/build_from_maven_fact.py`
+
+它输出 `raw_mentions.jsonl`、`eligible_pairs.jsonl`、`audit_sample.jsonl`、`scope_summary.json` 和 `AUDIT_SAMPLE.md`，不调用模型。
+
+**D0 blocker**：运行 builder 后人工看 >=20 source pairs，确认 mention/label/context 没有 annotation leakage；再看自然 same-document decisive pairs 的数量与覆盖。若 source bank 本身不够，不换 synthetic source 救题。
+
+### 2. Stock-Flow Correlation Intrusion
+
+**Phenotype**：模型已经正确处理 `inflow - outflow` 的 net direction，但 downstream stock trajectory / peak 仍错误追随显眼的 inflow 走势。
+
+**现成数据**：ResOpsUS。官方数据已经提供大量真实 reservoir 的 daily storage、inflow、outflow（以及部分 evaporation/elevation）；不需要写玩具水箱题。
+
+**D0 只做程序化切自然窗口**：
+
+```text
+official daily reservoir time series
+-> observed storage delta
+-> cumulative inflow-outflow
+-> retain windows where storage/net agree but inflow trend points opposite
+-> keep reservoir/direction/closure/unit as factors
+```
+
+Builder 已放到：
+
+`preflight/d0_stock_flow_correlation_intrusion/build_from_resopsus.py`
+
+它要求本地已解压的官方 ResOpsUS archive，自动扫描 CSV、保留所有 schema-valid source files、做 accounting/closure validity check，并生成 `eligible_windows.jsonl`、audit sample 和 scope summary。它不生成 synthetic tank stories。
+
+**D0 blocker**：实际 source audit 必须确认 agency-specific columns/units 没被误识别，而且 qualifying windows 不是 missing-data/closure artifact。
 
 ---
 
-## Tier A — 科学问题仍好，但先做 20-unit source-yield audit
+## PARKED — 科学问题可能不错，但当前数据工程不值
 
-| topic | 为什么保留 | data/gold blocker |
+下面五题**不再是近线 D0**。共同原因不是 novelty 已死，而是目前需要大量人工抽取 / cross-source linking；这不符合当前快速 phenomenon mining 的成本纪律。
+
+| topic | verdict | 为什么先 park |
 |---|---|---|
-| **Noninferiority → Equivalence Collapse** | one-sided NI 与 two-sided equivalence / no-difference 是真实且重要的语义/决策边界 | 需 20+ open-access NI RCT，显式 margin + effect CI；gold 从 margin/CI 算，不用作者松散 prose；orientation 不可恢复就 validity-exclude |
-| **Surrogate → Clinical-Outcome Promotion** | surrogate endpoint role × validation/context-of-use 决定 allowable clinical claim，是自然决策 gate | 需 20+ exact tuples：trial result → exact FDA surrogate/context-of-use → target clinical outcome；不能把 surrogate 一律标成“不支持 benefit” |
-| **Dissent → Holding Role Swap** | local proposition 内容与 controlling legal role 是自然可分离结构，wrong destination 很清楚 | 需 20+ opinions，prefer source-authored syllabus/`Held:` anchor + opinion-role metadata；若 holding 只能研究者自己摘要则不进 D0 |
+| **Subgroup-Significance -> Interaction Promotion** | `PARK-MANUAL-DATA` | 需要逐篇 open-access RCT 对齐同 endpoint/subgroup/timepoint，并人工核 `P for interaction` / interaction CI；统计 gold 硬，但数据工程重 |
+| **Harmless-Error -> Remedy Collapse** | `PARK-MANUAL-DATA` | 需要逐案抽 error finding、harmlessness analysis、final disposition，还要排除其他 reversible grounds |
+| **Noninferiority -> Equivalence Collapse** | `PARK-MANUAL-DATA` | 需要逐篇 NI RCT 恢复 margin、effect orientation、CI；不能只读作者 prose |
+| **Surrogate -> Clinical-Outcome Promotion** | `PARK-MANUAL-DATA` | 需要 trial -> exact FDA surrogate/context-of-use -> target outcome 的跨源链接 |
+| **Dissent -> Holding Role Swap** | `PARK-MANUAL-DATA` | role metadata 容易，但 source-grounded conflicting proposition / holding pair 通常仍要人工抽取 |
 
-这三题在 source-yield audit 过关之前，不进入正式 builder。
+若未来找到**已经打包好上述结构的公开 benchmark / structured corpus**，可重新进入 Tier S；否则不花当前时间手搓 20–100 个 units。
 
 ---
 
-## Active construct-validation — 不与新题竞争 slot
+## Active construct-validation — 014 Alias Entrainment Transfer
 
-### 014 Alias Entrainment Transfer
+`active/014_alias_entrainment_transfer` 的 broad cross-surface phenotype 已经成立；当前未闭合的是 construct，不是“有没有现象”。
 
-`active/014_alias_entrainment_transfer` 的 broad cross-surface phenotype 已经成立；当前未闭合的是**construct**，不是“有没有现象”。
-
-当前可支持的 reading：
+当前可支持：
 
 ```text
 contextual entrainment can transfer across learned surface-form relations
 ```
 
-当前**不能**支持：
+当前不能支持：
 
 ```text
 this transfer is specifically an entity/reference-level salience representation
 ```
 
-原因：150-pair audit 显示旧 bank 中 compositional 39%、真正 conventional coreference 仅 33%、5% outright non-coreferent；旧 UNREL builder 有 bug；`ALIAS > SEMREL` 不能排除 pair-specific learned association。Phase 3 又显示 entrainment heads 的 direct write 是 seen-form / lexical。
-
-唯一下一步是已冻结的 **D1 r4 broad scope construct validation**：
-
-- RedirectQA broad surface population；
-- all entity types；
-- both valid directions；
-- surface relation/type/direction 为 factor-not-filter；
-- `ASSOC_ANY` = 强关联但不同 referent 的 primary control；
-- broad Q1：`ALIAS > ASSOC_ANY`；
-- reference-specific Q2：hard-identity-gated `opaque_strict` 上仍 `ALIAS > ASSOC_ANY`。
-
-**在任何新 D1 model call 前必须先 materialize r4 bank、完成 scope/attrition summary + source/ASSOC audit + frozen SHA。** 若 Q2 的 60-entity capability stratum 无法在不继续 convenience-filter 的情况下自然形成，直接放弃 entity/reference-specific claim，不再缩窄 population。
+唯一下一步仍是 D1 r4 broad-scope construct validation：RedirectQA broad surface population + `ASSOC_ANY` strong-associated non-coreferent control。任何新 D1 model call 前必须 materialize r4 bank、完成 scope/attrition/source audit 并冻结新 SHA。若 reference-specific Q2 只能靠再次疯狂筛数据才能形成，直接放弃 entity claim。
 
 ---
 
-## Routed → MECH-FOLLOWUP，不再占 phenomenon queue
+## Routed -> MECH-FOLLOWUP
 
 | topic | verdict | 原因 |
 |---|---|---|
-| **Task-Switch TR/TL Desynchronization** | `ROUTE → MECH-FOLLOWUP` | mother 已建立 task-switch external behavior；当前 headline 直接由 TR/TL hidden decomposition 定义。只有先找到 output-only 的 old-task-mapping intrusion 等独立 wrong-destination phenotype 才可重做 phenomenon N0 |
-| **Resolved-Ambiguity Neuron Persistence** | `ROUTE → MECH-FOLLOWUP` | AmbigQA/AmbigNQ data 很好，但当前问题是 AEN 在 context resolution 后编码什么，属于 representation lifecycle；若先发现“已唯一化且模型能复述解释，却仍持续 clarify/hedge/multi-sense answer”的 resolution-lag phenotype，才可重返 discovery |
-| **Action-Boundary State Routing** | `ROUTE → MECH-FOLLOWUP` | mother behavior 已成立，剩余 fork 是 EBP 读出现有 boundary state 还是创建/强化它 |
-| **Predicate-Revision Eager-Flag Staleness** | `ROUTE / HOLD-DATA` | 当前 novelty 主要是 eager-flag vs late-filter implementation switch；自然 list/predicate revision source 尚未建立，不能用 constructed toy prompt 充当新现象 |
+| **Task-Switch TR/TL Desynchronization** | `MECH-FOLLOWUP` | mother 已有 task-switch behavior；TR/TL desync 本身由 hidden decomposition 定义 |
+| **Resolved-Ambiguity Neuron Persistence** | `MECH-FOLLOWUP` | source data 好，但当前 headline 是 neuron lifecycle；只有先出现 output-only resolution-lag phenotype 才回 discovery |
+| **Action-Boundary State Routing** | `MECH-FOLLOWUP` | mother behavior 已成立，剩余是 read-vs-create boundary state |
+| **Predicate-Revision Eager-Flag Staleness** | `MECH-FOLLOWUP / HOLD-DATA` | implementation fork 漂亮，但自然 revision phenotype/source 尚未建立 |
 
 ---
 
-## HOLD-DATA / PARKED — 暂不投入当前 discovery 资源
+## Other HOLD-DATA / PARKED
 
 | topic | verdict | 当前问题 |
 |---|---|---|
-| **Training-Recency Conflict Arbitration** | `ROUTE / HOLD-DATA` | headline 容易退化成 `metadata causal?`；真实 exposure-balanced conflict history 很难自然冻结，属于内部 archive 已警告的 identification 型题 |
-| **Correlation → Agreement / Interchangeability Promotion** | `HOLD-DATA` | `interchangeable` 没有跨领域统一 hard gold；需要 source-declared acceptable-difference margin / agreement standard，不能只凭高 r + wide Bland–Altman 主观标 |
-| **Habitual → Episode Actualization** | `HOLD-DATA` | natural generic/habitual corpora 有，但 dated episode actuality 通常没有独立 annotation；构造 dated query 本身会引入要研究的语用推断 |
-| **Competing-Event → Censoring Collapse** | `HOLD-DATA / CAPABILITY-RISK` | 统计 operator deterministic，但自然 NLP source/gold 弱且专业能力门槛高；需先证明 event type + risk-set transition 都能 source-ground |
-| **Publicness–Coordination Dissociation (legacy 013)** | `PARKED / HOLD-DATA` | N0 仍有价值，但现有 human paradigm 无法在 clean license/adaptation path 下给 >=20 independent matched scenarios；participant swap/paraphrase/payoff variant 不算新 unit |
+| **Training-Recency Conflict Arbitration** | `ROUTE / HOLD-DATA` | exposure-balanced real training history 很难自然冻结，且 headline 易退化成 `metadata causal?` |
+| **Correlation -> Agreement / Interchangeability Promotion** | `HOLD-DATA` | 缺跨领域统一 hard gold；需要 source-declared agreement margin |
+| **Habitual -> Episode Actualization** | `HOLD-DATA` | natural habitual labels 有，但 episode actuality 通常没有独立 gold |
+| **Competing-Event -> Censoring Collapse** | `HOLD-DATA / CAPABILITY-RISK` | operator 硬，但自然 NLP source + base statistical competence 都太重 |
+| **Publicness-Coordination Dissociation (legacy 013)** | `PARKED / HOLD-DATA` | 现有人类 paradigm 不能给 >=20 independent matched natural scenarios；不拿 paraphrase/participant swap 充数 |
 
 ---
 
-## Terminal / stale correction
+## Terminal correction
 
 ### 007 Weak-Evidence Backfire — HARD KILL
 
-已完成 frozen two-family smoke：
-
-- Qwen3-8B：`0` recognition-gated directions；
-- Gemma3-12B-IT：仅 `1` gated pair，且 belief/action movement 为反方向；
-- strong-pair / pragmatic / matched-length / bidirectional survival 均失败。
-
-正式 verdict：`HARD-KILL-EVIDENCE-DIRECTION-CAPABILITY-FLOOR`。不跑 N1、mechanism 或扩大 panel，不通过换阈值/模型/子集复活。
-
-`active/003_diagnostic_counterevidence_revision` 继续只是 legacy pre-candidate，不属于当前 survivor queue。
+正式 two-family smoke 已证伪当前 operationalization：Qwen 无 recognition-gated denominator；Gemma 仅 1 gated pair 且方向相反。不得继续扩大 panel / 换阈值 / 换 subset。
 
 ---
 
-## 当前调度顺序
+## 当前调度
 
-按“每单位数据工作能获得的信息量”排序：
+```text
+1. 直接 materialize MAVEN-FACT mixed-status D0
+2. 直接 materialize ResOpsUS stock-flow D0
+3. 两者谁先通过 source/scope audit，谁先补 N1 closure
+4. 手工抽论文/判例的五题全部 park
+5. hidden-state-defined 题只作为 mechanism follow-up，不和 phenomenon discovery 抢 slot
+```
 
-1. **Mixed-Status Event Attraction**
-2. **Subgroup-Significance → Interaction Promotion**
-3. **Stock–Flow Correlation Intrusion**
-4. **Harmless-Error → Remedy Collapse**
-5. **Noninferiority → Equivalence Collapse**
-6. **Surrogate → Clinical-Outcome Promotion**
-7. **Dissent → Holding Role Swap**
+一句纪律：
 
-近期开 builder 只优先考虑前四；5–7 先完成 20-unit manual source-yield audit。
-
----
-
-## 一句纪律
-
-> **Novelty 过关不等于题过关。自然 source population、外部 hard gold 和 scope integrity 本身就是选题的一部分；数据必须承载原 mother question，而不是把它越筛越窄。**
+> **D0 不是“我们自己写一批看起来合理的题”。优先从已经存在的公开自然数据中把科学对照切出来；如果一个题必须长期靠人工造 gold 才能活，当前就不值得做。**
