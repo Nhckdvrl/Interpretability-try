@@ -13,8 +13,9 @@
 3. [`phenomenon_miner/PROCESS.md`](phenomenon_miner/PROCESS.md) — N0 → D0 → smoke → N1 → panel → mechanism 的唯一合法流程。
 4. [`phenomenon_miner/REQUIREMENTS.md`](phenomenon_miner/REQUIREMENTS.md) — 选题与晋级硬门槛。
 5. [`phenomenon_miner/NOVELTY_GATE.md`](phenomenon_miner/NOVELTY_GATE.md) — exact collision / mother inclusion / successor / N1 规则。
-6. [`phenomenon_miner/candidate_pool/README.md`](phenomenon_miner/candidate_pool/README.md) — Batch 1 / 2 / 3 的找题入口。
-7. [`archive/README.md`](archive/README.md) — 已终止项目与历史编号说明。
+6. [`RESEARCH_CRITERIA.md`](RESEARCH_CRITERIA.md) — 整理前根 README 的**完整详细选题标准快照**，原样保留，不作为当前状态表。
+7. [`phenomenon_miner/candidate_pool/README.md`](phenomenon_miner/candidate_pool/README.md) — Batch 1 / 2 / 3 的找题入口。
+8. [`archive/README.md`](archive/README.md) — 已终止项目与历史编号说明。
 
 长版搜索方法、relation taxonomy、anomaly signatures 见 [`PHENOMENON_MINING_GUIDE.md`](PHENOMENON_MINING_GUIDE.md)；公开数据集入口见 [`DATASET_CATALOG.md`](DATASET_CATALOG.md)；真实失败经验见 [`FAILURE_POSTMORTEMS.md`](FAILURE_POSTMORTEMS.md)。
 
