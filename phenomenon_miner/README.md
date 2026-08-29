@@ -1,7 +1,7 @@
 # Phenomenon Miner
 
-版本：2026-08-29  
-状态：`v4 / PHENOMENON-FIRST / DATA-FIRST / N0+N1+D0 BEFORE REGISTRATION`
+版本：2026-08-30  
+状态：`v4 / PHENOMENON-FIRST / OFF-THE-SHELF-D0-FIRST / N0+N1+D0 BEFORE REGISTRATION`
 
 本目录是当前 LLM 可解释性现象选题的唯一 discovery 工作区。
 
@@ -17,73 +17,67 @@ N0 breadth PASS
 = DISCOVERY-PASS
 ```
 
-定义与完整流程看 [`FINDING_RULES.md`](FINDING_RULES.md)。数据寻找/构建还必须通过 [`DATASET_SCOPE_AUDIT.md`](DATASET_SCOPE_AUDIT.md)。
+完整规则看 [`FINDING_RULES.md`](FINDING_RULES.md) 与 [`DATASET_SCOPE_AUDIT.md`](DATASET_SCOPE_AUDIT.md)。
 
-最重要的三条纪律：
+最重要的四条纪律：
 
-> **phenomenon before mechanism。**
->
-> strong mother paper 可以提供 motivation 和 mechanism opening；但如果 mother 已拥有 headline behavior，而我们只剩 `representation → causal? / route? / where?`，它就是 `MECH-FOLLOWUP`，不是新的 phenomenon candidate。
+> **phenomenon before mechanism。** mother 已有 headline behavior、我们只剩 hidden-state fork 时，标 `MECH-FOLLOWUP`，不占新 phenomenon slot。
 
-> **data is part of topic selection。**
->
-> novelty 不够会杀题；natural source population / hard gold / independent units / license / construct validity 做不实，同样会杀题。不能先注册再想办法造数据。
+> **data is part of topic selection。** natural source / hard gold / independent units 做不实，与 novelty collision 一样可以直接杀题。
 
-> **population before clean subset。**
->
-> 控制 confound 应靠 contrast、matching、strata 和统计模型，而不是把母问题越筛越窄。理论 moderator 默认 factor-not-filter。
+> **off-the-shelf D0 first。** 当前近线优先只做公开 dataset 已经提供 natural units + labels / deterministic quantities、我们只需程序化配对或切窗口的题。需要人工逐篇论文/判例拼 20+ gold units 的题先 PARK。
+
+> **population before clean subset。** confound 靠 contrast、matching、strata 和统计控制；理论 moderator 默认 factor-not-filter。
 
 ## 当前入口
 
-- [`CURRENT_TOPICS.md`](CURRENT_TOPICS.md) — **唯一 authoritative current phenomenon queue**，data-first re-audit 后只保留 7 题。
-- [`DATA_REVIEW_2026-08-29.md`](DATA_REVIEW_2026-08-29.md) — 本轮逐题 data/gold/source 裁决与改进后的 D0 recipe。
-- [`DATASET_SCOPE_AUDIT.md`](DATASET_SCOPE_AUDIT.md) — D0 强制 scope gate：scientific population、factor-not-filter、attrition、双轮人工审计、builder regression tests。
-- [`AUDIT_REGISTRY.md`](AUDIT_REGISTRY.md) — **唯一 model-call authorization**；当前 authorized calls = 0。
+- [`CURRENT_TOPICS.md`](CURRENT_TOPICS.md) — 唯一 authoritative queue；当前近线只剩 2 个 off-the-shelf D0。
+- [`DATA_REVIEW_2026-08-29.md`](DATA_REVIEW_2026-08-29.md) — 上一轮逐题 data/gold/source 复审。
+- [`DATASET_SCOPE_AUDIT.md`](DATASET_SCOPE_AUDIT.md) — D0 scope gate。
+- [`AUDIT_REGISTRY.md`](AUDIT_REGISTRY.md) — 唯一 model-call authorization；当前 authorized calls = 0。
 - [`FAILED_TOPICS.md`](FAILED_TOPICS.md) — KILL / ROUTE / HOLD-DATA 与 anti-revival lessons。
-- [`FINDING_RULES.md`](FINDING_RULES.md) — N0、N1、D0、behavior-first、strong-model kill、stop-loss 的正式合同。
-- [`MODEL_PANEL.md`](MODEL_PANEL.md) — behavioral smoke / generality 的 checkpoint panel 约定。
 
 ## 当前调度
 
-### 近期开 D0 数据审计
+### 直接 materialize D0
 
-1. **Mixed-Status Event Attraction** — MAVEN-FACT same-document mixed-status event pairs
-2. **Subgroup-Significance → Interaction Promotion** — open-access RCT subgroup estimates + explicit interaction test
-3. **Stock–Flow Correlation Intrusion** — ResOpsUS + official population-accounting time series
-4. **Harmless-Error → Remedy Collapse** — CourtListener/public appellate opinions with source-grounded error/harmlessness/disposition
+1. **Mixed-Status Event Attraction**
+   - source: MAVEN-FACT
+   - 现成 natural documents + 112k event factuality annotations
+   - builder: `../preflight/d0_mixed_status_event_attraction/build_from_maven_fact.py`
+   - 工作只是 same-document mixed-status pair enumeration + source audit，不写 synthetic scenarios。
 
-### 先做 20-unit source-yield audit
+2. **Stock–Flow Correlation Intrusion**
+   - source: ResOpsUS
+   - 现成 daily reservoir storage/inflow/outflow records
+   - builder: `../preflight/d0_stock_flow_correlation_intrusion/build_from_resopsus.py`
+   - 工作只是从真实时序切 `storage/net direction != inflow trend` 的 diagnostic windows，并做 closure/unit audit。
 
-5. **Noninferiority → Equivalence Collapse**
-6. **Surrogate → Clinical-Outcome Promotion**
-7. **Dissent → Holding Role Swap**
+### 暂停人工数据工程
+
+以下五题 scientific object 可继续记着，但当前不手工抽 20+ units：
+
+- Subgroup-Significance -> Interaction Promotion
+- Harmless-Error -> Remedy Collapse
+- Noninferiority -> Equivalence Collapse
+- Surrogate -> Clinical-Outcome Promotion
+- Dissent -> Holding Role Swap
+
+只有发现已经结构化打包好的公开 corpus/benchmark 时再回近线。
 
 ### 特殊轨道
 
-- **Alias Entrainment Transfer (014)** — broad cross-surface phenotype 已成立；entity/reference-specific construct 未成立。下一次模型调用前必须 materialize corrected D1 r4 broad bank、ASSOC control、scope/attrition audit 与 frozen SHA。若 source 无法自然支持 Q2，直接 drop entity claim，不再缩 scope。
-- **Publicness–Coordination Dissociation (013)** — `PARKED / HOLD-DATA`。现有 human paradigm 不足以提供 20 independent natural matched scenarios；不靠 paraphrase/participant swap 伪造 sample size。
+- **014 Alias Entrainment Transfer** — phenotype 已成立；下一次 D1 模型调用前必须先完成 corrected r4 broad bank + ASSOC + scope/attrition/source audit + frozen SHA。
+- **013 Publicness–Coordination** — PARKED/HOLD-DATA，不用 paraphrase/participant swap 充独立样本。
 
-### 不再占 phenomenon discovery slot
+### 不占 phenomenon slot
 
-`MECH-FOLLOWUP`：
+`MECH-FOLLOWUP`：Task-Switch TR/TL、Resolved-Ambiguity Neuron Persistence、Action-Boundary Routing、Predicate-Revision。
 
-- Task-Switch TR/TL Desynchronization
-- Resolved-Ambiguity Neuron Persistence
-- Action-Boundary State Routing
-- Predicate-Revision Eager-Flag Staleness（同时 HOLD-DATA）
+`HOLD-DATA`：Training-Recency、Correlation->Agreement、Habitual->Episode、Competing-Event->Censoring。
 
-`HOLD-DATA / PARKED`：
-
-- Training-Recency Conflict Arbitration
-- Correlation → Agreement / Interchangeability Promotion
-- Habitual → Episode Actualization
-- Competing-Event → Censoring Collapse
-- Publicness–Coordination Dissociation
-
-`TERMINAL`：
-
-- 007 Weak-Evidence Backfire — frozen two-family smoke 已 HARD KILL。
+`TERMINAL`：007 Weak-Evidence Backfire。
 
 ## 一句原则
 
-> **一个好的可解释性题，应该先有一个外部可定义、自然 source 能承载、hard gold 能裁决的反直觉现象；hidden state 是用来解释它，不是用来替它证明“题存在”。**
+> **D0 优先从现成自然数据里切科学对照，不把“研究选题”变成“人工造 benchmark 工程”。如果一个题只有靠长期手搓 gold 才能活，当前就不做。**
