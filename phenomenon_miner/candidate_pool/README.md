@@ -1,7 +1,7 @@
 # 现象候选池
 
-版本：2026-08-28
-状态：`162 CARDS / 12 DOMAINS — LITERATURE-GROUNDED IDEATION — 未经行为验证`
+版本：2026-08-29
+状态：`162 CARDS / 12 DOMAINS + 3 DEEP-N0 BATCHES — LITERATURE-GROUNDED IDEATION — 未经行为验证`
 
 这里保存的是**待审计的研究假设库存**，不是已经成立的现象，也不是可直接 smoke 的队列。任何候选先看 [`AUDIT_REGISTRY.md`](AUDIT_REGISTRY.md)；只有其中明确写为 `READY-TO-SMOKE` 且 `validation_authorized: true` 才能调用模型。
 
@@ -15,7 +15,7 @@ promoted/         历史命名；不自动代表当前可投稿
 results/          原始模型输出
 ```
 
-## 2026-08-28 找题批次入口
+## 2026-08-28 / 2026-08-29 找题批次入口
 
 ### 第一批深度 N0 shortlist
 
@@ -32,7 +32,12 @@ results/          原始模型输出
 - [`BATCH2_DEEP_N0_SURVIVORS_10_V2_2026-08-28.md`](BATCH2_DEEP_N0_SURVIVORS_10_V2_2026-08-28.md)：**第二批当前 10 个** `REVIEWER-MODE-N0-SURVIVOR`；
 - [`BATCH2_DEEP_N0_SURVIVORS_10_2026-08-28.md`](BATCH2_DEEP_N0_SURVIVORS_10_2026-08-28.md)：第三刀历史快照，已被 V2 取代为当前 shortlist，不删除以保留审计时间线。
 
-两个批次里的 `SURVIVOR` 都**不等于 formal `N0-PASS`**，更不授权 smoke。真正调度权仍只来自 [`AUDIT_REGISTRY.md`](AUDIT_REGISTRY.md)。任何独立 reviewer 发现 exact collision / mother inclusion / D0 failure 后都应直接 KILL/ROUTE，不为维持“十题”数量降低门槛。
+### 第三批：母论文延展（Hamdi-style）
+
+- [`BATCH3_HAMDI_MOTHER_PAPER_LEDGER_2026-08-29.md`](BATCH3_HAMDI_MOTHER_PAPER_LEDGER_2026-08-29.md)：**>30 条强母论文 / 邻居线的真实 sweep、adjacent-question 脑暴、死亡库、Reserve 与 reviewer-mode N0 纪律**；本批不从“再造一个现象名”开始，而从 mother paper 已建立的 scientific object 向 scope / missing axis / causal role / mechanism semantics / implementation switch 延展；
+- [`BATCH3_HAMDI_MOTHER_PAPER_N0_SURVIVORS_10_2026-08-29.md`](BATCH3_HAMDI_MOTHER_PAPER_N0_SURVIVORS_10_2026-08-29.md)：**第三批当前 10 个** `MOTHER-PAPER-GROUNDED / REVIEWER-MODE-N0-SURVIVOR`；每题冻结 mother solved、new question、`why_not_a_rename`、strongest neighbor、D0、mechanism fork 与 hard kill。
+
+三个批次里的 `SURVIVOR` 都**不等于 formal `N0-PASS`**，更不授权 smoke。真正调度权仍只来自 [`AUDIT_REGISTRY.md`](AUDIT_REGISTRY.md)。任何独立 reviewer 发现 exact collision / mother inclusion / D0 failure 后都应直接 KILL/ROUTE，不为维持“十题”数量降低门槛。
 
 ## 为什么新增这一层
 
@@ -47,6 +52,16 @@ results/          原始模型输出
 → 原生公开数据中的发现机会
 → 最近论文已经占领什么
 → 哪一种结构结果才值得继续
+```
+
+第三批进一步加入另一条经过实证研究范式启发的路线：
+
+```text
+强 mother paper 已建立一个值得研究的 scientific object
+→ 明确 mother 已回答什么
+→ 找它真正没回答的 scope / missing axis / causal role / mechanism boundary
+→ 要求新问题改变 scientific question，而不是只换模型、语言、benchmark 或领域
+→ 再做 exact collision + successor + mother-inclusion N0
 ```
 
 ## 领域划分
