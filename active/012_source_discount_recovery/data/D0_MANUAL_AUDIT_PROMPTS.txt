@@ -1,282 +1,4 @@
 ====================================================================================================
-NetEaseCrowd:capability-126:0v1:002
-====================================================================================================
-
------ condition: low_immediate  (target option = A) -----
-
-BACKGROUND:
-NetEaseCrowd task set for capability 126 — an internal task type. Each task offers three response options; the public release records the annotations and audited gold answers but not the question text. For the task at hand the audited gold answer is known to be option A or option B.
-
-SOURCE CALIBRATION:
-Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
-
-SOURCE RECORDS:
-Annotator 6000: Annotator 6000 was correct on 89.6% of the binary calibration records; report-A LR=22.008, report-B LR=0.042.
-Annotator 6884: Annotator 6884 was correct on 62.4% of the binary calibration records; report-A LR=4.195, report-B LR=0.108.
-
-HYPOTHESES:
-- the audited gold answer for this task is option A
-- the audited gold answer for this task is option B
-
-MESSAGE FROM Annotator 6884:
-The annotator reports option A.
-
-Which hypothesis is better supported by the information available now?
-A. the audited gold answer for this task is option A
-B. the audited gold answer for this task is option B
-Answer exactly A or B.
-
------ condition: high_immediate  (target option = A) -----
-
-BACKGROUND:
-NetEaseCrowd task set for capability 126 — an internal task type. Each task offers three response options; the public release records the annotations and audited gold answers but not the question text. For the task at hand the audited gold answer is known to be option A or option B.
-
-SOURCE CALIBRATION:
-Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
-
-SOURCE RECORDS:
-Annotator 6000: Annotator 6000 was correct on 89.6% of the binary calibration records; report-A LR=22.008, report-B LR=0.042.
-Annotator 6884: Annotator 6884 was correct on 62.4% of the binary calibration records; report-A LR=4.195, report-B LR=0.108.
-
-HYPOTHESES:
-- the audited gold answer for this task is option A
-- the audited gold answer for this task is option B
-
-MESSAGE FROM Annotator 6000:
-The annotator reports option A.
-
-Which hypothesis is better supported by the information available now?
-A. the audited gold answer for this task is option A
-B. the audited gold answer for this task is option B
-Answer exactly A or B.
-
------ condition: low_long  (target option = A) -----
-
-BACKGROUND:
-NetEaseCrowd task set for capability 126 — an internal task type. Each task offers three response options; the public release records the annotations and audited gold answers but not the question text. For the task at hand the audited gold answer is known to be option A or option B.
-
-SOURCE CALIBRATION:
-Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
-
-SOURCE RECORDS:
-Annotator 6000: Annotator 6000 was correct on 89.6% of the binary calibration records; report-A LR=22.008, report-B LR=0.042.
-Annotator 6884: Annotator 6884 was correct on 62.4% of the binary calibration records; report-A LR=4.195, report-B LR=0.108.
-
-HYPOTHESES:
-- the audited gold answer for this task is option A
-- the audited gold answer for this task is option B
-
-MESSAGE FROM Annotator 6884:
-The annotator reports option A.
-
-INTERVENING MATERIAL:
-Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 3000041390764756066 / task-set 8485 / completion-time 1671624972325; task 3000041888980960638 / task-set 8488 / completion-time 1671626163520; task 3000041390764756509 / task-set 8485 / completion-time 1671626486524; task 3000041871801097004 / task-set 8488 / completion-time 1671620153575; task 3000041390764756353 / task-set 8485 / completion-time 1671627567176; task 3000041888980959349 / task-set 8488 / completion-time 1671623251706; task 3000041407944629053 / task-set 8486 / completion-time 1671626001890; task 3000040256893390391 / task-set 8476 / completion-time 1671621463865.
-
-Which hypothesis is better supported by the information available now?
-A. the audited gold answer for this task is option A
-B. the audited gold answer for this task is option B
-Answer exactly A or B.
-
------ condition: low_long_reinstated  (target option = A) -----
-
-BACKGROUND:
-NetEaseCrowd task set for capability 126 — an internal task type. Each task offers three response options; the public release records the annotations and audited gold answers but not the question text. For the task at hand the audited gold answer is known to be option A or option B.
-
-SOURCE CALIBRATION:
-Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
-
-SOURCE RECORDS:
-Annotator 6000: Annotator 6000 was correct on 89.6% of the binary calibration records; report-A LR=22.008, report-B LR=0.042.
-Annotator 6884: Annotator 6884 was correct on 62.4% of the binary calibration records; report-A LR=4.195, report-B LR=0.108.
-
-HYPOTHESES:
-- the audited gold answer for this task is option A
-- the audited gold answer for this task is option B
-
-MESSAGE FROM Annotator 6884:
-The annotator reports option A.
-
-INTERVENING MATERIAL:
-Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 3000041390764756066 / task-set 8485 / completion-time 1671624972325; task 3000041888980960638 / task-set 8488 / completion-time 1671626163520; task 3000041390764756509 / task-set 8485 / completion-time 1671626486524; task 3000041871801097004 / task-set 8488 / completion-time 1671620153575; task 3000041390764756353 / task-set 8485 / completion-time 1671627567176; task 3000041888980959349 / task-set 8488 / completion-time 1671623251706; task 3000041407944629053 / task-set 8486 / completion-time 1671626001890; task 3000040256893390391 / task-set 8476 / completion-time 1671621463865.
-
-SOURCE REMINDER:
-Recall that the earlier report came from Annotator 6884. Its audited calibration profile was: Annotator 6884 was correct on 62.4% of the binary calibration records; report-A LR=4.195, report-B LR=0.108.
-
-Which hypothesis is better supported by the information available now?
-A. the audited gold answer for this task is option A
-B. the audited gold answer for this task is option B
-Answer exactly A or B.
-
------ condition: low_long_length  (target option = A) -----
-
-BACKGROUND:
-NetEaseCrowd task set for capability 126 — an internal task type. Each task offers three response options; the public release records the annotations and audited gold answers but not the question text. For the task at hand the audited gold answer is known to be option A or option B.
-
-SOURCE CALIBRATION:
-Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
-
-SOURCE RECORDS:
-Annotator 6000: Annotator 6000 was correct on 89.6% of the binary calibration records; report-A LR=22.008, report-B LR=0.042.
-Annotator 6884: Annotator 6884 was correct on 62.4% of the binary calibration records; report-A LR=4.195, report-B LR=0.108.
-
-HYPOTHESES:
-- the audited gold answer for this task is option A
-- the audited gold answer for this task is option B
-
-MESSAGE FROM Annotator 6884:
-The annotator reports option A.
-
-INTERVENING MATERIAL:
-Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 3000041390764756066 / task-set 8485 / completion-time 1671624972325; task 3000041888980960638 / task-set 8488 / completion-time 1671626163520; task 3000041390764756509 / task-set 8485 / completion-time 1671626486524; task 3000041871801097004 / task-set 8488 / completion-time 1671620153575; task 3000041390764756353 / task-set 8485 / completion-time 1671627567176; task 3000041888980959349 / task-set 8488 / completion-time 1671623251706; task 3000041407944629053 / task-set 8486 / completion-time 1671626001890; task 3000040256893390391 / task-set 8476 / completion-time 1671621463865.
-
-CONTROL REMINDER:
-Before deciding, recall that the earlier report remains part of the same annotation record and that the surrounding administrative metadata was generated under the fixed protocol.
-
-Which hypothesis is better supported by the information available now?
-A. the audited gold answer for this task is option A
-B. the audited gold answer for this task is option B
-Answer exactly A or B.
-
-====================================================================================================
-NetEaseCrowd:capability-126:1v2:002
-====================================================================================================
-
------ condition: low_immediate  (target option = A) -----
-
-BACKGROUND:
-NetEaseCrowd task set for capability 126 — an internal task type. Each task offers three response options; the public release records the annotations and audited gold answers but not the question text. For the task at hand the audited gold answer is known to be option B or option C.
-
-SOURCE CALIBRATION:
-Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
-
-SOURCE RECORDS:
-Annotator 5710: Annotator 5710 was correct on 86.3% of the binary calibration records; report-B LR=8.275, report-C LR=0.067.
-Annotator 8356: Annotator 8356 was correct on 56.4% of the binary calibration records; report-B LR=3.253, report-C LR=0.527.
-
-HYPOTHESES:
-- the audited gold answer for this task is option B
-- the audited gold answer for this task is option C
-
-MESSAGE FROM Annotator 8356:
-The annotator reports option B.
-
-Which hypothesis is better supported by the information available now?
-A. the audited gold answer for this task is option B
-B. the audited gold answer for this task is option C
-Answer exactly A or B.
-
------ condition: high_immediate  (target option = A) -----
-
-BACKGROUND:
-NetEaseCrowd task set for capability 126 — an internal task type. Each task offers three response options; the public release records the annotations and audited gold answers but not the question text. For the task at hand the audited gold answer is known to be option B or option C.
-
-SOURCE CALIBRATION:
-Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
-
-SOURCE RECORDS:
-Annotator 5710: Annotator 5710 was correct on 86.3% of the binary calibration records; report-B LR=8.275, report-C LR=0.067.
-Annotator 8356: Annotator 8356 was correct on 56.4% of the binary calibration records; report-B LR=3.253, report-C LR=0.527.
-
-HYPOTHESES:
-- the audited gold answer for this task is option B
-- the audited gold answer for this task is option C
-
-MESSAGE FROM Annotator 5710:
-The annotator reports option B.
-
-Which hypothesis is better supported by the information available now?
-A. the audited gold answer for this task is option B
-B. the audited gold answer for this task is option C
-Answer exactly A or B.
-
------ condition: low_long  (target option = A) -----
-
-BACKGROUND:
-NetEaseCrowd task set for capability 126 — an internal task type. Each task offers three response options; the public release records the annotations and audited gold answers but not the question text. For the task at hand the audited gold answer is known to be option B or option C.
-
-SOURCE CALIBRATION:
-Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
-
-SOURCE RECORDS:
-Annotator 5710: Annotator 5710 was correct on 86.3% of the binary calibration records; report-B LR=8.275, report-C LR=0.067.
-Annotator 8356: Annotator 8356 was correct on 56.4% of the binary calibration records; report-B LR=3.253, report-C LR=0.527.
-
-HYPOTHESES:
-- the audited gold answer for this task is option B
-- the audited gold answer for this task is option C
-
-MESSAGE FROM Annotator 8356:
-The annotator reports option B.
-
-INTERVENING MATERIAL:
-Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 3000041871801091094 / task-set 8487 / completion-time 1671624448735; task 3000041871801091013 / task-set 8487 / completion-time 1671624278670; task 3000041888980959868 / task-set 8488 / completion-time 1671625598491; task 3000041854621227915 / task-set 8487 / completion-time 1671617400156; task 3000041888980960651 / task-set 8488 / completion-time 1671626150216; task 3000040256893390284 / task-set 8476 / completion-time 1671622006038; task 3000041906160830277 / task-set 8489 / completion-time 1671621087696; task 3000040256893392114 / task-set 8476 / completion-time 1671625957488.
-
-Which hypothesis is better supported by the information available now?
-A. the audited gold answer for this task is option B
-B. the audited gold answer for this task is option C
-Answer exactly A or B.
-
------ condition: low_long_reinstated  (target option = A) -----
-
-BACKGROUND:
-NetEaseCrowd task set for capability 126 — an internal task type. Each task offers three response options; the public release records the annotations and audited gold answers but not the question text. For the task at hand the audited gold answer is known to be option B or option C.
-
-SOURCE CALIBRATION:
-Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
-
-SOURCE RECORDS:
-Annotator 5710: Annotator 5710 was correct on 86.3% of the binary calibration records; report-B LR=8.275, report-C LR=0.067.
-Annotator 8356: Annotator 8356 was correct on 56.4% of the binary calibration records; report-B LR=3.253, report-C LR=0.527.
-
-HYPOTHESES:
-- the audited gold answer for this task is option B
-- the audited gold answer for this task is option C
-
-MESSAGE FROM Annotator 8356:
-The annotator reports option B.
-
-INTERVENING MATERIAL:
-Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 3000041871801091094 / task-set 8487 / completion-time 1671624448735; task 3000041871801091013 / task-set 8487 / completion-time 1671624278670; task 3000041888980959868 / task-set 8488 / completion-time 1671625598491; task 3000041854621227915 / task-set 8487 / completion-time 1671617400156; task 3000041888980960651 / task-set 8488 / completion-time 1671626150216; task 3000040256893390284 / task-set 8476 / completion-time 1671622006038; task 3000041906160830277 / task-set 8489 / completion-time 1671621087696; task 3000040256893392114 / task-set 8476 / completion-time 1671625957488.
-
-SOURCE REMINDER:
-Recall that the earlier report came from Annotator 8356. Its audited calibration profile was: Annotator 8356 was correct on 56.4% of the binary calibration records; report-B LR=3.253, report-C LR=0.527.
-
-Which hypothesis is better supported by the information available now?
-A. the audited gold answer for this task is option B
-B. the audited gold answer for this task is option C
-Answer exactly A or B.
-
------ condition: low_long_length  (target option = A) -----
-
-BACKGROUND:
-NetEaseCrowd task set for capability 126 — an internal task type. Each task offers three response options; the public release records the annotations and audited gold answers but not the question text. For the task at hand the audited gold answer is known to be option B or option C.
-
-SOURCE CALIBRATION:
-Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
-
-SOURCE RECORDS:
-Annotator 5710: Annotator 5710 was correct on 86.3% of the binary calibration records; report-B LR=8.275, report-C LR=0.067.
-Annotator 8356: Annotator 8356 was correct on 56.4% of the binary calibration records; report-B LR=3.253, report-C LR=0.527.
-
-HYPOTHESES:
-- the audited gold answer for this task is option B
-- the audited gold answer for this task is option C
-
-MESSAGE FROM Annotator 8356:
-The annotator reports option B.
-
-INTERVENING MATERIAL:
-Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 3000041871801091094 / task-set 8487 / completion-time 1671624448735; task 3000041871801091013 / task-set 8487 / completion-time 1671624278670; task 3000041888980959868 / task-set 8488 / completion-time 1671625598491; task 3000041854621227915 / task-set 8487 / completion-time 1671617400156; task 3000041888980960651 / task-set 8488 / completion-time 1671626150216; task 3000040256893390284 / task-set 8476 / completion-time 1671622006038; task 3000041906160830277 / task-set 8489 / completion-time 1671621087696; task 3000040256893392114 / task-set 8476 / completion-time 1671625957488.
-
-CONTROL REMINDER:
-Before deciding, recall that the earlier report remains part of the same annotation record and that the surrounding administrative metadata was generated under the fixed protocol.
-
-Which hypothesis is better supported by the information available now?
-A. the audited gold answer for this task is option B
-B. the audited gold answer for this task is option C
-Answer exactly A or B.
-
-====================================================================================================
 NetEaseCrowd:capability-50:0v1:001
 ====================================================================================================
 
@@ -555,7 +277,146 @@ B. the audited gold answer for this task is option C (image C)
 Answer exactly A or B.
 
 ====================================================================================================
-NetEaseCrowd:capability-50:1v2:001
+NetEaseCrowd:capability-50:0v2:002
+====================================================================================================
+
+----- condition: low_immediate  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 50 — expression-similarity filtering. Each task shows three images, and the annotator answers: "Select the image from A, B, and C that looks the least similar in expression to the other two images." For the task at hand the audited gold answer is known to be option A or option C.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 1493: Annotator 1493 was correct on 85.4% of the binary calibration records; report-A LR=5.934, report-C LR=0.118.
+Annotator 13761: Annotator 13761 was correct on 57.0% of the binary calibration records; report-A LR=2.693, report-C LR=0.301.
+
+HYPOTHESES:
+- the audited gold answer for this task is option A (image A)
+- the audited gold answer for this task is option C (image C)
+
+MESSAGE FROM Annotator 13761:
+The annotator reports option A.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option A (image A)
+B. the audited gold answer for this task is option C (image C)
+Answer exactly A or B.
+
+----- condition: high_immediate  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 50 — expression-similarity filtering. Each task shows three images, and the annotator answers: "Select the image from A, B, and C that looks the least similar in expression to the other two images." For the task at hand the audited gold answer is known to be option A or option C.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 1493: Annotator 1493 was correct on 85.4% of the binary calibration records; report-A LR=5.934, report-C LR=0.118.
+Annotator 13761: Annotator 13761 was correct on 57.0% of the binary calibration records; report-A LR=2.693, report-C LR=0.301.
+
+HYPOTHESES:
+- the audited gold answer for this task is option A (image A)
+- the audited gold answer for this task is option C (image C)
+
+MESSAGE FROM Annotator 1493:
+The annotator reports option A.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option A (image A)
+B. the audited gold answer for this task is option C (image C)
+Answer exactly A or B.
+
+----- condition: low_long  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 50 — expression-similarity filtering. Each task shows three images, and the annotator answers: "Select the image from A, B, and C that looks the least similar in expression to the other two images." For the task at hand the audited gold answer is known to be option A or option C.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 1493: Annotator 1493 was correct on 85.4% of the binary calibration records; report-A LR=5.934, report-C LR=0.118.
+Annotator 13761: Annotator 13761 was correct on 57.0% of the binary calibration records; report-A LR=2.693, report-C LR=0.301.
+
+HYPOTHESES:
+- the audited gold answer for this task is option A (image A)
+- the audited gold answer for this task is option C (image C)
+
+MESSAGE FROM Annotator 13761:
+The annotator reports option A.
+
+INTERVENING MATERIAL:
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 2999595246741916640 / task-set 7702 / completion-time 1665981870655; task 2999619693695766914 / task-set 7788 / completion-time 1668163869543; task 2999781957560206701 / task-set 8207 / completion-time 1670311492575; task 2999781717042040972 / task-set 8204 / completion-time 1670330897150; task 3000250590031810966 / task-set 8848 / completion-time 1673350484041; task 3000250607211682054 / task-set 8849 / completion-time 1673349112833; task 3000250607211676343 / task-set 8849 / completion-time 1673333547884; task 3000306716664436644 / task-set 8879 / completion-time 1673414465233.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option A (image A)
+B. the audited gold answer for this task is option C (image C)
+Answer exactly A or B.
+
+----- condition: low_long_reinstated  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 50 — expression-similarity filtering. Each task shows three images, and the annotator answers: "Select the image from A, B, and C that looks the least similar in expression to the other two images." For the task at hand the audited gold answer is known to be option A or option C.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 1493: Annotator 1493 was correct on 85.4% of the binary calibration records; report-A LR=5.934, report-C LR=0.118.
+Annotator 13761: Annotator 13761 was correct on 57.0% of the binary calibration records; report-A LR=2.693, report-C LR=0.301.
+
+HYPOTHESES:
+- the audited gold answer for this task is option A (image A)
+- the audited gold answer for this task is option C (image C)
+
+MESSAGE FROM Annotator 13761:
+The annotator reports option A.
+
+INTERVENING MATERIAL:
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 2999595246741916640 / task-set 7702 / completion-time 1665981870655; task 2999619693695766914 / task-set 7788 / completion-time 1668163869543; task 2999781957560206701 / task-set 8207 / completion-time 1670311492575; task 2999781717042040972 / task-set 8204 / completion-time 1670330897150; task 3000250590031810966 / task-set 8848 / completion-time 1673350484041; task 3000250607211682054 / task-set 8849 / completion-time 1673349112833; task 3000250607211676343 / task-set 8849 / completion-time 1673333547884; task 3000306716664436644 / task-set 8879 / completion-time 1673414465233.
+
+SOURCE REMINDER:
+Recall that the earlier report came from Annotator 13761. Its audited calibration profile was: Annotator 13761 was correct on 57.0% of the binary calibration records; report-A LR=2.693, report-C LR=0.301.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option A (image A)
+B. the audited gold answer for this task is option C (image C)
+Answer exactly A or B.
+
+----- condition: low_long_length  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 50 — expression-similarity filtering. Each task shows three images, and the annotator answers: "Select the image from A, B, and C that looks the least similar in expression to the other two images." For the task at hand the audited gold answer is known to be option A or option C.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 1493: Annotator 1493 was correct on 85.4% of the binary calibration records; report-A LR=5.934, report-C LR=0.118.
+Annotator 13761: Annotator 13761 was correct on 57.0% of the binary calibration records; report-A LR=2.693, report-C LR=0.301.
+
+HYPOTHESES:
+- the audited gold answer for this task is option A (image A)
+- the audited gold answer for this task is option C (image C)
+
+MESSAGE FROM Annotator 13761:
+The annotator reports option A.
+
+INTERVENING MATERIAL:
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 2999595246741916640 / task-set 7702 / completion-time 1665981870655; task 2999619693695766914 / task-set 7788 / completion-time 1668163869543; task 2999781957560206701 / task-set 8207 / completion-time 1670311492575; task 2999781717042040972 / task-set 8204 / completion-time 1670330897150; task 3000250590031810966 / task-set 8848 / completion-time 1673350484041; task 3000250607211682054 / task-set 8849 / completion-time 1673349112833; task 3000250607211676343 / task-set 8849 / completion-time 1673333547884; task 3000306716664436644 / task-set 8879 / completion-time 1673414465233.
+
+CONTROL REMINDER:
+Before deciding, recall that the earlier report remains part of the same annotation record and that the surrounding administrative metadata was generated under the fixed protocol.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option A (image A)
+B. the audited gold answer for this task is option C (image C)
+Answer exactly A or B.
+
+====================================================================================================
+NetEaseCrowd:capability-50:1v2:002
 ====================================================================================================
 
 ----- condition: low_immediate  (target option = A) -----
@@ -567,14 +428,14 @@ SOURCE CALIBRATION:
 Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
 
 SOURCE RECORDS:
-Annotator 1679: Annotator 1679 was correct on 96.2% of the binary calibration records; report-B LR=15.805, report-C LR=0.018.
-Annotator 4802: Annotator 4802 was correct on 56.0% of the binary calibration records; report-B LR=2.562, report-C LR=0.390.
+Annotator 10013: Annotator 10013 was correct on 87.9% of the binary calibration records; report-B LR=11.962, report-C LR=0.096.
+Annotator 355: Annotator 355 was correct on 56.3% of the binary calibration records; report-B LR=1.905, report-C LR=0.519.
 
 HYPOTHESES:
 - the audited gold answer for this task is option B (image B)
 - the audited gold answer for this task is option C (image C)
 
-MESSAGE FROM Annotator 4802:
+MESSAGE FROM Annotator 355:
 The annotator reports option B.
 
 Which hypothesis is better supported by the information available now?
@@ -591,14 +452,14 @@ SOURCE CALIBRATION:
 Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
 
 SOURCE RECORDS:
-Annotator 1679: Annotator 1679 was correct on 96.2% of the binary calibration records; report-B LR=15.805, report-C LR=0.018.
-Annotator 4802: Annotator 4802 was correct on 56.0% of the binary calibration records; report-B LR=2.562, report-C LR=0.390.
+Annotator 10013: Annotator 10013 was correct on 87.9% of the binary calibration records; report-B LR=11.962, report-C LR=0.096.
+Annotator 355: Annotator 355 was correct on 56.3% of the binary calibration records; report-B LR=1.905, report-C LR=0.519.
 
 HYPOTHESES:
 - the audited gold answer for this task is option B (image B)
 - the audited gold answer for this task is option C (image C)
 
-MESSAGE FROM Annotator 1679:
+MESSAGE FROM Annotator 10013:
 The annotator reports option B.
 
 Which hypothesis is better supported by the information available now?
@@ -615,18 +476,18 @@ SOURCE CALIBRATION:
 Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
 
 SOURCE RECORDS:
-Annotator 1679: Annotator 1679 was correct on 96.2% of the binary calibration records; report-B LR=15.805, report-C LR=0.018.
-Annotator 4802: Annotator 4802 was correct on 56.0% of the binary calibration records; report-B LR=2.562, report-C LR=0.390.
+Annotator 10013: Annotator 10013 was correct on 87.9% of the binary calibration records; report-B LR=11.962, report-C LR=0.096.
+Annotator 355: Annotator 355 was correct on 56.3% of the binary calibration records; report-B LR=1.905, report-C LR=0.519.
 
 HYPOTHESES:
 - the audited gold answer for this task is option B (image B)
 - the audited gold answer for this task is option C (image C)
 
-MESSAGE FROM Annotator 4802:
+MESSAGE FROM Annotator 355:
 The annotator reports option B.
 
 INTERVENING MATERIAL:
-Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 3000250624391545078 / task-set 8849 / completion-time 1673354114588; task 3000250624391548827 / task-set 8850 / completion-time 1673334453218; task 3000250675931160478 / task-set 8851 / completion-time 1673415993877; task 2999619693695763056 / task-set 7787 / completion-time 1667972340724; task 3000250658751285834 / task-set 8850 / completion-time 1673349495515; task 2999780720609628026 / task-set 8201 / completion-time 1670394537666; task 3000250624391550760 / task-set 8850 / completion-time 1673339899275; task 2999781923200470426 / task-set 8206 / completion-time 1670314577549.
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 3000250675931152422 / task-set 8851 / completion-time 1673410105092; task 3000250624391549719 / task-set 8850 / completion-time 1673336411770; task 2999779999055126474 / task-set 8200 / completion-time 1670379765176; task 3000250624391549950 / task-set 8850 / completion-time 1673338629066; task 2999781717042043851 / task-set 8204 / completion-time 1670377305983; task 3000250590031808030 / task-set 8848 / completion-time 1673351620070; task 3000250624391545214 / task-set 8849 / completion-time 1673353448751; task 3000250590031812515 / task-set 8848 / completion-time 1673352490120.
 
 Which hypothesis is better supported by the information available now?
 A. the audited gold answer for this task is option B (image B)
@@ -642,21 +503,21 @@ SOURCE CALIBRATION:
 Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
 
 SOURCE RECORDS:
-Annotator 1679: Annotator 1679 was correct on 96.2% of the binary calibration records; report-B LR=15.805, report-C LR=0.018.
-Annotator 4802: Annotator 4802 was correct on 56.0% of the binary calibration records; report-B LR=2.562, report-C LR=0.390.
+Annotator 10013: Annotator 10013 was correct on 87.9% of the binary calibration records; report-B LR=11.962, report-C LR=0.096.
+Annotator 355: Annotator 355 was correct on 56.3% of the binary calibration records; report-B LR=1.905, report-C LR=0.519.
 
 HYPOTHESES:
 - the audited gold answer for this task is option B (image B)
 - the audited gold answer for this task is option C (image C)
 
-MESSAGE FROM Annotator 4802:
+MESSAGE FROM Annotator 355:
 The annotator reports option B.
 
 INTERVENING MATERIAL:
-Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 3000250624391545078 / task-set 8849 / completion-time 1673354114588; task 3000250624391548827 / task-set 8850 / completion-time 1673334453218; task 3000250675931160478 / task-set 8851 / completion-time 1673415993877; task 2999619693695763056 / task-set 7787 / completion-time 1667972340724; task 3000250658751285834 / task-set 8850 / completion-time 1673349495515; task 2999780720609628026 / task-set 8201 / completion-time 1670394537666; task 3000250624391550760 / task-set 8850 / completion-time 1673339899275; task 2999781923200470426 / task-set 8206 / completion-time 1670314577549.
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 3000250675931152422 / task-set 8851 / completion-time 1673410105092; task 3000250624391549719 / task-set 8850 / completion-time 1673336411770; task 2999779999055126474 / task-set 8200 / completion-time 1670379765176; task 3000250624391549950 / task-set 8850 / completion-time 1673338629066; task 2999781717042043851 / task-set 8204 / completion-time 1670377305983; task 3000250590031808030 / task-set 8848 / completion-time 1673351620070; task 3000250624391545214 / task-set 8849 / completion-time 1673353448751; task 3000250590031812515 / task-set 8848 / completion-time 1673352490120.
 
 SOURCE REMINDER:
-Recall that the earlier report came from Annotator 4802. Its audited calibration profile was: Annotator 4802 was correct on 56.0% of the binary calibration records; report-B LR=2.562, report-C LR=0.390.
+Recall that the earlier report came from Annotator 355. Its audited calibration profile was: Annotator 355 was correct on 56.3% of the binary calibration records; report-B LR=1.905, report-C LR=0.519.
 
 Which hypothesis is better supported by the information available now?
 A. the audited gold answer for this task is option B (image B)
@@ -672,18 +533,18 @@ SOURCE CALIBRATION:
 Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
 
 SOURCE RECORDS:
-Annotator 1679: Annotator 1679 was correct on 96.2% of the binary calibration records; report-B LR=15.805, report-C LR=0.018.
-Annotator 4802: Annotator 4802 was correct on 56.0% of the binary calibration records; report-B LR=2.562, report-C LR=0.390.
+Annotator 10013: Annotator 10013 was correct on 87.9% of the binary calibration records; report-B LR=11.962, report-C LR=0.096.
+Annotator 355: Annotator 355 was correct on 56.3% of the binary calibration records; report-B LR=1.905, report-C LR=0.519.
 
 HYPOTHESES:
 - the audited gold answer for this task is option B (image B)
 - the audited gold answer for this task is option C (image C)
 
-MESSAGE FROM Annotator 4802:
+MESSAGE FROM Annotator 355:
 The annotator reports option B.
 
 INTERVENING MATERIAL:
-Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 3000250624391545078 / task-set 8849 / completion-time 1673354114588; task 3000250624391548827 / task-set 8850 / completion-time 1673334453218; task 3000250675931160478 / task-set 8851 / completion-time 1673415993877; task 2999619693695763056 / task-set 7787 / completion-time 1667972340724; task 3000250658751285834 / task-set 8850 / completion-time 1673349495515; task 2999780720609628026 / task-set 8201 / completion-time 1670394537666; task 3000250624391550760 / task-set 8850 / completion-time 1673339899275; task 2999781923200470426 / task-set 8206 / completion-time 1670314577549.
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 3000250675931152422 / task-set 8851 / completion-time 1673410105092; task 3000250624391549719 / task-set 8850 / completion-time 1673336411770; task 2999779999055126474 / task-set 8200 / completion-time 1670379765176; task 3000250624391549950 / task-set 8850 / completion-time 1673338629066; task 2999781717042043851 / task-set 8204 / completion-time 1670377305983; task 3000250590031808030 / task-set 8848 / completion-time 1673351620070; task 3000250624391545214 / task-set 8849 / completion-time 1673353448751; task 3000250590031812515 / task-set 8848 / completion-time 1673352490120.
 
 CONTROL REMINDER:
 Before deciding, recall that the earlier report remains part of the same annotation record and that the surrounding administrative metadata was generated under the fixed protocol.
@@ -904,7 +765,7 @@ MESSAGE FROM Annotator 67:
 The annotator reports option A.
 
 INTERVENING MATERIAL:
-Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 984412013545390464 / task-set 2303 / completion-time 1654748054006; task 984456333921091936 / task-set 2388 / completion-time 1654763384770; task 984094083079209024 / task-set 2288 / completion-time 1654670452908; task 984456331559698496 / task-set 2388 / completion-time 1654763367309; task 984092660320960864 / task-set 2283 / completion-time 1654674460763; task 984450020805706048 / task-set 2361 / completion-time 1654758525916; task 984412535945953664 / task-set 2306 / completion-time 1654749439464; task 984458013148447072 / task-set 2399 / completion-time 1654761846145.
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 984448272913400160 / task-set 2353 / completion-time 1654759397099; task 984449147975237984 / task-set 2356 / completion-time 1654758607534; task 984452077176488256 / task-set 2372 / completion-time 1654756959099; task 984456328149729632 / task-set 2388 / completion-time 1654763288445; task 984095553061126496 / task-set 2293 / completion-time 1654671001254; task 984451501260800384 / task-set 2368 / completion-time 1654757322482; task 984092896649019744 / task-set 2284 / completion-time 1654671806716; task 984094080856228192 / task-set 2288 / completion-time 1654670563967.
 
 Which hypothesis is better supported by the information available now?
 A. the audited gold answer for this task is option A (image A)
@@ -931,7 +792,7 @@ MESSAGE FROM Annotator 67:
 The annotator reports option A.
 
 INTERVENING MATERIAL:
-Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 984412013545390464 / task-set 2303 / completion-time 1654748054006; task 984456333921091936 / task-set 2388 / completion-time 1654763384770; task 984094083079209024 / task-set 2288 / completion-time 1654670452908; task 984456331559698496 / task-set 2388 / completion-time 1654763367309; task 984092660320960864 / task-set 2283 / completion-time 1654674460763; task 984450020805706048 / task-set 2361 / completion-time 1654758525916; task 984412535945953664 / task-set 2306 / completion-time 1654749439464; task 984458013148447072 / task-set 2399 / completion-time 1654761846145.
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 984448272913400160 / task-set 2353 / completion-time 1654759397099; task 984449147975237984 / task-set 2356 / completion-time 1654758607534; task 984452077176488256 / task-set 2372 / completion-time 1654756959099; task 984456328149729632 / task-set 2388 / completion-time 1654763288445; task 984095553061126496 / task-set 2293 / completion-time 1654671001254; task 984451501260800384 / task-set 2368 / completion-time 1654757322482; task 984092896649019744 / task-set 2284 / completion-time 1654671806716; task 984094080856228192 / task-set 2288 / completion-time 1654670563967.
 
 SOURCE REMINDER:
 Recall that the earlier report came from Annotator 67. Its audited calibration profile was: Annotator 67 was correct on 68.6% of the binary calibration records; report-A LR=2.059, report-B LR=0.367.
@@ -961,7 +822,7 @@ MESSAGE FROM Annotator 67:
 The annotator reports option A.
 
 INTERVENING MATERIAL:
-Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 984412013545390464 / task-set 2303 / completion-time 1654748054006; task 984456333921091936 / task-set 2388 / completion-time 1654763384770; task 984094083079209024 / task-set 2288 / completion-time 1654670452908; task 984456331559698496 / task-set 2388 / completion-time 1654763367309; task 984092660320960864 / task-set 2283 / completion-time 1654674460763; task 984450020805706048 / task-set 2361 / completion-time 1654758525916; task 984412535945953664 / task-set 2306 / completion-time 1654749439464; task 984458013148447072 / task-set 2399 / completion-time 1654761846145.
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 984448272913400160 / task-set 2353 / completion-time 1654759397099; task 984449147975237984 / task-set 2356 / completion-time 1654758607534; task 984452077176488256 / task-set 2372 / completion-time 1654756959099; task 984456328149729632 / task-set 2388 / completion-time 1654763288445; task 984095553061126496 / task-set 2293 / completion-time 1654671001254; task 984451501260800384 / task-set 2368 / completion-time 1654757322482; task 984092896649019744 / task-set 2284 / completion-time 1654671806716; task 984094080856228192 / task-set 2288 / completion-time 1654670563967.
 
 CONTROL REMINDER:
 Before deciding, recall that the earlier report remains part of the same annotation record and that the surrounding administrative metadata was generated under the fixed protocol.
@@ -1107,6 +968,145 @@ Before deciding, recall that the earlier report remains part of the same annotat
 
 Which hypothesis is better supported by the information available now?
 A. the audited gold answer for this task is option A (image A)
+B. the audited gold answer for this task is option C (image C)
+Answer exactly A or B.
+
+====================================================================================================
+NetEaseCrowd:capability-52:1v2:001
+====================================================================================================
+
+----- condition: low_immediate  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 52 — naturalness-of-expression judgment. Each task shows three images, and the annotator answers: "Select the most natural expression from the three images below." For the task at hand the audited gold answer is known to be option B or option C.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 128: Annotator 128 was correct on 73.2% of the binary calibration records; report-B LR=3.677, report-C LR=0.091.
+Annotator 57: Annotator 57 was correct on 61.1% of the binary calibration records; report-B LR=1.501, report-C LR=0.570.
+
+HYPOTHESES:
+- the audited gold answer for this task is option B (image B)
+- the audited gold answer for this task is option C (image C)
+
+MESSAGE FROM Annotator 57:
+The annotator reports option B.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option B (image B)
+B. the audited gold answer for this task is option C (image C)
+Answer exactly A or B.
+
+----- condition: high_immediate  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 52 — naturalness-of-expression judgment. Each task shows three images, and the annotator answers: "Select the most natural expression from the three images below." For the task at hand the audited gold answer is known to be option B or option C.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 128: Annotator 128 was correct on 73.2% of the binary calibration records; report-B LR=3.677, report-C LR=0.091.
+Annotator 57: Annotator 57 was correct on 61.1% of the binary calibration records; report-B LR=1.501, report-C LR=0.570.
+
+HYPOTHESES:
+- the audited gold answer for this task is option B (image B)
+- the audited gold answer for this task is option C (image C)
+
+MESSAGE FROM Annotator 128:
+The annotator reports option B.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option B (image B)
+B. the audited gold answer for this task is option C (image C)
+Answer exactly A or B.
+
+----- condition: low_long  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 52 — naturalness-of-expression judgment. Each task shows three images, and the annotator answers: "Select the most natural expression from the three images below." For the task at hand the audited gold answer is known to be option B or option C.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 128: Annotator 128 was correct on 73.2% of the binary calibration records; report-B LR=3.677, report-C LR=0.091.
+Annotator 57: Annotator 57 was correct on 61.1% of the binary calibration records; report-B LR=1.501, report-C LR=0.570.
+
+HYPOTHESES:
+- the audited gold answer for this task is option B (image B)
+- the audited gold answer for this task is option C (image C)
+
+MESSAGE FROM Annotator 57:
+The annotator reports option B.
+
+INTERVENING MATERIAL:
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 984449729066697088 / task-set 2359 / completion-time 1654758533260; task 984449730039775616 / task-set 2359 / completion-time 1654758751314; task 984457095531200864 / task-set 2393 / completion-time 1654761717623; task 984418850529345888 / task-set 2329 / completion-time 1654754884581; task 984418852630692224 / task-set 2329 / completion-time 1654754885646; task 984449727154094432 / task-set 2359 / completion-time 1654758740367; task 984449726654972224 / task-set 2359 / completion-time 1654758729393; task 984457094889472352 / task-set 2393 / completion-time 1654761678213.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option B (image B)
+B. the audited gold answer for this task is option C (image C)
+Answer exactly A or B.
+
+----- condition: low_long_reinstated  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 52 — naturalness-of-expression judgment. Each task shows three images, and the annotator answers: "Select the most natural expression from the three images below." For the task at hand the audited gold answer is known to be option B or option C.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 128: Annotator 128 was correct on 73.2% of the binary calibration records; report-B LR=3.677, report-C LR=0.091.
+Annotator 57: Annotator 57 was correct on 61.1% of the binary calibration records; report-B LR=1.501, report-C LR=0.570.
+
+HYPOTHESES:
+- the audited gold answer for this task is option B (image B)
+- the audited gold answer for this task is option C (image C)
+
+MESSAGE FROM Annotator 57:
+The annotator reports option B.
+
+INTERVENING MATERIAL:
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 984449729066697088 / task-set 2359 / completion-time 1654758533260; task 984449730039775616 / task-set 2359 / completion-time 1654758751314; task 984457095531200864 / task-set 2393 / completion-time 1654761717623; task 984418850529345888 / task-set 2329 / completion-time 1654754884581; task 984418852630692224 / task-set 2329 / completion-time 1654754885646; task 984449727154094432 / task-set 2359 / completion-time 1654758740367; task 984449726654972224 / task-set 2359 / completion-time 1654758729393; task 984457094889472352 / task-set 2393 / completion-time 1654761678213.
+
+SOURCE REMINDER:
+Recall that the earlier report came from Annotator 57. Its audited calibration profile was: Annotator 57 was correct on 61.1% of the binary calibration records; report-B LR=1.501, report-C LR=0.570.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option B (image B)
+B. the audited gold answer for this task is option C (image C)
+Answer exactly A or B.
+
+----- condition: low_long_length  (target option = A) -----
+
+BACKGROUND:
+NetEaseCrowd task set for capability 52 — naturalness-of-expression judgment. Each task shows three images, and the annotator answers: "Select the most natural expression from the three images below." For the task at hand the audited gold answer is known to be option B or option C.
+
+SOURCE CALIBRATION:
+Source profiles were estimated from a fixed 60% task-disjoint calibration split before any model call. A separate 40% task split preserves the same source ordering in both report directions.
+
+SOURCE RECORDS:
+Annotator 128: Annotator 128 was correct on 73.2% of the binary calibration records; report-B LR=3.677, report-C LR=0.091.
+Annotator 57: Annotator 57 was correct on 61.1% of the binary calibration records; report-B LR=1.501, report-C LR=0.570.
+
+HYPOTHESES:
+- the audited gold answer for this task is option B (image B)
+- the audited gold answer for this task is option C (image C)
+
+MESSAGE FROM Annotator 57:
+The annotator reports option B.
+
+INTERVENING MATERIAL:
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 984449729066697088 / task-set 2359 / completion-time 1654758533260; task 984449730039775616 / task-set 2359 / completion-time 1654758751314; task 984457095531200864 / task-set 2393 / completion-time 1654761717623; task 984418850529345888 / task-set 2329 / completion-time 1654754884581; task 984418852630692224 / task-set 2329 / completion-time 1654754885646; task 984449727154094432 / task-set 2359 / completion-time 1654758740367; task 984449726654972224 / task-set 2359 / completion-time 1654758729393; task 984457094889472352 / task-set 2393 / completion-time 1654761678213.
+
+CONTROL REMINDER:
+Before deciding, recall that the earlier report remains part of the same annotation record and that the surrounding administrative metadata was generated under the fixed protocol.
+
+Which hypothesis is better supported by the information available now?
+A. the audited gold answer for this task is option B (image B)
 B. the audited gold answer for this task is option C (image C)
 Answer exactly A or B.
 
@@ -1321,7 +1321,7 @@ MESSAGE FROM Annotator 2443:
 The annotator reports option A.
 
 INTERVENING MATERIAL:
-Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 2999582963135448965 / task-set 7370 / completion-time 1665472974696; task 2999587464261174549 / task-set 7375 / completion-time 1666861531695; task 2999587447081307142 / task-set 7374 / completion-time 1666706960109; task 2999602840244100317 / task-set 7753 / completion-time 1667291608686; task 2999618800342569170 / task-set 7751 / completion-time 1667809040904; task 2999602874603837949 / task-set 7756 / completion-time 1667309649044; task 2999582945955582701 / task-set 7369 / completion-time 1665363101055; task 2999587447081309304 / task-set 7374 / completion-time 1666856491809.
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 2999587481441047187 / task-set 7377 / completion-time 1665628032130; task 2999615759505725791 / task-set 7750 / completion-time 1667554158649; task 2999615793865457670 / task-set 7750 / completion-time 1667737289704; task 2999602874603835127 / task-set 7755 / completion-time 1667443127448; task 2999582945955584505 / task-set 7369 / completion-time 1665309886016; task 2999587464261175422 / task-set 7375 / completion-time 1666702168161; task 2999602874603832913 / task-set 7755 / completion-time 1667387131194; task 2999618783162701601 / task-set 7752 / completion-time 1667611649244.
 
 Which hypothesis is better supported by the information available now?
 A. the audited gold answer for this task is option A (face A)
@@ -1348,7 +1348,7 @@ MESSAGE FROM Annotator 2443:
 The annotator reports option A.
 
 INTERVENING MATERIAL:
-Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 2999582963135448965 / task-set 7370 / completion-time 1665472974696; task 2999587464261174549 / task-set 7375 / completion-time 1666861531695; task 2999587447081307142 / task-set 7374 / completion-time 1666706960109; task 2999602840244100317 / task-set 7753 / completion-time 1667291608686; task 2999618800342569170 / task-set 7751 / completion-time 1667809040904; task 2999602874603837949 / task-set 7756 / completion-time 1667309649044; task 2999582945955582701 / task-set 7369 / completion-time 1665363101055; task 2999587447081309304 / task-set 7374 / completion-time 1666856491809.
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 2999587481441047187 / task-set 7377 / completion-time 1665628032130; task 2999615759505725791 / task-set 7750 / completion-time 1667554158649; task 2999615793865457670 / task-set 7750 / completion-time 1667737289704; task 2999602874603835127 / task-set 7755 / completion-time 1667443127448; task 2999582945955584505 / task-set 7369 / completion-time 1665309886016; task 2999587464261175422 / task-set 7375 / completion-time 1666702168161; task 2999602874603832913 / task-set 7755 / completion-time 1667387131194; task 2999618783162701601 / task-set 7752 / completion-time 1667611649244.
 
 SOURCE REMINDER:
 Recall that the earlier report came from Annotator 2443. Its audited calibration profile was: Annotator 2443 was correct on 55.4% of the binary calibration records; report-A LR=2.971, report-B LR=0.490.
@@ -1378,7 +1378,7 @@ MESSAGE FROM Annotator 2443:
 The annotator reports option A.
 
 INTERVENING MATERIAL:
-Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 2999582963135448965 / task-set 7370 / completion-time 1665472974696; task 2999587464261174549 / task-set 7375 / completion-time 1666861531695; task 2999587447081307142 / task-set 7374 / completion-time 1666706960109; task 2999602840244100317 / task-set 7753 / completion-time 1667291608686; task 2999618800342569170 / task-set 7751 / completion-time 1667809040904; task 2999602874603837949 / task-set 7756 / completion-time 1667309649044; task 2999582945955582701 / task-set 7369 / completion-time 1665363101055; task 2999587447081309304 / task-set 7374 / completion-time 1666856491809.
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 2999587481441047187 / task-set 7377 / completion-time 1665628032130; task 2999615759505725791 / task-set 7750 / completion-time 1667554158649; task 2999615793865457670 / task-set 7750 / completion-time 1667737289704; task 2999602874603835127 / task-set 7755 / completion-time 1667443127448; task 2999582945955584505 / task-set 7369 / completion-time 1665309886016; task 2999587464261175422 / task-set 7375 / completion-time 1666702168161; task 2999602874603832913 / task-set 7755 / completion-time 1667387131194; task 2999618783162701601 / task-set 7752 / completion-time 1667611649244.
 
 CONTROL REMINDER:
 Before deciding, recall that the earlier report remains part of the same annotation record and that the surrounding administrative metadata was generated under the fixed protocol.
@@ -1599,7 +1599,7 @@ MESSAGE FROM Annotator 2731:
 The annotator reports option A.
 
 INTERVENING MATERIAL:
-Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 2999582963135453954 / task-set 7371 / completion-time 1665378825584; task 2999618800342567298 / task-set 7751 / completion-time 1667652515270; task 2999615793865457964 / task-set 7750 / completion-time 1667784542082; task 987370744193220960 / task-set 3566 / completion-time 1655959625967; task 2999602857423970274 / task-set 7755 / completion-time 1667303274819; task 2999615793865460466 / task-set 7750 / completion-time 1667889791495; task 987373812586643840 / task-set 3601 / completion-time 1655956118511; task 2999602840244097811 / task-set 7753 / completion-time 1667219434288.
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 2999615793865462400 / task-set 7749 / completion-time 1667653376033; task 2999618800342568084 / task-set 7751 / completion-time 1667631156050; task 2999587447081309048 / task-set 7374 / completion-time 1666850460421; task 2999615793865459345 / task-set 7750 / completion-time 1667828344561; task 2999615759505726115 / task-set 7750 / completion-time 1667601874684; task 2999615793865458368 / task-set 7750 / completion-time 1667792321181; task 2999587447081310341 / task-set 7374 / completion-time 1666702907002; task 2999587447081307787 / task-set 7374 / completion-time 1666936968788.
 
 Which hypothesis is better supported by the information available now?
 A. the audited gold answer for this task is option A (face A)
@@ -1626,7 +1626,7 @@ MESSAGE FROM Annotator 2731:
 The annotator reports option A.
 
 INTERVENING MATERIAL:
-Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 2999582963135453954 / task-set 7371 / completion-time 1665378825584; task 2999618800342567298 / task-set 7751 / completion-time 1667652515270; task 2999615793865457964 / task-set 7750 / completion-time 1667784542082; task 987370744193220960 / task-set 3566 / completion-time 1655959625967; task 2999602857423970274 / task-set 7755 / completion-time 1667303274819; task 2999615793865460466 / task-set 7750 / completion-time 1667889791495; task 987373812586643840 / task-set 3601 / completion-time 1655956118511; task 2999602840244097811 / task-set 7753 / completion-time 1667219434288.
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 2999615793865462400 / task-set 7749 / completion-time 1667653376033; task 2999618800342568084 / task-set 7751 / completion-time 1667631156050; task 2999587447081309048 / task-set 7374 / completion-time 1666850460421; task 2999615793865459345 / task-set 7750 / completion-time 1667828344561; task 2999615759505726115 / task-set 7750 / completion-time 1667601874684; task 2999615793865458368 / task-set 7750 / completion-time 1667792321181; task 2999587447081310341 / task-set 7374 / completion-time 1666702907002; task 2999587447081307787 / task-set 7374 / completion-time 1666936968788.
 
 SOURCE REMINDER:
 Recall that the earlier report came from Annotator 2731. Its audited calibration profile was: Annotator 2731 was correct on 55.5% of the binary calibration records; report-A LR=2.535, report-C LR=0.392.
@@ -1656,7 +1656,7 @@ MESSAGE FROM Annotator 2731:
 The annotator reports option A.
 
 INTERVENING MATERIAL:
-Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 2999582963135453954 / task-set 7371 / completion-time 1665378825584; task 2999618800342567298 / task-set 7751 / completion-time 1667652515270; task 2999615793865457964 / task-set 7750 / completion-time 1667784542082; task 987370744193220960 / task-set 3566 / completion-time 1655959625967; task 2999602857423970274 / task-set 7755 / completion-time 1667303274819; task 2999615793865460466 / task-set 7750 / completion-time 1667889791495; task 987373812586643840 / task-set 3601 / completion-time 1655956118511; task 2999602840244097811 / task-set 7753 / completion-time 1667219434288.
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 2999615793865462400 / task-set 7749 / completion-time 1667653376033; task 2999618800342568084 / task-set 7751 / completion-time 1667631156050; task 2999587447081309048 / task-set 7374 / completion-time 1666850460421; task 2999615793865459345 / task-set 7750 / completion-time 1667828344561; task 2999615759505726115 / task-set 7750 / completion-time 1667601874684; task 2999615793865458368 / task-set 7750 / completion-time 1667792321181; task 2999587447081310341 / task-set 7374 / completion-time 1666702907002; task 2999587447081307787 / task-set 7374 / completion-time 1666936968788.
 
 CONTROL REMINDER:
 Before deciding, recall that the earlier report remains part of the same annotation record and that the surrounding administrative metadata was generated under the fixed protocol.
@@ -1877,7 +1877,7 @@ MESSAGE FROM Annotator 1682:
 The annotator reports option B.
 
 INTERVENING MATERIAL:
-Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 2999582963135451455 / task-set 7370 / completion-time 1665327675008; task 2999615793865465702 / task-set 7749 / completion-time 1667875070705; task 2999602840244095932 / task-set 7753 / completion-time 1667210472406; task 2999602857423967874 / task-set 7754 / completion-time 1667223809050; task 2999615793865459482 / task-set 7750 / completion-time 1667888513796; task 2999587481441048138 / task-set 7377 / completion-time 1665718774923; task 2999615793865459163 / task-set 7750 / completion-time 1667811544496; task 2999618800342569890 / task-set 7751 / completion-time 1667813263476.
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 2999602840244096223 / task-set 7753 / completion-time 1667186879683; task 987376178987794784 / task-set 3628 / completion-time 1655950925722; task 2999587447081307484 / task-set 7374 / completion-time 1666960064353; task 987375739458290016 / task-set 3623 / completion-time 1655951779199; task 2999582945955581938 / task-set 7369 / completion-time 1665336356311; task 2999618800342566435 / task-set 7752 / completion-time 1667643255542; task 2999602857423963363 / task-set 7754 / completion-time 1667186137120; task 987377648118268288 / task-set 3645 / completion-time 1655907840367.
 
 Which hypothesis is better supported by the information available now?
 A. the audited gold answer for this task is option B (face B)
@@ -1904,7 +1904,7 @@ MESSAGE FROM Annotator 1682:
 The annotator reports option B.
 
 INTERVENING MATERIAL:
-Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 2999582963135451455 / task-set 7370 / completion-time 1665327675008; task 2999615793865465702 / task-set 7749 / completion-time 1667875070705; task 2999602840244095932 / task-set 7753 / completion-time 1667210472406; task 2999602857423967874 / task-set 7754 / completion-time 1667223809050; task 2999615793865459482 / task-set 7750 / completion-time 1667888513796; task 2999587481441048138 / task-set 7377 / completion-time 1665718774923; task 2999615793865459163 / task-set 7750 / completion-time 1667811544496; task 2999618800342569890 / task-set 7751 / completion-time 1667813263476.
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 2999602840244096223 / task-set 7753 / completion-time 1667186879683; task 987376178987794784 / task-set 3628 / completion-time 1655950925722; task 2999587447081307484 / task-set 7374 / completion-time 1666960064353; task 987375739458290016 / task-set 3623 / completion-time 1655951779199; task 2999582945955581938 / task-set 7369 / completion-time 1665336356311; task 2999618800342566435 / task-set 7752 / completion-time 1667643255542; task 2999602857423963363 / task-set 7754 / completion-time 1667186137120; task 987377648118268288 / task-set 3645 / completion-time 1655907840367.
 
 SOURCE REMINDER:
 Recall that the earlier report came from Annotator 1682. Its audited calibration profile was: Annotator 1682 was correct on 56.6% of the binary calibration records; report-B LR=2.287, report-C LR=0.439.
@@ -1934,7 +1934,7 @@ MESSAGE FROM Annotator 1682:
 The annotator reports option B.
 
 INTERVENING MATERIAL:
-Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 2999582963135451455 / task-set 7370 / completion-time 1665327675008; task 2999615793865465702 / task-set 7749 / completion-time 1667875070705; task 2999602840244095932 / task-set 7753 / completion-time 1667210472406; task 2999602857423967874 / task-set 7754 / completion-time 1667223809050; task 2999615793865459482 / task-set 7750 / completion-time 1667888513796; task 2999587481441048138 / task-set 7377 / completion-time 1665718774923; task 2999615793865459163 / task-set 7750 / completion-time 1667811544496; task 2999618800342569890 / task-set 7751 / completion-time 1667813263476.
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 2999602840244096223 / task-set 7753 / completion-time 1667186879683; task 987376178987794784 / task-set 3628 / completion-time 1655950925722; task 2999587447081307484 / task-set 7374 / completion-time 1666960064353; task 987375739458290016 / task-set 3623 / completion-time 1655951779199; task 2999582945955581938 / task-set 7369 / completion-time 1665336356311; task 2999618800342566435 / task-set 7752 / completion-time 1667643255542; task 2999602857423963363 / task-set 7754 / completion-time 1667186137120; task 987377648118268288 / task-set 3645 / completion-time 1655907840367.
 
 CONTROL REMINDER:
 Before deciding, recall that the earlier report remains part of the same annotation record and that the surrounding administrative metadata was generated under the fixed protocol.
@@ -2155,7 +2155,7 @@ MESSAGE FROM Annotator 6160:
 The annotator reports option A.
 
 INTERVENING MATERIAL:
-Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 3000121225616853602 / task-set 8603 / completion-time 1672220756607; task 3000247033798891727 / task-set 8838 / completion-time 1673143703649; task 3000250779010370599 / task-set 8854 / completion-time 1673005363167; task 3000247033798888833 / task-set 8838 / completion-time 1673144897944; task 3000362430980197526 / task-set 8940 / completion-time 1673662660742; task 3000334067016174214 / task-set 8926 / completion-time 1673606742037; task 3000080509326889002 / task-set 8533 / completion-time 1672107910796; task 3000332641087032066 / task-set 8917 / completion-time 1673492711152.
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 3000080560866495146 / task-set 8536 / completion-time 1672125689980; task 3000245178373013834 / task-set 8831 / completion-time 1673089609302; task 3000242601392637000 / task-set 8824 / completion-time 1673059109768; task 3000250744650629578 / task-set 8853 / completion-time 1673004507679; task 3000362448160071328 / task-set 8941 / completion-time 1673665562935; task 3000328552278165142 / task-set 8912 / completion-time 1673433415452; task 3000080234448982498 / task-set 8530 / completion-time 1672110084357; task 3000242635752378235 / task-set 8826 / completion-time 1673061320035.
 
 Which hypothesis is better supported by the information available now?
 A. the audited gold answer for this task is option A (gesture A)
@@ -2182,7 +2182,7 @@ MESSAGE FROM Annotator 6160:
 The annotator reports option A.
 
 INTERVENING MATERIAL:
-Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 3000121225616853602 / task-set 8603 / completion-time 1672220756607; task 3000247033798891727 / task-set 8838 / completion-time 1673143703649; task 3000250779010370599 / task-set 8854 / completion-time 1673005363167; task 3000247033798888833 / task-set 8838 / completion-time 1673144897944; task 3000362430980197526 / task-set 8940 / completion-time 1673662660742; task 3000334067016174214 / task-set 8926 / completion-time 1673606742037; task 3000080509326889002 / task-set 8533 / completion-time 1672107910796; task 3000332641087032066 / task-set 8917 / completion-time 1673492711152.
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 3000080560866495146 / task-set 8536 / completion-time 1672125689980; task 3000245178373013834 / task-set 8831 / completion-time 1673089609302; task 3000242601392637000 / task-set 8824 / completion-time 1673059109768; task 3000250744650629578 / task-set 8853 / completion-time 1673004507679; task 3000362448160071328 / task-set 8941 / completion-time 1673665562935; task 3000328552278165142 / task-set 8912 / completion-time 1673433415452; task 3000080234448982498 / task-set 8530 / completion-time 1672110084357; task 3000242635752378235 / task-set 8826 / completion-time 1673061320035.
 
 SOURCE REMINDER:
 Recall that the earlier report came from Annotator 6160. Its audited calibration profile was: Annotator 6160 was correct on 57.3% of the binary calibration records; report-A LR=2.534, report-B LR=0.264.
@@ -2212,7 +2212,7 @@ MESSAGE FROM Annotator 6160:
 The annotator reports option A.
 
 INTERVENING MATERIAL:
-Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 3000121225616853602 / task-set 8603 / completion-time 1672220756607; task 3000247033798891727 / task-set 8838 / completion-time 1673143703649; task 3000250779010370599 / task-set 8854 / completion-time 1673005363167; task 3000247033798888833 / task-set 8838 / completion-time 1673144897944; task 3000362430980197526 / task-set 8940 / completion-time 1673662660742; task 3000334067016174214 / task-set 8926 / completion-time 1673606742037; task 3000080509326889002 / task-set 8533 / completion-time 1672107910796; task 3000332641087032066 / task-set 8917 / completion-time 1673492711152.
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 3000080560866495146 / task-set 8536 / completion-time 1672125689980; task 3000245178373013834 / task-set 8831 / completion-time 1673089609302; task 3000242601392637000 / task-set 8824 / completion-time 1673059109768; task 3000250744650629578 / task-set 8853 / completion-time 1673004507679; task 3000362448160071328 / task-set 8941 / completion-time 1673665562935; task 3000328552278165142 / task-set 8912 / completion-time 1673433415452; task 3000080234448982498 / task-set 8530 / completion-time 1672110084357; task 3000242635752378235 / task-set 8826 / completion-time 1673061320035.
 
 CONTROL REMINDER:
 Before deciding, recall that the earlier report remains part of the same annotation record and that the surrounding administrative metadata was generated under the fixed protocol.
@@ -2433,7 +2433,7 @@ MESSAGE FROM Annotator 13587:
 The annotator reports option A.
 
 INTERVENING MATERIAL:
-Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 3000247136878106819 / task-set 8842 / completion-time 1673231144589; task 3000245195552884550 / task-set 8832 / completion-time 1673084465766; task 3000243202688061320 / task-set 8827 / completion-time 1673060425503; task 3000080251628854235 / task-set 8532 / completion-time 1672107763539; task 3000080217269111819 / task-set 8529 / completion-time 1671880244581; task 3000297336455859898 / task-set 8867 / completion-time 1673318629400; task 3000365987213121486 / task-set 8960 / completion-time 1673839458437; task 3000362413800330027 / task-set 8939 / completion-time 1673673140213.
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 3000240831866115891 / task-set 8819 / completion-time 1673261632594; task 3000361864044512006 / task-set 8938 / completion-time 1673667064164; task 3000332641087036193 / task-set 8917 / completion-time 1673497292615; task 3000363685110647560 / task-set 8946 / completion-time 1673690919558; task 3000297336455858229 / task-set 8867 / completion-time 1673316372376; task 3000333173662979905 / task-set 8920 / completion-time 1673612622579; task 3000363994348297661 / task-set 8950 / completion-time 1673750954934; task 3000247136878104951 / task-set 8842 / completion-time 1673232219408.
 
 Which hypothesis is better supported by the information available now?
 A. the audited gold answer for this task is option A (gesture A)
@@ -2460,7 +2460,7 @@ MESSAGE FROM Annotator 13587:
 The annotator reports option A.
 
 INTERVENING MATERIAL:
-Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 3000247136878106819 / task-set 8842 / completion-time 1673231144589; task 3000245195552884550 / task-set 8832 / completion-time 1673084465766; task 3000243202688061320 / task-set 8827 / completion-time 1673060425503; task 3000080251628854235 / task-set 8532 / completion-time 1672107763539; task 3000080217269111819 / task-set 8529 / completion-time 1671880244581; task 3000297336455859898 / task-set 8867 / completion-time 1673318629400; task 3000365987213121486 / task-set 8960 / completion-time 1673839458437; task 3000362413800330027 / task-set 8939 / completion-time 1673673140213.
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 3000240831866115891 / task-set 8819 / completion-time 1673261632594; task 3000361864044512006 / task-set 8938 / completion-time 1673667064164; task 3000332641087036193 / task-set 8917 / completion-time 1673497292615; task 3000363685110647560 / task-set 8946 / completion-time 1673690919558; task 3000297336455858229 / task-set 8867 / completion-time 1673316372376; task 3000333173662979905 / task-set 8920 / completion-time 1673612622579; task 3000363994348297661 / task-set 8950 / completion-time 1673750954934; task 3000247136878104951 / task-set 8842 / completion-time 1673232219408.
 
 SOURCE REMINDER:
 Recall that the earlier report came from Annotator 13587. Its audited calibration profile was: Annotator 13587 was correct on 56.2% of the binary calibration records; report-A LR=2.949, report-C LR=0.337.
@@ -2490,7 +2490,7 @@ MESSAGE FROM Annotator 13587:
 The annotator reports option A.
 
 INTERVENING MATERIAL:
-Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 3000247136878106819 / task-set 8842 / completion-time 1673231144589; task 3000245195552884550 / task-set 8832 / completion-time 1673084465766; task 3000243202688061320 / task-set 8827 / completion-time 1673060425503; task 3000080251628854235 / task-set 8532 / completion-time 1672107763539; task 3000080217269111819 / task-set 8529 / completion-time 1671880244581; task 3000297336455859898 / task-set 8867 / completion-time 1673318629400; task 3000365987213121486 / task-set 8960 / completion-time 1673839458437; task 3000362413800330027 / task-set 8939 / completion-time 1673673140213.
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 3000240831866115891 / task-set 8819 / completion-time 1673261632594; task 3000361864044512006 / task-set 8938 / completion-time 1673667064164; task 3000332641087036193 / task-set 8917 / completion-time 1673497292615; task 3000363685110647560 / task-set 8946 / completion-time 1673690919558; task 3000297336455858229 / task-set 8867 / completion-time 1673316372376; task 3000333173662979905 / task-set 8920 / completion-time 1673612622579; task 3000363994348297661 / task-set 8950 / completion-time 1673750954934; task 3000247136878104951 / task-set 8842 / completion-time 1673232219408.
 
 CONTROL REMINDER:
 Before deciding, recall that the earlier report remains part of the same annotation record and that the surrounding administrative metadata was generated under the fixed protocol.
@@ -2711,7 +2711,7 @@ MESSAGE FROM Annotator 8683:
 The annotator reports option B.
 
 INTERVENING MATERIAL:
-Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 3000329291012541071 / task-set 8913 / completion-time 1673434379347; task 3000247136878102819 / task-set 8842 / completion-time 1673231971838; task 3000250796190239165 / task-set 8855 / completion-time 1673001173260; task 3000242635752377165 / task-set 8826 / completion-time 1673060304027; task 3000297628513634711 / task-set 8868 / completion-time 1673320529955; task 3000081248061263955 / task-set 8537 / completion-time 1672125956011; task 3000242635752381723 / task-set 8827 / completion-time 1673057503232; task 3000364045887899265 / task-set 8952 / completion-time 1673775898317.
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 3000081282421001189 / task-set 8539 / completion-time 1672027433968; task 3000334049836307334 / task-set 8925 / completion-time 1673611533256; task 3000247085338500056 / task-set 8840 / completion-time 1673230862262; task 3000297302096125080 / task-set 8866 / completion-time 1673317352802; task 3000333173662975719 / task-set 8920 / completion-time 1673604384366; task 3000247033798892577 / task-set 8838 / completion-time 1673145996390; task 3000333156483109878 / task-set 8919 / completion-time 1673612192006; task 3000363238434048426 / task-set 8942 / completion-time 1673687137837.
 
 Which hypothesis is better supported by the information available now?
 A. the audited gold answer for this task is option B (gesture B)
@@ -2738,7 +2738,7 @@ MESSAGE FROM Annotator 8683:
 The annotator reports option B.
 
 INTERVENING MATERIAL:
-Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 3000329291012541071 / task-set 8913 / completion-time 1673434379347; task 3000247136878102819 / task-set 8842 / completion-time 1673231971838; task 3000250796190239165 / task-set 8855 / completion-time 1673001173260; task 3000242635752377165 / task-set 8826 / completion-time 1673060304027; task 3000297628513634711 / task-set 8868 / completion-time 1673320529955; task 3000081248061263955 / task-set 8537 / completion-time 1672125956011; task 3000242635752381723 / task-set 8827 / completion-time 1673057503232; task 3000364045887899265 / task-set 8952 / completion-time 1673775898317.
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 3000081282421001189 / task-set 8539 / completion-time 1672027433968; task 3000334049836307334 / task-set 8925 / completion-time 1673611533256; task 3000247085338500056 / task-set 8840 / completion-time 1673230862262; task 3000297302096125080 / task-set 8866 / completion-time 1673317352802; task 3000333173662975719 / task-set 8920 / completion-time 1673604384366; task 3000247033798892577 / task-set 8838 / completion-time 1673145996390; task 3000333156483109878 / task-set 8919 / completion-time 1673612192006; task 3000363238434048426 / task-set 8942 / completion-time 1673687137837.
 
 SOURCE REMINDER:
 Recall that the earlier report came from Annotator 8683. Its audited calibration profile was: Annotator 8683 was correct on 56.6% of the binary calibration records; report-B LR=2.721, report-C LR=0.706.
@@ -2768,7 +2768,7 @@ MESSAGE FROM Annotator 8683:
 The annotator reports option B.
 
 INTERVENING MATERIAL:
-Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 3000329291012541071 / task-set 8913 / completion-time 1673434379347; task 3000247136878102819 / task-set 8842 / completion-time 1673231971838; task 3000250796190239165 / task-set 8855 / completion-time 1673001173260; task 3000242635752377165 / task-set 8826 / completion-time 1673060304027; task 3000297628513634711 / task-set 8868 / completion-time 1673320529955; task 3000081248061263955 / task-set 8537 / completion-time 1672125956011; task 3000242635752381723 / task-set 8827 / completion-time 1673057503232; task 3000364045887899265 / task-set 8952 / completion-time 1673775898317.
+Unrelated administrative records from other tasks (no answers, truths, or focal-source identities): task 3000081282421001189 / task-set 8539 / completion-time 1672027433968; task 3000334049836307334 / task-set 8925 / completion-time 1673611533256; task 3000247085338500056 / task-set 8840 / completion-time 1673230862262; task 3000297302096125080 / task-set 8866 / completion-time 1673317352802; task 3000333173662975719 / task-set 8920 / completion-time 1673604384366; task 3000247033798892577 / task-set 8838 / completion-time 1673145996390; task 3000333156483109878 / task-set 8919 / completion-time 1673612192006; task 3000363238434048426 / task-set 8942 / completion-time 1673687137837.
 
 CONTROL REMINDER:
 Before deciding, recall that the earlier report remains part of the same annotation record and that the surrounding administrative metadata was generated under the fixed protocol.

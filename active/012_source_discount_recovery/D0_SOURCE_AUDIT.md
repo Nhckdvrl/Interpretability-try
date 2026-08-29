@@ -1,7 +1,7 @@
 # D0 source audit — Source-Discount Recovery
 
 Date: 2026-08-29  
-Verdict: `D0-AUDITING` — **the release is materialized and a 28-scenario candidate bank passes every mechanical check; the human read of the fixed-seed sample is still outstanding**.
+Verdict: `D0-AUDITING` — **the release is materialized and a 22-scenario candidate bank passes every mechanical check; awaiting the human read of the re-drawn fixed-seed sample**.
 
 The purpose of this audit is to prevent a shortcut in which a prompt merely calls one source “high reliability” and another “low reliability.” Formal D0 requires real source histories from which report-specific likelihood ratios can be recomputed on disjoint tasks.
 
@@ -78,11 +78,19 @@ At the original 1.15 margin the weakest frozen rows had a high/low report-LR rat
 | 2.0 | 3 | 44 | 6 | 2.08 |
 | 3.0 | 2 | 23 | 6 | 3.07 |
 
-The setting is margin 2.0 with at most two pairs per cell. Over all six capabilities that yields 31 scenarios; capability 69 is then excluded (below), leaving **28 scenarios over 5 capabilities and 56 distinct annotators**, with no marginal rows.
+The setting is margin 2.0 with at most two pairs per cell. Over all six capabilities that yields 31 scenarios; capabilities 69 and 126 are then excluded (below), leaving **22 scenarios over 4 capabilities and 44 distinct annotators**, with no marginal rows.
 
-### Capability 69 is excluded
+### Capabilities 69 and 126 are excluded
 
-In capability 69 the third response option is literally "undecided", so its 0v2 and 1v2 cells ask whether the audited gold answer is a content option or a refusal to decide. That is faithful to the release, but it is a different kind of hypothesis from the other five capabilities, where every option names a candidate answer. Mixing the two would put a heterogeneous hypothesis type inside a bank whose bootstrap unit is the scenario, so capability 69 is dropped with `--exclude-domain 69`. Exclusion happens before selection rather than by filtering the output, because annotators are unique across the whole bank and a dropped domain must release its workers back to the domains that follow it. Here the counts in the other five capabilities are unchanged, so the two banks agree row for row outside capability 69.
+Capability 69's third response option is literally "undecided", so its 0v2 and 1v2 cells ask whether the audited gold answer is a content option or a refusal to decide. That is faithful to the release, but it is a different kind of hypothesis from the capabilities where every option names a candidate answer, and the bootstrap unit is the scenario.
+
+Capability 126 was dropped after the first human audit (below). The release marks it `documented: false` — it publishes the annotations and gold answers but not the question — so its background can only say that an internal task type offers three response options. That still supports a source-weighting test, but it is not a task a reader can recognise at a glance, and this project's `natural_setting_gold` means more than schema validity. The remaining four capabilities all carry a published question.
+
+Both exclusions run before selection rather than by filtering the output, because annotators are unique across the whole bank and a dropped domain must release its workers back into the pool. For these two domains the released annotators turned out not to contend with the survivors — the 22 rows are identical to the corresponding rows of the 28-row bank — but that is an observed outcome, not a reason to filter instead of rebuild.
+
+### First human audit — 2026-08-29
+
+The 28-row bank's fixed-seed sample was read and returned **18/20 PASS, 2/20 HOLD-NATURALNESS**. Both holds were `126:0v1:002` and `126:1v2:002`, and both were held on `natural_setting` alone. The reader explicitly confirmed the two things this design is most exposed on: the intervening material carries only unrelated `task / task-set / completion-time` records with no case answer and no focal annotator, and the source reminder restores identity plus accuracy plus report-specific LRs **without** restating which option was reported — source calibration reinstated, message content not. The response was to drop capability 126 and re-freeze, not to relax the audit.
 
 ### Bug found and fixed: delay material could come from focal-source tasks
 
@@ -94,7 +102,7 @@ Scenarios previously read "A new annotation task in capability-50", with bare la
 
 ### Audit status
 
-`data/audit_d0_candidates.py` re-derives every stored statistic from the raw release and checks it against the model-visible text. All ten checks pass on all 28 rows: global worker uniqueness, calibration/validation task disjointness, accuracy floor and ordering on both splits, both-direction LR ordering and margin on both splits, profile text matching the raw history, message text identical across sources, delay records drawn from unrelated tasks, delay material free of truths/answers/focal identities, reinstatement restoring source only, and complete provenance including the raw SHA256.
+`data/audit_d0_candidates.py` re-derives every stored statistic from the raw release and checks it against the model-visible text. All ten checks pass on all 22 rows: global worker uniqueness, calibration/validation task disjointness, accuracy floor and ordering on both splits, both-direction LR ordering and margin on both splits, profile text matching the raw history, message text identical across sources, delay records drawn from unrelated tasks, delay material free of truths/answers/focal identities, reinstatement restoring source only, and complete provenance including the raw SHA256.
 
 ## Why D0 is not signed yet
 
@@ -108,4 +116,4 @@ A dataset card and a correct builder are not D0-PASS. The actual released NetEas
 - reinstatement not repeating the message;
 - license/provenance and prompt naturalness.
 
-The concrete rows now exist and pass every mechanical check. What remains is the part a script cannot do: reading the fixed-seed 20-row sample in `data/D0_MANUAL_AUDIT_PROMPTS.txt` and confirming that the scenarios read as a natural annotation-review setting, that the intervening records carry no case evidence, and that the source reminder restores only who spoke and how well calibrated they were. Until that reading is recorded, `d0_verdict` stays `AUDITING` and `validation_authorized` remains `false`.
+The concrete rows now exist and pass every mechanical check, and the first human audit is recorded above. What remains is the human read of the **re-drawn** 20-row sample for the 22-row bank, since dropping capability 126 changes which rows the fixed seed selects. The sample covers 20 of the 22 rows; the two outside it are `50:1v2:001` and `50:0v1:002`. Until that reading is recorded, `d0_verdict` stays `AUDITING` and `validation_authorized` remains `false`.

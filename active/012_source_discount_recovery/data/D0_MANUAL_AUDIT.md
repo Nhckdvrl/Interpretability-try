@@ -4,9 +4,9 @@ Candidates: `d0_candidates_netease.jsonl`
 Raw CSV SHA256: `e9ebddfee58aaba5f64b1759506d5b7c3839b04bfb80a61b471358b4372430ee` (matches `RAW_MANIFEST.md`: yes)  
 Audit seed: `20260829`  ·  LR margin: `2.0`  ·  min per class: cal `20` / val `10`
 
-Scenarios: **28**  ·  capability domains: **5**  ·  unique annotators: **56**  ·  max scenarios in one (domain, label-pair) cell: **2**
+Scenarios: **22**  ·  capability domains: **4**  ·  unique annotators: **44**  ·  max scenarios in one (domain, label-pair) cell: **2**
 
-Per domain: `capability-126` 6, `capability-50` 6, `capability-52` 4, `capability-53` 6, `capability-56` 6
+Per domain: `capability-50` 6, `capability-52` 4, `capability-53` 6, `capability-56` 6
 
 ## Automated re-derivation over all rows
 
@@ -14,16 +14,16 @@ Each statistic is recomputed from the raw release and compared against the store
 
 | check | rows passing |
 |---|---|
-| 1 workers globally unique | 28/28 |
-| 2 calibration/validation tasks disjoint | 28/28 |
-| 3 accuracy floor+ordering on both splits | 28/28 |
-| 4 both-direction LR ordering on both splits | 28/28 |
-| 5 visible profile matches raw history | 28/28 |
-| 6 message identical across sources | 28/28 |
-| 7 delay records from unrelated tasks | 28/28 |
-| 8 delay carries no truth/answer/focal source | 28/28 |
-| 9 reinstatement restores source only | 28/28 |
-| 10 provenance complete | 28/28 |
+| 1 workers globally unique | 22/22 |
+| 2 calibration/validation tasks disjoint | 22/22 |
+| 3 accuracy floor+ordering on both splits | 22/22 |
+| 4 both-direction LR ordering on both splits | 22/22 |
+| 5 visible profile matches raw history | 22/22 |
+| 6 message identical across sources | 22/22 |
+| 7 delay records from unrelated tasks | 22/22 |
+| 8 delay carries no truth/answer/focal source | 22/22 |
+| 9 reinstatement restores source only | 22/22 |
+| 10 provenance complete | 22/22 |
 
 No row fails any check.
 
@@ -33,14 +33,14 @@ Read these rows against the rendered prompts in the companion file before signin
 
 | scenario | low | high | cal acc | val acc | cal tLR lo→hi | val tLR lo→hi | cal oLR hi←lo | val oLR hi←lo | cal n/class | val n/class | 10 checks |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| `126:0v1:002` | 6884 | 6000 | 0.624 → 0.896 | 0.648 → 0.957 | 4.20 → 22.01 | 13.94 → 33.10 | 0.108 → 0.042 | 0.040 → 0.017 | 34 | 17 | all pass |
-| `126:1v2:002` | 8356 | 5710 | 0.564 → 0.863 | 0.568 → 0.894 | 3.25 → 8.28 | 3.57 → 9.47 | 0.527 → 0.067 | 0.490 → 0.041 | 26 | 13 | all pass |
 | `50:0v1:001` | 2185 | 114 | 0.551 → 0.962 | 0.553 → 0.972 | 2.45 → 18.75 | 2.34 → 33.19 | 0.837 → 0.022 | 0.858 → 0.026 | 23 | 16 | all pass |
 | `50:0v2:001` | 7799 | 7736 | 0.565 → 0.851 | 0.556 → 0.951 | 2.44 → 6.62 | 3.00 → 7.06 | 0.334 → 0.138 | 0.407 → 0.023 | 22 | 17 | all pass |
-| `50:1v2:001` | 4802 | 1679 | 0.560 → 0.962 | 0.560 → 0.967 | 2.56 → 15.80 | 2.71 → 13.36 | 0.390 → 0.018 | 0.399 → 0.049 | 24 | 10 | all pass |
+| `50:0v2:002` | 13761 | 1493 | 0.570 → 0.854 | 0.576 → 0.914 | 2.69 → 5.93 | 3.15 → 22.21 | 0.301 → 0.118 | 0.383 → 0.065 | 23 | 12 | all pass |
+| `50:1v2:002` | 355 | 10013 | 0.563 → 0.879 | 0.560 → 0.868 | 1.91 → 11.96 | 1.83 → 17.41 | 0.519 → 0.096 | 0.511 → 0.106 | 182 | 130 | all pass |
 | `52:0v1:001` | 249 | 91 | 0.653 → 0.887 | 0.645 → 0.891 | 1.74 → 6.67 | 1.66 → 6.34 | 0.464 → 0.032 | 0.476 → 0.036 | 906 | 634 | all pass |
 | `52:0v1:002` | 67 | 126 | 0.686 → 0.825 | 0.678 → 0.829 | 2.06 → 5.27 | 2.01 → 5.79 | 0.367 → 0.065 | 0.390 → 0.091 | 224 | 124 | all pass |
 | `52:0v2:001` | 59 | 113 | 0.599 → 0.848 | 0.591 → 0.842 | 2.15 → 7.76 | 2.15 → 9.65 | 0.410 → 0.084 | 0.413 → 0.128 | 225 | 149 | all pass |
+| `52:1v2:001` | 57 | 128 | 0.611 → 0.732 | 0.624 → 0.741 | 1.50 → 3.68 | 1.59 → 4.47 | 0.570 → 0.091 | 0.557 → 0.134 | 145 | 85 | all pass |
 | `53:0v1:001` | 3322 | 99 | 0.567 → 0.799 | 0.551 → 0.809 | 2.64 → 6.14 | 2.61 → 5.73 | 0.425 → 0.159 | 0.471 → 0.099 | 148 | 85 | all pass |
 | `53:0v1:002` | 2443 | 2359 | 0.554 → 0.788 | 0.565 → 0.718 | 2.97 → 6.98 | 3.58 → 14.67 | 0.490 → 0.146 | 0.532 → 0.220 | 47 | 26 | all pass |
 | `53:0v2:001` | 1874 | 1329 | 0.557 → 0.700 | 0.565 → 0.732 | 3.01 → 6.31 | 3.16 → 9.57 | 0.472 → 0.228 | 0.524 → 0.090 | 21 | 19 | all pass |

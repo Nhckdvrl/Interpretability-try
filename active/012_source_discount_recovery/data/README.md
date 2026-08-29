@@ -35,11 +35,12 @@ python data/build_natural_d0.py \
   --max-pairs-per-cell 2 \
   --lr-margin 2.0 \
   --exclude-domain 69 \
+  --exclude-domain 126 \
   --seed 20260829 \
   --out data/d0_candidates_netease.jsonl
 ```
 
-`--max-pairs-per-cell` bounds how many scenarios come out of one (capability, binary label pair) cell, and allocation is round-robin so no capability absorbs the extra scenarios. One pair per cell caps the whole bank at 18 for NetEaseCrowd, below the frozen `>=20`; see `../D0_SOURCE_AUDIT.md` for why that ceiling is structural rather than a data-density limit. `--exclude-domain` drops a capability before selection, not after, so its annotators return to the pool for the remaining domains; capability 69 is excluded because its third option is "undecided".
+`--max-pairs-per-cell` bounds how many scenarios come out of one (capability, binary label pair) cell, and allocation is round-robin so no capability absorbs the extra scenarios. One pair per cell caps the whole bank at 18 for NetEaseCrowd, below the frozen `>=20`; see `../D0_SOURCE_AUDIT.md` for why that ceiling is structural rather than a data-density limit. `--exclude-domain` drops a capability before selection, not after, so its annotators return to the pool for the remaining domains; capability 69 is excluded because its third option is "undecided", and capability 126 because the release does not publish its question text.
 
 ## Re-audit
 

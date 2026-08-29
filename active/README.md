@@ -5,7 +5,7 @@
 当前与本轮现象发现相关：
 
 - `007_weak_evidence_backfire/` — **N0-PASS / D0-PASS / READY-TO-SMOKE**。30 条 UCI natural D0（Breast Cancer Wisconsin Diagnostic + Wine），20/20 人工审计通过；harness r5 已允许真实 finite-data neutral cue，且 calibration/held-out 两边都必须近似 non-diagnostic。
-- `012_source_discount_recovery/` — **N0-PASS / D0-AUDITING / NOT READY-TO-SMOKE**。NetEaseCrowd release 已下载、哈希并跑通 builder：28 条候选 scenario、5 个 capability、56 个不重复 annotator，双方向 LR 分离 ≥2.0 且 cal/val 都成立，独立复算的 10 项机械检查 28/28 通过。仍缺固定种子 20 条的人工阅读，未签署。
+- `012_source_discount_recovery/` — **N0-PASS / D0-AUDITING / NOT READY-TO-SMOKE**。NetEaseCrowd release 已下载、哈希并跑通 builder。首轮人工审计 18/20 PASS，2 条因 capability 126 无官方题面而 HOLD-NATURALNESS，遂在 selection 前排除 126 重新冻结：22 条候选 scenario、4 个都有官方题面的 capability、44 个不重复 annotator，双方向 LR 分离 ≥2.0 且 cal/val 都成立，独立复算的 10 项机械检查 22/22 通过。仍缺重抽的固定种子 20 条人工阅读，未签署。
 - `013_publicness_coordination_dissociation/` — **N0-PASS / HOLD-D0 / NOT READY-TO-SMOKE**。找到强 human common-knowledge coordination anchor，但独立 natural scenarios 数量与可适配 license 仍不足，禁止 synthetic 扩写。
 - `003_diagnostic_counterevidence_revision/` — 已报告 failure 的 mechanism-followup，不属于本轮新自然现象 discovery shortlist。
 
