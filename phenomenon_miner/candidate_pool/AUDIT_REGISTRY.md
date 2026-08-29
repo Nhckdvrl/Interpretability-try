@@ -19,6 +19,8 @@ d0_source_feasibility_verdict: PASS
 
 现有 003/007/013 是 v4 之前的 legacy entries，不要求为了形式机械重跑 N1；只有 claim/source 实质变化或出现具体新 collision 才 refresh。
 
+当前未注册候选的 survival queue 只看 [`CURRENT_SURVIVORS_2026-08-29.md`](CURRENT_SURVIVORS_2026-08-29.md)；该文件没有 dispatch 权。
+
 ## Dispatch
 
 | project | status | authorized |
@@ -58,14 +60,14 @@ archive/012_source_discount_recovery:
 
 | # | topic | current status | path |
 |---:|---|---|---|
-| 1 | First-Negative-Evidence Harm | discovery survivor | — |
+| 1 | First-Negative-Evidence Harm | `KILLED-v4-REAUDIT / ROUTE` | — |
 | 2 | Packed–Unpacked Event Splitting | archived | `archive/009_packed_unpacked_event_splitting/` |
 | 3 | Publicness–Coordination Dissociation | legacy HOLD-D0 | `active/013_publicness_coordination_dissociation/` |
 | 4 | Existential Witness Collapse | archived | `archive/011_existential_witness_collapse/` |
 | 5 | Inadmissible-Evidence Persistence | archived | `archive/010_inadmissible_evidence_persistence/` |
-| 6 | Habitual → Episode Actualization | discovery survivor | — |
-| 7 | Mixed-Status Event Attraction | discovery survivor | — |
-| 8 | Dissent → Holding Role Swap | discovery survivor | — |
+| 6 | Habitual → Episode Actualization | `CONTINUE-DISCOVERY-v4` | `candidate_pool/CURRENT_SURVIVORS_2026-08-29.md` |
+| 7 | Mixed-Status Event Attraction | `CONTINUE-DISCOVERY-v4` | `candidate_pool/CURRENT_SURVIVORS_2026-08-29.md` |
+| 8 | Dissent → Holding Role Swap | `CONTINUE-DISCOVERY-v4 / HOLD-DATA-GOLD` | `candidate_pool/CURRENT_SURVIVORS_2026-08-29.md` |
 | 9 | Source-Discount Recovery | archived | `archive/012_source_discount_recovery/` |
 | 10 | Weak-Evidence Backfire | legacy READY-TO-SMOKE | `active/007_weak_evidence_backfire/` |
 
