@@ -1,6 +1,6 @@
 # 012 — Source-Discount Recovery
 
-Status: `N0-PASS / D0-PASS / HARNESS-READY-r2 / READY-TO-SMOKE`
+Status: `N0-PASS / D0-PASS / R2-HOLD-INSTRUMENTATION-ARTIFACT / HARNESS-r3 / RE-RUNNING`
 
 Canonical shortlist mapping: **2026-08-28 adversarial N0 shortlist #9**.
 
@@ -16,7 +16,16 @@ d0_capabilities: 4
 unique_annotators: 216
 manual_audit: 20/20 PASS
 validation_authorized: true
+r2_disposition: R2-HOLD-INSTRUMENTATION-ARTIFACT
 ```
+
+## Run history
+
+**r2 — 2026-08-29, two-family first shot.** Qwen3-8B and Gemma-3-12B-IT, 28,944 scored prompts each. Both returned `HARD-KILL-SOURCE-MEMORY-CAPABILITY-FLOOR` with a zero weighting-capable denominator, so no recovery figure was interpretable. The kill came entirely from the `source_credibility` yes/no probe, whose gold answer was always "Yes" and which showed opposite, very large answer-position effects in the two models (Qwen −0.81, Gemma +0.57) while the two content-option memory probes in the same prompt family sat at ceiling with order gaps ≤0.005. Recorded as an instrumentation hold, not a phenomenon kill. See [`results/smoke_r2/SMOKE_VERDICT.md`](results/smoke_r2/SMOKE_VERDICT.md); all r2 raw output is retained.
+
+**r3 — contract `2026-08-29-r3`.** Exactly one instrumentation item changes: `source_credibility` becomes a counterbalanced two-content-option item whose gold flips with which source spoke, so a standing position preference scores at chance. Everything else — the bank, the 101/7 stratification, the cell bootstrap, the support probes, the readout wording, `p_target` aggregation and every threshold — is byte-identical to r2. Both models are fully re-run rather than spliced.
+
+The r3 decision rule was fixed before the run: if the memory gate recovers but `belief_initial_gap` still leaves the weighting denominator near zero, that is a real `HARD-KILL-SOURCE-WEIGHTING-CAPABILITY-FLOOR` and this operationalization ends — the belief readout will not be swapped for a log-odds measure to rescue it.
 
 The historical duplicate N0 that killed this project as a sleeper-effect collision is superseded by [`N0_RESOLUTION_2026-08-29.md`](N0_RESOLUTION_2026-08-29.md). The sleeper effect/source-message dissociation is the natural human mother phenomenon; the LLM target is the stricter source-memory-intact, weighting-use dissociation with selective cue reinstatement.
 

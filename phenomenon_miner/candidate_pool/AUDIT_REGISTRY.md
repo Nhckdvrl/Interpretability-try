@@ -8,7 +8,7 @@
 **当前 `READY-TO-SMOKE`：2 — `active/007_weak_evidence_backfire`、`active/012_source_discount_recovery`.**
 
 - 007：`N0-PASS / D0-PASS / READY-TO-SMOKE`，30 个 frozen natural scenarios，20/20 manual audit，`validation_authorized: true`。
-- 012：`N0-PASS / D0-PASS / SMOKE-RUN`，108 条 natural D0 已跑完两家族 first shot，两家均 `HARD-KILL-SOURCE-MEMORY-CAPABILITY-FLOOR`、denominator = 0。kill 来源单一 probe（`source_credibility`）且证实为答案位置 artifact；另有 belief 侧 immediate discount gap 近 0 的独立 floor。进 N1/panel 前必须先完成 raw-case/scorer/capability/artifact 审计。
+- 012：`N0-PASS / D0-PASS / R2-HOLD-INSTRUMENTATION-ARTIFACT`，r2 两家族 first shot 的 kill 全部来自 `source_credibility` 这一个 yes/no probe（gold 恒为 Yes，两模型出现方向相反的巨大 label-order effect），已判定为 instrumentation artifact 而非现象 kill。r3 只把该 probe 改成反平衡双内容选项，其余 D0/统计/readout/阈值一字未动，两模型全量重跑。r3 若 memory gate 恢复而 belief initial gap 仍使 denominator 近零，则直接终止 012，不得改 readout 救题。
 - 013：`N0-PASS / HOLD-D0 / NOT READY-TO-SMOKE`，强自然 anchor 已找到，但独立 scenario 数量与 adaptation/license 条件不足。
 
 ## N0 范围决议
@@ -31,7 +31,7 @@ N1 仍在 smoke 后、扩模型前强制执行。
 | 6 | Habitual → Episode Actualization | `ADVERSARIAL-N0-SURVIVOR` | — | false |
 | 7 | Mixed-Status Event Attraction | `ADVERSARIAL-N0-SURVIVOR` | — | false |
 | 8 | Dissent → Holding Role Swap | `ADVERSARIAL-N0-SURVIVOR` | — | false |
-| 9 | Source-Discount Recovery | `N0-PASS / D0-PASS / SMOKE-RUN / CAPABILITY-FLOOR` | `active/012_source_discount_recovery/` | true |
+| 9 | Source-Discount Recovery | `N0-PASS / D0-PASS / R2-HOLD-INSTRUMENTATION-ARTIFACT / r3 RE-RUN` | `active/012_source_discount_recovery/` | true |
 | 10 | Weak-Evidence Backfire | `N0-PASS / D0-PASS / READY-TO-SMOKE` | `active/007_weak_evidence_backfire/` | true |
 
 ## Active registrations
@@ -67,9 +67,11 @@ active/012_source_discount_recovery:
   manual_audit: 20/20 PASS
   analysis_contract: 2026-08-29-r2
   smoke: 2026-08-29 two-family, Qwen3-8B + Gemma-3-12B-IT
-  smoke_verdict: HARD-KILL-SOURCE-MEMORY-CAPABILITY-FLOOR (both families)
-  smoke_denominator: 0 weighting-capable pairs in both families
-  smoke_caveat: kill driven solely by the source_credibility yes/no probe, which shows a large answer-position effect absent from the other two memory probes
+  smoke_verdict: HARD-KILL-SOURCE-MEMORY-CAPABILITY-FLOOR (summarizer, both families)
+  r2_disposition: R2-HOLD-INSTRUMENTATION-ARTIFACT
+  r2_reason: frozen capability probe invalidated by a decisive answer-order artifact; outcome phenotype structurally uninterpretable because the weighting denominator was zero
+  analysis_contract_r3: 2026-08-29-r3 — source_credibility becomes a counterbalanced two-content-option probe; no other item, threshold or datum changed
+  r3_kill_rule: if the memory gate recovers and belief_initial_gap still leaves the denominator near zero, terminate 012 as HARD-KILL-SOURCE-WEIGHTING-CAPABILITY-FLOOR; do not swap the belief readout for log-odds to rescue it
   frozen_data_sha256: cde7f3fa9dfeb94645fa2e254507013c26cb2ffb01793b9bd889a86668af1c3a
   validation_authorized: true
 

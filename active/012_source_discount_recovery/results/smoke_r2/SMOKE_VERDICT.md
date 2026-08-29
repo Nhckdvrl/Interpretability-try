@@ -3,7 +3,8 @@
 Date: 2026-08-29  
 Data: `data/frozen_d0.jsonl` (108 scenarios, sha256 `cde7f3fa9dfeb94645fa2e254507013c26cb2ffb01793b9bd889a86668af1c3a`)  
 Contract: `configs/frozen_g0.json` `2026-08-29-r2`  
-Result: **`HARD-KILL-SOURCE-MEMORY-CAPABILITY-FLOOR` for both families. `smoke_cross_family_pass: false`.**
+Summarizer output: **`HARD-KILL-SOURCE-MEMORY-CAPABILITY-FLOOR` for both families. `smoke_cross_family_pass: false`.**  
+Project-level disposition: **`R2-HOLD-INSTRUMENTATION-ARTIFACT`** — a frozen capability probe was invalidated by a decisive answer-order artifact, and the outcome phenotype stayed structurally uninterpretable because the weighting denominator was zero. This is **not** recorded as a scientific hard kill of the phenomenon. All r2 raw output is retained unmodified.
 
 Models were pinned by revision rather than left to the cache: Qwen3-8B `b968826d9c46dd6066d109eabc6255188de91218`, Gemma-3-12B-IT `96b6f1eccf38110c56df3a15bffe176da04bfd80`, both bfloat16. The bank was split into four stride-4 shards so every shard spans all twelve cells; Qwen ran on fvcrc21 GPUs 0-3 at batch 32 and Gemma on fvcrc20 GPUs 0-3 at batch 16 (its 262k vocab makes a batch-64 logits tensor ~26 GB). 28,944 scored prompts per model, 57,888 total, no shard errors. Scoring is the frozen `HFChoiceScorer` exact A/B continuation log-probability; nothing in the harness, the bank or the thresholds was touched.
 
@@ -73,4 +74,28 @@ Per repository process, a smoke is followed by raw-case, scorer, capability and 
 2. Whether the belief readout wording is measuring what the action readout is measuring, given the size of the gap between them.
 3. Whether the four support-gate failures (104/108 in both families) share a cell or a source-profile shape.
 
-`validation_authorized` stays `true`; `d0_verdict` stays `PASS`. This run is a recorded null at the capability floor, not a phenomenon result.
+## Disposition and what r3 changes
+
+`d0_verdict` stays `PASS`; D0 was never in question here. The project records this run as `R2-HOLD-INSTRUMENTATION-ARTIFACT` and proceeds to a contract `2026-08-29-r3` in which **exactly one instrumentation item changes**: `source_credibility` becomes a counterbalanced two-content-option item like the other two memory probes.
+
+```text
+According to the audited source records, which statement about the source that
+delivered the earlier message is correct?
+  A. It was the more reliable of the two sources.      (order 0)
+  B. It was the less reliable of the two sources.
+```
+
+with the labels swapped in order 1, and gold now flipping with which source spoke — high to "more", low to "less". Across source x order the gold is A twice and B twice, so a standing position preference scores at chance and cannot pass, while answering requires the chain earlier message -> source identity -> source profile -> relative credibility. That is closer to the source-credibility binding the phenomenon needs than "will the model say Yes to a comparative".
+
+Nothing else moves. The 108-scenario bank, the 101/7 primary-secondary membership, the cell bootstrap, the support probes, the belief and action readout wording, `p_target` aggregation, and every initial-weighting, recovery, reinstatement and model-pass threshold are byte-identical to r2; the only other diff in `frozen_g0.json` is `contract_version`. r3 is a **full** re-run of both models over all 28,944 rows each — no splicing of new credibility rows onto r2 readouts, which would leave a mixed-contract dataset in the record for no meaningful saving.
+
+### The r3 decision rule, fixed in advance
+
+- If the memory gate recovers but `belief_initial_gap` still keeps weighting-capable pairs near zero, that is a genuine `HARD-KILL-SOURCE-WEIGHTING-CAPABILITY-FLOOR` and 012's current operationalization ends there. The belief readout will **not** be swapped for a log-odds measure to rescue it.
+- Only if the weighting denominator is large enough do the low-source rebound, gap shrink, high-source retention, source-cue reinstatement and matched-length control get read at all.
+
+### Design note, deliberately not acted on
+
+The belief/action asymmetry above is suspicious in a way that has a measurement-theoretic explanation: `p_target` differences saturate near 0 and 1, so 0.90 -> 0.99 reads as 0.09 while 0.99 -> 0.999 reads as 0.009, though the two are comparable in preference strength. A semantic log-odds readout, `log P(target continuation) - log P(other continuation)`, does not saturate that way, and the raw files already store `label_logprobs`, so it is computable from this run.
+
+It is recorded here as a design note for a possible future secondary diagnostic and is **not** added to any gate in r3. Adopting it now — after seeing which gate failed — would be swapping the measurement for the one that survives, which is exactly the discipline this project is built to refuse. If 012 dies on the belief weighting floor, a future question can pre-register the log-odds readout from the start; that version would be clean.

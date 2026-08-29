@@ -11,6 +11,10 @@ CHOICE_ORDERS = (
     {"A": "target", "B": "other"},
     {"A": "other", "B": "target"},
 )
+CREDIBILITY_ORDERS = (
+    {"A": "more", "B": "less"},
+    {"A": "less", "B": "more"},
+)
 SOURCE_ORDERS = (
     {"A": "low", "B": "high"},
     {"A": "high", "B": "low"},
@@ -142,9 +146,19 @@ def memory_prompt(s, *, direction: str, source: str, delay: str, probe: str,
         correct = next(lab for lab, sem in order.items() if sem == expected)
         q = "Which hypothesis did the earlier message favor?"
     elif probe == "source_credibility":
-        options, correct = yes_no_options(order)
-        relation = "less" if source == "low" else "more"
-        q = f"According to the audited source records, was the source of the earlier message {relation} reliable than the other source?"
+        # r3: a two-content-option item, not yes/no. The yes/no form asked "was the source
+        # {less,more} reliable than the other source?", whose gold answer was always "Yes",
+        # so a model with a standing answer-position preference could satisfy or fail it
+        # without reading anything. Here the gold flips with which source spoke, and the
+        # model has to run earlier message -> source identity -> profile -> relative
+        # credibility to answer either order correctly.
+        text = {"more": "It was the more reliable of the two sources.",
+                "less": "It was the less reliable of the two sources."}
+        options = "\n".join(f"{lab}. {text[sem]}" for lab, sem in order.items())
+        expected = "more" if source == "high" else "less"
+        correct = next(lab for lab, sem in order.items() if sem == expected)
+        q = ("According to the audited source records, which statement about the source that "
+             "delivered the earlier message is correct?")
     else:
         raise ValueError(probe)
     return f"{context}\n\n{q}\n{options}\nAnswer exactly A or B.", correct

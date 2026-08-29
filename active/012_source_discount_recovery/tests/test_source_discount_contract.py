@@ -174,3 +174,38 @@ def test_authorization_blocks_before_data_or_model_construction(tmp_path: Path):
     with pytest.raises(PermissionError):
         run(data_path=str(tmp_path/"missing.jsonl"), out_path=str(tmp_path/"out.jsonl"),
             config_path=str(cfg_path), model_name="should-not-load", family="Qwen", size_b=8)
+
+
+def test_credibility_probe_gold_is_not_constant_and_is_position_balanced():
+    """r3: the credibility item must be answerable only by reading, not by position.
+
+    The r2 yes/no form had "Yes" as gold in every cell, so a model with a standing
+    answer-position preference could pass or fail it without consulting the record.
+    """
+    from source_discount_g0.prompts import CREDIBILITY_ORDERS, memory_prompt
+    s = validate_record(row())
+    golds = {}
+    for source in ("low", "high"):
+        for order_id, order in enumerate(CREDIBILITY_ORDERS):
+            text, correct = memory_prompt(s, direction="supports_target", source=source,
+                                          delay="short", probe="source_credibility", order=order)
+            golds[(source, order_id)] = correct
+            assert "Yes" not in text and "No" not in text.split("Answer exactly")[0][-120:]
+            assert "more reliable" in text and "less reliable" in text
+    # gold flips with the answer order ...
+    assert golds[("low", 0)] != golds[("low", 1)]
+    assert golds[("high", 0)] != golds[("high", 1)]
+    # ... and with which source spoke, so neither label nor a fixed answer wins
+    assert golds[("low", 0)] != golds[("high", 0)]
+    assert sorted(golds.values()) == ["A", "A", "B", "B"]
+
+
+def test_credibility_probe_does_not_repeat_the_message():
+    from source_discount_g0.prompts import CREDIBILITY_ORDERS, memory_prompt
+    s = validate_record(row())
+    text, _ = memory_prompt(s, direction="supports_target", source="low", delay="long",
+                            probe="source_credibility", order=CREDIBILITY_ORDERS[0])
+    # the message block is part of the recalled context by design; what must not happen is
+    # the question restating it as part of the option text
+    question = text.split("According to the audited source records")[1]
+    assert s.target_message not in question and s.other_message not in question

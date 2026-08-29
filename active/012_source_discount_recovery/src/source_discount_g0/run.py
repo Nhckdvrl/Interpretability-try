@@ -5,8 +5,8 @@ import json
 
 from .data import load_scenarios
 from .prompts import (
-    CHOICE_ORDERS, CONDITIONS, DELAYS, DIRECTIONS, MEMORY_PROBES, READOUT_TEMPLATES,
-    SOURCE_ORDERS, SOURCES, SUPPORT_PROBES, YES_NO_ORDERS,
+    CHOICE_ORDERS, CONDITIONS, CREDIBILITY_ORDERS, DELAYS, DIRECTIONS, MEMORY_PROBES,
+    READOUT_TEMPLATES, SOURCE_ORDERS, SOURCES, SUPPORT_PROBES, YES_NO_ORDERS,
     memory_prompt, readout_prompt, support_prompt,
 )
 from .scoring import HFChoiceScorer
@@ -53,7 +53,9 @@ def run(*, data_path: str, out_path: str, config_path: str, model_name: str, fam
             for source in SOURCES:
                 for delay in ("short", "long"):
                     for probe in MEMORY_PROBES:
-                        orders = SOURCE_ORDERS if probe == "source_identity" else CHOICE_ORDERS if probe == "message_direction" else YES_NO_ORDERS
+                        orders = (SOURCE_ORDERS if probe == "source_identity"
+                                  else CHOICE_ORDERS if probe == "message_direction"
+                                  else CREDIBILITY_ORDERS)
                         for order_id, mapping in enumerate(orders):
                             prompt, correct = memory_prompt(
                                 s, direction=direction, source=source, delay=delay,
