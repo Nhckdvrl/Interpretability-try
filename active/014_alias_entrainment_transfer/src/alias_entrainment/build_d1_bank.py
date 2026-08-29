@@ -1,120 +1,209 @@
-"""D1 stage 5: apply the conservative ASSOC match and freeze the D1 bank.
+"""D1 r4 stage 5: match ASSOC controls and freeze the ordered evaluation bank.
 
-Contract d1-r2 §2/§3 and d1-r3 `assoc_selection`:
+This replaces the pre-r4 implementation that hard-coded every output row as
+person/opaque_strict/alias2canon and claimed to add SEMREL/UNREL without doing
+so.  r4 preserves each pair's true metadata, constructs every valid direction,
+and selects both ASSOC_ANY (primary) and ASSOC_SAMETYPE (sensitivity).
 
-    S(X->B) = log((c(X,B) + 1) / (c(X) + 100))     sentence windows
-    eligible: S(C->B) >= S(A->B)
-    then pick deterministically by
-      (1) smallest association margin  -- a MATCHED control, not the strongest
-      (2) smallest surface-frequency mismatch |log c(C) - log c(A)|
-      (3) smallest token-length mismatch
-      (4) lowest QID
+The RAW source population is data/d1_surface_pairs_r4.json.  A pair/direction can
+fail matching here without disappearing from that population; drop counts are
+part of the build report.
 
-SEMREL and UNREL are added exactly as in D0, with D0's UNREL bug fixed.
+Canonical contract: configs/contract_d1_r4.yaml
 """
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import math
-import re
-import sys
-from collections import Counter
+import unicodedata
+from collections import Counter, defaultdict
+from difflib import SequenceMatcher
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).parent))
-from build_d0 import ASCII_OK, norm, orth_sim, words  # noqa: E402
+from build_d1_candidates import normu, tokens_u
+from count_cooccurrence import COOC_VERSION
 
 ALPHA, BETA = 1.0, 100.0
-FRAMES = {"F1": "{M} was in the news last week.",
-          "F2": "Yesterday's report briefly mentioned {M}."}
+FRAMES = {
+    "F1": "{M} was in the news last week.",
+    "F2": "Yesterday's report briefly mentioned {M}.",
+}
 
 
 def load_counts(d):
-    strings = json.load(open(Path(d, "strings.json")))
+    root = Path(d)
+    meta = json.loads((root / "strings.json").read_text())
+    if meta.get("version") != COOC_VERSION:
+        raise RuntimeError(
+            f"cooc version {meta.get('version')!r} != required {COOC_VERSION!r}; "
+            "old pre-fix shards are forbidden"
+        )
+    patterns = meta["patterns"]
     single, pair = Counter(), Counter()
-    for f in sorted(Path(d).glob("shard*.json")):
+    shards = sorted(root.glob("shard*.json"))
+    if not shards:
+        raise RuntimeError(f"no cooccurrence shards in {root}")
+    for f in shards:
         b = json.loads(f.read_text())
+        if b.get("version") != COOC_VERSION:
+            raise RuntimeError(f"stale/mixed shard {f}: {b.get('version')!r}")
         for k, v in b["single"].items():
             single[int(k)] += v
         for k, v in b["pair"].items():
             a, c = k.split("|")
             pair[(int(a), int(c))] += v
-    return strings, single, pair
+    return patterns, single, pair
+
+
+def surface_occurs_in(needle: str, haystack: str) -> bool:
+    """Would the scored target surface literally already occur in the mention?"""
+    n = unicodedata.normalize("NFKC", needle).casefold().strip()
+    h = unicodedata.normalize("NFKC", haystack).casefold()
+    return bool(n) and n in h
+
+
+def target_tokens(s: str) -> set[str]:
+    # Exact scored-name tokens of length >=2.  If ASSOC contains one of these it
+    # can receive direct lexical entrainment rather than serving as an association
+    # control.  One-character particles are ignored.
+    return {t for t in tokens_u(s) if len(t) >= 2}
+
+
+def orth_sim_u(a: str, b: str) -> float:
+    return SequenceMatcher(None, normu(a), normu(b)).ratio()
 
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--assoc", default="data/d1_assoc_candidates.json")
-    ap.add_argument("--cooc", default="results/d1_build/cooc")
-    ap.add_argument("--out", default="data/frozen_d1.jsonl")
-    ap.add_argument("--encoder", default="BAAI/bge-large-en-v1.5")
+    ap.add_argument("--assoc", default="data/d1_assoc_candidates_r4.json")
+    ap.add_argument("--cooc", default="results/d1_build/cooc_r4")
+    ap.add_argument("--out", default="data/frozen_d1_r4.jsonl")
     args = ap.parse_args()
 
     A = json.load(open(args.assoc))
-    strings, single, pair = load_counts(args.cooc)
-    sid = {s: i for i, s in enumerate(strings)}
-    print(f"{len(strings)} strings counted; "
-          f"{sum(single.values()):,} surface occurrences, {len(pair):,} observed pairs")
+    patterns, single, pair = load_counts(args.cooc)
+    sid = {s: i for i, s in enumerate(patterns)}
+    print(f"{len(A)} raw surface pairs; {len(patterns)} counted strings; "
+          f"{sum(single.values()):,} surface-sentence hits")
 
     def S(x, b):
+        if x not in sid or b not in sid:
+            return None
         return math.log((pair.get((sid[x], sid[b]), 0) + ALPHA)
                         / (single.get(sid[x], 0) + BETA))
 
-    rows, drop = [], Counter()
-    for tgt, v in A.items():
-        b, a = v["target_form"], v["seen_form"]
-        if sid.get(b) is None or sid.get(a) is None:
-            drop["string not counted"] += 1; continue
-        if single.get(sid[a], 0) == 0:
-            drop["alias never occurs in corpus"] += 1; continue
-        s_a = S(a, b)
+    def choose_assoc(v, seen, target, same_type_only=False):
+        s_seen = S(seen, target)
+        if s_seen is None or single.get(sid.get(seen, -1), 0) == 0:
+            return None, "seen surface never occurs in corpus"
+        ttok = target_tokens(target)
         elig = []
-        for r in v["assoc"]:
-            c = r["label"]
-            if sid.get(c) is None or single.get(sid[c], 0) == 0:
+        for r in v.get("assoc", []):
+            if same_type_only and not r.get("same_type"):
                 continue
-            s_c = S(c, b)
-            if s_c >= s_a:                       # conservative eligibility
-                elig.append(dict(
-                    **r, s_assoc=s_c,
-                    margin=s_c - s_a,
-                    freq_mismatch=abs(math.log(single[sid[c]] + 1)
-                                      - math.log(single[sid[a]] + 1)),
-                    len_mismatch=abs(len(c.split()) - len(a.split()))))
+            c = r["label"]
+            if c not in sid or single.get(sid[c], 0) == 0:
+                continue
+            # Direction-specific leakage only.  Do NOT globally ban a relative's
+            # overlap with the non-scored alias/canonical form.
+            if ttok & target_tokens(c):
+                continue
+            s_c = S(c, target)
+            if s_c is None or s_c < s_seen:
+                continue
+            elig.append(dict(
+                **r,
+                s_assoc=s_c,
+                margin=s_c - s_seen,
+                freq_mismatch=abs(math.log(single[sid[c]] + 1)
+                                  - math.log(single[sid[seen]] + 1)),
+                len_mismatch=abs(len(tokens_u(c)) - len(tokens_u(seen))),
+                orth_mismatch=abs(orth_sim_u(c, target) - orth_sim_u(seen, target)),
+            ))
         if not elig:
-            drop["no ASSOC reaches S(C,B) >= S(A,B)"] += 1; continue
-        elig.sort(key=lambda r: (r["margin"], r["freq_mismatch"],
-                                 r["len_mismatch"], r["qid"]))
-        pick = elig[0]
-        rows.append(dict(
-            item_id=f"{tgt}::alias2canon", entity_uri=tgt, entity_type="person",
-            direction="alias2canon", stratum="opaque_strict",
-            seen_form=a, target_form=b, assoc=pick["label"],
-            assoc_qid=pick["qid"], assoc_relation=pick["relation"],
-            cats=v["cats"], popularity=v["pageviews"],
-            s_alias=s_a, s_assoc=pick["s_assoc"], assoc_margin=pick["margin"],
-            c_alias=single[sid[a]], c_assoc=single[sid[pick["label"]]],
-            n_eligible_assoc=len(elig), frames=FRAMES))
+            return None, "no ASSOC reaches S(C,target) >= S(seen,target) without target-token leakage"
+        elig.sort(key=lambda r: (
+            r["margin"], r["freq_mismatch"], r["len_mismatch"],
+            r["orth_mismatch"], r["qid"],
+        ))
+        return elig[0], None
 
-    print(f"\nASSOC matching survival: {len(rows)} / {len(A)}")
-    for k, n in drop.most_common():
-        print(f"   dropped {n:>4}  {k}")
+    rows, drop = [], Counter()
+    pair_survival = defaultdict(set)
+    for v in A:
+        alias, canon = v["seen_form"], v["target_form"]
+        directions = [
+            ("alias_to_canonical", alias, canon),
+            ("canonical_to_alias", canon, alias),
+        ]
+        for direction, seen, target in directions:
+            if surface_occurs_in(target, seen):
+                drop[f"{direction}: target surface already occurs in seen surface"] += 1
+                continue
+            pick, why = choose_assoc(v, seen, target, same_type_only=False)
+            if pick is None:
+                drop[f"{direction}: {why}"] += 1
+                continue
+            pick_same, _ = choose_assoc(v, seen, target, same_type_only=True)
+            s_seen = S(seen, target)
+            row = dict(
+                item_id=f"{v['pair_id']}::{direction}",
+                pair_id=v["pair_id"],
+                entity_uri=v["subject_id"],
+                entity_type=v.get("entity_type", "other"),
+                direction=direction,
+                structural_stratum=v["structural_stratum"],
+                redirect_high_types=v.get("redirect_high_types", []),
+                cats=v.get("cats", []),
+                confirmatory_intended_surface=v.get("confirmatory_intended_surface", False),
+                typical_error_only=v.get("typical_error_only", False),
+                seen_form=seen,
+                target_form=target,
+                source_alias_form=alias,
+                source_canonical_form=canon,
+                popularity=v.get("pageviews", 0),
+                orth_seen_target=orth_sim_u(seen, target),
+                s_seen_target=s_seen,
+                c_seen=single[sid[seen]],
+                assoc_any=pick["label"],
+                assoc_any_qid=pick["qid"],
+                assoc_any_type=pick.get("entity_type", "other"),
+                assoc_any_relation=pick["relation"],
+                s_assoc_any=pick["s_assoc"],
+                assoc_any_margin=pick["margin"],
+                c_assoc_any=single[sid[pick["label"]]],
+                assoc_sametype=(pick_same or {}).get("label"),
+                assoc_sametype_qid=(pick_same or {}).get("qid"),
+                assoc_sametype_relation=(pick_same or {}).get("relation"),
+                s_assoc_sametype=(pick_same or {}).get("s_assoc"),
+                frames=FRAMES,
+            )
+            rows.append(row)
+            pair_survival[v["pair_id"]].add(direction)
+
     if not rows:
-        print("\nNo item survived; nothing to freeze."); return
+        raise RuntimeError("No ordered item survived ASSOC_ANY matching")
+    Path(args.out).write_text("\n".join(
+        json.dumps(r, sort_keys=True, ensure_ascii=False) for r in rows
+    ) + "\n")
 
-    import numpy as np
-    print(f"\nmargin: median {np.median([r['assoc_margin'] for r in rows]):.3f} "
-          f"(0 = perfectly matched; contract wants small)")
-    print("relations:", dict(Counter(r["assoc_relation"] for r in rows).most_common()))
-    Path(args.out).write_text("\n".join(json.dumps(r, sort_keys=True)
-                                        for r in rows) + "\n")
-    import hashlib
-    print(f"\nwrote {args.out}  sha256 "
-          f"{hashlib.sha256(Path(args.out).read_bytes()).hexdigest()}")
-    for r in rows[:10]:
-        print(f"   {r['seen_form']!r:<26} -> {r['target_form']!r:<24} "
-              f"ASSOC {r['assoc']!r} ({r['assoc_relation']}, margin {r['assoc_margin']:+.2f})")
+    print(f"\nmatched ordered items: {len(rows)} from {len(pair_survival)} surface pairs")
+    print("directions:", dict(Counter(r["direction"] for r in rows)))
+    print("strata:", dict(Counter(r["structural_stratum"] for r in rows)))
+    print("entity types:", dict(Counter(r["entity_type"] for r in rows)))
+    print("intended confirmatory ordered items:",
+          sum(r["confirmatory_intended_surface"] for r in rows))
+    print("with ASSOC_SAMETYPE sensitivity control:",
+          sum(r["assoc_sametype"] is not None for r in rows))
+    print("drop reasons:")
+    for k, n in drop.most_common():
+        print(f"  {n:>6}  {k}")
+    print("ASSOC_ANY relations:",
+          dict(Counter(r["assoc_any_relation"] for r in rows).most_common(20)))
+    digest = hashlib.sha256(Path(args.out).read_bytes()).hexdigest()
+    print(f"\nwrote {args.out}; sha256 {digest}")
 
 
 if __name__ == "__main__":
