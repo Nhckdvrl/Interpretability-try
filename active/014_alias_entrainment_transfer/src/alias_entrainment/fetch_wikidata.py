@@ -1,9 +1,11 @@
-"""D1 stage 2: enrich candidates with Wikidata type and strong-tie relations.
+"""D1 r4 stage 2: enrich the broad surface bank with Wikidata type/relations.
 
-RedirectQA gives QIDs but no types and no relations, and contract_d1.yaml's
-primary ASSOC relations (spouse, sibling, collaborator, bandmate, co-star) are
-person relations. This fetches P31 so the primary cell can be typed, and the
-relation targets that ASSOC candidates are drawn from.
+Types are ANALYSIS LABELS, not eligibility filters.  Relations supply candidate
+non-coreferent real-world associates for ASSOC_ANY and ASSOC_SAMETYPE.  The
+relation inventory was fixed before any D1 model outcome; P1889 is fetched only
+for optional CONFUSABLE diagnostics and is forbidden from ASSOC in stage 3.
+
+Canonical contract: configs/contract_d1_r4.yaml
 """
 from __future__ import annotations
 
@@ -16,34 +18,36 @@ from pathlib import Path
 
 API = "https://www.wikidata.org/w/api.php"
 
-# strong, specific, SAME-TYPE ties (contract d1-r2 primary_relations)
 PERSON_TIES = {
     "P26": "spouse", "P3373": "sibling", "P451": "partner",
     "P1327": "professional_partner", "P22": "father", "P25": "mother",
-    "P40": "child", "P463": "member_of",   # -> band, expanded to co-members
-    # widened 2026-08-29 before any co-occurrence counting, to keep the primary
-    # cell above the >=60 entity floor after conservative ASSOC matching
+    "P40": "child", "P463": "member_of",
     "P1038": "relative", "P802": "student", "P1066": "student_of",
     "P737": "influenced_by", "P184": "doctoral_advisor", "P185": "doctoral_student",
     "P3448": "stepparent", "P1290": "godparent",
 }
-ORG_TIES = {"P155": "replaces", "P156": "replaced_by", "P361": "part_of",
-            "P527": "has_part", "P127": "owned_by", "P749": "parent_org",
-            "P355": "subsidiary", "P1830": "owner_of", "P1889": "different_from"}
-PLACE_TIES = {"P47": "shares_border_with", "P190": "twinned_with",
-              "P131": "located_in", "P150": "contains_admin",
-              "P36": "capital", "P1376": "capital_of"}
-WORK_TIES = {"P161": "cast_member", "P175": "performer", "P162": "producer",
-             "P57": "director", "P58": "screenwriter", "P86": "composer",
-             "P264": "record_label", "P54": "member_of_sports_team",
-             "P1344": "participant_in", "P710": "participant"}
+ORG_TIES = {
+    "P155": "replaces", "P156": "replaced_by", "P361": "part_of",
+    "P527": "has_part", "P127": "owned_by", "P749": "parent_org",
+    "P355": "subsidiary", "P1830": "owner_of", "P1889": "different_from",
+}
+PLACE_TIES = {
+    "P47": "shares_border_with", "P190": "twinned_with",
+    "P131": "located_in", "P150": "contains_admin",
+    "P36": "capital", "P1376": "capital_of",
+}
+WORK_TIES = {
+    "P161": "cast_member", "P175": "performer", "P162": "producer",
+    "P57": "director", "P58": "screenwriter", "P86": "composer",
+    "P264": "record_label", "P54": "member_of_sports_team",
+    "P1344": "participant_in", "P710": "participant",
+}
 ALL_TIES = {**PERSON_TIES, **ORG_TIES, **PLACE_TIES, **WORK_TIES}
 
 PERSON_TYPES = {"Q5"}
 GROUP_TYPES = {"Q215380", "Q2088357", "Q9212979", "Q7623897"}
 ORG_TYPES = {"Q43229", "Q4830453", "Q783794", "Q891723", "Q6881511", "Q2085381"}
 PLACE_TYPES = {"Q486972", "Q515", "Q3957", "Q1549591", "Q56061", "Q532"}
-
 
 UA = ("Interpretability-research/014-alias-entrainment "
       "(academic use; contact xiang.ding.i8@s.mail.nagoya-u.ac.jp)")
@@ -56,39 +60,36 @@ def get(params):
         try:
             with urllib.request.urlopen(req, timeout=60) as r:
                 return json.loads(r.read().decode())
-        except Exception as e:
+        except Exception:
             if attempt == 4:
                 raise
             time.sleep(2 * (attempt + 1))
 
 
 def coarse_type(p31: list[str]) -> str:
-    if PERSON_TYPES & set(p31):
+    s = set(p31)
+    if PERSON_TYPES & s:
         return "person"
-    if GROUP_TYPES & set(p31):
+    if GROUP_TYPES & s:
         return "group"
-    if ORG_TYPES & set(p31):
+    if ORG_TYPES & s:
         return "organization"
-    if PLACE_TYPES & set(p31):
+    if PLACE_TYPES & s:
         return "place"
     return "other"
 
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--cands", default="data/d1_candidates.json")
-    ap.add_argument("--out", default="data/d1_wikidata.json")
-    ap.add_argument("--stratum", default="")
+    ap.add_argument("--cands", default="data/d1_surface_pairs_r4.json")
+    ap.add_argument("--out", default="data/d1_wikidata_r4.json")
     args = ap.parse_args()
 
     cands = json.load(open(args.cands))
-    if args.stratum:
-        cands = [c for c in cands if c["stratum"] == args.stratum]
     qids = sorted({c["subject_id"] for c in cands})
-    print(f"{len(cands)} candidates, {len(qids)} unique QIDs")
+    print(f"{len(cands)} surface pairs, {len(qids)} unique QIDs")
 
     out: dict[str, dict] = {}
-    props = "|".join(sorted(set(ALL_TIES) | {"P31"}))
     for i in range(0, len(qids), 50):
         batch = qids[i:i + 50]
         d = get(dict(action="wbgetentities", ids="|".join(batch),
@@ -118,12 +119,10 @@ def main() -> None:
     from collections import Counter
     types = Counter(v["coarse_type"] for v in out.values())
     print(f"\nwrote {args.out}")
-    print("coarse types:", dict(types))
-    have_tie = sum(1 for v in out.values() if v["ties"])
-    print(f"entities with >=1 strong tie: {have_tie}/{len(out)}")
-    for t in ("person", "group", "organization", "place", "other"):
-        sel = [q for q, v in out.items() if v["coarse_type"] == t and v["ties"]]
-        print(f"  {t:<13} with ties: {len(sel)}")
+    print("coarse types (labels only; nothing is filtered):", dict(types))
+    have_tie = sum(1 for v in out.values() if any(
+        k != "different_from" for k in v["ties"]))
+    print(f"entities with >=1 usable real-world tie: {have_tie}/{len(out)}")
 
 
 if __name__ == "__main__":
