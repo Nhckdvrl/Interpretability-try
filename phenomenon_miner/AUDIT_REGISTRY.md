@@ -19,6 +19,10 @@ d0_source_feasibility_verdict: PASS
 
 之后还要 materialize/freeze 已锁定 D0，才能把 `validation_authorized` 设为 true。
 
+## 2026-08-29 discovery re-audit note
+
+`CURRENT_TOPICS.md` 已按 N0/N1/D0 重新分层：GeoTemporal Binding Bottleneck、Causal Retrieval Schedule、Dead-Branch Residue after Invalidation 已移出当前高优先级 phenomenon queue；Resolved-Ambiguity Neuron Persistence 被提升为优先 closure 对象。**这些 discovery 排名变化不改变本表任何现有 model authorization。**
+
 ## Dispatch
 
 | project | current contract status | authorized |
