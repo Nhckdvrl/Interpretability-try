@@ -1,0 +1,20 @@
+# DEPRECATED PATH — canonical D1 contract is contract_d1_r4.yaml
+#
+# The full r1/r2/r3 contract that previously lived at this path is preserved in
+# git history through commit 1ffdeae3ae54d34bcf2463f12e8ecc7b0379ada1.
+# It is intentionally NOT copied here because r2/r3 narrowed the scientific
+# population (four alias categories -> non-compositional -> opaque_strict ->
+# person -> one redirect -> one direction) and should not be mistaken for the
+# current design.
+
+status: SUPERSEDED_BY_D1_R4
+canonical_contract: configs/contract_d1_r4.yaml
+historical_contract_commit: 1ffdeae3ae54d34bcf2463f12e8ecc7b0379ada1
+reason: >
+  Candidate/build inspection, before any D1 model outcome, showed that r2/r3 had
+  changed the mother question from cross-surface entrainment across natural
+  surface-form relations into a narrow opaque-person-alias test. D1 r4 restores
+  all entity types, multiple surface forms, compositional/orthographic/opaque
+  strata, both valid directions, and separates broad data construction from
+  analysis strata such as opaque_strict and the model-specific hard identity
+  gate.
