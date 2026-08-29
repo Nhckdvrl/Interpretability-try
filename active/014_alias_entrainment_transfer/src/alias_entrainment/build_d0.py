@@ -70,6 +70,33 @@ def is_acronym(short: str, long: str) -> bool:
     return s == initials.lower() or s == caps.lower()
 
 
+def is_compositional(short: str, long: str) -> bool:
+    """Catch forms DERIVABLE from the other, which `is_acronym` alone missed.
+
+    The 2026-08-29 audit of the frozen bank found 39% of pairs compositional:
+    ISO/postal codes (GBR, US-MA, Fla.), initials with a middle name (DJT),
+    title-plus-numeral forms (QE2), and full legal names. `opaque_strict` was
+    orthographically opaque, never conceptually opaque.
+    """
+    s, l = norm(short), norm(long)
+    if len(s) > len(l):
+        s, l = l, s
+        short, long = long, short
+    if len(s) <= 4:
+        return True                       # country/postal codes and initialisms
+    letters = re.sub(r"[^A-Za-z]", "", short)
+    if letters.isupper() and len(letters) <= 6:
+        return True                       # all-caps code form
+    caps = "".join(w[0] for w in re.sub(r"[^A-Za-z ]", " ", long).split()
+                   if w and w[0].isupper()).lower()
+    core = re.sub(r"[^a-z]", "", s)
+    if core and (core in caps or all(c in caps for c in core)):
+        return True                       # initials, with or without middle names
+    if words(short) < words(long) or words(long) < words(short):
+        return True                       # one name is a subset of the other's words
+    return False
+
+
 def orth_sim(a, b) -> float:
     """Character-level overlap of the normalized strings (0..1).
 
@@ -91,9 +118,11 @@ ORTH_STRICT_MAX = 0.40
 
 
 def strict_stratum(a: str, b: str) -> str:
-    """`opaque_strict` = no shared word, not an acronym, and low character overlap."""
-    return "opaque_strict" if (stratum(a, b) == "opaque"
-                               and orth_sim(a, b) < ORTH_STRICT_MAX) else stratum(a, b)
+    """`opaque_strict` = no shared word, not derivable, and low character overlap."""
+    if stratum(a, b) == "opaque" and orth_sim(a, b) < ORTH_STRICT_MAX \
+            and not is_compositional(a, b):
+        return "opaque_strict"
+    return "compositional" if is_compositional(a, b) else stratum(a, b)
 
 
 def good_pair(a: str, b: str) -> bool:
@@ -234,7 +263,12 @@ def main() -> None:
                 break
             semrel_ok.sort(key=lambda i: -sims[i])
             semrel_i = semrel_ok[0]
-            lo = ok[int(len(ok) * 0.67):]            # bottom similarity tercile
+            by_sim = sorted(ok, key=lambda i: -sims[i])   # BUG FIX 2026-08-29:
+            # `ok` is in pool (URI) order. The old code sliced `ok` directly and
+            # called it the bottom tercile, so UNREL was really a random
+            # same-type entity (median sim 0.60 against SEMREL's 0.78). Sort
+            # explicitly before slicing.
+            lo = by_sim[int(len(by_sim) * 0.67):]
             unrel_i = lo[rng.randrange(len(lo))]
 
             sim_alias = float(enc.encode([TYPE_TEMPLATE[t].format(seen)],

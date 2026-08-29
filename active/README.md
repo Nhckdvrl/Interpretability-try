@@ -7,7 +7,7 @@
 - [`003_diagnostic_counterevidence_revision/`](003_diagnostic_counterevidence_revision/) — legacy pre-candidate
 - [`007_weak_evidence_backfire/`](007_weak_evidence_backfire/) — legacy registered / current frozen contract authorized
 - [`013_publicness_coordination_dissociation/`](013_publicness_coordination_dissociation/) — legacy HOLD-D0
-- [`014_alias_entrainment_transfer/`](014_alias_entrainment_transfer/) — **`PHASE-1-PROMOTE / PHASE-2-MECHANISM-B / PHASE-3-SEEN-FORM-ONLY-WRITE` / authorized**。phase 1 三家族全过冻结判据；phase 2 head-ablation 得 `mechanism_B`；phase 3 用 direct logit attribution 取代消融比值，得到**预注册的否定结果**——entrainment head 的直接写入只是词汇性的（alias DLA 随正字法重叠单调上升，而 `EXACT` 在各层平坦），实体成分是**间接**经由这批 head 到达 logit 的。v4 的 20 对 D0 人工审计与 N1 closure 经 owner 豁免（2026-08-29，未执行）。
+- [`014_alias_entrainment_transfer/`](014_alias_entrainment_transfer/) — **`KEEP / HOLD-FOR-CONSTRUCT-VALIDATION`**。phase 1–3 已跑完且 phenotype 稳固（audit-clean ∧ opaque_strict：+2.06/+1.31/+2.25 nats，三家族 CI 均不含 0），但 2026-08-29 的 150 对别名审计发现 D0 construct 有洞（compositional 39%，真正同指仅 33%，5% 完全不同指），且 `ALIAS > SEMREL` 排除不了 pair-specific learned association。因此 entity 解释**尚未成立**，`mechanism_B` 更正为 shared upstream cause。phase 4 被 `configs/contract_d1.yaml` 阻塞：需先做 RedirectQA 独立 bank + `ASSOC` 对照，判据 `ALIAS > ASSOC`。
 
 当前研究队列统一看 [`../phenomenon_miner/CURRENT_TOPICS.md`](../phenomenon_miner/CURRENT_TOPICS.md)；模型调用授权只看 [`../phenomenon_miner/AUDIT_REGISTRY.md`](../phenomenon_miner/AUDIT_REGISTRY.md)。
 

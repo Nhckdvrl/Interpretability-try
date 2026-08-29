@@ -1,6 +1,6 @@
 # 014 — Alias Entrainment Transfer：contextual entrainment 附着在**看见的表面形式**上，还是在**被激活的实体**上？
 
-**Status:** `PHASE-1-PROMOTE / PHASE-2-MECHANISM-B / PHASE-3-SEEN-FORM-ONLY-WRITE / AUTHORIZED`
+**Status:** `KEEP / HOLD-FOR-CONSTRUCT-VALIDATION` — phenotype 成立，**entity 解释尚未成立**；phase 4 被 `configs/contract_d1.yaml` 阻塞
 **Created:** 2026-08-29
 **Canonical shortlist:** Batch 3 Hamdi-mother-paper #1
 **One-line question:** **Contextual entrainment attaches to the surface form that was seen, or to the entity that was activated?**
@@ -14,6 +14,33 @@ phase 1 / phase 2 运行于 2026-08-29，依据当时的 `candidate_pool/AUDIT_R
 v4 的两项 discovery 前置——Tier S 要求的 20 对 alias conventionality / 歧义 / 频率分层人工审计，以及 N1 closure——**未执行**，由项目所有者于 2026-08-29 审阅后豁免。本项目据此在新注册表中登记为 `validation_authorized: true`。
 
 记为豁免而非"已完成审计"，是为了让这一区别留在记录里。D0 构建期间实际做过的是两轮抽样检查，它们直接导致了 SEMREL 选择约束、正字法分层，以及 NED frame 泄漏的发现。
+
+---
+
+## 0b. 2026-08-29 external review — 现象成立，entity 解释不成立
+
+外部 review 指出并经我逐条核实成立的三件事：
+
+1. **`opaque_strict` 是正字法 opaque，不是概念 opaque。** 150 对全审计结果：
+   `compositional` 39%、真正 `coref_conventional` 只有 **33%**、完全不同指 5%
+   （`Mr Bean/Rowan Atkinson`、`Ashley O/Miley Cyrus`、`Davy Jones/David Bowie`、
+   `Pink City/Los Angeles` 等）。见 [`data/D0_ALIAS_AUDIT_VERDICT.md`](data/D0_ALIAS_AUDIT_VERDICT.md)。
+2. **UNREL 有真 bug**（我在修 SEMREL 时引入）：它取的是 URI 顺序后 1/3，不是相似度最低层。
+   实际 median sim 0.60 vs SEMREL 0.78。所有 UNREL-based 结论（H2、Gemma `UNREL=+6.51`）作废。
+3. **`ALIAS > SEMREL` 排除不了 pair-specific learned association。** knowledge gate 也不能——
+   两种解释都预测"没学过 A–B 关系时 transfer 消失"。所以 gate interaction 证明的是
+   *transfer 依赖已学到的关系*，不是 *该关系被表示为共享实体身份*。
+
+**但现象没有死**：在审计后的干净子集上效应反而更强
+（audit-clean ∧ `opaque_strict`：**+2.06 / +1.31 / +2.25 nats**，三家族 CI 均不含 0）。
+
+因此 `mechanism_B_shared_entity_representation` 这个名字在解释上更正为 **shared upstream
+cause**：phase 2 排除的是"完全独立的 alias 通路"，不是证明 head 内部有实体表征——phase 3 恰恰
+否掉后者。
+
+下一步不是 phase 4，而是 [`configs/contract_d1.yaml`](configs/contract_d1.yaml)：
+独立的 RedirectQA confirmatory bank + 第五个条件 `ASSOC`（强关联但**不同指**），
+决定性判据是 `ALIAS > ASSOC`。过不了就放弃 entity 解释。
 
 ---
 

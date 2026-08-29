@@ -26,7 +26,7 @@ d0_source_feasibility_verdict: PASS
 | `active/007_weak_evidence_backfire` | legacy `D0-PASS / READY-TO-SMOKE` | **true** |
 | `active/013_publicness_coordination_dissociation` | legacy `HOLD-D0` | false |
 | `active/003_diagnostic_counterevidence_revision` | legacy `PRE-CANDIDATE / G0-NOT-RUN` | false |
-| `active/014_alias_entrainment_transfer` | `PHASE-1-PROMOTE / PHASE-2-MECHANISM-B / PHASE-3-SEEN-FORM-ONLY-WRITE`, discovery prerequisites waived by owner | **true** |
+| `active/014_alias_entrainment_transfer` | `KEEP / HOLD-FOR-CONSTRUCT-VALIDATION` — phenotype holds, entity reading unearned; phase 4 blocked on D1 | **true** |
 
 ## Contract records
 
@@ -83,6 +83,31 @@ active/014_alias_entrainment_transfer:
     heads into later layers is what would test it.
   phase3_validation: DLA implementation checked against per-head ablation on
     last-layer heads, r=0.959, slope=0.938
+  d0_alias_audit_2026-08-29: >
+    all 150 entity pairs adjudicated (by the assistant, not a human annotator).
+    compositional 39%, genuine coref_conventional only 33%, outright
+    not_coreferent 5% (Mr Bean/Rowan Atkinson, Davy Jones/Bowie, Pink City/LA).
+    opaque_strict was orthographically, never conceptually, opaque.
+  d0_reanalysis: >
+    the phenotype SURVIVES and strengthens on audited-clean items --
+    audit-clean x opaque_strict gives +2.06 / +1.31 / +2.25 nats, all CIs
+    excluding 0, above the as-run opaque_strict figures. The construct defect did
+    not manufacture the effect.
+  bugs_fixed_for_d1: >
+    (1) UNREL was drawn from URI order, not the similarity bottom tercile -- a bug
+    introduced by the earlier SEMREL fix; all UNREL-based claims including H2 and
+    Gemma UNREL=+6.51 are void. (2) is_compositional() added; codes, initials with
+    middle names, title+numeral and full legal names no longer reach opaque_strict.
+    The frozen discovery D0 is deliberately NOT rebuilt.
+  interpretation_correction: >
+    mechanism_B is re-read as SHARED UPSTREAM CAUSE, not shared entity
+    representation. Phase 2 excluded a fully independent alias pathway only.
+  open_question: >
+    ALIAS > SEMREL excludes embedding-matched priming but NOT pair-specific
+    learned association; the knowledge gate does not separate them either.
+  d1_contract: configs/contract_d1.yaml (2026-08-29-d1), frozen before D1 is built
+  d1_decisive_test: ALIAS > ASSOC on RedirectQA, where ASSOC is a strongly
+    associated NON-coreferent entity; phase 4 blocked until it passes
   results: active/014_alias_entrainment_transfer/results/
   validation_authorized: true
 ```

@@ -1,0 +1,96 @@
+# 014 — D1 confirmatory contract. FROZEN 2026-08-29, before any D1 data is built
+# or any D1 model call is made.
+#
+# D0 (data/frozen_d0.jsonl) is retained as the DISCOVERY set. D1 is an
+# independent CONFIRMATORY bank on a different source, and it exists to answer
+# the one question D0 cannot: is the transfer sensitive to REFERENTIAL IDENTITY,
+# or only to learned lexical association?
+
+contract_id: 2026-08-29-d1
+status: FROZEN / NOT YET BUILT
+supersedes_for_confirmation: contract_r1.yaml (which stays valid for discovery)
+
+motivation: >
+  Phase 1 showed ALIAS > SEMREL in 3/3 families and it survives the 150-pair
+  alias audit (audit-clean x opaque_strict: +2.06 / +1.31 / +2.25 nats). But
+  SEMREL controls embedding similarity, NOT pair-specific learned association.
+  The knowledge gate does not separate the two either: if the model never learned
+  the A-B relation, BOTH accounts predict the transfer to vanish. So the entity
+  reading is still unearned.
+
+source:
+  dataset: RedirectQA (naist-nlp/RedirectQA), ACL 2026 Long
+  provenance: Wikipedia redirects x Wikidata triples, 14,672 factual triples and
+    15,888 redirect surface forms across 33 manually screened redirect categories
+  license: CC BY-SA 4.0
+  why_this_source: >
+    its authors manually screened categories precisely to remove redirects that
+    are not surface-form variants -- they name the "book title redirects to its
+    author" case, which is the same failure class as D0's Mr Bean / Rowan
+    Atkinson. That screening is the thing D0's Wikidata alias dump lacked.
+  primary_categories: [birth names, pseudonyms, former names, alternative names]
+  excluded_from_primary: >
+    acronyms, initialisms, country codes, spelling variants, diacritic and ASCII
+    variants, typical errors, title-description forms, and any actor/character or
+    work/author pairing. These may be reported as a separate lexical stratum but
+    may not enter the primary analysis.
+
+conditions:                       # five, not four
+  NOCTX:  no context sentence
+  EXACT:  the target form itself
+  ALIAS:  a co-referential form; the target string never appears
+  ASSOC:  "**the new decisive control** -- a DIFFERENT referent with a strong,
+           specific real-world tie to the target: actor/character, spouse,
+           bandmate, collaborator, creator/creation, country/capital"
+  SEMREL: max-similarity non-coreferent same-type entity (as in D0)
+  UNREL:  true bottom similarity tercile (D0's version was buggy; fixed)
+
+assoc_matching: >
+  ASSOC pairs must be matched to ALIAS pairs on association STRENGTH, not just on
+  type, using a source independent of the model under test -- Wikidata relation
+  presence plus Wikipedia co-mention or link counts. An ASSOC control weaker than
+  its ALIAS partner would make the decisive test trivially winnable and is
+  forbidden.
+
+capability_gate:
+  form: counterbalanced two-content-option, both orders correct (as in D0)
+  change: >
+    the distractor option must itself be a STRONG ASSOCIATE, not a mere semantic
+    neighbour. D0 asked "another name for Bombay: Mumbai or Delhi", which a
+    strong-association heuristic can pass. D1 asks "another name for Katy Perry:
+    Katheryn Hudson or Orlando Bloom" -- so the gate measures whether the model
+    distinguishes IDENTITY from ASSOCIATION, not whether it detects relatedness.
+  name: hard identity gate
+
+decisive_test:
+  primary: median(delta_ALIAS - delta_ASSOC) > 0, bootstrap 95% CI (clustered on
+    entities) excluding 0
+  cell: primary categories, non-compositional, hard-identity-gated
+  replication: same sign, CI excluding 0, in >= 2 model families and both frames
+  must_also_hold: delta_ALIAS - delta_SEMREL > 0, and the mother-faithful
+    first-token readout agrees in sign
+
+verdicts:
+  REFERENTIAL-IDENTITY-EFFECT: >
+    the decisive test passes. Claim becomes "the spillover is specifically
+    sensitive to referential identity, not merely lexical association", and
+    phase 4 (causal mediation from the entrainment heads to whatever downstream
+    component performs the remapping) becomes worth its cost.
+  ASSOCIATION-ONLY: >
+    delta_ALIAS ~= delta_ASSOC. The entity-level interpretation is DROPPED. The
+    surviving claim is "contextual entrainment propagates through learned lexical
+    associations" -- still a real and novel phenomenon against the mother, but a
+    clear downgrade, and no further large-scale mechanism work is justified on it.
+
+forbidden:
+  - weakening ASSOC after seeing the result
+  - reverting to the D0 knowledge gate because the hard identity gate is strict
+  - pooling the excluded lexical categories into the primary analysis
+  - reading D0's 7-pair proto-ASSOC cell (n=9-12, all CIs include 0, flat in
+    Qwen) as if it had already answered this
+  - promoting on delta_ALIAS > delta_SEMREL alone -- that is what D0 already did
+
+sequencing:
+  - phase 4 (path patching / causal mediation) is BLOCKED until this contract
+    returns REFERENTIAL-IDENTITY-EFFECT
+  - the scale axis is considered closed; no further sizes

@@ -9,7 +9,8 @@ import pytest
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
-from alias_entrainment.build_d0 import is_acronym, norm, orth_sim, stratum, strict_stratum
+from alias_entrainment.build_d0 import (is_acronym, is_compositional, norm, orth_sim,
+                                        stratum, strict_stratum)
 from alias_entrainment.run_phase1 import CONDITIONS, build_prompt, mention_for
 
 
@@ -78,9 +79,38 @@ def test_acronym_and_stratum_logic():
     assert strict_stratum("Italia", "Italy") == "opaque"           # orth 0.73
     assert strict_stratum("Bombay", "Mumbai") == "opaque"          # orth 0.50
     assert strict_stratum("Katheryn Hudson", "Katy Perry") == "opaque"   # orth 0.52
-    assert strict_stratum("CCCP", "Soviet Union") == "opaque_strict"       # orth 0.00
-    assert strict_stratum("Mr Bean", "Rowan Atkinson") == "opaque_strict"  # orth 0.32
     assert orth_sim("Italia", "Italy") > orth_sim("Bombay", "Mumbai")
+
+
+def test_compositional_forms_are_excluded_from_opaque_strict():
+    """The 2026-08-29 audit found 39% of the frozen bank compositional.
+
+    `is_acronym` alone missed initials with a middle name, title+numeral forms,
+    and ISO/postal codes, so these reached the money stratum. NOTE: the frozen
+    discovery D0 predates this fix and is deliberately NOT rebuilt.
+    """
+    for short, long in [("DJT", "Donald Trump"), ("QE2", "Elizabeth II"),
+                        ("GBR", "United Kingdom"), ("US-MA", "Massachusetts"),
+                        ("Fla.", "Florida"), ("CCCP", "Soviet Union")]:
+        assert is_compositional(short, long), (short, long)
+        assert strict_stratum(long, short) == "compositional", (short, long)
+    # title+name is caught one step earlier, by the shared-word `partial` rule
+    assert strict_stratum("Mao Zedong", "Chairman Mao") == "partial"
+    for a, b in [("Katy Perry", "Katheryn Hudson"), ("Mumbai", "Bombay"),
+                 ("Muhammad Ali", "Cassius Clay"),
+                 ("Freddie Mercury", "Farrokh Bulsara")]:
+        assert not is_compositional(a, b), (a, b)
+
+
+def test_unrel_is_drawn_from_the_similarity_bottom_tercile():
+    """Regression test for the bug the 2026-08-29 review caught.
+
+    `ok` is in pool (URI) order; the old code sliced it directly and called the
+    result the bottom similarity tercile.
+    """
+    src = (ROOT / "src" / "alias_entrainment" / "build_d0.py").read_text()
+    assert "by_sim = sorted(ok, key=lambda i: -sims[i])" in src
+    assert "lo = by_sim[int(len(by_sim) * 0.67):]" in src
 
 
 def test_every_item_has_all_conditions_and_a_baseline():
