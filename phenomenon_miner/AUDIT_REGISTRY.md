@@ -5,7 +5,13 @@
 
 本文件只回答一个问题：**哪个正式项目现在可以调用模型？**
 
-它不保存 candidate shortlist、novelty 报告或失败历史；那些分别看 [`CURRENT_TOPICS.md`](CURRENT_TOPICS.md)、[`FINDING_RULES.md`](FINDING_RULES.md)、[`FAILED_TOPICS.md`](FAILED_TOPICS.md)。
+当前答案：
+
+```yaml
+currently_authorized_model_calls: 0
+```
+
+候选排序、数据审查、失败历史分别看 [`CURRENT_TOPICS.md`](CURRENT_TOPICS.md)、[`DATA_REVIEW_2026-08-29.md`](DATA_REVIEW_2026-08-29.md)、[`FAILED_TOPICS.md`](FAILED_TOPICS.md)。
 
 ## Registration rule
 
@@ -15,145 +21,124 @@
 n0_breadth_verdict: PASS
 n1_depth_verdict: PASS
 d0_source_feasibility_verdict: PASS
-scope_integrity_verdict: PASS   # D0 PASS 的强制组成，见 DATASET_SCOPE_AUDIT.md
+scope_integrity_verdict: PASS
 ```
 
 之后还要 materialize/freeze 已锁定 D0，并完成 scope summary / attrition audit，才能把 `validation_authorized` 设为 true。
 
-## 2026-08-29 discovery re-audit note
-
-`CURRENT_TOPICS.md` 已按 N0/N1/D0 重新分层：GeoTemporal Binding Bottleneck、Causal Retrieval Schedule、Dead-Branch Residue after Invalidation 已移出当前高优先级 phenomenon queue；Resolved-Ambiguity Neuron Persistence 被提升为优先 closure 对象。**这些 discovery 排名变化不改变本表任何现有 model authorization。**
+---
 
 ## Dispatch
 
 | project | current contract status | authorized |
 |---|---|---:|
-| `active/007_weak_evidence_backfire` | legacy `D0-PASS / READY-TO-SMOKE` | **true** |
-| `active/013_publicness_coordination_dissociation` | legacy `HOLD-D0` | false |
 | `active/003_diagnostic_counterevidence_revision` | legacy `PRE-CANDIDATE / G0-NOT-RUN` | false |
-| `active/014_alias_entrainment_transfer` | `KEEP / HOLD-FOR-R4-CONSTRUCT-VALIDATION` — phenotype holds, entity reading unearned; phase 4 blocked on corrected broad D1 | **true** |
+| `active/007_weak_evidence_backfire` | **TERMINAL HARD KILL** — frozen smoke failed evidence-direction capability floor | **false** |
+| `active/013_publicness_coordination_dissociation` | `PARKED / HOLD-DATA` — independent natural scenario count/license-adaptation blocker unresolved | false |
+| `active/014_alias_entrainment_transfer` | `KEEP / HOLD-FOR-R4-CONSTRUCT-VALIDATION` — phases 1–3 are historical completed work; **next D1 model call blocked** until broad r4 bank + scope/attrition/source audit + frozen SHA are recorded | **false** |
 
-## Contract records
+---
+
+## Project records
+
+### active/003_diagnostic_counterevidence_revision
 
 ```yaml
-active/007_weak_evidence_backfire:
-  policy_generation: legacy-v3
-  d0_items: 30
-  frozen_data_sha256: d3ef047882a49b05993f3c00c222e9d922faface3339c4161016594016c4877a
-  validation_authorized: true
-
-active/013_publicness_coordination_dissociation:
-  policy_generation: legacy-v3
-  d0_verdict: HOLD
-  validation_authorized: false
-
-active/003_diagnostic_counterevidence_revision:
-  policy_generation: legacy-v3
-  status: PRE-CANDIDATE / G0-NOT-RUN
-  validation_authorized: false
-
-active/014_alias_entrainment_transfer:
-  policy_generation: legacy-v3, accepted into v4 by owner waiver
-  note: >
-    phase 1 (3 families) and phase 2 head ablation (2 families) were run on
-    2026-08-29 under the then-current candidate_pool/AUDIT_REGISTRY.md, before
-    the v4 rules existed.
-  n0_breadth_verdict: PASS (Batch-3 adversarial audit, SURVIVE-A)
-  n1_depth_verdict: WAIVED by project owner 2026-08-29 (not performed)
-  d0_source_feasibility_verdict: WAIVED by project owner 2026-08-29 (not performed)
-  waiver_scope: >
-    The two v4 discovery prerequisites -- the 20-pair human audit of alias
-    conventionality/ambiguity/frequency stratification required by
-    CURRENT_TOPICS.md Tier S, and N1 closure -- were not performed. The project
-    owner reviewed this on 2026-08-29 and elected to proceed. Recorded as a
-    waiver, not as completed audits, so the distinction survives in the record.
-    What WAS done during D0 construction: two rounds of sample inspection, which
-    drove the SEMREL selection constraint, the orthographic strata, and the
-    discovery of the NED frame leak.
-  frozen_data_sha256: c744ae319600fc79e80195ca5b5774b0af6b812714371812e0f61259dae37239
-  phase3_contract: 2026-08-29-r3, frozen before any phase-3 forward pass
-  phase3_result: >
-    SEEN-FORM-ONLY-WRITE in 4/4 cells (the pre-registered negative). Direct logit
-    attribution of the phase-2 entrainment heads reproduces their write toward a
-    SEEN token strongly (dDLA_EXACT +0.56/+2.84 vs random +0.13/-0.05) but shows
-    nothing above a similarity-matched control for the unseen alias in the clean
-    stratum (+0.021 / +0.088, CIs include 0). The alias DLA scales monotonically
-    with orthographic overlap (opaque_strict +0.02/+0.09 -> opaque +0.20/+0.72 ->
-    partial +0.38/+1.15) while dDLA_EXACT is flat across the same strata, so the
-    heads' direct write generalizes lexically, not by entity.
-  phase3_reading: >
-    phase 2 (ablation removes the alias effect) and phase 3 (direct write does not
-    carry it) together imply the cross-surface component is routed through these
-    heads INDIRECTLY. That joint inference is not itself tested; path patching
-    from these heads into later layers is what would test it.
-  phase3_validation: DLA implementation checked against per-head ablation on
-    last-layer heads, r=0.959, slope=0.938
-  d0_alias_audit_2026-08-29: >
-    all 150 entity pairs adjudicated (by the assistant, not a human annotator).
-    compositional 39%, genuine coref_conventional only 33%, outright
-    not_coreferent 5% (Mr Bean/Rowan Atkinson, Davy Jones/Bowie, Pink City/LA).
-    opaque_strict was orthographically, never conceptually, opaque.
-  d0_reanalysis: >
-    the phenotype SURVIVES and strengthens on audited-clean items --
-    audit-clean x opaque_strict gives +2.06 / +1.31 / +2.25 nats, all CIs
-    excluding 0, above the as-run opaque_strict figures. The construct defect did
-    not manufacture the effect.
-  bugs_fixed_for_d1: >
-    (1) UNREL was drawn from URI order, not the similarity bottom tercile -- a bug
-    introduced by the earlier SEMREL fix; all UNREL-based claims including H2 and
-    Gemma UNREL=+6.51 are void. (2) the Wikipedia sentence splitter cut names at
-    initials such as P. Diddy/L. L. Zamenhof; fixed. (3) r4 co-occurrence uses a
-    versioned Unicode-aware multi-ID matcher so casefold-equivalent surface forms
-    do not overwrite each other. Historical pre-fix shards are forbidden.
-  interpretation_correction: >
-    mechanism_B is re-read as SHARED UPSTREAM CAUSE, not shared entity
-    representation. Phase 2 excluded a fully independent alias pathway only.
-  open_question: >
-    ALIAS > SEMREL excludes embedding-matched priming but NOT pair-specific
-    learned association; the knowledge gate does not separate them either.
-
-  d1_scope_failure_discovered_2026-08-29: >
-    The original d1-r2/r3 construction unintentionally changed the scientific
-    population: RedirectQA was narrowed to four alias categories, non-compositional
-    forms, person entities, opaque_strict, one redirect per entity, and one
-    alias->canonical direction. The final pre-r4 builder additionally hard-coded
-    every output row as person/opaque_strict/alias2canon. This was estimand drift,
-    not merely a low-yield feasibility choice.
-  d1_scope_correction: >
-    configs/contract_d1_r4.yaml is now canonical. D1 construction preserves the
-    broad RedirectQA surface-form population across entity types, structural
-    strata, multiple surface forms per entity, and both valid directions.
-    Surface relation/type/direction/capability are factors or analysis strata,
-    not construction filters. ASSOC_ANY is the primary strong-association control;
-    ASSOC_SAMETYPE is a sensitivity control.
-  d1_contract: configs/contract_d1_r4.yaml (2026-08-29-d1-r4-scope-correction)
-  d1_raw_bank: data/d1_surface_pairs_r4.json
-  d1_assoc_candidates: data/d1_assoc_candidates_r4.json
-  d1_cooccurrence: results/d1_build/cooc_r4/ (d1-r4-cooc-v2 required)
-  d1_matched_bank: data/frozen_d1_r4.jsonl
-  historical_d1_artifacts: >
-    data/d1_candidates.json, data/d1_assoc_candidates.json and
-    results/d1_build/cooc/ are pre-r4 historical artefacts and MUST NOT be
-    consumed by the r4 pipeline. The misleading pre-r4 data/frozen_d1.jsonl was
-    removed from the current tree; git history preserves it.
-  d1_status: >
-    R4 BUILDERS/CONTRACT READY; corrected broad raw/matched banks have not yet
-    been materialized and audited in this registry. Before any new D1 model call,
-    run the r4 pipeline, inspect the scope/attrition summary and sample audit, and
-    record the frozen r4 SHA here.
-  d1_decisive_tests: >
-    Q1 broad ALIAS > ASSOC_ANY over intended surface pairs; Q2 hard-identity-gated
-    opaque_strict ALIAS > ASSOC_ANY as the stricter reference-specific residue.
-    Phase 4 remains blocked until the referential Q2 criterion passes.
-  results: active/014_alias_entrainment_transfer/results/
-  validation_authorized: true
+policy_generation: legacy-v3
+status: PRE-CANDIDATE / G0-NOT-RUN
+validation_authorized: false
 ```
+
+### active/007_weak_evidence_backfire
+
+```yaml
+policy_generation: legacy-v3
+terminal_verdict: HARD-KILL-EVIDENCE-DIRECTION-CAPABILITY-FLOOR
+smoke_result: >
+  Qwen3-8B had zero recognition-gated directions. Gemma3-12B-IT had one gated
+  pair; its belief/action movement had the opposite sign and failed pragmatic,
+  matched-length, neutral and bidirectional survival controls.
+continuation_policy: >
+  Do not run N1, mechanism work, a broader model panel, alternative thresholds,
+  subsets, prompts or readouts to rescue this contract.
+validation_authorized: false
+results: active/007_weak_evidence_backfire/results/smoke_r5/
+```
+
+The project directory is retained only because it contains raw outputs, code and audit provenance. Directory presence is not active scientific status.
+
+### active/013_publicness_coordination_dissociation
+
+```yaml
+policy_generation: legacy-v3
+d0_verdict: HOLD
+current_routing: PARKED-HOLD-DATA
+reason: >
+  The human common-knowledge coordination paradigm is a strong natural anchor,
+  but accessible sources do not currently supply >=20 independent matched
+  natural scenarios under a clean adaptation/license path. Participant swaps,
+  paraphrases and payoff variants are pseudoreplication, not new units.
+validation_authorized: false
+```
+
+### active/014_alias_entrainment_transfer
+
+```yaml
+policy_generation: legacy-v3, accepted into v4 by historical owner waiver
+current_status: KEEP / HOLD-FOR-R4-CONSTRUCT-VALIDATION
+historical_model_work:
+  phase1: completed before current v4 scope rules
+  phase2: completed before current v4 scope rules
+  phase3: completed under frozen r3 contract
+historical_waivers:
+  n1_depth_verdict: WAIVED by project owner 2026-08-29
+  d0_source_feasibility_verdict: WAIVED by project owner 2026-08-29
+behavior_phenotype: >
+  Cross-surface transfer is strong and survives the later 150-pair audit. The
+  audit-clean x opaque_strict effect is +2.06 / +1.31 / +2.25 nats across the
+  three tested families, with CIs excluding zero.
+construct_problem: >
+  The original D0 did not establish an entity/reference-specific interpretation:
+  compositional pairs were 39%, genuine conventional coreference only 33%, 5%
+  were non-coreferent; the old UNREL builder was wrong; ALIAS > SEMREL cannot
+  exclude pair-specific learned association. Phase 3 shows entrainment heads'
+  direct write is seen-form/lexical, not a direct unseen-alias write.
+current_reading: >
+  learned cross-surface relation transfer / shared upstream cause; NOT yet a
+  proven entity-level salience representation.
+canonical_d1_contract: active/014_alias_entrainment_transfer/configs/contract_d1_r4.yaml
+r4_scientific_population: >
+  broad RedirectQA ordered surface pairs across entity types, surface-structure
+  strata and both valid directions. Surface relation/type/direction/capability
+  are factors or analysis strata, not hard construction filters.
+r4_primary_control: ASSOC_ANY
+r4_decisive_questions:
+  Q1: broad ALIAS > ASSOC_ANY
+  Q2: hard-identity-gated opaque_strict ALIAS > ASSOC_ANY
+before_next_model_call:
+  - materialize broad r4 raw bank
+  - materialize matched ASSOC bank
+  - complete source-population audit
+  - complete ASSOC/control audit
+  - complete scope/attrition summary
+  - verify preregistered Q2 capability stratum is source-feasible without convenience narrowing
+  - freeze and record r4 dataset SHA
+stop_loss: >
+  If Q2 cannot be supported without another cascade of convenience filters,
+  drop the entity/reference-specific claim. Do not narrow the scientific
+  population again and do not use phase-4 mechanism work to rescue the construct.
+validation_authorized: false
+```
+
+Historical phase-1/2/3 outputs remain valid provenance under their recorded contracts. Setting the **current** authorization to false does not retroactively revoke those runs; it only blocks the next D1/phase-4 call until the corrected data contract is actually materialized and audited.
+
+---
 
 ## Discipline
 
-- `active/` 本身不代表授权。
-- `Tier S/A/B`、`survivor`、旧 `promoted` 标签都不代表授权。
-- 运行前确认 project README、canonical contract、frozen data SHA 与本表一致。
-- 新项目的 `D0-PASS` 必须包含 [`DATASET_SCOPE_AUDIT.md`](DATASET_SCOPE_AUDIT.md) 的 scope-integrity PASS。
-- 旧 result 不得跨 contract / D0 SHA 继承 verdict。
-- terminal project 不得通过换 readout、阈值、模型或名字重新获得授权。
+- `active/` directory presence does not imply authorization.
+- `Tier S/A/B`, `survivor`, `KEEP`, or historical `promoted` labels do not imply authorization.
+- new D0 PASS must include [`DATASET_SCOPE_AUDIT.md`](DATASET_SCOPE_AUDIT.md) scope-integrity PASS.
+- old result cannot inherit across contract / dataset SHA changes.
+- terminal project cannot regain authorization by changing model, threshold, subset, prompt, readout or name.
+- mechanism evidence cannot rescue a failed behavioral/data construct.
