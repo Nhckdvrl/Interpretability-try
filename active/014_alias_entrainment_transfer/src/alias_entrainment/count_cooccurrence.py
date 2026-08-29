@@ -15,7 +15,7 @@ import argparse
 import hashlib
 import json
 import re
-from collections import Counter
+from collections import Counter, defaultdict
 from pathlib import Path
 
 import ahocorasick
@@ -51,12 +51,15 @@ def is_word_char(ch: str) -> bool:
 
 
 def build_automaton(patterns: list[str]):
-    A = ahocorasick.Automaton()
+    """Casefold safely: several original surfaces may collapse to one pattern."""
+    folded_to_ids = defaultdict(list)
     for i, p in enumerate(patterns):
         folded = p.casefold()
-        if not folded:
-            continue
-        A.add_word(folded, (i, len(folded)))
+        if folded:
+            folded_to_ids[folded].append(i)
+    A = ahocorasick.Automaton()
+    for folded, ids in folded_to_ids.items():
+        A.add_word(folded, (tuple(ids), len(folded)))
     A.make_automaton()
     return A
 
@@ -65,12 +68,12 @@ def matches(A, sent_folded: str) -> set[int]:
     """Pattern ids occurring at Unicode-aware alphanumeric boundaries."""
     out = set()
     n = len(sent_folded)
-    for end, (pid, plen) in A.iter(sent_folded):
+    for end, (pids, plen) in A.iter(sent_folded):
         start = end - plen + 1
         before_ok = start == 0 or not is_word_char(sent_folded[start - 1])
         after_ok = end + 1 >= n or not is_word_char(sent_folded[end + 1])
         if before_ok and after_ok:
-            out.add(pid)
+            out.update(pids)
     return out
 
 
