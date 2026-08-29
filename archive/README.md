@@ -1,6 +1,6 @@
 # Archive Index
 
-`archive/` 保存已经停止的研究项目。具体 terminal reason 只看项目自身 README / `FINAL_VERDICT.md` / result audit；本索引不重复抄结果。
+`archive/` 保存已经停止的正式研究项目及其完整复现/裁决证据。**为什么这些题不能再做**的跨项目摘要统一看 [`../phenomenon_miner/FAILED_TOPICS.md`](../phenomenon_miner/FAILED_TOPICS.md)；具体数字与证据仍以项目自身 README / `FINAL_VERDICT.md` / result audit 为准。
 
 | path | topic |
 |---|---|
@@ -17,6 +17,6 @@
 | `011_existential_witness_collapse/` | Existential Witness Collapse |
 | `012_source_discount_recovery/` | Source-Discount Recovery |
 
-早期在编号规则冻结前存在 legacy ID 重复，因此 project identity 以**完整目录名**和 [`../phenomenon_miner/candidate_pool/AUDIT_REGISTRY.md`](../phenomenon_miner/candidate_pool/AUDIT_REGISTRY.md) 映射为准。
+早期编号规则未冻结，project identity 以完整目录名为准。
 
-`rejected_candidates/` 保存更早期 brainstorming / rejected idea；`archive/` 则保存曾进入较正式验证流程并已有 STOP/HOLD/KILL evidence chain 的项目。
+`rejected_candidates/` 是更早的 brainstorming/rejection 历史；`archive/` 则代表曾进入较正式验证并已有 STOP/HOLD/KILL evidence chain。
