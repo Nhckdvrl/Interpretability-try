@@ -2,83 +2,94 @@
 
 这个仓库用于寻找、快速证伪、再解释 **LLM / MLLM 的自然、反直觉、可机制化的问题**。
 
-2026-08-30 Top-6 实跑暴露了一个根本问题：之前的流程过度奖励“能构造漂亮 factorial experiment”，却没有把 **scientific question 本身是否自然、是否高 existence-prior** 放在最前面。
-
-因此现在的顺序是：
+Top-6 实跑后，选题流程已经从“能不能构造漂亮 factorial experiment”改成：
 
 ```text
 natural question
 → strong mother / external concept anchor
 → Hamdi-style mother-inclusion N0
+→ strongest-neighbor / successor N1
+→ if novelty gets narrower and narrower, KILL
 → data as measurement instrument
 → cheap behavioral/capability contract
 → controls
 → mechanistic interpretability
 ```
 
-而不是从 dataset 或 probe 反推题目。
-
 核心规则：[`phenomenon_miner/NATURAL_QUESTION_GATE.md`](phenomenon_miner/NATURAL_QUESTION_GATE.md)。
 
-## 当前研究主线
+## 当前 established / redesign 主线
 
-### 014 Alias Entrainment Transfer — established / paper development
+### 014 Alias Entrainment Transfer
 
-Broad cross-surface learned-relation spillover 已经成立；reference-specific/entity-salience interpretation 不成立。论文主线固定为 cross-surface transfer 的 structural gradient 与 lexical/reference boundary，不再救 reference-positive subset。
+Broad cross-surface learned-relation spillover 已成立；reference-specific/entity-salience interpretation 不成立。论文固定为 cross-surface transfer 的 structural gradient + lexical/reference boundary。
 
-### 018 Stock–Flow Correlation Intrusion — bounded D0-v2 redesign
+### 018 Stock–Flow Correlation Intrusion
 
-科学问题保留；D0-v1 是 A/B recognition measurement failure，不是 scientific null。下一轮只允许修 semantic/numeric net-recognition instrument，保持原 600 natural windows 和完整 2×2 population。
+Natural stock-flow question 保留；D0-v1 是 A/B recognition measurement failure，不是 scientific null。下一轮只允许 bounded net-recognition repair。
 
-### 024 Alignment: Descriptive Social Model vs Normative Readout — N0 PASS
+## 第一轮 Hamdi-style N0 survivors
 
-强 mother 已经证明 alignment 会让模型更 normative、较不 descriptive；ACL 2025 也已证明 descriptive/prescriptive influence 并存。
+### 024 Alignment: Descriptive Social Model vs Normative Readout
 
-所以我们不 claim “两个成分存在”，而问更下一层：
+> Alignment 让模型更 normative 时，是 descriptive human model 被改坏，还是 descriptive knowledge 仍在而 normative signal / late readout 赢了？
 
-> **alignment 到底把模型对真实人类行为的 descriptive social model 改坏了，还是该知识仍在，只是 normative signal / late readout 在输出时赢了？**
+### 025 World-Indexed Truth
 
-详细合同：[`active/024_alignment_descriptive_normative_arbitration/`](active/024_alignment_descriptive_normative_arbitration/)。
+> 同一 proposition 在 actual world 与 stipulated local world 下有不同 truth value 时，模型是否表示 `Truth(P, world)`？
 
-### 025 World-Indexed Truth — N0 PASS
+完整审计：[`phenomenon_miner/HAMDI_AXIS_N0_2026-08-31.md`](phenomenon_miner/HAMDI_AXIS_N0_2026-08-31.md)。
 
-不是再比较 fictional truth 与 factual truth，也不是 context-vs-memory conflict。
+## 第二轮：N0 + N1 三个新注册题
 
-> **同一个 proposition 在 actual world 和明确 stipulated local world 下具有不同 truth value 时，模型是否把 truth 绑定到 world index，并能同时保留两种 valuation？**
+完整审计：[`phenomenon_miner/HAMDI_MOTHER_N0_N1_3_2026-08-31.md`](phenomenon_miner/HAMDI_MOTHER_N0_N1_3_2026-08-31.md)。
 
-详细合同：[`active/025_world_indexed_truth/`](active/025_world_indexed_truth/)。
+### 026 Plausibility Is Not Testability
 
-三条新轴的完整 mother-inclusion audit：[`phenomenon_miner/HAMDI_AXIS_N0_2026-08-31.md`](phenomenon_miner/HAMDI_AXIS_N0_2026-08-31.md)。
+> **“这个科学假设可能是真的”和“它能被一个有区分力的实验检验”不是同一判断。LLM 是否把 plausibility 与 testability 分成两个内部 scientific variables？**
 
-## 本轮 novelty 直接杀掉
+Mother：ACL 2026 scientific feasibility + NAACL scientific-hypothesis evaluation。N1 未找到 causal internal factorization 的直接工作。
 
-**Superseded Truth ≠ Never-True Falsehood** 不注册。
+详细合同：[`active/026_scientific_plausibility_testability_factorization/`](active/026_scientific_plausibility_testability_factorization/)
 
-2026 *The Geometry of Forgetting: Temporal Knowledge Drift as an Independent Axis in LLM Representations* 已经覆盖 temporal validity/drift 独立轴、stale-recall vs confabulation、cross-cutoff、MLP dynamics 和 steering；继续换数据/命名没有独立叙事。
+### 027 Questions That Assert
 
-记录：[`rejected_candidates/temporal_validity_superseded_vs_never_true.md`](rejected_candidates/temporal_validity_superseded_vs_never_true.md)。
+> **识别“这是 rhetorical question”和理解“speaker 借它实际上断言了什么 proposition/stance”是否是两个 computation？**
 
-## 2026-08-31 active cleanup
+Mother：EMNLP 2025 SRAQ + ACL 2026 RQ representation。不能退化成 RQ detection 或 yes/no polarity trick。
 
-以下旧项目已移到 `archive/`：
+详细合同：[`active/027_rhetorical_force_implied_assertion/`](active/027_rhetorical_force_implied_assertion/)
 
-- 007 Weak-Evidence Backfire — terminal hard kill，纠正 stale active provenance；
-- 020 Incremental Clue Backfire — 被 `candidate_topics` Topic 28 同一 scientific object 完整吞并；
-- 021 Task-Switch Carryover — current refinement 只是已有 mother 的 diagnostic/mechanism subproblem；
-- 022 Local Success, Global Composition Failure — core object 已是 known compositionality gap。
+### 028 Cause Is Not Blame
 
-`023 Description–Experience Gap` **没有一起归档**：它本身是长期自然认知现象，保留 `HOLD-N0-REAUDIT`，但目前无 model call。
+> **不同 narrative 改变 blame/credit 时，模型是否保留一个相对稳定的 event-causal core，还是 responsibility framing 会重写 causality itself？**
+
+Mother：ACL 2026 FrECI。不能退化成 source identity / political bias probe。
+
+详细合同：[`active/028_causality_responsibility_factorization/`](active/028_causality_responsibility_factorization/)
+
+## Strict novelty kills
+
+- **Superseded Truth ≠ Never-True Falsehood**：2026 temporal-drift mechanism work 已覆盖独立 axis + stale/confabulation + dynamics + steering；KILL。
+- **Falsehood ≠ Deceptive Intent**：N1 发现近期 deception-specific / intent-targeted probe 与 non-lying-deception work 已逼近标题级结论；继续只能缩成 subtype，因此未注册。
+- 007 / 020 / 021 / 022 已从 active 清理进 archive，禁止换数据复活。
+
+## HOLD
+
+- 003 Diagnostic Counterevidence Revision — natural mother provenance；no call。
+- 013 Publicness–Coordination — natural question, HOLD-DATA。
+- 023 Description–Experience Gap — natural external phenomenon，HOLD-N0-REAUDIT。
 
 ## 关键入口
 
-- [`phenomenon_miner/NATURAL_QUESTION_GATE.md`](phenomenon_miner/NATURAL_QUESTION_GATE.md) — pre-discovery gate。
-- [`phenomenon_miner/HAMDI_AXIS_N0_2026-08-31.md`](phenomenon_miner/HAMDI_AXIS_N0_2026-08-31.md) — 最新 mother-inclusion N0。
-- [`phenomenon_miner/CURRENT_TOPICS.md`](phenomenon_miner/CURRENT_TOPICS.md) — authoritative focus queue。
-- [`active/README.md`](active/README.md) — active / HOLD 项目入口。
-- [`phenomenon_miner/AUDIT_REGISTRY.md`](phenomenon_miner/AUDIT_REGISTRY.md) — 唯一 model-call authorization。
-- [`archive/README.md`](archive/README.md) — 正式归档。
-- [`rejected_candidates/README.md`](rejected_candidates/README.md) — novelty / pre-registration 负知识。
+- [`phenomenon_miner/NATURAL_QUESTION_GATE.md`](phenomenon_miner/NATURAL_QUESTION_GATE.md)
+- [`phenomenon_miner/HAMDI_MOTHER_N0_N1_3_2026-08-31.md`](phenomenon_miner/HAMDI_MOTHER_N0_N1_3_2026-08-31.md)
+- [`phenomenon_miner/CURRENT_TOPICS.md`](phenomenon_miner/CURRENT_TOPICS.md)
+- [`active/README.md`](active/README.md)
+- [`phenomenon_miner/AUDIT_REGISTRY.md`](phenomenon_miner/AUDIT_REGISTRY.md)
+- [`archive/README.md`](archive/README.md)
+- [`rejected_candidates/README.md`](rejected_candidates/README.md)
 
 ## One-line discipline
 
-> **像 Hamdi 一样：先从一个已经重要的母问题自然走出一个新的科学对象，再用可解释性回答“模型内部到底把什么当成变量”；不要再从实验设计倒推现象。**
+> **像 Hamdi 一样：mother 先给出一个无需 dataset 也值得追问的 scientific object；我们再问它内部到底是什么。若 novelty 审计迫使标题不断加限定词，题就已经死了。**
