@@ -1,6 +1,6 @@
 # 025 — World-Indexed Truth: Actual Reality vs the Stipulated World
 
-**Status:** `N0-PASS / ACTIVE-PREFLIGHT / D0-NOT-YET-AUTHORIZED`  
+**Status:** `N0-PASS / D0-AUTHORIZED / CONTRACT-FROZEN`
 **Created:** 2026-08-31  
 **Selection route:** Hamdi-style adjacent-axis extension  
 **Priority:** high exploratory candidate; do not start MI until a simple world-indexed capability/behavior contract is frozen.
@@ -313,6 +313,11 @@ screening_authorized: false
 mechanism_authorized: false
 ```
 
-Next step: freeze the minimal 2×2 capability/data contract and run a very cheap behavioral prerequisite before any representation work.
+The minimal 2×2 capability/data contract is now frozen as
+[`configs/d0_contract.json`](configs/d0_contract.json). It contains 64 audited
+propositions, aligned and conflicting local valuations, paired actual/local
+queries under three world frames and three paraphrase families, for 256 scored
+queries total. D0 behavior is authorized; representation work remains forbidden
+until the predeclared four-family gate passes.
 
 Full N0: [`../../phenomenon_miner/HAMDI_AXIS_N0_2026-08-31.md`](../../phenomenon_miner/HAMDI_AXIS_N0_2026-08-31.md).

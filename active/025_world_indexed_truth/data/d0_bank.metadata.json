@@ -1,0 +1,31 @@
+{
+  "bank_sha256": "fdbd8b4d7ec7c9ea4a9f8acbfdfdb82acd4528115e448347702e3c3f5319fb4b",
+  "contract_id": "025-d0-v1-world-indexed-capability",
+  "counts_by_domain": {
+    "arithmetic": 96,
+    "chemistry": 96,
+    "solar_system": 64
+  },
+  "counts_by_paraphrase": {
+    "direct": 85,
+    "evaluation": 86,
+    "setting_aside": 85
+  },
+  "counts_by_query_world": {
+    "actual": 128,
+    "local": 128
+  },
+  "counts_by_relation": {
+    "aligned": 128,
+    "conflict": 128
+  },
+  "counts_by_world_frame": {
+    "fictional_chronicle": 86,
+    "hypothetical": 86,
+    "rule_simulation": 84
+  },
+  "n_contexts": 128,
+  "n_items": 256,
+  "n_propositions": 64,
+  "source_sha256": "18d6692d76cad843ca6b1556b2ce40b0dc3478e6edda5af4be5c3d64eee85bdb"
+}

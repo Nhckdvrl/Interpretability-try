@@ -1,0 +1,59 @@
+{
+  "sources": {
+    "solar_system": {
+      "title": "About the Planets",
+      "publisher": "NASA Science",
+      "url": "https://science.nasa.gov/solar-system/planets/",
+      "retrieved": "2026-08-31",
+      "claim_type": "planet ordinal from the Sun"
+    },
+    "chemistry": {
+      "title": "Periodic Table of Elements",
+      "publisher": "International Union of Pure and Applied Chemistry",
+      "url": "https://iupac.org/what-we-do/periodic-table-of-elements/",
+      "retrieved": "2026-08-31",
+      "claim_type": "element atomic number"
+    },
+    "arithmetic": {
+      "title": "Deterministic integer evaluation",
+      "publisher": "Local generator",
+      "url": null,
+      "retrieved": "2026-08-31",
+      "claim_type": "exact integer equality independently recomputed by build_bank.py"
+    }
+  },
+  "relations": [
+    {"id":"solar_mercury","domain":"solar_system","subject":"Mercury","relation":"planet_ordinal","value":1},
+    {"id":"solar_venus","domain":"solar_system","subject":"Venus","relation":"planet_ordinal","value":2},
+    {"id":"solar_earth","domain":"solar_system","subject":"Earth","relation":"planet_ordinal","value":3},
+    {"id":"solar_mars","domain":"solar_system","subject":"Mars","relation":"planet_ordinal","value":4},
+    {"id":"solar_jupiter","domain":"solar_system","subject":"Jupiter","relation":"planet_ordinal","value":5},
+    {"id":"solar_saturn","domain":"solar_system","subject":"Saturn","relation":"planet_ordinal","value":6},
+    {"id":"solar_uranus","domain":"solar_system","subject":"Uranus","relation":"planet_ordinal","value":7},
+    {"id":"solar_neptune","domain":"solar_system","subject":"Neptune","relation":"planet_ordinal","value":8},
+    {"id":"element_h","domain":"chemistry","subject":"hydrogen","relation":"atomic_number","value":1},
+    {"id":"element_he","domain":"chemistry","subject":"helium","relation":"atomic_number","value":2},
+    {"id":"element_c","domain":"chemistry","subject":"carbon","relation":"atomic_number","value":6},
+    {"id":"element_n","domain":"chemistry","subject":"nitrogen","relation":"atomic_number","value":7},
+    {"id":"element_o","domain":"chemistry","subject":"oxygen","relation":"atomic_number","value":8},
+    {"id":"element_ne","domain":"chemistry","subject":"neon","relation":"atomic_number","value":10},
+    {"id":"element_na","domain":"chemistry","subject":"sodium","relation":"atomic_number","value":11},
+    {"id":"element_mg","domain":"chemistry","subject":"magnesium","relation":"atomic_number","value":12},
+    {"id":"element_al","domain":"chemistry","subject":"aluminium","relation":"atomic_number","value":13},
+    {"id":"element_si","domain":"chemistry","subject":"silicon","relation":"atomic_number","value":14},
+    {"id":"element_cl","domain":"chemistry","subject":"chlorine","relation":"atomic_number","value":17},
+    {"id":"element_fe","domain":"chemistry","subject":"iron","relation":"atomic_number","value":26},
+    {"id":"arith_07_08","domain":"arithmetic","subject":"7 + 8","relation":"integer_result","operator":"+","operands":[7,8],"value":15},
+    {"id":"arith_13_09","domain":"arithmetic","subject":"13 + 9","relation":"integer_result","operator":"+","operands":[13,9],"value":22},
+    {"id":"arith_17_06","domain":"arithmetic","subject":"17 - 6","relation":"integer_result","operator":"-","operands":[17,6],"value":11},
+    {"id":"arith_31_12","domain":"arithmetic","subject":"31 - 12","relation":"integer_result","operator":"-","operands":[31,12],"value":19},
+    {"id":"arith_06_07","domain":"arithmetic","subject":"6 × 7","relation":"integer_result","operator":"*","operands":[6,7],"value":42},
+    {"id":"arith_08_09","domain":"arithmetic","subject":"8 × 9","relation":"integer_result","operator":"*","operands":[8,9],"value":72},
+    {"id":"arith_12_04","domain":"arithmetic","subject":"12 × 4","relation":"integer_result","operator":"*","operands":[12,4],"value":48},
+    {"id":"arith_15_03","domain":"arithmetic","subject":"15 × 3","relation":"integer_result","operator":"*","operands":[15,3],"value":45},
+    {"id":"arith_09_sq","domain":"arithmetic","subject":"9 squared","relation":"integer_result","operator":"square","operands":[9],"value":81},
+    {"id":"arith_11_sq","domain":"arithmetic","subject":"11 squared","relation":"integer_result","operator":"square","operands":[11],"value":121},
+    {"id":"arith_14_05","domain":"arithmetic","subject":"14 + 5","relation":"integer_result","operator":"+","operands":[14,5],"value":19},
+    {"id":"arith_24_07","domain":"arithmetic","subject":"24 - 7","relation":"integer_result","operator":"-","operands":[24,7],"value":17}
+  ]
+}

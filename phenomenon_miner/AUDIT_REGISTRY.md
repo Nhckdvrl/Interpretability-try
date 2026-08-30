@@ -12,7 +12,7 @@
 | `active/014_alias_entrainment_transfer` | false | existing evidence only | **ESTABLISHED / PAPER DEVELOPMENT** |
 | `active/018_stock_flow_correlation_intrusion` | **false until D0-v2 contract frozen** | false | **REDESIGN / scientific status unknown** |
 | `active/024_alignment_descriptive_normative_arbitration` | false | false | **HOLD-INCONCLUSIVE-D0** |
-| `active/025_world_indexed_truth` | **false until minimal 2×2 capability contract frozen** | false | **N0-PASS / ACTIVE-PREFLIGHT** |
+| `active/025_world_indexed_truth` | **D0 v1 only; frozen 256-query same-proposition actual/local capability bank** | false | **D0-AUTHORIZED / CONTRACT-FROZEN** |
 | `active/026_scientific_plausibility_testability_factorization` | **false until source/target support audit frozen** | false | **N0+N1 PASS / ACTIVE-PREFLIGHT** |
 | `active/027_rhetorical_force_implied_assertion` | **false until RQ force/content source audit frozen** | false | **N0+N1 PASS / ACTIVE-PREFLIGHT** |
 | `active/028_causality_responsibility_factorization` | **false until FrECI matched-support audit frozen** | false | **N0+N1 PASS / ACTIVE-PREFLIGHT** |
@@ -75,6 +75,12 @@ Only legal object:
 > same proposition, same local-world context, different simultaneously legitimate actual/local valuations; test whether truth is selected/bound by a world index.
 
 Forbidden: fictional-vs-empirical truth directions, generic context-memory conflict, ToM belief reframing.
+
+Frozen D0 v1 authorizes only the four-family behavioral capability run specified
+in `active/025_world_indexed_truth/configs/d0_contract.json`. The primary unit is
+joint actual+local correctness for the same proposition and same context. No
+representation, probe, attribution, or intervention call is authorized until
+the predeclared aggregate behavior gate passes.
 
 ---
 

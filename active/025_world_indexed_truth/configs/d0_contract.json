@@ -1,0 +1,61 @@
+{
+  "contract_id": "025-d0-v1-world-indexed-capability",
+  "frozen_at_utc": "2026-08-31T00:00:00Z",
+  "scientific_object": "Same proposition and same local-world context, queried under actual versus local world indices.",
+  "models": {
+    "qwen": {
+      "model_id": "Qwen/Qwen3-1.7B",
+      "revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e"
+    },
+    "gemma": {
+      "model_id": "google/gemma-3-1b-it",
+      "revision": "dcc83ea841ab6100d6b47a070329e1ba4cf78752"
+    },
+    "llama": {
+      "model_id": "unsloth/Llama-3.2-1B-Instruct",
+      "revision": "5a8abab4a5d6f164389b1079fb721cfab8d7126c"
+    },
+    "smollm": {
+      "model_id": "HuggingFaceTB/SmolLM2-360M-Instruct",
+      "revision": "a10cc1512eabd3dde888204e902eca88bddb4951"
+    }
+  },
+  "data": {
+    "source_fact_file": "data/source_facts.json",
+    "domains": ["solar_system", "chemistry", "arithmetic"],
+    "world_frames": ["fictional_chronicle", "hypothetical", "rule_simulation"],
+    "query_paraphrases": ["direct", "evaluation", "setting_aside"],
+    "n_source_relations": 32,
+    "n_propositions": 64,
+    "n_contexts": 128,
+    "n_scored_queries": 256,
+    "actual_truth_balance": {"true": 32, "false": 32},
+    "local_relation_per_proposition": ["aligned", "conflict"],
+    "query_worlds_per_context": ["actual", "local"]
+  },
+  "scoring": {
+    "labels": ["TRUE", "FALSE"],
+    "method": "length_normalized_conditional_sequence_log_likelihood",
+    "generation": false,
+    "primary_unit": "context-level joint correctness of actual and local queries",
+    "ties": "incorrect"
+  },
+  "family_gates": {
+    "minimum_overall_joint_accuracy": 0.80,
+    "minimum_conflict_joint_accuracy": 0.75,
+    "minimum_aligned_joint_accuracy": 0.85,
+    "minimum_each_conflict_polarity_joint_accuracy": 0.70,
+    "minimum_each_domain_conflict_joint_accuracy": 0.65,
+    "minimum_each_world_frame_conflict_joint_accuracy": 0.65,
+    "minimum_each_query_paraphrase_accuracy": 0.75
+  },
+  "aggregate_rule": {
+    "promote_behavior_minimum_family_passes": 3,
+    "promote_behavior_minimum_median_conflict_joint_accuracy": 0.75,
+    "limited_evidence_minimum_family_passes": 1,
+    "limited_evidence_minimum_median_conflict_joint_accuracy": 0.60,
+    "mechanism_authorized_only_on": "PROMOTE_BEHAVIOR"
+  },
+  "randomness": {"seed": 25031},
+  "amendment_policy": "Any change after the first model forward pass creates a new contract version; v1 is never silently overwritten."
+}
