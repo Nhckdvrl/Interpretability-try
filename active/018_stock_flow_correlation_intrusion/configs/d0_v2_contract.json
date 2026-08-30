@@ -1,0 +1,52 @@
+{
+  "contract_id": "018-d0-v2-semantic-recognition",
+  "frozen_date": "2026-08-31",
+  "change_scope": "measurement repair only",
+  "source": "ResOpsUS v2, Zenodo record 6612040",
+  "bank": "data/d0_v1/d0_bank.jsonl",
+  "bank_sha256": "27e2ca2cd1bf01c1172d55290dfb2d4ba4381c40af6f4d1fd58a2f3a3efecbf6",
+  "bank_items": 600,
+  "design": "unchanged natural 2x2: net/storage direction (up/down) x inflow trend (up/down)",
+  "items_per_cell": 150,
+  "recognition_measure": {
+    "prompt": "semantic one-word response",
+    "candidates": ["positive", "negative"],
+    "score": "softmax over the two exact one-token semantic responses",
+    "presentations": ["inflow_first", "outflow_first"],
+    "item_probability": "mean semantic probability across column orders",
+    "gate": "argmax of mean semantic probability equals gold net direction",
+    "letter_options": "forbidden",
+    "column_order": "diagnostic; not an all-presentations gate"
+  },
+  "conditions": [
+    "direct",
+    "actual_net_history",
+    "explicit_correct_net",
+    "masked_net_history",
+    "formula_reminder"
+  ],
+  "stock_measure": "unchanged A/B counterbalanced higher/lower score averaged across two column and two option orders",
+  "primary_outcome": "stock-up probability averaged across column and stock-option orders",
+  "primary_inflow_attraction": "mean of P(stock-up|inflow-up)-P(stock-up|inflow-down), separately within net-up and net-down and then equally averaged",
+  "cluster": "ResOpsUS dam_id",
+  "bootstrap_replicates": 10000,
+  "promotion_rule": {
+    "minimum_gated_items_per_2x2_cell": 50,
+    "minimum_gated_dam_clusters": 50,
+    "minimum_families": 2,
+    "actual_net_history_inflow_attraction_minimum": 0.05,
+    "actual_net_history_ci_low_must_exceed": 0.0,
+    "explicit_correct_net_ci_low_must_exceed": 0.0,
+    "both_net_directions_must_be_positive": true,
+    "column_order_directions_must_agree": true
+  },
+  "invariants": [
+    "same frozen 600-window bank and all four semantic cells",
+    "no positive-net-only or model-friendly subset",
+    "actual history writes the model-recognized semantic label, never an A/B token",
+    "explicit-correct-net downstream control retained",
+    "column-order accuracy reported as a diagnostic",
+    "no mechanism or second-source run unless the frozen family promotion rule passes"
+  ],
+  "seed": 20260831
+}

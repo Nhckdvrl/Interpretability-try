@@ -49,6 +49,19 @@ def net_messages(item: dict, column_order: str, option_order: str) -> tuple[list
     ], mapping
 
 
+def net_semantic_messages(item: dict, column_order: str) -> list[dict]:
+    """D0-v2 recognition prompt without arbitrary answer letters."""
+    user = (
+        f"{scenario(item, column_order)}\n\n"
+        "Over these six days, is cumulative inflow minus cumulative outflow "
+        "positive or negative? Reply with exactly one lowercase word: positive or negative."
+    )
+    return [
+        {"role": "system", "content": "Answer the quantitative reservoir question with exactly one lowercase word."},
+        {"role": "user", "content": user},
+    ]
+
+
 def stock_messages(item: dict, condition: str, column_order: str, option_order: str,
                    predicted_net: str) -> tuple[list[dict], dict[str, str]]:
     options, mapping = option_block("stock", option_order)
@@ -79,6 +92,42 @@ def stock_messages(item: dict, condition: str, column_order: str, option_order: 
         assistant = (
             f"The cumulative net flow is {item['net_direction']}. "
             "Storage change equals cumulative inflow minus cumulative outflow."
+        )
+    else:
+        raise ValueError(condition)
+    return [system, first, {"role": "assistant", "content": assistant},
+            {"role": "user", "content": stock_question}], mapping
+
+
+def stock_messages_v2(item: dict, condition: str, column_order: str, option_order: str,
+                      predicted_net: str) -> tuple[list[dict], dict[str, str]]:
+    """D0-v2 stock prompt with a coherent semantic recognition turn."""
+    options, mapping = option_block("stock", option_order)
+    stock_question = (
+        "At the end of the six days, is the reservoir's storage higher or lower than its initial storage?\n\n"
+        f"{options}\n\nReply with only A or B."
+    )
+    system = {"role": "system", "content": "Answer each quantitative reservoir question in the requested format."}
+    if condition == "direct":
+        return [system, {"role": "user", "content": f"{scenario(item, column_order)}\n\n{stock_question}"}], mapping
+
+    first = {
+        "role": "user",
+        "content": (
+            f"{scenario(item, column_order)}\n\n"
+            "Over these six days, is cumulative inflow minus cumulative outflow positive or negative? "
+            "Reply with exactly one lowercase word: positive or negative."
+        ),
+    }
+    if condition == "actual_net_history":
+        assistant = predicted_net
+    elif condition == "explicit_correct_net":
+        assistant = item["net_direction"]
+    elif condition == "masked_net_history":
+        assistant = "I have determined the cumulative net-flow direction."
+    elif condition == "formula_reminder":
+        assistant = (
+            f"{item['net_direction']}. Storage change equals cumulative inflow minus cumulative outflow."
         )
     else:
         raise ValueError(condition)
