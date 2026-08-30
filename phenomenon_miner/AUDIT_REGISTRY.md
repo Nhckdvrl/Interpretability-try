@@ -1,31 +1,25 @@
 # Audit Registry — Model Dispatch
 
-版本：2026-08-30  
-状态：`AUTHORITATIVE MODEL-CALL AUTHORIZATION / NATURAL-QUESTION RESET`
+版本：2026-08-31  
+状态：`AUTHORITATIVE MODEL-CALL AUTHORIZATION / HAMDI-STYLE N0`
 
-本文件只控制**接下来还能跑什么**。当前 scientific focus 见 [`CURRENT_TOPICS.md`](CURRENT_TOPICS.md)；新题必须先过 [`NATURAL_QUESTION_GATE.md`](NATURAL_QUESTION_GATE.md)。
-
-当前原则：
-
-```text
-014 = established paper-development project
-018 = measurement redesign project
-020–023 = suspended pending natural-question re-audit
-new-topic screening = paused
-```
+本文件只控制**接下来还能跑什么**。scientific focus 见 [`CURRENT_TOPICS.md`](CURRENT_TOPICS.md)。新题必须先过 [`NATURAL_QUESTION_GATE.md`](NATURAL_QUESTION_GATE.md) 和 mother-inclusion N0。
 
 ## Current dispatch
 
-| project | cheap D0 / next behavior call | full validation / mechanism | status |
+| project | cheap behavior / preflight call | full validation / MI | status |
 |---|---:|---:|---|
-| `active/014_alias_entrainment_transfer` | **false** | paper synthesis using already-completed evidence only | **ESTABLISHED / PRIMARY PAPER PRIORITY** |
-| `active/018_stock_flow_correlation_intrusion` | **false until D0-v2 contract frozen** | false | **PRIMARY REDESIGN / scientific status unknown** |
-| `active/020_incremental_clue_backfire` | **false** | false | **SUSPENDED-PENDING-NATURALNESS-REAUDIT** |
-| `active/021_task_switch_carryover` | **false** | false | **SUSPENDED-PENDING-NATURALNESS-REAUDIT** |
-| `active/022_local_success_global_composition_failure` | **false** | false | **SUSPENDED-PENDING-NATURALNESS-REAUDIT** |
-| `active/023_description_experience_gap` | **false** | false | **SUSPENDED-PENDING-NATURALNESS-REAUDIT** |
+| `active/014_alias_entrainment_transfer` | false | existing evidence only | **ESTABLISHED / PAPER DEVELOPMENT** |
+| `active/018_stock_flow_correlation_intrusion` | **false until D0-v2 contract frozen** | false | **REDESIGN / scientific status unknown** |
+| `active/024_alignment_descriptive_normative_arbitration` | **false until source + mother-reproduction contract frozen** | false | **N0-PASS / ACTIVE-PREFLIGHT** |
+| `active/025_world_indexed_truth` | **false until minimal 2×2 capability contract frozen** | false | **N0-PASS / ACTIVE-PREFLIGHT** |
+| `active/003_diagnostic_counterevidence_revision` | false | false | **HOLD / legacy pre-candidate** |
+| `active/013_publicness_coordination_dissociation` | false | false | **HOLD-DATA** |
+| `active/023_description_experience_gap` | false | false | **HOLD-N0-REAUDIT** |
 
-No project is currently authorized for a fresh model call.
+**No fresh model call is authorized at this exact commit.**
+
+Registration of 024/025 means their scientific object passed mother-inclusion N0. It does **not** authorize immediate probing, patching or even behavioral calls before the minimal source/contract documents are frozen.
 
 ---
 
@@ -42,23 +36,20 @@ Allowed:
 - structural gradient `compositional > partial > opaque >> opaque-strict≈0`;
 - phase-2 shared upstream causal machinery;
 - phase-3 lexical/seen-form direct-write boundary;
-- paper synthesis around the lexical/derivational-to-reference boundary.
+- paper synthesis around lexical/derivational-to-reference boundary.
 
 Not allowed:
 
 - entity/reference-specific salience established;
 - entrainment heads encode a shared referent;
-- F2-only reference residue as replacement for preregistered both-frame criterion;
-- person-only / direction-only / alias-subtype rescue;
+- positive-subset rescue of preregistered reference Q2;
 - new reference-specific Phase 4.
-
-014 is a **development project, not an excuse for more positive hunting**.
 
 ---
 
 ## 018 — exact redesign boundary
 
-The ResOpsUS population and full 2×2 bank remain scientifically valid. D0 v1 failed as a measurement instrument because A/B answer-position behavior destroyed the negative-net recognition denominator.
+The ResOpsUS population and full 2×2 bank remain scientifically valid. D0-v1 failed as a measurement instrument because A/B answer-position behavior destroyed the negative-net recognition denominator.
 
 Before any rerun:
 
@@ -73,63 +64,111 @@ explicit_correct_net_control: required
 contract_v2_frozen_before_calls: required
 ```
 
-Only after a D0-v2 contract is frozen may `screening_authorized` become true.
+Only after a D0-v2 contract is frozen may screening become true.
 
 ---
 
-## Suspended 020–023
+## 024 — alignment descriptive/normative arbitration
 
-Previous registration no longer authorizes calls.
+Mother-inclusion N0: **PASS — SHARPENED**.
 
-Each project must independently pass the Natural-Question Gate:
+Broad claims already occupied and forbidden:
 
-1. one-sentence natural question;
-2. one ordinary motivating example;
-3. low/medium phenomenon-absence risk with an explicit existence anchor;
-4. faithful 5–20-example sanity without a complex builder;
-5. dataset is an instrument, not the source of the question;
-6. restriction budget is small;
-7. mechanism unfolds naturally from the question rather than motivating it retroactively.
+- descriptive + prescriptive influence coexist;
+- RLHF/instruction tuning increases prescriptive influence;
+- alignment makes outputs more normative;
+- generic internal social knowledge exceeds output behavior.
 
-A failed gate means route/park/delete from current queue. No model call is needed to make that decision.
+Only legal scientific object:
 
----
+> paired base→aligned internal transformation of independently defined descriptive human-behavior and normative targets, distinguishing descriptive degradation vs dual retention vs late arbitration/readout.
 
-## Archived after completed Top-6 audit
+Before any model call freeze:
 
-These projects are terminal under their current registered scientific identity. No model call, prompt change, subset, threshold, readout swap, or mechanism work may revive them:
+```yaml
+source_population: real human behavioral decisions
+base_aligned_pair: audited
+normative_target: independently defined
+mother_behavior_reproduction_metric: frozen
+prompt_family: frozen
+no_synthetic_effect_creation: true
+```
 
-| archived project | screening | validation / MI | terminal reason |
-|---|---:|---:|---|
-| `archive/015_clarification_resolution_lag` | false | false | matched neutral history explains the small history effect; ambiguity-specific residual null in 3 families |
-| `archive/016_mixed_status_event_attraction` | false | false | same-status context explains mixed-vs-local effect; controlled mixed-vs-same not stable in any family |
-| `archive/017_cross_modal_resolution_inertia` | false | false | strongest powered sequential effect survives with masked prior-choice identity; not interpretation-specific |
-| `archive/019_abstention_hysteresis` | false | false | strong cross-family/cross-source reverse effect; neutral incomplete→complete transition explains most recovery |
-
----
-
-## Existing provenance
-
-- `active/007_weak_evidence_backfire`: terminal hard kill, no calls.
-- `active/013_publicness_coordination_dissociation`: parked/hold-data, no calls.
-- `active/003_diagnostic_counterevidence_revision`: legacy provenance, no current authorization.
+Mechanism remains false until the mother behavior is reproduced on an accessible open pair.
 
 ---
 
-## New discovery rule
+## 025 — world-indexed truth
 
-Before N0/N1/D0 feasibility, every new idea must pass [`NATURAL_QUESTION_GATE.md`](NATURAL_QUESTION_GATE.md).
+Mother-inclusion N0: **PASS — SHARPENED**.
 
-A topic is **not** made better by having a sophisticated factorial design. If the scientific question needs that design to become interesting, the topic is already weak.
+Forbidden routes:
+
+- empirical-vs-fictional truth probe comparison;
+- generic context-vs-parametric conflict;
+- `context changes truth vector` replication;
+- character-belief / ToM reframing;
+- output-only role-playing compliance.
+
+Only legal scientific object:
+
+> the same proposition carries different but simultaneously legitimate truth values under actual and explicitly stipulated local worlds; ask whether truth is bound/selected by a world index.
+
+Before any call freeze a minimal contract with:
+
+```yaml
+same_proposition_across_query_worlds: required
+same_local_context: required
+actual_true_local_false: included
+actual_false_local_true: included
+aligned_controls: included
+query_world_paraphrases: included
+first_stage: capability_only
+```
+
+No hidden-state experiment until open-model paired actual/local capability is established.
+
+---
+
+## 023 — HOLD-N0-REAUDIT
+
+Description–Experience Gap remains physically active because the external cognitive object is natural and an LLM mother exists. It is **not** authorized. It needs its own mother-inclusion N0 before any further work.
+
+---
+
+## Newly archived / no authorization
+
+| project | reason |
+|---|---|
+| `archive/007_weak_evidence_backfire` | terminal hard kill; stale active provenance corrected |
+| `archive/020_incremental_clue_backfire` | internal collision with `candidate_topics` Topic 28 Progressive Truthful Clue Reversal |
+| `archive/021_task_switch_carryover` | existing task-switch mother; registered refinement lacks independent natural scientific object |
+| `archive/022_local_success_global_composition_failure` | core behavior already known compositionality gap; stronger condition is not a new mother object |
+
+Previously archived 015/016/017/019 remain terminal under their registered identities.
+
+---
+
+## Direct rejected candidate
+
+`Superseded Truth ≠ Never-True Falsehood` is **KILL / DO NOT REGISTER**.
+
+2026 *The Geometry of Forgetting* already occupies temporal-validity/drift as an independent internal axis, stale-recall vs confabulation, cross-cutoff identification, MLP dynamics and steering. It also falls inside the repository's current-state/history/state-update mother family.
+
+See [`../rejected_candidates/temporal_validity_superseded_vs_never_true.md`](../rejected_candidates/temporal_validity_superseded_vs_never_true.md).
 
 ---
 
 ## Discipline
 
-- phenomenon first, measurement second;
-- high existence prior before expensive D0;
-- dataset measures the question; dataset does not invent the question;
-- controls isolate explanations after a broad effect is visible;
-- hidden-state evidence cannot rescue a failed behavioral contract;
-- a measurement failure is not a scientific null;
-- a clean scientific null is not a license for prompt/subset rescue.
+```text
+natural question
+→ strong existence/mother anchor
+→ mother-inclusion N0
+→ source/data instrument
+→ cheap behavior/capability contract
+→ controls
+→ mechanism
+```
+
+Never reverse this order because a dataset or interpretability method makes an experiment easy.
