@@ -1,0 +1,19 @@
+{
+  "contract_id": "024-d0-v1-mother-reproduction",
+  "cuda_visible_devices": "1",
+  "decision_token_ids": {
+    "F": 236811,
+    "J": 236863
+  },
+  "family": "gemma",
+  "formats": [
+    "native",
+    "plain"
+  ],
+  "model_id": "google/gemma-3-1b-it",
+  "n_bank_items": 3870,
+  "n_records": 7740,
+  "revision": "dcc83ea841ab6100d6b47a070329e1ba4cf78752",
+  "role": "aligned",
+  "torch_version": "2.11.0+cu130"
+}

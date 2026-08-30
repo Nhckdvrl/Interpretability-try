@@ -1,0 +1,20 @@
+{
+  "mechanism_authorized": false,
+  "native_delta_r": [
+    0.002988091570016782,
+    0.2447862518675169,
+    0.13713319126880547,
+    -0.0913343749374172
+  ],
+  "native_family_passes": 2,
+  "native_mass_passes": 4,
+  "native_median_delta_r": 0.07006064141941112,
+  "shared_plain_delta_r": [
+    0.18873883500440108,
+    0.19944874537564988,
+    0.0398927580408614,
+    -0.10637986609378608
+  ],
+  "shared_plain_positive_families": 3,
+  "verdict": "HOLD_INCONCLUSIVE_D0"
+}

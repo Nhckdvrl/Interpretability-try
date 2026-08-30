@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import csv
 import json
 from pathlib import Path
 
@@ -57,10 +58,27 @@ def load_result(path: Path) -> pd.DataFrame:
         return pd.DataFrame(json.loads(line) for line in handle)
 
 
+def validate_result(frame: pd.DataFrame, contract: dict, family: str, role: str) -> None:
+    expected_model = contract["models"][family][role]
+    expected_formats = {"plain"} if role == "base" else {"native", "plain"}
+    if set(frame["contract_id"]) != {contract["contract_id"]}:
+        raise ValueError(f"{family}/{role}: contract mismatch")
+    if set(frame["model_id"]) != {expected_model}:
+        raise ValueError(f"{family}/{role}: model mismatch")
+    if set(frame["format"]) != expected_formats:
+        raise ValueError(f"{family}/{role}: format mismatch")
+    counts = frame.groupby("format")["item_id"].nunique().to_dict()
+    if counts != {prompt_format: 3870 for prompt_format in expected_formats}:
+        raise ValueError(f"{family}/{role}: incomplete item counts {counts}")
+    if frame.duplicated(["format", "item_id"]).any():
+        raise ValueError(f"{family}/{role}: duplicate format/item rows")
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--results-dir", type=Path, default=ROOT / "results" / "d0")
     parser.add_argument("--output", type=Path, default=ROOT / "results" / "d0_analysis.json")
+    parser.add_argument("--summary-csv", type=Path, default=ROOT / "results" / "d0_summary.csv")
     args = parser.parse_args()
 
     contract = json.loads((ROOT / "configs" / "d0_contract.json").read_text())
@@ -71,9 +89,12 @@ def main() -> None:
 
     native_deltas, plain_deltas = [], []
     native_passes, mass_passes = 0, 0
+    summary_rows = []
     for family in contract["models"]:
         base_all = load_result(args.results_dir / f"{family}_base.jsonl")
         aligned_all = load_result(args.results_dir / f"{family}_aligned.jsonl")
+        validate_result(base_all, contract, family, "base")
+        validate_result(aligned_all, contract, family, "aligned")
         family_report = {"comparisons": {}}
         for comparison, aligned_format in [("native", "native"), ("shared_plain", "plain")]:
             base = base_all[(base_all["format"] == "plain") & (base_all["round"] > 1)].copy()
@@ -115,6 +136,22 @@ def main() -> None:
                     "aligned_mean_1_minus_p_f": float((1 - pd_aligned["p_f"]).mean()),
                 },
             }
+            summary_rows.append(
+                {
+                    "family": family,
+                    "comparison": comparison,
+                    "base_r": base_summary["r"],
+                    "aligned_r": aligned_summary["r"],
+                    "delta_r": bootstrap["delta_r"],
+                    "ci95_low": bootstrap["ci95"][0],
+                    "ci95_high": bootstrap["ci95"][1],
+                    "base_mass": base_summary["mean_decision_mass"],
+                    "aligned_mass": aligned_summary["mean_decision_mass"],
+                    "mass_gate": mass_ok,
+                    "informative_gate": informative,
+                    "family_pass": passed,
+                }
+            )
             if comparison == "native":
                 native_deltas.append(bootstrap["delta_r"])
                 native_passes += int(passed)
@@ -153,6 +190,10 @@ def main() -> None:
     }
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(report, indent=2, sort_keys=True) + "\n")
+    with args.summary_csv.open("w", newline="", encoding="utf-8") as handle:
+        writer = csv.DictWriter(handle, fieldnames=list(summary_rows[0]), lineterminator="\n")
+        writer.writeheader()
+        writer.writerows(summary_rows)
     print(json.dumps(report["aggregate"], indent=2, sort_keys=True))
 
 

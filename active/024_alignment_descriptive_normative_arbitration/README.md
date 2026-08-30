@@ -1,6 +1,6 @@
 # 024 — What Does Alignment Change: Descriptive Social Models or Normative Readout?
 
-**Status:** `N0-PASS / D0-v1-CONTRACT-FROZEN / BEHAVIORAL-CALLS-AUTHORIZED`
+**Status:** `HOLD-INCONCLUSIVE-D0 / MECHANISM-NOT-AUTHORIZED`
 **Created:** 2026-08-31  
 **Selection route:** Hamdi-style mother-paper extension  
 **Priority:** high new-candidate priority, behind established 014 and current 018 redesign until behavioral reproduction is frozen.
@@ -260,7 +260,7 @@ natural_question_gate: PASS
 mother_inclusion_n0: PASS_SHARPENED
 behavioral_mother_exists: true
 novelty_claim: alignment-induced internal fate/arbitration of descriptive vs normative social targets
-screening_authorized: true
+screening_authorized: false
 mechanism_authorized: false
 ```
 
@@ -268,7 +268,9 @@ The source/data audit and open-model mother-reproduction contract are now
 frozen in [`SOURCE_AUDIT.md`](SOURCE_AUDIT.md),
 [`D0_PREFLIGHT.md`](D0_PREFLIGHT.md), and
 [`configs/d0_contract.json`](configs/d0_contract.json). Only deterministic D0
-behavioral scoring is authorized; probing remains forbidden until D0 is
-adjudicated.
+behavioral scoring has been completed and adjudicated in
+[`D0_REPORT.md`](D0_REPORT.md). The frozen verdict is
+`HOLD_INCONCLUSIVE_D0`: two of four families pass rather than the required
+three. No further behavioral or mechanistic call is authorized under D0 v1.
 
 Full N0: [`../../phenomenon_miner/HAMDI_AXIS_N0_2026-08-31.md`](../../phenomenon_miner/HAMDI_AXIS_N0_2026-08-31.md).

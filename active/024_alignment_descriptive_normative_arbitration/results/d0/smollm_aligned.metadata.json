@@ -1,0 +1,19 @@
+{
+  "contract_id": "024-d0-v1-mother-reproduction",
+  "cuda_visible_devices": "0",
+  "decision_token_ids": {
+    "F": 54,
+    "J": 58
+  },
+  "family": "smollm",
+  "formats": [
+    "native",
+    "plain"
+  ],
+  "model_id": "HuggingFaceTB/SmolLM2-360M-Instruct",
+  "n_bank_items": 3870,
+  "n_records": 7740,
+  "revision": "a10cc1512eabd3dde888204e902eca88bddb4951",
+  "role": "aligned",
+  "torch_version": "2.11.0+cu130"
+}

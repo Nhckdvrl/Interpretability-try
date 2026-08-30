@@ -1,0 +1,19 @@
+{
+  "contract_id": "024-d0-v1-mother-reproduction",
+  "cuda_visible_devices": "0",
+  "decision_token_ids": {
+    "F": 37,
+    "J": 41
+  },
+  "family": "qwen",
+  "formats": [
+    "native",
+    "plain"
+  ],
+  "model_id": "Qwen/Qwen3-1.7B",
+  "n_bank_items": 3870,
+  "n_records": 7740,
+  "revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+  "role": "aligned",
+  "torch_version": "2.11.0+cu130"
+}
