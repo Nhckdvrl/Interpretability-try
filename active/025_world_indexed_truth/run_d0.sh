@@ -4,6 +4,7 @@ set -euo pipefail
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PYTHON_BIN="${PYTHON_BIN:-/home/xiang/miniconda3/envs/fgvd/bin/python}"
 export PYTHONPATH="$ROOT_DIR/src${PYTHONPATH:+:$PYTHONPATH}"
+mkdir -p "$ROOT_DIR/results/d0"
 
 "$PYTHON_BIN" -m world_indexed_truth.build_bank
 "$PYTHON_BIN" -m pytest "$ROOT_DIR/tests" -q
