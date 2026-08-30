@@ -2,7 +2,7 @@
 
 **中文一句话：** 模型明明算对了“流入减流出”，为什么最后判断库存涨跌时还是会被最显眼的 inflow 走势带跑？
 
-**Status:** `D0 COMPLETE / NO-PROMOTE (2026-08-30)`
+**Status:** `D0-v2 COMPLETE / NO-PROMOTE / NO-MI / TERMINAL (2026-08-31)`
 **Created:** 2026-08-30
 **Top-10 rank:** #5
 **Primary builder:** `src/stock_flow_intrusion/build_bank.py`
@@ -65,7 +65,7 @@ Q2: stock direction / peak? -> wrong in inflow-following direction
 
 这对应一个非常具体的 mechanistic question：**正确 net-flow representation 为什么没有被 downstream stock readout 使用？**
 
-**Working novelty hypothesis:** 现有 stock-flow 人类文献与通用 LLM bias work 没有直接建立这种“局部 net-flow 计算已正确但 downstream stock readout 仍受 correlation heuristic 入侵”的 mechanistic phenotype。投稿前仍需 N1 搜索 LLM stock-flow / dynamic-systems benchmark。
+**Novelty boundary:** 现有 stock-flow 人类文献与通用 LLM bias work 没有直接建立这种“局部 net-flow 计算已正确但 downstream stock readout 仍受 correlation heuristic 入侵”的 mechanistic phenotype。该 registered phenotype 已由 D0-v2 直接检验并失败，不再追加 N1 或把题目缩成 polarity/prompt/model-specific 子题。
 
 ---
 
@@ -352,3 +352,30 @@ Qwen 与 Gemma 对 net-up 近乎满分，但 net-down presentation-level accurac
 在仅作诊断、不能支持主 claim 的 net-up gated 子集中，写入正确 semantic net direction 后：Qwen stock accuracy 为 99.3–99.5%，其 inflow-direction difference 为 −0.23pp（95% CI [−1.43, 0.81]）；Gemma 为 93.0–97.8%，difference 为 −4.91pp（95% CI [−8.29, −1.72]）；Llama difference 为 +1.67pp（95% CI [0.32, 2.97]），低于冻结的 5pp 门槛。三者没有形成所需的跨家族正向 intrusion。
 
 完整方法、失败审计与后续判断见 `D0_V1_REPORT.md`；机器可读联合结果见 `results/d0_analysis.json`。本题不进入第二自然 source 或 mechanistic intervention 阶段。
+
+---
+
+## 15. D0-v2 bounded repair and terminal result（2026-08-31）
+
+D0-v2 保持同一 600-window natural bank、四个 semantic cells、五个 stock
+conditions、stock readout、dam-cluster bootstrap 与 PROMOTE 门槛，只把 A/B
+net-recognition gate 改为 exact one-token `positive` / `negative` semantic
+scoring。column order 只做 diagnostic，不再要求每个 presentation 都正确。
+
+Qwen、Gemma、Llama 三个必需家族和第四个 Phi 家族均完成 13,200-row full
+run。四家 gated cell counts 分别为：
+
+- Qwen: `102 / 45 / 148 / 149`；
+- Gemma: `39 / 14 / 150 / 150`；
+- Llama: `150 / 150 / 0 / 3`；
+- Phi: `79 / 10 / 149 / 150`。
+
+没有家族通过每 cell ≥50 的冻结 gate。更关键的是，可估计三家的
+`actual_net_history` inflow attraction 为 Qwen +1.23pp（95% CI −0.16 至
++2.77）、Gemma −3.88pp（−6.36 至 −1.63）、Phi +0.75pp（−0.57 至
++2.01）；均未达到 +5pp，Gemma 还是显著反向。Llama 只有 negative-net
+stratum 可估计，不能做 positive-only/negative-only rescue。
+
+最终判定为 0/4 family `NO-PROMOTE / NO-MI`。不再做 numeric D0-v3、第二
+source、机制实验或追加 N1；完整裁决和可复现信息见 `D0_V2_REPORT.md`，机器
+结果见 `results/d0_v2/analysis.json`。

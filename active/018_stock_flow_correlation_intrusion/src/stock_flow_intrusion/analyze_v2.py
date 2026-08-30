@@ -19,6 +19,11 @@ from .io import read_jsonl
 from .run_model_v2 import CONTRACT_ID
 
 
+def mean_or_nan(values: list[float]) -> float:
+    """Return an explicit missing value for an empty diagnostic stratum."""
+    return float(np.mean(values)) if values else float("nan")
+
+
 def aggregate_v2(rows: list[dict]) -> tuple[list[dict], dict]:
     net = defaultdict(list)
     stock = defaultdict(list)
@@ -118,8 +123,8 @@ def analyze_family_v2(raw: list[dict], replicates: int, seed: int) -> dict:
                 replicates, seed + offset * 20 + 5 + col_offset,
             )
         result["conditions"][condition] = {
-            "accuracy_aligned": float(np.mean([row["accuracy"] for row in aligned])),
-            "accuracy_conflict": float(np.mean([row["accuracy"] for row in conflict])),
+            "accuracy_aligned": mean_or_nan([row["accuracy"] for row in aligned]),
+            "accuracy_conflict": mean_or_nan([row["accuracy"] for row in conflict]),
             "inflow_attraction": cluster_bootstrap(
                 local, attraction, replicates, seed + offset * 20 + 10,
             ),

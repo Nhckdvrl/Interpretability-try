@@ -1,0 +1,23 @@
+{
+  "contract_id": "018-d0-v2-semantic-recognition",
+  "family": "gemma",
+  "model": "google/gemma-3-12b-it",
+  "model_revision": "96b6f1eccf38110c56df3a15bffe176da04bfd80",
+  "bank_sha256": "27e2ca2cd1bf01c1172d55290dfb2d4ba4381c40af6f4d1fd58a2f3a3efecbf6",
+  "bank_items": 600,
+  "records": 13200,
+  "semantic_token_ids": {
+    "positive": 30558,
+    "negative": 27851
+  },
+  "letter_token_ids": {
+    "A": 236776,
+    "B": 236799
+  },
+  "batch_size": 16,
+  "dtype": "torch.bfloat16",
+  "elapsed_seconds": 523.8619623184204,
+  "python": "3.12.13",
+  "torch": "2.11.0+cu130",
+  "transformers": "5.12.1"
+}

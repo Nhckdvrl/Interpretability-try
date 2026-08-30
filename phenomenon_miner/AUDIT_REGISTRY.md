@@ -10,7 +10,7 @@
 | project | cheap behavior / preflight call | full validation / MI | status |
 |---|---:|---:|---|
 | `active/014_alias_entrainment_transfer` | false | existing evidence only | **ESTABLISHED / PAPER DEVELOPMENT** |
-| `active/018_stock_flow_correlation_intrusion` | **false until D0-v2 contract frozen** | false | **REDESIGN / scientific status unknown** |
+| `active/018_stock_flow_correlation_intrusion` | false | false | **D0-v2 NO-PROMOTE / NO-MI / TERMINAL** |
 | `active/024_alignment_descriptive_normative_arbitration` | false | false | **HOLD-INCONCLUSIVE-D0** |
 | `active/025_world_indexed_truth` | **false; both frozen behavior runs complete** | false | **HOLD_PREREQUISITE_CAPABILITY / NO-MI** |
 | `active/026_scientific_plausibility_testability_factorization` | false | false | **PARK-DATA / independent P/T gold absent** |
@@ -34,9 +34,9 @@ Not allowed: entity/reference-specific salience established, positive-subset res
 
 ---
 
-## 018 — exact redesign boundary
+## 018 — terminal D0-v2 adjudication
 
-Before rerun:
+D0-v2 preserved the redesign invariants:
 
 ```yaml
 scientific_population: unchanged
@@ -48,6 +48,12 @@ positive_net_only_subset: forbidden
 explicit_correct_net_control: required
 contract_v2_frozen_before_calls: required
 ```
+
+The four-family run is complete. Gated cell minima were Qwen 45, Gemma 14,
+Llama 0, and Phi 10 (required 50). The primary actual-history effect was +1.23pp
+for Qwen, −3.88pp for Gemma, non-estimable for Llama, and +0.75pp for Phi.
+Overall promotion is 0/4. No further behavior, D0-v3, second-source, N1, or MI
+call is authorized.
 
 ---
 

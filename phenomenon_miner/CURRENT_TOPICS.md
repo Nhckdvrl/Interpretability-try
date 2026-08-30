@@ -31,13 +31,17 @@ Broad cross-surface learned-relation spillover 已成立；reference-specific en
 
 ---
 
-## Priority 2 — 018 Stock–Flow Correlation Intrusion
+## Adjudicated — 018 Stock–Flow Correlation Intrusion
 
 [`../active/018_stock_flow_correlation_intrusion/`](../active/018_stock_flow_correlation_intrusion/)
 
-**PRIMARY REDESIGN / SCIENTIFIC STATUS UNKNOWN**
+**D0-v2 NO-PROMOTE / NO-MI / TERMINAL**
 
-自然 stock-flow question 和 ResOpsUS population 保留。D0-v1 只是 A/B recognition instrument 失败。下一步只允许 semantic positive/negative 或 numeric-sign measurement repair，原 600 windows / four cells / explicit-correct-net control 不变。
+在同一 600-window ResOpsUS population 上完成了唯一允许的 semantic
+positive/negative measurement repair。四家均未通过冻结 cell gate；可估计的
+Qwen/Gemma/Phi primary effect 分别为 +1.23pp、−3.88pp、+0.75pp，要求为
++5pp 且 CI 过零。Llama 缺 positive-net coverage。0/4 family PROMOTE，禁止
+继续 measurement repair、选择 polarity、换 source 或启动 mechanism。
 
 ---
 
@@ -171,9 +175,9 @@ Llama-only rescue 或继续缩成 output-format 题。
 
 ```text
 014 -> paper development
-018 -> bounded D0-v2 measurement repair
+018 -> D0-v2 NO-PROMOTE / NO-MI / TERMINAL
 024 -> HOLD-INCONCLUSIVE-D0; no further calls
-025 -> active capability preflight from previous N0
+025 -> HOLD-PREREQUISITE-CAPABILITY / NO-MI
 026/027 -> PARK-DATA; 028 -> PARK-ARTIFACT
 003/013/023 -> HOLD
 fresh hidden-state/causal MI on 024-028 -> forbidden until project-specific source + behavior/capability contract passes

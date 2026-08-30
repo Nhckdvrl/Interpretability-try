@@ -18,7 +18,7 @@ natural question
 
 核心规则：[`phenomenon_miner/NATURAL_QUESTION_GATE.md`](phenomenon_miner/NATURAL_QUESTION_GATE.md)。
 
-## 当前 established / redesign 主线
+## 当前 established / adjudicated 主线
 
 ### 014 Alias Entrainment Transfer
 
@@ -26,7 +26,10 @@ Broad cross-surface learned-relation spillover 已成立；reference-specific/en
 
 ### 018 Stock–Flow Correlation Intrusion
 
-Natural stock-flow question 保留；D0-v1 是 A/B recognition measurement failure，不是 scientific null。下一轮只允许 bounded net-recognition repair。
+Natural stock-flow question 经 bounded D0-v2 semantic-recognition repair 后仍为
+0/4 family PROMOTE；可估计家族的正确-net-history effect 为小幅 null 或反向。
+状态固定为 `NO-PROMOTE / NO-MI / TERMINAL`，禁止继续 gate repair 或缩成
+polarity/prompt/model-specific 子题。
 
 ## 第一轮 Hamdi-style N0 survivors
 

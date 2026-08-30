@@ -14,7 +14,7 @@
 | project | scientific status | current action |
 |---|---|---|
 | [`014_alias_entrainment_transfer`](014_alias_entrainment_transfer/) | **ESTABLISHED / PAPER DEVELOPMENT** | broad cross-surface spillover + structural gradient + lexical/reference boundary |
-| [`018_stock_flow_correlation_intrusion`](018_stock_flow_correlation_intrusion/) | **SCIENTIFIC STATUS UNKNOWN / D0-v1 MEASUREMENT FAILURE** | 只修 net-recognition instrument，保持原自然 population |
+| [`018_stock_flow_correlation_intrusion`](018_stock_flow_correlation_intrusion/) | **D0-v2 NO-PROMOTE / NO-MI / TERMINAL** | 0/4 family；禁止继续 repair、subset rescue 或机制实验 |
 | [`024_alignment_descriptive_normative_arbitration`](024_alignment_descriptive_normative_arbitration/) | **HOLD-INCONCLUSIVE-D0** | 2/4 native family passes; no mechanism calls |
 | [`025_world_indexed_truth`](025_world_indexed_truth/) | **HOLD_PREREQUISITE_CAPABILITY / NO-MI** | conflict-only success fails aligned world-index controls |
 | [`026_scientific_plausibility_testability_factorization`](026_scientific_plausibility_testability_factorization/) | **PARK-DATA / NO CALL** | independent expert-grounded P/T cross-axis gold absent |
@@ -111,9 +111,9 @@ same directed cause-effect pair 下 frame 改变；中央 matched population 无
 
 ```text
 014 -> paper development
-018 -> freeze D0-v2 measurement repair
+018 -> D0-v2 NO-PROMOTE / NO-MI / TERMINAL
 024 -> HOLD-INCONCLUSIVE-D0; no further calls
-025 -> active capability preflight
+025 -> HOLD-PREREQUISITE-CAPABILITY / NO-MI
 026/027 -> PARK-DATA; 028 -> PARK-ARTIFACT
 003/013/023 -> HOLD
 fresh MI on 024-028 -> forbidden until each behavior/data contract passes

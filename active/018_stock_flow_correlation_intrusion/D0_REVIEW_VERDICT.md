@@ -1,15 +1,16 @@
 # 018 post-run review verdict
 
-**Date:** 2026-08-30  
-**Independent status:** `INCONCLUSIVE / HOLD-D0-MEASUREMENT-FAILURE / REDESIGN-REQUIRED`
+**Date:** 2026-08-31
+**Independent status:** `D0-v2 COMPLETE / NO-PROMOTE / NO-MI / TERMINAL`
 
-This file supersedes any interpretation of `D0_V1_REPORT.md`'s `NO-PROMOTE` as a scientific null.
+The bounded repair authorized below was frozen and completed. Full results are
+in `D0_V2_REPORT.md` and `results/d0_v2/analysis.json`.
 
 The ResOpsUS source bank and balanced 2×2 design are valid. The failure occurs at the **net-recognition measurement instrument**: strict gating requires correctness across four A/B presentations, but negative-net items show extreme answer-position dependence. In the clearest case, Llama recognizes negative net at ~99–100% with the canonical option position and 0% after option reversal. Qwen and Gemma also show severe presentation dependence.
 
-Therefore all strictly gated items are positive-net items and the preregistered direction-controlled stock-flow intrusion estimand is non-estimable. This does **not** justify the claim that Stock–Flow Correlation Intrusion is absent.
+Therefore D0-v1 did not justify a scientific null by itself.
 
-A future D0 v2 may be run only after a new contract is frozen. It must:
+D0-v2 implemented exactly one measurement repair:
 
 1. preserve all four `net direction × inflow trend` semantic cells;
 2. replace letter-position-dependent recognition with semantic continuation scoring (`positive` vs `negative`) or deterministic numeric cumulative-net output;
@@ -17,4 +18,13 @@ A future D0 v2 may be run only after a new contract is frozen. It must:
 4. retain `explicit_correct_net` downstream controls;
 5. forbid positive-net-only rescue.
 
-Until then, no new model call is authorized. Full reasoning is in `../../phenomenon_miner/TOP6_RESULT_REVIEW_2026-08-30.md`.
+The same 600-window bank was run on Qwen, Gemma, Llama, and Phi. Every family
+missed at least one 50-item semantic cell. Among estimable families, the primary
+actual-history attraction was +1.23pp, −3.88pp, and +0.75pp respectively for
+Qwen, Gemma, and Phi, below the frozen +5pp threshold or opposite in direction.
+Llama lacked positive-net coverage, so its negative-only diagnostic cannot be
+promoted.
+
+The registered phenotype is therefore `NO-PROMOTE`. No D0-v3, selected-polarity
+rescue, second natural source, additional N1 search, or mechanistic call is
+authorized.

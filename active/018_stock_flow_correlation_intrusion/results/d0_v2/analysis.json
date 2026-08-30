@@ -1,0 +1,1207 @@
+{
+  "contract_id": "018-d0-v2-semantic-recognition",
+  "families": {
+    "qwen": {
+      "metadata": {
+        "contract_id": "018-d0-v2-semantic-recognition",
+        "family": "qwen",
+        "model": "Qwen/Qwen3-8B",
+        "model_revision": "b968826d9c46dd6066d109eabc6255188de91218",
+        "bank_sha256": "27e2ca2cd1bf01c1172d55290dfb2d4ba4381c40af6f4d1fd58a2f3a3efecbf6",
+        "bank_items": 600,
+        "records": 13200,
+        "semantic_token_ids": {
+          "positive": 30487,
+          "negative": 42224
+        },
+        "letter_token_ids": {
+          "A": 32,
+          "B": 33
+        },
+        "batch_size": 32,
+        "dtype": "torch.bfloat16",
+        "elapsed_seconds": 351.80441999435425,
+        "python": "3.12.13",
+        "torch": "2.11.0+cu130",
+        "transformers": "5.12.1"
+      },
+      "analysis": {
+        "gate": {
+          "total_items": 600,
+          "gated_items": 444,
+          "gate_rate": 0.74,
+          "gated_cells": {
+            "net_down__inflow_down": 102,
+            "net_down__inflow_up": 45,
+            "net_up__inflow_down": 148,
+            "net_up__inflow_up": 149
+          },
+          "gated_dams": 187,
+          "recognition_diagnostics": {
+            "net_down__inflow_down": {
+              "item_gate_accuracy": 0.68,
+              "mean_gold_probability": 0.519592130994212,
+              "column_accuracy": {
+                "inflow_first": 0.8666666666666667,
+                "outflow_first": 0.09333333333333334
+              }
+            },
+            "net_down__inflow_up": {
+              "item_gate_accuracy": 0.3,
+              "mean_gold_probability": 0.3973023931889846,
+              "column_accuracy": {
+                "inflow_first": 0.7866666666666666,
+                "outflow_first": 0.0
+              }
+            },
+            "net_up__inflow_down": {
+              "item_gate_accuracy": 0.9866666666666667,
+              "mean_gold_probability": 0.9797003181651235,
+              "column_accuracy": {
+                "inflow_first": 0.9733333333333334,
+                "outflow_first": 1.0
+              }
+            },
+            "net_up__inflow_up": {
+              "item_gate_accuracy": 0.9933333333333333,
+              "mean_gold_probability": 0.9735869839135557,
+              "column_accuracy": {
+                "inflow_first": 0.9466666666666667,
+                "outflow_first": 1.0
+              }
+            }
+          }
+        },
+        "conditions": {
+          "direct": {
+            "accuracy_aligned": 0.8057768924302788,
+            "accuracy_conflict": 0.6955958549222798,
+            "inflow_attraction": {
+              "estimate": 0.04998926331592437,
+              "ci_low": 0.013889600855122279,
+              "ci_high": 0.08629842263816521,
+              "n_dams": 187,
+              "n_items": 444
+            },
+            "direction_effects": {
+              "positive": {
+                "estimate": 0.10731938223648985,
+                "ci_low": 0.04583020665101593,
+                "ci_high": 0.16781136431698424,
+                "n_dams": 155,
+                "n_items": 297
+              },
+              "negative": {
+                "estimate": -0.007340855604641108,
+                "ci_low": -0.039312355234745175,
+                "ci_high": 0.026864877170184504,
+                "n_dams": 108,
+                "n_items": 147
+              }
+            },
+            "column_order_effects": {
+              "inflow_first": {
+                "estimate": 0.02011793585135969,
+                "ci_low": -0.022426434310356357,
+                "ci_high": 0.06099006566782033,
+                "n_dams": 187,
+                "n_items": 444
+              },
+              "outflow_first": {
+                "estimate": 0.07986059078048911,
+                "ci_low": 0.032554047014164963,
+                "ci_high": 0.12892888165669034,
+                "n_dams": 187,
+                "n_items": 444
+              }
+            }
+          },
+          "actual_net_history": {
+            "accuracy_aligned": 0.9870517928286853,
+            "accuracy_conflict": 0.9857512953367875,
+            "inflow_attraction": {
+              "estimate": 0.012320182050496096,
+              "ci_low": -0.0015617683191049851,
+              "ci_high": 0.027738262643980792,
+              "n_dams": 187,
+              "n_items": 444
+            },
+            "direction_effects": {
+              "positive": {
+                "estimate": 0.00046051466552510245,
+                "ci_low": -0.004903862188187707,
+                "ci_high": 0.005496252959256527,
+                "n_dams": 155,
+                "n_items": 297
+              },
+              "negative": {
+                "estimate": 0.02417984943546709,
+                "ci_low": -0.003122477538515284,
+                "ci_high": 0.0533651172942867,
+                "n_dams": 108,
+                "n_items": 147
+              }
+            },
+            "column_order_effects": {
+              "inflow_first": {
+                "estimate": 0.00045437295837847297,
+                "ci_low": -0.0049656758139931785,
+                "ci_high": 0.0055262778673058266,
+                "n_dams": 187,
+                "n_items": 444
+              },
+              "outflow_first": {
+                "estimate": 0.02418599114261378,
+                "ci_low": -0.0034220465733948305,
+                "ci_high": 0.05432507780183983,
+                "n_dams": 187,
+                "n_items": 444
+              }
+            }
+          },
+          "explicit_correct_net": {
+            "accuracy_aligned": 0.9860557768924303,
+            "accuracy_conflict": 0.9870466321243523,
+            "inflow_attraction": {
+              "estimate": 0.011048542613785066,
+              "ci_low": -0.003314492458947744,
+              "ci_high": 0.025574883017522837,
+              "n_dams": 187,
+              "n_items": 444
+            },
+            "direction_effects": {
+              "positive": {
+                "estimate": -0.0005511634548938105,
+                "ci_low": -0.0071892022261222654,
+                "ci_high": 0.005016252598865427,
+                "n_dams": 155,
+                "n_items": 297
+              },
+              "negative": {
+                "estimate": 0.022648248682463942,
+                "ci_low": -0.005017480761234463,
+                "ci_high": 0.052227172697084684,
+                "n_dams": 108,
+                "n_items": 147
+              }
+            },
+            "column_order_effects": {
+              "inflow_first": {
+                "estimate": -0.0005571805772711822,
+                "ci_low": -0.007199301968084758,
+                "ci_high": 0.004858703132603617,
+                "n_dams": 187,
+                "n_items": 444
+              },
+              "outflow_first": {
+                "estimate": 0.022654265804841332,
+                "ci_low": -0.005525183866456155,
+                "ci_high": 0.05223575318964501,
+                "n_dams": 187,
+                "n_items": 444
+              }
+            }
+          },
+          "masked_net_history": {
+            "accuracy_aligned": 0.8456175298804781,
+            "accuracy_conflict": 0.8860103626943006,
+            "inflow_attraction": {
+              "estimate": 0.008412395213164253,
+              "ci_low": -0.02381498960602213,
+              "ci_high": 0.03971578717309611,
+              "n_dams": 187,
+              "n_items": 444
+            },
+            "direction_effects": {
+              "positive": {
+                "estimate": 0.006078436078368887,
+                "ci_low": -0.026465988216970732,
+                "ci_high": 0.03798539171868063,
+                "n_dams": 155,
+                "n_items": 297
+              },
+              "negative": {
+                "estimate": 0.010746354347959619,
+                "ci_low": -0.04073566737629372,
+                "ci_high": 0.06264949489197758,
+                "n_dams": 108,
+                "n_items": 147
+              }
+            },
+            "column_order_effects": {
+              "inflow_first": {
+                "estimate": -0.02972663823607836,
+                "ci_low": -0.061777241355859214,
+                "ci_high": 0.002848974167926371,
+                "n_dams": 187,
+                "n_items": 444
+              },
+              "outflow_first": {
+                "estimate": 0.04655142866240686,
+                "ci_low": -0.002760403018505175,
+                "ci_high": 0.0954625228478287,
+                "n_dams": 187,
+                "n_items": 444
+              }
+            }
+          },
+          "formula_reminder": {
+            "accuracy_aligned": 0.999003984063745,
+            "accuracy_conflict": 0.9961139896373057,
+            "inflow_attraction": {
+              "estimate": 0.00977983983241728,
+              "ci_low": 0.0014600853207156115,
+              "ci_high": 0.020025995985211566,
+              "n_dams": 187,
+              "n_items": 444
+            },
+            "direction_effects": {
+              "positive": {
+                "estimate": -0.0011967184035921452,
+                "ci_low": -0.0053629397028083945,
+                "ci_high": 0.0016832797200872884,
+                "n_dams": 155,
+                "n_items": 297
+              },
+              "negative": {
+                "estimate": 0.020756398068426704,
+                "ci_low": 0.0045080667694777235,
+                "ci_high": 0.04157734971258213,
+                "n_dams": 108,
+                "n_items": 147
+              }
+            },
+            "column_order_effects": {
+              "inflow_first": {
+                "estimate": -0.0008930905234225192,
+                "ci_low": -0.004975788583434173,
+                "ci_high": 0.0021454563718808425,
+                "n_dams": 187,
+                "n_items": 444
+              },
+              "outflow_first": {
+                "estimate": 0.02045277018825707,
+                "ci_low": 0.004183581997801212,
+                "ci_high": 0.04053059071888754,
+                "n_dams": 187,
+                "n_items": 444
+              }
+            }
+          }
+        },
+        "promotion_checks": {
+          "minimum_gated_items_per_cell": false,
+          "minimum_gated_dams": true,
+          "actual_attraction_at_least_5pp": false,
+          "actual_attraction_ci_positive": false,
+          "explicit_correct_net_ci_positive": false,
+          "both_net_directions_positive": true,
+          "both_column_orders_positive": true
+        },
+        "promotion": false
+      }
+    },
+    "gemma": {
+      "metadata": {
+        "contract_id": "018-d0-v2-semantic-recognition",
+        "family": "gemma",
+        "model": "google/gemma-3-12b-it",
+        "model_revision": "96b6f1eccf38110c56df3a15bffe176da04bfd80",
+        "bank_sha256": "27e2ca2cd1bf01c1172d55290dfb2d4ba4381c40af6f4d1fd58a2f3a3efecbf6",
+        "bank_items": 600,
+        "records": 13200,
+        "semantic_token_ids": {
+          "positive": 30558,
+          "negative": 27851
+        },
+        "letter_token_ids": {
+          "A": 236776,
+          "B": 236799
+        },
+        "batch_size": 16,
+        "dtype": "torch.bfloat16",
+        "elapsed_seconds": 523.8619623184204,
+        "python": "3.12.13",
+        "torch": "2.11.0+cu130",
+        "transformers": "5.12.1"
+      },
+      "analysis": {
+        "gate": {
+          "total_items": 600,
+          "gated_items": 353,
+          "gate_rate": 0.5883333333333334,
+          "gated_cells": {
+            "net_down__inflow_down": 39,
+            "net_down__inflow_up": 14,
+            "net_up__inflow_down": 150,
+            "net_up__inflow_up": 150
+          },
+          "gated_dams": 168,
+          "recognition_diagnostics": {
+            "net_down__inflow_down": {
+              "item_gate_accuracy": 0.26,
+              "mean_gold_probability": 0.2935685156683515,
+              "column_accuracy": {
+                "inflow_first": 0.5266666666666666,
+                "outflow_first": 0.04666666666666667
+              }
+            },
+            "net_down__inflow_up": {
+              "item_gate_accuracy": 0.09333333333333334,
+              "mean_gold_probability": 0.16844242079852847,
+              "column_accuracy": {
+                "inflow_first": 0.32,
+                "outflow_first": 0.0
+              }
+            },
+            "net_up__inflow_down": {
+              "item_gate_accuracy": 1.0,
+              "mean_gold_probability": 0.9943290873616933,
+              "column_accuracy": {
+                "inflow_first": 0.9866666666666667,
+                "outflow_first": 1.0
+              }
+            },
+            "net_up__inflow_up": {
+              "item_gate_accuracy": 1.0,
+              "mean_gold_probability": 0.9971650476257007,
+              "column_accuracy": {
+                "inflow_first": 0.9933333333333333,
+                "outflow_first": 1.0
+              }
+            }
+          }
+        },
+        "conditions": {
+          "direct": {
+            "accuracy_aligned": 0.91005291005291,
+            "accuracy_conflict": 0.9115853658536586,
+            "inflow_attraction": {
+              "estimate": 0.05423264873907141,
+              "ci_low": 0.02569450605614806,
+              "ci_high": 0.08254144046902634,
+              "n_dams": 168,
+              "n_items": 353
+            },
+            "direction_effects": {
+              "positive": {
+                "estimate": 0.013294369353340385,
+                "ci_low": -0.018506845548384134,
+                "ci_high": 0.04357919446058174,
+                "n_dams": 156,
+                "n_items": 300
+              },
+              "negative": {
+                "estimate": 0.09517092812480243,
+                "ci_low": 0.04668567007823599,
+                "ci_high": 0.14228601947585043,
+                "n_dams": 48,
+                "n_items": 53
+              }
+            },
+            "column_order_effects": {
+              "inflow_first": {
+                "estimate": 0.03654171161379427,
+                "ci_low": -0.0007378801795606654,
+                "ci_high": 0.08298551664359863,
+                "n_dams": 168,
+                "n_items": 353
+              },
+              "outflow_first": {
+                "estimate": 0.07192358586434855,
+                "ci_low": 0.02611450426721704,
+                "ci_high": 0.11697153040548405,
+                "n_dams": 168,
+                "n_items": 353
+              }
+            }
+          },
+          "actual_net_history": {
+            "accuracy_aligned": 0.9153439153439153,
+            "accuracy_conflict": 0.9771341463414634,
+            "inflow_attraction": {
+              "estimate": -0.03876659634036135,
+              "ci_low": -0.06362885367177978,
+              "ci_high": -0.01629404034878493,
+              "n_dams": 168,
+              "n_items": 353
+            },
+            "direction_effects": {
+              "positive": {
+                "estimate": -0.07758303971553682,
+                "ci_low": -0.125988373321786,
+                "ci_high": -0.03305552834593129,
+                "n_dams": 156,
+                "n_items": 300
+              },
+              "negative": {
+                "estimate": 4.984703481411849e-05,
+                "ci_low": -5.484367164367819e-05,
+                "ci_high": 0.00016651729142921182,
+                "n_dams": 48,
+                "n_items": 53
+              }
+            },
+            "column_order_effects": {
+              "inflow_first": {
+                "estimate": -0.05869005928344863,
+                "ci_low": -0.09058870055186993,
+                "ci_high": -0.029040580846647818,
+                "n_dams": 168,
+                "n_items": 353
+              },
+              "outflow_first": {
+                "estimate": -0.018843133397274177,
+                "ci_low": -0.04053962982806673,
+                "ci_high": -4.585704763302876e-05,
+                "n_dams": 168,
+                "n_items": 353
+              }
+            }
+          },
+          "explicit_correct_net": {
+            "accuracy_aligned": 0.9153439153439153,
+            "accuracy_conflict": 0.9771341463414634,
+            "inflow_attraction": {
+              "estimate": -0.038264640457018564,
+              "ci_low": -0.06366864978979224,
+              "ci_high": -0.01580270017365147,
+              "n_dams": 168,
+              "n_items": 353
+            },
+            "direction_effects": {
+              "positive": {
+                "estimate": -0.07658604556917759,
+                "ci_low": -0.12632441733598018,
+                "ci_high": -0.032281850566201156,
+                "n_dams": 156,
+                "n_items": 300
+              },
+              "negative": {
+                "estimate": 5.676465514045637e-05,
+                "ci_low": -4.499749892211655e-05,
+                "ci_high": 0.000173914051162253,
+                "n_dams": 48,
+                "n_items": 53
+              }
+            },
+            "column_order_effects": {
+              "inflow_first": {
+                "estimate": -0.05845778610819782,
+                "ci_low": -0.09109661612105723,
+                "ci_high": -0.02883166935550611,
+                "n_dams": 168,
+                "n_items": 353
+              },
+              "outflow_first": {
+                "estimate": -0.018071494805839246,
+                "ci_low": -0.039849476318968784,
+                "ci_high": 0.0005084775768476617,
+                "n_dams": 168,
+                "n_items": 353
+              }
+            }
+          },
+          "masked_net_history": {
+            "accuracy_aligned": 0.8955026455026455,
+            "accuracy_conflict": 0.9451219512195121,
+            "inflow_attraction": {
+              "estimate": 0.012165698128197774,
+              "ci_low": -0.01980297605550024,
+              "ci_high": 0.04476045318776277,
+              "n_dams": 168,
+              "n_items": 353
+            },
+            "direction_effects": {
+              "positive": {
+                "estimate": -0.06084105797383621,
+                "ci_low": -0.10397760779298372,
+                "ci_high": -0.02127332772510385,
+                "n_dams": 156,
+                "n_items": 300
+              },
+              "negative": {
+                "estimate": 0.08517245423023176,
+                "ci_low": 0.03328180816043355,
+                "ci_high": 0.13728071274420695,
+                "n_dams": 48,
+                "n_items": 53
+              }
+            },
+            "column_order_effects": {
+              "inflow_first": {
+                "estimate": -0.03325849828522432,
+                "ci_low": -0.07150081379386468,
+                "ci_high": 0.016618871846523713,
+                "n_dams": 168,
+                "n_items": 353
+              },
+              "outflow_first": {
+                "estimate": 0.05758989454161986,
+                "ci_low": -0.004645067578808885,
+                "ci_high": 0.11773777594192025,
+                "n_dams": 168,
+                "n_items": 353
+              }
+            }
+          },
+          "formula_reminder": {
+            "accuracy_aligned": 0.9828042328042328,
+            "accuracy_conflict": 0.9847560975609756,
+            "inflow_attraction": {
+              "estimate": -0.0024383977188641806,
+              "ci_low": -0.008809008799329748,
+              "ci_high": 0.003871032280783427,
+              "n_dams": 168,
+              "n_items": 353
+            },
+            "direction_effects": {
+              "positive": {
+                "estimate": -0.004978424668467318,
+                "ci_low": -0.018354540417084595,
+                "ci_high": 0.0073104292905156205,
+                "n_dams": 156,
+                "n_items": 300
+              },
+              "negative": {
+                "estimate": 0.00010162923073895756,
+                "ci_low": 2.950088605806352e-05,
+                "ci_high": 0.00017660427942214367,
+                "n_dams": 48,
+                "n_items": 53
+              }
+            },
+            "column_order_effects": {
+              "inflow_first": {
+                "estimate": -0.005397307779941806,
+                "ci_low": -0.017195417753691673,
+                "ci_high": 0.0060415353121664106,
+                "n_dams": 168,
+                "n_items": 353
+              },
+              "outflow_first": {
+                "estimate": 0.0005205123422134456,
+                "ci_low": -0.0016680379619444157,
+                "ci_high": 0.003433616652479784,
+                "n_dams": 168,
+                "n_items": 353
+              }
+            }
+          }
+        },
+        "promotion_checks": {
+          "minimum_gated_items_per_cell": false,
+          "minimum_gated_dams": true,
+          "actual_attraction_at_least_5pp": false,
+          "actual_attraction_ci_positive": false,
+          "explicit_correct_net_ci_positive": false,
+          "both_net_directions_positive": false,
+          "both_column_orders_positive": false
+        },
+        "promotion": false
+      }
+    },
+    "llama": {
+      "metadata": {
+        "contract_id": "018-d0-v2-semantic-recognition",
+        "family": "llama",
+        "model": "NousResearch/Meta-Llama-3.1-8B-Instruct",
+        "model_revision": "d10aef7999a2b5ba950ab3974312feeedbfe0b77",
+        "bank_sha256": "27e2ca2cd1bf01c1172d55290dfb2d4ba4381c40af6f4d1fd58a2f3a3efecbf6",
+        "bank_items": 600,
+        "records": 13200,
+        "semantic_token_ids": {
+          "positive": 31587,
+          "negative": 43324
+        },
+        "letter_token_ids": {
+          "A": 32,
+          "B": 33
+        },
+        "batch_size": 32,
+        "dtype": "torch.bfloat16",
+        "elapsed_seconds": 264.6835219860077,
+        "python": "3.12.13",
+        "torch": "2.11.0+cu130",
+        "transformers": "5.12.1"
+      },
+      "analysis": {
+        "gate": {
+          "total_items": 600,
+          "gated_items": 303,
+          "gate_rate": 0.505,
+          "gated_cells": {
+            "net_down__inflow_down": 150,
+            "net_down__inflow_up": 150,
+            "net_up__inflow_up": 3
+          },
+          "gated_dams": 159,
+          "recognition_diagnostics": {
+            "net_down__inflow_down": {
+              "item_gate_accuracy": 1.0,
+              "mean_gold_probability": 0.8552168840169907,
+              "column_accuracy": {
+                "inflow_first": 1.0,
+                "outflow_first": 1.0
+              }
+            },
+            "net_down__inflow_up": {
+              "item_gate_accuracy": 1.0,
+              "mean_gold_probability": 0.7869907494386037,
+              "column_accuracy": {
+                "inflow_first": 1.0,
+                "outflow_first": 1.0
+              }
+            },
+            "net_up__inflow_down": {
+              "item_gate_accuracy": 0.0,
+              "mean_gold_probability": 0.24906730798383553,
+              "column_accuracy": {
+                "inflow_first": 0.006666666666666667,
+                "outflow_first": 0.0
+              }
+            },
+            "net_up__inflow_up": {
+              "item_gate_accuracy": 0.02,
+              "mean_gold_probability": 0.3466019268333912,
+              "column_accuracy": {
+                "inflow_first": 0.28,
+                "outflow_first": 0.006666666666666667
+              }
+            }
+          }
+        },
+        "conditions": {
+          "direct": {
+            "accuracy_aligned": 0.9509803921568627,
+            "accuracy_conflict": 0.7166666666666667,
+            "inflow_attraction": {
+              "estimate": null,
+              "ci_low": null,
+              "ci_high": null,
+              "n_dams": 159,
+              "n_items": 303
+            },
+            "direction_effects": {
+              "positive": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 3,
+                "n_items": 3
+              },
+              "negative": {
+                "estimate": 0.09902661219239234,
+                "ci_low": 0.09015463132908731,
+                "ci_high": 0.10836954646697365,
+                "n_dams": 158,
+                "n_items": 300
+              }
+            },
+            "column_order_effects": {
+              "inflow_first": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 159,
+                "n_items": 303
+              },
+              "outflow_first": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 159,
+                "n_items": 303
+              }
+            }
+          },
+          "actual_net_history": {
+            "accuracy_aligned": 1.0,
+            "accuracy_conflict": 1.0,
+            "inflow_attraction": {
+              "estimate": null,
+              "ci_low": null,
+              "ci_high": null,
+              "n_dams": 159,
+              "n_items": 303
+            },
+            "direction_effects": {
+              "positive": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 3,
+                "n_items": 3
+              },
+              "negative": {
+                "estimate": 0.06484835351506868,
+                "ci_low": 0.05759901563387602,
+                "ci_high": 0.07246435845222032,
+                "n_dams": 158,
+                "n_items": 300
+              }
+            },
+            "column_order_effects": {
+              "inflow_first": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 159,
+                "n_items": 303
+              },
+              "outflow_first": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 159,
+                "n_items": 303
+              }
+            }
+          },
+          "explicit_correct_net": {
+            "accuracy_aligned": 1.0,
+            "accuracy_conflict": 1.0,
+            "inflow_attraction": {
+              "estimate": null,
+              "ci_low": null,
+              "ci_high": null,
+              "n_dams": 159,
+              "n_items": 303
+            },
+            "direction_effects": {
+              "positive": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 3,
+                "n_items": 3
+              },
+              "negative": {
+                "estimate": 0.06490774725874268,
+                "ci_low": 0.05767573290143467,
+                "ci_high": 0.07237890589926853,
+                "n_dams": 158,
+                "n_items": 300
+              }
+            },
+            "column_order_effects": {
+              "inflow_first": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 159,
+                "n_items": 303
+              },
+              "outflow_first": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 159,
+                "n_items": 303
+              }
+            }
+          },
+          "masked_net_history": {
+            "accuracy_aligned": 0.47875816993464054,
+            "accuracy_conflict": 0.07166666666666667,
+            "inflow_attraction": {
+              "estimate": null,
+              "ci_low": null,
+              "ci_high": null,
+              "n_dams": 159,
+              "n_items": 303
+            },
+            "direction_effects": {
+              "positive": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 3,
+                "n_items": 3
+              },
+              "negative": {
+                "estimate": 0.13321837633848188,
+                "ci_low": 0.12221260597314063,
+                "ci_high": 0.1447556629092918,
+                "n_dams": 158,
+                "n_items": 300
+              }
+            },
+            "column_order_effects": {
+              "inflow_first": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 159,
+                "n_items": 303
+              },
+              "outflow_first": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 159,
+                "n_items": 303
+              }
+            }
+          },
+          "formula_reminder": {
+            "accuracy_aligned": 1.0,
+            "accuracy_conflict": 1.0,
+            "inflow_attraction": {
+              "estimate": null,
+              "ci_low": null,
+              "ci_high": null,
+              "n_dams": 159,
+              "n_items": 303
+            },
+            "direction_effects": {
+              "positive": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 3,
+                "n_items": 3
+              },
+              "negative": {
+                "estimate": 0.05676979949697851,
+                "ci_low": 0.049985451222992854,
+                "ci_high": 0.06393467183330119,
+                "n_dams": 158,
+                "n_items": 300
+              }
+            },
+            "column_order_effects": {
+              "inflow_first": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 159,
+                "n_items": 303
+              },
+              "outflow_first": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 159,
+                "n_items": 303
+              }
+            }
+          }
+        },
+        "promotion_checks": {
+          "minimum_gated_items_per_cell": false,
+          "minimum_gated_dams": true,
+          "actual_attraction_at_least_5pp": false,
+          "actual_attraction_ci_positive": false,
+          "explicit_correct_net_ci_positive": false,
+          "both_net_directions_positive": false,
+          "both_column_orders_positive": false
+        },
+        "promotion": false
+      }
+    },
+    "phi": {
+      "metadata": {
+        "contract_id": "018-d0-v2-semantic-recognition",
+        "family": "phi",
+        "model": "microsoft/Phi-4-mini-instruct",
+        "model_revision": "cfbefacb99257ffa30c83adab238a50856ac3083",
+        "bank_sha256": "27e2ca2cd1bf01c1172d55290dfb2d4ba4381c40af6f4d1fd58a2f3a3efecbf6",
+        "bank_items": 600,
+        "records": 13200,
+        "semantic_token_ids": {
+          "positive": 46914,
+          "negative": 46069
+        },
+        "letter_token_ids": {
+          "A": 32,
+          "B": 33
+        },
+        "batch_size": 32,
+        "dtype": "torch.bfloat16",
+        "elapsed_seconds": 134.5625765323639,
+        "python": "3.12.13",
+        "torch": "2.11.0+cu130",
+        "transformers": "5.12.1"
+      },
+      "analysis": {
+        "gate": {
+          "total_items": 600,
+          "gated_items": 388,
+          "gate_rate": 0.6466666666666666,
+          "gated_cells": {
+            "net_down__inflow_down": 79,
+            "net_down__inflow_up": 10,
+            "net_up__inflow_down": 149,
+            "net_up__inflow_up": 150
+          },
+          "gated_dams": 174,
+          "recognition_diagnostics": {
+            "net_down__inflow_down": {
+              "item_gate_accuracy": 0.5266666666666666,
+              "mean_gold_probability": 0.5207576682666938,
+              "column_accuracy": {
+                "inflow_first": 0.56,
+                "outflow_first": 0.32666666666666666
+              }
+            },
+            "net_down__inflow_up": {
+              "item_gate_accuracy": 0.06666666666666667,
+              "mean_gold_probability": 0.3677986220270395,
+              "column_accuracy": {
+                "inflow_first": 0.23333333333333334,
+                "outflow_first": 0.006666666666666667
+              }
+            },
+            "net_up__inflow_down": {
+              "item_gate_accuracy": 0.9933333333333333,
+              "mean_gold_probability": 0.7868228832880656,
+              "column_accuracy": {
+                "inflow_first": 0.9866666666666667,
+                "outflow_first": 0.9866666666666667
+              }
+            },
+            "net_up__inflow_up": {
+              "item_gate_accuracy": 1.0,
+              "mean_gold_probability": 0.8524272848169009,
+              "column_accuracy": {
+                "inflow_first": 0.9933333333333333,
+                "outflow_first": 1.0
+              }
+            }
+          }
+        },
+        "conditions": {
+          "direct": {
+            "accuracy_aligned": 0.36681222707423583,
+            "accuracy_conflict": 0.06446540880503145,
+            "inflow_attraction": {
+              "estimate": 0.015088212290616368,
+              "ci_low": -0.0010128961773738963,
+              "ci_high": 0.028176578604535173,
+              "n_dams": 174,
+              "n_items": 388
+            },
+            "direction_effects": {
+              "positive": {
+                "estimate": 0.035523862153108376,
+                "ci_low": 0.026094592849383057,
+                "ci_high": 0.044494862745104155,
+                "n_dams": 156,
+                "n_items": 299
+              },
+              "negative": {
+                "estimate": -0.005347437571875641,
+                "ci_low": -0.035617965445791364,
+                "ci_high": 0.018323318305790866,
+                "n_dams": 72,
+                "n_items": 89
+              }
+            },
+            "column_order_effects": {
+              "inflow_first": {
+                "estimate": 0.015427492432059112,
+                "ci_low": -0.005180401334805347,
+                "ci_high": 0.031825113198970675,
+                "n_dams": 174,
+                "n_items": 388
+              },
+              "outflow_first": {
+                "estimate": 0.014748932149173569,
+                "ci_low": 0.001390524075894691,
+                "ci_high": 0.02729629816875027,
+                "n_dams": 174,
+                "n_items": 388
+              }
+            }
+          },
+          "actual_net_history": {
+            "accuracy_aligned": 0.5,
+            "accuracy_conflict": 0.15566037735849056,
+            "inflow_attraction": {
+              "estimate": 0.007538793647941189,
+              "ci_low": -0.005684849815115255,
+              "ci_high": 0.020123504674585818,
+              "n_dams": 174,
+              "n_items": 388
+            },
+            "direction_effects": {
+              "positive": {
+                "estimate": 0.024170945425428247,
+                "ci_low": 0.013886127914463848,
+                "ci_high": 0.03402726170603122,
+                "n_dams": 156,
+                "n_items": 299
+              },
+              "negative": {
+                "estimate": -0.00909335812954587,
+                "ci_low": -0.03547337245797914,
+                "ci_high": 0.014981815771006783,
+                "n_dams": 72,
+                "n_items": 89
+              }
+            },
+            "column_order_effects": {
+              "inflow_first": {
+                "estimate": 0.0068824934580205,
+                "ci_low": -0.013581433906779832,
+                "ci_high": 0.025382081034045132,
+                "n_dams": 174,
+                "n_items": 388
+              },
+              "outflow_first": {
+                "estimate": 0.00819509383786192,
+                "ci_low": -0.0031171933494662943,
+                "ci_high": 0.01960111290930683,
+                "n_dams": 174,
+                "n_items": 388
+              }
+            }
+          },
+          "explicit_correct_net": {
+            "accuracy_aligned": 0.49672489082969434,
+            "accuracy_conflict": 0.15880503144654087,
+            "inflow_attraction": {
+              "estimate": 0.007118466331769616,
+              "ci_low": -0.006549614367850497,
+              "ci_high": 0.019746665691952867,
+              "n_dams": 174,
+              "n_items": 388
+            },
+            "direction_effects": {
+              "positive": {
+                "estimate": 0.02341357368950875,
+                "ci_low": 0.01293017269126983,
+                "ci_high": 0.033636565770468196,
+                "n_dams": 156,
+                "n_items": 299
+              },
+              "negative": {
+                "estimate": -0.009176641025969517,
+                "ci_low": -0.03535212549540784,
+                "ci_high": 0.015484936049745294,
+                "n_dams": 72,
+                "n_items": 89
+              }
+            },
+            "column_order_effects": {
+              "inflow_first": {
+                "estimate": 0.006502042036325581,
+                "ci_low": -0.013722940194932589,
+                "ci_high": 0.025371426057954654,
+                "n_dams": 174,
+                "n_items": 388
+              },
+              "outflow_first": {
+                "estimate": 0.007734890627213664,
+                "ci_low": -0.0032320806493950616,
+                "ci_high": 0.018893068014664005,
+                "n_dams": 174,
+                "n_items": 388
+              }
+            }
+          },
+          "masked_net_history": {
+            "accuracy_aligned": 0.5,
+            "accuracy_conflict": 0.4968553459119497,
+            "inflow_attraction": {
+              "estimate": 0.004130341585269676,
+              "ci_low": -0.0016405841609305547,
+              "ci_high": 0.010340838138259898,
+              "n_dams": 174,
+              "n_items": 388
+            },
+            "direction_effects": {
+              "positive": {
+                "estimate": 0.009450470233956954,
+                "ci_low": 0.0045101811576795745,
+                "ci_high": 0.01422518133508741,
+                "n_dams": 156,
+                "n_items": 299
+              },
+              "negative": {
+                "estimate": -0.0011897870634176022,
+                "ci_low": -0.01201020981495577,
+                "ci_high": 0.010532691650289661,
+                "n_dams": 72,
+                "n_items": 89
+              }
+            },
+            "column_order_effects": {
+              "inflow_first": {
+                "estimate": 0.0043396671911013485,
+                "ci_low": -0.002854330481920788,
+                "ci_high": 0.011789865882798836,
+                "n_dams": 174,
+                "n_items": 388
+              },
+              "outflow_first": {
+                "estimate": 0.003921015979438142,
+                "ci_low": -0.0023491507399618075,
+                "ci_high": 0.010857326878278247,
+                "n_dams": 174,
+                "n_items": 388
+              }
+            }
+          },
+          "formula_reminder": {
+            "accuracy_aligned": 0.6299126637554585,
+            "accuracy_conflict": 0.3632075471698113,
+            "inflow_attraction": {
+              "estimate": 0.017486116439290794,
+              "ci_low": -0.0005550205147053981,
+              "ci_high": 0.03292134384817697,
+              "n_dams": 174,
+              "n_items": 388
+            },
+            "direction_effects": {
+              "positive": {
+                "estimate": 0.02733362990362731,
+                "ci_low": 0.01596686966286713,
+                "ci_high": 0.03796650482786819,
+                "n_dams": 156,
+                "n_items": 299
+              },
+              "negative": {
+                "estimate": 0.007638602974954278,
+                "ci_low": -0.02803906935581285,
+                "ci_high": 0.03622792341345103,
+                "n_dams": 72,
+                "n_items": 89
+              }
+            },
+            "column_order_effects": {
+              "inflow_first": {
+                "estimate": 0.01661336288016979,
+                "ci_low": -0.010572600016971452,
+                "ci_high": 0.03731828489893236,
+                "n_dams": 174,
+                "n_items": 388
+              },
+              "outflow_first": {
+                "estimate": 0.018358869998411798,
+                "ci_low": 0.005220148398028019,
+                "ci_high": 0.03151440180947779,
+                "n_dams": 174,
+                "n_items": 388
+              }
+            }
+          }
+        },
+        "promotion_checks": {
+          "minimum_gated_items_per_cell": false,
+          "minimum_gated_dams": true,
+          "actual_attraction_at_least_5pp": false,
+          "actual_attraction_ci_positive": false,
+          "explicit_correct_net_ci_positive": false,
+          "both_net_directions_positive": false,
+          "both_column_orders_positive": true
+        },
+        "promotion": false
+      }
+    }
+  },
+  "promoted_families": [],
+  "overall_promotion": false,
+  "overall_decision": "NO-PROMOTE"
+}
