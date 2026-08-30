@@ -2,129 +2,75 @@
 
 这个仓库用于寻找、快速证伪、再解释 **LLM / MLLM 的自然反直觉现象**。
 
-当前工作方式已经从“先把所有题审到完美再允许模型调用”调整为两层：
+当前核心流程：
 
 ```text
-cheap D0 screening：尽快跑，尽快 kill
-full validation / mechanism：现象和 novelty 都站住后再做
+programmatic / source-grounded D0
+-> diagnostic controls
+-> scientific PASS / scientific FAIL / measurement-INCONCLUSIVE
+-> only real positives enter mechanism
 ```
 
-## 最重要的入口
+## 2026-08-30 Top-6 实验审查
 
-### 当前 Top-10
+前六个项目已全部完成第一轮实验，并重新按代码、数据、gate、fatal controls、统计与 claim 逐项独立审查。
+
+完整报告：[`phenomenon_miner/TOP6_RESULT_REVIEW_2026-08-30.md`](phenomenon_miner/TOP6_RESULT_REVIEW_2026-08-30.md)
+
+### 成立
+
+**014 Alias Entrainment Transfer**
+
+Broad cross-surface learned-relation spillover 很强：三家族、双 frame、双方向均稳定超过强 `ASSOC_ANY` different-referent control。真正没有成立的是 entity/reference-specific interpretation；`opaque_strict` Q2 未通过。
+
+### 尚不能判真假
+
+**018 Stock–Flow Correlation Intrusion**
+
+D0 v1 的 ResOpsUS 数据设计是好的，但 net-recognition A/B gate 被极端 option-position bias 破坏，negative-net cells 没有合法 denominator。因此是 `INCONCLUSIVE / HOLD-D0-MEASUREMENT-FAILURE`，不是 scientific null。
+
+### 已归档
+
+以下四个 registered contracts 被诊断性实验终止：
+
+- `015 Clarification Resolution Lag` — matched neutral history 解释 apparent lag；
+- `016 Mixed-Status Event Attraction` — same-status context 解释 mixed-context shift；
+- `017 Cross-Modal Resolution Inertia` — strongest effect 不需要旧 interpretation identity；
+- `019 Abstention Hysteresis` — 三家族/两 source 强烈朝假设反方向，且 neutral history 解释 recovery。
+
+完整项目、代码、数据合同、raw results 和报告均保存在 [`archive/`](archive/README.md)。
+
+## 当前还在队列里的题
 
 [`phenomenon_miner/CURRENT_TOPICS.md`](phenomenon_miner/CURRENT_TOPICS.md)
 
-2026-08-30 owner decision：当前 Top-10 已全部注册进 [`active/`](active/README.md)，用于实际 D0 screening。
-
-Top-10：
-
-1. Clarification Resolution Lag
-2. Mixed-Status Event Attraction
-3. Alias Entrainment Transfer
-4. Cross-Modal Resolution Inertia
-5. Stock–Flow Correlation Intrusion
-6. Abstention Hysteresis
-7. Incremental Clue Backfire
-8. Task-Switch Carryover
-9. Local Success, Global Composition Failure
-10. Description–Experience Gap
-
-每个项目自己的 README 都详细写了：**研究问题、最接近工作、novelty 边界、数据集、自动构造方案、hard scoring、fatal controls、PROMOTE/KILL、mechanistic fork。**
-
-### Active projects
-
-[`active/README.md`](active/README.md)
-
-这里是实际跑题入口。`active` 的含义现在是“值得真正动手跑 cheap D0”，不是“已经证明是 paper”。
-
-### 模型调用授权
-
-[`phenomenon_miner/AUDIT_REGISTRY.md`](phenomenon_miner/AUDIT_REGISTRY.md)
-
-registry 现在区分：
-
-- **D0 screening authorization**：Top-10 新项目允许在各自 README 的 pre-run gate 满足后跑便宜 behavioral smoke；
-- **full validation / mechanism authorization**：当前仍为 0，必须等 behavioral phenotype、N1 collision、scope、fatal controls、frozen contract 都闭合。
-
-014 是特殊项目：历史 phase 1–3 已完成，但下一次 D1 仍需先 materialize corrected r4 RedirectQA + `ASSOC_ANY` bank 并完成 source/scope/attrition audit。
-
-### 找题规则
-
-[`phenomenon_miner/FINDING_RULES.md`](phenomenon_miner/FINDING_RULES.md)
-
-核心仍然是：**phenomenon before mechanism**。Mother paper 已经有 headline behavior、我们只剩 representation/route/causal fork 时，不能把机制问题冒充新现象。
-
-### 数据 scope
-
-[`phenomenon_miner/DATASET_SCOPE_AUDIT.md`](phenomenon_miner/DATASET_SCOPE_AUDIT.md)
-
-不能为了制造干净 money cell，把 scientific population 越筛越窄。理论 moderator 默认 factor-not-filter。
-
-### 失败库
-
-[`phenomenon_miner/FAILED_TOPICS.md`](phenomenon_miner/FAILED_TOPICS.md)
-
-内部失败证据是 hard pre-filter。换名字、换 dataset 不能复活同一个已经失败的 scientific object。
-
----
-
-## 当前数据原则
-
-我们现在优先找：
-
 ```text
-公开 dataset / structured source
-+ source labels / executable oracle / deterministic rule
--> Python 自动构造 paired D0
--> 人工只随机抽查 builder 是否写歪
+paper synthesis: 014
+measurement redesign: 018
+next screening: 020 -> 023 -> 021 -> 022
 ```
 
-而不是：
+020 必须先做内部 collision；021/022 必须超出强 mother work 的 headline behavior。
 
-```text
-研究者人工写 100 条 scenario
-研究者逐条判断 gold
-为了显著不断删 domain/type/direction
-```
+## 关键入口
 
-当前尤其偏好三类 data shape：
+- [`active/README.md`](active/README.md) — 当前项目。
+- [`archive/README.md`](archive/README.md) — terminal 项目与完整 provenance。
+- [`phenomenon_miner/AUDIT_REGISTRY.md`](phenomenon_miner/AUDIT_REGISTRY.md) — 唯一模型调用授权。
+- [`phenomenon_miner/FAILED_TOPICS.md`](phenomenon_miner/FAILED_TOPICS.md) — anti-revival failure library。
+- [`phenomenon_miner/DATASET_SCOPE_AUDIT.md`](phenomenon_miner/DATASET_SCOPE_AUDIT.md) — 数据 scope 纪律。
+- [`phenomenon_miner/FINDING_RULES.md`](phenomenon_miner/FINDING_RULES.md) — finding / promotion 规则。
 
-1. **source labels already exist**：CondAmbigQA、MAVEN-FACT、MUCAR、MuSiQue；
-2. **source structure can be ablated/restored**：supporting-fact QA、Quiz Bowl prefixes；
-3. **deterministic natural/process oracle**：ResOpsUS、exact-frequency gamble generator。
+## 当前最重要的新增教训
 
----
+> **`NO-PROMOTE` 不能自动翻译成“现象不存在”。**
 
-## 新的运行流程
+如果 fatal control 解释掉目标效应，或者 well-powered diagnostic contrast 稳定为 null，当前 contract 可以 archive。
 
-```text
-natural question / mother phenomenon
--> register screening project
--> materialize source data
--> deterministic builder + source sanity
--> cheap two-family D0 smoke
--> KILL or phenotype PASS
--> N1 exact collision closure
--> scope/fatal controls/generality
--> freeze behavioral contract + data SHA
--> full validation
--> mechanism
-```
+如果 capability / measurement instrument 本身导致关键 cell 没有合法 denominator，只能写 `INCONCLUSIVE / REDESIGN`。018 就是这种情况。
 
-这意味着：**D0 可以早点跑，但 MI 不能早点跑。**
-
----
-
-## 旧状态
-
-- `007_weak_evidence_backfire` — **TERMINAL HARD KILL**；
-- `013_publicness_coordination_dissociation` — PARKED/HOLD-DATA；
-- 法律/医学那批需要逐篇手工抽 gold 的题继续 park；
-- 旧 Task-Switch TR/TL / Resolved-Ambiguity Neuron Persistence 等 hidden-state-defined 版本不直接复活；新的 015/021 必须先建立独立 output-level phenotype。
-
----
+反过来，一个 clean negative 也不能通过换模型、subset、threshold、prompt 或 readout 继续搜 positive。
 
 ## 一句纪律
 
-> **先把自然、可硬评分的行为跑出来；没现象就杀，撞 mother 就 route。只有一个现象同时过了 behavioral evidence 和 novelty boundary，hidden state 才值得看。**
+> **先确定你真的测到了那个科学对象，再讨论它存在不存在；一旦用正确的诊断对照把它否掉，就停。**
