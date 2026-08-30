@@ -1,9 +1,9 @@
 # Audit Registry — Model Dispatch
 
 版本：2026-08-31  
-状态：`AUTHORITATIVE MODEL-CALL AUTHORIZATION / HAMDI-STYLE N0`
+状态：`AUTHORITATIVE MODEL-CALL AUTHORIZATION / HAMDI-STYLE N0+N1`
 
-本文件只控制**接下来还能跑什么**。scientific focus 见 [`CURRENT_TOPICS.md`](CURRENT_TOPICS.md)。新题必须先过 [`NATURAL_QUESTION_GATE.md`](NATURAL_QUESTION_GATE.md) 和 mother-inclusion N0。
+本文件只控制**接下来还能跑什么**。scientific focus 见 [`CURRENT_TOPICS.md`](CURRENT_TOPICS.md)。新题必须先过 Natural-Question Gate、mother-inclusion N0、strongest-neighbor/successor N1。
 
 ## Current dispatch
 
@@ -11,51 +11,36 @@
 |---|---:|---:|---|
 | `active/014_alias_entrainment_transfer` | false | existing evidence only | **ESTABLISHED / PAPER DEVELOPMENT** |
 | `active/018_stock_flow_correlation_intrusion` | **false until D0-v2 contract frozen** | false | **REDESIGN / scientific status unknown** |
-| `active/024_alignment_descriptive_normative_arbitration` | **false until source + mother-reproduction contract frozen** | false | **N0-PASS / ACTIVE-PREFLIGHT** |
-| `active/025_world_indexed_truth` | **false until minimal 2×2 capability contract frozen** | false | **N0-PASS / ACTIVE-PREFLIGHT** |
+| `active/024_alignment_descriptive_normative_arbitration` | false until source + mother-reproduction contract frozen | false | **N0-PASS / ACTIVE-PREFLIGHT** |
+| `active/025_world_indexed_truth` | false until minimal 2×2 capability contract frozen | false | **N0-PASS / ACTIVE-PREFLIGHT** |
+| `active/026_scientific_plausibility_testability_factorization` | **false until source/target support audit frozen** | false | **N0+N1 PASS / ACTIVE-PREFLIGHT** |
+| `active/027_rhetorical_force_implied_assertion` | **false until RQ force/content source audit frozen** | false | **N0+N1 PASS / ACTIVE-PREFLIGHT** |
+| `active/028_causality_responsibility_factorization` | **false until FrECI matched-support audit frozen** | false | **N0+N1 PASS / ACTIVE-PREFLIGHT** |
 | `active/003_diagnostic_counterevidence_revision` | false | false | **HOLD / legacy pre-candidate** |
 | `active/013_publicness_coordination_dissociation` | false | false | **HOLD-DATA** |
 | `active/023_description_experience_gap` | false | false | **HOLD-N0-REAUDIT** |
 
 **No fresh model call is authorized at this exact commit.**
 
-Registration of 024/025 means their scientific object passed mother-inclusion N0. It does **not** authorize immediate probing, patching or even behavioral calls before the minimal source/contract documents are frozen.
+Registration means the scientific object survived N0/N1. It does not authorize probing, patching, SAE, steering, or even a behavioral run before the source/population/capability contract is frozen.
 
 ---
 
 ## 014 — exact allowed claim
 
-D1 r4 is complete. Final bank: 1,768 ordered items / 1,370 entities; frozen SHA:
+D1 r4 is complete. Allowed: broad `ALIAS > ASSOC_ANY` learned cross-surface spillover, both-frame/both-direction sensitivity, structural gradient `compositional > partial > opaque >> opaque-strict≈0`, phase-2 shared upstream causal machinery, phase-3 lexical direct-write boundary.
 
-`917d178533925088fe1641a72e7481eb97e18c237466416cc15608391978db37`
-
-Allowed:
-
-- broad `ALIAS > ASSOC_ANY` learned cross-surface spillover;
-- both-frame / both-direction / same-type sensitivity;
-- structural gradient `compositional > partial > opaque >> opaque-strict≈0`;
-- phase-2 shared upstream causal machinery;
-- phase-3 lexical/seen-form direct-write boundary;
-- paper synthesis around lexical/derivational-to-reference boundary.
-
-Not allowed:
-
-- entity/reference-specific salience established;
-- entrainment heads encode a shared referent;
-- positive-subset rescue of preregistered reference Q2;
-- new reference-specific Phase 4.
+Not allowed: entity/reference-specific salience established, positive-subset rescue, new reference-specific Phase 4.
 
 ---
 
 ## 018 — exact redesign boundary
 
-The ResOpsUS population and full 2×2 bank remain scientifically valid. D0-v1 failed as a measurement instrument because A/B answer-position behavior destroyed the negative-net recognition denominator.
-
-Before any rerun:
+Before rerun:
 
 ```yaml
 scientific_population: unchanged
-bank: same 600 natural windows
+bank: same 600 ResOpsUS windows
 semantic_cells: all four preserved
 recognition_measure: semantic positive/negative OR deterministic numeric sign
 letter_position_gate: forbidden
@@ -64,98 +49,140 @@ explicit_correct_net_control: required
 contract_v2_frozen_before_calls: required
 ```
 
-Only after a D0-v2 contract is frozen may screening become true.
-
 ---
 
 ## 024 — alignment descriptive/normative arbitration
 
-Mother-inclusion N0: **PASS — SHARPENED**.
-
-Broad claims already occupied and forbidden:
-
-- descriptive + prescriptive influence coexist;
-- RLHF/instruction tuning increases prescriptive influence;
-- alignment makes outputs more normative;
-- generic internal social knowledge exceeds output behavior.
-
-Only legal scientific object:
+Only legal object:
 
 > paired base→aligned internal transformation of independently defined descriptive human-behavior and normative targets, distinguishing descriptive degradation vs dual retention vs late arbitration/readout.
 
-Before any model call freeze:
-
-```yaml
-source_population: real human behavioral decisions
-base_aligned_pair: audited
-normative_target: independently defined
-mother_behavior_reproduction_metric: frozen
-prompt_family: frozen
-no_synthetic_effect_creation: true
-```
-
-Mechanism remains false until the mother behavior is reproduced on an accessible open pair.
+Before any call freeze real human-behavior source, independent normative target, audited base/aligned pair, mother-behavior reproduction metric and prompt family.
 
 ---
 
 ## 025 — world-indexed truth
 
-Mother-inclusion N0: **PASS — SHARPENED**.
+Only legal object:
 
-Forbidden routes:
+> same proposition, same local-world context, different simultaneously legitimate actual/local valuations; test whether truth is selected/bound by a world index.
 
-- empirical-vs-fictional truth probe comparison;
-- generic context-vs-parametric conflict;
-- `context changes truth vector` replication;
-- character-belief / ToM reframing;
-- output-only role-playing compliance.
+Forbidden: fictional-vs-empirical truth directions, generic context-memory conflict, ToM belief reframing.
 
-Only legal scientific object:
+---
 
-> the same proposition carries different but simultaneously legitimate truth values under actual and explicitly stipulated local worlds; ask whether truth is bound/selected by a world index.
+## 026 — scientific plausibility vs testability
 
-Before any call freeze a minimal contract with:
+N0+N1: **PASS**.
+
+Only legal object:
+
+> whether LLM scientific-feasibility computation factorizes `could this hypothesis be true?` (plausibility) from `could a discriminating experiment test it?` (testability), and where the two are combined.
+
+Mother-owned / forbidden claims:
+
+- generic scientific feasibility classification;
+- experiments vs outcomes reliability;
+- hypothesis-quality rubric with plausibility/testability dimensions;
+- better feasibility benchmark/classifier.
+
+Before any call:
 
 ```yaml
-same_proposition_across_query_worlds: required
-same_local_context: required
-actual_true_local_false: included
-actual_false_local_true: included
-aligned_controls: included
-query_world_paraphrases: included
-first_stage: capability_only
+natural_hypothesis_source: audited
+source_provenance: explicit
+plausibility_target: independently_definable
+testability_target: independently_definable
+cross_axis_support: audited
+primary_gold: source/expert grounded preferred
+restriction_budget: documented
+anti_narrowing_stop: required
 ```
 
-No hidden-state experiment until open-model paired actual/local capability is established.
+If only one materials-specific rubric can support the story, PARK-DATA rather than narrowing the title.
 
 ---
 
-## 023 — HOLD-N0-REAUDIT
+## 027 — rhetorical force vs implied assertion
 
-Description–Experience Gap remains physically active because the external cognitive object is natural and an LLM mother exists. It is **not** authorized. It needs its own mother-inclusion N0 before any further work.
+N0+N1: **PASS**.
+
+Only legal object:
+
+> whether contextual rhetorical/illocutionary force and the proposition/stance asserted by that question are separate computations, rather than a single rhetoricality signal.
+
+Mother-owned / forbidden claims:
+
+- rhetorical vs informational detection;
+- RQ context sensitivity;
+- RQ hidden-state decodability;
+- universal rhetorical direction;
+- yes/no opposite-polarity trick as universal mechanism.
+
+Before any call:
+
+```yaml
+SRAQ_force_source: audited
+IAT_AIF_schema: audited
+natural_implied_content_targets: counted
+multi_function_RQ_support: required
+source_authored_self_answer_subset: preferred
+LLM_judge_primary_gold: forbidden
+anti_polar_only_narrowing: required
+```
+
+If only polar RQs have usable labels, PARK/KILL; do not keep the broad pragmatics title.
 
 ---
 
-## Newly archived / no authorization
+## 028 — event causality vs responsibility framing
 
-| project | reason |
-|---|---|
-| `archive/007_weak_evidence_backfire` | terminal hard kill; stale active provenance corrected |
-| `archive/020_incremental_clue_backfire` | internal collision with `candidate_topics` Topic 28 Progressive Truthful Clue Reversal |
-| `archive/021_task_switch_carryover` | existing task-switch mother; registered refinement lacks independent natural scientific object |
-| `archive/022_local_success_global_composition_failure` | core behavior already known compositionality gap; stronger condition is not a new mother object |
+N0+N1: **PASS**.
 
-Previously archived 015/016/017/019 remain terminal under their registered identities.
+Only legal object:
+
+> whether differently framed narratives preserve an event-causal core while altering blame/credit/responsibility attribution, or whether framing rewrites causality itself.
+
+Mother-owned / forbidden claims:
+
+- framing-aware ECI task;
+- FrECI benchmark difficulty;
+- political/source bias in outputs;
+- source identity decodability;
+- joint structured prediction improvement.
+
+Before any call:
+
+```yaml
+FrECI_artifact: audited
+human_label_provenance: confirmed
+same_event_causal_pair_across_frames: counted
+different_frame_matched_clusters: counted
+language_source_cluster_independence: audited
+second_source_or_scope_plan: documented
+actor_identity_control: planned
+anti_FreCI_specific_narrowing: required
+```
+
+If matched support is too small, PARK-DATA. Do not shrink to one source/language/frame label.
 
 ---
 
-## Direct rejected candidate
+## HOLD
 
-`Superseded Truth ≠ Never-True Falsehood` is **KILL / DO NOT REGISTER**.
+- `003_diagnostic_counterevidence_revision` — no authorization.
+- `013_publicness_coordination_dissociation` — HOLD-DATA; no synthetic scenario inflation.
+- `023_description_experience_gap` — HOLD-N0-REAUDIT.
 
-2026 *The Geometry of Forgetting* already occupies temporal-validity/drift as an independent internal axis, stale-recall vs confabulation, cross-cutoff identification, MLP dynamics and steering. It also falls inside the repository's current-state/history/state-update mother family.
+---
 
-See [`../rejected_candidates/temporal_validity_superseded_vs_never_true.md`](../rejected_candidates/temporal_validity_superseded_vs_never_true.md).
+## Archived / rejected discipline
+
+007/015/016/017/019/020/021/022 remain terminal under their registered identities.
+
+`Superseded Truth ≠ Never-True Falsehood` remains direct-collision KILL.
+
+During the current search, **Falsehood ≠ Deceptive Intent** was also abandoned before registration: N1 found recent deception-specific / intent-targeted probe work and non-lying-deception work close enough that maintaining novelty would require subtype narrowing.
 
 ---
 
@@ -163,12 +190,13 @@ See [`../rejected_candidates/temporal_validity_superseded_vs_never_true.md`](../
 
 ```text
 natural question
-→ strong existence/mother anchor
-→ mother-inclusion N0
+→ strong mother / existence anchor
+→ N0 mother inclusion + internal history
+→ N1 strongest-neighbor/successor
 → source/data instrument
 → cheap behavior/capability contract
 → controls
 → mechanism
 ```
 
-Never reverse this order because a dataset or interpretability method makes an experiment easy.
+**If novelty survives only by adding adjectives to the title, the topic is dead.**
