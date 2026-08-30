@@ -97,7 +97,7 @@ annotations，不自行/用 LLM 补标签。
 
 [`../active/027_rhetorical_force_implied_assertion/`](../active/027_rhetorical_force_implied_assertion/)
 
-**N0+N1 PASS / ACTIVE-PREFLIGHT / NO CALL**
+**PARK-DATA / NO CALL**
 
 自然问题：
 
@@ -106,6 +106,12 @@ annotations，不自行/用 LLM 补标签。
 Mother：EMNLP 2025 SRAQ 已证明 context-sensitive RQ recognition 难；ACL 2026 已证明 rhetorical status hidden representation 可读而且是多方向/heterogeneous。新的 object 是 **speech-act force vs asserted content**，不是更强 RQ probe。
 
 Anti-narrowing：禁止只做 yes/no RQ polarity flip。必须有自然 argumentative RQ / assertive-question population 和 recoverable propositional target，否则 PARK/KILL。
+
+Source audit 已冻结：SRAQ 与 QT30 question artifact 足以提供自然 force
+gold，但都没有 question-aligned implied assertion / speaker commitment gold。
+AIF question proposition 仍编码 interrogative semantics，未对齐 following
+turn 也不能自动当 self-answer。因此等待独立人类标注的中央 target，不做
+polarity/next-turn 缩窄版。
 
 ---
 
@@ -163,7 +169,7 @@ Llama-only rescue 或继续缩成 output-format 题。
 018 -> bounded D0-v2 measurement repair
 024 -> HOLD-INCONCLUSIVE-D0; no further calls
 025 -> active capability preflight from previous N0
-026 -> PARK-DATA; 027/028 -> source/schema/data preflight only
+026/027 -> PARK-DATA; 028 -> source/schema/data preflight only
 003/013/023 -> HOLD
 fresh hidden-state/causal MI on 024-028 -> forbidden until project-specific source + behavior/capability contract passes
 ```

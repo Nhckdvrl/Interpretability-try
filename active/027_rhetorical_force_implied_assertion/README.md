@@ -1,7 +1,7 @@
 # 027 — Questions That Assert
 
 **Working title:** *Questions That Assert: Separating Rhetorical Force from Implied Stance in Language Models*
-**Status:** `NATURAL-QUESTION PASS / N0 PASS / N1 PASS / ACTIVE-PREFLIGHT / NO MODEL CALL YET`
+**Status:** `NATURAL-QUESTION PASS / N0 PASS / N1 PASS / PARK-DATA / NO MODEL CALL`
 **Created:** 2026-08-31
 
 ## 1. 一句话问题
@@ -327,14 +327,26 @@ patch implied-assertion state
 - 所谓 stance representation 就是普通 sentiment；
 - 新 narrative 被迫缩成一个特殊 RQ subtype。
 
-## 15. 下一步
+## 15. Source preflight result (2026-08-31)
+
+SRAQ 的 971 条数据只提供 rhetorical/informational force；QT30 的公开
+question artifact 覆盖 2,867 条 `Pure/Rhetorical/Assertive Questioning`，但
+AIF proposition 是 interrogative semantics，不是 RQ 额外完成的 implied
+assertion。公开 response locutions 没有与隐含命题对齐，且大量为空、来自
+其他 speaker、或包含多段 response。
+
+因此 source gate 在 central target 上失败，状态为 `PARK-DATA`。没有进行
+模型调用；不能用 polarity reversal、任意 next turn 或 LLM-written stance
+替代 gold。完整冻结审计见 [`SOURCE_AUDIT.md`](SOURCE_AUDIT.md)，裁决见
+[`PREFLIGHT_VERDICT.md`](PREFLIGHT_VERDICT.md)。
+
+## 16. Reopen sequence
 
 ```text
-1. audit SRAQ + AIF/QT30 schema
-2. quantify natural RQ with recoverable propositional target
-3. add source-authored self-answer subset
-4. freeze force/content capability D0
-5. only after D0 passes, start MI
+1. obtain independently validated implied-proposition / commitment gold
+2. verify multi-function and multi-source support
+3. freeze force/content capability D0
+4. only after D0 passes, start MI
 ```
 
-**Current model-call authorization: FALSE.**
+**Current model-call authorization: FALSE (`PARK-DATA`).**

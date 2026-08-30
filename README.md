@@ -63,6 +63,10 @@ Mother：EMNLP 2025 SRAQ + ACL 2026 RQ representation。不能退化成 RQ detec
 
 详细合同：[`active/027_rhetorical_force_implied_assertion/`](active/027_rhetorical_force_implied_assertion/)
 
+Source preflight: `PARK-DATA`。SRAQ/QT30 提供自然、多功能 force gold，
+但没有发布与 question 对齐的 implied assertion / speaker commitment gold；
+不以 polarity inversion、任意 following turn 或 LLM label 代替中央 target。
+
 ### 028 Cause Is Not Blame
 
 > **不同 narrative 改变 blame/credit 时，模型是否保留一个相对稳定的 event-causal core，还是 responsibility framing 会重写 causality itself？**

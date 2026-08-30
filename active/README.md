@@ -18,7 +18,7 @@
 | [`024_alignment_descriptive_normative_arbitration`](024_alignment_descriptive_normative_arbitration/) | **HOLD-INCONCLUSIVE-D0** | 2/4 native family passes; no mechanism calls |
 | [`025_world_indexed_truth`](025_world_indexed_truth/) | **HOLD_PREREQUISITE_CAPABILITY / NO-MI** | conflict-only success fails aligned world-index controls |
 | [`026_scientific_plausibility_testability_factorization`](026_scientific_plausibility_testability_factorization/) | **PARK-DATA / NO CALL** | independent expert-grounded P/T cross-axis gold absent |
-| [`027_rhetorical_force_implied_assertion`](027_rhetorical_force_implied_assertion/) | **N0+N1 PASS / ACTIVE-PREFLIGHT** | audit SRAQ + IAT/AIF/QT30 implied-proposition support |
+| [`027_rhetorical_force_implied_assertion`](027_rhetorical_force_implied_assertion/) | **PARK-DATA / NO CALL** | force gold exists; validated implied-assertion gold absent |
 | [`028_causality_responsibility_factorization`](028_causality_responsibility_factorization/) | **N0+N1 PASS / ACTIVE-PREFLIGHT** | audit FrECI matched event-causal-core / differing-frame support |
 
 ## 024 — Alignment: descriptive social model vs normative readout
@@ -62,6 +62,12 @@ SRAQ 已证明 context-sensitive RQ recognition 难；ACL 2026 已证明 rhetori
 
 不能缩成 yes/no RQ polarity reversal；必须覆盖自然 argumentative RQs / assertive questions。
 
+Source preflight 已冻结 SRAQ 971 条与 QT30 question artifact 2,867 条。
+前者只有二元 force，后者虽有 Pure/Rhetorical/Assertive 三类，却没有与问句
+对齐的 implied assertion/commitment gold；AIF question proposition 仍是问句
+语义，following turns 也未标注为 self-answer。因此 `PARK-DATA / NO CALL`，
+详见 [`SOURCE_AUDIT.md`](027_rhetorical_force_implied_assertion/SOURCE_AUDIT.md)。
+
 ## 028 — Cause is not blame
 
 ACL 2026 FrECI 已把 causal relation、responsibility target、evaluative framing、source/modality放进同一个自然多语任务。
@@ -102,7 +108,7 @@ ACL 2026 FrECI 已把 causal relation、responsibility target、evaluative frami
 018 -> freeze D0-v2 measurement repair
 024 -> HOLD-INCONCLUSIVE-D0; no further calls
 025 -> active capability preflight
-026 -> PARK-DATA; 027/028 -> source/schema/data preflight only
+026/027 -> PARK-DATA; 028 -> source/schema/data preflight only
 003/013/023 -> HOLD
 fresh MI on 024-028 -> forbidden until each behavior/data contract passes
 ```

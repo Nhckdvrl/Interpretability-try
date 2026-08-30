@@ -14,7 +14,7 @@
 | `active/024_alignment_descriptive_normative_arbitration` | false | false | **HOLD-INCONCLUSIVE-D0** |
 | `active/025_world_indexed_truth` | **false; both frozen behavior runs complete** | false | **HOLD_PREREQUISITE_CAPABILITY / NO-MI** |
 | `active/026_scientific_plausibility_testability_factorization` | false | false | **PARK-DATA / independent P/T gold absent** |
-| `active/027_rhetorical_force_implied_assertion` | **false until RQ force/content source audit frozen** | false | **N0+N1 PASS / ACTIVE-PREFLIGHT** |
+| `active/027_rhetorical_force_implied_assertion` | false | false | **PARK-DATA / implied-assertion gold absent** |
 | `active/028_causality_responsibility_factorization` | **false until FrECI matched-support audit frozen** | false | **N0+N1 PASS / ACTIVE-PREFLIGHT** |
 | `active/003_diagnostic_counterevidence_revision` | false | false | **HOLD / legacy pre-candidate** |
 | `active/013_publicness_coordination_dissociation` | false | false | **HOLD-DATA** |
@@ -163,6 +163,15 @@ anti_polar_only_narrowing: required
 ```
 
 If only polar RQs have usable labels, PARK/KILL; do not keep the broad pragmatics title.
+
+Frozen source audit result: SRAQ supplies 971 rhetorical/informational force
+rows; the public QT30 question artifact supplies 2,867
+Pure/Rhetorical/Assertive force rows. Neither source releases a validated
+implied-assertion or speaker-commitment target aligned to the question. AIF's
+question I-node represents interrogative semantics, and following response
+locutions are not aligned self-answer gold. Status is therefore `PARK-DATA`;
+behavior and mechanism calls remain unauthorized. See
+`active/027_rhetorical_force_implied_assertion/SOURCE_AUDIT.md`.
 
 ---
 
