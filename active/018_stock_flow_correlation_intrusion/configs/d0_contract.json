@@ -1,0 +1,41 @@
+{
+  "contract_id": "018-d0-v1",
+  "source": "ResOpsUS v2, Zenodo record 6612040",
+  "source_archive_md5": "d0684cbacf6196c246c73b858ab5b752",
+  "design": "natural 2x2: net/storage direction (up/down) x inflow trend (up/down)",
+  "flow_days": 6,
+  "conditions": [
+    "direct",
+    "actual_net_history",
+    "explicit_correct_net",
+    "masked_net_history",
+    "formula_reminder"
+  ],
+  "column_orders": ["inflow_first", "outflow_first"],
+  "option_orders": ["canonical", "reversed"],
+  "recognition_gate": "net-flow direction correct under all 2 column orders x 2 option orders",
+  "primary_outcome": "stock-up probability averaged across column and stock-option orders",
+  "primary_inflow_attraction": "mean of aligned-minus-conflict stock-up probability for net-up and conflict-minus-aligned stock-up probability for net-down",
+  "cluster": "ResOpsUS dam_id",
+  "bootstrap_replicates": 10000,
+  "promotion_rule": {
+    "minimum_gated_items_per_2x2_cell": 50,
+    "minimum_gated_dam_clusters": 50,
+    "minimum_families": 2,
+    "actual_net_history_inflow_attraction_minimum": 0.05,
+    "actual_net_history_ci_low_must_exceed": 0.0,
+    "explicit_correct_net_ci_low_must_exceed": 0.0,
+    "both_net_directions_must_be_positive": true,
+    "column_order_directions_must_agree": true
+  },
+  "fatal_controls": [
+    "official metric units only; no unit inference",
+    "strict closure and rounded-prompt net-sign checks",
+    "negative inflow or outflow observations are excluded",
+    "non-overlapping source selection with dam-cluster inference",
+    "net recognition gate precedes stock analysis",
+    "masked history separates sequential-format cost",
+    "formula reminder tests whether explicit integration removes attraction"
+  ],
+  "seed": 20260830
+}

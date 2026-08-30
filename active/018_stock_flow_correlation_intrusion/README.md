@@ -2,10 +2,10 @@
 
 **中文一句话：** 模型明明算对了“流入减流出”，为什么最后判断库存涨跌时还是会被最显眼的 inflow 走势带跑？
 
-**Status:** `REGISTERED / OFF-THE-SHELF-D0 / REAL-TIME-SERIES`
+**Status:** `D0 COMPLETE / NO-PROMOTE (2026-08-30)`
 **Created:** 2026-08-30
 **Top-10 rank:** #5
-**Primary builder:** `../../preflight/d0_stock_flow_correlation_intrusion/build_from_resopsus.py`
+**Primary builder:** `src/stock_flow_intrusion/build_bank.py`
 
 ---
 
@@ -286,3 +286,69 @@ wrong answer 必须是**朝 inflow 方向**，不是任意错误。
 7. 如果有 directional intrusion，再加第二自然 source family
 8. N1 closure 后做 MI
 ```
+
+---
+
+## 13. D0 v1 implementation（2026-08-30）
+
+### Source and window audit
+
+D0 使用官方 ResOpsUS v2（Zenodo record `6612040`，archive MD5 `d0684cbacf6196c246c73b858ab5b752`，CC-BY-4.0）。官方 schema 明确规定 storage=MCM、inflow/outflow=m³/s，因此最终 builder 不做任何 unit inference。
+
+对全部 678 个 `time_series_all` files 扫描连续 7-row window。初始 storage 使用第 1 行，prompt 展示随后 6 天 flow；这是因为 release 中 `S[end]-S[start]` 与日期 `start+1...end` 的 daily-average flows 对齐。进入 bank 的窗口必须：
+
+- source 未被官方 `INCONSISTENCIES_NOTED` 标记；
+- inflow / outflow 非负、无缺失，日期逐日连续；
+- rounded prompt 数字与原始数值的 net sign 一致；
+- observed storage delta 与 converted cumulative net sign 一致，closure error ≤10%；
+- net margin ≥5%；
+- inflow 与时间的绝对 correlation ≥.60，range / mean ≥.15。
+
+过滤后仍有 719,074 个 eligible natural windows、274 个 reservoirs。最终 deterministic bank 冻结为 `net/storage direction × inflow trend direction` 四 cell 各 150，共 600 windows / 200 reservoirs；每个 reservoir-cell 最多 2 条，同库任意入选 window 起点至少间隔 30 天。40/40 source audit sample 已逐值回查官方 CSV。
+
+### Why the full 2×2 is necessary
+
+只保留 conflict window 时，binary stock 题的任何错误都必然朝 inflow direction，无法证明 directional attraction。D0 因而在控制 net direction 后估计：
+
+```text
+0.5 * [P(stock-up | net-up, inflow-up) - P(stock-up | net-up, inflow-down)]
++ 0.5 * [P(stock-up | net-down, inflow-up) - P(stock-up | net-down, inflow-down)]
+```
+
+正值才表示 inflow trend 对 stock readout 有条件性侵入。
+
+### Recognition gate and controls
+
+每个 item 的 net direction 必须在 2 个 column orders × 2 个 net-option orders 下全部正确，才进入 stock analysis。stock-up probability 再跨 2 个 column orders × 2 个 stock-option orders平均。五个条件为：
+
+1. `direct`；
+2. `actual_net_history`（写入模型自己识别出的 semantic net direction，不复用 A/B token）；
+3. `explicit_correct_net`；
+4. `masked_net_history`；
+5. `formula_reminder`。
+
+主推断按 `dam_id` 做 10,000 次 cluster bootstrap。冻结 PROMOTE 门槛见 `configs/d0_contract.json`；至少两个家族在 actual 与 explicit-correct-net 条件均显示 ≥5pp、CI 下界过零的 inflow attraction，且两个 net directions、两个 column orders 方向一致，才进入第二自然 source family。
+
+### N1 boundary
+
+检索到最接近的公开先例是 2023 MetaSD 个人博客的一次 ChatGPT department-store 演示，并非系统实验。人类 stock-flow / correlation-heuristic 文献很成熟；2026 FinIndices 研究长财报中的 accounting stock-flow caliber mismatch，但不测 recognition-gated correlation intrusion。当前未发现同行评审工作使用真实自然 flow series、2×2 directional estimand、三模型家族和 local-correct/downstream-use dissociation 的组合。
+
+---
+
+## 14. D0 v1 result
+
+三家族均完成冻结 bank 的完整运行（每家 14,400 raw rows），联合决策为 `NO-PROMOTE`。严格 recognition gate 要求同一 item 在 2 column orders × 2 option orders 下全部答对；通过情况为：
+
+| Family | Gated / 600 | Gated reservoirs | net-down cells | net-up cells |
+|---|---:|---:|---:|---:|
+| Qwen3-8B | 292 (48.7%) | 154 | 0 / 300 | 292 / 300 |
+| Gemma-3-12B-IT | 300 (50.0%) | 156 | 0 / 300 | 300 / 300 |
+| Llama-3.1-8B-Instruct | 127 (21.2%) | 94 | 0 / 300 | 127 / 300 |
+
+因此控制 net direction 的主 inflow-attraction estimand 在所有家族均不可估计，四 cell 最低样本量门槛也均失败。失败不是自然数据不足：冻结 bank 的四 cell 各 150；而是模型的 net-flow recognition 对极性和答案顺序不稳健。
+
+Qwen 与 Gemma 对 net-up 近乎满分，但 net-down presentation-level accuracy 分别只有 9.8–29.8% 和 11.5–20.7%。Llama 的 net-down canonical-option accuracy 为 82.0–100%，reversed-option accuracy 为 0%，显示强答案位置依赖。不能据此选取 canonical-only 或 net-up-only 子集，因为那会改变冻结 gate 并把宽题收窄。
+
+在仅作诊断、不能支持主 claim 的 net-up gated 子集中，写入正确 semantic net direction 后：Qwen stock accuracy 为 99.3–99.5%，其 inflow-direction difference 为 −0.23pp（95% CI [−1.43, 0.81]）；Gemma 为 93.0–97.8%，difference 为 −4.91pp（95% CI [−8.29, −1.72]）；Llama difference 为 +1.67pp（95% CI [0.32, 2.97]），低于冻结的 5pp 门槛。三者没有形成所需的跨家族正向 intrusion。
+
+完整方法、失败审计与后续判断见 `D0_V1_REPORT.md`；机器可读联合结果见 `results/d0_analysis.json`。本题不进入第二自然 source 或 mechanistic intervention 阶段。

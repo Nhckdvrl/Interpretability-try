@@ -1,0 +1,41 @@
+{
+  "contract_id": "018-d0-v1",
+  "source": "ResOpsUS v2, Zenodo record 6612040",
+  "source_archive_md5": "d0684cbacf6196c246c73b858ab5b752",
+  "license": "CC-BY-4.0",
+  "official_units": {
+    "storage": "MCM",
+    "inflow": "m3/s",
+    "outflow": "m3/s"
+  },
+  "flow_alignment": "for storage[end]-storage[start], sum daily flows on dates start+1 through end",
+  "files_scanned": 678,
+  "eligible_windows": 719074,
+  "eligible_cells": {
+    "net_down__inflow_down": 209365,
+    "net_down__inflow_up": 101338,
+    "net_up__inflow_down": 198315,
+    "net_up__inflow_up": 210056
+  },
+  "eligible_dams": 274,
+  "selected_windows": 600,
+  "selected_cells": {
+    "net_down__inflow_down": 150,
+    "net_down__inflow_up": 150,
+    "net_up__inflow_down": 150,
+    "net_up__inflow_up": 150
+  },
+  "selected_dams": 200,
+  "selection": {
+    "per_cell": 150,
+    "separation_days": 30,
+    "max_per_dam_cell": 2
+  },
+  "filters": {
+    "closure_max": 0.1,
+    "min_flow_margin": 0.05,
+    "min_inflow_correlation": 0.6,
+    "min_inflow_range_ratio": 0.15
+  },
+  "bank_sha256": "27e2ca2cd1bf01c1172d55290dfb2d4ba4381c40af6f4d1fd58a2f3a3efecbf6"
+}
