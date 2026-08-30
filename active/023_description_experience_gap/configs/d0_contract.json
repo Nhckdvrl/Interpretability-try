@@ -1,0 +1,54 @@
+{
+  "contract_id": "023-d0-v1-risk-inference-versus-policy",
+  "frozen_at_utc": "2026-08-31T00:00:00Z",
+  "scientific_object": "Probability inference versus value/policy divergence under exact-frequency description/history equivalence.",
+  "mother": {
+    "paper": "Mind the (DH) Gap! A Contrast in Risky Choices Between Reasoning and Conversational LLMs",
+    "url": "https://aclanthology.org/2026.acl-long.479/",
+    "owned_claims": ["LLM DH-gap existence", "reasoning-versus-conversational taxonomy", "mathematical-reasoning training association"]
+  },
+  "models": {
+    "qwen": {"model_id": "Qwen/Qwen3-8B", "revision": "b968826d9c46dd6066d109eabc6255188de91218"},
+    "gemma": {"model_id": "google/gemma-3-12b-it", "revision": "96b6f1eccf38110c56df3a15bffe176da04bfd80"},
+    "llama": {"model_id": "NousResearch/Meta-Llama-3.1-8B-Instruct", "revision": "d10aef7999a2b5ba950ab3974312feeedbfe0b77"},
+    "mistral": {"model_id": "mistralai/Mistral-Small-24B-Instruct-2501", "revision": "9527884be6e5616bdd54de542f9ae13384489724"}
+  },
+  "data": {
+    "gamble_file": "data/gambles.json",
+    "n_gambles": 12,
+    "amount_scales": [1, 10],
+    "option_orders": ["canonical", "swapped"],
+    "shuffle_seeds": [2301, 2302, 2303],
+    "history_length": 20,
+    "presentation_modes": ["description_probability", "description_counts", "experience_exact"],
+    "query_types": ["choice", "expected_value", "frequency_a", "frequency_b"],
+    "expected_scenarios": 432,
+    "expected_records": 1728
+  },
+  "scoring": {
+    "method": "length_normalized_conditional_sequence_log_likelihood",
+    "generation": false,
+    "choice_candidates": ["A", "B"],
+    "ev_candidates": ["A", "B", "TIE"],
+    "primary_choice_quantity": "probability assigned to canonical target option after option-order mapping"
+  },
+  "capability_gates": {
+    "minimum_frequency_accuracy": 0.90,
+    "minimum_expected_value_accuracy": 0.85,
+    "minimum_dominance_target_probability": 0.75,
+    "maximum_mean_option_order_difference": 0.10
+  },
+  "effect_gates": {
+    "minimum_human_direction_gap_vs_probability": 0.05,
+    "minimum_human_direction_gap_vs_counts": 0.04,
+    "bootstrap_ci_lower_must_exceed": 0.0,
+    "minimum_positive_directed_gambles": 4,
+    "directed_gamble_count": 6,
+    "minimum_family_passes_for_promotion": 2,
+    "minimum_families_with_positive_direction": 3,
+    "bootstrap_seed": 23031,
+    "bootstrap_replicates": 5000
+  },
+  "mechanism_authorized_only_on": "PROMOTE_BEHAVIOR",
+  "amendment_policy": "Any post-forward change creates a new contract version. No outcome-conditioned gamble selection or threshold change is allowed."
+}

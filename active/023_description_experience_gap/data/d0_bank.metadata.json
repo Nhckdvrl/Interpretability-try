@@ -1,0 +1,26 @@
+{
+  "bank_sha256": "d094e1935a1e7d1bf505400843dd3bbf3afe945d258e77e256d846bb10f7ec60",
+  "contract_id": "023-d0-v1-risk-inference-versus-policy",
+  "counts_by_gamble_family": {
+    "dominance": 288,
+    "equal_ev_variance": 288,
+    "mixed": 288,
+    "rare_gain": 288,
+    "rare_loss": 288,
+    "sign_flip": 288
+  },
+  "counts_by_presentation": {
+    "description_counts": 576,
+    "description_probability": 576,
+    "experience_exact": 576
+  },
+  "counts_by_query_type": {
+    "choice": 432,
+    "expected_value": 432,
+    "frequency_a": 432,
+    "frequency_b": 432
+  },
+  "gambles_sha256": "65135cc0a68094765294becc2745b3ebd41d24332a4c1f4aae0770293331d6ac",
+  "n_records": 1728,
+  "n_scenarios": 432
+}

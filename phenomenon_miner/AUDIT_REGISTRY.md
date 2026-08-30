@@ -18,9 +18,9 @@
 | `active/028_causality_responsibility_factorization` | **false until FrECI matched-support audit frozen** | false | **N0+N1 PASS / ACTIVE-PREFLIGHT** |
 | `active/003_diagnostic_counterevidence_revision` | false | false | **HOLD / legacy pre-candidate** |
 | `active/013_publicness_coordination_dissociation` | false | false | **HOLD-DATA** |
-| `active/023_description_experience_gap` | false | false | **HOLD-N0-REAUDIT** |
+| `active/023_description_experience_gap` | **D0 v1 only; exact-frequency inference-vs-policy contract frozen** | false | **N0-PASS-SHARPENED / D0-AUTHORIZED** |
 
-**No fresh model call is authorized at this exact commit.**
+Only the explicitly frozen cheap calls in this table are authorized at this exact commit.
 
 Registration means the scientific object survived N0/N1. It does not authorize probing, patching, SAE, steering, or even a behavioral run before the source/population/capability contract is frozen.
 
@@ -193,11 +193,26 @@ If matched support is too small, PARK-DATA. Do not shrink to one source/language
 
 ---
 
+## 023 — risk inference vs value/policy
+
+N0 mother-inclusion: **PASS-SHARPENED**.
+
+The ACL 2026 mother already owns existence of the LLM DH gap, the
+reasoning-versus-conversational taxonomy, and the mathematical-reasoning
+association. The only legal object is whether exact-frequency presentation
+differences arise in probability inference, probability-to-value
+transformation, or a later representation-mode policy/readout.
+
+Frozen D0 v1 authorizes only the four-family behavioral and capability run in
+`active/023_description_experience_gap/configs/d0_contract.json`. No MI is
+authorized. N1 is not repeated per project instruction.
+
+---
+
 ## HOLD
 
 - `003_diagnostic_counterevidence_revision` — no authorization.
 - `013_publicness_coordination_dissociation` — HOLD-DATA; no synthetic scenario inflation.
-- `023_description_experience_gap` — HOLD-N0-REAUDIT.
 
 ---
 

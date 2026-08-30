@@ -1,0 +1,17 @@
+{
+  "schema": "Each option lists [payoff, probability] pairs; all probabilities are multiples of 0.05.",
+  "gambles": [
+    {"id":"rare_gain_1","family":"rare_gain","target":"A","human_direction":-1,"A":[[50,0.10],[0,0.90]],"B":[[6,0.80],[0,0.20]]},
+    {"id":"rare_gain_2","family":"rare_gain","target":"A","human_direction":-1,"A":[[80,0.05],[0,0.95]],"B":[[5,0.75],[0,0.25]]},
+    {"id":"rare_loss_1","family":"rare_loss","target":"A","human_direction":1,"A":[[-50,0.10],[0,0.90]],"B":[[-6,0.80],[0,0.20]]},
+    {"id":"rare_loss_2","family":"rare_loss","target":"A","human_direction":1,"A":[[-80,0.05],[0,0.95]],"B":[[-5,0.75],[0,0.25]]},
+    {"id":"mixed_1","family":"mixed","target":"A","human_direction":null,"A":[[20,0.50],[-10,0.50]],"B":[[8,0.50],[2,0.50]]},
+    {"id":"mixed_2","family":"mixed","target":"A","human_direction":null,"A":[[30,0.20],[-5,0.80]],"B":[[4,0.50],[0,0.50]]},
+    {"id":"equal_variance_gain","family":"equal_ev_variance","target":"A","human_direction":null,"A":[[20,0.25],[0,0.75]],"B":[[5,1.0]]},
+    {"id":"equal_variance_loss","family":"equal_ev_variance","target":"A","human_direction":null,"A":[[-20,0.25],[0,0.75]],"B":[[-5,1.0]]},
+    {"id":"dominance_gain","family":"dominance","target":"A","human_direction":null,"A":[[10,0.50],[5,0.50]],"B":[[8,0.50],[3,0.50]]},
+    {"id":"dominance_loss","family":"dominance","target":"A","human_direction":null,"A":[[-3,0.50],[-8,0.50]],"B":[[-5,0.50],[-10,0.50]]},
+    {"id":"signflip_gain","family":"sign_flip","target":"A","human_direction":-1,"A":[[40,0.15],[0,0.85]],"B":[[8,0.70],[0,0.30]]},
+    {"id":"signflip_loss","family":"sign_flip","target":"A","human_direction":1,"A":[[-40,0.15],[0,0.85]],"B":[[-8,0.70],[0,0.30]]}
+  ]
+}

@@ -1,8 +1,8 @@
-# 023 — Description–Experience Gap in LLM Risk Choice
+# 023 — Inferring Risk vs Valuing Risk Across Description and Experience
 
-**中文一句话：** 同一个概率游戏，直接把概率告诉模型，和让它看一串完全等价的历史结果，最后会不会做出系统不同的选择？
+**中文一句话：** 同一个概率游戏以概率或完全等价的历史呈现时，模型究竟是推断出了不同风险，还是对同一风险调用了不同价值/选择策略？
 
-**Status:** `REGISTERED / PROGRAMMATIC-DATA / BEHAVIORAL-ECONOMICS-MOTHER`
+**Status:** `N0-PASS-SHARPENED / D0-AUTHORIZED / CONTRACT-FROZEN`
 **Created:** 2026-08-30
 **Top-10 rank:** #10
 
@@ -17,11 +17,20 @@
 
 即使底层 gamble 相同，人类的风险选择也可能因为信息获取方式不同而系统变化。
 
-我们想问：
+ACL 2026 *Mind the (DH) Gap!* 已经直接证明 LLM 存在
+description-history gap，所以“LLM 会不会有 gap”不再是本题的 novelty。
+经过 mother-inclusion N0 后，我们真正要问：
 
-> **LLM 面对同一个 objective outcome distribution，仅仅把概率“写成描述”或“展开成历史经验序列”，是否会形成不同的风险判断与选择？**
+> **当 exact-frequency history 与显式概率携带同一 empirical
+> distribution 时，模型差异来自 probability inference、value/weighting，
+> 还是 representation-mode-dependent policy/readout？**
 
-如果差异稳定，再问 mechanism：两种输入是否最终形成了不同的 probability/value representation，还是表示相同但 choice readout 不同。
+冻结 D0 先要求 frequency 与 EV 判断正确、dominance 与 option-order controls
+通过，同时 choice gap 仍相对 probability-description 和 count-description
+存在。只有这个 prerequisite 通过后才能问 mechanism。
+
+完整 N0：[`../../phenomenon_miner/DESCRIPTION_EXPERIENCE_N0_2026-08-31.md`](../../phenomenon_miner/DESCRIPTION_EXPERIENCE_N0_2026-08-31.md)。
+冻结合同：[`configs/d0_contract.json`](configs/d0_contract.json)。
 
 ---
 
@@ -62,6 +71,9 @@ Paper: https://aclanthology.org/2024.findings-emnlp.739/
 
 ### 不能声称
 
+- 首次发现 LLM description/history gap；
+- reasoning 与 conversational 模型在风险选择上不同；
+- 数学推理训练是 DH gap 的关键 moderator；
 - LLM 有 cognitive bias；
 - LLM 风险决策不稳定；
 - prompt format 会影响 gamble choice；
@@ -86,11 +98,15 @@ shown as a sequence
 
 更严的版本不靠随机 sampling，而是**exact-frequency matched experience**，避免 human literature 中常见的 sampling error / rare-event under-sampling confound。
 
-因此我们研究的是：
+因此 exact-frequency 是必要 instrument，但不是标题级 novelty。我们研究的是：
 
-> **representation format 本身是否改变 LLM risk choice，即使 empirical experience 与 stated probability 精确一致。**
+> **当 empirical distribution 对齐且 frequency/EV 能力通过时，残余 choice
+> divergence 位于 risk inference、value transformation 还是 policy/readout？**
 
-**Working novelty hypothesis:** 当前找到大量 LLM cognitive-bias / risk-preference work，但尚未找到把经典 description–experience gap 用 exact-frequency-controlled sequences 系统做在 LLM 上并追机制的强相邻论文。该领域 2026 更新很快，正式推广前必须 N1 深搜。
+ACL 2026 mother 使用 3 个 loss prospect、20/100 次随机采样历史和 4 个
+seed；其 prospect-theory fit 明确只是 descriptive summary，而不是 definitive
+mechanism。N0 因此允许上述 inference/value/policy factorization，但禁止把
+exact-frequency control 本身写成大 claim。按项目指令不重复 N1。
 
 ---
 
@@ -244,7 +260,7 @@ Experience 是长输入。必须做 count-description、compressed sequence、�
 - gap 不被 sequence recency / length 完全解释；
 - 多个 gamble family 同方向或形成与 rare/common structure 对应的规律；
 - option order / amount scaling 后稳定；
-- N1 确认没有近期 LLM paper 已系统做完全相同范式。
+- 结果支持 inference/value/policy 中至少一个可区分分叉，而非仅复现 mother behavior。
 
 ### KILL
 
@@ -293,11 +309,10 @@ D 和 E 是不是不同？
 1. 写 deterministic gamble generator
 2. exact-frequency description/experience pairs
 3. frequency + EV capability probes
-4. 两家族 greedy D0
+4. Qwen/Gemma/Llama/Mistral 四家族 deterministic-logit D0
 5. sequence shuffle / N / recency controls
 6. stochastic-dominance sanity
-7. N1 深搜最新 2026 LLM risk-choice literature
-8. phenomenon 稳定后才做 representation / patching
+7. phenomenon 稳定后才做 representation / patching
 ```
 
 本项目不需要人类新标注；唯一“人工设计”的只是经典实验范式参数，而不是逐样本 gold。
