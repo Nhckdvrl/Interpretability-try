@@ -2,10 +2,19 @@
 
 **中文一句话：** 用户已经把歧义解释清楚了，模型会不会还停留在“我不确定你什么意思”的旧状态？
 
-**Status:** `REGISTERED / D0-BUILD-FIRST / BEHAVIOR-FIRST`
+**Status:** `D0-V1 NO-PROMOTE / MATCHED-HISTORY FATAL CONTROL NOT PASSED`
 **Created:** 2026-08-30
 **Top-10 rank:** #1
 **Target venues:** ACL / EMNLP / NAACL Main（若行为稳定且能形成清楚机制故事）
+
+**2026-08-30 D0 update:** 400 个 CondAmbigQA source-grounded pairs、Qwen3-8B、
+Gemma-3-12B-IT 与 Llama-3.1-8B-Instruct 均已完成。三个家族都有很小的
+`DIRECT - AMBIGUITY_HISTORY`
+差值，但 `MATCHED_HISTORY` 产生同量级变化，关键的
+`MATCHED_HISTORY - AMBIGUITY_HISTORY` 在三个家族的 95% cluster-bootstrap CI
+都跨 0。按本文预先定义的 fatal control，当前 operationalization 不晋级 full
+validation / mechanism。完整 provenance 与数值见
+[`D0_V1_REPORT.md`](D0_V1_REPORT.md)。
 
 ---
 

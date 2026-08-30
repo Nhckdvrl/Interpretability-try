@@ -101,3 +101,11 @@ FULL VALIDATION / MECHANISM
 ```
 
 这里排序是**实验效率**，不是论文价值最终排序。
+
+### 最新 screening 结果
+
+- `015 Clarification Resolution Lag`：2026-08-30 D0 v1 已完成 Qwen3-8B、
+  Gemma-3-12B-IT 与 Llama-3.1-8B-Instruct。`DIRECT - AMBIGUITY_HISTORY` 的小差值
+  被 neutral `MATCHED_HISTORY` 解释，关键 `MATCHED - AMBIGUITY` 在三个家族 CI
+  均跨 0；当前
+  **NO-PROMOTE**，不进入机制实验。详见项目内 `D0_V1_REPORT.md`。

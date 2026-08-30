@@ -1,0 +1,276 @@
+{
+  "analysis": "D0 paired A/B next-token scoring; answer orders averaged; question-cluster bootstrap",
+  "bootstrap_replicates": 10000,
+  "models": [
+    {
+      "gated_condition_metrics": {
+        "ambiguity_history": {
+          "both_order_accuracy": 0.9719298245614035,
+          "mean_gold_probability": 0.9840149724387646,
+          "mean_order_accuracy": 0.9859649122807017
+        },
+        "direct": {
+          "both_order_accuracy": 1.0,
+          "mean_gold_probability": 0.993332513696269,
+          "mean_order_accuracy": 1.0
+        },
+        "matched_history": {
+          "both_order_accuracy": 0.9754385964912281,
+          "mean_gold_probability": 0.9849576199279486,
+          "mean_order_accuracy": 0.9859649122807017
+        },
+        "wrong_condition": {
+          "both_order_accuracy": 1.0,
+          "mean_gold_probability": 0.9937558123939916,
+          "mean_order_accuracy": 1.0
+        }
+      },
+      "gated_contrasts": {
+        "direct_minus_ambiguity_accuracy": {
+          "ci_high": 0.02389705882352941,
+          "ci_low": 0.0055147058823529415,
+          "estimate": 0.013786764705882353
+        },
+        "direct_minus_ambiguity_probability": {
+          "ci_high": 0.01755831926197414,
+          "ci_low": 0.0020589348327228114,
+          "estimate": 0.009113736849279937
+        },
+        "direct_minus_matched_accuracy": {
+          "ci_high": 0.022058823529411766,
+          "ci_low": 0.003676470588235294,
+          "estimate": 0.012867647058823529
+        },
+        "direct_minus_matched_probability": {
+          "ci_high": 0.014759389732220086,
+          "ci_low": 0.00105520607689694,
+          "estimate": 0.007384453571493519
+        },
+        "matched_minus_ambiguity_accuracy": {
+          "ci_high": 0.007352941176470588,
+          "ci_low": -0.0055147058823529415,
+          "estimate": 0.0009191176470588235
+        },
+        "matched_minus_ambiguity_probability": {
+          "ci_high": 0.006638998645383464,
+          "ci_low": -0.0028530585585955096,
+          "estimate": 0.0017292832777864179
+        }
+      },
+      "label_accuracy": {
+        "A": 0.9325,
+        "B": 0.891875
+      },
+      "model_label": "qwen3_8b",
+      "n_pairs": 400,
+      "n_questions": 376,
+      "recognition_gated_pair_rate": 0.7125,
+      "recognition_gated_pairs": 285,
+      "recognition_gated_questions": 272,
+      "ungated_condition_metrics": {
+        "ambiguity_history": {
+          "both_order_accuracy": 0.8875,
+          "mean_gold_probability": 0.930693832704392,
+          "mean_order_accuracy": 0.9325
+        },
+        "direct": {
+          "both_order_accuracy": 0.8625,
+          "mean_gold_probability": 0.9123548540992238,
+          "mean_order_accuracy": 0.91375
+        },
+        "matched_history": {
+          "both_order_accuracy": 0.8775,
+          "mean_gold_probability": 0.921475587519899,
+          "mean_order_accuracy": 0.9225
+        },
+        "wrong_condition": {
+          "both_order_accuracy": 0.815,
+          "mean_gold_probability": 0.8786602559774179,
+          "mean_order_accuracy": 0.88
+        }
+      },
+      "ungated_direct_both_order_accuracy": 0.8625,
+      "ungated_wrong_condition_both_order_accuracy": 0.815
+    },
+    {
+      "gated_condition_metrics": {
+        "ambiguity_history": {
+          "both_order_accuracy": 0.9836065573770492,
+          "mean_gold_probability": 0.9904269717513333,
+          "mean_order_accuracy": 0.9904371584699454
+        },
+        "direct": {
+          "both_order_accuracy": 1.0,
+          "mean_gold_probability": 0.9992300618053134,
+          "mean_order_accuracy": 1.0
+        },
+        "matched_history": {
+          "both_order_accuracy": 0.9890710382513661,
+          "mean_gold_probability": 0.9948162514505026,
+          "mean_order_accuracy": 0.994535519125683
+        },
+        "wrong_condition": {
+          "both_order_accuracy": 1.0,
+          "mean_gold_probability": 0.9988339465986835,
+          "mean_order_accuracy": 1.0
+        }
+      },
+      "gated_contrasts": {
+        "direct_minus_ambiguity_accuracy": {
+          "ci_high": 0.015173410404624277,
+          "ci_low": 0.001445086705202312,
+          "estimate": 0.0072254335260115606
+        },
+        "direct_minus_ambiguity_probability": {
+          "ci_high": 0.014206937624096683,
+          "ci_low": 0.0013092003712862781,
+          "estimate": 0.006690701889387275
+        },
+        "direct_minus_matched_accuracy": {
+          "ci_high": 0.00939306358381503,
+          "ci_low": 0.000722543352601156,
+          "estimate": 0.004335260115606936
+        },
+        "direct_minus_matched_probability": {
+          "ci_high": 0.007130721744325806,
+          "ci_low": 0.000558528089864792,
+          "estimate": 0.0033340038118523057
+        },
+        "matched_minus_ambiguity_accuracy": {
+          "ci_high": 0.010115606936416185,
+          "ci_low": -0.002890173410404624,
+          "estimate": 0.002890173410404624
+        },
+        "matched_minus_ambiguity_probability": {
+          "ci_high": 0.00973060821764443,
+          "ci_low": -0.0010969427022440752,
+          "estimate": 0.00335669807753497
+        }
+      },
+      "label_accuracy": {
+        "A": 0.96875,
+        "B": 0.966875
+      },
+      "model_label": "gemma3_12b_it",
+      "n_pairs": 400,
+      "n_questions": 376,
+      "recognition_gated_pair_rate": 0.915,
+      "recognition_gated_pairs": 366,
+      "recognition_gated_questions": 346,
+      "ungated_condition_metrics": {
+        "ambiguity_history": {
+          "both_order_accuracy": 0.945,
+          "mean_gold_probability": 0.9667980423393948,
+          "mean_order_accuracy": 0.9675
+        },
+        "direct": {
+          "both_order_accuracy": 0.955,
+          "mean_gold_probability": 0.9715367670330488,
+          "mean_order_accuracy": 0.9725
+        },
+        "matched_history": {
+          "both_order_accuracy": 0.9475,
+          "mean_gold_probability": 0.9675043206620734,
+          "mean_order_accuracy": 0.9675
+        },
+        "wrong_condition": {
+          "both_order_accuracy": 0.9475,
+          "mean_gold_probability": 0.9641852749880263,
+          "mean_order_accuracy": 0.96375
+        }
+      },
+      "ungated_direct_both_order_accuracy": 0.955,
+      "ungated_wrong_condition_both_order_accuracy": 0.9475
+    },
+    {
+      "gated_condition_metrics": {
+        "ambiguity_history": {
+          "both_order_accuracy": 0.9836734693877551,
+          "mean_gold_probability": 0.9494322392101191,
+          "mean_order_accuracy": 0.9897959183673469
+        },
+        "direct": {
+          "both_order_accuracy": 1.0,
+          "mean_gold_probability": 0.9219054129658913,
+          "mean_order_accuracy": 1.0
+        },
+        "matched_history": {
+          "both_order_accuracy": 0.9755102040816327,
+          "mean_gold_probability": 0.9482019732497177,
+          "mean_order_accuracy": 0.9877551020408163
+        },
+        "wrong_condition": {
+          "both_order_accuracy": 1.0,
+          "mean_gold_probability": 0.9287678795201438,
+          "mean_order_accuracy": 1.0
+        }
+      },
+      "gated_contrasts": {
+        "direct_minus_ambiguity_accuracy": {
+          "ci_high": 0.023404255319148935,
+          "ci_low": 0.002127659574468085,
+          "estimate": 0.010638297872340425
+        },
+        "direct_minus_ambiguity_probability": {
+          "ci_high": -0.018954502651137663,
+          "ci_low": -0.036929815464144485,
+          "estimate": -0.027768900620599165
+        },
+        "direct_minus_matched_accuracy": {
+          "ci_high": 0.023404255319148935,
+          "ci_low": 0.00425531914893617,
+          "estimate": 0.01276595744680851
+        },
+        "direct_minus_matched_probability": {
+          "ci_high": -0.017517584093073583,
+          "ci_low": -0.03517969613538144,
+          "estimate": -0.0263898547553847
+        },
+        "matched_minus_ambiguity_accuracy": {
+          "ci_high": 0.00425531914893617,
+          "ci_low": -0.010638297872340425,
+          "estimate": -0.002127659574468085
+        },
+        "matched_minus_ambiguity_probability": {
+          "ci_high": 0.0007384408027567747,
+          "ci_low": -0.003566754687022655,
+          "estimate": -0.0013790458652144628
+        }
+      },
+      "label_accuracy": {
+        "A": 0.856875,
+        "B": 0.9425
+      },
+      "model_label": "llama31_8b_instruct",
+      "n_pairs": 400,
+      "n_questions": 376,
+      "recognition_gated_pair_rate": 0.6125,
+      "recognition_gated_pairs": 245,
+      "recognition_gated_questions": 235,
+      "ungated_condition_metrics": {
+        "ambiguity_history": {
+          "both_order_accuracy": 0.89,
+          "mean_gold_probability": 0.8872590319643495,
+          "mean_order_accuracy": 0.92625
+        },
+        "direct": {
+          "both_order_accuracy": 0.81,
+          "mean_gold_probability": 0.8511816104402533,
+          "mean_order_accuracy": 0.88875
+        },
+        "matched_history": {
+          "both_order_accuracy": 0.875,
+          "mean_gold_probability": 0.8851106940739555,
+          "mean_order_accuracy": 0.92
+        },
+        "wrong_condition": {
+          "both_order_accuracy": 0.7775,
+          "mean_gold_probability": 0.8238938299531583,
+          "mean_order_accuracy": 0.86375
+        }
+      },
+      "ungated_direct_both_order_accuracy": 0.81,
+      "ungated_wrong_condition_both_order_accuracy": 0.7775
+    }
+  ]
+}

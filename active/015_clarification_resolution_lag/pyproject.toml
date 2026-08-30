@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "clarification-resolution-lag"
+version = "0.1.0"
+description = "Behavioral D0 for clarification resolution lag"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+data = ["datasets>=3"]
+run = ["torch>=2.4", "transformers>=4.48"]
+analysis = ["numpy>=1.26"]
+dev = ["pytest>=8"]
+
+[project.scripts]
+crl-build = "clarification_lag.build_bank:main"
+crl-run = "clarification_lag.run_choices:main"
+crl-analyze = "clarification_lag.analyze:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

@@ -78,6 +78,13 @@ novel_behavioral_signature_beyond_mother: PASS
 
 必须比较 final evidence 相同的 DIRECT vs prior-ambiguity HISTORY；普通“给 condition 会变好/变差”不算。
 
+2026-08-30 D0 v1：400 CondAmbigQA pairs、Qwen3-8B、Gemma-3-12B-IT 与
+Llama-3.1-8B-Instruct 已完成。三个家族的 neutral matched-history effect 与
+ambiguity-history effect 同量级，关键 `MATCHED_HISTORY - AMBIGUITY_HISTORY` 的 95%
+question-cluster bootstrap CI 均跨 0。
+判定 `NO-PROMOTE / MATCHED-HISTORY FATAL CONTROL NOT PASSED`；full validation 与
+mechanism 继续为 false，不按 subtype 收窄续跑。
+
 ### 016 Mixed-Status Event Attraction
 
 必须出现 toward-neighbor-status 的 directional error；只有 context 变长后 accuracy 下降不算。

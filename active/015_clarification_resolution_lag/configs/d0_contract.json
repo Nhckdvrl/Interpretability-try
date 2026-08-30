@@ -1,0 +1,54 @@
+{
+  "contract_version": "d0_v1",
+  "source": {
+    "dataset": "Apocalypse-AGI-DAO/CondAmbigQA-2K",
+    "config": "default",
+    "split": "train",
+    "dataset_version": "2.0",
+    "license": "apache-2.0"
+  },
+  "scientific_population": {
+    "natural_object": "Source-authored ambiguous questions with multiple source-authored condition-answer interpretations",
+    "observational_unit": "Ordered question x target property x distractor property",
+    "ordered_or_unordered": "ordered",
+    "treatment_or_exposure": "A generic ambiguity/clarification exchange before the same resolving condition",
+    "scored_outcome": "Forced-choice probability and correctness for the source-grounded target interpretation",
+    "valid_directions": "ALL",
+    "domains_or_entity_types_in_scope": "ALL",
+    "theoretically_meaningful_factors": [
+      "number_of_interpretations",
+      "target_direction",
+      "condition_length",
+      "answer_length",
+      "answer_order",
+      "model_family"
+    ],
+    "nuisance_variables": [
+      "history_length",
+      "answer-position preference",
+      "general multi-turn degradation"
+    ],
+    "measurement_validity_exclusions": [
+      "fewer than two source properties",
+      "empty condition or answer",
+      "identical target and distractor answer",
+      "normalized answer string containment"
+    ]
+  },
+  "prompts": {
+    "system": "Choose the answer supported by the user's clarification. Reply with only A or B.",
+    "ambiguity_assistant": "This question can have more than one interpretation. Please clarify which one you mean.",
+    "matched_assistant": "I can answer this question after one more message. Please provide extra details now."
+  },
+  "smoke": {
+    "max_pairs": 400,
+    "seed": 15001,
+    "counterbalance": ["target_first", "target_second"]
+  },
+  "analysis": {
+    "bootstrap_replicates": 10000,
+    "bootstrap_seed": 15002,
+    "cluster": "question_id",
+    "capability_gate": "DIRECT correct in both answer orders AND WRONG_CONDITION correct in both answer orders"
+  }
+}

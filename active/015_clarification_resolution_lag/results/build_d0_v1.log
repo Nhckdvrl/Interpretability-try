@@ -1,0 +1,72 @@
+{
+  "attrition_audit_sample_n": 40,
+  "contract_version": "d0_v1",
+  "file_sha256": {
+    "all_ordered_pairs": "4ea59b785ea40a2cca5f8edca31a589cb25af1ea6655173158fd0e395af7ca8d",
+    "d0_smoke_pairs": "db93784aebd3001531bf4c9221d9aafb5b1a4ba286b658c5e3b8c571f6e81641",
+    "matched_pairs": "878cda26e451ea64ee4324123128de4de8b836ee32b386ab9bef6bcd95abc746",
+    "raw_properties": "acc789946d051bde8a4f30909f09a941734e9319cb7cf775a519283dd6ca5fd8",
+    "raw_questions": "97bfa7f0b6e46771eeb6b5b07b45d77d792c74e798d85a874580a5f454022782",
+    "source_snapshot": "4650769189d6a70ed44db31b216a8938d7e332a79966fb7f1433b613a30758a2",
+    "validity_eligible_pairs": "4ea59b785ea40a2cca5f8edca31a589cb25af1ea6655173158fd0e395af7ca8d"
+  },
+  "pair_property_count_distribution": {
+    "2": 2184,
+    "3": 2112,
+    "4": 48,
+    "5": 40,
+    "7": 42
+  },
+  "question_property_count_distribution": {
+    "1": 549,
+    "2": 1092,
+    "3": 352,
+    "4": 4,
+    "5": 2,
+    "7": 1
+  },
+  "scope_note": "All source questions, properties, and ordered directions are preserved. One distractor per target is a matched measurement layer; the smoke cap is a hash-based cost sample, not a scientific-population filter.",
+  "single_property_questions_retained_in_raw": 549,
+  "source": {
+    "config": "default",
+    "dataset": "Apocalypse-AGI-DAO/CondAmbigQA-2K",
+    "dataset_version": "2.0",
+    "license": "apache-2.0",
+    "split": "train"
+  },
+  "source_audit_sample_n": 40,
+  "source_fingerprint": "454e3246b10dddf6",
+  "stages": [
+    {
+      "n_questions": 2000,
+      "n_rows": 2000,
+      "stage": "source_questions"
+    },
+    {
+      "n_questions": 2000,
+      "n_rows": 3822,
+      "stage": "raw_properties"
+    },
+    {
+      "n_questions": 1451,
+      "n_rows": 4426,
+      "stage": "all_ordered_pairs"
+    },
+    {
+      "n_questions": 1451,
+      "n_rows": 4426,
+      "stage": "validity_eligible_pairs"
+    },
+    {
+      "n_questions": 1451,
+      "n_rows": 3273,
+      "stage": "one_distractor_per_target_matched"
+    },
+    {
+      "n_questions": 376,
+      "n_rows": 400,
+      "stage": "cost_limited_d0_smoke"
+    }
+  ],
+  "validity_exclusion_counts": {}
+}
