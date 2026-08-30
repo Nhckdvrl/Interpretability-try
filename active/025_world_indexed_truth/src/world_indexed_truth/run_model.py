@@ -11,6 +11,8 @@ from pathlib import Path
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
+from .contracts import load_contract
+
 
 ROOT = Path(__file__).resolve().parents[2]
 
@@ -72,13 +74,14 @@ def conditional_scores(model, tokenizer, prompts: list[str], candidate: str) -> 
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--family", required=True)
+    parser.add_argument("--contract", type=Path, default=ROOT / "configs" / "d0_contract.json")
     parser.add_argument("--batch-size", type=int, default=16)
     parser.add_argument("--bank", type=Path, default=ROOT / "data" / "d0_bank.jsonl")
     parser.add_argument("--output", type=Path)
     parser.add_argument("--limit", type=int)
     args = parser.parse_args()
 
-    contract = json.loads((ROOT / "configs" / "d0_contract.json").read_text())
+    contract = load_contract(args.contract)
     if args.family not in contract["models"]:
         raise ValueError(f"unknown frozen family: {args.family}")
     specification = contract["models"][args.family]

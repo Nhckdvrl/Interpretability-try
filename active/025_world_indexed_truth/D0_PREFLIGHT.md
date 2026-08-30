@@ -41,3 +41,13 @@ work. One or two passes are reported as limited evidence, never silently
 promoted.
 
 Any change after the first model forward pass requires a new contract version.
+
+## Frozen strong-model replication (v2)
+
+V1 returned `HOLD_PREREQUISITE_CAPABILITY`: all four sub-2B checkpoints failed
+the joint gate, despite Qwen and Gemma answering the local index reliably. To
+avoid mistaking a scale prerequisite for a dead scientific object, v2 changes
+only the four checkpoints to Qwen3-8B, Gemma3-12B, Llama3.1-8B, and
+Mistral-Small-24B. The bank, prompts, sequence scoring, thresholds, and aggregate
+rule are inherited byte-for-byte from v1. V2 is an independent replication and
+cannot overwrite v1.

@@ -1,0 +1,13 @@
+{
+  "contract_id": "025-d0-v2-strong-model-replication",
+  "frozen_at_utc": "2026-08-31T00:00:00Z",
+  "parent_contract": "d0_contract.json",
+  "change_scope": "Checkpoint scale/family replication only; bank, prompt, scoring, gates, and adjudication are inherited unchanged from v1.",
+  "models": {
+    "qwen": {"model_id": "Qwen/Qwen3-8B", "revision": "b968826d9c46dd6066d109eabc6255188de91218"},
+    "gemma": {"model_id": "google/gemma-3-12b-it", "revision": "96b6f1eccf38110c56df3a15bffe176da04bfd80"},
+    "llama": {"model_id": "NousResearch/Meta-Llama-3.1-8B-Instruct", "revision": "d10aef7999a2b5ba950ab3974312feeedbfe0b77"},
+    "mistral": {"model_id": "mistralai/Mistral-Small-24B-Instruct-2501", "revision": "9527884be6e5616bdd54de542f9ae13384489724"}
+  },
+  "amendment_policy": "This v2 replication was frozen after v1 adjudication and before any v2 forward pass. It cannot alter or replace the v1 result."
+}

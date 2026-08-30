@@ -82,6 +82,11 @@ joint actual+local correctness for the same proposition and same context. No
 representation, probe, attribution, or intervention call is authorized until
 the predeclared aggregate behavior gate passes.
 
+After v1 produced `HOLD_PREREQUISITE_CAPABILITY` on four sub-2B checkpoints,
+`configs/d0_strong_contract.json` freezes a models-only v2 replication on four
+stronger families. It inherits the same bank, prompt, scoring, gates, and
+adjudication. This does not authorize mechanism calls or revision of v1.
+
 ---
 
 ## 026 — scientific plausibility vs testability

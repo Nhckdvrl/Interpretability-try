@@ -10,7 +10,7 @@ mkdir -p "$ROOT_DIR/results/d0"
 "$PYTHON_BIN" -m pytest "$ROOT_DIR/tests" -q
 
 for specification in \
-  "qwen:0:/home/xiang/.cache" \
+  "qwen:0:/home/xiang/.cache/huggingface" \
   "gemma:1:/tmp/hf_topic024_gemma3" \
   "llama:2:/tmp/hf_topic024_llama1" \
   "smollm:3:/tmp/hf_topic024_smollm360"

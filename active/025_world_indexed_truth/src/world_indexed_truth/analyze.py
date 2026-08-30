@@ -10,6 +10,8 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
+from .contracts import load_contract
+
 
 ROOT = Path(__file__).resolve().parents[2]
 
@@ -94,10 +96,11 @@ def load_and_validate(path: Path, contract: dict, family: str) -> pd.DataFrame:
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--results-dir", type=Path, default=ROOT / "results" / "d0")
+    parser.add_argument("--contract", type=Path, default=ROOT / "configs" / "d0_contract.json")
     parser.add_argument("--output", type=Path, default=ROOT / "results" / "d0_analysis.json")
     parser.add_argument("--summary-csv", type=Path, default=ROOT / "results" / "d0_summary.csv")
     args = parser.parse_args()
-    contract = json.loads((ROOT / "configs" / "d0_contract.json").read_text())
+    contract = load_contract(args.contract)
     report = {"contract_id": contract["contract_id"], "families": {}}
     rows = []
     for family in contract["models"]:
