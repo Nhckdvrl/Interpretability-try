@@ -4,6 +4,7 @@ These tests are intentionally about the SCIENTIFIC POPULATION, not a particular
 realized sample size.  They prevent a future builder edit from silently turning
 the cross-surface question back into person-only / opaque-only / one-alias-only.
 """
+import json
 from pathlib import Path
 import sys
 
@@ -45,6 +46,7 @@ def test_candidate_builder_has_no_four_category_or_one_alias_gate():
     assert "exactly ONE redirect form per entity" not in src
     assert "is_compositional(s, target):" not in src
     assert "ASCII_OK.match" not in src
+    assert '.casefold()).encode("utf-8")' not in src
 
 
 def test_final_bank_does_not_hardcode_the_old_person_strict_cell():
@@ -64,5 +66,29 @@ def test_stale_cooccurrence_cannot_be_consumed():
     assert "old pre-fix shards are forbidden" in bank
 
 
+def test_smoothed_zero_joint_pairs_cannot_define_a_strong_assoc_control():
+    src = (ROOT / "src" / "alias_entrainment" / "build_d1_bank.py").read_text()
+    contract = (ROOT / "configs" / "contract_d1_r4.yaml").read_text()
+    assert "joint_c_target < 1" in src
+    assert "c(C,B) >= 1" in contract
+
+
 def test_misleading_pre_r4_frozen_bank_is_gone():
     assert not (ROOT / "data" / "frozen_d1.jsonl").exists()
+
+
+def test_realized_r4_bank_ids_are_unique_when_present():
+    path = ROOT / "data" / "frozen_d1_r4.jsonl"
+    if not path.exists():
+        return
+    ids = [json.loads(line)["item_id"] for line in path.open(encoding="utf-8")]
+    assert len(ids) == len(set(ids))
+
+
+def test_identity_probe_foil_is_independent_of_assoc_when_present():
+    path = ROOT / "data" / "frozen_d1_r4.jsonl"
+    if not path.exists():
+        return
+    for row in (json.loads(line) for line in path.open(encoding="utf-8")):
+        assert row["identity_probe_foil_entity"] != row["entity_uri"]
+        assert row["identity_probe_foil"] != row["assoc_any"]

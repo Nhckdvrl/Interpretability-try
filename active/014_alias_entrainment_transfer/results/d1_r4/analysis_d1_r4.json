@@ -1,0 +1,582 @@
+{
+  "contract_id": "2026-08-29-d1-r4-scope-correction",
+  "analysis": "entity-equal median; 10000 entity-cluster bootstrap replicates",
+  "q1_passing_families": 3,
+  "q2_passing_families": 0,
+  "verdict": "CROSS-SURFACE-BUT-NOT-REFERENCE-SPECIFIC",
+  "models": [
+    {
+      "model_label": "qwen3_8b",
+      "bank_items": 1768,
+      "gate_items": 1607,
+      "gate_entities": 1258,
+      "frames": {
+        "F1": {
+          "q1_alias_minus_assoc_any": {
+            "estimate": 3.4462140043106047,
+            "ci_low": 3.0634011780398396,
+            "ci_high": 3.82335682152916,
+            "excludes_zero": true,
+            "n_entities": 1220,
+            "n_items": 1571
+          },
+          "q2_gated_opaque_strict_alias_minus_assoc_any": {
+            "estimate": 0.8507013320922852,
+            "ci_low": -0.026981886476278305,
+            "ci_high": 1.411526391748339,
+            "excludes_zero": false,
+            "n_entities": 261,
+            "n_items": 331
+          },
+          "exact_minus_assoc_any": {
+            "estimate": 11.256194724273655,
+            "ci_low": 10.8362769418477,
+            "ci_high": 11.783225152076069,
+            "excludes_zero": true,
+            "n_entities": 1220,
+            "n_items": 1571
+          },
+          "alias_minus_assoc_sametype": {
+            "estimate": 2.990997816909612,
+            "ci_low": 2.5592023934996178,
+            "ci_high": 3.4618916901526973,
+            "excludes_zero": true,
+            "n_entities": 909,
+            "n_items": 1151
+          }
+        },
+        "F2": {
+          "q1_alias_minus_assoc_any": {
+            "estimate": 3.5672463942123613,
+            "ci_low": 3.223805181796706,
+            "ci_high": 4.02223722295275,
+            "excludes_zero": true,
+            "n_entities": 1220,
+            "n_items": 1571
+          },
+          "q2_gated_opaque_strict_alias_minus_assoc_any": {
+            "estimate": 0.8331070668518805,
+            "ci_low": 0.3200802803039551,
+            "ci_high": 1.3803431986598298,
+            "excludes_zero": true,
+            "n_entities": 261,
+            "n_items": 331
+          },
+          "exact_minus_assoc_any": {
+            "estimate": 11.25399095982931,
+            "ci_low": 10.697128926571168,
+            "ci_high": 11.744042360624775,
+            "excludes_zero": true,
+            "n_entities": 1220,
+            "n_items": 1571
+          },
+          "alias_minus_assoc_sametype": {
+            "estimate": 3.1047886706060126,
+            "ci_low": 2.6894303362302403,
+            "ci_high": 3.5577508209937037,
+            "excludes_zero": true,
+            "n_entities": 909,
+            "n_items": 1151
+          }
+        }
+      },
+      "by_direction": {
+        "alias_to_canonical": {
+          "F1": {
+            "estimate": 3.357448843307793,
+            "ci_low": 2.867569923400879,
+            "ci_high": 3.715130090713501,
+            "excludes_zero": true,
+            "n_entities": 1083,
+            "n_items": 1147
+          },
+          "F2": {
+            "estimate": 3.4828207084974565,
+            "ci_low": 3.080112062394619,
+            "ci_high": 3.9945209328216222,
+            "excludes_zero": true,
+            "n_entities": 1083,
+            "n_items": 1147
+          }
+        },
+        "canonical_to_alias": {
+          "F1": {
+            "estimate": 3.9466952686125296,
+            "ci_low": 3.256272315979004,
+            "ci_high": 4.441449880599976,
+            "excludes_zero": true,
+            "n_entities": 398,
+            "n_items": 424
+          },
+          "F2": {
+            "estimate": 3.850108618658851,
+            "ci_low": 3.1047886706060126,
+            "ci_high": 4.607634305139982,
+            "excludes_zero": true,
+            "n_entities": 398,
+            "n_items": 424
+          }
+        }
+      },
+      "by_structure": {
+        "compositional": {
+          "F1": {
+            "estimate": 5.960482034366585,
+            "ci_low": 5.0552098751068115,
+            "ci_high": 6.823254037492006,
+            "excludes_zero": true,
+            "n_entities": 239,
+            "n_items": 293
+          },
+          "F2": {
+            "estimate": 6.403138713317048,
+            "ci_low": 5.391753967279328,
+            "ci_high": 7.101749658584595,
+            "excludes_zero": true,
+            "n_entities": 239,
+            "n_items": 293
+          }
+        },
+        "partial": {
+          "F1": {
+            "estimate": 5.133335752465342,
+            "ci_low": 4.543870167872228,
+            "ci_high": 5.895651667916129,
+            "excludes_zero": true,
+            "n_entities": 486,
+            "n_items": 604
+          },
+          "F2": {
+            "estimate": 5.51893301049131,
+            "ci_low": 5.072481571696699,
+            "ci_high": 6.545208461871482,
+            "excludes_zero": true,
+            "n_entities": 486,
+            "n_items": 604
+          }
+        },
+        "opaque": {
+          "F1": {
+            "estimate": 1.9948264996055514,
+            "ci_low": 1.1008973717689514,
+            "ci_high": 3.1733876840335142,
+            "excludes_zero": true,
+            "n_entities": 199,
+            "n_items": 258
+          },
+          "F2": {
+            "estimate": 1.9063451662659645,
+            "ci_low": 1.0718094294132996,
+            "ci_high": 2.9476020768543094,
+            "excludes_zero": true,
+            "n_entities": 199,
+            "n_items": 258
+          }
+        },
+        "opaque_strict": {
+          "F1": {
+            "estimate": -0.026981886476278305,
+            "ci_low": -0.8991352432058193,
+            "ci_high": 0.6792248432775523,
+            "excludes_zero": false,
+            "n_entities": 323,
+            "n_items": 416
+          },
+          "F2": {
+            "estimate": 0.2656834549352425,
+            "ci_low": -0.403933048248291,
+            "ci_high": 0.8098197616636753,
+            "excludes_zero": false,
+            "n_entities": 323,
+            "n_items": 416
+          }
+        }
+      },
+      "q1_pass": true,
+      "q2_capability_floor_pass": true,
+      "q2_pass": false
+    },
+    {
+      "model_label": "gemma3_12b_it",
+      "bank_items": 1768,
+      "gate_items": 1658,
+      "gate_entities": 1292,
+      "frames": {
+        "F1": {
+          "q1_alias_minus_assoc_any": {
+            "estimate": 4.117390210303711,
+            "ci_low": 3.4938300462672487,
+            "ci_high": 4.6636866025364725,
+            "excludes_zero": true,
+            "n_entities": 1220,
+            "n_items": 1571
+          },
+          "q2_gated_opaque_strict_alias_minus_assoc_any": {
+            "estimate": 0.15862039773492143,
+            "ci_low": -0.7184648340844433,
+            "ci_high": 0.9779519632029405,
+            "excludes_zero": false,
+            "n_entities": 271,
+            "n_items": 352
+          },
+          "exact_minus_assoc_any": {
+            "estimate": 9.005590743363882,
+            "ci_low": 8.614467723295093,
+            "ci_high": 9.810822458119219,
+            "excludes_zero": true,
+            "n_entities": 1220,
+            "n_items": 1571
+          },
+          "alias_minus_assoc_sametype": {
+            "estimate": 3.572668325388804,
+            "ci_low": 3.075187855400145,
+            "ci_high": 4.31843372282319,
+            "excludes_zero": true,
+            "n_entities": 909,
+            "n_items": 1151
+          }
+        },
+        "F2": {
+          "q1_alias_minus_assoc_any": {
+            "estimate": 4.07919046968027,
+            "ci_low": 3.542346931179054,
+            "ci_high": 4.7270050875694665,
+            "excludes_zero": true,
+            "n_entities": 1220,
+            "n_items": 1571
+          },
+          "q2_gated_opaque_strict_alias_minus_assoc_any": {
+            "estimate": 1.1270724954083562,
+            "ci_low": 0.11190137034282088,
+            "ci_high": 1.801636628806591,
+            "excludes_zero": true,
+            "n_entities": 271,
+            "n_items": 352
+          },
+          "exact_minus_assoc_any": {
+            "estimate": 9.094722440218902,
+            "ci_low": 8.435322217624162,
+            "ci_high": 9.642524213454736,
+            "excludes_zero": true,
+            "n_entities": 1220,
+            "n_items": 1571
+          },
+          "alias_minus_assoc_sametype": {
+            "estimate": 3.2822815496474504,
+            "ci_low": 2.7689110040664673,
+            "ci_high": 3.8946560882031918,
+            "excludes_zero": true,
+            "n_entities": 909,
+            "n_items": 1151
+          }
+        }
+      },
+      "by_direction": {
+        "alias_to_canonical": {
+          "F1": {
+            "estimate": 4.096455762541154,
+            "ci_low": 3.403016133583151,
+            "ci_high": 4.657254114747047,
+            "excludes_zero": true,
+            "n_entities": 1083,
+            "n_items": 1147
+          },
+          "F2": {
+            "estimate": 4.14691176940687,
+            "ci_low": 3.544866807758808,
+            "ci_high": 4.808335867110145,
+            "excludes_zero": true,
+            "n_entities": 1083,
+            "n_items": 1147
+          }
+        },
+        "canonical_to_alias": {
+          "F1": {
+            "estimate": 4.812200365157665,
+            "ci_low": 3.948903016746044,
+            "ci_high": 5.7012200000172015,
+            "excludes_zero": true,
+            "n_entities": 398,
+            "n_items": 424
+          },
+          "F2": {
+            "estimate": 4.546093022029254,
+            "ci_low": 3.636922702364245,
+            "ci_high": 5.434694789495552,
+            "excludes_zero": true,
+            "n_entities": 398,
+            "n_items": 424
+          }
+        }
+      },
+      "by_structure": {
+        "compositional": {
+          "F1": {
+            "estimate": 6.976129236398265,
+            "ci_low": 5.707872748374939,
+            "ci_high": 8.243507966399193,
+            "excludes_zero": true,
+            "n_entities": 239,
+            "n_items": 293
+          },
+          "F2": {
+            "estimate": 7.3170706504997725,
+            "ci_low": 5.94731760338675,
+            "ci_high": 8.34022149455268,
+            "excludes_zero": true,
+            "n_entities": 239,
+            "n_items": 293
+          }
+        },
+        "partial": {
+          "F1": {
+            "estimate": 6.748990007314887,
+            "ci_low": 5.8674484342336655,
+            "ci_high": 7.6020283699035645,
+            "excludes_zero": true,
+            "n_entities": 486,
+            "n_items": 604
+          },
+          "F2": {
+            "estimate": 6.8284284181941075,
+            "ci_low": 5.914950889309694,
+            "ci_high": 7.765674459392812,
+            "excludes_zero": true,
+            "n_entities": 486,
+            "n_items": 604
+          }
+        },
+        "opaque": {
+          "F1": {
+            "estimate": 2.5417871450672465,
+            "ci_low": 1.2095013856887817,
+            "ci_high": 3.7156574428081512,
+            "excludes_zero": true,
+            "n_entities": 199,
+            "n_items": 258
+          },
+          "F2": {
+            "estimate": 2.145142382476479,
+            "ci_low": 1.457312360405922,
+            "ci_high": 3.2770276069641113,
+            "excludes_zero": true,
+            "n_entities": 199,
+            "n_items": 258
+          }
+        },
+        "opaque_strict": {
+          "F1": {
+            "estimate": -0.35683758766390383,
+            "ci_low": -1.0775640234351158,
+            "ci_high": 0.32233634653190774,
+            "excludes_zero": false,
+            "n_entities": 323,
+            "n_items": 416
+          },
+          "F2": {
+            "estimate": 0.351912319658382,
+            "ci_low": -0.7941746152937412,
+            "ci_high": 1.1912364959716797,
+            "excludes_zero": false,
+            "n_entities": 323,
+            "n_items": 416
+          }
+        }
+      },
+      "q1_pass": true,
+      "q2_capability_floor_pass": true,
+      "q2_pass": false
+    },
+    {
+      "model_label": "llama31_8b_it",
+      "bank_items": 1768,
+      "gate_items": 1672,
+      "gate_entities": 1301,
+      "frames": {
+        "F1": {
+          "q1_alias_minus_assoc_any": {
+            "estimate": 3.216067024084623,
+            "ci_low": 2.814287385554053,
+            "ci_high": 3.556829417037079,
+            "excludes_zero": true,
+            "n_entities": 1220,
+            "n_items": 1571
+          },
+          "q2_gated_opaque_strict_alias_minus_assoc_any": {
+            "estimate": 0.6194790921872482,
+            "ci_low": -0.0353737956131225,
+            "ci_high": 1.277587890625,
+            "excludes_zero": false,
+            "n_entities": 282,
+            "n_items": 364
+          },
+          "exact_minus_assoc_any": {
+            "estimate": 7.104317954563157,
+            "ci_low": 6.820022360479925,
+            "ci_high": 7.424374812908354,
+            "excludes_zero": true,
+            "n_entities": 1220,
+            "n_items": 1571
+          },
+          "alias_minus_assoc_sametype": {
+            "estimate": 2.7306421771645546,
+            "ci_low": 2.403124824166298,
+            "ci_high": 3.1283823046833277,
+            "excludes_zero": true,
+            "n_entities": 909,
+            "n_items": 1151
+          }
+        },
+        "F2": {
+          "q1_alias_minus_assoc_any": {
+            "estimate": 2.896734386915341,
+            "ci_low": 2.5298379329578893,
+            "ci_high": 3.2712405435740948,
+            "excludes_zero": true,
+            "n_entities": 1220,
+            "n_items": 1571
+          },
+          "q2_gated_opaque_strict_alias_minus_assoc_any": {
+            "estimate": 0.7870276807225309,
+            "ci_low": 0.10764999856000944,
+            "ci_high": 1.1616912478057202,
+            "excludes_zero": true,
+            "n_entities": 282,
+            "n_items": 364
+          },
+          "exact_minus_assoc_any": {
+            "estimate": 6.31437569935224,
+            "ci_low": 5.9090138375759125,
+            "ci_high": 6.756009322196405,
+            "excludes_zero": true,
+            "n_entities": 1220,
+            "n_items": 1571
+          },
+          "alias_minus_assoc_sametype": {
+            "estimate": 2.372020236449316,
+            "ci_low": 2.055323362350464,
+            "ci_high": 2.727787523275854,
+            "excludes_zero": true,
+            "n_entities": 909,
+            "n_items": 1151
+          }
+        }
+      },
+      "by_direction": {
+        "alias_to_canonical": {
+          "F1": {
+            "estimate": 3.3713921138551086,
+            "ci_low": 2.971935696848959,
+            "ci_high": 3.744150921702385,
+            "excludes_zero": true,
+            "n_entities": 1083,
+            "n_items": 1147
+          },
+          "F2": {
+            "estimate": 2.9103902277656744,
+            "ci_low": 2.4469901185584604,
+            "ci_high": 3.2746576447505453,
+            "excludes_zero": true,
+            "n_entities": 1083,
+            "n_items": 1147
+          }
+        },
+        "canonical_to_alias": {
+          "F1": {
+            "estimate": 3.1387194264680147,
+            "ci_low": 2.597308151598554,
+            "ci_high": 3.712465179123683,
+            "excludes_zero": true,
+            "n_entities": 398,
+            "n_items": 424
+          },
+          "F2": {
+            "estimate": 2.9007674837484956,
+            "ci_low": 2.3071448660703027,
+            "ci_high": 3.3546016812324524,
+            "excludes_zero": true,
+            "n_entities": 398,
+            "n_items": 424
+          }
+        }
+      },
+      "by_structure": {
+        "compositional": {
+          "F1": {
+            "estimate": 4.923477531177923,
+            "ci_low": 4.277214981149882,
+            "ci_high": 5.824384689331055,
+            "excludes_zero": true,
+            "n_entities": 239,
+            "n_items": 293
+          },
+          "F2": {
+            "estimate": 4.594599485397339,
+            "ci_low": 3.8212463930249214,
+            "ci_high": 5.256365171633661,
+            "excludes_zero": true,
+            "n_entities": 239,
+            "n_items": 293
+          }
+        },
+        "partial": {
+          "F1": {
+            "estimate": 4.868171750684269,
+            "ci_low": 4.387444511303329,
+            "ci_high": 5.502685010433197,
+            "excludes_zero": true,
+            "n_entities": 486,
+            "n_items": 604
+          },
+          "F2": {
+            "estimate": 4.338391697514453,
+            "ci_low": 3.864545353120775,
+            "ci_high": 4.7832153860945255,
+            "excludes_zero": true,
+            "n_entities": 486,
+            "n_items": 604
+          }
+        },
+        "opaque": {
+          "F1": {
+            "estimate": 1.9145599509356543,
+            "ci_low": 1.2081675976514816,
+            "ci_high": 2.448209311813116,
+            "excludes_zero": true,
+            "n_entities": 199,
+            "n_items": 258
+          },
+          "F2": {
+            "estimate": 1.7224407530156896,
+            "ci_low": 0.9248645305633545,
+            "ci_high": 2.178235670668073,
+            "excludes_zero": true,
+            "n_entities": 199,
+            "n_items": 258
+          }
+        },
+        "opaque_strict": {
+          "F1": {
+            "estimate": 0.018750816583633423,
+            "ci_low": -0.5210425369441509,
+            "ci_high": 0.6247187803965062,
+            "excludes_zero": false,
+            "n_entities": 323,
+            "n_items": 416
+          },
+          "F2": {
+            "estimate": 0.18212780356407166,
+            "ci_low": -0.3333562166662887,
+            "ci_high": 0.7952411301666871,
+            "excludes_zero": false,
+            "n_entities": 323,
+            "n_items": 416
+          }
+        }
+      },
+      "q1_pass": true,
+      "q2_capability_floor_pass": true,
+      "q2_pass": false
+    }
+  ]
+}

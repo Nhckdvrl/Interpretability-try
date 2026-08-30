@@ -24,6 +24,8 @@ owner_approved_top10_d0_screening: 9   # new projects 015-023 excluding existing
 full_validation_authorized: 0
 mechanism_authorized_new_projects: 0
 alias_014_next_d1_authorized: false
+alias_014_r4_completed: true
+alias_014_reference_specific_phase4_authorized: false
 ```
 
 ---
@@ -41,7 +43,7 @@ alias_014_next_d1_authorized: false
 | `active/021_task_switch_carryover` | **true, diagnostic only** | false | first reproduce mother effect; do not claim novelty without hard old-rule wrong destination |
 | `active/022_local_success_global_composition_failure` | **true, collision-first** | false | read Press et al. exact experimental conditions; run only the stronger externalized-facts contrast |
 | `active/023_description_experience_gap` | **true** | false | deterministic exact-frequency generator; frequency/EV capability probes |
-| `active/014_alias_entrainment_transfer` | historical phases completed; **new D1 false** | false | materialize r4 broad RedirectQA + ASSOC_ANY + scope/attrition/source audit + SHA |
+| `active/014_alias_entrainment_transfer` | **r4 completed; no new rescue run** | reference-specific MI false | Q1 passes; Q2 both-frame criterion fails in all 3 families |
 
 **Meaning of `D0 screening = true`:** 允许 README 中已经预定义的便宜 behavioral smoke。它不是 PASS，也不能因为出现一个好数字就直接开始 probe/head ablation。
 
@@ -153,17 +155,16 @@ reason: insufficient independent natural scenarios under clean source/license pa
 
 Canonical next contract: `active/014_alias_entrainment_transfer/configs/contract_d1_r4.yaml`
 
-任何新 D1 call 前：
+2026-08-30 r4 已完成上述全部数据门与三家族运行。最终 bank 1,768 ordered items、1,370
+entities；SHA `917d178533925088fe1641a72e7481eb97e18c237466416cc15608391978db37`。
+Q1 broad `ALIAS - ASSOC_ANY` 在三家族、双 frame、双方向与同类型 sensitivity 全部通过。
+Q2 independent-gated `opaque_strict` 虽有 261–282 entities/family，但三个家族都只有 F2
+显著，F1 CI 跨 0；ungated opaque-strict 六个 family×frame CI 也全部跨 0。最终 verdict：
+`CROSS-SURFACE-BUT-NOT-REFERENCE-SPECIFIC`。
 
-- materialize broad r4 raw bank；
-- materialize ASSOC_ANY matched control；
-- source-population audit；
-- ASSOC/control audit；
-- scope/attrition summary；
-- 检查 Q2 hard-reference stratum 能否不靠 convenience narrowing 达到 preregistered floor；
-- freeze/record dataset SHA。
-
-做不到就 drop entity/reference claim，不用 mechanism 救 construct。
+禁止新模型、person-only、单方向、F2-only 或 alias subtype rescue；reference-specific Phase 4
+保持 false。若继续整理论文，只允许围绕已成立的 broad learned-relation spillover、结构梯度、
+phase 2 shared upstream cause 与 phase 3 lexical direct-write boundary，不用 mechanism 救 Q2。
 
 ---
 

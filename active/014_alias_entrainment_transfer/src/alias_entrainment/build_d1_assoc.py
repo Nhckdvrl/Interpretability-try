@@ -16,6 +16,7 @@ Canonical contract: configs/contract_d1_r4.yaml
 from __future__ import annotations
 
 import argparse
+import concurrent.futures
 import json
 import time
 import urllib.parse
@@ -58,16 +59,30 @@ def get(params):
             time.sleep(2 * (a + 1))
 
 
-def fetch(qids, props):
-    out = {}
+def fetch(qids, props, workers=8):
+    """Resolve Wikidata entities in bounded parallel batches.
+
+    The old serial loop spent most of the build waiting on network latency.
+    Batches remain sorted and results are merged by QID, so concurrency cannot
+    change the candidate population or deterministic downstream ordering.
+    """
     qids = sorted(set(qids))
-    for i in range(0, len(qids), 50):
-        d = get(dict(action="wbgetentities", ids="|".join(qids[i:i + 50]),
+    batches = [qids[i:i + 50] for i in range(0, len(qids), 50)]
+
+    def one(batch):
+        d = get(dict(action="wbgetentities", ids="|".join(batch),
                      props=props, languages="en"))
-        out.update(d.get("entities") or {})
-        if i and i % 2000 == 0:
-            print(f"    {i}/{len(qids)}", flush=True)
-        time.sleep(0.1)
+        return d.get("entities") or {}
+
+    out = {}
+    completed = 0
+    with concurrent.futures.ThreadPoolExecutor(max_workers=workers) as pool:
+        futures = [pool.submit(one, batch) for batch in batches]
+        for future in concurrent.futures.as_completed(futures):
+            out.update(future.result())
+            completed += 1
+            if completed % 40 == 0 or completed == len(batches):
+                print(f"    {min(completed * 50, len(qids))}/{len(qids)}", flush=True)
     return out
 
 
@@ -85,6 +100,7 @@ def main() -> None:
     ap.add_argument("--cands", default="data/d1_surface_pairs_r4.json")
     ap.add_argument("--wikidata", default="data/d1_wikidata_r4.json")
     ap.add_argument("--out", default="data/d1_assoc_candidates_r4.json")
+    ap.add_argument("--api-workers", type=int, default=8)
     args = ap.parse_args()
 
     W = json.load(open(args.wikidata))
@@ -97,7 +113,7 @@ def main() -> None:
     hop = sorted({g for q, v in W.items() if q in by_qid
                   for t in SECOND_HOP for g in v.get("ties", {}).get(t, [])})
     print(f"second-hop entities to expand: {len(hop)}")
-    hents = fetch(hop, "claims")
+    hents = fetch(hop, "claims", args.api_workers)
     hop_members = {}
     for g, e in hents.items():
         cl = e.get("claims") or {}
@@ -123,7 +139,7 @@ def main() -> None:
 
     need = sorted({x for v in per_entity.values() for x in v})
     print(f"resolving {len(need)} related entities")
-    ents = fetch(need, "labels|claims|sitelinks")
+    ents = fetch(need, "labels|claims|sitelinks", args.api_workers)
     info = {}
     for qid, e in ents.items():
         lab = ((e.get("labels") or {}).get("en") or {}).get("value")

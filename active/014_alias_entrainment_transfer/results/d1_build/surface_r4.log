@@ -1,0 +1,11 @@
+RedirectQA rows: 61120; category metadata: 34 labels
+unique (subject_id, redirect surface): 12398
+
+wrote data/d1_surface_pairs_r4.json
+surface pairs: 10226 across 9387 entities
+by RedirectQA high-level type: {'Aliases_and_Abbreviations': 6539, 'Spelling_variants': 2549, 'Typical_Errors': 1541}
+by structural stratum: {'partial': 4104, 'opaque': 1084, 'compositional': 3307, 'opaque_strict': 1731}
+confirmatory intended surfaces: 8928
+Typical_Errors-only diagnostics: 1298
+dropped  2169 normalises to canonical
+dropped     3 degenerate <2 alnum chars

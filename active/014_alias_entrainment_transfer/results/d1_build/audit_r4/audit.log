@@ -1,0 +1,106 @@
+{
+  "contract_id": "2026-08-29-d1-r4-scope-correction",
+  "source": "naist-nlp/RedirectQA v1.0.0",
+  "corpus_snapshot": "wikimedia/wikipedia 20231101.en",
+  "stages": {
+    "raw_surface_pairs": 10226,
+    "raw_entities": 9387,
+    "intended_surface_pairs": 8928,
+    "entities_with_usable_relation": 7131,
+    "pairs_with_assoc_any_candidate": 7771,
+    "matched_ordered_items": 1768,
+    "matched_surface_pairs": 1471,
+    "matched_entities": 1370,
+    "matched_intended_ordered_items": 1571,
+    "matched_intended_entities": 1220,
+    "matched_intended_opaque_strict_entities": 323,
+    "matched_with_assoc_sametype": 1288
+  },
+  "raw": {
+    "structure": {
+      "compositional": 3307,
+      "opaque": 1084,
+      "opaque_strict": 1731,
+      "partial": 4104
+    },
+    "high_level_type": {
+      "Aliases_and_Abbreviations": 6539,
+      "Spelling_variants": 2549,
+      "Typical_Errors": 1541
+    }
+  },
+  "matched": {
+    "direction": {
+      "alias_to_canonical": 1310,
+      "canonical_to_alias": 458
+    },
+    "structure": {
+      "compositional": 336,
+      "opaque": 274,
+      "opaque_strict": 440,
+      "partial": 718
+    },
+    "entity_type": {
+      "group": 17,
+      "organization": 131,
+      "other": 835,
+      "person": 737,
+      "place": 48
+    },
+    "assoc_relation": {
+      "capital": 26,
+      "capital_of": 7,
+      "cast_member": 47,
+      "child": 52,
+      "composer": 17,
+      "contains_admin": 50,
+      "director": 36,
+      "doctoral_advisor": 3,
+      "doctoral_student": 10,
+      "father": 25,
+      "godparent": 3,
+      "has_part": 123,
+      "influenced_by": 15,
+      "located_in": 107,
+      "member_of": 108,
+      "member_of_comember": 92,
+      "member_of_sports_team": 41,
+      "member_of_sports_team_comember": 1,
+      "mother": 36,
+      "owned_by": 51,
+      "owner_of": 75,
+      "parent_org": 27,
+      "part_of": 52,
+      "part_of_comember": 80,
+      "participant": 45,
+      "participant_in": 20,
+      "participant_in_comember": 70,
+      "partner": 29,
+      "performer": 18,
+      "performer_comember": 4,
+      "producer": 18,
+      "professional_partner": 15,
+      "record_label": 59,
+      "record_label_comember": 1,
+      "relative": 22,
+      "replaced_by": 12,
+      "replaces": 28,
+      "screenwriter": 10,
+      "shares_border_with": 40,
+      "sibling": 40,
+      "spouse": 148,
+      "stepparent": 1,
+      "student": 11,
+      "student_of": 17,
+      "subsidiary": 70,
+      "twinned_with": 6
+    }
+  },
+  "sha256": {
+    "surface": "8d8911d9631df7aeab8d8c2c6545a071c1624e4dcae46e3eec4104477cdeea86",
+    "wikidata": "c1d100803455cd7c4743e64f802c2f21fb2f9c2e5034274ca7bff44d0b484c7a",
+    "assoc": "634692c48a8acb5f6197451124fd7d071a900107f37fb864163f92a38f883933",
+    "bank": "917d178533925088fe1641a72e7481eb97e18c237466416cc15608391978db37"
+  },
+  "scope_note": "Raw scope is never replaced by matched survivors. Entity type, direction, surface structure, RedirectQA class, and capability are factors, not construction filters."
+}

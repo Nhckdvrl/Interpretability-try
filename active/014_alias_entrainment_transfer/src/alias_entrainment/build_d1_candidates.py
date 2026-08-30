@@ -166,7 +166,10 @@ def main() -> None:
         intended = bool(set(high_types) & CONFIRMATORY_TYPES)
         error_only = bool(high_types) and set(high_types) <= {"Typical_Errors"}
         pair_hash = hashlib.sha1(
-            (sid + "\0" + unicodedata.normalize("NFKC", s).casefold()).encode("utf-8")
+            # Surface rows are intentionally case-sensitive in RedirectQA r4.
+            # Hashing a casefolded form made retained variants overwrite each
+            # other downstream even though the source rows were not deduped.
+            (sid + "\0" + s).encode("utf-8")
         ).hexdigest()[:12]
         rows.append(dict(
             pair_id=f"{sid}::{pair_hash}",
@@ -185,6 +188,9 @@ def main() -> None:
             triplet_ids=sorted(rec["triplet_ids"]),
         ))
 
+    pair_ids = [row["pair_id"] for row in rows]
+    if len(pair_ids) != len(set(pair_ids)):
+        raise RuntimeError("pair_id collision in broad r4 surface bank")
     Path(args.out).write_text(json.dumps(rows, indent=1, ensure_ascii=False))
     print(f"\nwrote {args.out}")
     print(f"surface pairs: {len(rows)} across {len({r['subject_id'] for r in rows})} entities")

@@ -54,7 +54,7 @@ FULL VALIDATION / MECHANISM
 - 旧 D0 的 entity/reference interpretation 被 150-pair audit 与 UNREL bug 推翻；
 - 当前可支持的是 **learned cross-surface relation transfer / shared upstream cause**；
 - 下一步是 r4 broad RedirectQA + `ASSOC_ANY` construct validation；
-- 在 r4 bank / scope / attrition / source audit / SHA 冻结前，不新增 D1 model call。
+- r4 已于 2026-08-30 完成；broad transfer 通过，reference-specific Q2 未通过。
 
 014 自己的 README 很长，包含历史 phase 1–3 细节；**最新授权以 AUDIT_REGISTRY 与 r4 contract 为准，若旧 README 中有历史授权措辞，以新 registry 覆盖。**
 
@@ -115,3 +115,10 @@ FULL VALIDATION / MECHANISM
   变化；关键 `MIXED - SAME` 主顺序 CI 全部跨 0，离散 toward-neighbor transition 也不稳定。
   当前 **NO-PROMOTE / SAME-STATUS CONTROL NOT PASSED**，不按单方向收窄。详见项目内
   `D0_V1_REPORT.md`。
+- `014 Alias Entrainment Transfer`：2026-08-30 D1 r4 已完成 broad RedirectQA +
+  `ASSOC_ANY`、Wikipedia sentence cooccurrence 与三家族。Q1 broad 在双 frame、双方向和
+  same-type sensitivity 全部强正；但 independent-gated `opaque_strict` 的 Q2 在三个家族均只
+  F2 显著、F1 CI 跨 0，未通过预注册 both-frame 标准。最终
+  **CROSS-SURFACE-BUT-NOT-REFERENCE-SPECIFIC**；保留 learned-relation spillover 与 lexical
+  structure gradient，放弃 entity/reference-specific claim，不做 subset rescue。详见项目内
+  `D1_R4_REPORT.md`。

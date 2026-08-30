@@ -5,7 +5,11 @@
 # provenance of the mistaken narrowing; it is not silently rewritten.
 
 contract_id: 2026-08-29-d1-r4-scope-correction
-status: FROZEN / NO D1 MODEL OUTCOME SEEN
+status: >
+  FINAL R4 EXECUTION CONTRACT. Population and estimands frozen before D1
+  outcomes; positive-joint ASSOC validity added during pre-model source audit;
+  independent capability foil added after a post-run circularity audit, with
+  all earlier outputs discarded and all families rerun. See D1_R4_REPORT.md.
 supersedes_for_d1_construction:
   - contract_d1.yaml:r2.primary_allowed/excluded
   - contract_d1.yaml:r2.statistical_unit.ONE-selected-redirect
@@ -126,6 +130,11 @@ association_strength:
   surface_matching: Unicode-aware casefolded exact surface matching at token
     boundaries
   score: "S(X->B) = log((c(X,B)+1)/(c(X)+100))"
+  minimum_control_joint_count: >
+    c(C,B) >= 1. Additive smoothing defines the score but cannot by itself
+    establish that C and B are associated in the pinned corpus. This validity
+    gate was added during source/control audit, before any r4 model call, after
+    detecting zero-joint ties that satisfied S(C->B) >= S(A->B) vacuously.
   redirect_metadata_or_link_counts: FORBIDDEN
   stale_pre_fix_cooc_shards: FORBIDDEN
   implementation_version_required: d1-r4-cooc-v2
@@ -141,6 +150,13 @@ ordered_directions:
 capability_gate:
   construction_filter: false
   role: model-specific analysis stratum
+  hard_identity_probe: >
+    Counterbalanced target versus a deterministic rotated foil drawn from a
+    different entity, matched on coarse entity type and token length, with no
+    token overlap with the target, seen form, or ASSOC_ANY. The ASSOC control
+    itself is forbidden as the probe foil because selecting on that comparison
+    would be circular with the ALIAS-minus-ASSOC Q2 estimand. This clarification
+    was frozen before the final r4 run after an analysis-integrity review.
   analyses:
     - all matched intended surface pairs
     - hard-identity-gate-passed pairs

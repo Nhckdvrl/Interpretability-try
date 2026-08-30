@@ -1,0 +1,18 @@
+10226 raw surface pairs; 71902 counted strings; 192,922,024 surface-sentence hits
+
+matched ordered items: 1768 from 1471 surface pairs
+directions: {'alias_to_canonical': 1310, 'canonical_to_alias': 458}
+strata: {'compositional': 336, 'partial': 718, 'opaque_strict': 440, 'opaque': 274}
+entity types: {'person': 737, 'other': 835, 'place': 48, 'organization': 131, 'group': 17}
+intended confirmatory ordered items: 1571
+with ASSOC_SAMETYPE sensitivity control: 1288
+drop reasons:
+    8228  canonical_to_alias: no ASSOC reaches S(C,target) >= S(seen,target) without target-token leakage
+    5063  alias_to_canonical: no ASSOC reaches S(C,target) >= S(seen,target) without target-token leakage
+    3268  alias_to_canonical: seen surface never occurs in corpus
+    1473  canonical_to_alias: target surface already occurs in seen surface
+     585  alias_to_canonical: target surface already occurs in seen surface
+      67  canonical_to_alias: seen surface never occurs in corpus
+ASSOC_ANY relations: {'spouse': 148, 'has_part': 123, 'member_of': 108, 'located_in': 107, 'member_of_comember': 92, 'part_of_comember': 80, 'owner_of': 75, 'participant_in_comember': 70, 'subsidiary': 70, 'record_label': 59, 'part_of': 52, 'child': 52, 'owned_by': 51, 'contains_admin': 50, 'cast_member': 47, 'participant': 45, 'member_of_sports_team': 41, 'shares_border_with': 40, 'sibling': 40, 'director': 36}
+
+wrote data/frozen_d1_r4.jsonl; sha256 917d178533925088fe1641a72e7481eb97e18c237466416cc15608391978db37

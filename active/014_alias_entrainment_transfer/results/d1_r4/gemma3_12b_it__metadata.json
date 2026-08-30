@@ -1,0 +1,19 @@
+{
+  "status": "complete",
+  "contract_id": "2026-08-29-d1-r4-scope-correction",
+  "model": "google/gemma-3-12b-it",
+  "model_label": "gemma3_12b_it",
+  "model_revision": "96b6f1eccf38110c56df3a15bffe176da04bfd80",
+  "bank_sha256": "917d178533925088fe1641a72e7481eb97e18c237466416cc15608391978db37",
+  "items": 1768,
+  "probe_records": 7072,
+  "main_records": 14952,
+  "batch_size": 24,
+  "device": "cuda:1",
+  "dtype": "bfloat16",
+  "boundary_shifts": 0,
+  "elapsed_seconds": 117.91871452331543,
+  "python": "3.12.13",
+  "torch_version": "2.11.0+cu130",
+  "transformers_version": "5.12.1"
+}

@@ -1,0 +1,19 @@
+{
+  "status": "complete",
+  "contract_id": "2026-08-29-d1-r4-scope-correction",
+  "model": "Qwen/Qwen3-8B",
+  "model_label": "qwen3_8b",
+  "model_revision": "b968826d9c46dd6066d109eabc6255188de91218",
+  "bank_sha256": "917d178533925088fe1641a72e7481eb97e18c237466416cc15608391978db37",
+  "items": 1768,
+  "probe_records": 7072,
+  "main_records": 14952,
+  "batch_size": 32,
+  "device": "cuda:0",
+  "dtype": "bfloat16",
+  "boundary_shifts": 0,
+  "elapsed_seconds": 67.84609723091125,
+  "python": "3.12.13",
+  "torch_version": "2.11.0+cu130",
+  "transformers_version": "5.12.1"
+}

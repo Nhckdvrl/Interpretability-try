@@ -111,11 +111,15 @@ def main() -> None:
             if ttok & target_tokens(c):
                 continue
             s_c = S(c, target)
-            if s_c is None or s_c < s_seen:
+            joint_c_target = pair.get((sid[c], sid[target]), 0)
+            # Smoothing prevents infinities; it must not turn two zero-joint
+            # pairs into evidence for a strong learned association control.
+            if s_c is None or joint_c_target < 1 or s_c < s_seen:
                 continue
             elig.append(dict(
                 **r,
                 s_assoc=s_c,
+                joint_assoc_target=joint_c_target,
                 margin=s_c - s_seen,
                 freq_mismatch=abs(math.log(single[sid[c]] + 1)
                                   - math.log(single[sid[seen]] + 1)),
@@ -166,12 +170,14 @@ def main() -> None:
                 popularity=v.get("pageviews", 0),
                 orth_seen_target=orth_sim_u(seen, target),
                 s_seen_target=s_seen,
+                joint_seen_target=pair.get((sid[seen], sid[target]), 0),
                 c_seen=single[sid[seen]],
                 assoc_any=pick["label"],
                 assoc_any_qid=pick["qid"],
                 assoc_any_type=pick.get("entity_type", "other"),
                 assoc_any_relation=pick["relation"],
                 s_assoc_any=pick["s_assoc"],
+                joint_assoc_any_target=pick["joint_assoc_target"],
                 assoc_any_margin=pick["margin"],
                 c_assoc_any=single[sid[pick["label"]]],
                 assoc_sametype=(pick_same or {}).get("label"),
@@ -185,6 +191,39 @@ def main() -> None:
 
     if not rows:
         raise RuntimeError("No ordered item survived ASSOC_ANY matching")
+    item_ids = [row["item_id"] for row in rows]
+    if len(item_ids) != len(set(item_ids)):
+        raise RuntimeError("item_id collision in frozen r4 evaluation bank")
+
+    # Independent hard-identity probe foils. Using ASSOC_ANY itself as the foil
+    # would select on the same pair later contrasted in Q2. Rotate over a large
+    # different-entity pool, match coarse type/token length, and forbid lexical
+    # overlap with every main-condition mention.
+    foil_pool = sorted({
+        (row["entity_uri"], row["entity_type"], row["target_form"])
+        for row in rows
+    })
+    for row in rows:
+        forbidden = (target_tokens(row["target_form"])
+                     | target_tokens(row["seen_form"])
+                     | target_tokens(row["assoc_any"]))
+        eligible = []
+        for entity_uri, entity_type, form in foil_pool:
+            if entity_uri == row["entity_uri"] or entity_type != row["entity_type"]:
+                continue
+            if forbidden & target_tokens(form):
+                continue
+            eligible.append((
+                abs(len(tokens_u(form)) - len(tokens_u(row["target_form"]))),
+                hashlib.sha256((row["item_id"] + "\0" + entity_uri + "\0" + form).encode()).hexdigest(),
+                entity_uri,
+                form,
+            ))
+        if not eligible:
+            raise RuntimeError(f"no independent identity-probe foil for {row['item_id']}")
+        _, _, foil_entity, foil_form = min(eligible)
+        row["identity_probe_foil"] = foil_form
+        row["identity_probe_foil_entity"] = foil_entity
     Path(args.out).write_text("\n".join(
         json.dumps(r, sort_keys=True, ensure_ascii=False) for r in rows
     ) + "\n")

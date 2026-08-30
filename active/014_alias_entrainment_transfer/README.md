@@ -2,11 +2,11 @@
 
 **中文一句话：** 上下文里只出现一个实体的名字 A，会不会把从未出现过、但与 A 指向同一对象的名字 B 也一起“带热”？如果会，这真的是 entity/reference identity，还是模型只是学过 A 和 B 经常相关？
 
-**Status:** `KEEP / PHENOTYPE-ESTABLISHED / HOLD-FOR-R4-CONSTRUCT-VALIDATION`
+**Status:** `D1-R4 COMPLETE / CROSS-SURFACE-BUT-NOT-REFERENCE-SPECIFIC`
 **Created:** 2026-08-29
 **Top-10 rank:** #3
 **Canonical next contract:** [`configs/contract_d1_r4.yaml`](configs/contract_d1_r4.yaml)
-**New D1 model call authorized:** **NO** — 先 materialize r4 bank + ASSOC controls + scope/source audit + freeze SHA。
+**New D1 model call authorized:** **NO** — r4 已完成；Q2 未通过，不再用新模型或 subset 复活 reference claim。
 
 ---
 
@@ -386,3 +386,22 @@ NEXT: r4 ALIAS vs ASSOC construct validation, data-first.
 ```
 
 该项目已经过了“现象有没有”的阶段；现在成败只取决于我们能否用**不缩 scope 的 hard association control**回答 reference identity 是否真的特殊。
+
+---
+
+## 15. 2026-08-30 D1 r4 final update
+
+r4 已完成 broad RedirectQA、Wikipedia sentence cooccurrence、`ASSOC_ANY`、同类型 sensitivity、
+双方向、双 frame、独立 hard-identity gate，以及 Qwen3-8B、Gemma-3-12B-IT、
+Llama-3.1-8B-Instruct 三家族全量运行。
+
+Q1 broad `ALIAS - ASSOC_ANY` 在三家族两个 frame 全部为正，entity-bootstrap CI 全部排除 0；
+同类型 ASSOC 与两个方向也全部复现。Q2 gated `opaque_strict` 虽达到 261–282 entities/family，
+但三个家族都只有邻近 frame F2 显著，F1 CI 跨 0，违反预注册的 both-frame requirement。
+ungated `opaque_strict` 两个 frame 在三家族也全部跨 0；最大效应反而出现在 compositional 与
+partial strata。
+
+最终 verdict 是 **CROSS-SURFACE-BUT-NOT-REFERENCE-SPECIFIC**。保留 broad learned-relation
+transfer、shared upstream cause 与 lexical/structure gradient；明确放弃“shared referent 是特殊
+causal unit”的说法，不进入 reference-specific Phase 4，不按 F2 或某个 alias subtype 收窄。
+完整审计、数值、修订时间线和复现命令见 [`D1_R4_REPORT.md`](D1_R4_REPORT.md)。
