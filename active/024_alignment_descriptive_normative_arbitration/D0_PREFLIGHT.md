@@ -9,16 +9,23 @@
 ## Frozen comparison
 
 Four same-provider, architecture- and size-matched base/aligned pairs are used:
-Qwen3 1.7B, Gemma 2 2B, Llama 3.2 3B, and Mistral 7B v0.3. Checkpoint revisions
+Qwen3 1.7B, Gemma 2 2B, Llama 3.2 1B, and SmolLM2 1.7B. Checkpoint revisions
 are written to runtime metadata. A family is the statistical replication unit;
 the 3,483 primary human decisions are not treated as independent model
 replications.
 
 The official Meta Llama base repository returned HTTP 403 during the access
 check, before any Llama forward pass. The Llama entry was therefore amended to
-the public Unsloth mirrors of the same Llama 3.2 3B base and instruct releases.
+the public Unsloth mirrors of Llama 3.2 1B base and instruct releases, a pair
+explicitly included in the mother study.
 Both sides use the same mirror provider; no model output informed this access
 amendment.
+
+The initially listed Mistral 7B pair required a large uncached transfer. Before
+any Mistral forward pass it was replaced by the mother study's SmolLM2 1.7B
+base/instruct family. This preserves the frozen four-family design and strict
+pairing while making the preflight executable; no fourth-family output informed
+the substitution.
 
 The primary comparison follows the mother paper's native-format design: plain
 structured completion for a base checkpoint and the provider chat template for

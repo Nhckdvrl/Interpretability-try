@@ -40,7 +40,7 @@ def test_history_excludes_current_decision():
 
 def test_contract_has_four_strict_pairs():
     contract = json.loads((ROOT / "configs" / "d0_contract.json").read_text())
-    assert set(contract["models"]) == {"qwen", "gemma", "llama", "mistral"}
+    assert set(contract["models"]) == {"qwen", "gemma", "llama", "smollm"}
     for pair in contract["models"].values():
         assert set(pair) == {"base", "aligned"}
         assert pair["base"] != pair["aligned"]

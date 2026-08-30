@@ -21,12 +21,12 @@
       "aligned": "google/gemma-2-2b-it"
     },
     "llama": {
-      "base": "unsloth/Llama-3.2-3B",
-      "aligned": "unsloth/Llama-3.2-3B-Instruct"
+      "base": "unsloth/Llama-3.2-1B",
+      "aligned": "unsloth/Llama-3.2-1B-Instruct"
     },
-    "mistral": {
-      "base": "mistralai/Mistral-7B-v0.3",
-      "aligned": "mistralai/Mistral-7B-Instruct-v0.3"
+    "smollm": {
+      "base": "HuggingFaceTB/SmolLM2-1.7B",
+      "aligned": "HuggingFaceTB/SmolLM2-1.7B-Instruct"
     }
   },
   "pairing_requirements": {
@@ -39,7 +39,8 @@
     "date": "2026-08-31",
     "family": "llama",
     "reason": "official Meta base repository returned 403 before any Llama forward pass",
-    "replacement": "public same-provider Unsloth mirrors of the identical Llama 3.2 3B base/instruct checkpoints",
+    "replacement": "public same-provider Unsloth mirrors of Llama 3.2 1B base/instruct, a pair included by the mother study",
+    "fourth_family": "SmolLM2 1.7B replaces the larger Mistral download before any fourth-family forward pass; both families are in the mother inventory",
     "outcome_informed": false
   },
   "targets": {

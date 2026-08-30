@@ -7,7 +7,7 @@ export PYTHONPATH="$ROOT_DIR/src${PYTHONPATH:+:$PYTHONPATH}"
 
 "$PYTHON_BIN" -m alignment_arbitration.build_bank
 
-families=(qwen gemma llama mistral)
+families=(qwen gemma llama smollm)
 for gpu in 0 1 2 3; do
   family="${families[$gpu]}"
   (
