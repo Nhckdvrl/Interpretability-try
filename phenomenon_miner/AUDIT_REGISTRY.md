@@ -1,40 +1,33 @@
 # Audit Registry — Model Dispatch
 
 版本：2026-08-30  
-状态：`AUTHORITATIVE MODEL-CALL AUTHORIZATION / POST-TOP6-AUDIT`
+状态：`AUTHORITATIVE MODEL-CALL AUTHORIZATION / NATURAL-QUESTION RESET`
 
-本文件只控制**接下来还能跑什么**。科学裁决详情见 [`TOP6_RESULT_REVIEW_2026-08-30.md`](TOP6_RESULT_REVIEW_2026-08-30.md)。
+本文件只控制**接下来还能跑什么**。当前 scientific focus 见 [`CURRENT_TOPICS.md`](CURRENT_TOPICS.md)；新题必须先过 [`NATURAL_QUESTION_GATE.md`](NATURAL_QUESTION_GATE.md)。
 
 当前原则：
 
 ```text
-D0 screening 可以快速证伪；
-诊断性失败 -> archive；
-measurement/capability denominator 失败 -> HOLD-REDESIGN；
-behavior 没站住 -> 禁止 mechanism rescue。
+014 = established paper-development project
+018 = measurement redesign project
+020–023 = suspended pending natural-question re-audit
+new-topic screening = paused
 ```
 
 ## Current dispatch
 
 | project | cheap D0 / next behavior call | full validation / mechanism | status |
 |---|---:|---:|---|
-| `active/014_alias_entrainment_transfer` | **false** | only paper synthesis / already-completed phase evidence | **ESTABLISHED broad cross-surface; reference-specific Q2 rejected** |
-| `active/018_stock_flow_correlation_intrusion` | **false until D0-v2 contract frozen** | false | **INCONCLUSIVE / measurement failure** |
-| `active/020_incremental_clue_backfire` | **true after internal collision pass** | false | registered / not adjudicated |
-| `active/021_task_switch_carryover` | **true, diagnostic only** | false | registered / mother-collision risk |
-| `active/022_local_success_global_composition_failure` | **true, collision-first** | false | registered / Press collision risk |
-| `active/023_description_experience_gap` | **true** | false | registered / not adjudicated |
+| `active/014_alias_entrainment_transfer` | **false** | paper synthesis using already-completed evidence only | **ESTABLISHED / PRIMARY PAPER PRIORITY** |
+| `active/018_stock_flow_correlation_intrusion` | **false until D0-v2 contract frozen** | false | **PRIMARY REDESIGN / scientific status unknown** |
+| `active/020_incremental_clue_backfire` | **false** | false | **SUSPENDED-PENDING-NATURALNESS-REAUDIT** |
+| `active/021_task_switch_carryover` | **false** | false | **SUSPENDED-PENDING-NATURALNESS-REAUDIT** |
+| `active/022_local_success_global_composition_failure` | **false** | false | **SUSPENDED-PENDING-NATURALNESS-REAUDIT** |
+| `active/023_description_experience_gap` | **false** | false | **SUSPENDED-PENDING-NATURALNESS-REAUDIT** |
 
-## Archived after completed Top-6 audit
+No project is currently authorized for a fresh model call.
 
-These projects are terminal under their current registered scientific identity. No model call, prompt change, subset, threshold, readout swap, or mechanism work may revive them:
-
-| archived project | screening | validation / MI | terminal reason |
-|---|---:|---:|---|
-| `archive/015_clarification_resolution_lag` | false | false | matched neutral history explains the small history effect; ambiguity-specific residual null in 3 families |
-| `archive/016_mixed_status_event_attraction` | false | false | same-status context explains mixed-vs-local effect; controlled mixed-vs-same not stable in any family |
-| `archive/017_cross_modal_resolution_inertia` | false | false | strongest powered sequential effect survives with masked prior-choice identity; not interpretation-specific |
-| `archive/019_abstention_hysteresis` | false | false | strong cross-family/cross-source reverse effect; neutral incomplete→complete transition explains most recovery |
+---
 
 ## 014 — exact allowed claim
 
@@ -48,7 +41,8 @@ Allowed:
 - both-frame / both-direction / same-type sensitivity;
 - structural gradient `compositional > partial > opaque >> opaque-strict≈0`;
 - phase-2 shared upstream causal machinery;
-- phase-3 lexical/seen-form direct-write boundary.
+- phase-3 lexical/seen-form direct-write boundary;
+- paper synthesis around the lexical/derivational-to-reference boundary.
 
 Not allowed:
 
@@ -58,37 +52,61 @@ Not allowed:
 - person-only / direction-only / alias-subtype rescue;
 - new reference-specific Phase 4.
 
-## 018 — why next call is blocked but project is not killed
+014 is a **development project, not an excuse for more positive hunting**.
 
-The ResOpsUS bank and 2×2 population are valid, but the D0-v1 net-recognition instrument is not. Negative-net cells have zero strict gated items because A/B position reversals cause extreme answer-position behavior (most clearly Llama canonical ~99–100%, reversed 0%).
+---
 
-Therefore:
+## 018 — exact redesign boundary
+
+The ResOpsUS population and full 2×2 bank remain scientifically valid. D0 v1 failed as a measurement instrument because A/B answer-position behavior destroyed the negative-net recognition denominator.
+
+Before any rerun:
 
 ```yaml
-scientific_verdict: INCONCLUSIVE
-current_d0_contract: FAILED-MEASUREMENT-INSTRUMENT
-screening_authorized: false
+scientific_population: unchanged
+bank: same 600 natural windows
+semantic_cells: all four preserved
+recognition_measure: semantic positive/negative OR deterministic numeric sign
+letter_position_gate: forbidden
+positive_net_only_subset: forbidden
+explicit_correct_net_control: required
+contract_v2_frozen_before_calls: required
 ```
 
-Before any rerun, write and freeze D0 v2 with a semantic or numeric recognition measure that does not make letter position the capability criterion. Preserve all four semantic cells and downstream explicit-correct-net controls. A positive-net-only rerun is forbidden.
+Only after a D0-v2 contract is frozen may `screening_authorized` become true.
 
-## Remaining pre-run rules
+---
 
-### 020 Incremental Clue Backfire
+## Suspended 020–023
 
-Must pass internal collision against old Evidence-Induced Referent Displacement before model calls. Same scientific object under a new dataset name = no run.
+Previous registration no longer authorizes calls.
 
-### 021 Task-Switch Carryover
+Each project must independently pass the Natural-Question Gate:
 
-Must score old-rule-specific wrong destinations. Aggregate post-switch accuracy loss is mother-paper replication, not a new phenotype.
+1. one-sentence natural question;
+2. one ordinary motivating example;
+3. low/medium phenomenon-absence risk with an explicit existence anchor;
+4. faithful 5–20-example sanity without a complex builder;
+5. dataset is an instrument, not the source of the question;
+6. restriction budget is small;
+7. mechanism unfolds naturally from the question rather than motivating it retroactively.
 
-### 022 Local/Global Composition
+A failed gate means route/park/delete from current queue. No model call is needed to make that decision.
 
-Must use the stronger externalized-intermediate-facts contrast. Ordinary compositionality gap is already known.
+---
 
-### 023 Description–Experience Gap
+## Archived after completed Top-6 audit
 
-Must use exact-frequency matching and pass frequency/EV capability probes before interpreting choice differences.
+These projects are terminal under their current registered scientific identity. No model call, prompt change, subset, threshold, readout swap, or mechanism work may revive them:
+
+| archived project | screening | validation / MI | terminal reason |
+|---|---:|---:|---|
+| `archive/015_clarification_resolution_lag` | false | false | matched neutral history explains the small history effect; ambiguity-specific residual null in 3 families |
+| `archive/016_mixed_status_event_attraction` | false | false | same-status context explains mixed-vs-local effect; controlled mixed-vs-same not stable in any family |
+| `archive/017_cross_modal_resolution_inertia` | false | false | strongest powered sequential effect survives with masked prior-choice identity; not interpretation-specific |
+| `archive/019_abstention_hysteresis` | false | false | strong cross-family/cross-source reverse effect; neutral incomplete→complete transition explains most recovery |
+
+---
 
 ## Existing provenance
 
@@ -96,10 +114,22 @@ Must use exact-frequency matching and pass frequency/EV capability probes before
 - `active/013_publicness_coordination_dissociation`: parked/hold-data, no calls.
 - `active/003_diagnostic_counterevidence_revision`: legacy provenance, no current authorization.
 
+---
+
+## New discovery rule
+
+Before N0/N1/D0 feasibility, every new idea must pass [`NATURAL_QUESTION_GATE.md`](NATURAL_QUESTION_GATE.md).
+
+A topic is **not** made better by having a sophisticated factorial design. If the scientific question needs that design to become interesting, the topic is already weak.
+
+---
+
 ## Discipline
 
-- `active` does not mean claim established.
-- `archive` means current scientific contract is terminal and cannot be rescued by implementation degrees of freedom.
-- `NO-PROMOTE` must be classified as either diagnostic scientific failure or non-diagnostic measurement/capability failure.
-- hidden-state evidence cannot rescue a failed behavioral contract.
-- source factors remain factors, not post-hoc filters.
+- phenomenon first, measurement second;
+- high existence prior before expensive D0;
+- dataset measures the question; dataset does not invent the question;
+- controls isolate explanations after a broad effect is visible;
+- hidden-state evidence cannot rescue a failed behavioral contract;
+- a measurement failure is not a scientific null;
+- a clean scientific null is not a license for prompt/subset rescue.
