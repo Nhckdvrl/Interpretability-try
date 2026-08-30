@@ -1,0 +1,17 @@
+{
+  "contract_id": "025-d0-v2-strong-model-replication",
+  "cuda_visible_devices": "0",
+  "family": "qwen",
+  "label_token_ids": {
+    "FALSE": [
+      7833
+    ],
+    "TRUE": [
+      8214
+    ]
+  },
+  "model_id": "Qwen/Qwen3-8B",
+  "n_records": 256,
+  "revision": "b968826d9c46dd6066d109eabc6255188de91218",
+  "torch_version": "2.11.0+cu130"
+}

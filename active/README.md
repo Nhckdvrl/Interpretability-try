@@ -16,7 +16,7 @@
 | [`014_alias_entrainment_transfer`](014_alias_entrainment_transfer/) | **ESTABLISHED / PAPER DEVELOPMENT** | broad cross-surface spillover + structural gradient + lexical/reference boundary |
 | [`018_stock_flow_correlation_intrusion`](018_stock_flow_correlation_intrusion/) | **SCIENTIFIC STATUS UNKNOWN / D0-v1 MEASUREMENT FAILURE** | 只修 net-recognition instrument，保持原自然 population |
 | [`024_alignment_descriptive_normative_arbitration`](024_alignment_descriptive_normative_arbitration/) | **HOLD-INCONCLUSIVE-D0** | 2/4 native family passes; no mechanism calls |
-| [`025_world_indexed_truth`](025_world_indexed_truth/) | **D0-AUTHORIZED / CONTRACT-FROZEN** | 256-query same-proposition actual/local-world capability preflight |
+| [`025_world_indexed_truth`](025_world_indexed_truth/) | **HOLD_PREREQUISITE_CAPABILITY / NO-MI** | conflict-only success fails aligned world-index controls |
 | [`026_scientific_plausibility_testability_factorization`](026_scientific_plausibility_testability_factorization/) | **N0+N1 PASS / ACTIVE-PREFLIGHT** | audit natural hypotheses with independent plausibility/testability targets |
 | [`027_rhetorical_force_implied_assertion`](027_rhetorical_force_implied_assertion/) | **N0+N1 PASS / ACTIVE-PREFLIGHT** | audit SRAQ + IAT/AIF/QT30 implied-proposition support |
 | [`028_causality_responsibility_factorization`](028_causality_responsibility_factorization/) | **N0+N1 PASS / ACTIVE-PREFLIGHT** | audit FrECI matched event-causal-core / differing-frame support |

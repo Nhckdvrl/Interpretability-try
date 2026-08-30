@@ -1,0 +1,17 @@
+{
+  "contract_id": "025-d0-v1-world-indexed-capability",
+  "cuda_visible_devices": "1",
+  "family": "gemma",
+  "label_token_ids": {
+    "FALSE": [
+      24907
+    ],
+    "TRUE": [
+      23096
+    ]
+  },
+  "model_id": "google/gemma-3-1b-it",
+  "n_records": 256,
+  "revision": "dcc83ea841ab6100d6b47a070329e1ba4cf78752",
+  "torch_version": "2.11.0+cu130"
+}

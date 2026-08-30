@@ -1,0 +1,5 @@
+family,query_accuracy,overall_joint_accuracy,conflict_joint_accuracy,aligned_joint_accuracy,family_pass
+qwen,0.77734375,0.5546875,0.40625,0.703125,False
+gemma,0.72265625,0.46875,0.09375,0.84375,False
+llama,0.52734375,0.28125,0.125,0.4375,False
+smollm,0.50390625,0.25,0.0,0.5,False

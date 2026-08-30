@@ -12,7 +12,7 @@
 | `active/014_alias_entrainment_transfer` | false | existing evidence only | **ESTABLISHED / PAPER DEVELOPMENT** |
 | `active/018_stock_flow_correlation_intrusion` | **false until D0-v2 contract frozen** | false | **REDESIGN / scientific status unknown** |
 | `active/024_alignment_descriptive_normative_arbitration` | false | false | **HOLD-INCONCLUSIVE-D0** |
-| `active/025_world_indexed_truth` | **D0 v1 only; frozen 256-query same-proposition actual/local capability bank** | false | **D0-AUTHORIZED / CONTRACT-FROZEN** |
+| `active/025_world_indexed_truth` | **false; both frozen behavior runs complete** | false | **HOLD_PREREQUISITE_CAPABILITY / NO-MI** |
 | `active/026_scientific_plausibility_testability_factorization` | **false until source/target support audit frozen** | false | **N0+N1 PASS / ACTIVE-PREFLIGHT** |
 | `active/027_rhetorical_force_implied_assertion` | **false until RQ force/content source audit frozen** | false | **N0+N1 PASS / ACTIVE-PREFLIGHT** |
 | `active/028_causality_responsibility_factorization` | **false until FrECI matched-support audit frozen** | false | **N0+N1 PASS / ACTIVE-PREFLIGHT** |
@@ -86,6 +86,13 @@ After v1 produced `HOLD_PREREQUISITE_CAPABILITY` on four sub-2B checkpoints,
 `configs/d0_strong_contract.json` freezes a models-only v2 replication on four
 stronger families. It inherits the same bank, prompt, scoring, gates, and
 adjudication. This does not authorize mechanism calls or revision of v1.
+
+Final D0 adjudication: both v1 and v2 are
+`HOLD_PREREQUISITE_CAPABILITY`. V2 conflict joint accuracy was high in all four
+families (0.828–0.922), but every family failed aligned controls (0.219–0.625),
+consistent with a contrast/anti-copy shortcut rather than demonstrated dual
+world binding. No additional call is authorized. See
+`active/025_world_indexed_truth/D0_REPORT.md`.
 
 ---
 

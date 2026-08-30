@@ -1,0 +1,20 @@
+{
+  "contract_id": "025-d0-v1-world-indexed-capability",
+  "cuda_visible_devices": "3",
+  "family": "smollm",
+  "label_token_ids": {
+    "FALSE": [
+      426,
+      3206,
+      6493
+    ],
+    "TRUE": [
+      16595,
+      16049
+    ]
+  },
+  "model_id": "HuggingFaceTB/SmolLM2-360M-Instruct",
+  "n_records": 256,
+  "revision": "a10cc1512eabd3dde888204e902eca88bddb4951",
+  "torch_version": "2.11.0+cu130"
+}

@@ -1,6 +1,6 @@
 # 025 — World-Indexed Truth: Actual Reality vs the Stipulated World
 
-**Status:** `N0-PASS / D0-AUTHORIZED / CONTRACT-FROZEN`
+**Status:** `N0-PASS / HOLD_PREREQUISITE_CAPABILITY / NO-MI`
 **Created:** 2026-08-31  
 **Selection route:** Hamdi-style adjacent-axis extension  
 **Priority:** high exploratory candidate; do not start MI until a simple world-indexed capability/behavior contract is frozen.
@@ -319,5 +319,15 @@ propositions, aligned and conflicting local valuations, paired actual/local
 queries under three world frames and three paraphrase families, for 256 scored
 queries total. D0 behavior is authorized; representation work remains forbidden
 until the predeclared four-family gate passes.
+
+## D0 outcome (2026-08-31)
+
+Both frozen runs returned `HOLD_PREREQUISITE_CAPABILITY`. The sub-2B v1 had no
+family pass. In the models-only strong-checkpoint v2, Qwen3-8B, Gemma3-12B,
+Llama3.1-8B, and Mistral-Small-24B all showed high conflict joint accuracy
+(0.828–0.922) but failed aligned controls (0.219–0.625). This exposes a
+conflict-only false positive compatible with contrast/anti-copy routing rather
+than dual world-bound valuation. Full results and adjudication are in
+[`D0_REPORT.md`](D0_REPORT.md). No mechanism work is authorized.
 
 Full N0: [`../../phenomenon_miner/HAMDI_AXIS_N0_2026-08-31.md`](../../phenomenon_miner/HAMDI_AXIS_N0_2026-08-31.md).

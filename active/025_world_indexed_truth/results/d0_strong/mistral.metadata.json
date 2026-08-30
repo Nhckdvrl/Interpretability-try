@@ -1,0 +1,17 @@
+{
+  "contract_id": "025-d0-v2-strong-model-replication",
+  "cuda_visible_devices": "3",
+  "family": "mistral",
+  "label_token_ids": {
+    "FALSE": [
+      30764
+    ],
+    "TRUE": [
+      29583
+    ]
+  },
+  "model_id": "mistralai/Mistral-Small-24B-Instruct-2501",
+  "n_records": 256,
+  "revision": "9527884be6e5616bdd54de542f9ae13384489724",
+  "torch_version": "2.11.0+cu130"
+}

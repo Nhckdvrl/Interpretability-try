@@ -1,0 +1,17 @@
+{
+  "contract_id": "025-d0-v2-strong-model-replication",
+  "cuda_visible_devices": "2",
+  "family": "llama",
+  "label_token_ids": {
+    "FALSE": [
+      7989
+    ],
+    "TRUE": [
+      8378
+    ]
+  },
+  "model_id": "NousResearch/Meta-Llama-3.1-8B-Instruct",
+  "n_records": 256,
+  "revision": "d10aef7999a2b5ba950ab3974312feeedbfe0b77",
+  "torch_version": "2.11.0+cu130"
+}

@@ -1,0 +1,6 @@
+{
+  "family_passes": 0,
+  "mechanism_authorized": false,
+  "median_conflict_joint_accuracy": 0.109375,
+  "verdict": "HOLD_PREREQUISITE_CAPABILITY"
+}

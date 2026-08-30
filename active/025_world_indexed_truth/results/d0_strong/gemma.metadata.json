@@ -1,0 +1,17 @@
+{
+  "contract_id": "025-d0-v2-strong-model-replication",
+  "cuda_visible_devices": "1",
+  "family": "gemma",
+  "label_token_ids": {
+    "FALSE": [
+      24907
+    ],
+    "TRUE": [
+      23096
+    ]
+  },
+  "model_id": "google/gemma-3-12b-it",
+  "n_records": 256,
+  "revision": "96b6f1eccf38110c56df3a15bffe176da04bfd80",
+  "torch_version": "2.11.0+cu130"
+}

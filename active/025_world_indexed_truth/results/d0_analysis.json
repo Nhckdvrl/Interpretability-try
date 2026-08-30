@@ -1,0 +1,191 @@
+{
+  "aggregate": {
+    "family_passes": 0,
+    "mechanism_authorized": false,
+    "median_conflict_joint_accuracy": 0.109375,
+    "verdict": "HOLD_PREREQUISITE_CAPABILITY"
+  },
+  "contract_id": "025-d0-v1-world-indexed-capability",
+  "families": {
+    "gemma": {
+      "conflict_joint_accuracy_by_actual_truth": {
+        "False": 0.1875,
+        "True": 0.0
+      },
+      "conflict_joint_accuracy_by_domain": {
+        "arithmetic": 0.25,
+        "chemistry": 0.0,
+        "solar_system": 0.0
+      },
+      "conflict_joint_accuracy_by_world_frame": {
+        "fictional_chronicle": 0.0,
+        "hypothetical": 0.09090909090909091,
+        "rule_simulation": 0.19047619047619047
+      },
+      "family_pass": false,
+      "gate_checks": {
+        "aligned_joint": false,
+        "conflict_domains": false,
+        "conflict_joint": false,
+        "conflict_polarities": false,
+        "conflict_world_frames": false,
+        "overall_joint": false,
+        "query_paraphrases": false
+      },
+      "joint_accuracy_by_relation": {
+        "aligned": 0.84375,
+        "conflict": 0.09375
+      },
+      "minimum_conflict_domain_joint_accuracy": 0.0,
+      "minimum_conflict_polarity_joint_accuracy": 0.0,
+      "minimum_conflict_world_frame_joint_accuracy": 0.0,
+      "minimum_query_paraphrase_accuracy": 0.6941176470588235,
+      "overall_joint_accuracy": 0.46875,
+      "query_accuracy": 0.72265625,
+      "query_accuracy_by_paraphrase": {
+        "direct": 0.6941176470588235,
+        "evaluation": 0.7093023255813954,
+        "setting_aside": 0.7647058823529411
+      },
+      "query_accuracy_by_world": {
+        "actual": 0.515625,
+        "local": 0.9296875
+      }
+    },
+    "llama": {
+      "conflict_joint_accuracy_by_actual_truth": {
+        "False": 0.15625,
+        "True": 0.09375
+      },
+      "conflict_joint_accuracy_by_domain": {
+        "arithmetic": 0.0,
+        "chemistry": 0.08333333333333333,
+        "solar_system": 0.375
+      },
+      "conflict_joint_accuracy_by_world_frame": {
+        "fictional_chronicle": 0.0,
+        "hypothetical": 0.22727272727272727,
+        "rule_simulation": 0.14285714285714285
+      },
+      "family_pass": false,
+      "gate_checks": {
+        "aligned_joint": false,
+        "conflict_domains": false,
+        "conflict_joint": false,
+        "conflict_polarities": false,
+        "conflict_world_frames": false,
+        "overall_joint": false,
+        "query_paraphrases": false
+      },
+      "joint_accuracy_by_relation": {
+        "aligned": 0.4375,
+        "conflict": 0.125
+      },
+      "minimum_conflict_domain_joint_accuracy": 0.0,
+      "minimum_conflict_polarity_joint_accuracy": 0.09375,
+      "minimum_conflict_world_frame_joint_accuracy": 0.0,
+      "minimum_query_paraphrase_accuracy": 0.5,
+      "overall_joint_accuracy": 0.28125,
+      "query_accuracy": 0.52734375,
+      "query_accuracy_by_paraphrase": {
+        "direct": 0.5176470588235295,
+        "evaluation": 0.5,
+        "setting_aside": 0.5647058823529412
+      },
+      "query_accuracy_by_world": {
+        "actual": 0.5078125,
+        "local": 0.546875
+      }
+    },
+    "qwen": {
+      "conflict_joint_accuracy_by_actual_truth": {
+        "False": 0.8125,
+        "True": 0.0
+      },
+      "conflict_joint_accuracy_by_domain": {
+        "arithmetic": 0.4583333333333333,
+        "chemistry": 0.5,
+        "solar_system": 0.1875
+      },
+      "conflict_joint_accuracy_by_world_frame": {
+        "fictional_chronicle": 0.38095238095238093,
+        "hypothetical": 0.4090909090909091,
+        "rule_simulation": 0.42857142857142855
+      },
+      "family_pass": false,
+      "gate_checks": {
+        "aligned_joint": false,
+        "conflict_domains": false,
+        "conflict_joint": false,
+        "conflict_polarities": false,
+        "conflict_world_frames": false,
+        "overall_joint": false,
+        "query_paraphrases": true
+      },
+      "joint_accuracy_by_relation": {
+        "aligned": 0.703125,
+        "conflict": 0.40625
+      },
+      "minimum_conflict_domain_joint_accuracy": 0.1875,
+      "minimum_conflict_polarity_joint_accuracy": 0.0,
+      "minimum_conflict_world_frame_joint_accuracy": 0.38095238095238093,
+      "minimum_query_paraphrase_accuracy": 0.7674418604651163,
+      "overall_joint_accuracy": 0.5546875,
+      "query_accuracy": 0.77734375,
+      "query_accuracy_by_paraphrase": {
+        "direct": 0.788235294117647,
+        "evaluation": 0.7674418604651163,
+        "setting_aside": 0.7764705882352941
+      },
+      "query_accuracy_by_world": {
+        "actual": 0.5625,
+        "local": 0.9921875
+      }
+    },
+    "smollm": {
+      "conflict_joint_accuracy_by_actual_truth": {
+        "False": 0.0,
+        "True": 0.0
+      },
+      "conflict_joint_accuracy_by_domain": {
+        "arithmetic": 0.0,
+        "chemistry": 0.0,
+        "solar_system": 0.0
+      },
+      "conflict_joint_accuracy_by_world_frame": {
+        "fictional_chronicle": 0.0,
+        "hypothetical": 0.0,
+        "rule_simulation": 0.0
+      },
+      "family_pass": false,
+      "gate_checks": {
+        "aligned_joint": false,
+        "conflict_domains": false,
+        "conflict_joint": false,
+        "conflict_polarities": false,
+        "conflict_world_frames": false,
+        "overall_joint": false,
+        "query_paraphrases": false
+      },
+      "joint_accuracy_by_relation": {
+        "aligned": 0.5,
+        "conflict": 0.0
+      },
+      "minimum_conflict_domain_joint_accuracy": 0.0,
+      "minimum_conflict_polarity_joint_accuracy": 0.0,
+      "minimum_conflict_world_frame_joint_accuracy": 0.0,
+      "minimum_query_paraphrase_accuracy": 0.49411764705882355,
+      "overall_joint_accuracy": 0.25,
+      "query_accuracy": 0.50390625,
+      "query_accuracy_by_paraphrase": {
+        "direct": 0.5176470588235295,
+        "evaluation": 0.5,
+        "setting_aside": 0.49411764705882355
+      },
+      "query_accuracy_by_world": {
+        "actual": 0.5,
+        "local": 0.5078125
+      }
+    }
+  }
+}

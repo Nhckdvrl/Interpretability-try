@@ -1,0 +1,191 @@
+{
+  "aggregate": {
+    "family_passes": 0,
+    "mechanism_authorized": false,
+    "median_conflict_joint_accuracy": 0.859375,
+    "verdict": "HOLD_PREREQUISITE_CAPABILITY"
+  },
+  "contract_id": "025-d0-v2-strong-model-replication",
+  "families": {
+    "gemma": {
+      "conflict_joint_accuracy_by_actual_truth": {
+        "False": 0.9375,
+        "True": 0.90625
+      },
+      "conflict_joint_accuracy_by_domain": {
+        "arithmetic": 0.875,
+        "chemistry": 0.9583333333333334,
+        "solar_system": 0.9375
+      },
+      "conflict_joint_accuracy_by_world_frame": {
+        "fictional_chronicle": 0.9047619047619048,
+        "hypothetical": 0.9090909090909091,
+        "rule_simulation": 0.9523809523809523
+      },
+      "family_pass": false,
+      "gate_checks": {
+        "aligned_joint": false,
+        "conflict_domains": true,
+        "conflict_joint": true,
+        "conflict_polarities": true,
+        "conflict_world_frames": true,
+        "overall_joint": false,
+        "query_paraphrases": true
+      },
+      "joint_accuracy_by_relation": {
+        "aligned": 0.625,
+        "conflict": 0.921875
+      },
+      "minimum_conflict_domain_joint_accuracy": 0.875,
+      "minimum_conflict_polarity_joint_accuracy": 0.90625,
+      "minimum_conflict_world_frame_joint_accuracy": 0.9047619047619048,
+      "minimum_query_paraphrase_accuracy": 0.872093023255814,
+      "overall_joint_accuracy": 0.7734375,
+      "query_accuracy": 0.88671875,
+      "query_accuracy_by_paraphrase": {
+        "direct": 0.8823529411764706,
+        "evaluation": 0.872093023255814,
+        "setting_aside": 0.9058823529411765
+      },
+      "query_accuracy_by_world": {
+        "actual": 0.78125,
+        "local": 0.9921875
+      }
+    },
+    "llama": {
+      "conflict_joint_accuracy_by_actual_truth": {
+        "False": 0.96875,
+        "True": 0.6875
+      },
+      "conflict_joint_accuracy_by_domain": {
+        "arithmetic": 0.7083333333333334,
+        "chemistry": 0.875,
+        "solar_system": 0.9375
+      },
+      "conflict_joint_accuracy_by_world_frame": {
+        "fictional_chronicle": 0.9047619047619048,
+        "hypothetical": 0.7272727272727273,
+        "rule_simulation": 0.8571428571428571
+      },
+      "family_pass": false,
+      "gate_checks": {
+        "aligned_joint": false,
+        "conflict_domains": true,
+        "conflict_joint": true,
+        "conflict_polarities": false,
+        "conflict_world_frames": true,
+        "overall_joint": false,
+        "query_paraphrases": false
+      },
+      "joint_accuracy_by_relation": {
+        "aligned": 0.21875,
+        "conflict": 0.828125
+      },
+      "minimum_conflict_domain_joint_accuracy": 0.7083333333333334,
+      "minimum_conflict_polarity_joint_accuracy": 0.6875,
+      "minimum_conflict_world_frame_joint_accuracy": 0.7272727272727273,
+      "minimum_query_paraphrase_accuracy": 0.7058823529411765,
+      "overall_joint_accuracy": 0.5234375,
+      "query_accuracy": 0.7578125,
+      "query_accuracy_by_paraphrase": {
+        "direct": 0.788235294117647,
+        "evaluation": 0.7790697674418605,
+        "setting_aside": 0.7058823529411765
+      },
+      "query_accuracy_by_world": {
+        "actual": 0.5703125,
+        "local": 0.9453125
+      }
+    },
+    "mistral": {
+      "conflict_joint_accuracy_by_actual_truth": {
+        "False": 1.0,
+        "True": 0.65625
+      },
+      "conflict_joint_accuracy_by_domain": {
+        "arithmetic": 0.7083333333333334,
+        "chemistry": 0.9166666666666666,
+        "solar_system": 0.875
+      },
+      "conflict_joint_accuracy_by_world_frame": {
+        "fictional_chronicle": 0.9047619047619048,
+        "hypothetical": 0.9090909090909091,
+        "rule_simulation": 0.6666666666666666
+      },
+      "family_pass": false,
+      "gate_checks": {
+        "aligned_joint": false,
+        "conflict_domains": true,
+        "conflict_joint": true,
+        "conflict_polarities": false,
+        "conflict_world_frames": true,
+        "overall_joint": false,
+        "query_paraphrases": true
+      },
+      "joint_accuracy_by_relation": {
+        "aligned": 0.59375,
+        "conflict": 0.828125
+      },
+      "minimum_conflict_domain_joint_accuracy": 0.7083333333333334,
+      "minimum_conflict_polarity_joint_accuracy": 0.65625,
+      "minimum_conflict_world_frame_joint_accuracy": 0.6666666666666666,
+      "minimum_query_paraphrase_accuracy": 0.8235294117647058,
+      "overall_joint_accuracy": 0.7109375,
+      "query_accuracy": 0.8515625,
+      "query_accuracy_by_paraphrase": {
+        "direct": 0.8705882352941177,
+        "evaluation": 0.8604651162790697,
+        "setting_aside": 0.8235294117647058
+      },
+      "query_accuracy_by_world": {
+        "actual": 0.7421875,
+        "local": 0.9609375
+      }
+    },
+    "qwen": {
+      "conflict_joint_accuracy_by_actual_truth": {
+        "False": 0.8125,
+        "True": 0.96875
+      },
+      "conflict_joint_accuracy_by_domain": {
+        "arithmetic": 0.9166666666666666,
+        "chemistry": 1.0,
+        "solar_system": 0.6875
+      },
+      "conflict_joint_accuracy_by_world_frame": {
+        "fictional_chronicle": 0.8571428571428571,
+        "hypothetical": 0.9545454545454546,
+        "rule_simulation": 0.8571428571428571
+      },
+      "family_pass": false,
+      "gate_checks": {
+        "aligned_joint": false,
+        "conflict_domains": true,
+        "conflict_joint": true,
+        "conflict_polarities": true,
+        "conflict_world_frames": true,
+        "overall_joint": false,
+        "query_paraphrases": true
+      },
+      "joint_accuracy_by_relation": {
+        "aligned": 0.578125,
+        "conflict": 0.890625
+      },
+      "minimum_conflict_domain_joint_accuracy": 0.6875,
+      "minimum_conflict_polarity_joint_accuracy": 0.8125,
+      "minimum_conflict_world_frame_joint_accuracy": 0.8571428571428571,
+      "minimum_query_paraphrase_accuracy": 0.7647058823529411,
+      "overall_joint_accuracy": 0.734375,
+      "query_accuracy": 0.85546875,
+      "query_accuracy_by_paraphrase": {
+        "direct": 0.7647058823529411,
+        "evaluation": 0.9302325581395349,
+        "setting_aside": 0.8705882352941177
+      },
+      "query_accuracy_by_world": {
+        "actual": 0.7578125,
+        "local": 0.953125
+      }
+    }
+  }
+}
