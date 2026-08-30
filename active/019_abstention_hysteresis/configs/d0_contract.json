@@ -1,0 +1,47 @@
+{
+  "contract_id": "019-d0-v1",
+  "sources": ["hotpotqa_distractor_validation", "musique_validation"],
+  "items_per_source": 150,
+  "conditions": [
+    "capability_full",
+    "initial_missing",
+    "direct_full",
+    "self_abstention",
+    "teacher_abstention",
+    "paraphrased_abstention",
+    "neutral_same_context",
+    "answered_history"
+  ],
+  "gate": "capability_full source-normalized correct (alias EM or token F1 >= 0.80) AND initial_missing generated response abstains",
+  "final_payload_equivalence": "direct_full and every history condition use the same complete-evidence user payload verbatim",
+  "primary_outcomes": [
+    "generated final abstention rate",
+    "answer-mode versus abstain-mode continuation probability",
+    "exact-match correct-answer rate"
+  ],
+  "bootstrap_replicates": 10000,
+  "bootstrap_unit": "source item",
+  "promotion_rule": {
+    "minimum_gated_items_per_source_per_family": 50,
+    "minimum_promoted_families": 2,
+    "self_minus_direct_abstention_rate_minimum": 0.05,
+    "self_minus_direct_abstention_ci_low_must_exceed": 0.0,
+    "self_minus_direct_probability_ci_low_must_exceed": 0.0,
+    "teacher_minus_direct_direction_positive": true,
+    "paraphrase_minus_direct_direction_positive": true,
+    "self_effect_exceeds_neutral_same_context": true,
+    "self_effect_exceeds_answered_history": true,
+    "both_sources_must_be_positive": true
+  },
+  "fatal_controls": [
+    "source-provided supporting evidence only",
+    "gold answer string absent from incomplete context",
+    "capability and initial-abstention gate precedes history analysis",
+    "same complete final user payload in direct and history conditions",
+    "teacher and nonliteral paraphrase distinguish self text from abstention state",
+    "same-context neutral history controls repeated partial prompt",
+    "answered history controls generic multi-turn and answer-mode priming",
+    "epistemic abstention only"
+  ],
+  "seed": 20260830
+}

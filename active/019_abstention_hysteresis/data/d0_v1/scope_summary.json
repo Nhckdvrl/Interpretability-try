@@ -1,0 +1,39 @@
+{
+  "contract_id": "019-d0-v1",
+  "source_revisions": {
+    "hotpotqa": "1908d6afbbead072334abe2965f91bd2709910ab",
+    "musique": "c8f4f8c9465fb69d31a8eae894c3fd509c4ca321"
+  },
+  "source_arrow_sha256": {
+    "hotpotqa": "ee53452aadd12dd3e4fa19655c91e01b5320afaf97fd5b5167296a76bc14665c",
+    "musique": "cf31d78a965a60b388ae9a63acabdbab0f962259089689d83fe2c6c36793cf54"
+  },
+  "eligible": {
+    "hotpotqa": 5144,
+    "musique": 1593
+  },
+  "eligible_strata": {
+    "hotpotqa": {
+      "bridge": 4644,
+      "comparison": 500
+    },
+    "musique": {
+      "2hop": 839,
+      "3hop": 476,
+      "4hop": 278
+    }
+  },
+  "selected": {
+    "hotpotqa": 150,
+    "musique": 150
+  },
+  "selected_strata": {
+    "hotpotqa__bridge": 75,
+    "hotpotqa__comparison": 75,
+    "musique__2hop": 50,
+    "musique__3hop": 50,
+    "musique__4hop": 50
+  },
+  "seed": 20260830,
+  "bank_sha256": "c385061a7757a2e57f6be69a1e82723c64b66c5401878068dc67494a8cdb0a12"
+}

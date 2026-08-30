@@ -2,7 +2,7 @@
 
 **中文一句话：** 模型一旦先说过“信息不足 / 我不知道”，后来证据已经补齐了，它会不会仍然更容易继续拒答？
 
-**Status:** `REGISTERED / PROGRAMMATIC-D0-POSSIBLE / NOVELTY-RISK-MODERATE`
+**Status:** `D0 COMPLETE / NO-PROMOTE (2026-08-30)`
 **Created:** 2026-08-30
 **Top-10 rank:** #6
 
@@ -300,3 +300,62 @@ ABSTAIN state
 7. 两模型 smoke
 8. N1 深搜尤其对照 Abstain-R1 / 2026 abstention work
 ```
+
+---
+
+## 12. D0 v1 frozen implementation（2026-08-30）
+
+### Two natural supporting-evidence sources
+
+D0 从本地可追溯的 Hugging Face Arrow cache 构造：
+
+- HotpotQA distractor validation，revision `1908d6afbbead072334abe2965f91bd2709910ab`；
+- MuSiQue validation，revision `c8f4f8c9465fb69d31a8eae894c3fd509c4ca321`。
+
+只使用 source-provided supporting paragraph provenance。`full_evidence` 保留原始 paragraph 顺序；`incomplete_evidence` 删除全部 supporting paragraphs；第二轮不是只追加删除片段，而是逐字重复完整 evidence payload，因此 DIRECT 与所有 history conditions 的最后一个 user message 完全相同。
+
+为减少“其实仍可从剩余文本抄答案”，只有 normalized gold/alias string 不出现在 incomplete context 的 item 才 eligible。最终 deterministic bank 为 300 items：HotpotQA 150（bridge/comparison 各 75），MuSiQue 150（2/3/4-hop 各 50）。共有 6,737 个 eligible candidates。bank SHA-256 为 `c385061a7757a2e57f6be69a1e82723c64b66c5401878068dc67494a8cdb0a12`。
+
+### Gate and final conditions
+
+先对全部 item 跑：
+
+1. `capability_full`：完整 evidence 下短答，source-normalized alias EM 或 token F1 ≥.80 才算正确；
+2. `initial_missing`：删除 supporting evidence 后是否产生 epistemic abstention；
+3. `direct_full`：abstention-enabled protocol 下直接看到完整 evidence。
+
+家族内主 denominator 冻结为 `capability_full correct AND initial_missing abstains`。只有 gated item 进入五个 history conditions：
+
+- `self_abstention`：保留模型自己第一轮的拒答文本；
+- `teacher_abstention`：固定 `ABSTAIN` 文本；
+- `paraphrased_abstention`：不含 literal `ABSTAIN` 的同义拒答；
+- `neutral_same_context`：相同 incomplete user turn，但 assistant history 不拒答；
+- `answered_history`：长度较短的无关 answered turn，控制 generic multi-turn / answer-mode priming。
+
+每个 final condition 同时保存 greedy response、abstention classifier、QA EM/F1，以及 `ANSWER` vs `ABSTAIN` continuation 的 length-normalized probability。冻结 PROMOTE 要求至少两家族、每个来源每家族 ≥50 gated items；self-generated history 相对 direct 的 final abstention 至少增加 5pp 且 paired bootstrap CI 过零，continuation probability CI 同样过零，teacher/paraphrase 方向一致，效应强于 neutral/answered histories，并在两个来源均为正。
+
+### N1 collision boundary
+
+Varshney & Baral 的 *Post-Abstention*（2023）研究 selective QA 系统如何重新尝试低置信度样本；方法包括 question paraphrase ensemble、重排 top-N predictions 与 human intervention，目标是改善 risk–coverage，不保留一次自然语言拒答 history，也不操纵缺失 evidence 的到达。Abstain-R1（Findings ACL 2026）训练 unanswerable query 上的拒答与“指出缺什么”，但不测试缺失证据随后到达后的恢复。更接近的是 *Over-Searching in Search-Augmented Large Language Models*（EACL 2026）：它发现此前若干无关 unanswerable questions 会让固定 final query 更倾向 abstain，并称为 multi-turn snowball。后两项工作已经建立“拒答后的处理”和“abstention 有历史依赖”，所以 019 不能把这些宽泛命题作为 novelty。
+
+019 保留的独立问题更具体：同一个 source-grounded question 从 unanswerable 变为 answerable，完整 supporting evidence 确实恢复，最终 user payload 与 direct condition 逐字相同；因果变量是旧的 self/teacher/paraphrased refusal state，并用 same-incomplete-context neutral history 排除单纯重复上下文。当前检索未发现上述 transition-equivalent design 或其 mechanistic analysis，但 novelty 风险从 moderate 上调为 moderate-to-high，必须由清晰、跨来源、跨家族的效应才能抵消。
+
+---
+
+## 13. D0 v1 result
+
+三家族全部完成。冻结的主结果不是 hysteresis，而是显著、跨家族的 **anti-hysteresis / recovery facilitation**：
+
+| Family | Gate (Hotpot / MuSiQue) | Direct abstain | Self-history abstain | Self − direct | 95% paired CI |
+|---|---:|---:|---:|---:|---:|
+| Qwen3-8B | 91 (68 / 23) | 46.2% | 5.5% | −40.7pp | [−50.5, −30.8] |
+| Gemma-3-12B-IT | 118 (69 / 49) | 13.6% | 2.5% | −11.0pp | [−16.9, −5.1] |
+| Llama-3.1-8B-Instruct | 76 (55 / 21) | 25.0% | 1.3% | −23.7pp | [−34.2, −14.5] |
+
+`ANSWER` vs `ABSTAIN` continuation probability 的差也分别为 −43.1pp、−19.0pp、−27.7pp，三个 CI 全部严格小于零。Qwen/Llama 的两个来源均为负；Gemma 为 Hotpot −4.3pp（CI [−10.1, 0.0]）和 MuSiQue −20.4pp（CI [−32.7, −8.2]）。
+
+这不是 refusal-specific attractor 的反转证据。same-incomplete-context neutral history 已使拒答相对 direct 下降 Qwen −37.4pp、Gemma −13.6pp、Llama −19.7pp；teacher 与 paraphrased abstention 同样降低拒答。self 相对 neutral 的额外差只有 −3.3pp、+2.5pp、−3.9pp，跨家族不一致。更合理的解释是：先看到 incomplete version、随后看到完整 version，帮助模型注意新增 supporting evidence；旧 refusal 本身不粘。
+
+所有家族均未通过 promotion。Qwen/Llama 的 MuSiQue gate 只有 23/21；Gemma 为 49，刚低于冻结的 50。更决定性的是所有主效应方向与假设相反，teacher/paraphrase 也相反，self 不稳定地优于 neutral。不能把题目事后改写成“repetition helps”或只保留一个来源；那会收窄原问题且缺少对应 causal design。
+
+完整报告见 `D0_V1_REPORT.md`，联合机器可读结果见 `results/d0_analysis.json`。019 到此停止，不进入 mechanistic 阶段。

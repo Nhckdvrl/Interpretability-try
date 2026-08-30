@@ -1,0 +1,18 @@
+{
+  "contract_id": "019-d0-v1",
+  "family": "llama",
+  "model": "/home/xiang/.cache/huggingface/hub/models--NousResearch--Meta-Llama-3.1-8B-Instruct/snapshots/d10aef7999a2b5ba950ab3974312feeedbfe0b77",
+  "model_revision": "d10aef7999a2b5ba950ab3974312feeedbfe0b77",
+  "bank_sha256": "c385061a7757a2e57f6be69a1e82723c64b66c5401878068dc67494a8cdb0a12",
+  "bank_items": 300,
+  "gated_items": 76,
+  "records": 1280,
+  "batch_size": 4,
+  "score_batch_size": 4,
+  "max_new_tokens": 32,
+  "dtype": "torch.bfloat16",
+  "elapsed_seconds": 836.2985010147095,
+  "python": "3.12.13",
+  "torch": "2.11.0+cu130",
+  "transformers": "5.12.1"
+}

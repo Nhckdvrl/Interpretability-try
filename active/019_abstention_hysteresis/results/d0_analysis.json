@@ -1,0 +1,1905 @@
+{
+  "contract_id": "019-d0-v1",
+  "families": {
+    "qwen": {
+      "metadata": {
+        "contract_id": "019-d0-v1",
+        "family": "qwen",
+        "model": "/home/xiang/.cache/huggingface/hub/models--Qwen--Qwen3-8B/snapshots/b968826d9c46dd6066d109eabc6255188de91218",
+        "model_revision": "b968826d9c46dd6066d109eabc6255188de91218",
+        "bank_sha256": "c385061a7757a2e57f6be69a1e82723c64b66c5401878068dc67494a8cdb0a12",
+        "bank_items": 300,
+        "gated_items": 91,
+        "records": 1355,
+        "batch_size": 4,
+        "score_batch_size": 4,
+        "max_new_tokens": 32,
+        "dtype": "torch.bfloat16",
+        "elapsed_seconds": 1059.9457194805145,
+        "python": "3.12.13",
+        "torch": "2.11.0+cu130",
+        "transformers": "5.12.1"
+      },
+      "analysis": {
+        "gate": {
+          "total_items": 300,
+          "gated_items": 91,
+          "gate_rate": 0.30333333333333334,
+          "total_by_source": {
+            "hotpotqa": 150,
+            "musique": 150
+          },
+          "gated_by_source": {
+            "hotpotqa": 68,
+            "musique": 23
+          }
+        },
+        "protocol_audit": {
+          "answered_history": {
+            "n": 91,
+            "prefix_counts": {
+              "abstain": 46,
+              "answer": 45
+            },
+            "classified_abstentions": 46
+          },
+          "capability_full": {
+            "n": 300,
+            "prefix_counts": {
+              "abstain": 86,
+              "other": 214
+            },
+            "classified_abstentions": 86
+          },
+          "direct_full": {
+            "n": 300,
+            "prefix_counts": {
+              "abstain": 202,
+              "answer": 98
+            },
+            "classified_abstentions": 202
+          },
+          "initial_missing": {
+            "n": 300,
+            "prefix_counts": {
+              "abstain": 295,
+              "answer": 5
+            },
+            "classified_abstentions": 295
+          },
+          "neutral_same_context": {
+            "n": 91,
+            "prefix_counts": {
+              "abstain": 8,
+              "answer": 83
+            },
+            "classified_abstentions": 8
+          },
+          "paraphrased_abstention": {
+            "n": 91,
+            "prefix_counts": {
+              "abstain": 3,
+              "answer": 88
+            },
+            "classified_abstentions": 3
+          },
+          "self_abstention": {
+            "n": 91,
+            "prefix_counts": {
+              "abstain": 5,
+              "answer": 86
+            },
+            "classified_abstentions": 5
+          },
+          "teacher_abstention": {
+            "n": 91,
+            "prefix_counts": {
+              "abstain": 2,
+              "answer": 89
+            },
+            "classified_abstentions": 2
+          }
+        },
+        "conditions": {
+          "direct_full": {
+            "target_abstention_rate": {
+              "estimate": 0.46153846153846156,
+              "ci_low": 0.3626373626373626,
+              "ci_high": 0.5604395604395604,
+              "n_items": 91
+            },
+            "direct_abstention_rate": {
+              "estimate": 0.46153846153846156,
+              "ci_low": 0.3626373626373626,
+              "ci_high": 0.5604395604395604,
+              "n_items": 91
+            },
+            "abstention_delta": {
+              "estimate": 0.0,
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "n_items": 91
+            },
+            "abstain_probability_delta": {
+              "estimate": 0.0,
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "n_items": 91
+            },
+            "target_correct_rate": {
+              "estimate": 0.4835164835164835,
+              "ci_low": 0.38461538461538464,
+              "ci_high": 0.5824175824175825,
+              "n_items": 91
+            },
+            "direct_correct_rate": {
+              "estimate": 0.4835164835164835,
+              "ci_low": 0.38461538461538464,
+              "ci_high": 0.5824175824175825,
+              "n_items": 91
+            },
+            "correct_delta": {
+              "estimate": 0.0,
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "n_items": 91
+            },
+            "by_source": {
+              "hotpotqa": {
+                "abstention_delta": {
+                  "estimate": 0.0,
+                  "ci_low": 0.0,
+                  "ci_high": 0.0,
+                  "n_items": 68
+                },
+                "abstain_probability_delta": {
+                  "estimate": 0.0,
+                  "ci_low": 0.0,
+                  "ci_high": 0.0,
+                  "n_items": 68
+                },
+                "correct_delta": {
+                  "estimate": 0.0,
+                  "ci_low": 0.0,
+                  "ci_high": 0.0,
+                  "n_items": 68
+                }
+              },
+              "musique": {
+                "abstention_delta": {
+                  "estimate": 0.0,
+                  "ci_low": 0.0,
+                  "ci_high": 0.0,
+                  "n_items": 23
+                },
+                "abstain_probability_delta": {
+                  "estimate": 0.0,
+                  "ci_low": 0.0,
+                  "ci_high": 0.0,
+                  "n_items": 23
+                },
+                "correct_delta": {
+                  "estimate": 0.0,
+                  "ci_low": 0.0,
+                  "ci_high": 0.0,
+                  "n_items": 23
+                }
+              }
+            }
+          },
+          "self_abstention": {
+            "target_abstention_rate": {
+              "estimate": 0.054945054945054944,
+              "ci_low": 0.01098901098901099,
+              "ci_high": 0.10989010989010989,
+              "n_items": 91
+            },
+            "direct_abstention_rate": {
+              "estimate": 0.46153846153846156,
+              "ci_low": 0.3626373626373626,
+              "ci_high": 0.5604395604395604,
+              "n_items": 91
+            },
+            "abstention_delta": {
+              "estimate": -0.4065934065934066,
+              "ci_low": -0.5054945054945055,
+              "ci_high": -0.3076923076923077,
+              "n_items": 91
+            },
+            "abstain_probability_delta": {
+              "estimate": -0.4307419755444632,
+              "ci_low": -0.5094495711707007,
+              "ci_high": -0.35344261327187143,
+              "n_items": 91
+            },
+            "target_correct_rate": {
+              "estimate": 0.7912087912087912,
+              "ci_low": 0.7032967032967034,
+              "ci_high": 0.8681318681318682,
+              "n_items": 91
+            },
+            "direct_correct_rate": {
+              "estimate": 0.4835164835164835,
+              "ci_low": 0.38461538461538464,
+              "ci_high": 0.5824175824175825,
+              "n_items": 91
+            },
+            "correct_delta": {
+              "estimate": 0.3076923076923077,
+              "ci_low": 0.1978021978021978,
+              "ci_high": 0.4175824175824176,
+              "n_items": 91
+            },
+            "by_source": {
+              "hotpotqa": {
+                "abstention_delta": {
+                  "estimate": -0.4264705882352941,
+                  "ci_low": -0.5441176470588235,
+                  "ci_high": -0.3088235294117647,
+                  "n_items": 68
+                },
+                "abstain_probability_delta": {
+                  "estimate": -0.41872610097738744,
+                  "ci_low": -0.5145357936601348,
+                  "ci_high": -0.32290889224804986,
+                  "n_items": 68
+                },
+                "correct_delta": {
+                  "estimate": 0.29411764705882354,
+                  "ci_low": 0.16176470588235295,
+                  "ci_high": 0.4264705882352941,
+                  "n_items": 68
+                }
+              },
+              "musique": {
+                "abstention_delta": {
+                  "estimate": -0.34782608695652173,
+                  "ci_low": -0.5652173913043478,
+                  "ci_high": -0.17391304347826086,
+                  "n_items": 23
+                },
+                "abstain_probability_delta": {
+                  "estimate": -0.4662671699166874,
+                  "ci_low": -0.5932653732688533,
+                  "ci_high": -0.34477489316913407,
+                  "n_items": 23
+                },
+                "correct_delta": {
+                  "estimate": 0.34782608695652173,
+                  "ci_low": 0.17391304347826086,
+                  "ci_high": 0.5652173913043478,
+                  "n_items": 23
+                }
+              }
+            }
+          },
+          "teacher_abstention": {
+            "target_abstention_rate": {
+              "estimate": 0.02197802197802198,
+              "ci_low": 0.0,
+              "ci_high": 0.054945054945054944,
+              "n_items": 91
+            },
+            "direct_abstention_rate": {
+              "estimate": 0.46153846153846156,
+              "ci_low": 0.3626373626373626,
+              "ci_high": 0.5604395604395604,
+              "n_items": 91
+            },
+            "abstention_delta": {
+              "estimate": -0.43956043956043955,
+              "ci_low": -0.5494505494505495,
+              "ci_high": -0.34065934065934067,
+              "n_items": 91
+            },
+            "abstain_probability_delta": {
+              "estimate": -0.4426216829178233,
+              "ci_low": -0.5199689581486664,
+              "ci_high": -0.3647941939012005,
+              "n_items": 91
+            },
+            "target_correct_rate": {
+              "estimate": 0.8241758241758241,
+              "ci_low": 0.7472527472527473,
+              "ci_high": 0.9010989010989011,
+              "n_items": 91
+            },
+            "direct_correct_rate": {
+              "estimate": 0.4835164835164835,
+              "ci_low": 0.38461538461538464,
+              "ci_high": 0.5824175824175825,
+              "n_items": 91
+            },
+            "correct_delta": {
+              "estimate": 0.34065934065934067,
+              "ci_low": 0.23076923076923078,
+              "ci_high": 0.45054945054945056,
+              "n_items": 91
+            },
+            "by_source": {
+              "hotpotqa": {
+                "abstention_delta": {
+                  "estimate": -0.45588235294117646,
+                  "ci_low": -0.5735294117647058,
+                  "ci_high": -0.3382352941176471,
+                  "n_items": 68
+                },
+                "abstain_probability_delta": {
+                  "estimate": -0.4305477891247166,
+                  "ci_low": -0.5250712481750561,
+                  "ci_high": -0.33844236458374066,
+                  "n_items": 68
+                },
+                "correct_delta": {
+                  "estimate": 0.3088235294117647,
+                  "ci_low": 0.17647058823529413,
+                  "ci_high": 0.4411764705882353,
+                  "n_items": 68
+                }
+              },
+              "musique": {
+                "abstention_delta": {
+                  "estimate": -0.391304347826087,
+                  "ci_low": -0.6086956521739131,
+                  "ci_high": -0.17391304347826086,
+                  "n_items": 23
+                },
+                "abstain_probability_delta": {
+                  "estimate": -0.47831841239309514,
+                  "ci_low": -0.614882217337594,
+                  "ci_high": -0.34764030286463393,
+                  "n_items": 23
+                },
+                "correct_delta": {
+                  "estimate": 0.43478260869565216,
+                  "ci_low": 0.21739130434782608,
+                  "ci_high": 0.6521739130434783,
+                  "n_items": 23
+                }
+              }
+            }
+          },
+          "paraphrased_abstention": {
+            "target_abstention_rate": {
+              "estimate": 0.03296703296703297,
+              "ci_low": 0.0,
+              "ci_high": 0.07692307692307693,
+              "n_items": 91
+            },
+            "direct_abstention_rate": {
+              "estimate": 0.46153846153846156,
+              "ci_low": 0.3626373626373626,
+              "ci_high": 0.5714285714285714,
+              "n_items": 91
+            },
+            "abstention_delta": {
+              "estimate": -0.42857142857142855,
+              "ci_low": -0.5274725274725275,
+              "ci_high": -0.32967032967032966,
+              "n_items": 91
+            },
+            "abstain_probability_delta": {
+              "estimate": -0.42142104144740605,
+              "ci_low": -0.4965829074552405,
+              "ci_high": -0.34524466491699196,
+              "n_items": 91
+            },
+            "target_correct_rate": {
+              "estimate": 0.8351648351648352,
+              "ci_low": 0.7582417582417582,
+              "ci_high": 0.9120879120879121,
+              "n_items": 91
+            },
+            "direct_correct_rate": {
+              "estimate": 0.4835164835164835,
+              "ci_low": 0.38461538461538464,
+              "ci_high": 0.5824175824175825,
+              "n_items": 91
+            },
+            "correct_delta": {
+              "estimate": 0.3516483516483517,
+              "ci_low": 0.24175824175824176,
+              "ci_high": 0.46153846153846156,
+              "n_items": 91
+            },
+            "by_source": {
+              "hotpotqa": {
+                "abstention_delta": {
+                  "estimate": -0.4411764705882353,
+                  "ci_low": -0.5588235294117647,
+                  "ci_high": -0.3235294117647059,
+                  "n_items": 68
+                },
+                "abstain_probability_delta": {
+                  "estimate": -0.41716042679695636,
+                  "ci_low": -0.5079475710318931,
+                  "ci_high": -0.3258044215446267,
+                  "n_items": 68
+                },
+                "correct_delta": {
+                  "estimate": 0.3235294117647059,
+                  "ci_low": 0.19117647058823528,
+                  "ci_high": 0.45588235294117646,
+                  "n_items": 68
+                }
+              },
+              "musique": {
+                "abstention_delta": {
+                  "estimate": -0.391304347826087,
+                  "ci_low": -0.6086956521739131,
+                  "ci_high": -0.17391304347826086,
+                  "n_items": 23
+                },
+                "abstain_probability_delta": {
+                  "estimate": -0.4340176412835181,
+                  "ci_low": -0.5740402361217251,
+                  "ci_high": -0.295069837419754,
+                  "n_items": 23
+                },
+                "correct_delta": {
+                  "estimate": 0.43478260869565216,
+                  "ci_low": 0.21739130434782608,
+                  "ci_high": 0.6521739130434783,
+                  "n_items": 23
+                }
+              }
+            }
+          },
+          "neutral_same_context": {
+            "target_abstention_rate": {
+              "estimate": 0.08791208791208792,
+              "ci_low": 0.03296703296703297,
+              "ci_high": 0.15384615384615385,
+              "n_items": 91
+            },
+            "direct_abstention_rate": {
+              "estimate": 0.46153846153846156,
+              "ci_low": 0.3626373626373626,
+              "ci_high": 0.5604395604395604,
+              "n_items": 91
+            },
+            "abstention_delta": {
+              "estimate": -0.37362637362637363,
+              "ci_low": -0.4835164835164835,
+              "ci_high": -0.26373626373626374,
+              "n_items": 91
+            },
+            "abstain_probability_delta": {
+              "estimate": -0.385900949505733,
+              "ci_low": -0.4627237973840482,
+              "ci_high": -0.3095301878433061,
+              "n_items": 91
+            },
+            "target_correct_rate": {
+              "estimate": 0.7802197802197802,
+              "ci_low": 0.6923076923076923,
+              "ci_high": 0.8571428571428571,
+              "n_items": 91
+            },
+            "direct_correct_rate": {
+              "estimate": 0.4835164835164835,
+              "ci_low": 0.38461538461538464,
+              "ci_high": 0.5824175824175825,
+              "n_items": 91
+            },
+            "correct_delta": {
+              "estimate": 0.2967032967032967,
+              "ci_low": 0.18681318681318682,
+              "ci_high": 0.4065934065934066,
+              "n_items": 91
+            },
+            "by_source": {
+              "hotpotqa": {
+                "abstention_delta": {
+                  "estimate": -0.39705882352941174,
+                  "ci_low": -0.5147058823529411,
+                  "ci_high": -0.27941176470588236,
+                  "n_items": 68
+                },
+                "abstain_probability_delta": {
+                  "estimate": -0.39167222791961265,
+                  "ci_low": -0.48132301826723284,
+                  "ci_high": -0.3055228831455018,
+                  "n_items": 68
+                },
+                "correct_delta": {
+                  "estimate": 0.27941176470588236,
+                  "ci_low": 0.14705882352941177,
+                  "ci_high": 0.4117647058823529,
+                  "n_items": 68
+                }
+              },
+              "musique": {
+                "abstention_delta": {
+                  "estimate": -0.30434782608695654,
+                  "ci_low": -0.5217391304347826,
+                  "ci_high": -0.08695652173913043,
+                  "n_items": 23
+                },
+                "abstain_probability_delta": {
+                  "estimate": -0.36883803941252385,
+                  "ci_low": -0.5225929722694492,
+                  "ci_high": -0.21640238014456967,
+                  "n_items": 23
+                },
+                "correct_delta": {
+                  "estimate": 0.34782608695652173,
+                  "ci_low": 0.17391304347826086,
+                  "ci_high": 0.5652173913043478,
+                  "n_items": 23
+                }
+              }
+            }
+          },
+          "answered_history": {
+            "target_abstention_rate": {
+              "estimate": 0.5054945054945055,
+              "ci_low": 0.3956043956043956,
+              "ci_high": 0.6043956043956044,
+              "n_items": 91
+            },
+            "direct_abstention_rate": {
+              "estimate": 0.46153846153846156,
+              "ci_low": 0.3626373626373626,
+              "ci_high": 0.5604395604395604,
+              "n_items": 91
+            },
+            "abstention_delta": {
+              "estimate": 0.04395604395604396,
+              "ci_low": -0.03296703296703297,
+              "ci_high": 0.12087912087912088,
+              "n_items": 91
+            },
+            "abstain_probability_delta": {
+              "estimate": 0.04735673472988435,
+              "ci_low": -0.0006234434864828895,
+              "ci_high": 0.09731807361539771,
+              "n_items": 91
+            },
+            "target_correct_rate": {
+              "estimate": 0.43956043956043955,
+              "ci_low": 0.34065934065934067,
+              "ci_high": 0.5384615384615384,
+              "n_items": 91
+            },
+            "direct_correct_rate": {
+              "estimate": 0.4835164835164835,
+              "ci_low": 0.37362637362637363,
+              "ci_high": 0.5824175824175825,
+              "n_items": 91
+            },
+            "correct_delta": {
+              "estimate": -0.04395604395604396,
+              "ci_low": -0.12087912087912088,
+              "ci_high": 0.03296703296703297,
+              "n_items": 91
+            },
+            "by_source": {
+              "hotpotqa": {
+                "abstention_delta": {
+                  "estimate": 0.0,
+                  "ci_low": -0.07352941176470588,
+                  "ci_high": 0.07352941176470588,
+                  "n_items": 68
+                },
+                "abstain_probability_delta": {
+                  "estimate": 0.04222559176225135,
+                  "ci_low": -0.008185642989396625,
+                  "ci_high": 0.0990190996912852,
+                  "n_items": 68
+                },
+                "correct_delta": {
+                  "estimate": -0.014705882352941176,
+                  "ci_low": -0.10294117647058823,
+                  "ci_high": 0.07352941176470588,
+                  "n_items": 68
+                }
+              },
+              "musique": {
+                "abstention_delta": {
+                  "estimate": 0.17391304347826086,
+                  "ci_low": 0.0,
+                  "ci_high": 0.391304347826087,
+                  "n_items": 23
+                },
+                "abstain_probability_delta": {
+                  "estimate": 0.06252707046027754,
+                  "ci_low": -0.050931565752113314,
+                  "ci_high": 0.17363387617406842,
+                  "n_items": 23
+                },
+                "correct_delta": {
+                  "estimate": -0.13043478260869565,
+                  "ci_low": -0.2608695652173913,
+                  "ci_high": 0.0,
+                  "n_items": 23
+                }
+              }
+            }
+          }
+        },
+        "promotion_checks": {
+          "minimum_gated_items_per_source": false,
+          "self_abstention_delta_at_least_5pp": false,
+          "self_abstention_delta_ci_positive": false,
+          "self_probability_delta_ci_positive": false,
+          "teacher_direction_positive": false,
+          "paraphrase_direction_positive": false,
+          "self_exceeds_neutral": false,
+          "self_exceeds_answered_history": false,
+          "both_sources_positive": false
+        },
+        "promotion": false
+      }
+    },
+    "gemma": {
+      "metadata": {
+        "contract_id": "019-d0-v1",
+        "family": "gemma",
+        "model": "/home/xiang/.cache/huggingface/hub/models--google--gemma-3-12b-it/snapshots/96b6f1eccf38110c56df3a15bffe176da04bfd80",
+        "model_revision": "96b6f1eccf38110c56df3a15bffe176da04bfd80",
+        "bank_sha256": "c385061a7757a2e57f6be69a1e82723c64b66c5401878068dc67494a8cdb0a12",
+        "bank_items": 300,
+        "gated_items": 118,
+        "records": 1490,
+        "batch_size": 4,
+        "score_batch_size": 4,
+        "max_new_tokens": 32,
+        "dtype": "torch.bfloat16",
+        "elapsed_seconds": 1932.8165488243103,
+        "python": "3.12.13",
+        "torch": "2.11.0+cu130",
+        "transformers": "5.12.1"
+      },
+      "analysis": {
+        "gate": {
+          "total_items": 300,
+          "gated_items": 118,
+          "gate_rate": 0.3933333333333333,
+          "total_by_source": {
+            "hotpotqa": 150,
+            "musique": 150
+          },
+          "gated_by_source": {
+            "hotpotqa": 69,
+            "musique": 49
+          }
+        },
+        "protocol_audit": {
+          "answered_history": {
+            "n": 118,
+            "prefix_counts": {
+              "abstain": 7,
+              "answer": 111
+            },
+            "classified_abstentions": 7
+          },
+          "capability_full": {
+            "n": 300,
+            "prefix_counts": {
+              "abstain": 14,
+              "other": 286
+            },
+            "classified_abstentions": 14
+          },
+          "direct_full": {
+            "n": 300,
+            "prefix_counts": {
+              "abstain": 70,
+              "answer": 228,
+              "other": 2
+            },
+            "classified_abstentions": 70
+          },
+          "initial_missing": {
+            "n": 300,
+            "prefix_counts": {
+              "abstain": 259,
+              "answer": 41
+            },
+            "classified_abstentions": 259
+          },
+          "neutral_same_context": {
+            "n": 118,
+            "prefix_counts": {
+              "answer": 102,
+              "other": 16
+            },
+            "classified_abstentions": 0
+          },
+          "paraphrased_abstention": {
+            "n": 118,
+            "prefix_counts": {
+              "answer": 74,
+              "other": 44
+            },
+            "classified_abstentions": 0
+          },
+          "self_abstention": {
+            "n": 118,
+            "prefix_counts": {
+              "abstain": 3,
+              "answer": 114,
+              "other": 1
+            },
+            "classified_abstentions": 3
+          },
+          "teacher_abstention": {
+            "n": 118,
+            "prefix_counts": {
+              "abstain": 4,
+              "answer": 114
+            },
+            "classified_abstentions": 4
+          }
+        },
+        "conditions": {
+          "direct_full": {
+            "target_abstention_rate": {
+              "estimate": 0.13559322033898305,
+              "ci_low": 0.07627118644067797,
+              "ci_high": 0.2033898305084746,
+              "n_items": 118
+            },
+            "direct_abstention_rate": {
+              "estimate": 0.13559322033898305,
+              "ci_low": 0.07627118644067797,
+              "ci_high": 0.19491525423728814,
+              "n_items": 118
+            },
+            "abstention_delta": {
+              "estimate": 0.0,
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "n_items": 118
+            },
+            "abstain_probability_delta": {
+              "estimate": 0.0,
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "n_items": 118
+            },
+            "target_correct_rate": {
+              "estimate": 0.788135593220339,
+              "ci_low": 0.711864406779661,
+              "ci_high": 0.8559322033898306,
+              "n_items": 118
+            },
+            "direct_correct_rate": {
+              "estimate": 0.788135593220339,
+              "ci_low": 0.711864406779661,
+              "ci_high": 0.8559322033898306,
+              "n_items": 118
+            },
+            "correct_delta": {
+              "estimate": 0.0,
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "n_items": 118
+            },
+            "by_source": {
+              "hotpotqa": {
+                "abstention_delta": {
+                  "estimate": 0.0,
+                  "ci_low": 0.0,
+                  "ci_high": 0.0,
+                  "n_items": 69
+                },
+                "abstain_probability_delta": {
+                  "estimate": 0.0,
+                  "ci_low": 0.0,
+                  "ci_high": 0.0,
+                  "n_items": 69
+                },
+                "correct_delta": {
+                  "estimate": 0.0,
+                  "ci_low": 0.0,
+                  "ci_high": 0.0,
+                  "n_items": 69
+                }
+              },
+              "musique": {
+                "abstention_delta": {
+                  "estimate": 0.0,
+                  "ci_low": 0.0,
+                  "ci_high": 0.0,
+                  "n_items": 49
+                },
+                "abstain_probability_delta": {
+                  "estimate": 0.0,
+                  "ci_low": 0.0,
+                  "ci_high": 0.0,
+                  "n_items": 49
+                },
+                "correct_delta": {
+                  "estimate": 0.0,
+                  "ci_low": 0.0,
+                  "ci_high": 0.0,
+                  "n_items": 49
+                }
+              }
+            }
+          },
+          "self_abstention": {
+            "target_abstention_rate": {
+              "estimate": 0.025423728813559324,
+              "ci_low": 0.0,
+              "ci_high": 0.059322033898305086,
+              "n_items": 118
+            },
+            "direct_abstention_rate": {
+              "estimate": 0.13559322033898305,
+              "ci_low": 0.07627118644067797,
+              "ci_high": 0.2033898305084746,
+              "n_items": 118
+            },
+            "abstention_delta": {
+              "estimate": -0.11016949152542373,
+              "ci_low": -0.1694915254237288,
+              "ci_high": -0.05084745762711865,
+              "n_items": 118
+            },
+            "abstain_probability_delta": {
+              "estimate": -0.18983443244203185,
+              "ci_low": -0.24415990047662461,
+              "ci_high": -0.13859679533045952,
+              "n_items": 118
+            },
+            "target_correct_rate": {
+              "estimate": 0.8559322033898306,
+              "ci_low": 0.788135593220339,
+              "ci_high": 0.9152542372881356,
+              "n_items": 118
+            },
+            "direct_correct_rate": {
+              "estimate": 0.788135593220339,
+              "ci_low": 0.711864406779661,
+              "ci_high": 0.8559322033898306,
+              "n_items": 118
+            },
+            "correct_delta": {
+              "estimate": 0.06779661016949153,
+              "ci_low": -0.00847457627118644,
+              "ci_high": 0.15254237288135594,
+              "n_items": 118
+            },
+            "by_source": {
+              "hotpotqa": {
+                "abstention_delta": {
+                  "estimate": -0.043478260869565216,
+                  "ci_low": -0.10144927536231885,
+                  "ci_high": 0.0,
+                  "n_items": 69
+                },
+                "abstain_probability_delta": {
+                  "estimate": -0.1078928367944619,
+                  "ci_low": -0.1667281484815823,
+                  "ci_high": -0.0602818076613142,
+                  "n_items": 69
+                },
+                "correct_delta": {
+                  "estimate": 0.0,
+                  "ci_low": -0.08695652173913043,
+                  "ci_high": 0.08695652173913043,
+                  "n_items": 69
+                }
+              },
+              "musique": {
+                "abstention_delta": {
+                  "estimate": -0.20408163265306123,
+                  "ci_low": -0.32653061224489793,
+                  "ci_high": -0.08163265306122448,
+                  "n_items": 49
+                },
+                "abstain_probability_delta": {
+                  "estimate": -0.3052215773335078,
+                  "ci_low": -0.400020554814988,
+                  "ci_high": -0.2122708154544839,
+                  "n_items": 49
+                },
+                "correct_delta": {
+                  "estimate": 0.16326530612244897,
+                  "ci_low": 0.02040816326530612,
+                  "ci_high": 0.30612244897959184,
+                  "n_items": 49
+                }
+              }
+            }
+          },
+          "teacher_abstention": {
+            "target_abstention_rate": {
+              "estimate": 0.03389830508474576,
+              "ci_low": 0.00847457627118644,
+              "ci_high": 0.06779661016949153,
+              "n_items": 118
+            },
+            "direct_abstention_rate": {
+              "estimate": 0.13559322033898305,
+              "ci_low": 0.07627118644067797,
+              "ci_high": 0.2033898305084746,
+              "n_items": 118
+            },
+            "abstention_delta": {
+              "estimate": -0.1016949152542373,
+              "ci_low": -0.16101694915254236,
+              "ci_high": -0.0423728813559322,
+              "n_items": 118
+            },
+            "abstain_probability_delta": {
+              "estimate": -0.17750864383599357,
+              "ci_low": -0.22962754146300463,
+              "ci_high": -0.1279781988686858,
+              "n_items": 118
+            },
+            "target_correct_rate": {
+              "estimate": 0.8559322033898306,
+              "ci_low": 0.788135593220339,
+              "ci_high": 0.9152542372881356,
+              "n_items": 118
+            },
+            "direct_correct_rate": {
+              "estimate": 0.788135593220339,
+              "ci_low": 0.711864406779661,
+              "ci_high": 0.8559322033898306,
+              "n_items": 118
+            },
+            "correct_delta": {
+              "estimate": 0.06779661016949153,
+              "ci_low": 0.0,
+              "ci_high": 0.1440677966101695,
+              "n_items": 118
+            },
+            "by_source": {
+              "hotpotqa": {
+                "abstention_delta": {
+                  "estimate": -0.043478260869565216,
+                  "ci_low": -0.10144927536231885,
+                  "ci_high": 0.0,
+                  "n_items": 69
+                },
+                "abstain_probability_delta": {
+                  "estimate": -0.10929980051313243,
+                  "ci_low": -0.16914968104810213,
+                  "ci_high": -0.05969084729194591,
+                  "n_items": 69
+                },
+                "correct_delta": {
+                  "estimate": 0.014492753623188406,
+                  "ci_low": -0.07246376811594203,
+                  "ci_high": 0.10144927536231885,
+                  "n_items": 69
+                }
+              },
+              "musique": {
+                "abstention_delta": {
+                  "estimate": -0.1836734693877551,
+                  "ci_low": -0.30612244897959184,
+                  "ci_high": -0.061224489795918366,
+                  "n_items": 49
+                },
+                "abstain_probability_delta": {
+                  "estimate": -0.27355783137226736,
+                  "ci_low": -0.3663678599216433,
+                  "ci_high": -0.185548143635041,
+                  "n_items": 49
+                },
+                "correct_delta": {
+                  "estimate": 0.14285714285714285,
+                  "ci_low": 0.02040816326530612,
+                  "ci_high": 0.2653061224489796,
+                  "n_items": 49
+                }
+              }
+            }
+          },
+          "paraphrased_abstention": {
+            "target_abstention_rate": {
+              "estimate": 0.0,
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "n_items": 118
+            },
+            "direct_abstention_rate": {
+              "estimate": 0.13559322033898305,
+              "ci_low": 0.07627118644067797,
+              "ci_high": 0.19512711864406473,
+              "n_items": 118
+            },
+            "abstention_delta": {
+              "estimate": -0.13559322033898305,
+              "ci_low": -0.2033898305084746,
+              "ci_high": -0.07627118644067797,
+              "n_items": 118
+            },
+            "abstain_probability_delta": {
+              "estimate": -0.09824688874504213,
+              "ci_low": -0.16128698167559793,
+              "ci_high": -0.03758235617261332,
+              "n_items": 118
+            },
+            "target_correct_rate": {
+              "estimate": 0.8050847457627118,
+              "ci_low": 0.7288135593220338,
+              "ci_high": 0.8728813559322034,
+              "n_items": 118
+            },
+            "direct_correct_rate": {
+              "estimate": 0.788135593220339,
+              "ci_low": 0.711864406779661,
+              "ci_high": 0.8559322033898306,
+              "n_items": 118
+            },
+            "correct_delta": {
+              "estimate": 0.01694915254237288,
+              "ci_low": -0.06779661016949153,
+              "ci_high": 0.1016949152542373,
+              "n_items": 118
+            },
+            "by_source": {
+              "hotpotqa": {
+                "abstention_delta": {
+                  "estimate": -0.043478260869565216,
+                  "ci_low": -0.10144927536231885,
+                  "ci_high": 0.0,
+                  "n_items": 69
+                },
+                "abstain_probability_delta": {
+                  "estimate": -0.05616565337845178,
+                  "ci_low": -0.1176094941855859,
+                  "ci_high": -0.00027694740341001843,
+                  "n_items": 69
+                },
+                "correct_delta": {
+                  "estimate": 0.0,
+                  "ci_low": -0.08695652173913043,
+                  "ci_high": 0.08695652173913043,
+                  "n_items": 69
+                }
+              },
+              "musique": {
+                "abstention_delta": {
+                  "estimate": -0.2653061224489796,
+                  "ci_low": -0.3877551020408163,
+                  "ci_high": -0.14285714285714285,
+                  "n_items": 49
+                },
+                "abstain_probability_delta": {
+                  "estimate": -0.15750413854697545,
+                  "ci_low": -0.2759820335065778,
+                  "ci_high": -0.038501032125468224,
+                  "n_items": 49
+                },
+                "correct_delta": {
+                  "estimate": 0.04081632653061224,
+                  "ci_low": -0.12244897959183673,
+                  "ci_high": 0.20408163265306123,
+                  "n_items": 49
+                }
+              }
+            }
+          },
+          "neutral_same_context": {
+            "target_abstention_rate": {
+              "estimate": 0.0,
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "n_items": 118
+            },
+            "direct_abstention_rate": {
+              "estimate": 0.13559322033898305,
+              "ci_low": 0.07627118644067797,
+              "ci_high": 0.2033898305084746,
+              "n_items": 118
+            },
+            "abstention_delta": {
+              "estimate": -0.13559322033898305,
+              "ci_low": -0.19491525423728814,
+              "ci_high": -0.07627118644067797,
+              "n_items": 118
+            },
+            "abstain_probability_delta": {
+              "estimate": -0.15111927296463032,
+              "ci_low": -0.2028766808128772,
+              "ci_high": -0.10185197491434171,
+              "n_items": 118
+            },
+            "target_correct_rate": {
+              "estimate": 0.8220338983050848,
+              "ci_low": 0.7542372881355932,
+              "ci_high": 0.8898305084745762,
+              "n_items": 118
+            },
+            "direct_correct_rate": {
+              "estimate": 0.788135593220339,
+              "ci_low": 0.711864406779661,
+              "ci_high": 0.8559322033898306,
+              "n_items": 118
+            },
+            "correct_delta": {
+              "estimate": 0.03389830508474576,
+              "ci_low": -0.05084745762711865,
+              "ci_high": 0.11864406779661017,
+              "n_items": 118
+            },
+            "by_source": {
+              "hotpotqa": {
+                "abstention_delta": {
+                  "estimate": -0.043478260869565216,
+                  "ci_low": -0.10144927536231885,
+                  "ci_high": 0.0,
+                  "n_items": 69
+                },
+                "abstain_probability_delta": {
+                  "estimate": -0.09300544476296375,
+                  "ci_low": -0.14726244682606687,
+                  "ci_high": -0.048700405137293505,
+                  "n_items": 69
+                },
+                "correct_delta": {
+                  "estimate": 0.0,
+                  "ci_low": -0.08695652173913043,
+                  "ci_high": 0.08695652173913043,
+                  "n_items": 69
+                }
+              },
+              "musique": {
+                "abstention_delta": {
+                  "estimate": -0.2653061224489796,
+                  "ci_low": -0.3877551020408163,
+                  "ci_high": -0.14285714285714285,
+                  "n_items": 49
+                },
+                "abstain_probability_delta": {
+                  "estimate": -0.23295303104452816,
+                  "ci_low": -0.33243358967412023,
+                  "ci_high": -0.13912352795551133,
+                  "n_items": 49
+                },
+                "correct_delta": {
+                  "estimate": 0.08163265306122448,
+                  "ci_low": -0.061224489795918366,
+                  "ci_high": 0.22448979591836735,
+                  "n_items": 49
+                }
+              }
+            }
+          },
+          "answered_history": {
+            "target_abstention_rate": {
+              "estimate": 0.059322033898305086,
+              "ci_low": 0.01694915254237288,
+              "ci_high": 0.1016949152542373,
+              "n_items": 118
+            },
+            "direct_abstention_rate": {
+              "estimate": 0.13559322033898305,
+              "ci_low": 0.07627118644067797,
+              "ci_high": 0.19491525423728814,
+              "n_items": 118
+            },
+            "abstention_delta": {
+              "estimate": -0.07627118644067797,
+              "ci_low": -0.1271186440677966,
+              "ci_high": -0.03389830508474576,
+              "n_items": 118
+            },
+            "abstain_probability_delta": {
+              "estimate": -0.12838443780392636,
+              "ci_low": -0.16868504989460373,
+              "ci_high": -0.09178513092654211,
+              "n_items": 118
+            },
+            "target_correct_rate": {
+              "estimate": 0.847457627118644,
+              "ci_low": 0.7796610169491526,
+              "ci_high": 0.9067796610169492,
+              "n_items": 118
+            },
+            "direct_correct_rate": {
+              "estimate": 0.788135593220339,
+              "ci_low": 0.711864406779661,
+              "ci_high": 0.8559322033898306,
+              "n_items": 118
+            },
+            "correct_delta": {
+              "estimate": 0.059322033898305086,
+              "ci_low": 0.0,
+              "ci_high": 0.1271186440677966,
+              "n_items": 118
+            },
+            "by_source": {
+              "hotpotqa": {
+                "abstention_delta": {
+                  "estimate": -0.043478260869565216,
+                  "ci_low": -0.10144927536231885,
+                  "ci_high": 0.0,
+                  "n_items": 69
+                },
+                "abstain_probability_delta": {
+                  "estimate": -0.08874961200976798,
+                  "ci_low": -0.13809480991836817,
+                  "ci_high": -0.04848793028810627,
+                  "n_items": 69
+                },
+                "correct_delta": {
+                  "estimate": 0.028985507246376812,
+                  "ci_low": -0.043478260869565216,
+                  "ci_high": 0.11594202898550725,
+                  "n_items": 69
+                }
+              },
+              "musique": {
+                "abstention_delta": {
+                  "estimate": -0.12244897959183673,
+                  "ci_low": -0.22448979591836735,
+                  "ci_high": -0.04081632653061224,
+                  "n_items": 49
+                },
+                "abstain_probability_delta": {
+                  "estimate": -0.18419674351406776,
+                  "ci_low": -0.2557241783260074,
+                  "ci_high": -0.12160884760742703,
+                  "n_items": 49
+                },
+                "correct_delta": {
+                  "estimate": 0.10204081632653061,
+                  "ci_low": 0.0,
+                  "ci_high": 0.20408163265306123,
+                  "n_items": 49
+                }
+              }
+            }
+          }
+        },
+        "promotion_checks": {
+          "minimum_gated_items_per_source": false,
+          "self_abstention_delta_at_least_5pp": false,
+          "self_abstention_delta_ci_positive": false,
+          "self_probability_delta_ci_positive": false,
+          "teacher_direction_positive": false,
+          "paraphrase_direction_positive": false,
+          "self_exceeds_neutral": true,
+          "self_exceeds_answered_history": false,
+          "both_sources_positive": false
+        },
+        "promotion": false
+      }
+    },
+    "llama": {
+      "metadata": {
+        "contract_id": "019-d0-v1",
+        "family": "llama",
+        "model": "/home/xiang/.cache/huggingface/hub/models--NousResearch--Meta-Llama-3.1-8B-Instruct/snapshots/d10aef7999a2b5ba950ab3974312feeedbfe0b77",
+        "model_revision": "d10aef7999a2b5ba950ab3974312feeedbfe0b77",
+        "bank_sha256": "c385061a7757a2e57f6be69a1e82723c64b66c5401878068dc67494a8cdb0a12",
+        "bank_items": 300,
+        "gated_items": 76,
+        "records": 1280,
+        "batch_size": 4,
+        "score_batch_size": 4,
+        "max_new_tokens": 32,
+        "dtype": "torch.bfloat16",
+        "elapsed_seconds": 836.2985010147095,
+        "python": "3.12.13",
+        "torch": "2.11.0+cu130",
+        "transformers": "5.12.1"
+      },
+      "analysis": {
+        "gate": {
+          "total_items": 300,
+          "gated_items": 76,
+          "gate_rate": 0.25333333333333335,
+          "total_by_source": {
+            "hotpotqa": 150,
+            "musique": 150
+          },
+          "gated_by_source": {
+            "hotpotqa": 55,
+            "musique": 21
+          }
+        },
+        "protocol_audit": {
+          "answered_history": {
+            "n": 76,
+            "prefix_counts": {
+              "abstain": 26,
+              "answer": 49,
+              "other": 1
+            },
+            "classified_abstentions": 26
+          },
+          "capability_full": {
+            "n": 300,
+            "prefix_counts": {
+              "abstain": 130,
+              "other": 170
+            },
+            "classified_abstentions": 130
+          },
+          "direct_full": {
+            "n": 300,
+            "prefix_counts": {
+              "abstain": 160,
+              "answer": 139,
+              "other": 1
+            },
+            "classified_abstentions": 160
+          },
+          "initial_missing": {
+            "n": 300,
+            "prefix_counts": {
+              "abstain": 281,
+              "answer": 19
+            },
+            "classified_abstentions": 281
+          },
+          "neutral_same_context": {
+            "n": 76,
+            "prefix_counts": {
+              "abstain": 4,
+              "answer": 72
+            },
+            "classified_abstentions": 4
+          },
+          "paraphrased_abstention": {
+            "n": 76,
+            "prefix_counts": {
+              "abstain": 4,
+              "answer": 72
+            },
+            "classified_abstentions": 4
+          },
+          "self_abstention": {
+            "n": 76,
+            "prefix_counts": {
+              "abstain": 1,
+              "answer": 75
+            },
+            "classified_abstentions": 1
+          },
+          "teacher_abstention": {
+            "n": 76,
+            "prefix_counts": {
+              "abstain": 1,
+              "answer": 75
+            },
+            "classified_abstentions": 1
+          }
+        },
+        "conditions": {
+          "direct_full": {
+            "target_abstention_rate": {
+              "estimate": 0.25,
+              "ci_low": 0.15789473684210525,
+              "ci_high": 0.35526315789473684,
+              "n_items": 76
+            },
+            "direct_abstention_rate": {
+              "estimate": 0.25,
+              "ci_low": 0.15789473684210525,
+              "ci_high": 0.35526315789473684,
+              "n_items": 76
+            },
+            "abstention_delta": {
+              "estimate": 0.0,
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "n_items": 76
+            },
+            "abstain_probability_delta": {
+              "estimate": 0.0,
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "n_items": 76
+            },
+            "target_correct_rate": {
+              "estimate": 0.6578947368421053,
+              "ci_low": 0.5526315789473685,
+              "ci_high": 0.7631578947368421,
+              "n_items": 76
+            },
+            "direct_correct_rate": {
+              "estimate": 0.6578947368421053,
+              "ci_low": 0.5526315789473685,
+              "ci_high": 0.7631578947368421,
+              "n_items": 76
+            },
+            "correct_delta": {
+              "estimate": 0.0,
+              "ci_low": 0.0,
+              "ci_high": 0.0,
+              "n_items": 76
+            },
+            "by_source": {
+              "hotpotqa": {
+                "abstention_delta": {
+                  "estimate": 0.0,
+                  "ci_low": 0.0,
+                  "ci_high": 0.0,
+                  "n_items": 55
+                },
+                "abstain_probability_delta": {
+                  "estimate": 0.0,
+                  "ci_low": 0.0,
+                  "ci_high": 0.0,
+                  "n_items": 55
+                },
+                "correct_delta": {
+                  "estimate": 0.0,
+                  "ci_low": 0.0,
+                  "ci_high": 0.0,
+                  "n_items": 55
+                }
+              },
+              "musique": {
+                "abstention_delta": {
+                  "estimate": 0.0,
+                  "ci_low": 0.0,
+                  "ci_high": 0.0,
+                  "n_items": 21
+                },
+                "abstain_probability_delta": {
+                  "estimate": 0.0,
+                  "ci_low": 0.0,
+                  "ci_high": 0.0,
+                  "n_items": 21
+                },
+                "correct_delta": {
+                  "estimate": 0.0,
+                  "ci_low": 0.0,
+                  "ci_high": 0.0,
+                  "n_items": 21
+                }
+              }
+            }
+          },
+          "self_abstention": {
+            "target_abstention_rate": {
+              "estimate": 0.013157894736842105,
+              "ci_low": 0.0,
+              "ci_high": 0.039473684210526314,
+              "n_items": 76
+            },
+            "direct_abstention_rate": {
+              "estimate": 0.25,
+              "ci_low": 0.15789473684210525,
+              "ci_high": 0.35526315789473684,
+              "n_items": 76
+            },
+            "abstention_delta": {
+              "estimate": -0.23684210526315788,
+              "ci_low": -0.34210526315789475,
+              "ci_high": -0.14473684210526316,
+              "n_items": 76
+            },
+            "abstain_probability_delta": {
+              "estimate": -0.2765555349791335,
+              "ci_low": -0.31609989698114077,
+              "ci_high": -0.23965397130332564,
+              "n_items": 76
+            },
+            "target_correct_rate": {
+              "estimate": 0.9210526315789473,
+              "ci_low": 0.8552631578947368,
+              "ci_high": 0.9736842105263158,
+              "n_items": 76
+            },
+            "direct_correct_rate": {
+              "estimate": 0.6578947368421053,
+              "ci_low": 0.5526315789473685,
+              "ci_high": 0.7631578947368421,
+              "n_items": 76
+            },
+            "correct_delta": {
+              "estimate": 0.2631578947368421,
+              "ci_low": 0.14473684210526316,
+              "ci_high": 0.3684210526315789,
+              "n_items": 76
+            },
+            "by_source": {
+              "hotpotqa": {
+                "abstention_delta": {
+                  "estimate": -0.16363636363636364,
+                  "ci_low": -0.2727272727272727,
+                  "ci_high": -0.07272727272727272,
+                  "n_items": 55
+                },
+                "abstain_probability_delta": {
+                  "estimate": -0.27176933843758666,
+                  "ci_low": -0.32119505391319403,
+                  "ci_high": -0.2258114110361794,
+                  "n_items": 55
+                },
+                "correct_delta": {
+                  "estimate": 0.23636363636363636,
+                  "ci_low": 0.10909090909090909,
+                  "ci_high": 0.36363636363636365,
+                  "n_items": 55
+                }
+              },
+              "musique": {
+                "abstention_delta": {
+                  "estimate": -0.42857142857142855,
+                  "ci_low": -0.6190476190476191,
+                  "ci_high": -0.23809523809523808,
+                  "n_items": 21
+                },
+                "abstain_probability_delta": {
+                  "estimate": -0.28909081163556555,
+                  "ci_low": -0.34905359413665815,
+                  "ci_high": -0.23435291173241296,
+                  "n_items": 21
+                },
+                "correct_delta": {
+                  "estimate": 0.3333333333333333,
+                  "ci_low": 0.09523809523809523,
+                  "ci_high": 0.5714285714285714,
+                  "n_items": 21
+                }
+              }
+            }
+          },
+          "teacher_abstention": {
+            "target_abstention_rate": {
+              "estimate": 0.013157894736842105,
+              "ci_low": 0.0,
+              "ci_high": 0.039473684210526314,
+              "n_items": 76
+            },
+            "direct_abstention_rate": {
+              "estimate": 0.25,
+              "ci_low": 0.15789473684210525,
+              "ci_high": 0.35526315789473684,
+              "n_items": 76
+            },
+            "abstention_delta": {
+              "estimate": -0.23684210526315788,
+              "ci_low": -0.32894736842105265,
+              "ci_high": -0.14473684210526316,
+              "n_items": 76
+            },
+            "abstain_probability_delta": {
+              "estimate": -0.2711842416487061,
+              "ci_low": -0.31026123825051266,
+              "ci_high": -0.23340519399390142,
+              "n_items": 76
+            },
+            "target_correct_rate": {
+              "estimate": 0.881578947368421,
+              "ci_low": 0.8026315789473685,
+              "ci_high": 0.9473684210526315,
+              "n_items": 76
+            },
+            "direct_correct_rate": {
+              "estimate": 0.6578947368421053,
+              "ci_low": 0.5526315789473685,
+              "ci_high": 0.7631578947368421,
+              "n_items": 76
+            },
+            "correct_delta": {
+              "estimate": 0.2236842105263158,
+              "ci_low": 0.11842105263157894,
+              "ci_high": 0.34210526315789475,
+              "n_items": 76
+            },
+            "by_source": {
+              "hotpotqa": {
+                "abstention_delta": {
+                  "estimate": -0.16363636363636364,
+                  "ci_low": -0.2727272727272727,
+                  "ci_high": -0.07272727272727272,
+                  "n_items": 55
+                },
+                "abstain_probability_delta": {
+                  "estimate": -0.2659258702781546,
+                  "ci_low": -0.315908109880185,
+                  "ci_high": -0.21817397890460766,
+                  "n_items": 55
+                },
+                "correct_delta": {
+                  "estimate": 0.2,
+                  "ci_low": 0.07272727272727272,
+                  "ci_high": 0.32727272727272727,
+                  "n_items": 55
+                }
+              },
+              "musique": {
+                "abstention_delta": {
+                  "estimate": -0.42857142857142855,
+                  "ci_low": -0.6666666666666666,
+                  "ci_high": -0.23809523809523808,
+                  "n_items": 21
+                },
+                "abstain_probability_delta": {
+                  "estimate": -0.2849561666668173,
+                  "ci_low": -0.3404327733082702,
+                  "ci_high": -0.2319466940193721,
+                  "n_items": 21
+                },
+                "correct_delta": {
+                  "estimate": 0.2857142857142857,
+                  "ci_low": 0.047619047619047616,
+                  "ci_high": 0.5238095238095238,
+                  "n_items": 21
+                }
+              }
+            }
+          },
+          "paraphrased_abstention": {
+            "target_abstention_rate": {
+              "estimate": 0.05263157894736842,
+              "ci_low": 0.013157894736842105,
+              "ci_high": 0.10526315789473684,
+              "n_items": 76
+            },
+            "direct_abstention_rate": {
+              "estimate": 0.25,
+              "ci_low": 0.15789473684210525,
+              "ci_high": 0.35526315789473684,
+              "n_items": 76
+            },
+            "abstention_delta": {
+              "estimate": -0.19736842105263158,
+              "ci_low": -0.3026315789473684,
+              "ci_high": -0.10526315789473684,
+              "n_items": 76
+            },
+            "abstain_probability_delta": {
+              "estimate": -0.2167864574753274,
+              "ci_low": -0.2550525085870099,
+              "ci_high": -0.18023995292203215,
+              "n_items": 76
+            },
+            "target_correct_rate": {
+              "estimate": 0.868421052631579,
+              "ci_low": 0.7894736842105263,
+              "ci_high": 0.9342105263157895,
+              "n_items": 76
+            },
+            "direct_correct_rate": {
+              "estimate": 0.6578947368421053,
+              "ci_low": 0.5526315789473685,
+              "ci_high": 0.7631578947368421,
+              "n_items": 76
+            },
+            "correct_delta": {
+              "estimate": 0.21052631578947367,
+              "ci_low": 0.10526315789473684,
+              "ci_high": 0.32894736842105265,
+              "n_items": 76
+            },
+            "by_source": {
+              "hotpotqa": {
+                "abstention_delta": {
+                  "estimate": -0.14545454545454545,
+                  "ci_low": -0.2545454545454545,
+                  "ci_high": -0.03636363636363636,
+                  "n_items": 55
+                },
+                "abstain_probability_delta": {
+                  "estimate": -0.2098170093468028,
+                  "ci_low": -0.2586424139162486,
+                  "ci_high": -0.16310875827611016,
+                  "n_items": 55
+                },
+                "correct_delta": {
+                  "estimate": 0.2,
+                  "ci_low": 0.07272727272727272,
+                  "ci_high": 0.32727272727272727,
+                  "n_items": 55
+                }
+              },
+              "musique": {
+                "abstention_delta": {
+                  "estimate": -0.3333333333333333,
+                  "ci_low": -0.5238095238095238,
+                  "ci_high": -0.14285714285714285,
+                  "n_items": 21
+                },
+                "abstain_probability_delta": {
+                  "estimate": -0.2350397740024157,
+                  "ci_low": -0.28978786896530945,
+                  "ci_high": -0.18177540939165748,
+                  "n_items": 21
+                },
+                "correct_delta": {
+                  "estimate": 0.23809523809523808,
+                  "ci_low": 0.0,
+                  "ci_high": 0.47619047619047616,
+                  "n_items": 21
+                }
+              }
+            }
+          },
+          "neutral_same_context": {
+            "target_abstention_rate": {
+              "estimate": 0.05263157894736842,
+              "ci_low": 0.013157894736842105,
+              "ci_high": 0.10526315789473684,
+              "n_items": 76
+            },
+            "direct_abstention_rate": {
+              "estimate": 0.25,
+              "ci_low": 0.15789473684210525,
+              "ci_high": 0.35526315789473684,
+              "n_items": 76
+            },
+            "abstention_delta": {
+              "estimate": -0.19736842105263158,
+              "ci_low": -0.2894736842105263,
+              "ci_high": -0.11842105263157894,
+              "n_items": 76
+            },
+            "abstain_probability_delta": {
+              "estimate": -0.18023482706987548,
+              "ci_low": -0.21779344990961289,
+              "ci_high": -0.14384904748348856,
+              "n_items": 76
+            },
+            "target_correct_rate": {
+              "estimate": 0.868421052631579,
+              "ci_low": 0.7894736842105263,
+              "ci_high": 0.9342105263157895,
+              "n_items": 76
+            },
+            "direct_correct_rate": {
+              "estimate": 0.6578947368421053,
+              "ci_low": 0.5526315789473685,
+              "ci_high": 0.7631578947368421,
+              "n_items": 76
+            },
+            "correct_delta": {
+              "estimate": 0.21052631578947367,
+              "ci_low": 0.10526315789473684,
+              "ci_high": 0.3157894736842105,
+              "n_items": 76
+            },
+            "by_source": {
+              "hotpotqa": {
+                "abstention_delta": {
+                  "estimate": -0.16363636363636364,
+                  "ci_low": -0.2727272727272727,
+                  "ci_high": -0.07272727272727272,
+                  "n_items": 55
+                },
+                "abstain_probability_delta": {
+                  "estimate": -0.18180212222021644,
+                  "ci_low": -0.22983832613843053,
+                  "ci_high": -0.13678785761220905,
+                  "n_items": 55
+                },
+                "correct_delta": {
+                  "estimate": 0.21818181818181817,
+                  "ci_low": 0.10909090909090909,
+                  "ci_high": 0.34545454545454546,
+                  "n_items": 55
+                }
+              },
+              "musique": {
+                "abstention_delta": {
+                  "estimate": -0.2857142857142857,
+                  "ci_low": -0.47619047619047616,
+                  "ci_high": -0.09523809523809523,
+                  "n_items": 21
+                },
+                "abstain_probability_delta": {
+                  "estimate": -0.17613000643803017,
+                  "ci_low": -0.2300985563051303,
+                  "ci_high": -0.11956391532629333,
+                  "n_items": 21
+                },
+                "correct_delta": {
+                  "estimate": 0.19047619047619047,
+                  "ci_low": 0.0,
+                  "ci_high": 0.42857142857142855,
+                  "n_items": 21
+                }
+              }
+            }
+          },
+          "answered_history": {
+            "target_abstention_rate": {
+              "estimate": 0.34210526315789475,
+              "ci_low": 0.23684210526315788,
+              "ci_high": 0.4473684210526316,
+              "n_items": 76
+            },
+            "direct_abstention_rate": {
+              "estimate": 0.25,
+              "ci_low": 0.15789473684210525,
+              "ci_high": 0.34210526315789475,
+              "n_items": 76
+            },
+            "abstention_delta": {
+              "estimate": 0.09210526315789473,
+              "ci_low": 0.013157894736842105,
+              "ci_high": 0.17138157894736364,
+              "n_items": 76
+            },
+            "abstain_probability_delta": {
+              "estimate": 0.036287584333434986,
+              "ci_low": 0.007418948920752249,
+              "ci_high": 0.06621269876970864,
+              "n_items": 76
+            },
+            "target_correct_rate": {
+              "estimate": 0.5921052631578947,
+              "ci_low": 0.47368421052631576,
+              "ci_high": 0.6973684210526315,
+              "n_items": 76
+            },
+            "direct_correct_rate": {
+              "estimate": 0.6578947368421053,
+              "ci_low": 0.5526315789473685,
+              "ci_high": 0.7631578947368421,
+              "n_items": 76
+            },
+            "correct_delta": {
+              "estimate": -0.06578947368421052,
+              "ci_low": -0.17105263157894737,
+              "ci_high": 0.039473684210526314,
+              "n_items": 76
+            },
+            "by_source": {
+              "hotpotqa": {
+                "abstention_delta": {
+                  "estimate": 0.07272727272727272,
+                  "ci_low": -0.01818181818181818,
+                  "ci_high": 0.18181818181818182,
+                  "n_items": 55
+                },
+                "abstain_probability_delta": {
+                  "estimate": 0.029887911070500605,
+                  "ci_low": -0.00666350287655183,
+                  "ci_high": 0.0654742962076978,
+                  "n_items": 55
+                },
+                "correct_delta": {
+                  "estimate": -0.01818181818181818,
+                  "ci_low": -0.14545454545454545,
+                  "ci_high": 0.09090909090909091,
+                  "n_items": 55
+                }
+              },
+              "musique": {
+                "abstention_delta": {
+                  "estimate": 0.14285714285714285,
+                  "ci_low": 0.0,
+                  "ci_high": 0.2857142857142857,
+                  "n_items": 21
+                },
+                "abstain_probability_delta": {
+                  "estimate": 0.05304863335540598,
+                  "ci_low": 0.007389733621972768,
+                  "ci_high": 0.10234269810801709,
+                  "n_items": 21
+                },
+                "correct_delta": {
+                  "estimate": -0.19047619047619047,
+                  "ci_low": -0.38095238095238093,
+                  "ci_high": -0.047619047619047616,
+                  "n_items": 21
+                }
+              }
+            }
+          }
+        },
+        "promotion_checks": {
+          "minimum_gated_items_per_source": false,
+          "self_abstention_delta_at_least_5pp": false,
+          "self_abstention_delta_ci_positive": false,
+          "self_probability_delta_ci_positive": false,
+          "teacher_direction_positive": false,
+          "paraphrase_direction_positive": false,
+          "self_exceeds_neutral": false,
+          "self_exceeds_answered_history": false,
+          "both_sources_positive": false
+        },
+        "promotion": false
+      }
+    }
+  },
+  "promoted_families": [],
+  "overall_promotion": false,
+  "overall_decision": "NO-PROMOTE"
+}
