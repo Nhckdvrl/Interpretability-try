@@ -124,7 +124,10 @@ def main() -> None:
                     padding=True,
                     add_special_tokens=False,
                 ).to("cuda")
-                logits = model(**encoded, use_cache=False).logits[:, -1, :].float()
+                # All supported frozen architectures expose `logits_to_keep`.
+                # Restricting the LM head to the final position avoids materializing
+                # sequence_length x vocabulary logits that are never analyzed.
+                logits = model(**encoded, use_cache=False, logits_to_keep=1).logits[:, -1, :].float()
                 log_probs = torch.log_softmax(logits, dim=-1)
                 f_logp = log_probs[:, f_id]
                 j_logp = log_probs[:, j_id]
