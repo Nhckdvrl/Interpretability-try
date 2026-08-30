@@ -1,0 +1,331 @@
+{
+  "aggregate": {
+    "families_with_positive_human_direction_gap": 4,
+    "family_passes": 0,
+    "mechanism_authorized": false,
+    "verdict": "HOLD_CAPABILITY_FAILURE"
+  },
+  "contract_id": "023-d0-v1-risk-inference-versus-policy",
+  "families": {
+    "gemma": {
+      "capability_checks": {
+        "dominance": true,
+        "expected_value": false,
+        "frequency": true,
+        "option_order": false
+      },
+      "capability_pass": false,
+      "choice_target_probability_by_presentation": {
+        "description_counts": 0.4073520300353266,
+        "description_probability": 0.7067632579378874,
+        "experience_exact": 0.5304189815332292
+      },
+      "directed_gamble_gaps": {
+        "rare_gain_1": {
+          "gap_counts": -0.0050905508566453745,
+          "gap_probability": 0.7859655162610579
+        },
+        "rare_gain_2": {
+          "gap_counts": -0.08606150553290111,
+          "gap_probability": 0.9096005835648006
+        },
+        "rare_loss_1": {
+          "gap_counts": 0.4527782037233313,
+          "gap_probability": 0.453791266719539
+        },
+        "rare_loss_2": {
+          "gap_counts": -0.022921098784233134,
+          "gap_probability": -0.021673824250077207
+        },
+        "signflip_gain": {
+          "gap_counts": -0.2779004822174708,
+          "gap_probability": 0.6716606161062373
+        },
+        "signflip_loss": {
+          "gap_counts": 0.029304794433604304,
+          "gap_probability": 0.033824060597301774
+        }
+      },
+      "dominance_mean_target_probability": 0.7566861814686692,
+      "effect_checks": {
+        "directed_gambles": false,
+        "gap_vs_counts": false,
+        "gap_vs_probability": true
+      },
+      "expected_value_accuracy": 0.36342592592592593,
+      "expected_value_accuracy_by_presentation": {
+        "description_counts": 0.2916666666666667,
+        "description_probability": 0.4791666666666667,
+        "experience_exact": 0.3194444444444444
+      },
+      "family_pass": false,
+      "frequency_accuracy": 0.9143518518518519,
+      "frequency_accuracy_by_presentation": {
+        "description_counts": 1.0,
+        "description_probability": 1.0,
+        "experience_exact": 0.7430555555555556
+      },
+      "mean_experience_shuffle_std": 0.1911024244163038,
+      "mean_option_order_difference": 0.4113577569475671,
+      "normalized_gap_vs_counts": {
+        "bootstrap_replicates": 5000,
+        "ci95": [
+          -0.14743903251292068,
+          0.21310946688107732
+        ],
+        "cluster_count": 6,
+        "mean": 0.015018226794280862
+      },
+      "normalized_gap_vs_probability": {
+        "bootstrap_replicates": 5000,
+        "ci95": [
+          0.19162539258670425,
+          0.7512089858880953
+        ],
+        "cluster_count": 6,
+        "mean": 0.47219470316647655
+      },
+      "positive_directed_gambles": 2
+    },
+    "llama": {
+      "capability_checks": {
+        "dominance": false,
+        "expected_value": false,
+        "frequency": false,
+        "option_order": false
+      },
+      "capability_pass": false,
+      "choice_target_probability_by_presentation": {
+        "description_counts": 0.4023719932883978,
+        "description_probability": 0.41571596999549204,
+        "experience_exact": 0.3930328097970535
+      },
+      "directed_gamble_gaps": {
+        "rare_gain_1": {
+          "gap_counts": 0.22649483506878218,
+          "gap_probability": 0.2512997140487035
+        },
+        "rare_gain_2": {
+          "gap_counts": 0.115468827697138,
+          "gap_probability": 0.2460209196433425
+        },
+        "rare_loss_1": {
+          "gap_counts": 0.1055653914809227,
+          "gap_probability": 0.16635421415170035
+        },
+        "rare_loss_2": {
+          "gap_counts": 0.2029089480638504,
+          "gap_probability": 0.233519380291303
+        },
+        "signflip_gain": {
+          "gap_counts": 0.16958221544822058,
+          "gap_probability": 0.2083356703321139
+        },
+        "signflip_loss": {
+          "gap_counts": 0.09686626493930817,
+          "gap_probability": 0.10625664393107097
+        }
+      },
+      "dominance_mean_target_probability": 0.5789264374309115,
+      "effect_checks": {
+        "directed_gambles": true,
+        "gap_vs_counts": true,
+        "gap_vs_probability": true
+      },
+      "expected_value_accuracy": 0.2523148148148148,
+      "expected_value_accuracy_by_presentation": {
+        "description_counts": 0.2708333333333333,
+        "description_probability": 0.2916666666666667,
+        "experience_exact": 0.19444444444444445
+      },
+      "family_pass": false,
+      "frequency_accuracy": 0.7696759259259259,
+      "frequency_accuracy_by_presentation": {
+        "description_counts": 0.9652777777777778,
+        "description_probability": 1.0,
+        "experience_exact": 0.34375
+      },
+      "mean_experience_shuffle_std": 0.07421918988332794,
+      "mean_option_order_difference": 0.15052059963690462,
+      "normalized_gap_vs_counts": {
+        "bootstrap_replicates": 5000,
+        "ci95": [
+          0.11498572599763672,
+          0.19454698430167305
+        ],
+        "cluster_count": 6,
+        "mean": 0.152814413783037
+      },
+      "normalized_gap_vs_probability": {
+        "bootstrap_replicates": 5000,
+        "ci95": [
+          0.15751588510142434,
+          0.23821226217680508
+        ],
+        "cluster_count": 6,
+        "mean": 0.20196442373303902
+      },
+      "positive_directed_gambles": 6
+    },
+    "mistral": {
+      "capability_checks": {
+        "dominance": false,
+        "expected_value": false,
+        "frequency": true,
+        "option_order": false
+      },
+      "capability_pass": false,
+      "choice_target_probability_by_presentation": {
+        "description_counts": 0.5114141076596247,
+        "description_probability": 0.5137623886888226,
+        "experience_exact": 0.45167043559356695
+      },
+      "directed_gamble_gaps": {
+        "rare_gain_1": {
+          "gap_counts": 0.07998995545009772,
+          "gap_probability": 0.18310707497100034
+        },
+        "rare_gain_2": {
+          "gap_counts": 0.17245662740121284,
+          "gap_probability": 0.28928161940226954
+        },
+        "rare_loss_1": {
+          "gap_counts": -0.11244941006104152,
+          "gap_probability": 0.07305537660916646
+        },
+        "rare_loss_2": {
+          "gap_counts": -0.15071947127580643,
+          "gap_probability": 0.05174283683300018
+        },
+        "signflip_gain": {
+          "gap_counts": 0.0807954507569472,
+          "gap_probability": 0.14080994700392088
+        },
+        "signflip_loss": {
+          "gap_counts": -0.03370271374781927,
+          "gap_probability": 0.052949110666910805
+        }
+      },
+      "dominance_mean_target_probability": 0.5751728659702672,
+      "effect_checks": {
+        "directed_gambles": false,
+        "gap_vs_counts": false,
+        "gap_vs_probability": true
+      },
+      "expected_value_accuracy": 0.29398148148148145,
+      "expected_value_accuracy_by_presentation": {
+        "description_counts": 0.2638888888888889,
+        "description_probability": 0.3333333333333333,
+        "experience_exact": 0.2847222222222222
+      },
+      "family_pass": false,
+      "frequency_accuracy": 0.9363425925925926,
+      "frequency_accuracy_by_presentation": {
+        "description_counts": 1.0,
+        "description_probability": 0.9479166666666666,
+        "experience_exact": 0.8611111111111112
+      },
+      "mean_experience_shuffle_std": 0.04903074943997856,
+      "mean_option_order_difference": 0.24386651853651362,
+      "normalized_gap_vs_counts": {
+        "bootstrap_replicates": 5000,
+        "ci95": [
+          -0.08625251447988881,
+          0.09428431305827366
+        ],
+        "cluster_count": 6,
+        "mean": 0.006061739753931761
+      },
+      "normalized_gap_vs_probability": {
+        "bootstrap_replicates": 5000,
+        "ci95": [
+          0.07054153643548489,
+          0.20439954712573025
+        ],
+        "cluster_count": 6,
+        "mean": 0.1318243275810447
+      },
+      "positive_directed_gambles": 3
+    },
+    "qwen": {
+      "capability_checks": {
+        "dominance": true,
+        "expected_value": false,
+        "frequency": true,
+        "option_order": false
+      },
+      "capability_pass": false,
+      "choice_target_probability_by_presentation": {
+        "description_counts": 0.3699569118948097,
+        "description_probability": 0.40014219234378995,
+        "experience_exact": 0.322721720456381
+      },
+      "directed_gamble_gaps": {
+        "rare_gain_1": {
+          "gap_counts": 0.09753315742515649,
+          "gap_probability": 0.14194361938280053
+        },
+        "rare_gain_2": {
+          "gap_counts": -0.007301350977892677,
+          "gap_probability": 0.24975919706048444
+        },
+        "rare_loss_1": {
+          "gap_counts": -0.05195882559443513,
+          "gap_probability": -0.018996940925717354
+        },
+        "rare_loss_2": {
+          "gap_counts": 0.015288526328125348,
+          "gap_probability": 0.15924591633180776
+        },
+        "signflip_gain": {
+          "gap_counts": 0.27583400655445683,
+          "gap_probability": 0.390277085579631
+        },
+        "signflip_loss": {
+          "gap_counts": -0.13694359936440983,
+          "gap_probability": -0.12007943292458852
+        }
+      },
+      "dominance_mean_target_probability": 0.8008696644877394,
+      "effect_checks": {
+        "directed_gambles": false,
+        "gap_vs_counts": false,
+        "gap_vs_probability": true
+      },
+      "expected_value_accuracy": 0.3773148148148148,
+      "expected_value_accuracy_by_presentation": {
+        "description_counts": 0.4583333333333333,
+        "description_probability": 0.4166666666666667,
+        "experience_exact": 0.2569444444444444
+      },
+      "family_pass": false,
+      "frequency_accuracy": 0.9710648148148148,
+      "frequency_accuracy_by_presentation": {
+        "description_counts": 1.0,
+        "description_probability": 1.0,
+        "experience_exact": 0.9131944444444444
+      },
+      "mean_experience_shuffle_std": 0.10487635227038249,
+      "mean_option_order_difference": 0.4033337724037362,
+      "normalized_gap_vs_counts": {
+        "bootstrap_replicates": 5000,
+        "ci95": [
+          -0.06209296954006681,
+          0.14429583341936653
+        ],
+        "cluster_count": 6,
+        "mean": 0.0320753190618335
+      },
+      "normalized_gap_vs_probability": {
+        "bootstrap_replicates": 5000,
+        "ci95": [
+          0.003839464668999426,
+          0.26899406863938363
+        ],
+        "cluster_count": 6,
+        "mean": 0.13369157408406965
+      },
+      "positive_directed_gambles": 3
+    }
+  }
+}

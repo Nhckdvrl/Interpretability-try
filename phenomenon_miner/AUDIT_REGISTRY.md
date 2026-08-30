@@ -18,7 +18,7 @@
 | `active/028_causality_responsibility_factorization` | **false until FrECI matched-support audit frozen** | false | **N0+N1 PASS / ACTIVE-PREFLIGHT** |
 | `active/003_diagnostic_counterevidence_revision` | false | false | **HOLD / legacy pre-candidate** |
 | `active/013_publicness_coordination_dissociation` | false | false | **HOLD-DATA** |
-| `active/023_description_experience_gap` | **D0 v1 only; exact-frequency inference-vs-policy contract frozen** | false | **N0-PASS-SHARPENED / D0-AUTHORIZED** |
+| `active/023_description_experience_gap` | false | false | **HOLD-CAPABILITY-FAILURE / NO-MI** |
 
 Only the explicitly frozen cheap calls in this table are authorized at this exact commit.
 
@@ -203,9 +203,12 @@ association. The only legal object is whether exact-frequency presentation
 differences arise in probability inference, probability-to-value
 transformation, or a later representation-mode policy/readout.
 
-Frozen D0 v1 authorizes only the four-family behavioral and capability run in
-`active/023_description_experience_gap/configs/d0_contract.json`. No MI is
-authorized. N1 is not repeated per project instruction.
+Frozen D0 v1 returned `HOLD_CAPABILITY_FAILURE` with 0/4 family passes. The
+history-versus-count residual was null in Qwen, Gemma, and Mistral; Llama's
+residual co-occurred with failure of every prerequisite. A/B/TIE EV scoring and
+direct choice were strongly position-sensitive. No additional D0 or MI is
+authorized. N1 was not repeated per project instruction. Full adjudication:
+`active/023_description_experience_gap/D0_REPORT.md`.
 
 ---
 

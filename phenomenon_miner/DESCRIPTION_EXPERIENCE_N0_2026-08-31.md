@@ -1,6 +1,6 @@
 # 023 mother-inclusion N0 — inferring risk vs valuing risk
 
-Date: 2026-08-31  
+Date: 2026-08-31
 Status: `N0-PASS-SHARPENED / BEHAVIOR CONTRACT REQUIRED`
 
 ## Natural-question card

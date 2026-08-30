@@ -132,14 +132,14 @@ Natural mother behavior 保留 provenance，当前无调用授权。
 
 Natural common-knowledge/publicness object 仍成立，但自然独立 scenarios 不足，禁止 synthetic 扩 bank。
 
-## Active D0 — 023 Inferring Risk vs Valuing Risk
+## HOLD-CAPABILITY-FAILURE — 023 Inferring Risk vs Valuing Risk
 
 [`../active/023_description_experience_gap/`](../active/023_description_experience_gap/)
 
-Mother-inclusion N0 已 `PASS-SHARPENED`。母论文已经拥有 LLM DH gap behavior；
-本题只研究 exact-frequency equivalence 下 divergence 位于 probability
-inference、value transformation，还是 late policy/readout。D0 capability +
-choice contract 已冻结；MI 尚未授权。
+Mother-inclusion N0 为 `PASS-SHARPENED`，但 frozen D0 得到 0/4 family pass。
+Qwen/Gemma/Mistral 的 exact-history vs count-summary residual 接近零；Llama
+residual 与 frequency/EV/dominance/order 全失败共现。`HOLD / NO-MI`，禁止
+Llama-only rescue 或继续缩成 output-format 题。
 
 ---
 
@@ -159,7 +159,7 @@ choice contract 已冻结；MI 尚未授权。
 024 -> HOLD-INCONCLUSIVE-D0; no further calls
 025 -> active capability preflight from previous N0
 026/027/028 -> N0+N1 passed; source/schema/data preflight only
-003/013 -> HOLD; 023 -> frozen D0 behavior/capability only
+003/013/023 -> HOLD
 fresh hidden-state/causal MI on 024-028 -> forbidden until project-specific source + behavior/capability contract passes
 ```
 

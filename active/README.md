@@ -76,7 +76,7 @@ ACL 2026 FrECI 已把 causal relation、responsibility target、evaluative frami
 
 - [`003_diagnostic_counterevidence_revision`](003_diagnostic_counterevidence_revision/) — natural mother behavior；legacy provenance，暂无 authorization。
 - [`013_publicness_coordination_dissociation`](013_publicness_coordination_dissociation/) — natural common-knowledge/publicness object；`HOLD-DATA`。
-- [`023_description_experience_gap`](023_description_experience_gap/) — inference-vs-valuation/policy object；`N0-PASS-SHARPENED / D0-AUTHORIZED`。
+- [`023_description_experience_gap`](023_description_experience_gap/) — exact-frequency inference-vs-policy D0；`HOLD-CAPABILITY-FAILURE / NO-MI`。
 
 ## 已归档 / 禁止复活
 

@@ -2,7 +2,7 @@
 
 **中文一句话：** 同一个概率游戏以概率或完全等价的历史呈现时，模型究竟是推断出了不同风险，还是对同一风险调用了不同价值/选择策略？
 
-**Status:** `N0-PASS-SHARPENED / D0-AUTHORIZED / CONTRACT-FROZEN`
+**Status:** `HOLD-CAPABILITY-FAILURE / NO-MI`
 **Created:** 2026-08-30
 **Top-10 rank:** #10
 
@@ -31,6 +31,11 @@ description-history gap，所以“LLM 会不会有 gap”不再是本题的 nov
 
 完整 N0：[`../../phenomenon_miner/DESCRIPTION_EXPERIENCE_N0_2026-08-31.md`](../../phenomenon_miner/DESCRIPTION_EXPERIENCE_N0_2026-08-31.md)。
 冻结合同：[`configs/d0_contract.json`](configs/d0_contract.json)。
+
+**D0 outcome:** 四家族全部未通过 capability/control gate。Qwen/Gemma/Mistral
+的 experience-vs-count residual 接近零且 CI 跨零；Llama 虽有 residual，但
+frequency、EV、dominance、option-order 全部失败。完整裁决见
+[`D0_REPORT.md`](D0_REPORT.md)。不授权 additional D0 或 mechanism。
 
 ---
 
