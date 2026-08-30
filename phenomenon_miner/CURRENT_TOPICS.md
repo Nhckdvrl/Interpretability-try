@@ -119,7 +119,7 @@ polarity/next-turn 缩窄版。
 
 [`../active/028_causality_responsibility_factorization/`](../active/028_causality_responsibility_factorization/)
 
-**N0+N1 PASS / ACTIVE-PREFLIGHT / NO CALL**
+**PARK-ARTIFACT / NO CALL**
 
 自然问题：
 
@@ -128,6 +128,11 @@ polarity/next-turn 缩窄版。
 Mother：ACL 2026 FrECI 已构造 natural multilingual framed-causality data，并分别标注 causal relations、responsibility targets、evaluative frame、source/modality；但没有做 LLM internal factorization。
 
 Anti-narrowing：如果只剩 source identity / political bias / one FrECI label probe，直接 KILL/ROUTE。
+
+Source preflight：官方 row-level repository 当前 404；论文的 2,203 total
+relations 与 shared-effect fragmentation 不能推出 same directed
+cause-effect pair / divergent frame 的 matched cluster 数。等待 artifact
+公开并完成 cluster-level count，不从 PDF 例子构造缩窄版。
 
 ---
 
@@ -169,7 +174,7 @@ Llama-only rescue 或继续缩成 output-format 题。
 018 -> bounded D0-v2 measurement repair
 024 -> HOLD-INCONCLUSIVE-D0; no further calls
 025 -> active capability preflight from previous N0
-026/027 -> PARK-DATA; 028 -> source/schema/data preflight only
+026/027 -> PARK-DATA; 028 -> PARK-ARTIFACT
 003/013/023 -> HOLD
 fresh hidden-state/causal MI on 024-028 -> forbidden until project-specific source + behavior/capability contract passes
 ```

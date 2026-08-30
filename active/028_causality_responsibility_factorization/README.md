@@ -1,7 +1,7 @@
 # 028 — Cause Is Not Blame
 
 **Working title:** *Cause Is Not Blame: Separating Event Causality from Responsibility Framing in Language Models*
-**Status:** `NATURAL-QUESTION PASS / N0 PASS / N1 PASS / ACTIVE-PREFLIGHT / NO MODEL CALL YET`
+**Status:** `NATURAL-QUESTION PASS / N0 PASS / N1 PASS / PARK-ARTIFACT / NO MODEL CALL`
 **Created:** 2026-08-31
 
 ## 1. 一句话问题
@@ -335,15 +335,26 @@ route 回 FrECI mother。
 
 后者不够 ACL/EMNLP title-level breadth。
 
-## 15. 下一步
+## 15. Source preflight result (2026-08-31)
+
+论文层面的 schema、规模与 human provenance 通过，但论文链接的官方
+`jinzhao3611/freci` 仓库当前返回 404。论文报告的 569 个 non-singleton
+event clusters 和 fragmentation 0.44 衡量的是 **shared effect 下 competing
+causes**，并未报告 **same cause-effect pair held / responsibility frame varies**
+的 matched cluster 数。2,203 条总 relation 不能当作本题可跑样本数。
+
+因此状态为 `PARK-ARTIFACT / NO MODEL CALL`。完整冻结审计见
+[`SOURCE_AUDIT.md`](SOURCE_AUDIT.md)，裁决见
+[`PREFLIGHT_VERDICT.md`](PREFLIGHT_VERDICT.md)。
+
+## 16. Reopen sequence
 
 ```text
-1. FrECI artifact/schema/source audit
-2. count matched same-event causal-core / different-frame clusters
-3. check human-label provenance + leakage
-4. identify independent second-source option
-5. freeze capability-only D0
-6. only after gate passes, run MI
+1. obtain the official row-level artifact
+2. count repeated directed cause-effect cluster pairs with divergent frames
+3. audit source/language/topic independence and controls
+4. freeze capability-only D0
+5. only after gate passes, run MI
 ```
 
-**Current model-call authorization: FALSE.**
+**Current model-call authorization: FALSE (`PARK-ARTIFACT`).**

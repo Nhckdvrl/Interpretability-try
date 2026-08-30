@@ -15,7 +15,7 @@
 | `active/025_world_indexed_truth` | **false; both frozen behavior runs complete** | false | **HOLD_PREREQUISITE_CAPABILITY / NO-MI** |
 | `active/026_scientific_plausibility_testability_factorization` | false | false | **PARK-DATA / independent P/T gold absent** |
 | `active/027_rhetorical_force_implied_assertion` | false | false | **PARK-DATA / implied-assertion gold absent** |
-| `active/028_causality_responsibility_factorization` | **false until FrECI matched-support audit frozen** | false | **N0+N1 PASS / ACTIVE-PREFLIGHT** |
+| `active/028_causality_responsibility_factorization` | false | false | **PARK-ARTIFACT / matched population unverified** |
 | `active/003_diagnostic_counterevidence_revision` | false | false | **HOLD / legacy pre-candidate** |
 | `active/013_publicness_coordination_dissociation` | false | false | **HOLD-DATA** |
 | `active/023_description_experience_gap` | false | false | **HOLD-CAPABILITY-FAILURE / NO-MI** |
@@ -205,6 +205,14 @@ anti_FreCI_specific_narrowing: required
 ```
 
 If matched support is too small, PARK-DATA. Do not shrink to one source/language/frame label.
+
+Frozen preflight result: the paper-linked `jinzhao3611/freci` repository and
+GitHub API endpoint currently return 404. Paper totals cover 2,203 relations,
+but its 569 non-singleton event clusters and fragmentation analysis concern
+competing causes for shared effects; they do not report repeated directed
+cause-effect pairs with divergent responsibility frames. Exact matched support
+is therefore uncountable and all model calls remain unauthorized. See
+`active/028_causality_responsibility_factorization/SOURCE_AUDIT.md`.
 
 ---
 

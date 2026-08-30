@@ -75,6 +75,10 @@ Mother：ACL 2026 FrECI。不能退化成 source identity / political bias probe
 
 详细合同：[`active/028_causality_responsibility_factorization/`](active/028_causality_responsibility_factorization/)
 
+Source preflight: `PARK-ARTIFACT`。论文 schema/human annotation 通过，但
+官方 row-level repository 当前 404；论文的 shared-effect fragmentation
+统计不能回答 same cause-effect pair / different responsibility frame 的数量。
+
 ## Strict novelty kills
 
 - **Superseded Truth ≠ Never-True Falsehood**：2026 temporal-drift mechanism work 已覆盖独立 axis + stale/confabulation + dynamics + steering；KILL。

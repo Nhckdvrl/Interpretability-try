@@ -19,7 +19,7 @@
 | [`025_world_indexed_truth`](025_world_indexed_truth/) | **HOLD_PREREQUISITE_CAPABILITY / NO-MI** | conflict-only success fails aligned world-index controls |
 | [`026_scientific_plausibility_testability_factorization`](026_scientific_plausibility_testability_factorization/) | **PARK-DATA / NO CALL** | independent expert-grounded P/T cross-axis gold absent |
 | [`027_rhetorical_force_implied_assertion`](027_rhetorical_force_implied_assertion/) | **PARK-DATA / NO CALL** | force gold exists; validated implied-assertion gold absent |
-| [`028_causality_responsibility_factorization`](028_causality_responsibility_factorization/) | **N0+N1 PASS / ACTIVE-PREFLIGHT** | audit FrECI matched event-causal-core / differing-frame support |
+| [`028_causality_responsibility_factorization`](028_causality_responsibility_factorization/) | **PARK-ARTIFACT / NO CALL** | official rows unavailable; stable-pair/divergent-frame count unknown |
 
 ## 024 — Alignment: descriptive social model vs normative readout
 
@@ -78,6 +78,12 @@ ACL 2026 FrECI 已把 causal relation、responsibility target、evaluative frami
 
 不能退化成 source identity / political bias probe。
 
+Source preflight 证实论文 schema 与 human provenance 可用，但官方 FrECI
+仓库当前 404。论文公开统计的是 shared effect 下 competing causes，不是
+same directed cause-effect pair 下 frame 改变；中央 matched population 无法
+从 PDF 总量恢复。因此 `PARK-ARTIFACT / NO CALL`，详见
+[`SOURCE_AUDIT.md`](028_causality_responsibility_factorization/SOURCE_AUDIT.md)。
+
 ## 保留但非当前主线
 
 - [`003_diagnostic_counterevidence_revision`](003_diagnostic_counterevidence_revision/) — natural mother behavior；legacy provenance，暂无 authorization。
@@ -108,7 +114,7 @@ ACL 2026 FrECI 已把 causal relation、responsibility target、evaluative frami
 018 -> freeze D0-v2 measurement repair
 024 -> HOLD-INCONCLUSIVE-D0; no further calls
 025 -> active capability preflight
-026/027 -> PARK-DATA; 028 -> source/schema/data preflight only
+026/027 -> PARK-DATA; 028 -> PARK-ARTIFACT
 003/013/023 -> HOLD
 fresh MI on 024-028 -> forbidden until each behavior/data contract passes
 ```
