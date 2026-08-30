@@ -1,219 +1,388 @@
-# 014 — Alias Entrainment Transfer：contextual entrainment 附着在**看见的表面形式**上，还是在**被激活的实体**上？
+# 014 — Alias Entrainment Transfer
 
-**Status:** `KEEP / HOLD-FOR-CONSTRUCT-VALIDATION` — phenotype 成立，**entity 解释尚未成立**；phase 4 被 `configs/contract_d1.yaml` 阻塞
+**中文一句话：** 上下文里只出现一个实体的名字 A，会不会把从未出现过、但与 A 指向同一对象的名字 B 也一起“带热”？如果会，这真的是 entity/reference identity，还是模型只是学过 A 和 B 经常相关？
+
+**Status:** `KEEP / PHENOTYPE-ESTABLISHED / HOLD-FOR-R4-CONSTRUCT-VALIDATION`
 **Created:** 2026-08-29
-**Canonical shortlist:** Batch 3 Hamdi-mother-paper #1
-**One-line question:** **Contextual entrainment attaches to the surface form that was seen, or to the entity that was activated?**
+**Top-10 rank:** #3
+**Canonical next contract:** [`configs/contract_d1_r4.yaml`](configs/contract_d1_r4.yaml)
+**New D1 model call authorized:** **NO** — 先 materialize r4 bank + ASSOC controls + scope/source audit + freeze SHA。
 
 ---
 
-## 0. 授权状态
+## 1. Mother paper
 
-phase 1 / phase 2 运行于 2026-08-29，依据当时的 `candidate_pool/AUDIT_REGISTRY.md`；该文件其后在 v4 重构中被 `phenomenon_miner/AUDIT_REGISTRY.md` + `FINDING_RULES.md` 取代。
+Niu et al., ACL 2025 Main **Outstanding Paper**：
 
-v4 的两项 discovery 前置——Tier S 要求的 20 对 alias conventionality / 歧义 / 频率分层人工审计，以及 N1 closure——**未执行**，由项目所有者于 2026-08-29 审阅后豁免。本项目据此在新注册表中登记为 `validation_authorized: true`。
+[*Llama See, Llama Do: A Mechanistic Perspective on Contextual Entrainment and Distraction in LLMs*](https://aclanthology.org/2025.acl-long.791/)
 
-记为豁免而非"已完成审计"，是为了让这一区别留在记录里。D0 构建期间实际做过的是两轮抽样检查，它们直接导致了 SEMREL 选择约束、正字法分层，以及 NED frame 泄漏的发现。
+Code: https://github.com/frankniujc/entrainment
 
----
+Mother phenomenon：
 
-## 0b. 2026-08-29 external review — 现象成立，entity 解释不成立
+> 一个 token 只要刚刚在 context 中出现过，它后续的 logit/probability 就会系统升高，即使这个 token 与当前问题无关，甚至是随机 token。
 
-外部 review 指出并经我逐条核实成立的三件事：
+Mother paper 还找到一批 causally important **entrainment heads**：ablate 后 exact-token entrainment 明显减弱。
 
-1. **`opaque_strict` 是正字法 opaque，不是概念 opaque。** 150 对全审计结果：
-   `compositional` 39%、真正 `coref_conventional` 只有 **33%**、完全不同指 5%
-   （`Mr Bean/Rowan Atkinson`、`Ashley O/Miley Cyrus`、`Davy Jones/David Bowie`、
-   `Pink City/Los Angeles` 等）。见 [`data/D0_ALIAS_AUDIT_VERDICT.md`](data/D0_ALIAS_AUDIT_VERDICT.md)。
-2. **UNREL 有真 bug**（我在修 SEMREL 时引入）：它取的是 URI 顺序后 1/3，不是相似度最低层。
-   实际 median sim 0.60 vs SEMREL 0.78。所有 UNREL-based 结论（H2、Gemma `UNREL=+6.51`）作废。
-3. **`ALIAS > SEMREL` 排除不了 pair-specific learned association。** knowledge gate 也不能——
-   两种解释都预测"没学过 A–B 关系时 transfer 消失"。所以 gate interaction 证明的是
-   *transfer 依赖已学到的关系*，不是 *该关系被表示为共享实体身份*。
-
-**但现象没有死**：在审计后的干净子集上效应反而更强
-（audit-clean ∧ `opaque_strict`：**+2.06 / +1.31 / +2.25 nats**，三家族 CI 均不含 0）。
-
-因此 `mechanism_B_shared_entity_representation` 这个名字在解释上更正为 **shared upstream
-cause**：phase 2 排除的是"完全独立的 alias 通路"，不是证明 head 内部有实体表征——phase 3 恰恰
-否掉后者。
-
-下一步不是 phase 4，而是 [`configs/contract_d1.yaml`](configs/contract_d1.yaml)：
-独立的 RedirectQA confirmatory bank + 第五个条件 `ASSOC`（强关联但**不同指**），
-决定性判据是 `ALIAS > ASSOC`。过不了就放弃 entity 解释。
+这部分已经被 mother 做掉，不能当我们的贡献。
 
 ---
 
-## 1. Mother paper 与它确实解决了什么
+## 2. 我们最初的问题
 
-Niu et al., ACL 2025 Main (**Outstanding Paper**),
-[*Llama See, Llama Do: A Mechanistic Perspective on Contextual Entrainment and Distraction in LLMs*](https://aclanthology.org/2025.acl-long.791/) ([arXiv:2505.09338](https://arxiv.org/abs/2505.09338), [code](https://github.com/frankniujc/entrainment)).
+Mother 的 target token 本身都真的在 context 里出现过。
 
-Mother result（已解决，不可重述为我们的贡献）：
+因此一个自然问题是：
 
-```text
-只要 token t 在 context 里出现过，
-后续 logit(t) 就系统性升高，
-即使 t 与问题完全无关、甚至是 Brown corpus 随机 token；
-一小批 attention head（entrainment heads）因果地承载了大部分效应。
-```
+> **contextual entrainment 的 causal unit 是“刚刚看见过的字符串”，还是“刚刚被激活的实体/概念”？**
 
-Mother 的度量就是 `Δℓ(t) = ℓ(t | context+query) − ℓ(t | query)`，四种 context（related / irrelevant / random / counterfactual），LRE 数据集，Llama-2/3.1 + GPT-2 XL。
-
-两个 successor（都必须一起算 collision）：
-
-- [*Sentence-Level Contextual Entrainment in LLMs*](https://arxiv.org/abs/2606.24077)，26 模型 / 7 家族。但它明确定义 "the response y is **exactly the context c**" 或 context 的连续子串——**被打分的字符串仍然出现过**。
-- [*Better and Worse with Scale*](https://arxiv.org/abs/2604.13275)，Cerebras-GPT / Pythia 上的 scale sign-split（semantic context 随规模减弱，non-semantic context 随规模增强）。同样只做 exact token 匹配。
-
-三篇都没有测过**被打分的目标串从未在 prompt 中出现**的情况。
-
-## 2. Mother question
-
-> **上下文"感染"的因果单位，是出现过的词，还是被激活的实体？**
-
-日常例子（一句话就能懂）：
+例子：
 
 ```text
-context 里只出现 "International Business Machines"
-后面模型要写 "IBM"
-"IBM" 这三个字符从头到尾没出现过
-它会不会也被 entrain？
+context 只出现：International Business Machines
+后面 target 是：IBM
 ```
 
-同类：`Bombay → Mumbai`、`Formosa → Taiwan`、`Lee Jun-fan → Bruce Lee`、`Britain → United Kingdom`。
+`IBM` 三个字符从没出现过。
 
-## 3. Scientific fork（这是本题存在的理由）
+如果 `IBM` 仍被提升，说明 exact surface repetition 不是全部故事。
+
+但仅仅看到 transfer 还不能自动推出“entity representation”。这正是当前项目已经学到的最重要教训。
+
+---
+
+## 3. Phase 1 — 行为现象已经成立
+
+原始四/五条件框架：
 
 ```text
-若 alias 完全不 transfer
-  → mother phenomenon 本质上是 lexical reoccurrence / copy bias，
-    semantic factor 只调 gain，不改变 causal unit。
-
-若 unseen canonical alias 也被提升，且超出 semantic priming
-  → context 中被激活的至少部分是 entity-level salience state，
-    entrainment 先经过实体表征，再落到一个从未出现的词形上。
+NOCTX   无额外 context
+EXACT   context 直接出现 target surface B
+ALIAS   context 出现另一个 surface A，但 B 不出现
+SEMREL  context 出现语义相关、不同指的实体 C
+UNREL   原计划为弱相关/无关实体 D
 ```
 
-两个方向都是对 mother 理解的实质修正，因此这是一个 **decisive** 而不是 confirmatory 的实验。
-
-## 4. Phase 1：四条件，不做 MI
-
-按用户裁定，第一阶段**不碰 probe / patching / head ablation**。只看 target logit。
-
-对每个实体 E 与它的两个名字 `A`（context 中出现的那个）、`B`（被打分、从未出现的那个）：
-
-| 条件 | context 里插入的 mention | 含义 |
-|---|---|---|
-| `EXACT` | `B` 本身 | mother 复现，transfer 的上界 |
-| `ALIAS` | `A`（`B` 串完全不出现） | **新条件** |
-| `SEMREL` | `C` = 同类型、非同指、与 `B` 语义最相关的实体名 | **决定生死的对照** |
-| `UNREL` | `D` = 同类型、与 `B` 低相关的实体名 | 一般 distractor 基线 |
-| `NOCTX` | 无 context | Δ 的基准 |
-
-度量（mother-faithful）：
+目标量沿用 mother 的 logit shift：
 
 ```text
-Δ_cond = log P(B | context_cond + query) − log P(B | query)
+Δ_cond = log P(B | context_cond + carrier/query)
+       - log P(B | no-context carrier/query)
 ```
 
-`B` 从来不是 query 的正确答案：query 是一条独立的、与 E 无关的 PopQA 问题，gold ≠ B。所以任何 Δ>0 都是 distraction，不是任务表现。
+### 已经观察到
 
-**关键判据一句话：`ALIAS > SEMREL` 必须先稳定出现。** 否则本题直接死成 semantic priming。
+三家族：
 
-## 5. 为什么 SEMREL 不是随便挑的
+- Llama-3.1-8B-Instruct
+- Qwen3-8B
+- Gemma-3-12B-IT
 
-这是本题唯一真正的杀点。因此：
+都出现很强 EXACT mother effect。
 
-1. `C` 由**模型外部**的 encoder（`BAAI/bge-large-en-v1.5`）在同类型实体池里选 **sim(C,B) 最大**的非同指实体——即最强可能的 semantic-priming 对照，而不是一个弱对照。
-2. 主分析同时报告一个 **similarity-matched 子集**：只保留 `sim(C,B) ≥ sim(A,B)` 的 item。在这个子集上 alias 的表面语义相似度**更低**，若仍然 `ALIAS > SEMREL`，semantic priming 无法解释。
-3. 主分析额外做回归 `Δ ~ sim(mention,B) + is_alias + n_tokens(mention) + (1|item)`：问 `is_alias` 是否在相似度的平滑函数之上仍有效应。
+更重要的是，`ALIAS - SEMREL` 在不同家族上约为 **+2.2 nats 量级**，说明一个从未出现过的 related surface form 确实可以被 context 中的另一个名字提升。
 
-## 6. 正字法分层（第二个杀点）
-
-`International Business Machines → IBM` 是**表面可推导**的（首字母）。如果 transfer 只出现在这类 pair 上，那它可能只是 acronym formation，仍然是 surface。因此每个 pair 打三种标签：
+在后来人工 audit-clean + `opaque_strict` 子集上，effect 仍约：
 
 ```text
-acronym   B 是 A 的首字母缩写（或反之）
-partial   共享至少一个完整词，但互不为子串
-opaque    无共享词、非缩写、无字符派生关系   ← money stratum
+Llama: +2.06 nats
+Qwen:  +1.31 nats
+Gemma: +2.25 nats
 ```
 
-`opaque` 层（`Bombay→Mumbai`、`Formosa→Taiwan`、`Lee Jun-fan→Bruce Lee`）必须单独成立。
+三者 CI 都排除 0。
 
-## 7. Capability gate（012 的教训）
+因此下面这个 behavioral reading 当前是可靠的：
 
-null 只有在模型确实知道 A 和 B 同指时才可解释。因此每个 ordered pair 先过一个**反平衡双内容选项** probe（012 r3 学到的形式，避免 yes/no 答案位置 artifact）：
+> **contextual entrainment can transfer across learned surface-form relations.**
+
+它不是一个 null 项目。
+
+---
+
+## 4. Phase 2 — shared upstream cause，但不是 entity proof
+
+我们用 EXACT condition 定位 mother-like entrainment heads，再做 ablation。
+
+结果：同一批 heads 的 ablation 同时减弱 EXACT 与 ALIAS transfer。
+
+这排除了一个很简单的解释：
 
 ```text
-Q: Which of the following is another name for Bombay?
-Options: (A) Mumbai  (B) Delhi
-A: (
+EXACT 走 entrainment heads
+ALIAS 完全走另一个独立 pathway
 ```
 
-两种选项顺序都必须答对，item 才进入主分析集合。另有一个自由生成的次级 readout（`Bombay is another name for the city of` → 目标是否在 top-5）。
+所以可以说 EXACT / ALIAS 至少共享一部分 upstream causal machinery。
 
-若某家族的 gated 分析集合 < 60 items，该家族判 `CAPABILITY-FLOOR`，其 alias 数字不解释。
+**但这不等于这些 heads 表示 entity identity。**
 
-## 8. Frozen 判据（运行前冻结，见 `configs/contract_r1.yaml`）
+当前正确措辞：
 
 ```text
-H1 复现   median Δ_EXACT ≥ +1.0 nats，且 >0 的 item 比例 ≥ 0.80，三家族都成立
-H2 必要   median(Δ_ALIAS − Δ_UNREL) > 0，bootstrap 95% CI 不含 0
-H3 决定   median(Δ_ALIAS − Δ_SEMREL) > 0，bootstrap 95% CI 不含 0
-            且在 similarity-matched 子集上同号
-            且在 opaque 层上同号
-            且回归中 is_alias 系数 > 0
-H4 一致   H3 在 ≥2 / 3 家族同号
-transfer  ratio = (Δ_ALIAS − Δ_SEMREL) / (Δ_EXACT − Δ_SEMREL) ≥ 0.15
+shared upstream cause
 ```
 
-**PROMOTE**（进入 phase 2 = entrainment-head ablation 是否专门消掉 alias-transfer 分量）当且仅当 H1–H4 与 transfer ratio 全部满足。
-
-**KILL** 条件：
-
-- H3 在任一形式上失败（尤其是 similarity-matched 子集或 opaque 层翻号）；
-- transfer 只在 `acronym` 层存在；
-- H1 都不成立（说明 harness 没测到 mother phenomenon，是实现问题，先修 harness 而不是解释结果）。
-
-禁止的续命：换 frame、换 carrier、换模型直到显著、把 SEMREL 换成更弱的对照、把 gate 放宽。
-
-## 9. D0 数据
-
-- **来源**：[PopQA](https://huggingface.co/datasets/akariasai/PopQA)（Izacard/Asai et al., 2023），本地缓存，14,267 条，自带 Wikidata URI、`s_aliases`/`o_aliases`（Wikidata CC0）与 Wikipedia 月浏览量 popularity。
-- **alias pair**：由 PopQA 自带的 Wikidata alias 字段生成，经 ASCII / 长度 / 互不为子串 / 非纯标点变体过滤。
-- **entity type**：由实体在 PopQA 中承担的关系角色推断（`person` / `city` / `country`）。
-- **carrier query**：同样取自 PopQA 的自然问题，类型匹配（person→`director`，city→`capital`，country→`country`），gold ≠ B，且 carrier 实体与 E 无重叠。
-- **人工审计**：随机 20 条，按仓库 D0 规则记录 ID 与结论。
-
-没有任何 synthetic 语料；插入 frame 是两条固定的语义漂白句，是最小因果对照，不承担 naturalness 或 effect size。
-
-## 10. 如果 phase 1 通过，phase 2 是什么
-
-只有此时才动 MI，而且是**解释一个已经发现的新行为**，不是靠 MI 造题：
-
-用 mother 的 differentiable-masking 方法定位 entrainment heads（在 `EXACT` 条件上），然后问：
+而不是：
 
 ```text
-把这批 head 置零，是否**选择性地**消掉 alias-transfer 分量
-（Δ_ALIAS − Δ_SEMREL），而不是等比例地压掉所有条件？
+shared entity representation
 ```
 
-- 若 alias 分量与 exact 分量被同一批 head 同等地消掉 → 机制 B：entrainment 作用在一个已经 canonicalize 的实体表征上。
-- 若 head ablation 只消 exact 分量、alias 分量存活 → 机制 C：alias 效应走另一条通路，本题变成 "两种 entrainment"。
-- 若 alias 分量本来就不存在 → phase 1 已 KILL，不进入这里。
+---
 
-## 11. Collision 边界（2026-08-29 复检）
+## 5. Phase 3 — direct write 更像 lexical / seen-form
 
-| 邻居 | 它占了什么 | 为什么没占本题 |
-|---|---|---|
-| Llama See, Llama Do (ACL 2025) | token 级 reappearance + entrainment heads | 打分目标必须出现过 |
-| Sentence-Level Entrainment (2026) | 整句 reappearance，26 模型 | 明确要求 y 是 context 的精确串/子串 |
-| Better and Worse with Scale (2026) | entrainment 的规模符号分裂 | 仍是 exact token 匹配 |
-| Semantic priming in LMs (Misra 2020; Michaelov 2021/2024) | 相关词提升目标概率 | 这正是我们的 SEMREL 对照，不是我们的 claim；本题问的是同指是否在相似度之上还有额外分量 |
-| Entity linking / coreference with LLMs | 符号层别名归一化 | 与 next-token distraction 的因果单位无关 |
+DLA / direct-write 分析给了一个很重要的反证：
 
-允许的最强 claim（若 phase 1 通过）只能是：
+- entrainment heads 对 EXACT seen target 的 direct write 很强；
+- 对 unseen alias 的 direct write 在严格子集上基本为 null；
+- alias DLA 随 orthographic overlap 增强。
 
-> Contextual entrainment transfers to canonical aliases that never appeared in the prompt, beyond what similarity-matched semantic priming predicts; the causal unit is therefore at least partly entity-level rather than purely lexical.
+所以目前更合理的 picture 是：
 
-不得声称首次发现 entrainment、首次发现 semantic priming、或首次发现 LLM 会被无关上下文干扰。
+```text
+这些 heads 的直接输出偏 lexical / seen-form
+但它们参与了一个更上游/更共享的过程，使 learned relation 的另一 surface 也受到影响
+```
+
+这进一步阻止我们把故事直接写成“entity neuron/head”。
+
+---
+
+## 6. 150-pair audit 暴露的 construct 问题
+
+后来的完整 alias audit 是项目转折点。
+
+旧 alias bank 中：
+
+```text
+compositional relations: ~39%
+genuine conventional coreference: ~33%
+outright non-coreferent: ~5%
+```
+
+也就是说，旧的 `opaque_strict` 只保证**正字法不透明**，并不保证是“两个名字真正指同一个实体”的 hard identity pair。
+
+例子里可能混入：
+
+- stage name / real name；
+- title / person；
+- geographic nickname；
+- loose learned association；
+- 甚至错误 pair。
+
+因此旧 D0 证明的是：
+
+```text
+cross-surface learned-relation transfer
+```
+
+而不是：
+
+```text
+reference identity specifically causes transfer
+```
+
+---
+
+## 7. UNREL bug
+
+旧 UNREL builder 也发现了真实实现 bug：所谓 `UNREL` 并不是按最低 semantic similarity 正确选出的控制。
+
+因此：
+
+- 旧 UNREL-based conclusions 作废；
+- 不能再用 `ALIAS > UNREL` 证明 anything strong；
+- 当前 primary construct question 必须依赖新的 `ASSOC` control，而不是修补旧 UNREL。
+
+这是 provenance，不允许从历史结果里删掉。
+
+---
+
+## 8. 为什么 `ALIAS > SEMREL` 仍不足以证明 entity identity
+
+这是当前最核心的 conceptual point。
+
+假设：
+
+```text
+A = International Business Machines
+B = IBM
+```
+
+如果模型训练中反复学到 A 和 B 强关联，那么即使它没有一个真正共享的“entity identity state”，A 也完全可能通过 learned pair association 提升 B。
+
+而一个普通 `SEMREL`：
+
+```text
+C = Microsoft
+```
+
+与 B 的关系结构并不匹配 A-B。
+
+所以：
+
+```text
+ALIAS > SEMREL
+```
+
+最多说明 **A-B 特殊 learned relation 超过普通 semantic relatedness**。
+
+它不能区分：
+
+```text
+H_entity: A 和 B 因共同 referent transfer
+H_assoc:  A 和 B 因强 pair-specific learned association transfer
+```
+
+knowledge gate 也不能区分，因为两种 hypothesis 都预测“模型没学过 A-B 时 transfer 小”。
+
+---
+
+## 9. 当前真正的 D1：ALIAS vs ASSOC
+
+所以 r4 的核心不是再找更漂亮的 alias，而是建立匹配控制：
+
+```text
+ALIAS:
+A 与 B 真正 corefer / hard identity
+
+ASSOC_ANY:
+C 与 B 强关联、训练语料里高 co-occurrence
+但 C 与 B 明确不是同一个 referent
+```
+
+决定性问题：
+
+```text
+Q1 broad:
+ALIAS > ASSOC_ANY ?
+
+Q2 hard reference-specific:
+在 hard-identity + opaque_strict stratum 中
+ALIAS > ASSOC_ANY ?
+```
+
+如果 Q1 有但 Q2 不稳定，合理结论是：
+
+```text
+CROSS-SURFACE-BUT-NOT-REFERENCE-SPECIFIC
+```
+
+而不是继续筛到只剩 20 个“最漂亮” entity pair。
+
+---
+
+## 10. r4 scientific population
+
+Canonical contract：[`configs/contract_d1_r4.yaml`](configs/contract_d1_r4.yaml)
+
+当前 scope 原则：
+
+- RedirectQA broad surface-form population；
+- all entity types；
+- both valid directions；
+- multiple aliases per entity；
+- surface relation / type / direction / capability 都是 factor/stratum，不是 construction filter；
+- primary control = `ASSOC_ANY`；
+- sensitivity control = `ASSOC_SAMETYPE`；
+- Wikipedia 20231101.en sentence co-occurrence 用来量化 association；
+- Q2 preregistered capability floor：每家族至少 60 unique subject IDs。
+
+最重要的是：**不能再为了让 Q2 成立一路加过滤条件。**
+
+---
+
+## 11. 下一次模型调用前必须完成
+
+当前 registry 明确：**new D1 model call = false**。
+
+先做：
+
+```text
+1. materialize broad r4 raw bank
+2. materialize matched ASSOC_ANY bank
+3. source-population audit
+4. ASSOC/control audit
+5. scope/attrition summary
+6. 随机 source rows / ASSOC matches / high-attrition strata 人工抽查
+7. 检查 Q2 hard-identity stratum 是否天然达到 60 unique subjects/family 的 source feasibility
+8. freeze + record new dataset SHA
+```
+
+如果第 7 步做不到：
+
+> **drop entity/reference-specific claim。**
+
+不允许：
+
+- 再限定 person-only；
+- 只留某一种 alias type；
+- 只留某个 direction；
+- 只留模型容易认识的 tiny money subset；
+- 用 phase-4 mechanism story 救 construct。
+
+---
+
+## 12. 当前 novelty
+
+Mother ACL 2025 的核心是 **exact token contextual entrainment**。
+
+当前项目已可靠扩展出的事实是：
+
+> **entrainment is not strictly confined to exact strings that appeared in context; it can transfer to unseen but learned-related surface forms.**
+
+但 paper-level novelty 还取决于 r4 最终回答哪一个：
+
+### Outcome A — reference-specific survives
+
+如果 hard identity `ALIAS > ASSOC_ANY`：
+
+> surface repetition 之外还存在对 shared referent 特别敏感的 transfer component。
+
+这是最强故事。
+
+### Outcome B — only broad learned relation survives
+
+如果 ALIAS 与 matched ASSOC 差不多：
+
+> mother 的 lexical entrainment 可以沿 learned relations spill over，但没有证据说明 referential identity 是特殊 causal unit。
+
+这仍然可能是一个很有价值的 negative boundary paper，尤其结合 phase 2/3：shared upstream machinery + lexical direct write。
+
+---
+
+## 13. 后续 mechanism 只在 construct 闭合后做
+
+如果 r4 支持 reference-specific component，再问：
+
+```text
+A. entity state 在哪一层形成？
+B. entrainment heads 是读 entity state，还是只做 lexical amplification？
+C. unseen alias transfer 通过哪条 path 落到 target token？
+```
+
+如果 r4 不支持 entity-specific，则 mechanism 改成：
+
+```text
+learned association 如何通过 shared upstream cause 调制 lexical entrainment？
+```
+
+不能继续沿旧“entity salience circuit”叙事硬走。
+
+---
+
+## 14. 当前结论
+
+最短版本：
+
+```text
+YES: cross-surface transfer is real.
+YES: exact and alias transfer share upstream causal machinery.
+YES: entrainment heads' direct write is mainly lexical/seen-form.
+NO: current evidence does not establish entity/reference-specific salience.
+NEXT: r4 ALIAS vs ASSOC construct validation, data-first.
+```
+
+该项目已经过了“现象有没有”的阶段；现在成败只取决于我们能否用**不缩 scope 的 hard association control**回答 reference identity 是否真的特殊。
