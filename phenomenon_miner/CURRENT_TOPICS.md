@@ -1,13 +1,19 @@
 # Current Topics
 
-日期：2026-08-30  
-状态：`AUTHORITATIVE FOCUS QUEUE / NATURAL-QUESTION RESET`
+日期：2026-08-31  
+状态：`AUTHORITATIVE FOCUS QUEUE / HAMDI-STYLE MOTHER-INCLUSION N0`
 
-Top-6 第一轮实跑和独立审查已经完成。结果不是简单的“运气不好”：015/016/017/019 暴露出此前找题流程过度奖励“可构造的 factorial experiment”，而没有把“科学问题本身是否自然、是否高概率存在”放在最前面。
+仓库已经停止“从可构造数据反推题目”的路线。所有新题先过 [`NATURAL_QUESTION_GATE.md`](NATURAL_QUESTION_GATE.md)，再做 **mother-inclusion N0**：strongest neighbor 是否已经覆盖同一个 title-level object、decisive contrast 和大部分 mechanism/intervention story。
 
-新的 pre-discovery gate：[`NATURAL_QUESTION_GATE.md`](NATURAL_QUESTION_GATE.md)。
+2026-08-31 三条 Hamdi-style 邻接轴审计结果：
 
-从现在开始，**当前资源只集中到 014 和 018。** 020–023 暂停 screening，必须先按 Natural-Question Gate 重新审计，不能因为之前已经注册就继续消耗模型调用。
+```text
+#1 descriptive human model vs normative policy under alignment -> PASS, sharpened
+#2 superseded truth vs never-true falsehood                  -> KILL, direct collision
+#3 actual-world truth vs local-world truth                   -> PASS, sharpened
+```
+
+完整 N0：[`HAMDI_AXIS_N0_2026-08-31.md`](HAMDI_AXIS_N0_2026-08-31.md)。
 
 ---
 
@@ -17,29 +23,17 @@ Top-6 第一轮实跑和独立审查已经完成。结果不是简单的“运�
 
 **Status:** `ESTABLISHED / PAPER-DEVELOPMENT PRIORITY`
 
-自然问题：
+Broad cross-surface learned-relation spillover 已成立；reference-specific/entity-salience interpretation 不成立。继续围绕：
 
-> 一个 surface form 刚刚被看见后会被 contextual entrainment；那这种 salience 会不会自然扩散到同一对象或强 learned relation 的另一个 surface form？
+```text
+cross-surface spillover
+→ structural gradient
+→ shared upstream cause
+→ lexical direct-write boundary
+→ opaque-strict reference boundary
+```
 
-为什么保留：
-
-- mother phenomenon 已成立，不需要赌“entrainment 存不存在”；
-- broad cross-surface spillover 已被三家族、双 frame、双方向稳定验证；
-- `ASSOC_ANY` 控制说明 broad effect 不只是随便一个强关联 pair；
-- r4 已把 scope narrowing、zero-joint association、casefold collision、circular identity foil 等 construct 风险逐项修正并全量重跑；
-- negative boundary 也清楚：真正 `opaque_strict` reference-specific Q2 不成立。
-
-允许的 paper-level claim：
-
-> **Contextual entrainment spills across learned/derivable surface-form relations, with a strong lexical/derivational gradient and a clear boundary before reference-specific identity.**
-
-下一步只做论文发展，不再做 reference-positive subset rescue：
-
-1. 冻结 paper thesis；
-2. 把 phase 1 / r4 broad behavior、phase 2 shared upstream cause、phase 3 lexical direct-write、r4 structure gradient 串成单一因果叙事；
-3. 明确把 `opaque_strict≈0` 写成 boundary finding，而不是失败结果；
-4. 做必要但不改变 claim 的 figure/table consolidation 和 robustness packaging；
-5. 不新增 person-only / F2-only / direction-only / alias-subtype rescue。
+不再做 reference-positive subset rescue。
 
 ---
 
@@ -47,95 +41,136 @@ Top-6 第一轮实跑和独立审查已经完成。结果不是简单的“运�
 
 目录：[`../active/018_stock_flow_correlation_intrusion/`](../active/018_stock_flow_correlation_intrusion/)
 
-**Status:** `PRIMARY REDESIGN PROJECT / SCIENTIFIC STATUS UNKNOWN`
+**Status:** `PRIMARY REDESIGN / SCIENTIFIC STATUS UNKNOWN`
+
+自然问题和 ResOpsUS population 保留。D0-v1 只是 A/B recognition instrument 失败，不是 scientific null。
+
+下一步唯一合法动作：冻结 semantic `positive/negative` 或 deterministic numeric-sign recognition，保持原 600 windows、四个 semantic cells、reservoir clustering 和 explicit-correct-net control。
+
+---
+
+## Priority 3 — 024 Alignment: Descriptive Social Model vs Normative Readout
+
+目录：[`../active/024_alignment_descriptive_normative_arbitration/`](../active/024_alignment_descriptive_normative_arbitration/)
+
+**Status:** `N0-PASS / ACTIVE-PREFLIGHT / NO MODEL CALL YET`
 
 自然问题：
 
-> 如果模型已经正确理解或算出 net flow，为什么下游判断 stock 涨跌时仍可能被更显眼的 inflow 走势带跑？
+> Alignment 让模型更像在回答“人应该怎么做”而不是“人实际上会怎么做”时，究竟是 descriptive human model 被改坏/擦掉了，还是 descriptive knowledge 仍在，而 normative signal 或 late readout 赢了？
 
-为什么保留：
+### N0 边界
 
-- stock-flow confusion 是独立于任何 LLM benchmark 的自然 cognitive object；
-- `stock(t+1)=stock(t)+inflow-outflow` 有 deterministic external semantics；
-- ResOpsUS 的 600-window / 200-reservoir / full 2×2 bank 是自然数据，不是为了造 effect 写出来的 synthetic puzzle；
-- D0 v1 的失败来自 A/B option-position recognition instrument，而不是 scientific null；
-- 修 measurement 时不需要换问题、不需要换 population，也不需要删不利 cell。
+已经有人做掉：
 
-### D0 v2 唯一允许的改动
+- descriptive + prescriptive components coexist in model sampling（ACL 2025）；
+- RLHF / instruction tuning 增强 prescriptive influence（ACL 2025）；
+- alignment makes behavior more normative than descriptive（2026 mother）；
+- internal social/opinion knowledge can exceed output behavior（ICLR 2026）。
 
-替换 net-recognition measurement：
-
-- semantic continuation：直接比较 `positive` vs `negative`；或
-- numeric computation：让模型输出 cumulative inflow minus cumulative outflow，再 deterministic parse sign。
-
-必须保持：
-
-- 原 600 natural windows；
-- `net direction × inflow trend` 四个 cell；
-- reservoir clustering；
-- explicit-correct-net downstream control；
-- table/text 主呈现；
-- 不允许 positive-net-only subset。
-
-D0 v2 冻结后再恢复模型调用。
-
----
-
-## Suspended — 020–023
-
-以下项目**不判死，但停止排队**：
-
-- `020 Incremental Clue Backfire`
-- `021 Task-Switch Carryover`
-- `022 Local Success, Global Composition Failure`
-- `023 Description–Experience Gap`
-
-原因不是实验结果，而是它们来自上一版 topic-generation process。必须先逐题通过：
+我们的独立 object 只能是：
 
 ```text
-P0 natural question
-P1 existence prior
-P2 five-minute / ten-example sanity
-P3 dataset-is-instrument test
-P4 restriction budget
-P5 natural mechanism unfolding
+paired base -> aligned transformation
+× descriptive human-behavior target
+× normative target
+→ degradation vs dual retention vs late arbitration
 ```
 
-任何一题如果需要先解释复杂 benchmark construction 才显得有意思，或者 phenomenon 本身高度依赖特殊 denominator，直接移出，不再因为“代码已经写了一点”而继续。
-
-在 re-audit 完成前：
-
-```yaml
-020_screening: false
-021_screening: false
-022_screening: false
-023_screening: false
-```
+下一步不是 probe。先审 public source 和可访问 open base/aligned pair，冻结一个最小 mother-reproduction contract。
 
 ---
 
-## Archived from completed Top-6
+## Priority 4 — 025 World-Indexed Truth
 
-- `015 Clarification Resolution Lag` — matched neutral history explains apparent lag.
-- `016 Mixed-Status Event Attraction` — same-status context explains mixed-context shift.
-- `017 Cross-Modal Resolution Inertia` — strongest effect does not require prior interpretation identity.
-- `019 Abstention Hysteresis` — strong reverse effect; neutral incomplete→complete history explains recovery.
+目录：[`../active/025_world_indexed_truth/`](../active/025_world_indexed_truth/)
 
-完整审查：[`TOP6_RESULT_REVIEW_2026-08-30.md`](TOP6_RESULT_REVIEW_2026-08-30.md)。
+**Status:** `N0-PASS / ACTIVE-PREFLIGHT / NO MODEL CALL YET`
+
+自然问题：
+
+> 同一个 proposition 可以在现实世界为假、在一个明确 stipulate 的故事/假设世界里为真。模型内部的 truth 是 proposition 的单一属性，还是 `Truth(P, world)` 这种带 world index 的关系？
+
+### N0 边界
+
+已经有人做掉：
+
+- context transforms truth-vector geometry（ACL 2026）；
+- fictional/empirical/logical/etc truth directions and truth spectrum（2026）；
+- character belief tracking and binding（ICLR 2026）；
+- generic context-vs-parametric knowledge conflict。
+
+我们的独立 object 必须坚持：
+
+```text
+SAME proposition
+SAME local-world context
+actual-world query vs local-world query
+both valuations simultaneously legitimate
+```
+
+退化成 `fictional truth direction`、`context wins memory` 或 ToM belief 就 ROUTE/KILL。
+
+下一步冻结极简 2×2 world-index capability/data contract，先证明至少一个 open model 能稳定切 actual/local query，再允许 MI。
+
+---
+
+## HOLD — 003 Diagnostic Counterevidence Revision
+
+目录：[`../active/003_diagnostic_counterevidence_revision/`](../active/003_diagnostic_counterevidence_revision/)
+
+MedEinst 已经建立自然 fixation failure；问题本身仍符合新 gate。保留 provenance/pre-candidate，但当前无调用授权，不与 014/018/024/025 抢资源。
+
+---
+
+## HOLD-DATA — 013 Publicness–Coordination Dissociation
+
+目录：[`../active/013_publicness_coordination_dissociation/`](../active/013_publicness_coordination_dissociation/)
+
+common knowledge / publicness 是自然 scientific object，N0 不因数据困难失效。但当前找不到足够独立 natural scenarios；禁止为了跑实验 synthetic 扩 bank。
+
+---
+
+## HOLD-N0-REAUDIT — 023 Description–Experience Gap
+
+目录：[`../active/023_description_experience_gap/`](../active/023_description_experience_gap/)
+
+它没有和 020–022 一起归档，因为 description–experience gap 本身是外部长期自然现象，且已有 LLM mother 证明行为差异。是否有独立 MI narrative 仍需单独 mother-inclusion N0；在那之前无 model call。
+
+---
+
+## Newly archived on 2026-08-31
+
+- `archive/007_weak_evidence_backfire` — terminal hard kill，纠正 stale active provenance。
+- `archive/020_incremental_clue_backfire` — 被 `candidate_topics` Topic 28 Progressive Truthful Clue Reversal 完整内部吞并。
+- `archive/021_task_switch_carryover` — mother 已有 task-switch interference；current refinement 只是 diagnostic signature / mechanism-shaped subproblem。
+- `archive/022_local_success_global_composition_failure` — core object 已是 known compositionality gap；当前 stronger condition 不是新母问题。
+
+---
+
+## New direct novelty kill
+
+**Superseded Truth ≠ Never-True Falsehood**：不注册。
+
+*The Geometry of Forgetting: Temporal Knowledge Drift as an Independent Axis in LLM Representations* (2026) 已覆盖 temporal-validity independent axis、stale-recall vs confabulation、cross-cutoff、MLP dynamics 和 causal steering。它同时也落入仓库 broad history/current-state / state-update family，没有独立 narrative。
+
+记录：[`../rejected_candidates/temporal_validity_superseded_vs_never_true.md`](../rejected_candidates/temporal_validity_superseded_vs_never_true.md)。
 
 ---
 
 ## Current allocation
 
 ```text
-paper development: 014
-behavioral redesign: 018
-new-topic screening: PAUSED
-020–023: SUSPENDED-PENDING-NATURALNESS-REAUDIT
+014 -> paper development
+018 -> freeze bounded D0-v2 measurement repair
+024 -> source audit + open-model mother reproduction contract
+025 -> minimal world-indexed capability/data contract
+003/013/023 -> HOLD, no calls
+new candidate registration -> only after Natural-Question Gate + mother-inclusion N0
 ```
 
 ---
 
 ## One-line discipline
 
-> **先问一个普通人一听就想知道答案的自然问题，再找数据测它；绝不再从“这个数据集能拼出什么 contrast”反推 scientific question。**
+> **强 mother 不是让我们做一个更细 benchmark cell；它应该给出一个已经值得研究的 scientific object，我们只沿着它自然留下的概念轴、边界或内部含义再走一步。**
