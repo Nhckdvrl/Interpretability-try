@@ -14,6 +14,12 @@ are written to runtime metadata. A family is the statistical replication unit;
 the 3,483 primary human decisions are not treated as independent model
 replications.
 
+The official Meta Llama base repository returned HTTP 403 during the access
+check, before any Llama forward pass. The Llama entry was therefore amended to
+the public Unsloth mirrors of the same Llama 3.2 3B base and instruct releases.
+Both sides use the same mirror provider; no model output informed this access
+amendment.
+
 The primary comparison follows the mother paper's native-format design: plain
 structured completion for a base checkpoint and the provider chat template for
 its aligned counterpart. The shared-plain comparison is frozen as a format
