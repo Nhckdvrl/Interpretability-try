@@ -1,7 +1,7 @@
 # 026 — Plausibility Is Not Testability
 
 **Working title:** *Plausibility Is Not Testability: How Language Models Factorize Scientific Feasibility*
-**Status:** `NATURAL-QUESTION PASS / N0 PASS / N1 PASS / ACTIVE-PREFLIGHT / NO MODEL CALL YET`
+**Status:** `N0+N1 PASS / PARK-DATA / NO MODEL CALL`
 **Created:** 2026-08-31
 
 ## 1. 一句话问题
@@ -260,3 +260,17 @@ intervene testability state
 ```
 
 **Current model-call authorization: FALSE.**
+
+## Preflight outcome (2026-08-31)
+
+The source gate failed without a model call. MOF and SFBench expose composite
+feasibility, not independent P/T gold. The NAACL materials artifact contains
+both named ratings for only 24 rows, but all are produced by o1-preview. A small
+clinical expert study includes testability in a long instrument, but does not
+release a broad reliable two-axis corpus and did not retain testability in its
+brief validated instrument.
+
+Therefore the project is `PARK-DATA` under its original anti-narrowing rule.
+We do not replace expert labels with our own/LLM judgments and do not shrink to
+a materials-only classifier. Full evidence and unlock criteria:
+[`SOURCE_AUDIT.md`](SOURCE_AUDIT.md).

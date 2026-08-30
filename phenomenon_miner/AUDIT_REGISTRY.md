@@ -13,7 +13,7 @@
 | `active/018_stock_flow_correlation_intrusion` | **false until D0-v2 contract frozen** | false | **REDESIGN / scientific status unknown** |
 | `active/024_alignment_descriptive_normative_arbitration` | false | false | **HOLD-INCONCLUSIVE-D0** |
 | `active/025_world_indexed_truth` | **false; both frozen behavior runs complete** | false | **HOLD_PREREQUISITE_CAPABILITY / NO-MI** |
-| `active/026_scientific_plausibility_testability_factorization` | **false until source/target support audit frozen** | false | **N0+N1 PASS / ACTIVE-PREFLIGHT** |
+| `active/026_scientific_plausibility_testability_factorization` | false | false | **PARK-DATA / independent P/T gold absent** |
 | `active/027_rhetorical_force_implied_assertion` | **false until RQ force/content source audit frozen** | false | **N0+N1 PASS / ACTIVE-PREFLIGHT** |
 | `active/028_causality_responsibility_factorization` | **false until FrECI matched-support audit frozen** | false | **N0+N1 PASS / ACTIVE-PREFLIGHT** |
 | `active/003_diagnostic_counterevidence_revision` | false | false | **HOLD / legacy pre-candidate** |
@@ -125,6 +125,12 @@ anti_narrowing_stop: required
 ```
 
 If only one materials-specific rubric can support the story, PARK-DATA rather than narrowing the title.
+
+Frozen source audit result: `PARK-DATA`. MOF/SFBench provide composite
+feasibility only; the sole artifact with separate named P/T ratings has 24
+materials rows evaluated by o1-preview; the clinical instrument does not yield
+a broad reliable public two-axis corpus. No behavior or MI call is authorized.
+See `active/026_scientific_plausibility_testability_factorization/SOURCE_AUDIT.md`.
 
 ---
 

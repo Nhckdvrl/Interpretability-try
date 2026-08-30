@@ -17,7 +17,7 @@
 | [`018_stock_flow_correlation_intrusion`](018_stock_flow_correlation_intrusion/) | **SCIENTIFIC STATUS UNKNOWN / D0-v1 MEASUREMENT FAILURE** | 只修 net-recognition instrument，保持原自然 population |
 | [`024_alignment_descriptive_normative_arbitration`](024_alignment_descriptive_normative_arbitration/) | **HOLD-INCONCLUSIVE-D0** | 2/4 native family passes; no mechanism calls |
 | [`025_world_indexed_truth`](025_world_indexed_truth/) | **HOLD_PREREQUISITE_CAPABILITY / NO-MI** | conflict-only success fails aligned world-index controls |
-| [`026_scientific_plausibility_testability_factorization`](026_scientific_plausibility_testability_factorization/) | **N0+N1 PASS / ACTIVE-PREFLIGHT** | audit natural hypotheses with independent plausibility/testability targets |
+| [`026_scientific_plausibility_testability_factorization`](026_scientific_plausibility_testability_factorization/) | **PARK-DATA / NO CALL** | independent expert-grounded P/T cross-axis gold absent |
 | [`027_rhetorical_force_implied_assertion`](027_rhetorical_force_implied_assertion/) | **N0+N1 PASS / ACTIVE-PREFLIGHT** | audit SRAQ + IAT/AIF/QT30 implied-proposition support |
 | [`028_causality_responsibility_factorization`](028_causality_responsibility_factorization/) | **N0+N1 PASS / ACTIVE-PREFLIGHT** | audit FrECI matched event-causal-core / differing-frame support |
 
@@ -102,7 +102,7 @@ ACL 2026 FrECI 已把 causal relation、responsibility target、evaluative frami
 018 -> freeze D0-v2 measurement repair
 024 -> HOLD-INCONCLUSIVE-D0; no further calls
 025 -> active capability preflight
-026/027/028 -> N0+N1 passed; source/schema/data preflight only
+026 -> PARK-DATA; 027/028 -> source/schema/data preflight only
 003/013/023 -> HOLD
 fresh MI on 024-028 -> forbidden until each behavior/data contract passes
 ```

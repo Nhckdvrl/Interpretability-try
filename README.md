@@ -52,6 +52,9 @@ Mother：ACL 2026 scientific feasibility + NAACL scientific-hypothesis evaluatio
 
 详细合同：[`active/026_scientific_plausibility_testability_factorization/`](active/026_scientific_plausibility_testability_factorization/)
 
+Source preflight: `PARK-DATA`。当前公开 artifact 没有 broad、independent、
+expert-grounded P/T 双 gold；不使用 o1-preview ratings 替代专家标注。
+
 ### 027 Questions That Assert
 
 > **识别“这是 rhetorical question”和理解“speaker 借它实际上断言了什么 proposition/stance”是否是两个 computation？**

@@ -70,11 +70,11 @@ native median delta-r 为 +.070，因此 HOLD 而非 hard kill。禁止继续 D0
 
 ---
 
-## Priority 5 — 026 Plausibility Is Not Testability
+## PARK-DATA — 026 Plausibility Is Not Testability
 
 [`../active/026_scientific_plausibility_testability_factorization/`](../active/026_scientific_plausibility_testability_factorization/)
 
-**N0+N1 PASS / ACTIVE-PREFLIGHT / NO CALL**
+**N0+N1 PASS / PARK-DATA / NO CALL**
 
 自然问题：
 
@@ -85,6 +85,11 @@ Mother：ACL 2026 *Experiments or Outcomes?* 已把 scientific feasibility 定�
 N1 没找到直接做 causal internal P/T factorization 的工作。
 
 Anti-narrowing：如果最终只能靠某一个 materials rubric 才有题，`PARK-DATA`，不写成 broad science-reasoning paper。
+
+Source audit 已触发该 stop：MOF/SFBench 只有 composite feasibility；唯一同时
+出现 P/T ratings 的 24-row materials artifact 由 o1-preview 评分；clinical
+instrument 不能提供 broad reliable public two-axis gold。等待独立 SME P/T
+annotations，不自行/用 LLM 补标签。
 
 ---
 
@@ -158,7 +163,7 @@ Llama-only rescue 或继续缩成 output-format 题。
 018 -> bounded D0-v2 measurement repair
 024 -> HOLD-INCONCLUSIVE-D0; no further calls
 025 -> active capability preflight from previous N0
-026/027/028 -> N0+N1 passed; source/schema/data preflight only
+026 -> PARK-DATA; 027/028 -> source/schema/data preflight only
 003/013/023 -> HOLD
 fresh hidden-state/causal MI on 024-028 -> forbidden until project-specific source + behavior/capability contract passes
 ```
