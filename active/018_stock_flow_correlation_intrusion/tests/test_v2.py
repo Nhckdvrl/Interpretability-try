@@ -3,7 +3,7 @@ from pathlib import Path
 
 from stock_flow_intrusion.analyze_v2 import aggregate_v2
 from stock_flow_intrusion.prompts import net_semantic_messages, stock_messages_v2
-from stock_flow_intrusion.run_model_v2 import single_token_candidates
+from stock_flow_intrusion.run_model_v2 import render_ids, single_token_candidates
 
 
 ITEM = {
@@ -58,6 +58,15 @@ def test_single_token_candidates_reject_multitoken_values():
         assert "not one token" in str(error)
     else:
         raise AssertionError("multi-token candidate was accepted")
+
+
+def test_render_ids_accepts_batch_encoding_style_mapping():
+    class Tokenizer:
+        @staticmethod
+        def apply_chat_template(messages, **kwargs):
+            return {"input_ids": [10, 11, 12], "attention_mask": [1, 1, 1]}
+
+    assert render_ids(Tokenizer(), [{"role": "user", "content": "x"}], "gemma") == [10, 11, 12]
 
 
 def test_semantic_gate_averages_column_orders_instead_of_requiring_both():

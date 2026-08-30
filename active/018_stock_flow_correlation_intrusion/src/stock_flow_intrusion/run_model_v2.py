@@ -6,6 +6,7 @@ import json
 import platform
 import time
 from collections import defaultdict
+from collections.abc import Mapping
 from pathlib import Path
 
 from .io import read_jsonl, sha256
@@ -23,6 +24,10 @@ def render_ids(tokenizer, messages: list[dict], model_name: str) -> list[int]:
     if "qwen" in model_name.casefold():
         kwargs["enable_thinking"] = False
     ids = tokenizer.apply_chat_template(messages, **kwargs)
+    if isinstance(ids, Mapping):
+        ids = ids["input_ids"]
+    if hasattr(ids, "tolist"):
+        ids = ids.tolist()
     if ids and isinstance(ids[0], list):
         raise ValueError("expected one unbatched chat template")
     return list(ids)
