@@ -1,256 +1,122 @@
 # Current Topics
 
 日期：2026-08-30  
-状态：`AUTHORITATIVE TOP-10 / ACTIVE D0 SCREENING QUEUE`
+状态：`AUTHORITATIVE POST-TOP6 QUEUE`
 
-当前 owner 决策：**不再只保留 2 个 off-the-shelf D0。现在 Top-10 全部注册进 `active/`，依次实际跑 cheap behavioral D0。**
+Top-10 的前六个项目已经完成第一轮实跑并做了独立 post-run audit。完整审查：[`TOP6_RESULT_REVIEW_2026-08-30.md`](TOP6_RESULT_REVIEW_2026-08-30.md)。
 
-这里的目标不是一上来就证明 paper，而是尽快用低成本、尽量程序化的数据把现象跑死或跑活。
-
----
-
-## 1. 新的筛选原则
-
-优先级现在同时看四件事：
-
-```text
-1. scientific question 一听就懂，不靠 hidden-state jargon 才成立
-2. D0 尽量不需要我们人工打新标签
-3. gold 来自 source dataset / deterministic rule / executable oracle
-4. 行为一旦成立，后面有清楚的 mechanistic fork
-```
-
-**数据构造可以程序化，但不能为了容易构造就把题变成纯 synthetic puzzle。**
-
-人工允许做的是随机 source audit，检查 builder 没写歪；不允许人工逐条决定主 gold。
+现在不再把“跑过但失败的项目”继续列在当前 queue 中，也不把所有 `NO-PROMOTE` 机械视为 scientific null。
 
 ---
 
-## 2. Current Top-10
+## A. 已经成立、值得进入论文整理
 
-### #1 — Clarification Resolution Lag
-
-目录：[`../active/015_clarification_resolution_lag/`](../active/015_clarification_resolution_lag/)
-
-> 用户已经把歧义解释清楚了，模型会不会还停留在旧的 ambiguous state？
-
-Primary data: CondAmbigQA-2K；secondary: PRACTIQ。
-
-真正 novelty 不是“condition helps”，而是：**最终 condition/evidence 相同，只因为之前经历过 ambiguity history，最终 answer 仍更差或被旧 interpretation 吸引。**
-
-数据难度：**低**。
-
----
-
-### #2 — Mixed-Status Event Attraction
-
-目录：[`../active/016_mixed_status_event_attraction/`](../active/016_mixed_status_event_attraction/)
-
-> 两个 event 单独 factuality 都能判断，放进同一真实 discourse 后会不会互相带偏？
-
-Primary data: MAVEN-FACT，112k+ source-annotated event factuality mentions。
-
-现有 builder：`../preflight/d0_mixed_status_event_attraction/build_from_maven_fact.py`。
-
-必须看到 toward-neighbor-status 的 directional error，而不是普通 context-length accuracy drop。
-
-数据难度：**低**。
-
----
-
-### #3 — Alias Entrainment Transfer
+### 014 — Alias Entrainment Transfer
 
 目录：[`../active/014_alias_entrainment_transfer/`](../active/014_alias_entrainment_transfer/)
 
-> 看见一个实体名字，会不会连没出现过的另一个 alias 也被 entrain？
+**Verdict:** `ESTABLISHED / CROSS-SURFACE-BUT-NOT-REFERENCE-SPECIFIC`
 
-Broad cross-surface phenotype 已经成立；当前问题是它究竟是 entity/reference identity，还是 learned pair association。
+已经站住的是：
 
-下一步不是重新 D0，而是 r4 RedirectQA + `ASSOC_ANY` construct validation。
+> contextual entrainment / salience 会沿 learned or derivable surface-form relations 外溢；这种 spillover 明显超出强关联但不同 referent 的 `ASSOC_ANY` control，并在三家族、双 frame、双方向上稳定。
 
-数据难度：**中**；下一次 D1 仍受 registry gate 限制。
+没有站住的是：
 
----
+> shared referent 本身是特殊 causal unit / entity-level salience representation。
 
-### #4 — Cross-Modal Resolution Inertia
+r4 的 `opaque_strict` reference-specific Q2 在三个家族都没有通过 both-frame criterion；ungated opaque-strict 也全部 null。结构梯度 `compositional > partial > opaque >> opaque-strict≈0` 与 phase-3 lexical direct-write 形成一致边界。
 
-目录：[`../active/017_cross_modal_resolution_inertia/`](../active/017_cross_modal_resolution_inertia/)
-
-> 文字先形成了一个旧解释；晚到的图片已经把意思定死，模型还能不能真正改过来？
-
-Primary data: MUCAR dual-ambiguity。
-
-MUCAR 已经做了 static cross-modal disambiguation；我们的 money cell 必须是：
-
-```text
-text-only initially wrong
-simultaneous image+text correct
-text-first then same image -> still sticks to old interpretation
-```
-
-数据难度：**低到中**，取决于 MUCAR release 形式与 open MLLM harness。
+**下一步：** 不再找 reference-positive subset。直接围绕 broad spillover、structure gradient、phase-2 shared upstream cause、phase-3 lexical boundary 整理论文叙事。
 
 ---
 
-### #5 — Stock–Flow Correlation Intrusion
+## B. 暂时不能判真假的题：measurement redesign
+
+### 018 — Stock–Flow Correlation Intrusion
 
 目录：[`../active/018_stock_flow_correlation_intrusion/`](../active/018_stock_flow_correlation_intrusion/)
 
-> net flow 已经算对了，stock 判断为什么还会跟着 inflow 走？
+**Verdict:** `INCONCLUSIVE / HOLD-D0-MEASUREMENT-FAILURE`
 
-Primary data: ResOpsUS real reservoir time series。
+ResOpsUS 数据 bank 和 2×2 natural design 本身没有问题。问题出在 net-flow recognition gate：A/B forced-choice 的 option-position bias 极端到让所有严格 gated items 都落在 positive-net cells。Llama 在 negative-net 上 canonical 近 100%、reversed 0%，因此不能把空 negative-net denominator 当作 scientific null。
 
-现有 builder：`../preflight/d0_stock_flow_correlation_intrusion/build_from_resopsus.py`。
+**下一步如果继续：**
 
-核心是 computation-gated dissociation：`net flow correct -> stock wrong specifically toward inflow`。
+1. 冻结 D0 v2；
+2. 用 semantic continuation (`positive` vs `negative`) 或 deterministic numeric net computation 取代 A/B letter gate；
+3. 保留完整 `net direction × inflow trend` 四个 cell；
+4. 保留 explicit-correct-net downstream control；
+5. 禁止只跑 positive-net subset。
 
-数据难度：**低**。
+在新 contract 冻结前不继续模型调用。
 
 ---
 
-### #6 — Abstention Hysteresis
+## C. 尚未裁决、继续排队的四题
 
-目录：[`../active/019_abstention_hysteresis/`](../active/019_abstention_hysteresis/)
+### 020 — Incremental Clue Backfire
 
-> 模型先说过一次“信息不足”，后来证据补齐了，它会不会还更容易继续拒答？
+> 已经答对以后，再增加一条 source-authored、同 gold 的真实 clue，模型是否反而改错？
 
-Primary data shape: source supporting-fact QA，自动 full -> ablate -> restore；可参考 AbstentionBench。
+Primary shape: Quiz Bowl ordered clue prefixes。
 
-只分析：
+**先做 internal collision。** 若旧 Evidence-Induced Referent Displacement 已经覆盖同一 scientific object，直接 route/kill，不允许只因换数据集复活。
+
+### 021 — Task-Switch Carryover
+
+> 换任务后犯的错，是普通性能下降，还是仍然朝“旧任务规则预测的答案”移动？
+
+Gupta et al. EMNLP 2024 已做 aggregate task-switch interference。只有 **old-rule-specific wrong destination / decay** 才是这里可能的新现象。
+
+### 022 — Local Success, Global Composition Failure
+
+> 所需中间事实已经全部正确、甚至显式摆在当前 context 中，最终组合仍然会不会错？
+
+Press et al. 已定义 compositionality gap。普通“子问题对、总问题错”不是 novelty；必须测试更强的 externalized-intermediate-facts 条件。
+
+### 023 — Description–Experience Gap
+
+> 同一个 gamble，用概率描述或完全等价的 exact-frequency 历史呈现，选择是否系统不同？
+
+必须用 deterministic exact frequencies 和 frequency/EV capability gates；sampling noise 不能承担主效应。
+
+---
+
+## D. 2026-08-30 已归档的四个 completed Top-6 项目
+
+| project | terminal verdict | decisive reason |
+|---|---|---|
+| `015 Clarification Resolution Lag` | `ARCHIVED / REGISTERED PHENOTYPE REJECTED` | neutral matched history 产生与 ambiguity history 同量级影响；三个家族 `MATCHED-AMBIGUITY` CI 均跨 0 |
+| `016 Mixed-Status Event Attraction` | `ARCHIVED / REGISTERED BROAD PHENOTYPE REJECTED` | `MIXED-LOCAL` 被 same-status context 解释；三家族 diagnostic `MIXED-SAME` 不成立，no-relation stratum 也 null |
+| `017 Cross-Modal Resolution Inertia` | `ARCHIVED / INTERPRETATION-SPECIFIC CLAIM REJECTED` | strongest powered Llama effect 被 masked-choice history 几乎完全复制；不需要旧 interpretation identity |
+| `019 Abstention Hysteresis` | `ARCHIVED / STRONGLY REJECTED` | 三家族、两 source、两类 readout 全部显著朝相反方向；neutral history 解释大部分 recovery |
+
+完整项目已移入 `archive/`，不能在原 scientific identity 下用 prompt/subset/model/readout rescue。
+
+---
+
+## 当前实际顺序
 
 ```text
-initial incomplete -> model abstains
-DIRECT full -> model correct
-POST-ABSTENTION full -> ?
+paper synthesis: 014
+measurement redesign only: 018
+next cheap screening: 020 -> 023 -> 021 -> 022
 ```
 
-数据难度：**低**，但 2026 abstention 文献更新快。
+其中 020 collision-first；021/022 mother-collision 风险高。
 
 ---
 
-### #7 — Incremental Clue Backfire
+## 判题纪律更新
 
-目录：[`../active/020_incremental_clue_backfire/`](../active/020_incremental_clue_backfire/)
+这轮最重要的新规则：
 
-> 已经答对后，再增加一条真实、同 gold 的 clue，模型反而会不会改错？
+> **`NO-PROMOTE` ≠ 自动 `KILL`。**
 
-Primary data: Quiz Bowl ordered clue prefixes。
+先问为什么没 promote：
 
-数据可完全程序化 prefix sweep，不需要新 label。
+- fatal control 把目标效应解释掉 / 三家族给出诊断性 null → 可以 archive；
+- capability 或 measurement instrument 本身没有建立合法 denominator → `INCONCLUSIVE / REDESIGN`，不能声称现象不存在。
 
-**前置：必须先查内部 failed-topic collision。** 若旧 Evidence-Induced Referent Displacement 已覆盖同一 scientific object，直接 kill/route，不能换数据复活。
-
-数据难度：**低**。
-
----
-
-### #8 — Task-Switch Carryover
-
-目录：[`../active/021_task_switch_carryover/`](../active/021_task_switch_carryover/)
-
-> 换任务后犯的错，是随机变多，还是还在执行上一个任务的规则？
-
-Mother: Gupta et al., EMNLP 2024 已证明 aggregate task-switch interference。
-
-所以本题只有找到**old-rule-specific wrong destination**才有独立 phenotype；单纯复现 accuracy drop 不算。
-
-数据难度：**中**，因为还需要 natural hard old-rule oracle。
-
----
-
-### #9 — Local Success, Global Composition Failure
-
-目录：[`../active/022_local_success_global_composition_failure/`](../active/022_local_success_global_composition_failure/)
-
-> 中间答案已经全部正确、甚至显式摆在同一上下文里，最后还会不会组合错？
-
-Mother collision: Press et al. 2023 已定义 compositionality gap。
-
-本题只有更强条件才可能新：
-
-```text
-all required intermediate facts explicitly present in current context
--> final composition still wrong
-```
-
-Primary data: MuSiQue；secondary: 2WikiMultiHopQA。
-
-数据难度：**低**，novelty 风险：**高**。
-
----
-
-### #10 — Description–Experience Gap
-
-目录：[`../active/023_description_experience_gap/`](../active/023_description_experience_gap/)
-
-> 同一个 gamble，直接写概率和展开成完全等价的历史结果，模型最后选择会不会不同？
-
-不需要人工数据集：deterministic exact-frequency generator 即可。
-
-主设计用 exact frequencies，避免 sampling noise；另做 empirical-frequency / expected-value capability gate。
-
-数据难度：**极低**，但需要严格查最新 2026 LLM risk-choice 文献。
-
----
-
-## 3. 实际运行顺序
-
-按“最快得到有意义的 yes/no”排序，而不是论文最终价值：
-
-```text
-1. 015 Clarification Resolution Lag
-2. 016 Mixed-Status Event Attraction
-3. 019 Abstention Hysteresis
-4. 020 Incremental Clue Backfire（collision-first）
-5. 018 Stock-Flow Correlation Intrusion
-6. 017 Cross-Modal Resolution Inertia
-7. 023 Description-Experience Gap
-8. 021 Task-Switch Carryover
-9. 022 Local/Global Composition（Press exact-collision-first）
-10. 014 Alias r4 construct validation
-```
-
-如果你想按“paper 潜力”而不是“跑起来快”排序，继续参考 active README 的 Top-10 rank；两种排序不是同一件事。
-
----
-
-## 4. Screening 与正式晋级
-
-当前 Top-10 已 owner-approved 进入便宜 D0 screening。授权细节看 [`AUDIT_REGISTRY.md`](AUDIT_REGISTRY.md)。
-
-D0 出现现象以后，还不能直接做 mechanism。必须再过：
-
-```text
-N1 exact collision closure
-source-population/scope integrity
-fatal controls
-second-family/generalization where required
-frozen behavioral contract + data/generator SHA
-```
-
-尤其：
-
-- 021 不得把 mother task-switch interference 当新贡献；
-- 022 不得把 compositionality gap 当新贡献；
-- 017 不得把 static MUCAR failure 当新贡献；
-- 019 不得把一般 abstention failure 当新贡献。
-
----
-
-## 5. PARKED / TERMINAL 仍保持
-
-下面旧题没有因为 Top-10 注册而复活：
-
-- `007 Weak-Evidence Backfire` — **TERMINAL HARD KILL**；
-- `013 Publicness–Coordination Dissociation` — PARKED/HOLD-DATA；
-- Training-Recency Conflict Arbitration — HOLD-DATA；
-- Correlation -> Agreement / Interchangeability — HOLD-DATA；
-- Habitual -> Episode Actualization — HOLD-DATA；
-- Competing-Event -> Censoring Collapse — HOLD-DATA；
-- 法律/医学那批需要逐篇人工抽 gold 的题 — 继续 park，不抢当前跑题资源。
-
----
-
-## 一句纪律
-
-> **现在 active 的意义是“值得真的跑一下”，不是“我已经相信这个故事”。先让程序化 D0 把坏题杀掉；只有 output-level 现象和 novelty boundary 都站住，hidden states 才进场。**
+这一区分以后必须写进所有 D0 final report。
