@@ -11,13 +11,13 @@
 |---|---:|---:|---|
 | `active/014_alias_entrainment_transfer` | false | existing evidence only | **ESTABLISHED / PAPER DEVELOPMENT** |
 | `active/018_stock_flow_correlation_intrusion` | **false until D0-v2 contract frozen** | false | **REDESIGN / scientific status unknown** |
-| `active/024_alignment_descriptive_normative_arbitration` | **false until source + mother-reproduction contract frozen** | false | **N0-PASS / ACTIVE-PREFLIGHT** |
+| `active/024_alignment_descriptive_normative_arbitration` | **true: D0 v1 only** | false | **N0-PASS / D0 CONTRACT FROZEN** |
 | `active/025_world_indexed_truth` | **false until minimal 2×2 capability contract frozen** | false | **N0-PASS / ACTIVE-PREFLIGHT** |
 | `active/003_diagnostic_counterevidence_revision` | false | false | **HOLD / legacy pre-candidate** |
 | `active/013_publicness_coordination_dissociation` | false | false | **HOLD-DATA** |
 | `active/023_description_experience_gap` | false | false | **HOLD-N0-REAUDIT** |
 
-**No fresh model call is authorized at this exact commit.**
+**Only the explicitly frozen 024 D0 v1 behavioral calls are authorized at this exact commit.**
 
 Registration of 024/025 means their scientific object passed mother-inclusion N0. It does **not** authorize immediate probing, patching or even behavioral calls before the minimal source/contract documents are frozen.
 
@@ -95,6 +95,12 @@ no_synthetic_effect_creation: true
 ```
 
 Mechanism remains false until the mother behavior is reproduced on an accessible open pair.
+
+Frozen contract: `active/024_alignment_descriptive_normative_arbitration/configs/d0_contract.json`.
+The source audit, four paired checkpoint families, targets, prompt families,
+metrics, population and outcome-independent gates are now materialized. This
+authorizes only the deterministic behavioral D0 v1 calls; hidden-state and
+causal experiments remain forbidden pending adjudication.
 
 ---
 

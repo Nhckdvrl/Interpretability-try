@@ -1,0 +1,19 @@
+{
+  "bank_sha256": "f62fb370fd7a4f989da7d609da69abc0b6b6e3245b798f7dd1eb68cf3dbc9057",
+  "contract_id": "024-d0-v1-mother-reproduction",
+  "counts": {
+    "BoS_primary": 1737,
+    "BoS_round1": 193,
+    "PD_primary": 1746,
+    "PD_round1": 194
+  },
+  "excluded_trajectories": [
+    "BoS-p017",
+    "BoS-p038",
+    "PD-p153"
+  ],
+  "n_complete_trajectories": 387,
+  "n_items": 3870,
+  "n_participants": 195,
+  "raw_sha256": "f3c3d46a2e34f85f950bfdffd0d04d6c6fc748268c14e5700646e44b2d42d11a"
+}

@@ -1,0 +1,85 @@
+{
+  "contract_id": "024-d0-v1-mother-reproduction",
+  "frozen_on": "2026-08-31",
+  "scientific_scope": "Behavioral reproduction only; no hidden-state or causal claims are authorized.",
+  "source": {
+    "repository": "https://github.com/eliaka/repeatedgames",
+    "commit": "224a605a21127cac69763f990e077f7b05abd422",
+    "path": "human_experiment/analysis/repgames.csv",
+    "sha256": "f3c3d46a2e34f85f950bfdffd0d04d6c6fc748268c14e5700646e44b2d42d11a",
+    "license": "MIT",
+    "population": "3900 raw human decisions; 3870 audited decisions after excluding three complete participant-game trajectories with an impossible action/payoff row",
+    "no_synthetic_effect_creation": true
+  },
+  "models": {
+    "qwen": {
+      "base": "Qwen/Qwen3-1.7B-Base",
+      "aligned": "Qwen/Qwen3-1.7B"
+    },
+    "gemma": {
+      "base": "google/gemma-2-2b",
+      "aligned": "google/gemma-2-2b-it"
+    },
+    "llama": {
+      "base": "meta-llama/Llama-3.2-3B",
+      "aligned": "meta-llama/Llama-3.2-3B-Instruct"
+    },
+    "mistral": {
+      "base": "mistralai/Mistral-7B-v0.3",
+      "aligned": "mistralai/Mistral-7B-Instruct-v0.3"
+    }
+  },
+  "pairing_requirements": {
+    "same_provider": true,
+    "same_architecture_and_size_within_family": true,
+    "difference": "post-training checkpoint only",
+    "checkpoint_revision_recorded_at_runtime": true
+  },
+  "targets": {
+    "descriptive": "the observed human F/J action at each decision state",
+    "normative_pd": "F (defect), the strict dominant stage action and finite-horizon backward-induction action",
+    "normative_bos": "mixed-strategy Nash p_human(F)=10/17; reported descriptively, not used as a unique action gold"
+  },
+  "prompt_families": {
+    "native_primary": "plain structured completion for base; provider chat template with identical content and assistant JSON prefill for aligned",
+    "shared_plain_control": "identical plain structured completion for both checkpoints",
+    "decision_prefix": "{\"decision\":\"",
+    "decision_tokens": ["F", "J"],
+    "generation": false,
+    "temperature": 0
+  },
+  "estimands": {
+    "primary_population": "rounds 2-10, both games (3483 audited decisions)",
+    "primary_metric": "Pearson correlation between normalized p(F) and observed human action F=1",
+    "secondary_metrics": [
+      "participant-cluster bootstrap 95% CI for base-minus-aligned correlation",
+      "Brier score",
+      "decision-token probability mass",
+      "PD distance to deterministic normative target F",
+      "per-game and per-round trajectories"
+    ],
+    "boundary_control": "round 1, reported but not gated because it contains only two game states"
+  },
+  "quality_gates": {
+    "minimum_mean_decision_mass_each_checkpoint": 0.8,
+    "minimum_informative_correlation_either_checkpoint": 0.2,
+    "family_effect_minimum_r": 0.05,
+    "family_pass": "native primary base-minus-aligned r >= 0.05 with bootstrap CI lower bound > 0",
+    "promote_behavior": "at least 3/4 families pass; median native delta-r >= 0.05; shared-plain delta-r positive in at least 3/4 families",
+    "hold_low_mass": "fewer than 3/4 families meet the frozen mass gate",
+    "kill_mother_not_reproduced": "quality gates pass but fewer than 2/4 families have positive native delta-r, or median native delta-r <= 0",
+    "otherwise": "HOLD_INCONCLUSIVE_D0"
+  },
+  "prohibitions": [
+    "no synthetic game bank",
+    "no positive-subset rescue",
+    "no prompt selection after outcomes",
+    "no mechanism inference from D0",
+    "no pooling checkpoints as independent observations"
+  ],
+  "randomness": {
+    "model_scoring": "deterministic next-token probability extraction",
+    "bootstrap_seed": 24031,
+    "bootstrap_replicates": 2000
+  }
+}
