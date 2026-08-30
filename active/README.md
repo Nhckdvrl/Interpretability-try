@@ -1,51 +1,73 @@
 # Active Projects
 
-`active/` 保存**当前仍值得继续投入**的项目、HOLD-redesign 项目，以及少量历史 provenance。目录存在不等于 paper claim 成立；模型调用权限仍以 [`../phenomenon_miner/AUDIT_REGISTRY.md`](../phenomenon_miner/AUDIT_REGISTRY.md) 为准。
+`active/` 保存当前仍值得继续投入的项目、HOLD-redesign 项目，以及少量历史 provenance。目录存在不等于 paper claim 成立；模型调用权限以 [`../phenomenon_miner/AUDIT_REGISTRY.md`](../phenomenon_miner/AUDIT_REGISTRY.md) 为准。
 
-2026-08-30 对已完成 Top-6 做了独立 post-run audit。完整逐题审查见 [`../phenomenon_miner/TOP6_RESULT_REVIEW_2026-08-30.md`](../phenomenon_miner/TOP6_RESULT_REVIEW_2026-08-30.md)。
+2026-08-30 Top-6 审查后，仓库进一步做了 **Natural-Question Reset**：不再把“能构造出一个漂亮 D0”当作题目质量。新题先过 [`../phenomenon_miner/NATURAL_QUESTION_GATE.md`](../phenomenon_miner/NATURAL_QUESTION_GATE.md)。
 
-## 当前真正值得继续的主线
+## 当前唯二重点项目
 
-| project | scientific status | 下一步 |
-|---|---|---|
-| [`014_alias_entrainment_transfer`](014_alias_entrainment_transfer/) | **ESTABLISHED / CROSS-SURFACE-BUT-NOT-REFERENCE-SPECIFIC** | 整理论文：broad learned-relation spillover + structure gradient + phase-2 shared upstream cause + phase-3 lexical boundary；禁止 reference-specific rescue |
-| [`018_stock_flow_correlation_intrusion`](018_stock_flow_correlation_intrusion/) | **HOLD-D0-MEASUREMENT-FAILURE / SCIENTIFIC STATUS UNKNOWN** | 先冻结不依赖 A/B 位置的 semantic/numeric net-recognition D0 v2；不允许 positive-net-only rescue |
-| [`020_incremental_clue_backfire`](020_incremental_clue_backfire/) | REGISTERED / not yet adjudicated | 先做内部 Evidence-Induced Referent Displacement collision，再决定是否跑 |
-| [`021_task_switch_carryover`](021_task_switch_carryover/) | REGISTERED / not yet adjudicated | 只认 old-rule-specific wrong destination；普通 task-switch drop 不算 novelty |
-| [`022_local_success_global_composition_failure`](022_local_success_global_composition_failure/) | REGISTERED / not yet adjudicated | 必须超出 Press et al. compositionality gap：中间事实显式给出后仍组合错 |
-| [`023_description_experience_gap`](023_description_experience_gap/) | REGISTERED / not yet adjudicated | exact-frequency / EV capability-gated D0 |
+| project | scientific status | priority | next step |
+|---|---|---:|---|
+| [`014_alias_entrainment_transfer`](014_alias_entrainment_transfer/) | **ESTABLISHED / CROSS-SURFACE-BUT-NOT-REFERENCE-SPECIFIC** | **P1** | paper synthesis：broad learned-relation spillover + structure gradient + shared upstream cause + lexical boundary；禁止 reference-specific rescue |
+| [`018_stock_flow_correlation_intrusion`](018_stock_flow_correlation_intrusion/) | **SCIENTIFIC STATUS UNKNOWN / D0-v1 MEASUREMENT FAILURE** | **P2** | freeze semantic/numeric net-recognition D0 v2 while preserving all four natural cells and original population |
 
-## Top-6 审完后已归档
+### 014 为什么值得重点发展
 
-以下项目的**当前注册科学合同已经被诊断性实验否掉**，完整代码、数据合同、raw result 与报告已整体移入 `archive/`：
+它不是从一个数据集反推出来的题。Mother 已经建立 exact-token contextual entrainment；“salience 会不会跨另一个 surface form 传播”是自然下一问。Broad spillover 已经真实存在，后面的复杂 controls 只是区分 lexical derivation、learned association 和 reference identity，并没有制造现象。
 
-- `archive/015_clarification_resolution_lag` — ambiguity-history effect 被 matched neutral history 解释；三个家族 ambiguity-specific residual 均为 null。
-- `archive/016_mixed_status_event_attraction` — `MIXED-LOCAL` 表面效应被 same-status context 解释；三家族 `MIXED-SAME` 主对比不成立。
-- `archive/017_cross_modal_resolution_inertia` — 最强的 Llama text-first effect 被 masked-choice history 几乎完全复制；不需要旧 interpretation identity。
-- `archive/019_abstention_hysteresis` — 三家族、两 source、生成和连续概率 readout 均强烈朝假设反方向；neutral history 解释大部分 recovery。
+### 018 为什么值得再做一轮
 
-这些项目不能通过换模型、prompt、subset、threshold 或 readout 在原项目名下复活。若未来出现真正不同的 scientific object，必须新建 contract。
+stock/flow 是独立于 LLM benchmark 的自然认知对象，关系有 deterministic semantics。ResOpsUS bank 也是自然过程数据。D0 v1 没有得到合法 null，问题是 A/B letter gate 被位置偏差破坏；下一轮只允许修 measurement，不允许换 population 或挑 positive-net subset。
 
-## 018 为什么没有一起归档
+## Suspended：020–023
 
-018 的数据 bank 本身很好，但 D0 的 net-flow capability gate 依赖 A/B forced choice。负 net cells 在 Llama 上出现 canonical 约 99–100%、reversed 0% 的极端位置效应，Qwen/Gemma 也有严重 presentation bias。因此完整 2×2 estimand 根本没有合法 denominator。
+以下目录暂时保留 provenance，但全部停止 screening：
 
-这叫 **measurement failure / inconclusive**，不能写成“Stock–Flow Intrusion 不存在”。下一版若做，必须保留四个自然语义 cell，只替换 recognition instrument。
+- `020_incremental_clue_backfire/`
+- `021_task_switch_carryover/`
+- `022_local_success_global_composition_failure/`
+- `023_description_experience_gap/`
+
+它们必须重新通过 Natural-Question Gate；之前“已经注册”不再算继续投入的理由。
+
+需要先证明：
+
+```text
+一个普通例子就能说明问题为什么有趣
++ phenomenon 有低/中 absence risk
++ 不靠复杂 builder 才能表达
++ dataset 只是 measurement instrument
++ restriction budget 很小
+```
+
+在 re-audit 前四题 model call 均为 false。
+
+## Completed Top-6 archived
+
+- `archive/015_clarification_resolution_lag`
+- `archive/016_mixed_status_event_attraction`
+- `archive/017_cross_modal_resolution_inertia`
+- `archive/019_abstention_hysteresis`
+
+它们的当前 registered scientific contracts 已被诊断性实验否掉，不能 prompt/subset/model rescue。
+
+完整审查见 [`../phenomenon_miner/TOP6_RESULT_REVIEW_2026-08-30.md`](../phenomenon_miner/TOP6_RESULT_REVIEW_2026-08-30.md)。
 
 ## 旧 provenance
 
 - `003_diagnostic_counterevidence_revision/` — legacy pre-candidate。
-- `007_weak_evidence_backfire/` — TERMINAL HARD KILL；目录仍在 active 仅因历史 raw/code provenance，后续可再统一物理归档。
-- `013_publicness_coordination_dissociation/` — PARKED / HOLD-DATA。
+- `007_weak_evidence_backfire/` — terminal hard kill。
+- `013_publicness_coordination_dissociation/` — parked / hold-data。
 
-## 运行纪律
+## 当前资源分配
 
 ```text
-clean behavioral positive
-+ fatal controls survive
-+ source/scope valid
-+ exact collision closed
--> full validation / mechanism
+014: paper development
+018: D0-v2 redesign
+020–023: suspended
+new bulk topic generation: paused
 ```
 
-`NO-PROMOTE` 不能机械等于 scientific null：若 capability/measurement denominator 从未建立，应标 `INCONCLUSIVE/HOLD-REDESIGN`；只有诊断性对照真正否掉 registered claim 才进入 archive。
+## One-line discipline
+
+> **如果去掉 dataset、probe、SAE、gate 和 factorial design 以后，这个问题不再让人想知道答案，它就不该进入 active。**
