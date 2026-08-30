@@ -1,178 +1,105 @@
 # Audit Registry — Model Dispatch
 
 版本：2026-08-30  
-状态：`AUTHORITATIVE MODEL-CALL AUTHORIZATION / SCREENING-SEPARATED-FROM-VALIDATION`
+状态：`AUTHORITATIVE MODEL-CALL AUTHORIZATION / POST-TOP6-AUDIT`
 
-本文件现在明确区分两类 model call：
+本文件只控制**接下来还能跑什么**。科学裁决详情见 [`TOP6_RESULT_REVIEW_2026-08-30.md`](TOP6_RESULT_REVIEW_2026-08-30.md)。
+
+当前原则：
 
 ```text
-D0 SCREENING
-  便宜、behavior-first、用于快速证伪现象。
-  可以在 source data materialize + builder sanity 后运行。
-
-FULL VALIDATION / MECHANISM
-  用于正式 generality / causal / mechanistic claim。
-  仍要求完整 N0/N1/D0/scope/frozen-contract gate。
+D0 screening 可以快速证伪；
+诊断性失败 -> archive；
+measurement/capability denominator 失败 -> HOLD-REDESIGN；
+behavior 没站住 -> 禁止 mechanism rescue。
 ```
 
-2026-08-30 项目所有者明确要求把当前 Top-10 全部注册进 `active/` 并实际跑。因此，旧的“完成全部 discovery gate 之前连 cheap smoke 都不能调用模型”规则被收紧为：**禁止提前做机制，但允许 owner-approved D0 screening。**
+## Current dispatch
 
-当前：
-
-```yaml
-owner_approved_top10_d0_screening: 9   # new projects 015-023 excluding existing 014
-full_validation_authorized: 0
-mechanism_authorized_new_projects: 0
-alias_014_next_d1_authorized: false
-alias_014_r4_completed: true
-alias_014_reference_specific_phase4_authorized: false
-```
-
----
-
-## 1. Top-10 D0 screening dispatch
-
-| project | D0 screening | full validation / MI | pre-run condition |
+| project | cheap D0 / next behavior call | full validation / mechanism | status |
 |---|---:|---:|---|
-| `active/015_clarification_resolution_lag` | **true** | false | materialize CondAmbigQA pairs; hard source answer mapping; matched-history control |
-| `active/016_mixed_status_event_attraction` | **true** | false | run MAVEN-FACT builder; source/scope audit; freeze factuality verbalization |
-| `active/017_cross_modal_resolution_inertia` | **true** | false | obtain MUCAR labels; simultaneous capability gate; identical image preprocessing |
-| `active/018_stock_flow_correlation_intrusion` | **true** | false | run ResOpsUS builder; accounting closure/unit sanity |
-| `active/019_abstention_hysteresis` | **true** | false | build source-provenance full/ablated/restored triples; no human answerability labels |
-| `active/020_incremental_clue_backfire` | **true, after internal collision check** | false | verify archive does not already hard-kill same scientific object; source clue/gold aliases |
-| `active/021_task_switch_carryover` | **true, diagnostic only** | false | first reproduce mother effect; do not claim novelty without hard old-rule wrong destination |
-| `active/022_local_success_global_composition_failure` | **true, collision-first** | false | read Press et al. exact experimental conditions; run only the stronger externalized-facts contrast |
-| `active/023_description_experience_gap` | **true** | false | deterministic exact-frequency generator; frequency/EV capability probes |
-| `active/014_alias_entrainment_transfer` | **r4 completed; no new rescue run** | reference-specific MI false | Q1 passes; Q2 both-frame criterion fails in all 3 families |
+| `active/014_alias_entrainment_transfer` | **false** | only paper synthesis / already-completed phase evidence | **ESTABLISHED broad cross-surface; reference-specific Q2 rejected** |
+| `active/018_stock_flow_correlation_intrusion` | **false until D0-v2 contract frozen** | false | **INCONCLUSIVE / measurement failure** |
+| `active/020_incremental_clue_backfire` | **true after internal collision pass** | false | registered / not adjudicated |
+| `active/021_task_switch_carryover` | **true, diagnostic only** | false | registered / mother-collision risk |
+| `active/022_local_success_global_composition_failure` | **true, collision-first** | false | registered / Press collision risk |
+| `active/023_description_experience_gap` | **true** | false | registered / not adjudicated |
 
-**Meaning of `D0 screening = true`:** 允许 README 中已经预定义的便宜 behavioral smoke。它不是 PASS，也不能因为出现一个好数字就直接开始 probe/head ablation。
+## Archived after completed Top-6 audit
 
----
+These projects are terminal under their current registered scientific identity. No model call, prompt change, subset, threshold, readout swap, or mechanism work may revive them:
 
-## 2. Full-validation promotion rule
+| archived project | screening | validation / MI | terminal reason |
+|---|---:|---:|---|
+| `archive/015_clarification_resolution_lag` | false | false | matched neutral history explains the small history effect; ambiguity-specific residual null in 3 families |
+| `archive/016_mixed_status_event_attraction` | false | false | same-status context explains mixed-vs-local effect; controlled mixed-vs-same not stable in any family |
+| `archive/017_cross_modal_resolution_inertia` | false | false | strongest powered sequential effect survives with masked prior-choice identity; not interpretation-specific |
+| `archive/019_abstention_hysteresis` | false | false | strong cross-family/cross-source reverse effect; neutral incomplete→complete transition explains most recovery |
 
-任一新项目只有完成以下条件，才可把 `full_validation` 改成 true：
+## 014 — exact allowed claim
+
+D1 r4 is complete. Final bank: 1,768 ordered items / 1,370 entities; frozen SHA:
+
+`917d178533925088fe1641a72e7481eb97e18c237466416cc15608391978db37`
+
+Allowed:
+
+- broad `ALIAS > ASSOC_ANY` learned cross-surface spillover;
+- both-frame / both-direction / same-type sensitivity;
+- structural gradient `compositional > partial > opaque >> opaque-strict≈0`;
+- phase-2 shared upstream causal machinery;
+- phase-3 lexical/seen-form direct-write boundary.
+
+Not allowed:
+
+- entity/reference-specific salience established;
+- entrainment heads encode a shared referent;
+- F2-only reference residue as replacement for preregistered both-frame criterion;
+- person-only / direction-only / alias-subtype rescue;
+- new reference-specific Phase 4.
+
+## 018 — why next call is blocked but project is not killed
+
+The ResOpsUS bank and 2×2 population are valid, but the D0-v1 net-recognition instrument is not. Negative-net cells have zero strict gated items because A/B position reversals cause extreme answer-position behavior (most clearly Llama canonical ~99–100%, reversed 0%).
+
+Therefore:
 
 ```yaml
-external_behavioral_phenotype: PASS
-n1_exact_collision_review: PASS
-source_population_defined: PASS
-hard_or_deterministic_gold: PASS
-scope_integrity: PASS
-fatal_controls: PASS
-frozen_dataset_or_generator_sha: RECORDED
-frozen_behavioral_contract: RECORDED
+scientific_verdict: INCONCLUSIVE
+current_d0_contract: FAILED-MEASUREMENT-INSTRUMENT
+screening_authorized: false
 ```
 
-如果 mother paper 已经直接做了 headline behavior（尤其 021 / 022），还额外要求：
+Before any rerun, write and freeze D0 v2 with a semantic or numeric recognition measure that does not make letter position the capability criterion. Preserve all four semantic cells and downstream explicit-correct-net controls. A positive-net-only rerun is forbidden.
 
-```yaml
-novel_behavioral_signature_beyond_mother: PASS
-```
-
-否则只能路由成 `MECH-FOLLOWUP`。
-
----
-
-## 3. Project-specific stop rules
-
-### 015 Clarification Resolution Lag
-
-必须比较 final evidence 相同的 DIRECT vs prior-ambiguity HISTORY；普通“给 condition 会变好/变差”不算。
-
-2026-08-30 D0 v1：400 CondAmbigQA pairs、Qwen3-8B、Gemma-3-12B-IT 与
-Llama-3.1-8B-Instruct 已完成。三个家族的 neutral matched-history effect 与
-ambiguity-history effect 同量级，关键 `MATCHED_HISTORY - AMBIGUITY_HISTORY` 的 95%
-question-cluster bootstrap CI 均跨 0。
-判定 `NO-PROMOTE / MATCHED-HISTORY FATAL CONTROL NOT PASSED`；full validation 与
-mechanism 继续为 false，不按 subtype 收窄续跑。
-
-### 016 Mixed-Status Event Attraction
-
-必须出现 toward-neighbor-status 的 directional error；只有 context 变长后 accuracy 下降不算。
-
-2026-08-30 D0 v1：MAVEN-FACT train + validation 全 scope bank 与 576-pair direction-balanced
-cost layer 已冻结；Qwen3-8B、Gemma-3-12B-IT、Llama-3.1-8B-Instruct 均完成。表面
-`MIXED - LOCAL` 效应被 same-status matched context 解释，关键 `MIXED - SAME` 主顺序
-document-bootstrap CI 三家族均跨 0，toward-neighbor 离散转移不稳定。判定
-`NO-PROMOTE / SAME-STATUS FATAL CONTROL NOT PASSED`；full validation 与 mechanism 为
-false，不按 `PS+ -> CT+` 或其他单方向收窄续跑。
-
-### 017 Cross-Modal Resolution Inertia
-
-MUCAR 已经证明 static cross-modal ambiguity resolution 很难。只有 `simultaneous correct + text-first initial wrong + sequential final sticks to old interpretation` 才是新 money cell。
-
-### 018 Stock–Flow Correlation Intrusion
-
-只有在 net-flow 已答对后，stock 错误仍特别跟随 inflow，才解释为 correlation intrusion。
-
-### 019 Abstention Hysteresis
-
-只分析 `initial missing -> abstain` 且 `direct full -> correct` 的 items；安全 refusal 不混进 epistemic abstention。
+## Remaining pre-run rules
 
 ### 020 Incremental Clue Backfire
 
-先查内部失败库；不能把旧 Evidence-Induced Referent Displacement 换 Quiz Bowl 数据重新注册。如果 archive 覆盖同一 scientific object，立即 route/kill。
+Must pass internal collision against old Evidence-Induced Referent Displacement before model calls. Same scientific object under a new dataset name = no run.
 
 ### 021 Task-Switch Carryover
 
-Gupta et al. EMNLP 2024 已证明 task-switch interference。只有错误显著朝 old-rule hard prediction 移动，才有新 phenotype。
+Must score old-rule-specific wrong destinations. Aggregate post-switch accuracy loss is mother-paper replication, not a new phenotype.
 
 ### 022 Local/Global Composition
 
-Press et al. 2023 已定义 compositionality gap。只有 correct intermediate facts 已经显式存在于同一 context 后仍 final-compose wrong，才值得继续。
+Must use the stronger externalized-intermediate-facts contrast. Ordinary compositionality gap is already known.
 
 ### 023 Description–Experience Gap
 
-主分析必须 exact-frequency match，且 frequency / expected-value probe 正确；否则只是 counting/recency failure。
+Must use exact-frequency matching and pass frequency/EV capability probes before interpreting choice differences.
 
----
+## Existing provenance
 
-## 4. Existing provenance projects
+- `active/007_weak_evidence_backfire`: terminal hard kill, no calls.
+- `active/013_publicness_coordination_dissociation`: parked/hold-data, no calls.
+- `active/003_diagnostic_counterevidence_revision`: legacy provenance, no current authorization.
 
-### `active/007_weak_evidence_backfire`
+## Discipline
 
-```yaml
-terminal_verdict: HARD-KILL-EVIDENCE-DIRECTION-CAPABILITY-FLOOR
-screening_authorized: false
-full_validation_authorized: false
-mechanism_authorized: false
-```
-
-禁止换模型、阈值、subset、prompt、readout 复活。
-
-### `active/013_publicness_coordination_dissociation`
-
-```yaml
-status: PARKED-HOLD-DATA
-screening_authorized: false
-reason: insufficient independent natural scenarios under clean source/license path
-```
-
-### `active/014_alias_entrainment_transfer`
-
-历史 phase 1–3 保留有效 provenance。当前可支持的是 cross-surface learned-relation transfer / shared upstream cause，**不是已证明 entity-level salience**。
-
-Canonical next contract: `active/014_alias_entrainment_transfer/configs/contract_d1_r4.yaml`
-
-2026-08-30 r4 已完成上述全部数据门与三家族运行。最终 bank 1,768 ordered items、1,370
-entities；SHA `917d178533925088fe1641a72e7481eb97e18c237466416cc15608391978db37`。
-Q1 broad `ALIAS - ASSOC_ANY` 在三家族、双 frame、双方向与同类型 sensitivity 全部通过。
-Q2 independent-gated `opaque_strict` 虽有 261–282 entities/family，但三个家族都只有 F2
-显著，F1 CI 跨 0；ungated opaque-strict 六个 family×frame CI 也全部跨 0。最终 verdict：
-`CROSS-SURFACE-BUT-NOT-REFERENCE-SPECIFIC`。
-
-禁止新模型、person-only、单方向、F2-only 或 alias subtype rescue；reference-specific Phase 4
-保持 false。若继续整理论文，只允许围绕已成立的 broad learned-relation spillover、结构梯度、
-phase 2 shared upstream cause 与 phase 3 lexical direct-write boundary，不用 mechanism 救 Q2。
-
----
-
-## 5. Discipline
-
-- `active/` = 值得实际跑，不等于论文 claim 成立。
-- D0 smoke 是为了**快速 kill**，不是为了找最漂亮 subset。
-- README 里的 fatal controls 必须在看正式结果前固定。
-- source factor 默认 factor-not-filter。
-- 能 exact / deterministic score 就不用 LLM judge。
-- mechanism evidence 永远不能救一个失败的 behavioral/data construct。
+- `active` does not mean claim established.
+- `archive` means current scientific contract is terminal and cannot be rescued by implementation degrees of freedom.
+- `NO-PROMOTE` must be classified as either diagnostic scientific failure or non-diagnostic measurement/capability failure.
+- hidden-state evidence cannot rescue a failed behavioral contract.
+- source factors remain factors, not post-hoc filters.
