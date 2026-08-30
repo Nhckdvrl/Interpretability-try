@@ -109,3 +109,9 @@ FULL VALIDATION / MECHANISM
   被 neutral `MATCHED_HISTORY` 解释，关键 `MATCHED - AMBIGUITY` 在三个家族 CI
   均跨 0；当前
   **NO-PROMOTE**，不进入机制实验。详见项目内 `D0_V1_REPORT.md`。
+- `016 Mixed-Status Event Attraction`：2026-08-30 D0 v1 已完成 MAVEN-FACT 全 scope
+  materialization 与 Qwen3-8B、Gemma-3-12B-IT、Llama-3.1-8B-Instruct。三个家族虽然都
+  出现 `MIXED - LOCAL` neighbor-label probability 上升，但同状态匹配 context 产生同量级
+  变化；关键 `MIXED - SAME` 主顺序 CI 全部跨 0，离散 toward-neighbor transition 也不稳定。
+  当前 **NO-PROMOTE / SAME-STATUS CONTROL NOT PASSED**，不按单方向收窄。详见项目内
+  `D0_V1_REPORT.md`。

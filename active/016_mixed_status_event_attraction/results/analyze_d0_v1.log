@@ -1,0 +1,2205 @@
+{
+  "analysis": "Option-order averaged; recognition-gated; document-cluster bootstrap",
+  "bootstrap_replicates": 10000,
+  "models": [
+    {
+      "condition_metrics_gated": {
+        "full_local_discourse": {
+          "both_order_accuracy": 0.674074074074074,
+          "mean_neighbor_probability": 0.07578472203188749,
+          "mean_order_accuracy": 0.7444444444444445,
+          "mean_target_probability": 0.7350030394034317,
+          "toward_neighbor_both_order_rate": 0.06666666666666667
+        },
+        "mixed_status_natural": {
+          "both_order_accuracy": 0.7851851851851852,
+          "mean_neighbor_probability": 0.05025157625436815,
+          "mean_order_accuracy": 0.8481481481481481,
+          "mean_target_probability": 0.8369246088150255,
+          "toward_neighbor_both_order_rate": 0.02962962962962963
+        },
+        "mixed_status_reversed": {
+          "both_order_accuracy": 0.7777777777777778,
+          "mean_neighbor_probability": 0.05156436718656473,
+          "mean_order_accuracy": 0.8444444444444444,
+          "mean_target_probability": 0.8232016301245533,
+          "toward_neighbor_both_order_rate": 0.02962962962962963
+        },
+        "same_status_natural": {
+          "both_order_accuracy": 0.7851851851851852,
+          "mean_neighbor_probability": 0.02887449337052352,
+          "mean_order_accuracy": 0.8703703703703703,
+          "mean_target_probability": 0.8649310785656612,
+          "toward_neighbor_both_order_rate": 0.014814814814814815
+        },
+        "same_status_reversed": {
+          "both_order_accuracy": 0.8074074074074075,
+          "mean_neighbor_probability": 0.03228738943536513,
+          "mean_order_accuracy": 0.8666666666666667,
+          "mean_target_probability": 0.8595325547592438,
+          "toward_neighbor_both_order_rate": 0.022222222222222223
+        },
+        "target_local": {
+          "both_order_accuracy": 1.0,
+          "mean_neighbor_probability": 0.01014523437470008,
+          "mean_order_accuracy": 1.0,
+          "mean_target_probability": 0.9508684702493526,
+          "toward_neighbor_both_order_rate": 0.0
+        }
+      },
+      "direction_results": {
+        "CT+->CT-": {
+          "contrasts": {
+            "full_minus_local_neighbor_probability": {
+              "ci_high": 6.998118215717649e-08,
+              "ci_low": -2.4235782883566735e-08,
+              "estimate": 1.6359866786817364e-08
+            },
+            "full_minus_same_toward_neighbor_transition": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            },
+            "local_minus_mixed_target_accuracy": {
+              "ci_high": 0.06,
+              "ci_low": 0.0,
+              "estimate": 0.02
+            },
+            "local_minus_same_target_accuracy": {
+              "ci_high": 0.06,
+              "ci_low": 0.0,
+              "estimate": 0.02
+            },
+            "mixed_minus_local_neighbor_probability": {
+              "ci_high": 6.266516439427418e-08,
+              "ci_low": -3.0771413118813405e-08,
+              "estimate": 1.0218282649840077e-08
+            },
+            "mixed_minus_same_neighbor_probability": {
+              "ci_high": 6.814206258295439e-08,
+              "ci_low": -7.291962487038679e-10,
+              "estimate": 2.3245207662669758e-08
+            },
+            "mixed_minus_same_toward_neighbor_transition": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            },
+            "mixed_reversed_minus_same_reversed_neighbor_probability": {
+              "ci_high": 8.121461200358715e-09,
+              "ci_low": -1.7262763116926474e-08,
+              "estimate": -2.1976246708510766e-09
+            },
+            "same_minus_local_pseudo_neighbor_probability": {
+              "ci_high": -4.2100992006297335e-10,
+              "ci_low": -3.4965746692399726e-08,
+              "estimate": -1.3026925012829683e-08
+            }
+          },
+          "n_documents": 25,
+          "n_pairs": 25
+        },
+        "CT+->PS+": {
+          "contrasts": {
+            "full_minus_local_neighbor_probability": {
+              "ci_high": 0.06442643258743906,
+              "ci_low": -0.014163492655750426,
+              "estimate": 0.015605044254304038
+            },
+            "full_minus_same_toward_neighbor_transition": {
+              "ci_high": 0.0,
+              "ci_low": -0.11538461538461539,
+              "estimate": -0.038461538461538464
+            },
+            "local_minus_mixed_target_accuracy": {
+              "ci_high": 0.057692307692307696,
+              "ci_low": 0.0,
+              "estimate": 0.019230769230769232
+            },
+            "local_minus_same_target_accuracy": {
+              "ci_high": 0.15384615384615385,
+              "ci_low": 0.0,
+              "estimate": 0.057692307692307696
+            },
+            "mixed_minus_local_neighbor_probability": {
+              "ci_high": 0.0650713234481848,
+              "ci_low": -0.014492813036386715,
+              "estimate": 0.015643842161006647
+            },
+            "mixed_minus_same_neighbor_probability": {
+              "ci_high": 0.07198896476503808,
+              "ci_low": -0.0420629646934041,
+              "estimate": 0.008558310242253188
+            },
+            "mixed_minus_same_toward_neighbor_transition": {
+              "ci_high": 0.0,
+              "ci_low": -0.11538461538461539,
+              "estimate": -0.038461538461538464
+            },
+            "mixed_reversed_minus_same_reversed_neighbor_probability": {
+              "ci_high": 0.0826141967067466,
+              "ci_low": -0.00011698574047143519,
+              "estimate": 0.02971474150084891
+            },
+            "same_minus_local_pseudo_neighbor_probability": {
+              "ci_high": 0.04448628278251988,
+              "ci_low": -0.017731727036858876,
+              "estimate": 0.007085531918753458
+            }
+          },
+          "n_documents": 26,
+          "n_pairs": 26
+        },
+        "CT+->PS-": {
+          "contrasts": {
+            "full_minus_local_neighbor_probability": {
+              "ci_high": 3.1963285991824047e-07,
+              "ci_low": -5.613154502230691e-08,
+              "estimate": 1.1021928822070757e-07
+            },
+            "full_minus_same_toward_neighbor_transition": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            },
+            "local_minus_mixed_target_accuracy": {
+              "ci_high": 0.2631578947368421,
+              "ci_low": 0.0,
+              "estimate": 0.10526315789473684
+            },
+            "local_minus_same_target_accuracy": {
+              "ci_high": 0.13157894736842105,
+              "ci_low": 0.0,
+              "estimate": 0.05263157894736842
+            },
+            "mixed_minus_local_neighbor_probability": {
+              "ci_high": 2.195079261462566e-07,
+              "ci_low": -6.532246987378052e-08,
+              "estimate": 6.017463086840846e-08
+            },
+            "mixed_minus_same_neighbor_probability": {
+              "ci_high": 2.46715967414401e-07,
+              "ci_low": -1.71013390364334e-08,
+              "estimate": 9.169761227786985e-08
+            },
+            "mixed_minus_same_toward_neighbor_transition": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            },
+            "mixed_reversed_minus_same_reversed_neighbor_probability": {
+              "ci_high": 5.088789741965641e-07,
+              "ci_low": -1.9859596848299815e-08,
+              "estimate": 2.2025965957484378e-07
+            },
+            "same_minus_local_pseudo_neighbor_probability": {
+              "ci_high": -4.845404010432265e-10,
+              "ci_low": -7.60873198894368e-08,
+              "estimate": -3.1522981409461386e-08
+            }
+          },
+          "n_documents": 19,
+          "n_pairs": 19
+        },
+        "CT-->PS+": {
+          "contrasts": {
+            "full_minus_local_neighbor_probability": {
+              "ci_high": -0.00016254153975825414,
+              "ci_low": -0.00016254153975825414,
+              "estimate": -0.00016254153975825414
+            },
+            "full_minus_same_toward_neighbor_transition": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            },
+            "local_minus_mixed_target_accuracy": {
+              "ci_high": 0.5,
+              "ci_low": 0.5,
+              "estimate": 0.5
+            },
+            "local_minus_same_target_accuracy": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            },
+            "mixed_minus_local_neighbor_probability": {
+              "ci_high": -0.00016113036583408763,
+              "ci_low": -0.00016113036583408763,
+              "estimate": -0.00016113036583408763
+            },
+            "mixed_minus_same_neighbor_probability": {
+              "ci_high": -0.043464114794669044,
+              "ci_low": -0.043464114794669044,
+              "estimate": -0.043464114794669044
+            },
+            "mixed_minus_same_toward_neighbor_transition": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            },
+            "mixed_reversed_minus_same_reversed_neighbor_probability": {
+              "ci_high": 0.36244346501399227,
+              "ci_low": 0.36244346501399227,
+              "estimate": 0.36244346501399227
+            },
+            "same_minus_local_pseudo_neighbor_probability": {
+              "ci_high": 0.043302984428834956,
+              "ci_low": 0.043302984428834956,
+              "estimate": 0.043302984428834956
+            }
+          },
+          "n_documents": 1,
+          "n_pairs": 1
+        },
+        "PS+->CT+": {
+          "contrasts": {
+            "full_minus_local_neighbor_probability": {
+              "ci_high": 0.7447272505753908,
+              "ci_low": 0.2910213823203605,
+              "estimate": 0.5211617096932795
+            },
+            "full_minus_same_toward_neighbor_transition": {
+              "ci_high": 0.75,
+              "ci_low": 0.25,
+              "estimate": 0.5
+            },
+            "local_minus_mixed_target_accuracy": {
+              "ci_high": 0.625,
+              "ci_low": 0.25,
+              "estimate": 0.4375
+            },
+            "local_minus_same_target_accuracy": {
+              "ci_high": 0.40625,
+              "ci_low": 0.09375,
+              "estimate": 0.25
+            },
+            "mixed_minus_local_neighbor_probability": {
+              "ci_high": 0.5153617486064521,
+              "ci_low": 0.11497262387821425,
+              "estimate": 0.31018071870955927
+            },
+            "mixed_minus_same_neighbor_probability": {
+              "ci_high": 0.3605515704136233,
+              "ci_low": 0.007121734366384857,
+              "estimate": 0.17584987261438018
+            },
+            "mixed_minus_same_toward_neighbor_transition": {
+              "ci_high": 0.375,
+              "ci_low": 0.0,
+              "estimate": 0.1875
+            },
+            "mixed_reversed_minus_same_reversed_neighbor_probability": {
+              "ci_high": 0.23329512897237362,
+              "ci_low": -0.010749019701988778,
+              "estimate": 0.09161752848687282
+            },
+            "same_minus_local_pseudo_neighbor_probability": {
+              "ci_high": 0.28259498982758957,
+              "ci_low": 0.01145238857685512,
+              "estimate": 0.13433084609517906
+            }
+          },
+          "n_documents": 16,
+          "n_pairs": 16
+        },
+        "PS+->CT-": {
+          "contrasts": {
+            "full_minus_local_neighbor_probability": {
+              "ci_high": 1.459222227509028e-07,
+              "ci_low": -4.827228266959316e-09,
+              "estimate": 6.286943405160342e-08
+            },
+            "full_minus_same_toward_neighbor_transition": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            },
+            "local_minus_mixed_target_accuracy": {
+              "ci_high": 0.3888888888888889,
+              "ci_low": 0.027777777777777776,
+              "estimate": 0.19444444444444445
+            },
+            "local_minus_same_target_accuracy": {
+              "ci_high": 0.4444444444444444,
+              "ci_low": 0.1388888888888889,
+              "estimate": 0.2777777777777778
+            },
+            "mixed_minus_local_neighbor_probability": {
+              "ci_high": 1.360030942928076e-07,
+              "ci_low": -1.8118491835199548e-08,
+              "estimate": 4.519924738503357e-08
+            },
+            "mixed_minus_same_neighbor_probability": {
+              "ci_high": 9.342225334394082e-08,
+              "ci_low": -4.754748198544878e-09,
+              "estimate": 3.303936808530273e-08
+            },
+            "mixed_minus_same_toward_neighbor_transition": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            },
+            "mixed_reversed_minus_same_reversed_neighbor_probability": {
+              "ci_high": 1.7593982192741702e-07,
+              "ci_low": -5.548827962054112e-09,
+              "estimate": 6.075646563638677e-08
+            },
+            "same_minus_local_pseudo_neighbor_probability": {
+              "ci_high": 4.828025848778006e-08,
+              "ci_low": -2.622053635282654e-08,
+              "estimate": 1.2159879299730841e-08
+            }
+          },
+          "n_documents": 18,
+          "n_pairs": 18
+        },
+        "PS+->PS-": {
+          "contrasts": {
+            "full_minus_local_neighbor_probability": {
+              "ci_high": -1.7701512951530332e-08,
+              "ci_low": -2.707133453594637e-07,
+              "estimate": -1.1816850741120234e-07
+            },
+            "full_minus_same_toward_neighbor_transition": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            },
+            "local_minus_mixed_target_accuracy": {
+              "ci_high": 0.475,
+              "ci_low": 0.15,
+              "estimate": 0.3
+            },
+            "local_minus_same_target_accuracy": {
+              "ci_high": 0.4,
+              "ci_low": 0.1,
+              "estimate": 0.25
+            },
+            "mixed_minus_local_neighbor_probability": {
+              "ci_high": 8.298046385999107e-08,
+              "ci_low": -2.2071289709123688e-07,
+              "estimate": -4.843162425480219e-08
+            },
+            "mixed_minus_same_neighbor_probability": {
+              "ci_high": 1.2485615138842219e-07,
+              "ci_low": -6.916606347778016e-08,
+              "estimate": 2.098340721561065e-08
+            },
+            "mixed_minus_same_toward_neighbor_transition": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            },
+            "mixed_reversed_minus_same_reversed_neighbor_probability": {
+              "ci_high": 2.898308437994908e-08,
+              "ci_low": -9.904658964690964e-07,
+              "estimate": -3.5485605620131763e-07
+            },
+            "same_minus_local_pseudo_neighbor_probability": {
+              "ci_high": 8.698638227605872e-08,
+              "ci_low": -2.5778592674796564e-07,
+              "estimate": -6.941503147041283e-08
+            }
+          },
+          "n_documents": 20,
+          "n_pairs": 20
+        }
+      },
+      "model_label": "qwen3_8b",
+      "n_documents": 332,
+      "n_pairs": 576,
+      "primary_contrasts": {
+        "full_minus_local_neighbor_probability": {
+          "ci_high": 0.11935669901976179,
+          "ci_low": 0.03154095848938158,
+          "estimate": 0.07226632150502697
+        },
+        "full_minus_same_toward_neighbor_transition": {
+          "ci_high": 0.10743801652892562,
+          "ci_low": 0.01652892561983471,
+          "estimate": 0.05785123966942149
+        },
+        "local_minus_mixed_target_accuracy": {
+          "ci_high": 0.2128099173553719,
+          "ci_low": 0.1012396694214876,
+          "estimate": 0.15495867768595042
+        },
+        "local_minus_same_target_accuracy": {
+          "ci_high": 0.1859504132231405,
+          "ci_low": 0.09090909090909091,
+          "estimate": 0.13636363636363635
+        },
+        "mixed_minus_local_neighbor_probability": {
+          "ci_high": 0.08117261758104975,
+          "ci_low": 0.013575086791620514,
+          "estimate": 0.044376464393474896
+        },
+        "mixed_minus_same_neighbor_probability": {
+          "ci_high": 0.055233200206041756,
+          "ci_low": -0.001575593936185889,
+          "estimate": 0.02491228463885785
+        },
+        "mixed_minus_same_toward_neighbor_transition": {
+          "ci_high": 0.049586776859504134,
+          "ci_low": -0.01652892561983471,
+          "estimate": 0.01652892561983471
+        },
+        "mixed_reversed_minus_same_reversed_neighbor_probability": {
+          "ci_high": 0.04275281038289675,
+          "ci_low": 0.002760656450754476,
+          "estimate": 0.019997400136514423
+        },
+        "same_minus_local_pseudo_neighbor_probability": {
+          "ci_high": 0.04228223403104114,
+          "ci_low": 0.0011589494780150863,
+          "estimate": 0.019464179754617044
+        }
+      },
+      "primary_gated_pairs": 125,
+      "recognition_gate_rate": 0.234375,
+      "recognition_gated_documents": 129,
+      "recognition_gated_pairs": 135,
+      "validity_strata": {
+        "different_sentence": {
+          "contrasts": {
+            "full_minus_local_neighbor_probability": {
+              "ci_high": 0.1315928555193185,
+              "ci_low": 0.032640656608087876,
+              "estimate": 0.07865122317841924
+            },
+            "full_minus_same_toward_neighbor_transition": {
+              "ci_high": 0.125,
+              "ci_low": 0.019230769230769232,
+              "estimate": 0.0673076923076923
+            },
+            "local_minus_mixed_target_accuracy": {
+              "ci_high": 0.2283653846153846,
+              "ci_low": 0.10096153846153846,
+              "estimate": 0.16105769230769232
+            },
+            "local_minus_same_target_accuracy": {
+              "ci_high": 0.1875,
+              "ci_low": 0.08653846153846154,
+              "estimate": 0.1346153846153846
+            },
+            "mixed_minus_local_neighbor_probability": {
+              "ci_high": 0.08778981970252164,
+              "ci_low": 0.012187833880613449,
+              "estimate": 0.04620244719117214
+            },
+            "mixed_minus_same_neighbor_probability": {
+              "ci_high": 0.060590159882554374,
+              "ci_low": 0.0011876112449803447,
+              "estimate": 0.027612925502578385
+            },
+            "mixed_minus_same_toward_neighbor_transition": {
+              "ci_high": 0.057692307692307696,
+              "ci_low": -0.019230769230769232,
+              "estimate": 0.019230769230769232
+            },
+            "mixed_reversed_minus_same_reversed_neighbor_probability": {
+              "ci_high": 0.04106652167550756,
+              "ci_low": 0.00120992544000178,
+              "estimate": 0.017841553285049862
+            },
+            "same_minus_local_pseudo_neighbor_probability": {
+              "ci_high": 0.04430955705116416,
+              "ci_low": -0.0006387437191797524,
+              "estimate": 0.01858952168859376
+            }
+          },
+          "n_documents": 104,
+          "n_pairs": 108
+        },
+        "explicit_relation": {
+          "contrasts": {
+            "full_minus_local_neighbor_probability": {
+              "ci_high": 0.18182504770242813,
+              "ci_low": 0.019383580433691844,
+              "estimate": 0.09212371908727594
+            },
+            "full_minus_same_toward_neighbor_transition": {
+              "ci_high": 0.1702127659574468,
+              "ci_low": 0.02127659574468085,
+              "estimate": 0.0851063829787234
+            },
+            "local_minus_mixed_target_accuracy": {
+              "ci_high": 0.2553191489361702,
+              "ci_low": 0.07446808510638298,
+              "estimate": 0.1595744680851064
+            },
+            "local_minus_same_target_accuracy": {
+              "ci_high": 0.1595744680851064,
+              "ci_low": 0.0425531914893617,
+              "estimate": 0.09574468085106383
+            },
+            "mixed_minus_local_neighbor_probability": {
+              "ci_high": 0.14308402182597663,
+              "ci_low": 0.017163111966238823,
+              "estimate": 0.0721969909556999
+            },
+            "mixed_minus_same_neighbor_probability": {
+              "ci_high": 0.11488384400169216,
+              "ci_low": -0.0028991273124315308,
+              "estimate": 0.05123310262069529
+            },
+            "mixed_minus_same_toward_neighbor_transition": {
+              "ci_high": 0.10638297872340426,
+              "ci_low": 0.0,
+              "estimate": 0.0425531914893617
+            },
+            "mixed_reversed_minus_same_reversed_neighbor_probability": {
+              "ci_high": 0.08865715840383889,
+              "ci_low": -0.0014531950881749812,
+              "estimate": 0.03440700799827368
+            },
+            "same_minus_local_pseudo_neighbor_probability": {
+              "ci_high": 0.05629358030504344,
+              "ci_low": -0.0036194049009427606,
+              "estimate": 0.020963888335004614
+            }
+          },
+          "n_documents": 47,
+          "n_pairs": 47
+        },
+        "no_explicit_relation": {
+          "contrasts": {
+            "full_minus_local_neighbor_probability": {
+              "ci_high": 0.11282089091325792,
+              "ci_low": 0.01225455348595824,
+              "estimate": 0.058084343087603955
+            },
+            "full_minus_same_toward_neighbor_transition": {
+              "ci_high": 0.09210526315789473,
+              "ci_low": -0.013157894736842105,
+              "estimate": 0.039473684210526314
+            },
+            "local_minus_mixed_target_accuracy": {
+              "ci_high": 0.23684210526315788,
+              "ci_low": 0.09210526315789473,
+              "estimate": 0.1611842105263158
+            },
+            "local_minus_same_target_accuracy": {
+              "ci_high": 0.23684210526315788,
+              "ci_low": 0.10526315789473684,
+              "estimate": 0.16447368421052633
+            },
+            "mixed_minus_local_neighbor_probability": {
+              "ci_high": 0.06618687135296085,
+              "ci_low": -0.004311719994126289,
+              "estimate": 0.026003866742568573
+            },
+            "mixed_minus_same_neighbor_probability": {
+              "ci_high": 0.03705433295032589,
+              "ci_low": -0.012863079609288532,
+              "estimate": 0.007979353840398962
+            },
+            "mixed_minus_same_toward_neighbor_transition": {
+              "ci_high": 0.039473684210526314,
+              "ci_low": -0.039473684210526314,
+              "estimate": 0.0
+            },
+            "mixed_reversed_minus_same_reversed_neighbor_probability": {
+              "ci_high": 0.02626167959666145,
+              "ci_low": -0.0013916667787277073,
+              "estimate": 0.01055994813080111
+            },
+            "same_minus_local_pseudo_neighbor_probability": {
+              "ci_high": 0.04988865635099715,
+              "ci_low": -0.004520669912032804,
+              "estimate": 0.018024512902169616
+            }
+          },
+          "n_documents": 76,
+          "n_pairs": 78
+        },
+        "same_sentence": {
+          "contrasts": {
+            "full_minus_local_neighbor_probability": {
+              "ci_high": 0.09955036936656789,
+              "ci_low": -0.00010600289551932145,
+              "estimate": 0.03320574656192135
+            },
+            "full_minus_same_toward_neighbor_transition": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            },
+            "local_minus_mixed_target_accuracy": {
+              "ci_high": 0.23529411764705882,
+              "ci_low": 0.029411764705882353,
+              "estimate": 0.11764705882352941
+            },
+            "local_minus_same_target_accuracy": {
+              "ci_high": 0.29411764705882354,
+              "ci_low": 0.029411764705882353,
+              "estimate": 0.14705882352941177
+            },
+            "mixed_minus_local_neighbor_probability": {
+              "ci_high": 0.09955047672538116,
+              "ci_low": -0.00010600791273206604,
+              "estimate": 0.03320574610167994
+            },
+            "mixed_minus_same_neighbor_probability": {
+              "ci_high": 0.11241729870695008,
+              "ci_low": -0.08719044276954555,
+              "estimate": 0.00839071700197927
+            },
+            "mixed_minus_same_toward_neighbor_transition": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            },
+            "mixed_reversed_minus_same_reversed_neighbor_probability": {
+              "ci_high": 0.11074687861749323,
+              "ci_low": -0.009370788507409203,
+              "estimate": 0.033186110286650555
+            },
+            "same_minus_local_pseudo_neighbor_probability": {
+              "ci_high": 0.08722524469396047,
+              "ci_low": -0.012780002597801906,
+              "estimate": 0.024815029099700663
+            }
+          },
+          "n_documents": 17,
+          "n_pairs": 17
+        }
+      }
+    },
+    {
+      "condition_metrics_gated": {
+        "full_local_discourse": {
+          "both_order_accuracy": 0.6766917293233082,
+          "mean_neighbor_probability": 0.05399084706700023,
+          "mean_order_accuracy": 0.8383458646616542,
+          "mean_target_probability": 0.8386652443660388,
+          "toward_neighbor_both_order_rate": 0.0
+        },
+        "mixed_status_natural": {
+          "both_order_accuracy": 0.8045112781954887,
+          "mean_neighbor_probability": 0.03864376630258779,
+          "mean_order_accuracy": 0.8947368421052632,
+          "mean_target_probability": 0.8875141500798885,
+          "toward_neighbor_both_order_rate": 0.0
+        },
+        "mixed_status_reversed": {
+          "both_order_accuracy": 0.7969924812030075,
+          "mean_neighbor_probability": 0.036086722327293534,
+          "mean_order_accuracy": 0.8872180451127819,
+          "mean_target_probability": 0.8807891519270624,
+          "toward_neighbor_both_order_rate": 0.0
+        },
+        "same_status_natural": {
+          "both_order_accuracy": 0.7969924812030075,
+          "mean_neighbor_probability": 0.03849702940256767,
+          "mean_order_accuracy": 0.8909774436090225,
+          "mean_target_probability": 0.8865195713513636,
+          "toward_neighbor_both_order_rate": 0.0
+        },
+        "same_status_reversed": {
+          "both_order_accuracy": 0.7744360902255639,
+          "mean_neighbor_probability": 0.04389526568862327,
+          "mean_order_accuracy": 0.8872180451127819,
+          "mean_target_probability": 0.8902517461740496,
+          "toward_neighbor_both_order_rate": 0.0
+        },
+        "target_local": {
+          "both_order_accuracy": 1.0,
+          "mean_neighbor_probability": 0.006985993532515394,
+          "mean_order_accuracy": 1.0,
+          "mean_target_probability": 0.9819065462377735,
+          "toward_neighbor_both_order_rate": 0.0
+        }
+      },
+      "direction_results": {
+        "CT+->CT-": {
+          "contrasts": {
+            "full_minus_local_neighbor_probability": {
+              "ci_high": 1.8126225238872122e-05,
+              "ci_low": -4.449979765620458e-06,
+              "estimate": 6.093572218126362e-06
+            },
+            "full_minus_same_toward_neighbor_transition": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            },
+            "local_minus_mixed_target_accuracy": {
+              "ci_high": 0.4090909090909091,
+              "ci_low": 0.13636363636363635,
+              "estimate": 0.2727272727272727
+            },
+            "local_minus_same_target_accuracy": {
+              "ci_high": 0.4090909090909091,
+              "ci_low": 0.13636363636363635,
+              "estimate": 0.2727272727272727
+            },
+            "mixed_minus_local_neighbor_probability": {
+              "ci_high": 9.19128022028365e-06,
+              "ci_low": -6.049559009953368e-06,
+              "estimate": 2.0775090816145663e-06
+            },
+            "mixed_minus_same_neighbor_probability": {
+              "ci_high": 4.425821880005286e-06,
+              "ci_low": -6.149572605290194e-06,
+              "estimate": -1.2879846606624183e-06
+            },
+            "mixed_minus_same_toward_neighbor_transition": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            },
+            "mixed_reversed_minus_same_reversed_neighbor_probability": {
+              "ci_high": 8.498350326300913e-05,
+              "ci_low": -1.1711213799582186e-05,
+              "estimate": 2.52565180289821e-05
+            },
+            "same_minus_local_pseudo_neighbor_probability": {
+              "ci_high": 1.3888924335054236e-05,
+              "ci_low": -9.320111281335191e-06,
+              "estimate": 3.3654937422769846e-06
+            }
+          },
+          "n_documents": 11,
+          "n_pairs": 11
+        },
+        "CT+->PS+": {
+          "contrasts": {
+            "full_minus_local_neighbor_probability": {
+              "ci_high": 0.1835126431609524,
+              "ci_low": -0.0785859814698881,
+              "estimate": 0.03428016402455114
+            },
+            "full_minus_same_toward_neighbor_transition": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            },
+            "local_minus_mixed_target_accuracy": {
+              "ci_high": 0.1875,
+              "ci_low": 0.0,
+              "estimate": 0.0625
+            },
+            "local_minus_same_target_accuracy": {
+              "ci_high": 0.4375,
+              "ci_low": 0.0625,
+              "estimate": 0.25
+            },
+            "mixed_minus_local_neighbor_probability": {
+              "ci_high": 0.12698232223309697,
+              "ci_low": 0.002923587858845167,
+              "estimate": 0.06825478143997543
+            },
+            "mixed_minus_same_neighbor_probability": {
+              "ci_high": 0.04742395085895623,
+              "ci_low": -0.22980237601921089,
+              "estimate": -0.0993083216570767
+            },
+            "mixed_minus_same_toward_neighbor_transition": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            },
+            "mixed_reversed_minus_same_reversed_neighbor_probability": {
+              "ci_high": -0.0003402011964340099,
+              "ci_low": -0.06932018150720295,
+              "estimate": -0.023561999265893974
+            },
+            "same_minus_local_pseudo_neighbor_probability": {
+              "ci_high": 0.3192825033600002,
+              "ci_low": 0.020604701783213386,
+              "estimate": 0.16756310309705214
+            }
+          },
+          "n_documents": 8,
+          "n_pairs": 8
+        },
+        "CT+->PS-": {
+          "contrasts": {
+            "full_minus_local_neighbor_probability": {
+              "ci_high": 5.005460172292761e-06,
+              "ci_low": -6.098742292692805e-06,
+              "estimate": -8.150770125010038e-07
+            },
+            "full_minus_same_toward_neighbor_transition": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            },
+            "local_minus_mixed_target_accuracy": {
+              "ci_high": 0.3333333333333333,
+              "ci_low": 0.05555555555555555,
+              "estimate": 0.16666666666666666
+            },
+            "local_minus_same_target_accuracy": {
+              "ci_high": 0.5,
+              "ci_low": 0.16666666666666666,
+              "estimate": 0.3333333333333333
+            },
+            "mixed_minus_local_neighbor_probability": {
+              "ci_high": 4.585422025924242e-06,
+              "ci_low": -9.92026861644667e-07,
+              "estimate": 1.8654698755603426e-06
+            },
+            "mixed_minus_same_neighbor_probability": {
+              "ci_high": -1.0495548293773834e-05,
+              "ci_low": -4.4157280045611616e-05,
+              "estimate": -2.5382208352513975e-05
+            },
+            "mixed_minus_same_toward_neighbor_transition": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            },
+            "mixed_reversed_minus_same_reversed_neighbor_probability": {
+              "ci_high": -8.10341257767454e-06,
+              "ci_low": -2.9125183811136898e-05,
+              "estimate": -1.6722869569700077e-05
+            },
+            "same_minus_local_pseudo_neighbor_probability": {
+              "ci_high": 4.629991323162761e-05,
+              "ci_low": 1.162111285187469e-05,
+              "estimate": 2.7247678228074317e-05
+            }
+          },
+          "n_documents": 9,
+          "n_pairs": 9
+        },
+        "CT-->CT+": {
+          "contrasts": {
+            "full_minus_local_neighbor_probability": {
+              "ci_high": 0.49965380054436537,
+              "ci_low": 0.0002063534084300045,
+              "estimate": 0.1668789512954542
+            },
+            "full_minus_same_toward_neighbor_transition": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            },
+            "local_minus_mixed_target_accuracy": {
+              "ci_high": 0.5,
+              "ci_low": 0.0,
+              "estimate": 0.3333333333333333
+            },
+            "local_minus_same_target_accuracy": {
+              "ci_high": 0.5,
+              "ci_low": 0.0,
+              "estimate": 0.16666666666666666
+            },
+            "mixed_minus_local_neighbor_probability": {
+              "ci_high": 0.499568565654954,
+              "ci_low": 0.00017218548623532115,
+              "estimate": 0.16667186214219024
+            },
+            "mixed_minus_same_neighbor_probability": {
+              "ci_high": 0.0007314545200642897,
+              "ci_low": -0.004018839521449991,
+              "estimate": -0.0011168318960699253
+            },
+            "mixed_minus_same_toward_neighbor_transition": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            },
+            "mixed_reversed_minus_same_reversed_neighbor_probability": {
+              "ci_high": 0.4826610048767179,
+              "ci_low": 0.000156859326580161,
+              "estimate": 0.16103244759430405
+            },
+            "same_minus_local_pseudo_neighbor_probability": {
+              "ci_high": 0.4988371111348897,
+              "ci_low": 0.0002352961730593961,
+              "estimate": 0.16778869403826016
+            }
+          },
+          "n_documents": 3,
+          "n_pairs": 3
+        },
+        "CT-->PS+": {
+          "contrasts": {
+            "full_minus_local_neighbor_probability": {
+              "ci_high": 4.761113473250589e-06,
+              "ci_low": 4.761113473250589e-06,
+              "estimate": 4.761113473250589e-06
+            },
+            "full_minus_same_toward_neighbor_transition": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            },
+            "local_minus_mixed_target_accuracy": {
+              "ci_high": 0.5,
+              "ci_low": 0.5,
+              "estimate": 0.5
+            },
+            "local_minus_same_target_accuracy": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            },
+            "mixed_minus_local_neighbor_probability": {
+              "ci_high": 5.111311804739671e-05,
+              "ci_low": 5.111311804739671e-05,
+              "estimate": 5.111311804739671e-05
+            },
+            "mixed_minus_same_neighbor_probability": {
+              "ci_high": -2.532148619138752e-05,
+              "ci_low": -2.532148619138752e-05,
+              "estimate": -2.532148619138752e-05
+            },
+            "mixed_minus_same_toward_neighbor_transition": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            },
+            "mixed_reversed_minus_same_reversed_neighbor_probability": {
+              "ci_high": 0.0005987253166495066,
+              "ci_low": 0.0005987253166495066,
+              "estimate": 0.0005987253166495066
+            },
+            "same_minus_local_pseudo_neighbor_probability": {
+              "ci_high": 7.643460423878423e-05,
+              "ci_low": 7.643460423878423e-05,
+              "estimate": 7.643460423878423e-05
+            }
+          },
+          "n_documents": 1,
+          "n_pairs": 1
+        },
+        "CT-->PS-": {
+          "contrasts": {
+            "full_minus_local_neighbor_probability": {
+              "ci_high": 0.00011455210005806293,
+              "ci_low": 0.00011455210005806293,
+              "estimate": 0.00011455210005806293
+            },
+            "full_minus_same_toward_neighbor_transition": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            },
+            "local_minus_mixed_target_accuracy": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            },
+            "local_minus_same_target_accuracy": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            },
+            "mixed_minus_local_neighbor_probability": {
+              "ci_high": 0.00011455210005806293,
+              "ci_low": 0.00011455210005806293,
+              "estimate": 0.00011455210005806293
+            },
+            "mixed_minus_same_neighbor_probability": {
+              "ci_high": -0.006712449117912911,
+              "ci_low": -0.006712449117912911,
+              "estimate": -0.006712449117912911
+            },
+            "mixed_minus_same_toward_neighbor_transition": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            },
+            "mixed_reversed_minus_same_reversed_neighbor_probability": {
+              "ci_high": -0.13365249265916646,
+              "ci_low": -0.13365249265916646,
+              "estimate": -0.13365249265916646
+            },
+            "same_minus_local_pseudo_neighbor_probability": {
+              "ci_high": 0.006827001217970974,
+              "ci_low": 0.006827001217970974,
+              "estimate": 0.006827001217970974
+            }
+          },
+          "n_documents": 1,
+          "n_pairs": 1
+        },
+        "PS+->CT+": {
+          "contrasts": {
+            "full_minus_local_neighbor_probability": {
+              "ci_high": 0.24680001067128723,
+              "ci_low": 0.07954936183656433,
+              "estimate": 0.16004393130229153
+            },
+            "full_minus_same_toward_neighbor_transition": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            },
+            "local_minus_mixed_target_accuracy": {
+              "ci_high": 0.22916666666666666,
+              "ci_low": 0.0625,
+              "estimate": 0.14583333333333334
+            },
+            "local_minus_same_target_accuracy": {
+              "ci_high": 0.16666666666666666,
+              "ci_low": 0.020833333333333332,
+              "estimate": 0.08333333333333333
+            },
+            "mixed_minus_local_neighbor_probability": {
+              "ci_high": 0.1959947999508107,
+              "ci_low": 0.04230064482176262,
+              "estimate": 0.1162106518901768
+            },
+            "mixed_minus_same_neighbor_probability": {
+              "ci_high": 0.12023838041189819,
+              "ci_low": -0.02712724755027705,
+              "estimate": 0.04432834419423889
+            },
+            "mixed_minus_same_toward_neighbor_transition": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            },
+            "mixed_reversed_minus_same_reversed_neighbor_probability": {
+              "ci_high": 0.019909912332501025,
+              "ci_low": -0.0736058429312525,
+              "estimate": -0.020601235053925155
+            },
+            "same_minus_local_pseudo_neighbor_probability": {
+              "ci_high": 0.1421054432283804,
+              "ci_low": 0.014154893551122753,
+              "estimate": 0.07188230769593791
+            }
+          },
+          "n_documents": 24,
+          "n_pairs": 24
+        },
+        "PS+->CT-": {
+          "contrasts": {
+            "full_minus_local_neighbor_probability": {
+              "ci_high": 1.7307003810685727e-05,
+              "ci_low": 7.408035459206985e-06,
+              "estimate": 1.2082516166174173e-05
+            },
+            "full_minus_same_toward_neighbor_transition": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            },
+            "local_minus_mixed_target_accuracy": {
+              "ci_high": 0.06,
+              "ci_low": 0.0,
+              "estimate": 0.02
+            },
+            "local_minus_same_target_accuracy": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            },
+            "mixed_minus_local_neighbor_probability": {
+              "ci_high": 8.123416668865956e-06,
+              "ci_low": 3.3235533126685367e-06,
+              "estimate": 5.479413578086678e-06
+            },
+            "mixed_minus_same_neighbor_probability": {
+              "ci_high": 4.735485117635104e-08,
+              "ci_low": -5.818219797333768e-06,
+              "estimate": -2.8646581131397395e-06
+            },
+            "mixed_minus_same_toward_neighbor_transition": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            },
+            "mixed_reversed_minus_same_reversed_neighbor_probability": {
+              "ci_high": -1.75812013696941e-06,
+              "ci_low": -5.333219473811823e-06,
+              "estimate": -3.4758659398903547e-06
+            },
+            "same_minus_local_pseudo_neighbor_probability": {
+              "ci_high": 1.3239272880127828e-05,
+              "ci_low": 4.633626592863038e-06,
+              "estimate": 8.344071691226418e-06
+            }
+          },
+          "n_documents": 25,
+          "n_pairs": 25
+        },
+        "PS+->PS-": {
+          "contrasts": {
+            "full_minus_local_neighbor_probability": {
+              "ci_high": 0.07868592890849872,
+              "ci_low": -0.006287809286011627,
+              "estimate": 0.02868125830204349
+            },
+            "full_minus_same_toward_neighbor_transition": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            },
+            "local_minus_mixed_target_accuracy": {
+              "ci_high": 0.057692307692307696,
+              "ci_low": 0.0,
+              "estimate": 0.019230769230769232
+            },
+            "local_minus_same_target_accuracy": {
+              "ci_high": 0.09615384615384616,
+              "ci_low": 0.0,
+              "estimate": 0.038461538461538464
+            },
+            "mixed_minus_local_neighbor_probability": {
+              "ci_high": 0.05805946808281358,
+              "ci_low": -0.004686493082466223,
+              "estimate": 0.019556178548929035
+            },
+            "mixed_minus_same_neighbor_probability": {
+              "ci_high": 0.029239964724692414,
+              "ci_low": -0.044054730485941405,
+              "estimate": -0.007440651363992856
+            },
+            "mixed_minus_same_toward_neighbor_transition": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            },
+            "mixed_reversed_minus_same_reversed_neighbor_probability": {
+              "ci_high": 0.010913688778960411,
+              "ci_low": -0.0766428330706898,
+              "estimate": -0.02797239132990206
+            },
+            "same_minus_local_pseudo_neighbor_probability": {
+              "ci_high": 0.06705276084180505,
+              "ci_low": 0.0007126423514832305,
+              "estimate": 0.02699682991292189
+            }
+          },
+          "n_documents": 26,
+          "n_pairs": 26
+        },
+        "PS-->CT+": {
+          "contrasts": {
+            "full_minus_local_neighbor_probability": {
+              "ci_high": 0.00015116159374883864,
+              "ci_low": 4.772874959257933e-06,
+              "estimate": 9.226285041089947e-05
+            },
+            "full_minus_same_toward_neighbor_transition": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            },
+            "local_minus_mixed_target_accuracy": {
+              "ci_high": 1.0,
+              "ci_low": 0.0,
+              "estimate": 0.3333333333333333
+            },
+            "local_minus_same_target_accuracy": {
+              "ci_high": 1.0,
+              "ci_low": 0.0,
+              "estimate": 0.3333333333333333
+            },
+            "mixed_minus_local_neighbor_probability": {
+              "ci_high": 0.00012085408252460184,
+              "ci_low": 1.1028905788634802e-06,
+              "estimate": 4.895331676853706e-05
+            },
+            "mixed_minus_same_neighbor_probability": {
+              "ci_high": 0.00014120241758064367,
+              "ci_low": -8.307078900315901e-07,
+              "estimate": 4.912191162039411e-05
+            },
+            "mixed_minus_same_toward_neighbor_transition": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            },
+            "mixed_reversed_minus_same_reversed_neighbor_probability": {
+              "ci_high": 0.00014120241758064367,
+              "ci_low": 2.8887363839658065e-05,
+              "estimate": 6.793299703152418e-05
+            },
+            "same_minus_local_pseudo_neighbor_probability": {
+              "ci_high": 1.790895203157561e-05,
+              "ci_low": -2.0348335056041833e-05,
+              "estimate": -1.6859485185705125e-07
+            }
+          },
+          "n_documents": 3,
+          "n_pairs": 3
+        },
+        "PS-->CT-": {
+          "contrasts": {
+            "full_minus_local_neighbor_probability": {
+              "ci_high": 0.0009532334034550635,
+              "ci_low": -0.0008728738701696178,
+              "estimate": 8.507584614865967e-06
+            },
+            "full_minus_same_toward_neighbor_transition": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            },
+            "local_minus_mixed_target_accuracy": {
+              "ci_high": 0.5,
+              "ci_low": 0.0,
+              "estimate": 0.16666666666666666
+            },
+            "local_minus_same_target_accuracy": {
+              "ci_high": 0.5833333333333334,
+              "ci_low": 0.0,
+              "estimate": 0.25
+            },
+            "mixed_minus_local_neighbor_probability": {
+              "ci_high": 0.0009777860915770968,
+              "ci_low": -0.0008511688521745479,
+              "estimate": 3.617322742381172e-05
+            },
+            "mixed_minus_same_neighbor_probability": {
+              "ci_high": 0.0010110750923028415,
+              "ci_low": -7.200410038876726e-06,
+              "estimate": 0.00036679526702225
+            },
+            "mixed_minus_same_toward_neighbor_transition": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            },
+            "mixed_reversed_minus_same_reversed_neighbor_probability": {
+              "ci_high": 0.01900193917102418,
+              "ci_low": -1.965594589137254e-05,
+              "estimate": 0.0063340312119824676
+            },
+            "same_minus_local_pseudo_neighbor_probability": {
+              "ci_high": 1.2679824806127726e-05,
+              "ci_low": -0.0009698549285417357,
+              "estimate": -0.0003306220395984383
+            }
+          },
+          "n_documents": 6,
+          "n_pairs": 6
+        },
+        "PS-->PS+": {
+          "contrasts": {
+            "full_minus_local_neighbor_probability": {
+              "ci_high": 0.5200816615470103,
+              "ci_low": 0.006742909606145986,
+              "estimate": 0.29641198617810005
+            },
+            "full_minus_same_toward_neighbor_transition": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            },
+            "local_minus_mixed_target_accuracy": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            },
+            "local_minus_same_target_accuracy": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            },
+            "mixed_minus_local_neighbor_probability": {
+              "ci_high": 0.000165144097081793,
+              "ci_low": -0.0897629452374531,
+              "estimate": -0.0446251266236383
+            },
+            "mixed_minus_same_neighbor_probability": {
+              "ci_high": 0.00017977654033529689,
+              "ci_low": -0.030555867284419946,
+              "estimate": -0.015191648773755636
+            },
+            "mixed_minus_same_toward_neighbor_transition": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            },
+            "mixed_reversed_minus_same_reversed_neighbor_probability": {
+              "ci_high": 0.0011012839084969528,
+              "ci_low": -0.015993731441994896,
+              "estimate": -0.005529697377255616
+            },
+            "same_minus_local_pseudo_neighbor_probability": {
+              "ci_high": -1.463244325350388e-05,
+              "ci_low": -0.05920707795303315,
+              "estimate": -0.029433477849882667
+            }
+          },
+          "n_documents": 3,
+          "n_pairs": 3
+        }
+      },
+      "model_label": "gemma3_12b_it",
+      "n_documents": 332,
+      "n_pairs": 576,
+      "primary_contrasts": {
+        "full_minus_local_neighbor_probability": {
+          "ci_high": 0.08011685609048314,
+          "ci_low": 0.024854048873994516,
+          "estimate": 0.05079428342910744
+        },
+        "full_minus_same_toward_neighbor_transition": {
+          "ci_high": 0.0,
+          "ci_low": 0.0,
+          "estimate": 0.0
+        },
+        "local_minus_mixed_target_accuracy": {
+          "ci_high": 0.1450320512820513,
+          "ci_low": 0.0641025641025641,
+          "estimate": 0.10256410256410256
+        },
+        "local_minus_same_target_accuracy": {
+          "ci_high": 0.14903846153846154,
+          "ci_low": 0.0689102564102564,
+          "estimate": 0.10737179487179487
+        },
+        "mixed_minus_local_neighbor_probability": {
+          "ci_high": 0.06231200816033233,
+          "ci_low": 0.015939804314805444,
+          "estimate": 0.03732679408834841
+        },
+        "mixed_minus_same_neighbor_probability": {
+          "ci_high": 0.023157363899632032,
+          "ci_low": -0.017368062543651277,
+          "estimate": 0.001897979226586181
+        },
+        "mixed_minus_same_toward_neighbor_transition": {
+          "ci_high": 0.0,
+          "ci_low": 0.0,
+          "estimate": 0.0
+        },
+        "mixed_reversed_minus_same_reversed_neighbor_probability": {
+          "ci_high": 0.008997554872885033,
+          "ci_low": -0.0272766716640055,
+          "estimate": -0.008340950718687186
+        },
+        "same_minus_local_pseudo_neighbor_probability": {
+          "ci_high": 0.05897175052356305,
+          "ci_low": 0.015592056875645195,
+          "estimate": 0.03542881486176223
+        }
+      },
+      "primary_gated_pairs": 120,
+      "recognition_gate_rate": 0.2309027777777778,
+      "recognition_gated_documents": 114,
+      "recognition_gated_pairs": 133,
+      "validity_strata": {
+        "different_sentence": {
+          "contrasts": {
+            "full_minus_local_neighbor_probability": {
+              "ci_high": 0.09298536176077261,
+              "ci_low": 0.0300964800817313,
+              "estimate": 0.059797441089809125
+            },
+            "full_minus_same_toward_neighbor_transition": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            },
+            "local_minus_mixed_target_accuracy": {
+              "ci_high": 0.1544943820224719,
+              "ci_low": 0.06741573033707865,
+              "estimate": 0.10955056179775281
+            },
+            "local_minus_same_target_accuracy": {
+              "ci_high": 0.16853932584269662,
+              "ci_low": 0.07865168539325842,
+              "estimate": 0.12078651685393259
+            },
+            "mixed_minus_local_neighbor_probability": {
+              "ci_high": 0.07362635352320576,
+              "ci_low": 0.020288993037714427,
+              "estimate": 0.04469041340560356
+            },
+            "mixed_minus_same_neighbor_probability": {
+              "ci_high": 0.02796700170259421,
+              "ci_low": -0.019270475856470626,
+              "estimate": 0.0032722236403409217
+            },
+            "mixed_minus_same_toward_neighbor_transition": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            },
+            "mixed_reversed_minus_same_reversed_neighbor_probability": {
+              "ci_high": 0.013983898573402305,
+              "ci_low": -0.024364507670228307,
+              "estimate": -0.004899988495346035
+            },
+            "same_minus_local_pseudo_neighbor_probability": {
+              "ci_high": 0.06949588945389822,
+              "ci_low": 0.017774550563114493,
+              "estimate": 0.04141818976526264
+            }
+          },
+          "n_documents": 89,
+          "n_pairs": 103
+        },
+        "explicit_relation": {
+          "contrasts": {
+            "full_minus_local_neighbor_probability": {
+              "ci_high": 0.115671204078684,
+              "ci_low": 0.0162920039136457,
+              "estimate": 0.061989949734438735
+            },
+            "full_minus_same_toward_neighbor_transition": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            },
+            "local_minus_mixed_target_accuracy": {
+              "ci_high": 0.16666666666666666,
+              "ci_low": 0.03787878787878788,
+              "estimate": 0.09848484848484848
+            },
+            "local_minus_same_target_accuracy": {
+              "ci_high": 0.22727272727272727,
+              "ci_low": 0.07575757575757576,
+              "estimate": 0.15151515151515152
+            },
+            "mixed_minus_local_neighbor_probability": {
+              "ci_high": 0.09090034674211658,
+              "ci_low": 0.008939499255033364,
+              "estimate": 0.0456487303546024
+            },
+            "mixed_minus_same_neighbor_probability": {
+              "ci_high": 0.02094066655048599,
+              "ci_low": -0.06717235047928032,
+              "estimate": -0.022056748162754047
+            },
+            "mixed_minus_same_toward_neighbor_transition": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            },
+            "mixed_reversed_minus_same_reversed_neighbor_probability": {
+              "ci_high": 0.048242080735543744,
+              "ci_low": -0.03572958917938734,
+              "estimate": 0.0064789634830910445
+            },
+            "same_minus_local_pseudo_neighbor_probability": {
+              "ci_high": 0.13016981964159838,
+              "ci_low": 0.015264006295347948,
+              "estimate": 0.06770547851735645
+            }
+          },
+          "n_documents": 33,
+          "n_pairs": 34
+        },
+        "no_explicit_relation": {
+          "contrasts": {
+            "full_minus_local_neighbor_probability": {
+              "ci_high": 0.07716313253543317,
+              "ci_low": 0.01534912466247584,
+              "estimate": 0.04435339959702812
+            },
+            "full_minus_same_toward_neighbor_transition": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            },
+            "local_minus_mixed_target_accuracy": {
+              "ci_high": 0.15202702702702703,
+              "ci_low": 0.05518018018018018,
+              "estimate": 0.10022522522522521
+            },
+            "local_minus_same_target_accuracy": {
+              "ci_high": 0.13513513513513514,
+              "ci_low": 0.04391891891891892,
+              "estimate": 0.0867117117117117
+            },
+            "mixed_minus_local_neighbor_probability": {
+              "ci_high": 0.061796043205970846,
+              "ci_low": 0.008470959158553587,
+              "estimate": 0.032733814945695286
+            },
+            "mixed_minus_same_neighbor_probability": {
+              "ci_high": 0.03416971070688841,
+              "ci_low": -0.010798091429538173,
+              "estimate": 0.009692433145658576
+            },
+            "mixed_minus_same_toward_neighbor_transition": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            },
+            "mixed_reversed_minus_same_reversed_neighbor_probability": {
+              "ci_high": 0.002706539473893133,
+              "ci_low": -0.03378255721421384,
+              "estimate": -0.013616932162591284
+            },
+            "same_minus_local_pseudo_neighbor_probability": {
+              "ci_high": 0.04615444304621043,
+              "ci_low": 0.004923771999191487,
+              "estimate": 0.023041381800036714
+            }
+          },
+          "n_documents": 74,
+          "n_pairs": 86
+        },
+        "same_sentence": {
+          "contrasts": {
+            "full_minus_local_neighbor_probability": {
+              "ci_high": 0.0005138213222940722,
+              "ci_low": -0.013782285297909924,
+              "estimate": -0.004421847010009472
+            },
+            "full_minus_same_toward_neighbor_transition": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            },
+            "local_minus_mixed_target_accuracy": {
+              "ci_high": 0.15625,
+              "ci_low": 0.0,
+              "estimate": 0.0625
+            },
+            "local_minus_same_target_accuracy": {
+              "ci_high": 0.09375,
+              "ci_low": 0.0,
+              "estimate": 0.03125
+            },
+            "mixed_minus_local_neighbor_probability": {
+              "ci_high": 0.0004963212641394321,
+              "ci_low": -0.013781776190298611,
+              "estimate": -0.004421847010009472
+            },
+            "mixed_minus_same_neighbor_probability": {
+              "ci_high": 0.00038252685210209386,
+              "ci_low": -0.010581962269495504,
+              "estimate": -0.004193749547324543
+            },
+            "mixed_minus_same_toward_neighbor_transition": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            },
+            "mixed_reversed_minus_same_reversed_neighbor_probability": {
+              "ci_high": 0.0003977992798044558,
+              "ci_low": -0.08924096222386768,
+              "estimate": -0.03052556009536822
+            },
+            "same_minus_local_pseudo_neighbor_probability": {
+              "ci_high": 0.006005045718178614,
+              "ci_low": -0.006917144356507965,
+              "estimate": -0.0002280974626849286
+            }
+          },
+          "n_documents": 16,
+          "n_pairs": 17
+        }
+      }
+    },
+    {
+      "condition_metrics_gated": {
+        "full_local_discourse": {
+          "both_order_accuracy": 0.2159090909090909,
+          "mean_neighbor_probability": 0.11534636416366663,
+          "mean_order_accuracy": 0.5056818181818182,
+          "mean_target_probability": 0.4173733404498886,
+          "toward_neighbor_both_order_rate": 0.011363636363636364
+        },
+        "mixed_status_natural": {
+          "both_order_accuracy": 0.32954545454545453,
+          "mean_neighbor_probability": 0.102730486668985,
+          "mean_order_accuracy": 0.6079545454545454,
+          "mean_target_probability": 0.45131405898031185,
+          "toward_neighbor_both_order_rate": 0.011363636363636364
+        },
+        "mixed_status_reversed": {
+          "both_order_accuracy": 0.45454545454545453,
+          "mean_neighbor_probability": 0.09962309144082776,
+          "mean_order_accuracy": 0.6931818181818182,
+          "mean_target_probability": 0.4638764733787287,
+          "toward_neighbor_both_order_rate": 0.011363636363636364
+        },
+        "same_status_natural": {
+          "both_order_accuracy": 0.3409090909090909,
+          "mean_neighbor_probability": 0.10455530848544599,
+          "mean_order_accuracy": 0.625,
+          "mean_target_probability": 0.45716310588812287,
+          "toward_neighbor_both_order_rate": 0.0
+        },
+        "same_status_reversed": {
+          "both_order_accuracy": 0.48863636363636365,
+          "mean_neighbor_probability": 0.09936645940813998,
+          "mean_order_accuracy": 0.7045454545454546,
+          "mean_target_probability": 0.4630762007172135,
+          "toward_neighbor_both_order_rate": 0.011363636363636364
+        },
+        "target_local": {
+          "both_order_accuracy": 1.0,
+          "mean_neighbor_probability": 0.07550723831611156,
+          "mean_order_accuracy": 1.0,
+          "mean_target_probability": 0.6128338998691603,
+          "toward_neighbor_both_order_rate": 0.0
+        }
+      },
+      "direction_results": {
+        "CT+->CT-": {
+          "contrasts": {
+            "full_minus_local_neighbor_probability": {
+              "ci_high": 0.023009206384920294,
+              "ci_low": 0.012623564841787276,
+              "estimate": 0.01747262553887113
+            },
+            "full_minus_same_toward_neighbor_transition": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            },
+            "local_minus_mixed_target_accuracy": {
+              "ci_high": 0.35294117647058826,
+              "ci_low": 0.08823529411764706,
+              "estimate": 0.20588235294117646
+            },
+            "local_minus_same_target_accuracy": {
+              "ci_high": 0.3235294117647059,
+              "ci_low": 0.08823529411764706,
+              "estimate": 0.20588235294117646
+            },
+            "mixed_minus_local_neighbor_probability": {
+              "ci_high": 0.013018455915324224,
+              "ci_low": 0.006493919906172189,
+              "estimate": 0.009594638345708303
+            },
+            "mixed_minus_same_neighbor_probability": {
+              "ci_high": 5.5703884059123994e-05,
+              "ci_low": -0.003669812557671,
+              "estimate": -0.001783766783773899
+            },
+            "mixed_minus_same_toward_neighbor_transition": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            },
+            "mixed_reversed_minus_same_reversed_neighbor_probability": {
+              "ci_high": -0.0006548264491892257,
+              "ci_low": -0.004830432522302384,
+              "estimate": -0.0026167136658092633
+            },
+            "same_minus_local_pseudo_neighbor_probability": {
+              "ci_high": 0.015380881297203492,
+              "ci_low": 0.007581768472514609,
+              "estimate": 0.011378405129482202
+            }
+          },
+          "n_documents": 17,
+          "n_pairs": 17
+        },
+        "CT+->PS+": {
+          "contrasts": {
+            "full_minus_local_neighbor_probability": {
+              "ci_high": 0.08212907498285252,
+              "ci_low": 0.04329948938700707,
+              "estimate": 0.0628325840160768
+            },
+            "full_minus_same_toward_neighbor_transition": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            },
+            "local_minus_mixed_target_accuracy": {
+              "ci_high": 0.3611111111111111,
+              "ci_low": 0.1388888888888889,
+              "estimate": 0.25
+            },
+            "local_minus_same_target_accuracy": {
+              "ci_high": 0.4444444444444444,
+              "ci_low": 0.16666666666666666,
+              "estimate": 0.3055555555555556
+            },
+            "mixed_minus_local_neighbor_probability": {
+              "ci_high": 0.04771201674124718,
+              "ci_low": 0.015333184966261291,
+              "estimate": 0.030418627746661916
+            },
+            "mixed_minus_same_neighbor_probability": {
+              "ci_high": -0.0008539000823576446,
+              "ci_low": -0.02270401131827384,
+              "estimate": -0.011492912761039205
+            },
+            "mixed_minus_same_toward_neighbor_transition": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            },
+            "mixed_reversed_minus_same_reversed_neighbor_probability": {
+              "ci_high": 0.0003436104155197317,
+              "ci_low": -0.017140762695473516,
+              "estimate": -0.007926325443097286
+            },
+            "same_minus_local_pseudo_neighbor_probability": {
+              "ci_high": 0.06544470832175446,
+              "ci_low": 0.020821287300269532,
+              "estimate": 0.04191154050770112
+            }
+          },
+          "n_documents": 18,
+          "n_pairs": 18
+        },
+        "CT+->PS-": {
+          "contrasts": {
+            "full_minus_local_neighbor_probability": {
+              "ci_high": 0.028135673640868986,
+              "ci_low": 0.013424689592256282,
+              "estimate": 0.02005852948730955
+            },
+            "full_minus_same_toward_neighbor_transition": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            },
+            "local_minus_mixed_target_accuracy": {
+              "ci_high": 0.6153846153846154,
+              "ci_low": 0.3076923076923077,
+              "estimate": 0.46153846153846156
+            },
+            "local_minus_same_target_accuracy": {
+              "ci_high": 0.5,
+              "ci_low": 0.2692307692307692,
+              "estimate": 0.38461538461538464
+            },
+            "mixed_minus_local_neighbor_probability": {
+              "ci_high": 0.017488036721120946,
+              "ci_low": 0.009822743765723247,
+              "estimate": 0.013575869433295269
+            },
+            "mixed_minus_same_neighbor_probability": {
+              "ci_high": 0.0007053132616699884,
+              "ci_low": -0.00598450111798369,
+              "estimate": -0.0023669563950254368
+            },
+            "mixed_minus_same_toward_neighbor_transition": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            },
+            "mixed_reversed_minus_same_reversed_neighbor_probability": {
+              "ci_high": 0.0031086345579331882,
+              "ci_low": -0.00199314640261806,
+              "estimate": 0.0004220708774832579
+            },
+            "same_minus_local_pseudo_neighbor_probability": {
+              "ci_high": 0.01981470808118152,
+              "ci_low": 0.012451810252745278,
+              "estimate": 0.015942825828320704
+            }
+          },
+          "n_documents": 13,
+          "n_pairs": 13
+        },
+        "PS+->CT+": {
+          "contrasts": {
+            "full_minus_local_neighbor_probability": {
+              "ci_high": 0.11133431643247604,
+              "ci_low": 0.007485560008457729,
+              "estimate": 0.0595504811831883
+            },
+            "full_minus_same_toward_neighbor_transition": {
+              "ci_high": 0.42857142857142855,
+              "ci_low": 0.0,
+              "estimate": 0.14285714285714285
+            },
+            "local_minus_mixed_target_accuracy": {
+              "ci_high": 0.7857142857142857,
+              "ci_low": 0.35714285714285715,
+              "estimate": 0.5714285714285714
+            },
+            "local_minus_same_target_accuracy": {
+              "ci_high": 0.7142857142857143,
+              "ci_low": 0.2857142857142857,
+              "estimate": 0.5
+            },
+            "mixed_minus_local_neighbor_probability": {
+              "ci_high": 0.11970686806099755,
+              "ci_low": 0.04126272244112832,
+              "estimate": 0.07874812292201179
+            },
+            "mixed_minus_same_neighbor_probability": {
+              "ci_high": 0.06311480869938219,
+              "ci_low": -0.007131158241203853,
+              "estimate": 0.021544900855847766
+            },
+            "mixed_minus_same_toward_neighbor_transition": {
+              "ci_high": 0.42857142857142855,
+              "ci_low": 0.0,
+              "estimate": 0.14285714285714285
+            },
+            "mixed_reversed_minus_same_reversed_neighbor_probability": {
+              "ci_high": 0.0794798316700118,
+              "ci_low": -0.004516645201614925,
+              "estimate": 0.03932844741003854
+            },
+            "same_minus_local_pseudo_neighbor_probability": {
+              "ci_high": 0.0872063319864016,
+              "ci_low": 0.028406216629913876,
+              "estimate": 0.05720322206616402
+            }
+          },
+          "n_documents": 7,
+          "n_pairs": 7
+        },
+        "PS+->CT-": {
+          "contrasts": {
+            "full_minus_local_neighbor_probability": {
+              "ci_high": 0.028207218031233283,
+              "ci_low": 0.013489273766418381,
+              "estimate": 0.02022733641877914
+            },
+            "full_minus_same_toward_neighbor_transition": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            },
+            "local_minus_mixed_target_accuracy": {
+              "ci_high": 0.7307692307692307,
+              "ci_low": 0.4230769230769231,
+              "estimate": 0.5769230769230769
+            },
+            "local_minus_same_target_accuracy": {
+              "ci_high": 0.6153846153846154,
+              "ci_low": 0.3076923076923077,
+              "estimate": 0.46153846153846156
+            },
+            "mixed_minus_local_neighbor_probability": {
+              "ci_high": 0.018145841837059168,
+              "ci_low": 0.007969376695557282,
+              "estimate": 0.012618539895181758
+            },
+            "mixed_minus_same_neighbor_probability": {
+              "ci_high": 0.00413878738002565,
+              "ci_low": -0.007083705937167486,
+              "estimate": -0.0017457466500882919
+            },
+            "mixed_minus_same_toward_neighbor_transition": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            },
+            "mixed_reversed_minus_same_reversed_neighbor_probability": {
+              "ci_high": 0.004445814074446947,
+              "ci_low": -0.00655534584254313,
+              "estimate": -0.0011833865338793169
+            },
+            "same_minus_local_pseudo_neighbor_probability": {
+              "ci_high": 0.01729949452923252,
+              "ci_low": 0.011456091185167539,
+              "estimate": 0.014364286545270052
+            }
+          },
+          "n_documents": 13,
+          "n_pairs": 13
+        },
+        "PS+->PS-": {
+          "contrasts": {
+            "full_minus_local_neighbor_probability": {
+              "ci_high": 0.01896266411698889,
+              "ci_low": -0.0008453761431155727,
+              "estimate": 0.00824095814023167
+            },
+            "full_minus_same_toward_neighbor_transition": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            },
+            "local_minus_mixed_target_accuracy": {
+              "ci_high": 0.6,
+              "ci_low": 0.3,
+              "estimate": 0.45
+            },
+            "local_minus_same_target_accuracy": {
+              "ci_high": 0.75,
+              "ci_low": 0.25,
+              "estimate": 0.5
+            },
+            "mixed_minus_local_neighbor_probability": {
+              "ci_high": 0.008614601381123067,
+              "ci_low": -0.00633538257505279,
+              "estimate": 0.0014465427724644543
+            },
+            "mixed_minus_same_neighbor_probability": {
+              "ci_high": 0.008718201289884745,
+              "ci_low": 0.0006195385358296337,
+              "estimate": 0.004409469850361347
+            },
+            "mixed_minus_same_toward_neighbor_transition": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            },
+            "mixed_reversed_minus_same_reversed_neighbor_probability": {
+              "ci_high": 0.0022505304147489363,
+              "ci_low": -0.004368142515886575,
+              "estimate": -0.0008478514850139618
+            },
+            "same_minus_local_pseudo_neighbor_probability": {
+              "ci_high": 0.0021521601593121865,
+              "ci_low": -0.00853587302728556,
+              "estimate": -0.002962927077896893
+            }
+          },
+          "n_documents": 10,
+          "n_pairs": 10
+        }
+      },
+      "model_label": "llama31_8b_instruct",
+      "n_documents": 332,
+      "n_pairs": 576,
+      "primary_contrasts": {
+        "full_minus_local_neighbor_probability": {
+          "ci_high": 0.03973521450111487,
+          "ci_low": 0.02255329031687385,
+          "estimate": 0.030767164945912858
+        },
+        "full_minus_same_toward_neighbor_transition": {
+          "ci_high": 0.04,
+          "ci_low": 0.0,
+          "estimate": 0.013333333333333334
+        },
+        "local_minus_mixed_target_accuracy": {
+          "ci_high": 0.44666666666666666,
+          "ci_low": 0.30333333333333334,
+          "estimate": 0.37666666666666665
+        },
+        "local_minus_same_target_accuracy": {
+          "ci_high": 0.4266666666666667,
+          "ci_low": 0.29333333333333333,
+          "estimate": 0.36
+        },
+        "mixed_minus_local_neighbor_probability": {
+          "ci_high": 0.0275761833791815,
+          "ci_low": 0.013808326385430215,
+          "estimate": 0.02031838648021221
+        },
+        "mixed_minus_same_neighbor_probability": {
+          "ci_high": 0.003839817693689837,
+          "ci_low": -0.005883882032784943,
+          "estimate": -0.0013638290747379263
+        },
+        "mixed_minus_same_toward_neighbor_transition": {
+          "ci_high": 0.04,
+          "ci_low": 0.0,
+          "estimate": 0.013333333333333334
+        },
+        "mixed_reversed_minus_same_reversed_neighbor_probability": {
+          "ci_high": 0.006726815110305324,
+          "ci_low": -0.004235279119263093,
+          "estimate": 0.000981710657166938
+        },
+        "same_minus_local_pseudo_neighbor_probability": {
+          "ci_high": 0.029133213767956474,
+          "ci_low": 0.015074806266561306,
+          "estimate": 0.02168221555495014
+        }
+      },
+      "primary_gated_pairs": 78,
+      "recognition_gate_rate": 0.1527777777777778,
+      "recognition_gated_documents": 83,
+      "recognition_gated_pairs": 88,
+      "validity_strata": {
+        "different_sentence": {
+          "contrasts": {
+            "full_minus_local_neighbor_probability": {
+              "ci_high": 0.042378814919346405,
+              "ci_low": 0.024270334476613493,
+              "estimate": 0.03295613820765815
+            },
+            "full_minus_same_toward_neighbor_transition": {
+              "ci_high": 0.043478260869565216,
+              "ci_low": 0.0,
+              "estimate": 0.014492753623188406
+            },
+            "local_minus_mixed_target_accuracy": {
+              "ci_high": 0.47101449275362317,
+              "ci_low": 0.3188405797101449,
+              "estimate": 0.39492753623188404
+            },
+            "local_minus_same_target_accuracy": {
+              "ci_high": 0.41304347826086957,
+              "ci_low": 0.26811594202898553,
+              "estimate": 0.34057971014492755
+            },
+            "mixed_minus_local_neighbor_probability": {
+              "ci_high": 0.029617856462288688,
+              "ci_low": 0.014671992550733115,
+              "estimate": 0.02159877031015745
+            },
+            "mixed_minus_same_neighbor_probability": {
+              "ci_high": 0.004230422357880114,
+              "ci_low": -0.00633944828000824,
+              "estimate": -0.00155071299219423
+            },
+            "mixed_minus_same_toward_neighbor_transition": {
+              "ci_high": 0.043478260869565216,
+              "ci_low": 0.0,
+              "estimate": 0.014492753623188406
+            },
+            "mixed_reversed_minus_same_reversed_neighbor_probability": {
+              "ci_high": 0.0072050982887141264,
+              "ci_low": -0.004716020212778687,
+              "estimate": 0.0010143881714295435
+            },
+            "same_minus_local_pseudo_neighbor_probability": {
+              "ci_high": 0.03149546106920435,
+              "ci_low": 0.015970976653414362,
+              "estimate": 0.02314948330235168
+            }
+          },
+          "n_documents": 69,
+          "n_pairs": 72
+        },
+        "explicit_relation": {
+          "contrasts": {
+            "full_minus_local_neighbor_probability": {
+              "ci_high": 0.03858981288979217,
+              "ci_low": 0.014355573721986729,
+              "estimate": 0.02548743988154456
+            },
+            "full_minus_same_toward_neighbor_transition": {
+              "ci_high": 0.1,
+              "ci_low": 0.0,
+              "estimate": 0.03333333333333333
+            },
+            "local_minus_mixed_target_accuracy": {
+              "ci_high": 0.55,
+              "ci_low": 0.35,
+              "estimate": 0.45
+            },
+            "local_minus_same_target_accuracy": {
+              "ci_high": 0.5833333333333334,
+              "ci_low": 0.38333333333333336,
+              "estimate": 0.48333333333333334
+            },
+            "mixed_minus_local_neighbor_probability": {
+              "ci_high": 0.036014187676676836,
+              "ci_low": 0.012248961310542655,
+              "estimate": 0.02305565061590945
+            },
+            "mixed_minus_same_neighbor_probability": {
+              "ci_high": 0.013269287929870175,
+              "ci_low": -0.007669611356880827,
+              "estimate": 0.0015030777935559551
+            },
+            "mixed_minus_same_toward_neighbor_transition": {
+              "ci_high": 0.1,
+              "ci_low": 0.0,
+              "estimate": 0.03333333333333333
+            },
+            "mixed_reversed_minus_same_reversed_neighbor_probability": {
+              "ci_high": 0.0117283142490002,
+              "ci_low": -0.0077991651314854,
+              "estimate": 0.0012850411469116807
+            },
+            "same_minus_local_pseudo_neighbor_probability": {
+              "ci_high": 0.035030038809927645,
+              "ci_low": 0.011118753265861111,
+              "estimate": 0.021552572822353493
+            }
+          },
+          "n_documents": 30,
+          "n_pairs": 30
+        },
+        "no_explicit_relation": {
+          "contrasts": {
+            "full_minus_local_neighbor_probability": {
+              "ci_high": 0.0458670105621345,
+              "ci_low": 0.023614838612674577,
+              "estimate": 0.03437882758171714
+            },
+            "full_minus_same_toward_neighbor_transition": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            },
+            "local_minus_mixed_target_accuracy": {
+              "ci_high": 0.43617021276595747,
+              "ci_low": 0.24468085106382978,
+              "estimate": 0.3404255319148936
+            },
+            "local_minus_same_target_accuracy": {
+              "ci_high": 0.3723404255319149,
+              "ci_low": 0.20212765957446807,
+              "estimate": 0.2872340425531915
+            },
+            "mixed_minus_local_neighbor_probability": {
+              "ci_high": 0.027255774295716684,
+              "ci_low": 0.011124316708369308,
+              "estimate": 0.018321556016862233
+            },
+            "mixed_minus_same_neighbor_probability": {
+              "ci_high": 0.0011023935723177929,
+              "ci_low": -0.007235699348359745,
+              "estimate": -0.002938658241777027
+            },
+            "mixed_minus_same_toward_neighbor_transition": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            },
+            "mixed_reversed_minus_same_reversed_neighbor_probability": {
+              "ci_high": 0.007570409202982889,
+              "ci_low": -0.0046289478780384705,
+              "estimate": 0.0008347378325391006
+            },
+            "same_minus_local_pseudo_neighbor_probability": {
+              "ci_high": 0.03039559991537975,
+              "ci_low": 0.013182687070319785,
+              "estimate": 0.021260214258639262
+            }
+          },
+          "n_documents": 47,
+          "n_pairs": 48
+        },
+        "same_sentence": {
+          "contrasts": {
+            "full_minus_local_neighbor_probability": {
+              "ci_high": 0.01131834431240956,
+              "ci_low": -0.000799267708013455,
+              "estimate": 0.005593972435841958
+            },
+            "full_minus_same_toward_neighbor_transition": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            },
+            "local_minus_mixed_target_accuracy": {
+              "ci_high": 0.3333333333333333,
+              "ci_low": 0.0,
+              "estimate": 0.16666666666666666
+            },
+            "local_minus_same_target_accuracy": {
+              "ci_high": 0.75,
+              "ci_low": 0.5,
+              "estimate": 0.5833333333333334
+            },
+            "mixed_minus_local_neighbor_probability": {
+              "ci_high": 0.011074253047506014,
+              "ci_low": -0.000799267708013455,
+              "estimate": 0.005593972435841958
+            },
+            "mixed_minus_same_neighbor_probability": {
+              "ci_high": 0.003457199161251386,
+              "ci_low": -0.0018394631333649158,
+              "estimate": 0.0007853359760095676
+            },
+            "mixed_minus_same_toward_neighbor_transition": {
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "estimate": 0.0
+            },
+            "mixed_reversed_minus_same_reversed_neighbor_probability": {
+              "ci_high": 0.00634272691483299,
+              "ci_low": -0.0064857642476757365,
+              "estimate": 0.0006059192431469759
+            },
+            "same_minus_local_pseudo_neighbor_probability": {
+              "ci_high": 0.00989282519246141,
+              "ci_low": -0.0015482660382986069,
+              "estimate": 0.00480863645983239
+            }
+          },
+          "n_documents": 6,
+          "n_pairs": 6
+        }
+      }
+    }
+  ]
+}

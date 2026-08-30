@@ -1,0 +1,26 @@
+{
+  "batch_size": 24,
+  "contract_version": "d0_v1",
+  "data_sha256": "80896fd2a63cc0e305b488ac270f111507e753ff65b4712f1529703942f9cba0",
+  "device": "cuda:0",
+  "dtype": "bfloat16",
+  "elapsed_seconds": 478.46415519714355,
+  "max_prompt_tokens": 1902,
+  "mean_prompt_tokens": 276.23871527777777,
+  "min_prompt_tokens": 175,
+  "model": "google/gemma-3-12b-it",
+  "model_label": "gemma3_12b_it",
+  "model_revision": "96b6f1eccf38110c56df3a15bffe176da04bfd80",
+  "option_token_ids": {
+    "A": 236776,
+    "B": 236799,
+    "C": 236780,
+    "D": 236796,
+    "E": 236788
+  },
+  "pairs": 576,
+  "python": "3.12.13",
+  "records": 6912,
+  "torch_version": "2.11.0+cu130",
+  "transformers_version": "5.12.1"
+}

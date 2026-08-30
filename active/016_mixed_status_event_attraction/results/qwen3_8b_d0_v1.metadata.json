@@ -1,0 +1,26 @@
+{
+  "batch_size": 32,
+  "contract_version": "d0_v1",
+  "data_sha256": "80896fd2a63cc0e305b488ac270f111507e753ff65b4712f1529703942f9cba0",
+  "device": "cuda:0",
+  "dtype": "bfloat16",
+  "elapsed_seconds": 310.7861952781677,
+  "max_prompt_tokens": 1904,
+  "mean_prompt_tokens": 268.96440972222223,
+  "min_prompt_tokens": 170,
+  "model": "Qwen/Qwen3-8B",
+  "model_label": "qwen3_8b",
+  "model_revision": "b968826d9c46dd6066d109eabc6255188de91218",
+  "option_token_ids": {
+    "A": 32,
+    "B": 33,
+    "C": 34,
+    "D": 35,
+    "E": 36
+  },
+  "pairs": 576,
+  "python": "3.12.13",
+  "records": 6912,
+  "torch_version": "2.11.0+cu130",
+  "transformers_version": "5.12.1"
+}

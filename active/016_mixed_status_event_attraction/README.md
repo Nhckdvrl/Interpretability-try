@@ -2,7 +2,7 @@
 
 **中文一句话：** 模型单独知道“这件事真的发生了、那件事只是可能发生”，放到同一个真实 discourse 里以后，会不会把两件事的 factuality 状态互相带偏？
 
-**Status:** `REGISTERED / OFF-THE-SHELF-D0 / BEHAVIOR-FIRST`
+**Status:** `D0-V1 COMPLETE / NO-PROMOTE / SAME-STATUS CONTROL NOT PASSED`
 **Created:** 2026-08-30
 **Top-10 rank:** #2
 **Primary builder:** `../../preflight/d0_mixed_status_event_attraction/build_from_maven_fact.py`
@@ -303,3 +303,20 @@ C. discourse summary overwrite：后出现/更显眼 event 重写了共享 disco
 7. N1 exact collision search
 8. 才进入 MI
 ```
+
+---
+
+## 13. 2026-08-30 D0 v1 update
+
+已完成 MAVEN-FACT train + validation 的全 scope materialization，以及 Qwen3-8B、
+Gemma-3-12B-IT、Llama-3.1-8B-Instruct 三家族 D0。完整 bank 含 350,834 个有向
+mixed-status pairs；成本层使用覆盖全部方向的 576 pairs，并用同文档同状态 event 做结构匹配
+控制。
+
+三个家族的 `MIXED - LOCAL` neighbor-label probability 都为正，但 `SAME - LOCAL` 也为正；
+关键 `MIXED - SAME` 主顺序 CI 在三个家族均跨 0。toward-neighbor 离散转移不稳定，最大
+`PS+ -> CT+` 单方向只在 Qwen 显著，Gemma/Llama 不复现。完整 source discourse 的变化也
+不能排除合法语境证据。
+
+结论为 **NO-PROMOTE**：不进入 mechanism，不按方向或 event subtype 收窄。完整数据审计、
+合同、模型 revision、数值与复现命令见 [`D0_V1_REPORT.md`](D0_V1_REPORT.md)。

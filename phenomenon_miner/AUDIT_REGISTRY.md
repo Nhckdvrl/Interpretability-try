@@ -89,6 +89,13 @@ mechanism 继续为 false，不按 subtype 收窄续跑。
 
 必须出现 toward-neighbor-status 的 directional error；只有 context 变长后 accuracy 下降不算。
 
+2026-08-30 D0 v1：MAVEN-FACT train + validation 全 scope bank 与 576-pair direction-balanced
+cost layer 已冻结；Qwen3-8B、Gemma-3-12B-IT、Llama-3.1-8B-Instruct 均完成。表面
+`MIXED - LOCAL` 效应被 same-status matched context 解释，关键 `MIXED - SAME` 主顺序
+document-bootstrap CI 三家族均跨 0，toward-neighbor 离散转移不稳定。判定
+`NO-PROMOTE / SAME-STATUS FATAL CONTROL NOT PASSED`；full validation 与 mechanism 为
+false，不按 `PS+ -> CT+` 或其他单方向收窄续跑。
+
 ### 017 Cross-Modal Resolution Inertia
 
 MUCAR 已经证明 static cross-modal ambiguity resolution 很难。只有 `simultaneous correct + text-first initial wrong + sequential final sticks to old interpretation` 才是新 money cell。
