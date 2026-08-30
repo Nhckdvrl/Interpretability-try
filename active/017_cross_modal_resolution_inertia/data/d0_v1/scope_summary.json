@@ -1,0 +1,24 @@
+{
+  "contract_id": "017-d0-v1",
+  "source_rows": 1278,
+  "target_dual_rows": 372,
+  "released_valid_rows": 186,
+  "excluded_mapping_defects": 186,
+  "unique_pair_ids": 39,
+  "languages": {
+    "1": 64,
+    "2": 64,
+    "3": 58
+  },
+  "source_categories": {
+    "Dual-Ambiguity": 162,
+    "Temporal Information": 15,
+    "Location and Orientation": 3,
+    "Cultural Background": 6
+  },
+  "unique_images": 38,
+  "bank_sha256": "19fe5f8068a901dce5ce70a3183aa9c5f301dd1ddadaacef17dc164b3fc169f0",
+  "source_sha256": "9d100e26587386352143acc3ea81ba152e21aebcd7f1db9155b4f01b6391fb22",
+  "source_commit": "930eb28610c9799ee0caf81c7c0b59ac33cb372c",
+  "image_revision": "3a28f23644e54a58c6131b41fe762a04869ee7cc"
+}

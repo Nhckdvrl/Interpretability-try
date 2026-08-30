@@ -1,0 +1,47 @@
+{
+  "contract_id": "017-d0-v1",
+  "source_repo": "THUNLP-MT/MUCAR",
+  "source_commit": "930eb28610c9799ee0caf81c7c0b59ac33cb372c",
+  "image_dataset": "kevindragon221/MUCAR",
+  "image_revision": "3a28f23644e54a58c6131b41fe762a04869ee7cc",
+  "target_population": "all 372 MUCAR rows with tags.category == 7 (Dual-Ambiguity)",
+  "released_valid_population": "the 186 dual rows whose released image_id exactly names one released image; the other 186 suffixless IDs each ambiguously name two files and are excluded before model inference",
+  "release_defect_policy": "never guess a missing -1/-2 suffix and never choose an image using the gold answer",
+  "conditions": [
+    "text_only",
+    "simultaneous",
+    "text_first_actual_label",
+    "text_first_actual_ordinal",
+    "text_first_masked",
+    "matched_history",
+    "image_first"
+  ],
+  "option_orders": ["canonical", "reversed"],
+  "primary_gate": "text_only initial wrong AND simultaneous final correct, within item-order",
+  "primary_metric": "persistence of the exact initial wrong interpretation under text_first_actual_label",
+  "fatal_controls": [
+    "matched_history must be materially weaker than text-first commitment",
+    "ordinal commitment tests persistence without exact A/B label repetition",
+    "image-first tests modality-order specificity",
+    "all image-bearing conditions use the same source image bytes and processor"
+  ],
+  "cluster": "MUCAR pair_id across languages",
+  "bootstrap_replicates": 10000,
+  "promotion_rule": {
+    "minimum_families": 2,
+    "minimum_gated_item_orders_per_family": 50,
+    "minimum_gated_pair_clusters_per_family": 25,
+    "actual_minus_matched_minimum": 0.10,
+    "actual_minus_matched_ci_low_must_exceed": 0.0,
+    "ordinal_minus_matched_ci_low_must_exceed": 0.0,
+    "ordinal_minus_masked_ci_low_must_exceed": 0.0,
+    "simultaneous_minus_actual_gold_probability_ci_low_must_exceed": 0.0
+  },
+  "failure_routing": {
+    "actual_without_ordinal": "exact-label or response-format self-priming, not cross-modal resolution inertia",
+    "ordinal_not_above_masked": "text-first ordering or late-image cost, not interpretation-specific inertia",
+    "actual_not_above_matched": "generic conversational-history effect",
+    "fewer_than_two_families": "family-specific pilot only"
+  },
+  "seed": 20260830
+}

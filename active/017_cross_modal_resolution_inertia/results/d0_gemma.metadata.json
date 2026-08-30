@@ -1,0 +1,15 @@
+{
+  "contract_id": "017-d0-v1",
+  "family": "gemma",
+  "model": "/home/xiang/.cache/huggingface/hub/models--google--gemma-3-12b-it/snapshots/96b6f1eccf38110c56df3a15bffe176da04bfd80",
+  "model_commit": "96b6f1eccf38110c56df3a15bffe176da04bfd80",
+  "bank_sha256": "19fe5f8068a901dce5ce70a3183aa9c5f301dd1ddadaacef17dc164b3fc169f0",
+  "bank_items": 186,
+  "records": 2604,
+  "answer_token_ids": {
+    "A": 236776,
+    "B": 236799
+  },
+  "dtype": "torch.bfloat16",
+  "elapsed_seconds": 359.3146743774414
+}

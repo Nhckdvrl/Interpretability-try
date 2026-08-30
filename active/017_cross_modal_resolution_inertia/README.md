@@ -2,7 +2,7 @@
 
 **中文一句话：** 文字一开始有歧义，模型先形成了一个解释；后来图片已经把正确意思定死了，它会不会还被最初那个解释拖着走？
 
-**Status:** `REGISTERED / DATASET-READY-SHAPE / MULTIMODAL`
+**Status:** `D0 COMPLETE / NO-PROMOTE`
 **Created:** 2026-08-30
 **Top-10 rank:** #4
 
@@ -267,3 +267,43 @@ MATCHED_PRIOR_HISTORY 控制。
 ```
 
 本项目**不需要我们重新给图片或文字打 sense label**；人工只检查 builder 对 source label 的映射。
+
+---
+
+## 12. D0 implementation（2026-08-30）
+
+### Frozen causal contrast
+
+D0 对官方 dual-ambiguity 数据的每个有效 item 同时反平衡 canonical / reversed 选项顺序，并运行七个条件：
+
+1. `text_only`：得到模型自己的 initial forced choice；
+2. `simultaneous`：图像与问题同一 turn 到达；
+3. `text_first_actual_label`：先 teacher-force 模型自己的初始 A/B，再给同一图像；
+4. `text_first_actual_ordinal`：用 first/second 复述初始选择，去掉旧 A/B token；
+5. `text_first_masked`：同样的 text-first 顺序，但隐藏初始选择身份；
+6. `matched_history`：无关 prior turn 后 simultaneous evidence；
+7. `image_first`：先图像、后问题。
+
+主 gate 在 item-order 内定义为 `text_only wrong AND simultaneous correct`。所有图像条件逐条检查 source image SHA-256；主分析以 `pair_id` 跨语言聚类，10,000 次 cluster bootstrap。
+
+### Official-release audit
+
+- annotation：`THUNLP-MT/MUCAR@930eb28610c9799ee0caf81c7c0b59ac33cb372c`；
+- image archive：`kevindragon221/MUCAR@3a28f23644e54a58c6131b41fe762a04869ee7cc`；
+- 目标 dual population：372 rows；
+- 可唯一映射的 released-valid population：186 rows，英/中/马来语分别为 64/64/58，39 个 pair cluster，38 张唯一图像；
+- 其余 186 rows 的 `image_id` 缺少 `-1` / `-2` 后缀，而 release 中两个候选文件都存在。D0 不猜后缀，也不根据 gold 反推图片；所有排除行及候选路径完整保存在 `data/d0_v1/excluded_release_mapping_defects.jsonl`（data 目录由仓库规则忽略）。
+
+这一排除是官方发布对象不可识别造成的测量缺失，不改变研究问题或因果对比。`scope_summary.json` 保存 source/bank 哈希和完整计数。
+
+### Model families
+
+- Qwen: `Qwen/Qwen3-VL-2B-Instruct@89644892e4d85e24eaac8bacfd4f463576704203`，BF16；
+- Gemma: `google/gemma-3-12b-it@96b6f1eccf38110c56df3a15bffe176da04bfd80`，BF16；
+- Llama: `unsloth/Llama-3.2-11B-Vision-Instruct-bnb-4bit@25bca24a9e42116fe4a687fba648124be4af45f6`，4-bit released conversion。量化差异作为 D0 family-level limitation 明示，不把跨家族幅度作参数规模比较。
+
+### Frozen promotion threshold
+
+在读取全量结果前冻结：单家族至少 50 个 gated item-orders、25 个 pair clusters；actual-label persistence 相对 matched-history 至少 +10pp 且 cluster CI 下界大于 0；ordinal 相对 matched-history 和同序 masked 控制的 CI 下界均大于 0；simultaneous 到 actual-label 的 gold-probability drop CI 下界大于 0。至少两个家族全部通过才 `PROMOTE`。
+
+**D0 decision:** `NO-PROMOTE`。完整结果与论文级判断见 [`D0_V1_REPORT.md`](./D0_V1_REPORT.md)。

@@ -1,0 +1,15 @@
+{
+  "contract_id": "017-d0-v1",
+  "family": "qwen",
+  "model": "/home/xiang/.cache/huggingface/hub/models--Qwen--Qwen3-VL-2B-Instruct/snapshots/89644892e4d85e24eaac8bacfd4f463576704203",
+  "model_commit": "89644892e4d85e24eaac8bacfd4f463576704203",
+  "bank_sha256": "19fe5f8068a901dce5ce70a3183aa9c5f301dd1ddadaacef17dc164b3fc169f0",
+  "bank_items": 186,
+  "records": 2604,
+  "answer_token_ids": {
+    "A": 32,
+    "B": 33
+  },
+  "dtype": "torch.bfloat16",
+  "elapsed_seconds": 424.20109486579895
+}
