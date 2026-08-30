@@ -1,122 +1,141 @@
 # Current Topics
 
 日期：2026-08-30  
-状态：`AUTHORITATIVE POST-TOP6 QUEUE`
+状态：`AUTHORITATIVE FOCUS QUEUE / NATURAL-QUESTION RESET`
 
-Top-10 的前六个项目已经完成第一轮实跑并做了独立 post-run audit。完整审查：[`TOP6_RESULT_REVIEW_2026-08-30.md`](TOP6_RESULT_REVIEW_2026-08-30.md)。
+Top-6 第一轮实跑和独立审查已经完成。结果不是简单的“运气不好”：015/016/017/019 暴露出此前找题流程过度奖励“可构造的 factorial experiment”，而没有把“科学问题本身是否自然、是否高概率存在”放在最前面。
 
-现在不再把“跑过但失败的项目”继续列在当前 queue 中，也不把所有 `NO-PROMOTE` 机械视为 scientific null。
+新的 pre-discovery gate：[`NATURAL_QUESTION_GATE.md`](NATURAL_QUESTION_GATE.md)。
+
+从现在开始，**当前资源只集中到 014 和 018。** 020–023 暂停 screening，必须先按 Natural-Question Gate 重新审计，不能因为之前已经注册就继续消耗模型调用。
 
 ---
 
-## A. 已经成立、值得进入论文整理
-
-### 014 — Alias Entrainment Transfer
+## Priority 1 — 014 Alias Entrainment Transfer
 
 目录：[`../active/014_alias_entrainment_transfer/`](../active/014_alias_entrainment_transfer/)
 
-**Verdict:** `ESTABLISHED / CROSS-SURFACE-BUT-NOT-REFERENCE-SPECIFIC`
+**Status:** `ESTABLISHED / PAPER-DEVELOPMENT PRIORITY`
 
-已经站住的是：
+自然问题：
 
-> contextual entrainment / salience 会沿 learned or derivable surface-form relations 外溢；这种 spillover 明显超出强关联但不同 referent 的 `ASSOC_ANY` control，并在三家族、双 frame、双方向上稳定。
+> 一个 surface form 刚刚被看见后会被 contextual entrainment；那这种 salience 会不会自然扩散到同一对象或强 learned relation 的另一个 surface form？
 
-没有站住的是：
+为什么保留：
 
-> shared referent 本身是特殊 causal unit / entity-level salience representation。
+- mother phenomenon 已成立，不需要赌“entrainment 存不存在”；
+- broad cross-surface spillover 已被三家族、双 frame、双方向稳定验证；
+- `ASSOC_ANY` 控制说明 broad effect 不只是随便一个强关联 pair；
+- r4 已把 scope narrowing、zero-joint association、casefold collision、circular identity foil 等 construct 风险逐项修正并全量重跑；
+- negative boundary 也清楚：真正 `opaque_strict` reference-specific Q2 不成立。
 
-r4 的 `opaque_strict` reference-specific Q2 在三个家族都没有通过 both-frame criterion；ungated opaque-strict 也全部 null。结构梯度 `compositional > partial > opaque >> opaque-strict≈0` 与 phase-3 lexical direct-write 形成一致边界。
+允许的 paper-level claim：
 
-**下一步：** 不再找 reference-positive subset。直接围绕 broad spillover、structure gradient、phase-2 shared upstream cause、phase-3 lexical boundary 整理论文叙事。
+> **Contextual entrainment spills across learned/derivable surface-form relations, with a strong lexical/derivational gradient and a clear boundary before reference-specific identity.**
+
+下一步只做论文发展，不再做 reference-positive subset rescue：
+
+1. 冻结 paper thesis；
+2. 把 phase 1 / r4 broad behavior、phase 2 shared upstream cause、phase 3 lexical direct-write、r4 structure gradient 串成单一因果叙事；
+3. 明确把 `opaque_strict≈0` 写成 boundary finding，而不是失败结果；
+4. 做必要但不改变 claim 的 figure/table consolidation 和 robustness packaging；
+5. 不新增 person-only / F2-only / direction-only / alias-subtype rescue。
 
 ---
 
-## B. 暂时不能判真假的题：measurement redesign
-
-### 018 — Stock–Flow Correlation Intrusion
+## Priority 2 — 018 Stock–Flow Correlation Intrusion
 
 目录：[`../active/018_stock_flow_correlation_intrusion/`](../active/018_stock_flow_correlation_intrusion/)
 
-**Verdict:** `INCONCLUSIVE / HOLD-D0-MEASUREMENT-FAILURE`
+**Status:** `PRIMARY REDESIGN PROJECT / SCIENTIFIC STATUS UNKNOWN`
 
-ResOpsUS 数据 bank 和 2×2 natural design 本身没有问题。问题出在 net-flow recognition gate：A/B forced-choice 的 option-position bias 极端到让所有严格 gated items 都落在 positive-net cells。Llama 在 negative-net 上 canonical 近 100%、reversed 0%，因此不能把空 negative-net denominator 当作 scientific null。
+自然问题：
 
-**下一步如果继续：**
+> 如果模型已经正确理解或算出 net flow，为什么下游判断 stock 涨跌时仍可能被更显眼的 inflow 走势带跑？
 
-1. 冻结 D0 v2；
-2. 用 semantic continuation (`positive` vs `negative`) 或 deterministic numeric net computation 取代 A/B letter gate；
-3. 保留完整 `net direction × inflow trend` 四个 cell；
-4. 保留 explicit-correct-net downstream control；
-5. 禁止只跑 positive-net subset。
+为什么保留：
 
-在新 contract 冻结前不继续模型调用。
+- stock-flow confusion 是独立于任何 LLM benchmark 的自然 cognitive object；
+- `stock(t+1)=stock(t)+inflow-outflow` 有 deterministic external semantics；
+- ResOpsUS 的 600-window / 200-reservoir / full 2×2 bank 是自然数据，不是为了造 effect 写出来的 synthetic puzzle；
+- D0 v1 的失败来自 A/B option-position recognition instrument，而不是 scientific null；
+- 修 measurement 时不需要换问题、不需要换 population，也不需要删不利 cell。
 
----
+### D0 v2 唯一允许的改动
 
-## C. 尚未裁决、继续排队的四题
+替换 net-recognition measurement：
 
-### 020 — Incremental Clue Backfire
+- semantic continuation：直接比较 `positive` vs `negative`；或
+- numeric computation：让模型输出 cumulative inflow minus cumulative outflow，再 deterministic parse sign。
 
-> 已经答对以后，再增加一条 source-authored、同 gold 的真实 clue，模型是否反而改错？
+必须保持：
 
-Primary shape: Quiz Bowl ordered clue prefixes。
+- 原 600 natural windows；
+- `net direction × inflow trend` 四个 cell；
+- reservoir clustering；
+- explicit-correct-net downstream control；
+- table/text 主呈现；
+- 不允许 positive-net-only subset。
 
-**先做 internal collision。** 若旧 Evidence-Induced Referent Displacement 已经覆盖同一 scientific object，直接 route/kill，不允许只因换数据集复活。
-
-### 021 — Task-Switch Carryover
-
-> 换任务后犯的错，是普通性能下降，还是仍然朝“旧任务规则预测的答案”移动？
-
-Gupta et al. EMNLP 2024 已做 aggregate task-switch interference。只有 **old-rule-specific wrong destination / decay** 才是这里可能的新现象。
-
-### 022 — Local Success, Global Composition Failure
-
-> 所需中间事实已经全部正确、甚至显式摆在当前 context 中，最终组合仍然会不会错？
-
-Press et al. 已定义 compositionality gap。普通“子问题对、总问题错”不是 novelty；必须测试更强的 externalized-intermediate-facts 条件。
-
-### 023 — Description–Experience Gap
-
-> 同一个 gamble，用概率描述或完全等价的 exact-frequency 历史呈现，选择是否系统不同？
-
-必须用 deterministic exact frequencies 和 frequency/EV capability gates；sampling noise 不能承担主效应。
+D0 v2 冻结后再恢复模型调用。
 
 ---
 
-## D. 2026-08-30 已归档的四个 completed Top-6 项目
+## Suspended — 020–023
 
-| project | terminal verdict | decisive reason |
-|---|---|---|
-| `015 Clarification Resolution Lag` | `ARCHIVED / REGISTERED PHENOTYPE REJECTED` | neutral matched history 产生与 ambiguity history 同量级影响；三个家族 `MATCHED-AMBIGUITY` CI 均跨 0 |
-| `016 Mixed-Status Event Attraction` | `ARCHIVED / REGISTERED BROAD PHENOTYPE REJECTED` | `MIXED-LOCAL` 被 same-status context 解释；三家族 diagnostic `MIXED-SAME` 不成立，no-relation stratum 也 null |
-| `017 Cross-Modal Resolution Inertia` | `ARCHIVED / INTERPRETATION-SPECIFIC CLAIM REJECTED` | strongest powered Llama effect 被 masked-choice history 几乎完全复制；不需要旧 interpretation identity |
-| `019 Abstention Hysteresis` | `ARCHIVED / STRONGLY REJECTED` | 三家族、两 source、两类 readout 全部显著朝相反方向；neutral history 解释大部分 recovery |
+以下项目**不判死，但停止排队**：
 
-完整项目已移入 `archive/`，不能在原 scientific identity 下用 prompt/subset/model/readout rescue。
+- `020 Incremental Clue Backfire`
+- `021 Task-Switch Carryover`
+- `022 Local Success, Global Composition Failure`
+- `023 Description–Experience Gap`
 
----
-
-## 当前实际顺序
+原因不是实验结果，而是它们来自上一版 topic-generation process。必须先逐题通过：
 
 ```text
-paper synthesis: 014
-measurement redesign only: 018
-next cheap screening: 020 -> 023 -> 021 -> 022
+P0 natural question
+P1 existence prior
+P2 five-minute / ten-example sanity
+P3 dataset-is-instrument test
+P4 restriction budget
+P5 natural mechanism unfolding
 ```
 
-其中 020 collision-first；021/022 mother-collision 风险高。
+任何一题如果需要先解释复杂 benchmark construction 才显得有意思，或者 phenomenon 本身高度依赖特殊 denominator，直接移出，不再因为“代码已经写了一点”而继续。
+
+在 re-audit 完成前：
+
+```yaml
+020_screening: false
+021_screening: false
+022_screening: false
+023_screening: false
+```
 
 ---
 
-## 判题纪律更新
+## Archived from completed Top-6
 
-这轮最重要的新规则：
+- `015 Clarification Resolution Lag` — matched neutral history explains apparent lag.
+- `016 Mixed-Status Event Attraction` — same-status context explains mixed-context shift.
+- `017 Cross-Modal Resolution Inertia` — strongest effect does not require prior interpretation identity.
+- `019 Abstention Hysteresis` — strong reverse effect; neutral incomplete→complete history explains recovery.
 
-> **`NO-PROMOTE` ≠ 自动 `KILL`。**
+完整审查：[`TOP6_RESULT_REVIEW_2026-08-30.md`](TOP6_RESULT_REVIEW_2026-08-30.md)。
 
-先问为什么没 promote：
+---
 
-- fatal control 把目标效应解释掉 / 三家族给出诊断性 null → 可以 archive；
-- capability 或 measurement instrument 本身没有建立合法 denominator → `INCONCLUSIVE / REDESIGN`，不能声称现象不存在。
+## Current allocation
 
-这一区分以后必须写进所有 D0 final report。
+```text
+paper development: 014
+behavioral redesign: 018
+new-topic screening: PAUSED
+020–023: SUSPENDED-PENDING-NATURALNESS-REAUDIT
+```
+
+---
+
+## One-line discipline
+
+> **先问一个普通人一听就想知道答案的自然问题，再找数据测它；绝不再从“这个数据集能拼出什么 contrast”反推 scientific question。**
