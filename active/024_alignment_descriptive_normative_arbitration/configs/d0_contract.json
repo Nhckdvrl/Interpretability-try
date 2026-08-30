@@ -17,8 +17,8 @@
       "aligned": "Qwen/Qwen3-1.7B"
     },
     "gemma": {
-      "base": "google/gemma-2-2b",
-      "aligned": "google/gemma-2-2b-it"
+      "base": "google/gemma-3-1b-pt",
+      "aligned": "google/gemma-3-1b-it"
     },
     "llama": {
       "base": "unsloth/Llama-3.2-1B",
@@ -41,6 +41,7 @@
     "reason": "official Meta base repository returned 403 before any Llama forward pass",
     "replacement": "public same-provider Unsloth mirrors of Llama 3.2 1B base/instruct, a pair included by the mother study",
     "fourth_family": "SmolLM2 1.7B replaces the larger Mistral download before any fourth-family forward pass; both families are in the mother inventory",
+    "gemma_family": "Gemma 3 1B pt/it replaces the unusually large serialized Gemma 2 2B pair before any Gemma forward pass; both pairs are in the mother inventory",
     "outcome_informed": false
   },
   "targets": {

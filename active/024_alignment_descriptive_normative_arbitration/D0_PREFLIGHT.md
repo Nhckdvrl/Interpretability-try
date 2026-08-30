@@ -9,7 +9,7 @@
 ## Frozen comparison
 
 Four same-provider, architecture- and size-matched base/aligned pairs are used:
-Qwen3 1.7B, Gemma 2 2B, Llama 3.2 1B, and SmolLM2 1.7B. Checkpoint revisions
+Qwen3 1.7B, Gemma 3 1B, Llama 3.2 1B, and SmolLM2 1.7B. Checkpoint revisions
 are written to runtime metadata. A family is the statistical replication unit;
 the 3,483 primary human decisions are not treated as independent model
 replications.
@@ -26,6 +26,12 @@ any Mistral forward pass it was replaced by the mother study's SmolLM2 1.7B
 base/instruct family. This preserves the frozen four-family design and strict
 pairing while making the preflight executable; no fourth-family output informed
 the substitution.
+
+The mother inventory includes both Gemma 2 2B and Gemma 3 1B pairs. The former
+was found during pre-call access audit to serialize its base checkpoint at
+10.46 GB. Before any Gemma forward pass, the entry was changed to the mother's
+Gemma 3 1B pt/it pair (2.00 GB per checkpoint). No Gemma output informed this
+substitution.
 
 The primary comparison follows the mother paper's native-format design: plain
 structured completion for a base checkpoint and the provider chat template for
