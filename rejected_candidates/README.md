@@ -58,6 +58,11 @@
 - [`cognitive_decision_making.md`](./cognitive_decision_making.md) — economic choice, legal judgment, anchoring, authority, risk, sunk cost
 - [`factuality_information_conflict.md`](./factuality_information_conflict.md) — false premises, answerability, misinformation, source credibility, repetition
 - [`multimodal_grounding.md`](./multimodal_grounding.md) — VLM perception–knowledge conflict and counterfactual visual grounding
+- [`semantic_pragmatic_factorization.md`](./semantic_pragmatic_factorization.md) — semantic / pragmatic / discourse factorization kills; includes intended-vs-perceived sarcasm, literal-vs-figurative meaning, said-vs-implicated content, emotion-vs-cause, dialogue-act-vs-affect, definiteness-vs-specificity, taxonomic-vs-thematic, animacy-vs-agentivity, and agency-vs-experience
 - [`001.md`](./001.md) — **legacy mixed-domain batch**，保留历史记录，不再继续追加。包含 role-value binding、facts-vs-shortcuts、fan effect、VLM conflict、self-correction、tool irrelevance、irrelevant context、negation、social compliance、overthinking。
 
 后续新增 rejection **只进入对应 domain log**；如果出现新的领域，就新建 `<domain>.md`。旧 `001.md` 不删除，作为第一轮搜题历史快照。
+
+## Mandatory pre-search check
+
+任何新候选在进入 S0 前，除了 `phenomenon_miner/FAILED_TOPICS.md` 和 `archive/README.md`，还必须搜索本目录的 domain logs。若 scientific object 已在某个 rejection log 中死亡，**换模型、换数据、换 prompt、换语言、换 MI 方法或换名字均不能自动复活**；只能满足该条目明确写出的 resurrection condition 后重新进入 P0/S0。
