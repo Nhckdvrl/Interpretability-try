@@ -98,7 +98,7 @@ Mother: ACL 2026 **Preference Heads in Large Language Models**. Adjacent establi
 
 Question: do sparse causal Preference Heads encode *what* a user prefers separately from *how strongly* they prefer it?
 
-Current status: strong Route-A survivor; no direct mechanistic ownership found yet. Need final N1 and exact shared-unit/data interface audit.
+Current status: under severe mother-object audit. Preference Heads uses LaMP-style personalization (style/topic/decision signals), while the adjacent intensity paper uses recommendation ratings. Must prove the intensity axis exists on the exact mother unit/substrate rather than relying on the shared word “preference”. Otherwise F3.
 
 ### Private belief × common ground
 
@@ -107,14 +107,6 @@ Mother: ACL 2026 **On Emergent Social World Models** + established individual-be
 Question: is common ground stored as a distinct public/shared state, or computed on demand from individual belief states?
 
 Current status: strong survivor. DPIP/Common-ToM provide independently grounded shared-belief substrate. Need freshest 2026 successor collision audit and exact open-model measurement bridge.
-
-### Training recency × source reliability
-
-Mothers share the same public `krasheninnikov/internalization` codebase: ICLR 2026 **Fresh in Memory** establishes linearly encoded acquisition recency; ICML 2024 **Implicit meta-learning may lead language models to trust more reliable sources** establishes source reliability/internalization differences.
-
-Question: are *when a fact was learned* and *how trustworthy its source was* represented as separable provenance variables, or collapsed into one epistemic/update-strength coordinate?
-
-Current status: exceptionally strong Route-A survivor. Need final direct-successor search and exact 2×2 artifact construction audit before registration.
 
 ### Spatial ID × reference-frame transformation
 
@@ -128,7 +120,7 @@ Current status: strong but crowded survivor. Behavioral/engineering neighbors (C
 
 ## 5. Serious deaths from the current mother-mining round
 
-All serious rejections are now logged individually in `rejected_candidates/` with semantic aliases. Recent examples include:
+All serious rejections are logged individually in `rejected_candidates/` with semantic aliases. Recent examples include:
 
 - hidden computation after Miracle Steps — F2;
 - lexical derivation after identity/inflection — F2;
@@ -142,7 +134,8 @@ All serious rejections are now logged individually in `rejected_candidates/` wit
 - world truth vs attributed user belief — F2, including open community mechanistic work;
 - contextual truth vs confidence — F2;
 - opinion-distribution mean vs disagreement — F7;
-- scientific experiment-context evidence gate — F1 because the exact anomaly was established only on proprietary models, so open-model MI would require behavior-discovery G0.
+- scientific experiment-context evidence gate — F1 because the exact anomaly was established only on proprietary models, so open-model MI would require behavior-discovery G0;
+- training recency × source reliability — F3 because crossing staged recency with synthetic reliability tags would manufacture a new 2×2 training world rather than inherit a natural mother substrate.
 
 Do not resurrect these via model/dataset/prompt/MI-method renaming.
 
@@ -181,8 +174,8 @@ The delegated G0 finished at commit `6ae3d41`; four families failed the preregis
 Continue **mother by mother**, not from domain lists or free-association `X != Y` axes.
 
 Priority next actions:
-1. try to close the three strongest Route-A survivors: provenance, preference intensity, common ground;
-2. attack spatial reference-frame candidate with freshest mechanistic neighbors;
+1. finish the exact-object audit for preference intensity; kill immediately if the mother unit does not naturally contain intensity;
+2. close common-ground and spatial-reference-frame survivors with direct N1 + artifact audits;
 3. continue PaperNotes/blog/open-source mining for established open-model anomalies whose mother explicitly leaves causal mechanism unresolved;
 4. immediately log every serious death.
 
