@@ -21,6 +21,8 @@ natural question
 核心规则：[`phenomenon_miner/NATURAL_QUESTION_GATE.md`](phenomenon_miner/NATURAL_QUESTION_GATE.md)。
 注册前一票否决：[`phenomenon_miner/SCIENTIFIC_SUBSTRATE_GATE.md`](phenomenon_miner/SCIENTIFIC_SUBSTRATE_GATE.md)。
 
+> **最新跨对话接力入口：[`phenomenon_miner/HANDOFF_HAMDI_SEARCH_2026-08-31.md`](phenomenon_miner/HANDOFF_HAMDI_SEARCH_2026-08-31.md)。** 继续搜题前先读该文件与 `rejected_candidates/` 最新 terminal addenda；旧 chat 中的 `lead/HOLD` 不具有更高权威性。
+
 ## 当前 established / adjudicated 主线
 
 ### 014 Alias Entrainment Transfer
@@ -99,7 +101,9 @@ Retrospective S0：`KILL`。论文 schema/human annotation 通过，但
 
 ## 关键入口
 
+- **[`phenomenon_miner/HANDOFF_HAMDI_SEARCH_2026-08-31.md`](phenomenon_miner/HANDOFF_HAMDI_SEARCH_2026-08-31.md) — 最新跨对话 authoritative handoff；当前新题 0 PASS-REGISTER。**
 - [`phenomenon_miner/NATURAL_QUESTION_GATE.md`](phenomenon_miner/NATURAL_QUESTION_GATE.md)
+- [`phenomenon_miner/SCIENTIFIC_SUBSTRATE_GATE.md`](phenomenon_miner/SCIENTIFIC_SUBSTRATE_GATE.md)
 - [`phenomenon_miner/HAMDI_MOTHER_N0_N1_3_2026-08-31.md`](phenomenon_miner/HAMDI_MOTHER_N0_N1_3_2026-08-31.md)
 - [`phenomenon_miner/CURRENT_TOPICS.md`](phenomenon_miner/CURRENT_TOPICS.md)
 - [`active/README.md`](active/README.md)
