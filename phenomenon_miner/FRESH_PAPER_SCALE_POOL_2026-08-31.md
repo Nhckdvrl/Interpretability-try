@@ -1,90 +1,61 @@
 # Fresh PAPER-SCALE Continuation Pool — 2026-08-31
 
-Status: **DESK-AUDITED PAPER-SCALE POOL ONLY — NOT PASS-REGISTER**
-
-This file records candidates that survived the first PAPER-SCALE / story-invariance / initial N2 screen. It does **not** authorize GPU work. Each candidate must still pass strongest-neighbor N0/N1/N2, exact substrate/data audit, and the appropriate S0/existence gate before entering `active/` or changing `CURRENT_FRESH_PASS_REGISTER`.
+Status: **HARD-GATE SEARCH IN PROGRESS — NO AUTHORITATIVE PASS YET**
 
 ```yaml
 CURRENT_FRESH_PASS_REGISTER: 0
 CURRENT_FRESH_ACTIVE_TOPICS: 0
-paper_scale_continuation_pool:
-  - explicit_vs_implicit_memory_systems
-  - prototype_vs_exemplar_categorization
-  - source_independence_false_corroboration
-  - model_based_vs_model_free_decision_control
-  - event_boundaries_memory_organization
+current_serious_audit_pool:
+  - prospective_memory_retrieval_architecture
 ```
 
-## 1. Explicit vs implicit memory systems
+## Initial five-paper-scale slate: all rejected after hard audit
 
-**Question:** Do LLMs' explicit recall and implicit behavioral adaptation depend on causally separable memory systems, or on a shared contextual memory trace with different access/readout routes?
+The previous desk-audited five were **not registrations**. Strongest-neighbor / data / behavior attacks killed all five:
 
-- Independent object: classic declarative/explicit vs non-declarative/implicit memory-system debate.
-- Strong substrate/mother: ACL 2026 Best Resource Paper `ImplicitMemBench`, with released code/data and broad multi-model behavioral evidence for procedural memory, priming, and conditioning.
-- Conceptual delta: single shared memory system vs multiple memory systems; not `ImplicitMemBench -> locate heads`.
-- Competing stories: multiple systems / shared trace-different readout / hybrid shared encoding + separable retrieval.
-- Story invariant: all outcomes answer whether explicit and implicit memory are causally dissociable.
-- Main remaining gates: strongest-neighbor audit for explicit/implicit representation work; matched same-episode explicit-vs-implicit measurement contract; open-model denominator.
+1. `explicit_vs_implicit_memory_systems` — **KILL-NOVELTY / F8**. ACL 2026 `ImplicitMemBench` already argues implicit memory is not reducible to explicit storage/retrieval and interprets dissociations as suggesting distinct mechanisms; causal double-dissociation would mainly mechanize the mother.
+2. `prototype_vs_exemplar_categorization` — **KILL-NOVELTY / F8**. EACL 2026 Best Paper `Abstraction drives language learning` already owns abstract-feature vs concrete-exemplar accounts of LM category learning, with a 2026 follow-up directly disputing the diagnostic evidence.
+3. `source_independence_false_corroboration` — **KILL-NOVELTY / F8**. August 2026 `Beyond Memory Majority` explicitly names and operationalizes correlation/provenance bias from shared upstream sources counted as independent evidence.
+4. `model_based_vs_model_free_decision_control` — **KILL-NOVELTY/BEHAVIOR**. The LLM model-based-vs-model-free axis is already explicitly studied, and standard two-step signatures are not uniquely diagnostic; a new behavior battery would be needed before the causal premise is frozen.
+5. `event_boundaries_memory_organization` — **KILL-BEHAVIOR for current register**. LLM event segmentation is established, but spontaneous event-boundary-driven memory reorganization under ordinary comprehension is not; discovering that phenotype first would violate experiment-ready registration discipline.
 
-## 2. Prototype vs exemplar categorization
+Canonical short records are in `rejected_candidates/` under matching names. These topics may not be revived through model/dataset/probe/title changes.
 
-**Question:** When an LLM generalizes a concept to a novel instance, does it compare against an abstract category prototype or aggregate similarity to stored exemplars?
+## Current serious audit: prospective-memory retrieval architecture
 
-- Independent object: classic prototype-vs-exemplar debate in categorization science.
-- Strong substrate/mother: 2026 work establishing graded prototypicality/category-production structure in multiple autoregressive LLMs; classical theory-diagnostic category-learning paradigms provide controlled microscope.
-- Conceptual delta: competing representational theories of category generalization, not `prototype-like behavior -> mechanism`.
-- Competing stories: prototype abstraction / exemplar retrieval / learning-dependent mixture.
-- Story invariant: all outcomes answer what representation supports category generalization.
-- Main remaining gates: prove diagnostic stimuli separate prototype and exemplar predictions; avoid equivalence regimes; strongest-neighbor audit beyond older embedding/frame-semantic prototype/exemplar work.
+**Question:** When an LLM must remember a delayed intention while doing other work, is successful prospective remembering supported by strategic active monitoring, cue-triggered spontaneous retrieval, or a dynamic combination of the two?
 
-## 3. Source independence / false corroboration
+Why it remains serious:
 
-**Question:** When several sources agree, do LLMs discount evidence that traces to a common origin, or count repeated reports as independent corroboration?
+- The scientific distinction predates LLM benchmarks: strategic monitoring vs spontaneous retrieval is a classic prospective-memory debate.
+- The broad LLM phenotype is already independently established in 2026 by TriggerBench, PM-Bench, and `Did You Forget What I Asked?`: delayed intentions fail under context/load despite much stronger retrospective recall, with modern open-model evidence.
+- PM-Bench has a real public executable artifact (`data/synthetic_week_v9.json`, simulator, result runs); TriggerBench currently does not expose its claimed dataset/code and therefore can only serve as external behavioral corroboration.
+- Existing LLM PM work discusses active memory/heartbeat scaffolds and cites multiprocess theory, so the candidate only survives if the contribution is the **retrieval architecture and its theory-diagnostic regime shifts** (cue focality / target-context expectation / ongoing-task cost), not generic `monitoring helps PM` or `PM -> mechanism`.
 
-- Independent object: source dependence / evidentiary independence; agreement is not equivalent to independent corroboration.
-- Scientific lineage: false-consensus / dependent-evidence reasoning in cognition, Bayesian/social reasoning, and evidence synthesis.
-- Strong nearby object: 2026 multi-source LLM source-evaluation work establishes that source weighting/synthesis is a robust mechanistically analyzable object, but focuses on source/methodological validity rather than provenance dependence.
-- Conceptual delta: source quality vs number of independent evidence roots are orthogonal scientific variables.
-- Competing stories: provenance-graph-aware discounting / surface vote-counting / shallow duplicate detection.
-- Story invariant: all outcomes answer whether evidence aggregation accounts for source dependence.
-- Main remaining gates: exact 2025-26 duplicate/dependent-RAG collision audit; controlled provenance dataset with deterministic gold; direct open-model phenotype or Route-A-compatible omitted-axis justification.
+Still required before registration:
 
-## 4. Model-based vs model-free decision control
+```text
+1. full latest-neighbor N0/N1/N2 search for strategic monitoring / spontaneous retrieval / cue focality in LLM PM;
+2. inspect PM-Bench run artifacts + simulator + exact open-model results;
+3. freeze a deterministic theory-diagnostic measurement contract that does not need GPU behavior lottery;
+4. verify >=2 mechanistically accessible modern open families support the required PM denominator;
+5. repo semantic dedupe;
+6. write S0 + causal contract with fatal controls.
+```
 
-**Question:** When an LLM agent adapts choices after experience, does it recompute actions using a transition/outcome model or rely mainly on cached action values/habits?
+## Registration discipline
 
-- Independent object: classic goal-directed/model-based vs habitual/model-free control.
-- Existing LLM object: CogBench and prior cognitive experiments report model-basedness signatures in LLM behavior.
-- Conceptual delta: existence/arbitration of distinct action-control computations, not another two-step behavioral score or localization paper.
-- Competing stories: cached-value control / world-model planning / hybrid arbitration.
-- Story invariant: all outcomes answer what decision-control architecture underlies adaptation.
-- Main remaining gates: two-step signatures are not uniquely diagnostic, so registration requires convergent transition-revaluation/outcome-devaluation/contingency-change measurements and modern open-family evidence.
-
-## 5. Event boundaries organize contextual memory
-
-**Question:** During ordinary narrative comprehension, do event boundaries reorganize LLM contextual memory into episodes, or are apparent boundary effects explained by continuous recency/surprisal/topic change?
-
-- Independent object: Event Segmentation Theory / event-structured memory.
-- Existing LLM object: multiple studies show LLMs can identify human-like narrative event boundaries; human memory work establishes boundary-related retrieval/organization effects.
-- Conceptual delta: event-boundary detection vs event-structured memory organization during ordinary comprehension; not `find event-boundary heads`.
-- Competing stories: compartment/reset / continuous contextual integration / hierarchical selective reactivation.
-- Story invariant: all outcomes answer whether event boundaries organize LLM contextual memory.
-- Main remaining gates: spontaneous ordinary-comprehension phenotype; lexical/topic/surprisal controls; strongest-neighbor audit for LLM event-segmentation attention work.
-
-## Registration rule for this pool
-
-A candidate leaves this file for `active/` only after all of the following are documented:
+A candidate enters `active/` and increments the authoritative register only after:
 
 ```text
 PAPER-SCALE
-+ N0 title/object ownership clear
-+ N1 key causal factorization unoccupied
-+ N2 concept-level delta wide enough
++ N0/N1/N2 clear
 + exact accessible substrate
-+ legitimate central gold / diagnostic contrast
-+ S0/existence gate passed (or Route-A not-applicable behavior premise justified)
-+ >=2 modern open families where required
-+ frozen causal predictions and fatal controls
++ legitimate central gold / theory-diagnostic contrast
++ established modern-open-model behavior premise
++ story invariance
++ >=2 theory-level competing mechanisms
++ frozen S0 and causal falsifiers
 ```
 
-No GPU merely to discover whether the paper story exists.
+No GPU merely to discover what the paper is about.
