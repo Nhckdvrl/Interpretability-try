@@ -1,0 +1,8 @@
+question: Do LLM internal opinion representations separately encode a demographic group's central tendency and its within-group disagreement or polarization?
+mother: "What Do Large Language Models Know About Opinions?" (ICLR 2026)
+semantic_aliases: [opinion mean vs variance, central tendency vs disagreement, majority opinion vs minority mass, opinion entropy, polarization representation]
+what_was_reviewed: Mother paper and public llm-opinions repository; probe target and metrics; SAE/steering setup; searches for entropy, disagreement, variance, polarization, and minority-mass analyses; neighboring opinion-diversity work.
+kill_class: F7
+kill_evidence: The mother probe is trained to predict the full human answer distribution for each group-question pair. Entropy, minority mass, dispersion and many polarization scores are deterministic functions of that already-targeted distribution. Merely re-scoring the probe or asking whether those scalar summaries are decodable does not introduce a new scientific object or competing causal mechanism. No sufficiently distinct causal factorization was identified.
+nearest_neighbor_warning: Do not revive by swapping KL for entropy, Jensen-Shannon divergence, minority probability, variance, polarization index, another survey, demographic group, SAE, or probe architecture. Those are metric/subset variants of the same full-distribution target.
+resurrection_condition: Reopen only if an independently grounded causal variable about pluralism is identified that is not a deterministic summary of the mother target and yields competing mechanistic predictions/interventions.
