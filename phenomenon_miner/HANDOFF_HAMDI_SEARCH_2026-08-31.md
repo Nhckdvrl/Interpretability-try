@@ -1,172 +1,121 @@
 # Hamdi-Style Topic Search — Current Handoff
 
 Date: 2026-08-31  
-Status: **AUTHORITATIVE CURRENT STATE**
+Status: **AUTHORITATIVE CURRENT STATE — FRESH SEARCH RESET**
 
 ```yaml
-PASS_REGISTER: 5
-counts_toward_target_five: 5
-active_projects:
-  - active/029_etr_human_like_fallacy
-  - active/030_spatial_reference_frame_transformation
-  - active/031_spontaneous_deception_knowledge_action
-  - active/032_temporal_forgetting_mechanism
-  - active/033_contextual_entrainment_opposite_scaling
-MI_authorized_for_new_topics:
-  - ETR-human-like-fallacy
-  - spatial-reference-frame
-  - spontaneous-deception-knowledge-action
-  - temporal-forgetting-mechanism
-  - contextual-entrainment-opposite-scaling
-latest_registration: contextual entrainment opposite-scaling mechanism
-latest_state_change: five PASS topics promoted into active execution plans
-latest_terminal_execution: NTSB frontier KILL-S0 / RELEVANCE-ALSO-FAILS
+CURRENT_FRESH_PASS_REGISTER: 0
+CURRENT_FRESH_ACTIVE_TOPICS: 0
+fresh_target: LLM mechanistic interpretability only
+required_protocol: PAPER-SCALE v2
+archived_reaudit:
+  - 029_etr_human_like_fallacy
+  - 030_spatial_reference_frame_transformation
+  - 031_spontaneous_deception_knowledge_action
+  - 032_temporal_forgetting_mechanism
+  - 033_contextual_entrainment_opposite_scaling
+latest_terminal_execution: 031 V3 reachability measurement gate failed
 ```
 
-**Target reached: 5/5 true PASS-REGISTER. All five now live in `active/` with detailed initial-validation plans.**
-
-## Mandatory reads
+## Mandatory reads for next conversation
 
 Only:
 
 1. root [`README.md`](../README.md)
-2. [`FINDING_RULES.md`](FINDING_RULES.md)
-3. this file
+2. [`FINDING_RULES.md`](FINDING_RULES.md) — **must read in full; v2 adds PAPER-SCALE / F8**
+3. this handoff
 
-For execution, open [`../active/README.md`](../active/README.md) and then the chosen project's README. Historical gates/addenda/domain logs are cold evidence; search them only when a concrete semantic collision is relevant.
+Then inspect `archive/029–033` only when a new idea semantically overlaps. Do not reread all old addenda by default.
 
-## Active 029 — Human-Like Fallacies
+## Why the previous 5/5 slate was revoked
 
-Execution plan: [`../active/029_etr_human_like_fallacy/README.md`](../active/029_etr_human_like_fallacy/README.md)
-
-Mother: ICLR 2026 **Theory-Grounded Evaluation of Human-Like Fallacy Patterns in LLM Reasoning**.
-
-Established object: 38-model ETR-predicted human-like fallacies plus a semantics-preserving premise-reversal rescue.
-
-New causal question: **premature alternative filtering vs semantic/prior contamination vs late output imitation**.
-
-Core validation sequence:
-
-1. freeze formal PyETR/reversal pairs;
-2. cheap mother phenotype replay on a confirmed open checkpoint;
-3. derive alternative-state labels from the formal ETR state machine;
-4. localize original-fallacy vs reversed-rescue divergence;
-5. run **alternative reinstatement patch** with non-ETR wrong-answer controls.
-
-## Active 030 — Spatial Reference-Frame Transformation
-
-Execution plan: [`../active/030_spatial_reference_frame_transformation/README.md`](../active/030_spatial_reference_frame_transformation/README.md)
-
-Mechanistic mother: ICLR 2026 **Linear Mechanisms for Spatiotemporal Reasoning in Vision Language Models**. Behavioral mother: ICLR 2025 Oral **COMFORT**.
-
-Established object: explicit image-plane `x/y` spatial IDs + Camera/Addressee/Relatum FoR behavior on overlapping LLaVA checkpoints.
-
-New causal question: **late linguistic remap vs explicit coordinate transform vs multiple frame codes + selector**.
-
-Core validation sequence:
-
-1. reproduce mother `x/y` spatial IDs;
-2. replay COMFORT FoR phenotype on overlapping checkpoint;
-3. trace frozen `x/y` geometry across FoR queries;
-4. inject analytic geometry-derived FoR transforms;
-5. patch query/selector state to distinguish transform from code selection.
-
-## Active 031 — Spontaneous Deception: Knowledge or Corrupted Reasoning?
-
-Execution plan: [`../active/031_spontaneous_deception_knowledge_action/README.md`](../active/031_spontaneous_deception_knowledge_action/README.md)
-
-Mother: ICLR 2026 Oral **Beyond Prompt-Induced Lies**.
-
-Established object: public Llama/Mistral/Qwen/Gemma hard-initial-wrong + matched-easy-follow-up-correct events on benign graph reasoning.
-
-New causal question: **genuine knowledge-action dissociation vs reasoning-state corruption vs competing correct/fabricated trajectories**.
-
-Core validation sequence:
-
-1. reconstruct mother event population from official outputs with deterministic graph truth;
-2. lock a stable local subset on one open checkpoint;
-3. derive edge-existence/reachability state targets from the graph environment;
-4. trace the first corrupted/fabricated state;
-5. run **edge-state reinstatement** and separate upstream graph-state rescue from late answer-policy rescue.
-
-## Active 032 — What Does Reasoning Training Forget?
-
-Execution plan: [`../active/032_temporal_forgetting_mechanism/README.md`](../active/032_temporal_forgetting_mechanism/README.md)
-
-Mother: ACL 2026 **Temporal Sampling for Forgotten Reasoning in LLMs**.
-
-Established object: deterministic same-item `correct -> wrong` transitions across real reasoning-training checkpoints while aggregate performance improves.
-
-New causal question: **upstream capability erosion vs reasoning-circuit disruption vs persistent solution with changed control/readout vs distributed interference**.
-
-Core validation sequence:
-
-1. reconstruct greedy per-item checkpoint trajectories on released Qwen2.5-7B checkpoints;
-2. freeze `C->W`, `W->C`, `C->C`, `W->W` cells;
-3. screen **checkpoint layer transplantation**;
-4. localize minimal causal layer window and reverse transplant;
-5. use same-prompt cross-checkpoint activation patching to identify what state was lost/rerouted.
-
-## Active 033 — Why Bigger Models Ignore Lies but Copy Noise
-
-Execution plan: [`../active/033_contextual_entrainment_opposite_scaling/README.md`](../active/033_contextual_entrainment_opposite_scaling/README.md)
-
-Behavior mother: Findings ACL 2026 **Better and Worse with Scale**. Mechanistic predecessor: ACL 2025 Outstanding **Llama See, Llama Do**.
-
-Established object: semantic contextual entrainment scales down with model size while non-semantic copying scales up, replicated on Pythia and Cerebras-GPT; generic entrainment heads are already known.
-
-New causal question: **shared copying writer + scaling semantic gate vs distinct independently scaling circuits vs common upstream entrainment with late competition**.
-
-Core validation sequence:
-
-1. reproduce the exact mother `Delta_d` sign split;
-2. reproduce generic ACL'25 entrainment causality on a reference Pythia size;
-3. build normalized scale-conditioned causal profiles;
-4. localize a semantic-selective gate with difference-in-differences intervention effects;
-5. perform semantic-gate ablation + generic-writer ablation for a causal double dissociation / late-competition test.
-
-## Shared execution rule
-
-All five have passed topic selection, but none is allowed to skip validation.
+031 exposed a selection failure, not merely an experimental null. The project moved through several different headline claims as gates failed:
 
 ```text
-mother artifact freeze
-→ exact matched population
-→ cheap faithful replay
-→ measurement validation
-→ causal intervention
-→ replication
-→ paper-scale expansion
+spontaneous deception
+→ cross-query latent-belief validity
+→ within-run graph-state corruption
 ```
 
-`ACTIVE` means **worth serious causal testing**, not “the preferred hypothesis is assumed true.” A strong null that changes the mother interpretation is acceptable. A construct or measurement failure must still be terminalized rather than rescued post hoc.
+V3 correctly stopped when held-out/polarity-invariant reachability measurement failed (best ridge AUROC 0.532; cross-polarity 0.538/0.530; recipient 0.465; 0 passing layers). But the deeper lesson is that the original question was too benchmark-dependent and did not have stable paper-scale identity.
 
-## Unregistered HOLD
+Therefore the remaining slate was re-audited under a stricter standard rather than assumed valid by sunk cost.
 
-### Individual belief lookbacks -> common ground
+## Re-audit verdicts
 
-Mechanistic mother: ICLR 2026 **Language Models Use Lookbacks to Track Beliefs**; natural substrate: Findings ACL 2024 **Common-ToM**.
+### 029 — Human-Like Fallacies
 
-Still promising, but published same-checkpoint capability bridge is missing. It does **not** count toward five and must not be forced through with an expensive behavior-discovery G0.
+**ARCHIVE / SCALE + PROVENANCE.**
 
-## Negative-memory discipline
+The ICLR mother is strong, but the proposed extension is caught between two bad scales:
 
-Every serious death remains logged in `rejected_candidates/` with semantic aliases. Do not revive dead ideas via dataset/model/language/prompt/subset/MI-method/title changes.
+- without ETR/PyETR specifics, `does behavioral similarity imply mechanistic similarity?` is too generic;
+- with ETR/PyETR specifics, the paper becomes a narrow mechanistic verification of one cognitive theory on a synthetic generator.
 
-## What happens next
+The exact final 383-item exclusion manifest is also unavailable. Do not spend MI compute unless a future candidate supplies a broader independent scientific object.
 
-Discovery is complete. Do not generate more topics merely for quantity unless explicitly requested.
+### 030 — Spatial Reference Frames
 
-The next action is to choose an active project and execute its **V0/V1 only first**, freezing the exact mother population before any expensive causal work. Results must then determine whether to promote to deeper MI or stop.
+**ARCHIVE / CURRENT TARGET MISMATCH, not scientific terminal kill.**
 
-## Hard constraints retained
+Reference-frame transformation is a legitimate broad question, but it is VLM. The next search is explicitly LLM-focused. Preserve provenance only.
 
-- mother first;
-- no central LLM judge for core phenotype when deterministic/formal scoring exists;
-- no synthetic 2×2 manufactured for the title;
-- no fresh expensive G0 whose purpose is merely discovering whether a guessed behavior exists;
-- no post-hoc subset/threshold/prompt rescue;
-- probe/readout evidence alone is never a mechanism claim;
-- every serious death gets a short rejection record.
+### 031 — Spontaneous Deception / Graph State
 
-> **Five questions now pass the discovery bar; all five are active, but every one must still earn its mechanism through preregistered causal validation.**
+**TERMINAL KILL / F8 + V3 measurement gate.**
+
+Do not revive by changing probe/token position/subset or by returning to construct-validity framing. Canonical lesson: a runnable causal experiment does not imply a paper-scale question.
+
+### 032 — Temporal Forgetting Mechanism
+
+**ARCHIVE / SCALE.**
+
+Temporal Forgetting is a broad ACL Main phenomenon, but our extension was primarily `which internal stage/circuit explains this mother phenomenon?`. The hypotheses (upstream erosion vs middle reasoning vs late readout vs distributed change) are mostly localization categories rather than an independently motivated scientific debate. This is too close to generic mechanistic follow-up under the new bar.
+
+### 033 — Opposite-Scaling Contextual Entrainment
+
+**ARCHIVE / DELTA-WIDTH + DATA.**
+
+The behavior is real and broad, but ACL 2025 Outstanding already owns contextual entrainment mechanism, while Findings ACL 2026 already frames semantic filtering and mechanical copying as functionally distinct and explicitly suggests mechanistic decomposition. A writer/gate/two-circuit follow-up would mostly mechanize the mother’s interpretation/future work. Exact item-level mother data is also not released. Not enough novelty width for the current target.
+
+## Next search protocol
+
+The next agent must **not** start from `mother → mechanism gap` alone.
+
+For every candidate, before dataset search or GPU, write a PAPER CARD containing:
+
+1. one-sentence question with no dataset names;
+2. independent scientific object;
+3. why a non-benchmark reader should care;
+4. comparison to at least 3 strong ACL/EMNLP/NAACL Main/Outstanding papers on topic scale;
+5. exact conceptual delta from strongest prior work;
+6. why this is not merely mechanizing a mother/future-work line;
+7. whether dataset is natural or merely a controlled measurement window;
+8. 2–3 competing hypotheses whose outcomes preserve the same headline question.
+
+Hard kill if:
+
+- removing benchmark name destroys the question;
+- negative results would force changing the headline object;
+- hypotheses are just early/middle/late localization;
+- novelty is `behavior → mechanism` with no new theoretical object;
+- synthetic dataset creates the central scientific distinction;
+- current story needs post-hoc narrowing to sound broad.
+
+## Venue-scale anchors
+
+Use these as calibration, not as topic templates:
+
+- ACL 2025 Outstanding — `Llama See, Llama Do`: broad new contextual entrainment phenomenon across models/settings → causal heads + mitigation.
+- EMNLP 2025 Outstanding — filler-gap shared structure: mature linguistic theory question → causal LM evidence.
+- NAACL 2025 — property inheritance: classic taxonomy vs similarity cognitive debate → behavioral + causal representational evidence.
+- NAACL 2025 — `Racing Thoughts`: unified hypothesis for a class of contextualization errors → causal evidence + intervention.
+- ACL 2026 Main — tool irrelevance: natural semantic relevance vs structural matching conflict → controlled dataset, competing pathways, mitigation.
+
+## Current active state
+
+No fresh 029–033 project remains active. `active/014_alias_entrainment_transfer` is separate established paper development; other legacy/HOLD directories do not count as fresh topics.
+
+## One-line instruction for next agent
+
+> **Find an LLM scientific question that would still deserve an ACL/EMNLP/NAACL paper if the benchmark name disappeared from the abstract; only then look for a mother, data, and MI method.**
