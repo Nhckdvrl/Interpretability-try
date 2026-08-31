@@ -2,6 +2,9 @@
 
 这个仓库用于寻找、快速证伪、再解释 **LLM / MLLM 的自然、反直觉、可机制化的问题**。
 
+> **2026-08-31 最新权威状态：当前 continuation search 的 `PASS_REGISTER = 0`。**
+> 继续工作必须先读 [`phenomenon_miner/HANDOFF_HAMDI_SEARCH_2026-08-31.md`](phenomenon_miner/HANDOFF_HAMDI_SEARCH_2026-08-31.md) 和最新 [`rejected_candidates/continuation_terminal_addendum_9_2026-08-31.md`](rejected_candidates/continuation_terminal_addendum_9_2026-08-31.md)。本 README 下方保留的历史 `survivor / registered / HOLD` 叙述是研究轨迹记录，**若与最新 handoff / terminal addendum 冲突，一律视为 stale，不可计入当前五题目标。**
+
 Top-6 实跑后，选题流程已经从“能不能构造漂亮 factorial experiment”改成：
 
 ```text
@@ -38,6 +41,8 @@ polarity/prompt/model-specific 子题。
 
 ## 第一轮 Hamdi-style N0 survivors
 
+> **历史记录提示：本节中的 survivor 标签不是当前 continuation 的 PASS 状态。以最新 handoff 为准。**
+
 ### 024 Alignment: Descriptive Social Model vs Normative Readout
 
 > Alignment 让模型更 normative 时，是 descriptive human model 被改坏，还是 descriptive knowledge 仍在而 normative signal / late readout 赢了？
@@ -49,6 +54,8 @@ polarity/prompt/model-specific 子题。
 完整审计：[`phenomenon_miner/HAMDI_AXIS_N0_2026-08-31.md`](phenomenon_miner/HAMDI_AXIS_N0_2026-08-31.md)。
 
 ## 第二轮：N0 + N1 三个新注册题
+
+> **历史记录提示：这些旧 registration 后续已被 retrospective S0 adjudication；不可从这里直接恢复为当前 PASS。**
 
 完整审计：[`phenomenon_miner/HAMDI_MOTHER_N0_N1_3_2026-08-31.md`](phenomenon_miner/HAMDI_MOTHER_N0_N1_3_2026-08-31.md)。
 
@@ -95,6 +102,8 @@ Retrospective S0：`KILL`。论文 schema/human annotation 通过，但
 
 ## HOLD
 
+> **历史记录提示：本节是旧状态；当前 continuation 允许继续执行的 frontier 只以 authoritative handoff 的四条列表为准。**
+
 - 003 Diagnostic Counterevidence Revision — natural mother provenance；no call。
 - 013 Publicness–Coordination — natural question, HOLD-DATA。
 - 023 Description–Experience Gap — natural external phenomenon，HOLD-N0-REAUDIT。
@@ -102,6 +111,10 @@ Retrospective S0：`KILL`。论文 schema/human annotation 通过，但
 ## 关键入口
 
 - **[`phenomenon_miner/HANDOFF_HAMDI_SEARCH_2026-08-31.md`](phenomenon_miner/HANDOFF_HAMDI_SEARCH_2026-08-31.md) — 最新跨对话 authoritative handoff；当前新题 0 PASS-REGISTER。**
+- **[`rejected_candidates/continuation_terminal_addendum_9_2026-08-31.md`](rejected_candidates/continuation_terminal_addendum_9_2026-08-31.md) — 最新 terminal negative memory / 本轮失败题总表。**
+- [`phenomenon_miner/NEXT_AGENT_PROMPT_2026-08-31.md`](phenomenon_miner/NEXT_AGENT_PROMPT_2026-08-31.md) — 下一轮对话可直接使用的完整执行提示词。
+- [`phenomenon_miner/NTSB_LOCAL_AGENT_PROMPT_2026-08-31.md`](phenomenon_miner/NTSB_LOCAL_AGENT_PROMPT_2026-08-31.md) — NTSB 验证交给本地 agent 的可复制提示词。
+- [`phenomenon_miner/NTSB_LOCAL_AGENT_HANDOFF_2026-08-31.md`](phenomenon_miner/NTSB_LOCAL_AGENT_HANDOFF_2026-08-31.md) — NTSB 本地数据审计→G0 的完整执行合同。
 - [`phenomenon_miner/NATURAL_QUESTION_GATE.md`](phenomenon_miner/NATURAL_QUESTION_GATE.md)
 - [`phenomenon_miner/SCIENTIFIC_SUBSTRATE_GATE.md`](phenomenon_miner/SCIENTIFIC_SUBSTRATE_GATE.md)
 - [`phenomenon_miner/HAMDI_MOTHER_N0_N1_3_2026-08-31.md`](phenomenon_miner/HAMDI_MOTHER_N0_N1_3_2026-08-31.md)
