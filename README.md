@@ -5,13 +5,14 @@
 当前 continuation search：
 
 ```yaml
-PASS_REGISTER: 0
-counts_toward_target_five: 0
-new_topic_MI_authorized: false
+PASS_REGISTER: 1
+counts_toward_target_five: 1
+new_topic_MI_authorized: ETR-human-like-fallacy-only
+latest_registration: ETR human-like fallacy mechanism
 latest_terminal_execution: NTSB causal-role frontier KILL-S0
 ```
 
-**No candidate passes the current bar.**
+当前已有 **1/5** 个正式 `PASS-REGISTER`；其它 survivor/HOLD 不计数。
 
 ---
 
@@ -62,6 +63,20 @@ strong concrete mother
 
 ---
 
+## 当前正式注册
+
+### 01 Human-Like Fallacies: Alternative Filtering or Prior Contamination?
+
+Mother：ICLR 2026 `Theory-Grounded Evaluation of Human-Like Fallacy Patterns in LLM Reasoning`。
+
+已知行为不是新赌注：383 个 PyETR reasoning problems、38 个模型；能力越强，错误中 ETR-predicted human-like fallacy 的比例越高，而总体逻辑正确率与能力无关；仅反转 premise order 就会在多个 open models 上显著阻断 fallacy。Mother 明确不主张任何 causal mechanism。
+
+新问题：这些 human-like fallacies 是否来自 **ETR-like premature alternative filtering**，还是来自 **semantic/prior contamination**，或只是 **late output imitation/readout shortcut**？核心干预是对原顺序 fallacy 与 reversed-order rescue 做 `alternative reinstatement patch`。
+
+正式 card：[`phenomenon_miner/REGISTERED_ETR_HUMAN_LIKE_FALLACY_MECHANISM_2026-08-31.md`](phenomenon_miner/REGISTERED_ETR_HUMAN_LIKE_FALLACY_MECHANISM_2026-08-31.md)。
+
+---
+
 ## 最重要的失败教训
 
 48-way S0 funnel 的结果是：24 个先死于 behavior/measurement，8 个死于 substrate，14 个在 pre-S0 就被 mother/successor 占据，只有 2 个走到更后的 novelty gate，最终 **0 survivor**。
@@ -84,7 +99,7 @@ F7 mechanistically weak / method-closed
 
 ---
 
-## 当前执行状态
+## 其它执行状态
 
 ### 014 Alias Entrainment Transfer
 
@@ -105,7 +120,7 @@ F7 mechanistically weak / method-closed
 - `rejected_candidates/`：逐题 negative evidence，供**定向 semantic search**，不是每轮必读清单。
 - `phenomenon_miner/`：当前协议、handoff 与历史 discovery artifacts。
 
-新 rejection 文件保持短：记录 question、mother、F1–F7 kill class、decisive evidence、nearest-neighbor warning、resurrection condition 即可。不要再复制整套协议。
+任何已经进入 mother / neighbor / substrate / behavior / measurement / mechanism 中任一项认真审查、最后被 KILL 的候选都必须立即留下短 rejection record 和 semantic aliases；只有未形成 scientific question 的搜索噪声可以不记。
 
 ---
 
