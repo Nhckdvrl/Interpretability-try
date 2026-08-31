@@ -1,19 +1,21 @@
 # Interpretability Topic Search
 
-这个仓库用于寻找、快速证伪、再解释 **LLM / VLM 的自然、反直觉、可机制化 scientific questions**。
+用于寻找、快速证伪、再解释 **LLM / VLM 的自然、反直觉、可机制化 scientific questions**。
 
 ```yaml
-PASS_REGISTER: 3
-counts_toward_target_five: 3
+PASS_REGISTER: 5
+counts_toward_target_five: 5
 new_topic_MI_authorized:
   - ETR-human-like-fallacy
   - spatial-reference-frame
   - spontaneous-deception-knowledge-action
-latest_registration: spontaneous deception knowledge-action audit
+  - temporal-forgetting-mechanism
+  - contextual-entrainment-opposite-scaling
+latest_registration: contextual entrainment opposite-scaling mechanism
 latest_terminal_execution: NTSB causal-role frontier KILL-S0
 ```
 
-当前已有 **3/5** 个正式 `PASS-REGISTER`；其它 survivor/HOLD 不计数。
+**Target reached: 5/5 true PASS-REGISTER.** HOLD / frontier / PRE-S0 不计入五题。
 
 ## 当前只认三份权威文件
 
@@ -21,59 +23,47 @@ latest_terminal_execution: NTSB causal-role frontier KILL-S0
 2. [`phenomenon_miner/HANDOFF_HAMDI_SEARCH_2026-08-31.md`](phenomenon_miner/HANDOFF_HAMDI_SEARCH_2026-08-31.md) — 当前状态 / 下一步
 3. 本 README — 仓库入口
 
-一般失败经验见 [`phenomenon_miner/FAILED_TOPICS.md`](phenomenon_miner/FAILED_TOPICS.md)。其它 gate/funnel/addendum/domain log 是冷证据；只有新题语义接近时定向读取。
+其它 gate/funnel/addendum/domain log 是冷证据；仅在新题语义接近时定向读取。一般失败经验见 [`phenomenon_miner/FAILED_TOPICS.md`](phenomenon_miner/FAILED_TOPICS.md)。
 
-## 当前正式注册
+## 五个正式注册
 
 ### 01 Human-Like Fallacies: Alternative Filtering or Prior Contamination?
-
-Mother：ICLR 2026 `Theory-Grounded Evaluation of Human-Like Fallacy Patterns in LLM Reasoning`。行为已在 383 个 PyETR problems、38 个模型上建立；premise reversal 已是现成 causal manipulation。新问题是 ETR-like premature alternative filtering、semantic/prior contamination、还是 late output imitation。核心干预：`alternative reinstatement patch`。
+Mother: ICLR 2026 `Theory-Grounded Evaluation of Human-Like Fallacy Patterns in LLM Reasoning`。已知 open-model ETR fallacy + premise-reversal rescue；新机制：premature alternative filtering vs semantic/prior contamination vs late output imitation。核心：`alternative reinstatement patch`。
 
 Card: [`REGISTERED_ETR_HUMAN_LIKE_FALLACY_MECHANISM_2026-08-31.md`](phenomenon_miner/REGISTERED_ETR_HUMAN_LIKE_FALLACY_MECHANISM_2026-08-31.md)
 
 ### 02 From Pixels to Perspectives: Reference-Frame Transformation in VLMs
-
-Mechanistic mother：ICLR 2026 `Linear Mechanisms for Spatiotemporal Reasoning in Vision Language Models`；behavioral mother：ICLR 2025 Oral `COMFORT`。现成 image-plane x/y spatial IDs 与 Camera/Addressee/Relatum FoR gap 有 checkpoint overlap。新问题：late linguistic remap、explicit coordinate transform、还是 multiple frame-specific codes + selector。核心干预：analytic x/y ID transform + FoR selector patch。
+Mechanistic mother: ICLR 2026 `Linear Mechanisms for Spatiotemporal Reasoning in Vision Language Models`; behavioral mother: ICLR 2025 Oral `COMFORT`。现成 image-plane x/y IDs + FoR behavior；新机制：late remap vs explicit coordinate transform vs multiple frame codes + selector。
 
 Card: [`REGISTERED_SPATIAL_REFERENCE_FRAME_TRANSFORMATION_2026-08-31.md`](phenomenon_miner/REGISTERED_SPATIAL_REFERENCE_FRAME_TRANSFORMATION_2026-08-31.md)
 
 ### 03 Do Language Models Really Lie When They Fail?
-
-Mother：ICLR 2026 Oral `Beyond Prompt-Induced Lies: Investigating LLM Deception on Benign Prompts`。Mother 已在 benign graph reasoning 上建立“hard initial wrong + matched easier follow-up correct”的 spontaneous-deception phenotype，并公开 Llama/Mistral/Qwen/Gemma item-level outputs；但它用 easier follow-up behavior 代理“internal belief”，没有证明 hard deceptive run 内部真的保留正确答案。
-
-新问题：是 **genuine knowledge-action dissociation**、**reasoning-state corruption**，还是 **competing correct/fabricated trajectories**？核心干预：missing-edge/reachability state tracing + easy/truthful→hard-deceptive causal patch + `edge-state reinstatement`。若 hard run 根本没有正确 state，结果会直接修正 mother 的 deception 解释，仍是 paper-level finding。
+Mother: ICLR 2026 Oral `Beyond Prompt-Induced Lies`。已知 benign hard-wrong/easy-follow-up-correct phenotype 与公开 Llama/Mistral/Qwen/Gemma outputs；新机制：genuine knowledge-action dissociation vs reasoning-state corruption vs competing trajectories。核心：`edge-state reinstatement`。
 
 Card: [`REGISTERED_SPONTANEOUS_DECEPTION_KNOWLEDGE_ACTION_2026-08-31.md`](phenomenon_miner/REGISTERED_SPONTANEOUS_DECEPTION_KNOWLEDGE_ACTION_2026-08-31.md)
 
+### 04 What Does Reasoning Training Forget?
+Mother: ACL 2026 `Temporal Sampling for Forgotten Reasoning in LLMs`。同一 reasoning item 在真实训练 checkpoint 轨迹上 deterministic `correct -> wrong`，且总体能力仍上升；新机制：upstream capability erosion vs reasoning-circuit disruption vs persistent solution with changed control/readout vs diffuse interference。核心：**checkpoint layer transplantation**。
+
+Card: [`REGISTERED_TEMPORAL_FORGETTING_MECHANISM_2026-08-31.md`](phenomenon_miner/REGISTERED_TEMPORAL_FORGETTING_MECHANISM_2026-08-31.md)
+
+### 05 Why Bigger Models Ignore Lies but Copy Noise
+Behavior mother: Findings ACL 2026 `Better and Worse with Scale`; mechanistic predecessor: ACL 2025 Outstanding `Llama See, Llama Do`。Pythia/Cerebras 已建立 semantic entrainment 随规模下降、non-semantic copying 随规模上升的反向 scaling；mother 明确没有 mechanistic decomposition。新机制：shared copying writer + semantic gate vs distinct scaling circuits vs late memory/context competition。核心：跨 scale causal head/pathway decomposition + semantic-filter ablation/patching。
+
+Card: [`REGISTERED_CONTEXTUAL_ENTRAINMENT_OPPOSITE_SCALING_MECHANISM_2026-08-31.md`](phenomenon_miner/REGISTERED_CONTEXTUAL_ENTRAINMENT_OPPOSITE_SCALING_MECHANISM_2026-08-31.md)
+
 ## Hamdi-style discipline
 
-禁止：
+禁止：`想 phenomenon -> 造数据/机制 -> 花算力赌行为存在`。
 
-```text
-想一个合理 phenomenon -> 造数据/机制 -> 花算力赌行为存在
-```
+只允许：`strong mother -> exact established object/anomaly -> same-object omitted real axis or unasked causal computation -> inherit artifact/recipe -> negative memory + strongest-neighbor -> cheap falsifier -> S0/N0/N1 -> PASS-REGISTER -> MI`。
 
-只允许：
-
-```text
-strong concrete mother
--> exact scientific object / established anomaly
--> same-object omitted real axis OR unasked causal computation
--> inherit mother recipe/artifact
--> semantic negative-memory + strongest-neighbor attack
--> cheap falsifier
--> S0/N0/N1
--> PASS-REGISTER
--> MI
-```
-
-任何候选只要认真进入 mother/neighbor/substrate/behavior/measurement/mechanism 审查后死亡，必须立即在 `rejected_candidates/` 留短 record + semantic aliases。不得通过换模型、数据、prompt、语言、subset、MI method 复活。
+任何认真审过后死亡的候选必须立即进入 `rejected_candidates/`，带 semantic aliases；不得通过换模型、数据、prompt、语言、subset、MI method 复活。
 
 ## 其它状态
 
 - `Individual belief lookbacks -> common ground`：高质量 HOLD；缺同 checkpoint capability bridge，不计数。
 - `014 Alias Entrainment Transfer`：已有正式结果，不属于本轮五题。
 - `NTSB causal relevance vs causal-role selection`：TERMINAL `KILL-S0 / RELEVANCE-ALSO-FAILS`。
-- 其它 legacy HOLD/frontier 不计数，以 handoff 为准。
 
-> **不要问“模型还可能有什么有趣的错？”；问“强 mother 已经建立了什么对象/异常，而它还没有问哪个重要的 causal computation？”**
+> **不再问“模型可能还有什么错”；问“强 mother 已建立的对象/异常，还缺哪个决定性 causal computation？”**
