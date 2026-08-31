@@ -1,11 +1,14 @@
 # Natural-Question Gate — Hamdi-style Topic Selection
 
 Date: 2026-08-30  
-Status: `AUTHORITATIVE PRE-DISCOVERY GATE`
+Status: `AUTHORITATIVE P0 GATE; FOLLOWED IMMEDIATELY BY S0`
 
 This file was added after the completed Top-6 audit exposed a systematic failure in topic selection. The main mistake was not that cheap D0 killed many ideas; it was that several ideas were selected because they admitted a clever experimental construction rather than because the underlying scientific question was naturally compelling and likely to exist.
 
-This gate runs **before** novelty search, dataset search, builder design, or model calls.
+This gate runs before novelty search, builder design, or full model calls. It does
+**not** authorize a candidate. Every P0 survivor immediately enters the
+type-specific [`SCIENTIFIC_SUBSTRATE_GATE.md`](SCIENTIFIC_SUBSTRATE_GATE.md),
+which must complete before N0/N1 or registration.
 
 ---
 
@@ -75,13 +78,17 @@ Example: arbitrary-choice prompts are visibly biased.
 
 The scientific object exists independently of model behavior.
 
-Example: real vs fictional existence, knowledge vs ontology, stock vs flow.
+Example: real vs fictional existence, knowledge vs ontology. The distinction
+must still pass S0: both variables need independent objective labels and an
+observed natural cross-population.
 
 ### C. Established mother phenomenon
 
 A strong prior work establishes the broad behavioral object, and the new question is a genuinely natural next distinction rather than a hidden-state localization exercise.
 
-Example: exact-token contextual entrainment naturally raises the question of whether salience transfers across another name for the same entity.
+Example: exact-token contextual entrainment naturally raises the question of whether salience transfers across another name for the same entity. For a failure
+topic, the target effect must additionally be demonstrated on analyzable open
+models before registration.
 
 ### Reject
 
@@ -220,7 +227,7 @@ These are not merely unlucky nulls. They show that elegant factorial designs can
 
 ---
 
-## 9. Why 014 and 018 survive
+## 9. Retrospective: why 014 survived and 018 did not
 
 ### 014 Alias Entrainment Transfer
 
@@ -230,13 +237,14 @@ The later ASSOC/reference controls became complicated because they separate expl
 
 ### 018 Stock–Flow Correlation Intrusion
 
-The mother phenomenon is a long-standing natural cognitive error about stocks and flows, and the accounting relation is deterministic. The current D0 failed because the recognition instrument used A/B letters badly, not because the scientific object required artificial filtering.
-
-A corrected semantic/numeric recognition test can address the same question without changing the natural population.
+The question is natural and the human mother phenomenon is classic, but that is
+not an LLM existence substrate. After the bounded semantic-recognition repair,
+0/4 open families promoted and the estimable effects were small, null, or
+opposite. Under S0-first rules this failure topic would not have been registered.
 
 ---
 
-## 10. Mandatory candidate card before N0/N1/D0
+## 10. Mandatory P0 card before S0
 
 Every new topic must first fill this card:
 
@@ -271,10 +279,11 @@ P5_mechanistic_forks:
   -
   -
 
-verdict: PASS | REJECT | HOLD
+verdict: PASS-TO-S0 | REJECT
 ```
 
-A topic with `estimated_risk_that_phenomenon_is_absent: high` should almost never enter the main queue unless the payoff is extraordinary and the minimal sanity check is nearly free.
+A P0 pass is only permission to run S0. It is not a candidate registration,
+novelty claim, data-feasibility assumption, or model-call authorization.
 
 ---
 

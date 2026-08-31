@@ -3,7 +3,8 @@
 版本：2026-08-29  
 状态：`MANDATORY D0 SCOPE-INTEGRITY RULES`
 
-本文件是 [`FINDING_RULES.md`](FINDING_RULES.md) 中 D0 source-feasibility 的强制组成部分。它解决一个和“数据有没有”“gold 对不对”不同的问题：
+本文件是 S0 通过后、冻结 registration-ready D0 contract 时的强制 scope
+检查。S0 先回答“substrate/gold/cross-cells 是否真实存在”，本文件再回答：
 
 > **最后造出来的数据，还是不是原来那个科学问题的数据？**
 
@@ -266,7 +267,7 @@ Broad phenotype on natural population
 
 ---
 
-## 10. D0 source-feasibility 的新增 PASS 条件
+## 10. Registration-ready D0 contract 的新增 PASS 条件
 
 以后 `d0_source_feasibility_verdict: PASS` 必须同时满足：
 
@@ -288,7 +289,7 @@ scope_integrity:
 任何一项做不到：
 
 ```text
-D0 source-feasibility = HOLD-SCOPE
+registration-ready D0 contract = HOLD-SCOPE
 ```
 
 不是先注册/先跑模型以后再补。

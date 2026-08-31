@@ -66,7 +66,7 @@ native median delta-r 为 +.070，因此 HOLD 而非 hard kill。禁止继续 D0
 
 [`../active/025_world_indexed_truth/`](../active/025_world_indexed_truth/)
 
-**N0-PASS / ACTIVE-PREFLIGHT / NO CALL**
+**HOLD-PREREQUISITE-CAPABILITY / NO-MI**
 
 > 同一 proposition 在 actual world 与 stipulated local world 下可以有不同 truth value。模型 truth 是 proposition 的单一属性，还是 `Truth(P, world)`？
 

@@ -1,6 +1,6 @@
 # Finding Rules — 如何找一个值得做的 LLM 可解释性题目
 
-版本：2026-08-29  
+版本：2026-08-31
 状态：`AUTHORITATIVE DISCOVERY RULES`
 
 本文件合并旧的 `PROCESS.md`、`REQUIREMENTS.md`、`NOVELTY_GATE.md`、`CONFERENCE_SCALE_AUDIT.md` 和短版 mining guide 中仍然有效的规则。以后寻找新题只维护这一份。
@@ -108,18 +108,35 @@ representation / predictive signal exists
 
 ## 3. 题目必须在 discovery 阶段一次做透
 
-新项目正式注册前必须同时通过：
+新项目正式注册前必须按成本顺序通过：
 
 ```text
-N0 breadth PASS
+Natural Question PASS
++ type-specific S0 Scientific-Substrate PASS
++ N0 breadth PASS
 + N1 depth PASS
-+ D0 source-feasibility PASS（其中 scope-integrity 必须 PASS）
++ registration-ready D0 population/estimand contract
 = DISCOVERY-PASS
 ```
 
-**N0、N1 和数据搜索都属于找题，不属于题目已经确定后的补票。**
+实际顺序是 `Natural → S0 → N0 → N1 → register → D0`。S0 必须已经取得
+row-level artifact、运行 counts/audit，或在目标 open models 上证明 failure
+existence。详见 [`SCIENTIFIC_SUBSTRATE_GATE.md`](SCIENTIFIC_SUBSTRATE_GATE.md)。
+N0、N1 都属于找题，不是题目确定后的补票。
 
-### 3.1 N0 — breadth novelty screen
+### 3.0 S0 — scientific substrate before novelty
+
+先分类：
+
+- `failure-mechanism`：目标 analyzable open models 上的结构 effect 已存在；
+- `factorization/object`：两个轴都有独立 objective gold，row-level artifact
+  已取得，natural cross-cells 已程序计数并人工审计。
+
+缺中央 gold、依赖 synthetic contrast、只在闭源/人类 mother 上成立、或 paper
+看似有字段但 row-level matched population 未验证，均直接 KILL，不注册为
+`PARK-DATA`。
+
+### 3.1 N0 — breadth novelty screen after S0
 
 先冻结一句 claim，再快速攻击：
 
@@ -182,9 +199,9 @@ search_date:
 
 只允许写“截至 search date 未检索到完整覆盖”，不写绝对 `first`。
 
-### 3.3 D0 source-feasibility — 找题时就把数据找好
+### 3.3 Registration-ready D0 contract
 
-正式注册前必须知道：
+S0 已经证明 substrate 存在。正式注册前还必须冻结：
 
 ```yaml
 source:
@@ -257,7 +274,9 @@ public natural source
 
 不允许：先注册题目，再发明 generator 或到处换数据源凑数量。
 
-如果 source/gold/license/count **或 scope-integrity** 仍答不清，只能是 `HOLD-DISCOVERY-DATA` / `HOLD-SCOPE`。
+如果 source/gold/license/count 仍答不清，说明 S0 不应通过，直接 KILL。
+`HOLD-SCOPE` 只用于 substrate 存在但 population-preserving construction 尚未
+解决的极少数情况；它也不能进入 active。
 
 ---
 

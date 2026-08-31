@@ -1,13 +1,14 @@
 # Phenomenon Miner
 
 版本：2026-08-31  
-状态：`v6 / NATURAL-QUESTION + HAMDI-STYLE MOTHER-INCLUSION`
+状态：`v7 / SCIENTIFIC-SUBSTRATE-FIRST`
 
 本目录负责找题、novelty / mother-inclusion 审计、快速证伪、记录失败模式，以及区分 behavioral evidence 与 mechanism。
 
 ## 当前入口
 
 - [`NATURAL_QUESTION_GATE.md`](NATURAL_QUESTION_GATE.md) — 任何 novelty/data 之前的自然问题 gate。
+- [`SCIENTIFIC_SUBSTRATE_GATE.md`](SCIENTIFIC_SUBSTRATE_GATE.md) — N0/N1 和注册之前的 type-specific existence/artifact gate。
 - [`HAMDI_AXIS_N0_2026-08-31.md`](HAMDI_AXIS_N0_2026-08-31.md) — 最新三条 adjacent-axis 的 mother-inclusion N0。
 - [`CURRENT_TOPICS.md`](CURRENT_TOPICS.md) — authoritative focus queue。
 - [`../active/README.md`](../active/README.md) — active / HOLD 项目入口。
@@ -25,15 +26,18 @@
 
 ### 018 Stock–Flow Correlation Intrusion
 
-**SCIENTIFIC STATUS UNKNOWN / BOUNDED REDESIGN.** D0-v1 是 recognition measurement failure；仅允许 outcome-blind 修 semantic/numeric net-recognition。
+**D0-v2 NO-PROMOTE / NO-MI / TERMINAL.** 人类经典现象没有转化为目标 open
+LLM 上稳定的 failure substrate；0/4 family promotion。
 
 ### 024 Alignment Descriptive–Normative Arbitration
 
-**N0-PASS / ACTIVE-PREFLIGHT.** Broad descriptive/prescriptive behavior 已有 mother；真正的新问题是 paired base→aligned 中，descriptive human model 是被 degraded，还是 retained while normative state/readout wins。
+**HOLD-INCONCLUSIVE-D0.** 实际 open base/aligned pairs 仅 2/4 通过，不能由
+闭源/强模型 mother 外推到可做 MI 的 substrate。
 
 ### 025 World-Indexed Truth
 
-**N0-PASS / ACTIVE-PREFLIGHT.** 不研究 generic fictional truth；研究 same proposition 在 actual/local worlds 下的双 valuation 是否通过 world index 绑定和选择。
+**HOLD-PREREQUISITE-CAPABILITY / NO-MI.** conflict success 被 aligned-control
+failure 识别为 synthetic contrast shortcut，不能作为 natural observable object。
 
 ## HOLD
 
@@ -57,6 +61,7 @@
 strong mother / stable external concept
 → ask what scientific object it leaves unseparated
 → the new question must be interesting before dataset or MI
+→ classify failure vs factorization and pass S0 on real artifacts/open models
 → strongest-neighbor mother-inclusion audit
 → register only if title-level object and mechanism story remain independent
 → cheap behavior/capability prerequisite

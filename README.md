@@ -7,6 +7,8 @@ Top-6 实跑后，选题流程已经从“能不能构造漂亮 factorial experi
 ```text
 natural question
 → strong mother / external concept anchor
+→ classify failure vs factorization
+→ S0: open-model effect OR objective row-level gold + counted cross-cells
 → Hamdi-style mother-inclusion N0
 → strongest-neighbor / successor N1
 → if novelty gets narrower and narrower, KILL
@@ -17,6 +19,7 @@ natural question
 ```
 
 核心规则：[`phenomenon_miner/NATURAL_QUESTION_GATE.md`](phenomenon_miner/NATURAL_QUESTION_GATE.md)。
+注册前一票否决：[`phenomenon_miner/SCIENTIFIC_SUBSTRATE_GATE.md`](phenomenon_miner/SCIENTIFIC_SUBSTRATE_GATE.md)。
 
 ## 当前 established / adjudicated 主线
 
