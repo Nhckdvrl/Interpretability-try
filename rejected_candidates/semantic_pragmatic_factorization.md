@@ -213,13 +213,34 @@ A direct mechanistic project already applies the classic Gray-style **Agency / E
 
 ---
 
+# 10. Local Accessibility / Givenness ≠ Global Discourse Salience
+
+**Natural question:** An entity can be easy to refer back to because it was just mentioned without being important to the whole document; conversely, a globally important entity need not be the most locally accessible at every point. Does a model separate local discourse accessibility from global entity importance?
+
+**Why it initially looked good:**
+
+- the distinction is linguistically natural and understandable without a dataset;
+- GUM provides rich information-status labels, while GUMsley provides human summary-grounded entity salience annotations across many genres;
+- the same corpus family appeared to offer row-level natural coverage rather than synthetic pairs.
+
+**Kill evidence:**
+
+N0 fails because the headline scientific object is already directly studied by 2026 discourse-salience work. **What makes an entity salient in discourse? Local and global prominence factors across genres** explicitly asks how local prominence/accessibility factors such as givenness, definiteness, subjecthood, mention frequency and related cues account for global discourse salience across a broad multi-genre corpus. A new project that changes the measurement to hidden-state factorization would therefore inherit the mother’s object and only add MI methodology.
+
+**Death code:** `NARRATIVE_COLLISION`
+
+**Nearest-neighbor warning:** Do not revive as givenness-vs-salience, accessibility-vs-importance, local-vs-global entity priority, recent-mention-vs-summary-worthiness, or by using another GUM layer/model. Those are the same scientific contrast.
+
+**Resurrection condition:** A different discourse variable with a title-level distinction not already framed as a local-vs-global salience problem in the discourse literature, and with independent natural gold.
+
+---
+
 # Current non-rejected neighbors
 
 The following ideas were discussed in the same search but are **not** killed by this file and must remain separate from the negative memory:
 
 - **Assertion ≠ Presupposition** — still under S0/N0/N1 audit; do not mark dead merely because W13 killed a *failure-mechanism* presupposition-projection effect.
 - **Prevalence ≠ Diagnosticity / Cue Validity** — substrate scale remains under audit; not yet adjudicated.
-- **Givenness / local accessibility ≠ global discourse salience** — currently under S0/N1 audit; not yet adjudicated.
 - **Coreference ≠ bridging reference** — high N0 risk and not currently shortlisted, but not formally killed here until the mother-inclusion audit is complete.
 
 ---
