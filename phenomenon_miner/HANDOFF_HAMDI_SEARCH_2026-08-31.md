@@ -1,240 +1,375 @@
-# Hamdi-Style Interpretability Topic Search — Handoff (2026-08-31)
+# Hamdi-Style Interpretability Topic Search — Authoritative Handoff (2026-08-31)
 
-Status: **AUTHORITATIVE CHAT HANDOFF / 0 NEW PASS-REGISTER**
+Status: **FINAL CHAT HANDOFF / 0 NEW PASS-REGISTER**
 
-This file is the starting point for the next topic-search session. It records the latest state after the long 2026-08-31 natural-question → S0 → N0 → N1 search. If an older chat message or earlier candidate note conflicts with this file or the terminal rejection addenda referenced below, use the newer repository state.
+This file is the authoritative starting point for the next topic-search conversation. If an older chat message, old `lead`, `HOLD`, `under audit`, or earlier candidate file conflicts with this handoff or the newest terminal rejection addenda, **use the newer repository state**.
+
+The user ultimately wants up to **five genuinely hard ACL / EMNLP / NAACL-style mechanistic interpretability topics**, but the bar must never be lowered to reach five. The completed search ended with **0 new PASS-REGISTER**; that is an evidence-based state, not unfinished bookkeeping.
 
 ---
 
-## 1. Objective
+## 1. What kind of topic is wanted
 
-Find ACL / EMNLP / NAACL-level **mechanistic interpretability scientific objects**, not generic MI experiments.
+The target is a **scientific object**, not an MI technique demonstration.
 
-The desired shape is Hamdi-style:
+Required funnel:
 
 ```text
-natural behavior / independent scientific distinction
-→ scientific object is already interesting without dataset or MI
-→ S0: the object is real and measurable before registration
-→ N0: mother paper does not already own the title-level object
-→ N1: strongest recent successor does not already own representation + causal intervention
-→ mechanistic forks make genuinely different causal predictions
-→ only then REGISTER
+natural question / independently meaningful distinction
+→ classify Failure-mechanism or Factorization/internal-object
+→ S0 scientific substrate BEFORE novelty storytelling
+→ N0 mother-inclusion attack
+→ N1 strongest-neighbor / successor attack
+→ internal negative-memory audit
+→ title-level anti-narrowing
+→ MI-fit + Hamdi-surprise
+→ only complete survivors may REGISTER
 ```
 
-Do **not** optimize for returning a fixed number. The requested end goal is five hard topics, but zero is preferable to weak registrations.
+A good topic should remain interesting after deleting the words dataset, benchmark, probe, SAE, feature, head, patching and steering.
 
 ---
 
-## 2. Hamdi reference pattern to imitate
+## 2. Hamdi patterns to imitate
 
-### A. Arbitrary/random-choice project
+### A. Arbitrary / random choice
 
-Behavior first: ordinary requests such as `pick a random digit`, `flip a coin`, or `choose any color` produce strongly biased distributions.
+Behavior exists first: ordinary prompts such as `pick a random digit`, `flip a coin`, or `choose any color` produce visibly biased distributions.
 
-The scientific question became: **does the model internally represent that it is currently being asked to make an arbitrary/random choice, and what causal role does that state play?**
+Then ask what the model internally represents when it recognizes an **arbitrary-choice mode**. The valuable mechanistic result is not merely that a direction is decodable. Causal work can reject the intuitive `one randomness dial` theory and separate a **reader/switch** that recognizes the mode from a **writer/dial** that shapes the output distribution.
 
-The important result was not merely a probe. The causal experiment falsified the simplest interpretation: the random-choice direction was a **switch/reader**, not a randomness dial. A separate late writer shaped entropy/output distribution. The reader×writer decomposition then predicted a gated low-rank intervention.
+Lesson: prefer questions where causal MI can distinguish mechanisms such as:
 
-Lesson: prefer topics where causal MI can distinguish `switch vs dial`, `reader vs writer`, `overwrite vs parallel`, `shared scalar vs separate axes`, or another nontrivial mechanism. `two variables → two probe directions` is low-surprise and not enough.
+- switch vs dial;
+- reader vs writer;
+- upstream prior vs downstream selector;
+- parallel states vs overwrite;
+- shared scalar vs independent axes;
+- content state vs binding/index state.
 
-### B. Knowledge vs ontology project
+Do not copy the vocabulary mechanically. The natural behavior must come first.
 
-Prior work studied **epistemic access** (`do I know facts about x?`). Hamdi asked a genuinely different object: **does x exist in the real world?** Familiar fictional entities make the two axes naturally cross: models can know many facts about dragons/Hogwarts while representing them as fictional.
+### B. Knowledge vs ontology / existence
 
-The project uses knowledge×ontology controls so rarity/familiarity cannot explain the ontology signal. An `answer as if dragons were real` instruction can flip behavior while the internal fictional-status signal remains, giving a strong representation–behavior dissociation.
+`The model knows many facts about X` and `the model represents X as existing in the real world` are independently meaningful variables. Familiar fictional entities naturally cross the axes.
 
-Lesson: a good factorization axis is independently meaningful in the world, has natural cross-cells, and remains scientifically interesting even if the model separates the axes perfectly.
+Lesson: a strong factorization topic has **external-world variables with natural cross-cells**, not two labels that became interesting only because a corpus happened to contain them. Even perfect internal separation would be scientifically meaningful.
 
 ---
 
-## 3. Authoritative gates to read before generating anything
+## 3. Mandatory files to read before proposing a new idea
 
-Read these first:
+Read in this order:
 
-- `README.md`
-- `phenomenon_miner/NATURAL_QUESTION_GATE.md`
-- `phenomenon_miner/SCIENTIFIC_SUBSTRATE_GATE.md`
-- `phenomenon_miner/S0_FUNNEL_2026-08-31.md`
-- `phenomenon_miner/FAILED_TOPICS.md`
-- `archive/README.md`
-- `rejected_candidates/README.md`
-- every relevant `rejected_candidates/*.md` domain log
+1. `README.md`
+2. `phenomenon_miner/NATURAL_QUESTION_GATE.md`
+3. `phenomenon_miner/SCIENTIFIC_SUBSTRATE_GATE.md`
+4. `phenomenon_miner/S0_FUNNEL_2026-08-31.md`
+5. `phenomenon_miner/FAILED_TOPICS.md`
+6. `archive/README.md`
+7. `rejected_candidates/README.md`
+8. every relevant `rejected_candidates/*.md` domain / terminal log
 
-The S0 rule is especially important:
+Newest terminal files that supersede stale older wording:
+
+- `rejected_candidates/hamdi_search_addendum_2026-08-31.md`
+- `rejected_candidates/hamdi_search_terminal_addendum_2_2026-08-31.md`
+- `rejected_candidates/late_search_addendum_2026-08-31.md`
+- `rejected_candidates/final_convergence_addendum_2026-08-31.md`
+
+Important: the old `rejected_candidates/cognitive_logical_reasoning.md` still contains historical `under audit` prose for Deontic Facilitation and premise-reversal fallacy blocking. **Those statuses are superseded. Both are terminal under newer evidence/rules.**
+
+---
+
+## 4. S0 contracts — do not weaken them
 
 ### Failure-mechanism
 
-Before registration, the broad failure must already exist on analyzable modern open checkpoints, normally at least 2/3 families in the same direction, under ordinary faithful prompts. Human cognitive effects, closed-model effects, synthetic-only contrasts, or post-hoc filtered subsets do not count.
+Before registration:
 
-### Factorization/object
+- failure must already exist on analyzable **current open checkpoints**;
+- normally require at least 2/3 model families in the same direction;
+- ordinary faithful prompts, no post-hoc subset search;
+- human cognitive phenomenon or closed-model result is not enough;
+- synthetic-only protocol is not enough;
+- save item-level outputs, scoring and exact revisions;
+- effect must be scientifically substantial, not merely statistically nonzero.
 
-Before registration, both axes need independent external definitions/gold; the actual row artifact must be obtainable and parsed; decisive natural cross-cells must be counted; at least 20 source rows must be manually sanity-checked; central gold cannot be supplied by the tested LLM, an LLM judge, or new researcher annotation; the title cannot require synthetic 2×2 construction.
+### Factorization/internal-object
 
----
+Before registration:
 
-## 4. Current registration state
-
-**New topics from this search: 0 PASS-REGISTER.**
-
-Do not inherit any previous `lead`, `HOLD-SUBSTRATE`, or nice title as a registered candidate unless it survives the newest terminal addenda.
-
----
-
-## 5. Only current non-terminal frontier lead
-
-# Intervention Effect Direction ≠ Magnitude
-
-Working natural question:
-
-> A model may know whether an intervention moves people in the positive or negative direction while systematically misjudging how strongly it moves them. Are qualitative causal direction and quantitative causal magnitude computed differently?
-
-Why it is interesting:
-
-- 2026 Nature work evaluates 70 preregistered nationally representative US survey experiments, 469 real treatment effects and 119,330 participants. LLM-predicted treatment effects correlate strongly with real effects but are systematically too large; prominent open-weight models show the pattern.
-- 2025 Nature Computational Science similarly reports that LLM replications of 156 psychology/management experiments tend to produce larger effect sizes than human studies.
-- The title-level question is broader than static opinion-distribution fidelity: `which way does the intervention move the outcome?` versus `by how much?`.
-
-Current status: **HOLD-FATAL-CONTROL / NOT REGISTERED**.
-
-Fatal alternative explanation:
-
-2026 **The Illusion of Intervention** shows that treatment prompts can induce **user drift**: treatment and control conditions cause the model to instantiate different latent respondent/persona populations. This creates selection/confounding bias that can inflate or shrink synthetic treatment effects; targeted confounder controls materially change/stabilize the estimate.
-
-Required next step before any MI:
-
-1. obtain the Nature treatment-effect artifact / code and the user-drift paper artifact;
-2. determine whether sign-correct / magnitude-inflated behavior survives a faithful negative-control / user-drift correction;
-3. verify the residual on analyzable open models, not just closed frontier systems;
-4. if magnitude inflation disappears after correction, record `KILL-ARTIFACT` and stop;
-5. only if a large residual survives, run N1 specifically for `causal effect sign vs strength internal representation / intervention` and then formulate competing mechanisms.
-
-Do not start probes/SAEs/patching before this fatal control.
+- both axes independently defined outside the tested model;
+- both axes have source/expert/human/deterministic gold;
+- actual row-level artifact obtained and parsed;
+- decisive natural cross-cells actually counted;
+- at least 20 source rows manually sanity-audited;
+- central gold cannot be newly hand-labeled by us or supplied by an LLM judge;
+- no synthetic 2×2 construction to manufacture the headline distinction;
+- if obtaining data forces the title to narrow by domain/subtype/language/cue, KILL.
 
 ---
 
-## 6. Topics explicitly TERMINAL from the late search
-
-The newest authority is:
-
-- `rejected_candidates/hamdi_search_terminal_addendum_2_2026-08-31.md`
-- `rejected_candidates/late_search_addendum_2026-08-31.md`
-
-Important terminal objects include:
-
-- Assertion ≠ Presupposition — `KILL-DATA`; natural same-proposition asserted/presupposed population missing.
-- Polysemy ≠ Homonymy — `KILL-NOVELTY`; lexical ambiguity object already internally studied.
-- Coreference ≠ Bridging — `KILL-N0`; mother taxonomy owns identity vs associative reference.
-- Prevalence ≠ Diagnosticity/Cue Validity — `KILL-DATA`; direct same-item human double gold too small; production frequency is not prevalence.
-- Statistical significance / evidence strength ≠ effect magnitude — `KILL-MI-FIT`; BEAR data are excellent, but no established natural open-model significance-as-magnitude failure; probing two explicit numbers would be low-surprise method decoration.
-- Expert/novice knowledge or curse-of-knowledge simulation — `KILL-N0`; 2026 mothers already own capability-vs-human-difficulty divergence.
-- Claim content ≠ claim scope — `KILL-N0`; scientific overgeneralization mother owns scope preservation.
-- Truth ≠ popular/human belief — `KILL-N1`; Nature Machine Intelligence 2025 KaBLE already owns belief/knowledge/fact distinction. `population belief` is adjective narrowing unless a qualitatively new phenomenon first appears.
-- Plausible ≠ true — `KILL-DATA/NARRATIVE`; no broad natural same-statement truth×plausibility double gold and nearby representation work is crowded.
-- Classic false-consensus effect — current S0 `KILL`; old mother relies on four scenarios and imposed choices. It may only re-enter after a fresh modern open-family ordinary-prompt existence screen satisfying its explicit resurrection condition.
-- Statistical significance ≠ replicability — do not promote from SCORE/BEAR alone; replicability prediction is already a SCORE scientific object.
-
-Earlier domain logs additionally kill: deontic facilitation, motivated reasoning evidence-vs-decision, ownership/self-attribution, intended-vs-perceived sarcasm, literal-vs-figurative meaning, said-vs-implicated content, emotion-vs-cause, dialogue-act-vs-affect, definiteness-vs-specificity, taxonomic-vs-thematic, animacy-vs-agentivity, agency-vs-experience, local accessibility-vs-global salience, likelihood-vs-severity, epistemic-vs-aleatoric uncertainty, moral judgment-vs-legality, mean opinion-vs-population diversity, generic VLM perception-vs-prior/color conflicts, and the repository-wide archived failures.
-
-Do not resurrect these by swapping dataset/model/language/prompt/MI tool.
-
----
-
-## 7. BEAR substrate: preserve as infrastructure, not a live topic
-
-BEAR / `wwiecek/BEAR_data` is worth remembering as a data source even though significance-vs-magnitude is terminal under the current contract.
-
-Verified facts:
-
-- public data submodule contains `SCORE_replications.rds`, `SCORE_all_claims.rds`, `OSC.rds`, `ManyLabs2.rds`, etc.;
-- SCORE source contains 548 original/replication rows = 274 matched original + 274 matched replication, with 267 retained by BEAR;
-- SCORE all-claims has 3,066 source rows and 1,946 retained claim rows;
-- BEAR processing retains effect estimate `b`, uncertainty `se`, and evidence statistics `z/p`; SCORE matched rows join original and replication by `claim_id` and keep `orig.*` values.
-
-Use BEAR only if a **new natural behavior/object independently motivates it**. Do not reverse the order and invent a topic from its columns.
-
----
-
-## 8. Search directions that are currently safer
-
-Do **not** continue generating classic two-axis psychology/linguistics labels mechanically; that route produced many N0/N1 collisions.
-
-Priority order for the next conversation:
-
-1. **Strong 2025–2026 mother anomaly → unresolved internal scientific question.** Search ACL/EMNLP/NAACL/ICLR/ICML/NeurIPS/Nature for a large, cross-model, surprising open-weight behavior whose paper does *not* already complete representation + causal intervention.
-2. **Everyday deterministic behavior.** Look for ordinary prompts where a stable bias is visible without a benchmark or complex protocol, analogous to arbitrary choice. Require modern open-family evidence before registration.
-3. **External-world orthogonal axis.** Only if both axes have source-authored/objective row-level gold and natural cross-cells at scale. Immediately N1-search exact object synonyms plus representation/direction/feature/circuit/steering.
-4. Prefer a question whose causal MI could reveal a nontrivial structure (`switch vs dial`, `reader vs writer`, `upstream prior vs downstream selector`, `parallel states vs overwrite`) rather than merely locating a signal.
-
-Avoid:
-
-- `mother behavior → which layer causes it?`;
-- `representation exists → is it causal?`;
-- another semantic relation inventory;
-- another truth/belief/factuality axis;
-- another local-success/global-composition or generic knows-but-does-not-use story;
-- temporal forgetting / stale-state variants;
-- evidence-more-hurts variants;
-- task-switch / ambiguity-history / ownership variants;
-- synthetic 2×2 moral/logical worlds;
-- LLM-judge central gold.
-
----
-
-## 9. Useful search leads that were inspected but should NOT be promoted automatically
-
-These are observations, not candidates:
-
-- 2026 `Partition, Prompt, Aggregate` reports a macro fallacy where subgroup estimates aggregate better than direct population estimates. Do not use it: it collides with repository `Local Success, Global Composition Failure` / generic knows-but-does-not-use logic unless a genuinely different object appears.
-- 2026 negative-constraint / ironic-rebound papers already contain circuit tracing, activation patching and priming-vs-override mechanisms. The `don't say X` family is occupied.
-- generic current-color / canonical-color or visual-prior conflicts route to the already terminal VLM perception–knowledge-conflict family; the multimodal rejection log explicitly warns that changing to a color conflict does not restore novelty.
-- moral intent × outcome has a good philosophical 2×2 but the readily available datasets are researcher-constructed vignettes; under current factorization S0 this is not a natural substrate.
-- debiasing-backfires, self-correction, correlated-majority/self-consistency and similar recent anomalies are high N0 risk because their mothers already define the external phenomenon; only retain them if a *different* scientific object emerges, not merely an MI follow-up.
-
----
-
-## 10. Mandatory workflow for the next session
-
-For every new idea:
-
-```text
-P0 plain question + one ordinary example + why care
-→ classify Failure or Factorization
-→ search internal negative memory BEFORE external deep dive
-→ S0 actual artifact/effect audit
-→ KILL immediately on missing cross-cell / synthetic-only behavior / weak family support
-→ N0 assume mother already owns it; prove otherwise
-→ N1 find the three strongest successors, especially 2025–2026 + arXiv
-→ title-level anti-narrowing check
-→ MI-fit + Hamdi-surprise check
-→ only complete survivors may be called PASS-REGISTER
-```
-
-For S0 factorization, save actual counts and 20-row audit artifacts to the repo before registration. For failure topics, save item-level open-model outputs and predeclared effect signature.
-
-Every killed serious idea must be appended to the relevant `rejected_candidates/` domain log with a nearest-neighbor warning and resurrection condition.
-
----
-
-## 11. Final handoff state
+## 5. Current registration state
 
 ```yaml
 new_PASS_REGISTER: 0
-current_nonterminal_leads:
+```
+
+Do not inherit any attractive old title as a survivor.
+
+---
+
+## 6. Only current non-terminal frontier lead
+
+# Intervention Effect Direction ≠ Magnitude
+
+Natural question:
+
+> A model may correctly predict whether an intervention moves an outcome up or down while systematically misjudging how strongly it moves the outcome. Are qualitative causal direction and quantitative causal magnitude computed differently?
+
+Why it survived longer than most ideas:
+
+- 2026 Nature work covers **70 preregistered nationally representative US survey experiments, 469 real treatment effects and 119,330 participants**;
+- LLM-predicted effects correspond strongly with real effects yet are systematically too large, and prominent open-weight models show the pattern;
+- 2025 large-scale work on 156 psychology/management experiments independently reports synthetic effect-size inflation;
+- `direction` and `magnitude` are natural properties of a causal effect, not arbitrary benchmark labels.
+
+Current verdict:
+
+```text
+HOLD-FATAL-CONTROL / NOT REGISTERED / NO MI AUTHORIZED
+```
+
+Fatal alternative explanation:
+
+2026 **The Illusion of Intervention** shows **intervention-induced user drift**: treatment and control prompts can cause the model to instantiate different latent respondent/persona populations. This creates selection/confounding bias that can inflate or shrink synthetic treatment effects. Targeted confounder conditioning can materially change and stabilize the estimate.
+
+Required next step:
+
+1. obtain the Nature treatment-effect artifacts/code and the user-drift artifacts;
+2. reproduce the `direction mostly correct + magnitude inflated` phenotype on analyzable open models;
+3. implement the faithful negative-control / user-drift correction from the confounding paper;
+4. test whether a large magnitude-inflation residual remains;
+5. if it disappears → `KILL-ARTIFACT`, record and move on;
+6. only if a substantial cross-family residual survives → perform exact N1 for `causal effect sign vs strength representation / circuit / intervention` and formulate mechanisms.
+
+Possible mechanistic forks **only after the fatal control passes**:
+
+- one signed causal-strength scalar;
+- separate qualitative direction state + quantitative gain/magnitude writer;
+- population-response model from which both sign and magnitude are downstream statistics;
+- treatment representation changes latent population identity rather than causal effect representation.
+
+Do not probe or patch before resolving the last alternative.
+
+See `rejected_candidates/social_simulation_factorization.md`.
+
+---
+
+## 7. Important topics that are TERMINAL
+
+Do not revive by model/dataset/language/prompt/MI-tool/name swaps.
+
+### Semantic / pragmatic / discourse
+
+- Assertion ≠ Presupposition — `KILL-DATA`: no large natural same-proposition asserted/presupposed two-status substrate.
+- Said ≠ Implicated — missing reliable row-aligned literal proposition side.
+- Intended ≠ Perceived Sarcasm — exact scientific object already owned.
+- Literal ≠ Figurative — direct causal mechanism work exists.
+- Emotion ≠ Cause — representation-separation / appraisal mechanism occupied.
+- Dialogue Act ≠ Affect — long-standing joint/shared-representation scientific object.
+- Definiteness ≠ Specificity — BCCWJ natural cross-cells fail: definite+nonspecific = 0 in the audited contingency table.
+- Taxonomic ≠ Thematic — semantic-relation internal work + repository W41 collision.
+- Animacy ≠ Agentivity — available annotation ontology does not supply the required natural orthogonality; surrounding mechanisms crowded.
+- Agency ≠ Experience — direct two-axis internal/steering project exists.
+- Local accessibility/givenness ≠ global discourse salience — 2026 mother already owns local-vs-global prominence object.
+- Polysemy ≠ Homonymy — lexical organization already directly studied.
+- Coreference ≠ Bridging — mother taxonomy owns identity vs associative reference.
+- Claim content ≠ claim scope — scientific-overgeneralization mother owns scope preservation.
+
+### Truth / epistemics / uncertainty / risk
+
+- Truth ≠ Human/Popular Belief — KaBLE / Nature Machine Intelligence 2025 already owns belief/knowledge/fact distinction; `popular` is adjective narrowing.
+- Plausible ≠ True — no broad natural same-statement double gold; neighboring representation work crowded.
+- Epistemic ≠ Aleatoric Uncertainty — direct hidden-state decomposition literature.
+- Likelihood ≠ Severity — 2026 expected-harm work already decomposes/probes severity and execution likelihood/cost.
+- Statistical significance/evidence strength ≠ effect magnitude — **terminal LOW-SURPRISE / MI-FIT failure**, despite good BEAR data: without an independently established natural open-model significance-as-magnitude failure, this becomes probing two explicit numeric quantities.
+- Statistical significance ≠ replicability — SCORE already owns replicability/credibility prediction; clean rows do not create novelty.
+
+### Social / cognitive
+
+- Moral wrongness ≠ illegality — Social Chemistry mother explicitly defines and models the multidimensional norm object; N0 kill despite excellent substrate.
+- Average opinion ≠ population diversity — ICLR 2026 directly decodes full human opinion distributions from residual states and steers them.
+- Motivated reasoning evidence representation ≠ late decision bias — narrow substrate + persona-mechanism collision.
+- Self-attribution / ownership confidence — 2026 ownership-bias mother + archived internal collision.
+- Curse of knowledge / own ability ≠ novice ability — 2026 mothers already own the title-level simulation divergence.
+- Classic false consensus — current S0 kill: old evidence relies on four scenarios and imposed choices; only a new modern open-family ordinary-prompt effect can resurrect it from scratch.
+
+### Logic / reasoning
+
+- Deontic facilitation — **TERMINAL internal negative**: truly matched Wason test, 32 pairs, all 24 permutations, two templates, 0/32 strong pairs.
+- Generic premise-order bias — method/narrative crowded.
+- **Premise-reversal fallacy blocking — now KILL-S0**: ICLR 2026 result is established on PyETR's 383 programmatically generated formal problems; synthetic-only existence substrate is not enough under current failure S0.
+- belief bias in syllogisms — direct mechanistic circuit work.
+- conjunction/representativeness — behavior unstable in modern models + internal work.
+
+### Collaboration / robustness late scan
+
+- Stronger reasoner ≠ off-trajectory robustness — ICLR 2026 mother already defines Recoverability/Guidability and stronger-model fragility, including post-training contributors; MI-only follow-up fails N0.
+- Multi-agent diversity collapse — Findings ACL 2026 mother already owns structural coupling / premature convergence explanation across authority, group size and topology.
+- Can generate a feature ≠ robustly understand it — mother reports the dissociation and it is also the forbidden generic `can/knows but doesn't use robustly` shape.
+
+Full details and resurrection conditions live under `rejected_candidates/`.
+
+---
+
+## 8. Data assets that remain useful but are NOT topics
+
+### BEAR / BEAR_data
+
+Verified public artifacts include:
+
+- `SCORE_replications.rds`
+- `SCORE_all_claims.rds`
+- `OSC.rds`
+- `ManyLabs2.rds`
+
+SCORE contains matched original/replication claims and BEAR derives/retains effect/uncertainty/evidence statistics. Preserve this as infrastructure **only if a future independently motivated natural scientific object needs it**. Do not invent another topic from its columns.
+
+---
+
+## 9. Search strategy for the next conversation
+
+The previous route of `classic concept A ≠ classic concept B` produced too many direct collisions or weak substrates. Shift the search prior.
+
+### Priority 1 — strong mother anomaly
+
+Systematically scan 2025–2026:
+
+- ACL / Findings ACL
+- EMNLP / Findings EMNLP
+- NAACL
+- ICLR
+- ICML
+- NeurIPS
+- TACL / CL
+- Nature / Nature Machine Intelligence / Nature Computational Science
+
+Look for:
+
+```text
+large cross-model surprising behavior
++ current open-weight models
++ natural or externally grounded population
++ public row-level artifact/code
++ mother does NOT already explain internal mechanism
+```
+
+Do not take every anomaly. Immediately ask whether a new scientific object exists or whether the obvious project is merely `explain mother's result with patching`.
+
+### Priority 2 — everyday behavior
+
+Try ordinary prompts / interactions where the phenomenon itself is obvious before any benchmark, like arbitrary choice. A valid failure should not need a filter or controlled synthetic world to exist.
+
+### Priority 3 — world-grounded orthogonal axis
+
+Search for external variables with:
+
+- independent source/expert/objective gold;
+- same natural unit;
+- real cross-cells;
+- enough independent semantic units;
+- a title-level distinction not already owned by a joint-prediction mother.
+
+Immediately N1 search exact synonyms plus:
+
+`representation`, `latent`, `direction`, `feature`, `circuit`, `SAE`, `activation patching`, `causal intervention`, `steering`, `disentangle`, `factorization`.
+
+---
+
+## 10. Things not to waste another search cycle on
+
+- another semantic relation inventory;
+- another truth/belief/factuality/uncertainty axis;
+- another sentiment/stance/emotion/dialogue-act label pairing;
+- another local-success/global-composition gap;
+- generic `knows/can do X but does not use X`;
+- `representation exists → is it causal?`;
+- `mother reports behavior → which layer/head?`;
+- task-switch carryover;
+- ambiguity-history hysteresis;
+- temporal forgetting / stale state;
+- evidence-more-hurts variants;
+- ownership/self-attribution;
+- synthetic moral/logic 2×2;
+- LLM-judge or researcher-created central gold;
+- weakening the family requirement after seeing results;
+- adding adjectives to a title after N1 collision.
+
+---
+
+## 11. Required output discipline in the next chat
+
+Internally generate many candidates, but only show survivors that completed the full audit.
+
+Each survivor must include the user's required 20 sections:
+
+1. Plain question
+2. One example
+3. Why this matters
+4. Topic type
+5. Mother paper
+6. Hamdi-style extension
+7. S0 Scientific Substrate — actual artifact, exact URL/repo, schema, gold, N, label/cross-cell counts, matched units, random-20, attrition, restriction budget, human annotation requirement
+8. Open-model viability
+9. N0
+10. N1 — at least 3 strongest neighbors
+11. Internal-history audit
+12. Exact novelty
+13. Forbidden claims
+14. Mechanistic forks
+15. Decisive causal experiment
+16. Fatal controls
+17. ACL/EMNLP title
+18. Four-sentence abstract skeleton
+19. Anti-narrowing verdict
+20. Final verdict
+
+Allowed final verdicts:
+
+- `PASS-REGISTER`
+- `HOLD-SUBSTRATE`
+- `KILL-NOVELTY`
+- `KILL-NATURALNESS`
+- `KILL-CAPABILITY`
+- `KILL-DATA`
+- `KILL-INTERNAL-COLLISION`
+
+But **HOLD is not one of the five requested hard survivors**. Five means five actual `PASS-REGISTER`; if the bar produces zero, report zero and keep searching rather than relabeling HOLDs.
+
+---
+
+## 12. Final machine-readable state
+
+```yaml
+search_date: 2026-08-31
+new_PASS_REGISTER: 0
+current_nonterminal_frontier:
   - name: Intervention Effect Direction != Magnitude
-    status: HOLD-FATAL-CONTROL
-    blocker: user-drift / treatment-induced population confounding must be ruled out first
-terminal_second_wave:
-  - Assertion != Presupposition
-  - Prevalence != Diagnosticity
-  - Statistical Evidence != Effect Magnitude
-  - Truth != Popular Belief
-  - Plausibility != Truth
-  - Polysemy != Homonymy
-  - Coreference != Bridging
-  - Expert Knowledge != Novice Knowledge
-  - Claim Content != Scope
-search_target: keep searching until up to five truly hard survivors; zero is acceptable
+    verdict: HOLD-FATAL-CONTROL
+    blocker: intervention-induced user drift / latent population confounding
+    next_action: reproduce and apply negative-control/confounder correction on analyzable open models
+    MI_authorized: false
+recent_terminal_cleanup:
+  - Premise Reversal Blocks Fallacies: KILL-S0 synthetic-only existence substrate
+  - Stronger Reasoner != Off-Trajectory Robustness: KILL-N0
+  - Multi-Agent Diversity Collapse: KILL-N0
+  - Can Generate Feature != Robustly Understand Feature: KILL-N0/forbidden-shape
+  - Statistical Evidence != Effect Magnitude: KILL-MI-FIT
+  - Prevalence != Diagnosticity: KILL-DATA
+  - Truth != Popular Belief: KILL-N1
+search_target: continue until five true PASS-REGISTER topics are found, or document evidence-based zero while continuing new search space
 ```
 
 One-line discipline:
