@@ -1,8 +1,8 @@
 # Archive Index
 
-`archive/` 保存已经停止的正式研究项目及其完整复现/裁决证据。**为什么这些题不能再做**的跨项目摘要统一看 [`../phenomenon_miner/FAILED_TOPICS.md`](../phenomenon_miner/FAILED_TOPICS.md)；具体数字与证据仍以项目自身 README / final report 为准。
+`archive/` 保存已经停止的正式研究项目及其完整复现/裁决证据。为什么这些题不能继续的跨项目规则统一看 [`../phenomenon_miner/FINDING_RULES.md`](../phenomenon_miner/FINDING_RULES.md) 与 [`../phenomenon_miner/FAILED_TOPICS.md`](../phenomenon_miner/FAILED_TOPICS.md)；具体数字仍以各项目 README / PROGRESS / results 为准。
 
-| path | topic | terminal reason |
+| path | topic | terminal / archive reason |
 |---|---|---|
 | `001_role_value_binding/` | Role–Value Binding | no natural strict binding failure |
 | `002_facts_vs_shortcuts_arbitration/` | Facts vs Shortcuts Arbitration | mother/mechanism follow-up rather than new phenotype |
@@ -11,41 +11,39 @@
 | `005_anti_inference_discount/` | Anti-Inference Discount | bridged residual approximately zero |
 | `006_bayesian_latent_inference_use_gap/` | Bayesian Latent Inference–Use Gap | custom/interface artifact + collision |
 | `007_choice_supportive_ownership_bias/` | Choice-Supportive Ownership Bias | different model families showed different phenomena |
-| `007_weak_evidence_backfire/` | Weak-Evidence Backfire | terminal smoke hard kill; Qwen no legal denominator, Gemma one gated pair in opposite direction |
+| `007_weak_evidence_backfire/` | Weak-Evidence Backfire | terminal smoke hard kill |
 | `008_reliability_weighted_cue_integration/` | Reliability-Weighted Cue Integration | modality/readout artifact + crowded mother |
 | `009_packed_unpacked_event_splitting/` | Packed–Unpacked Event Splitting | structural controls did not support splitting account |
 | `010_inadmissible_evidence_persistence/` | Inadmissible-Evidence Persistence | natural D0 source/gold could not be frozen |
 | `011_existential_witness_collapse/` | Existential Witness Collapse | clean capability-gated null |
 | `012_source_discount_recovery/` | Source-Discount Recovery | downstream weighting capability floor |
-| `015_clarification_resolution_lag/` | Clarification Resolution Lag | matched neutral history explains apparent lag; ambiguity-specific residual null across 3 families |
-| `016_mixed_status_event_attraction/` | Mixed-Status Event Attraction | same-status matched context explains mixed-vs-local shift |
-| `017_cross_modal_resolution_inertia/` | Cross-Modal Resolution Inertia | strongest sequential effect survives masked prior-choice identity; not interpretation-specific |
-| `019_abstention_hysteresis/` | Abstention Hysteresis | strong reverse effect; neutral incomplete→complete history explains most recovery |
-| `020_incremental_clue_backfire/` | Incremental Clue Backfire | internal collision with `candidate_topics` Topic 28 Progressive Truthful Clue Reversal; dataset swap cannot revive same object |
-| `021_task_switch_carryover/` | Task-Switch Carryover | mother behavior already established; old-rule carryover is a mechanism-shaped subproblem, not independent natural object |
-| `022_local_success_global_composition_failure/` | Local Success, Global Composition Failure | core behavior is already the known compositionality gap; stricter context condition is not a new mother question |
+| `015_clarification_resolution_lag/` | Clarification Resolution Lag | matched neutral history explains apparent lag |
+| `016_mixed_status_event_attraction/` | Mixed-Status Event Attraction | matched same-status context explains shift |
+| `017_cross_modal_resolution_inertia/` | Cross-Modal Resolution Inertia | effect not interpretation-specific |
+| `019_abstention_hysteresis/` | Abstention Hysteresis | neutral history explains most recovery |
+| `020_incremental_clue_backfire/` | Incremental Clue Backfire | internal scientific-object collision |
+| `021_task_switch_carryover/` | Task-Switch Carryover | mechanism-shaped subproblem, not independent object |
+| `022_local_success_global_composition_failure/` | Local Success, Global Composition Failure | core object already known compositionality gap |
+| `029_etr_human_like_fallacy/` | Human-Like Fallacies / ETR mechanism | **ARCHIVE-SCALE + PROVENANCE**: ETR/PyETR defines nearly the whole question; without ETR the claim is generic, with it the extension is narrow; exact 383 final manifest unavailable |
+| `030_spatial_reference_frame_transformation/` | Spatial Reference-Frame Transformation | **ARCHIVE-TARGET-MISMATCH**: scientifically plausible, but VLM and outside next LLM-only search; no terminal scientific claim |
+| `031_spontaneous_deception_knowledge_action/` | Spontaneous Deception → Within-Run Graph State | **TERMINAL F8 + V3 measurement gate**: best held-out invariant reachability AUROC ~0.53, 0 passing layers; headline object also drifted across failed gates |
+| `032_temporal_forgetting_mechanism/` | Temporal Forgetting Mechanism | **ARCHIVE-SCALE**: extension mostly asks which stage/circuit explains an already-owned mother phenomenon; hypotheses are largely localization taxonomy rather than an independent scientific debate |
+| `033_contextual_entrainment_opposite_scaling/` | Opposite-Scaling Contextual Entrainment | **ARCHIVE-DELTA-WIDTH + DATA**: ACL'25 Outstanding owns generic entrainment mechanism; ACL'26 mother already frames semantic filtering vs mechanical copying; proposed writer/gate decomposition is too close to mother future work; item-level mother data unavailable |
 
-## 2026-08-31 Natural-Question cleanup
+## 2026-08-31 PAPER-SCALE cleanup
 
-After adopting the Hamdi-style gate, the repository physically removed stale/weak entries from `active/` rather than letting “registered once” become a sunk-cost argument.
+The previous 029–033 `5/5 PASS` slate was revoked after 031 exposed a selection-protocol failure. All five directories were physically moved from `active/` to `archive/` in commit `e9c522e9f078f1968d6567386736584de0efef34`.
 
-Newly moved here:
+This cleanup is intentionally stricter than ordinary experimental failure:
 
-- `007_weak_evidence_backfire` — already terminal, active placement was stale provenance;
-- `020_incremental_clue_backfire` — internal scientific-object collision;
-- `021_task_switch_carryover` — insufficient independent narrative after mother-inclusion review;
-- `022_local_success_global_composition_failure` — direct mother-phenomenon collision.
+- 031 is a true terminal experiment + topic-scale failure;
+- 029/032/033 are **preemptively stopped before more compute** because the novelty/scope delta is not wide enough under the new bar;
+- 030 is preserved as a scientifically plausible VLM idea but removed from the current LLM target.
 
-Each directory preserves its original documents and now contains `FINAL_VERDICT.md`.
+The canonical new rule is F8 `Topic-scale / benchmark-dependence failure` in [`FINDING_RULES.md`](../phenomenon_miner/FINDING_RULES.md).
 
-`023_description_experience_gap` is intentionally **not** archived in this cleanup: description–experience gap is a long-standing external natural phenomenon and an LLM mother exists. It remains `HOLD-N0-REAUDIT`, not authorized for calls.
+## Earlier Natural-Question cleanup
 
-## Top-6 audit note
+After adopting the first Hamdi-style gate, stale/weak entries such as 007/020/021/022 were physically removed from active rather than protected by sunk cost. The 2026-08-31 PAPER-SCALE cleanup applies the same discipline one level earlier: **a runnable mechanism experiment is not enough; the question itself must already have normal conference-paper scope.**
 
-The completed 014–019 slate was independently reviewed in [`../phenomenon_miner/TOP6_RESULT_REVIEW_2026-08-30.md`](../phenomenon_miner/TOP6_RESULT_REVIEW_2026-08-30.md).
-
-`018_stock_flow_correlation_intrusion` is intentionally not here because D0-v1 suffered a localized measurement failure rather than a scientific null.
-
-`014_alias_entrainment_transfer` remains active because broad cross-surface learned-relation spillover is strongly established; only the reference-specific interpretation was rejected.
-
-早期编号规则未冻结，project identity 以完整目录名为准。`rejected_candidates/` 记录 novelty / pre-registration death；`archive/` 代表曾进入较正式 active identity 后已 STOP/HOLD/KILL 的项目。
+`014_alias_entrainment_transfer` remains active because it already has established results and is in paper development; it is not part of the fresh topic-search slate.
