@@ -60,8 +60,10 @@
 - [`multimodal_grounding.md`](./multimodal_grounding.md) — VLM perception–knowledge conflict and counterfactual visual grounding
 - [`semantic_pragmatic_factorization.md`](./semantic_pragmatic_factorization.md) — semantic / pragmatic / discourse factorization kills; includes intended-vs-perceived sarcasm, literal-vs-figurative meaning, said-vs-implicated content, emotion-vs-cause, dialogue-act-vs-affect, definiteness-vs-specificity, taxonomic-vs-thematic, animacy-vs-agentivity, agency-vs-experience, and local-accessibility-vs-global-salience
 - [`risk_uncertainty_factorization.md`](./risk_uncertainty_factorization.md) — likelihood-vs-severity and epistemic-vs-aleatoric uncertainty direct mechanism collisions
+- [`social_norm_factorization.md`](./social_norm_factorization.md) — moral-judgment-vs-legality killed by mother inclusion despite strong Social Chemistry substrate
 - [`social_simulation_factorization.md`](./social_simulation_factorization.md) — average-opinion-vs-population-diversity direct internal-distribution collision; keeps intervention direction-vs-magnitude as a separate lead under audit
 - [`hamdi_search_addendum_2026-08-31.md`](./hamdi_search_addendum_2026-08-31.md) — cross-domain terminal addendum that supersedes stale “under audit” wording for deontic facilitation and freezes motivated-reasoning / self-attribution ownership collisions
+- [`hamdi_search_terminal_addendum_2_2026-08-31.md`](./hamdi_search_terminal_addendum_2_2026-08-31.md) — second-wave hard kills: assertion-vs-presupposition, polysemy-vs-homonymy, coreference-vs-bridging, prevalence-vs-diagnosticity, significance-vs-effect-size, novice-simulation curse of knowledge, and claim-content-vs-scope
 - [`001.md`](./001.md) — **legacy mixed-domain batch**，保留历史记录，不再继续追加。包含 role-value binding、facts-vs-shortcuts、fan effect、VLM conflict、self-correction、tool irrelevance、irrelevant context、negation、social compliance、overthinking。
 
 后续新增 rejection **只进入对应 domain log**；如果出现新的领域，就新建 `<domain>.md`。旧 `001.md` 不删除，作为第一轮搜题历史快照。
