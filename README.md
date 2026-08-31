@@ -1,103 +1,78 @@
 # Interpretability Topic Search
 
-用于寻找、快速证伪、再解释 **LLM / VLM 的自然、反直觉、可机制化 scientific questions**。
+用于寻找 **ACL / EMNLP / NAACL 风格、题目幅度正常、自然且可机制化的 LLM scientific questions**。
 
 ```yaml
-PASS_REGISTER: 5
-counts_toward_target_five: 5
-active_projects:
-  - 029_etr_human_like_fallacy
-  - 030_spatial_reference_frame_transformation
-  - 031_spontaneous_deception_knowledge_action
-  - 032_temporal_forgetting_mechanism
-  - 033_contextual_entrainment_opposite_scaling
-new_topic_MI_authorized:
-  - ETR-human-like-fallacy
-  - spatial-reference-frame
-  - spontaneous-deception-knowledge-action
-  - temporal-forgetting-mechanism
-  - contextual-entrainment-opposite-scaling
-latest_registration: contextual entrainment opposite-scaling mechanism
-latest_terminal_execution: NTSB causal-role frontier KILL-S0
+CURRENT_FRESH_PASS_REGISTER: 0
+CURRENT_FRESH_ACTIVE_TOPICS: 0
+latest_terminal_project: 031 within-run graph-state audit
+latest_reaudit: 029-033 archived after topic-scale review
+current_target: fresh LLM topic search under PAPER-SCALE v2
 ```
 
-**Target reached: 5/5 true PASS-REGISTER. All five now have active execution plans.** HOLD / frontier / PRE-S0 不计入五题。
+**上一轮 029–033 的 `5/5 PASS` 已全部撤销。** 031 在 V3 measurement gate 失败；029/032/033 在新的 topic-scale / novelty-width re-audit 下不再值得继续；030 作为 VLM 题退出当前 LLM 主线。五个目录均已完整移动到 `archive/`，保留代码、结果与 provenance。
 
 ## 当前只认三份权威文件
 
-1. [`phenomenon_miner/FINDING_RULES.md`](phenomenon_miner/FINDING_RULES.md) — 唯一选题协议
-2. [`phenomenon_miner/HANDOFF_HAMDI_SEARCH_2026-08-31.md`](phenomenon_miner/HANDOFF_HAMDI_SEARCH_2026-08-31.md) — 当前状态 / 下一步
+1. [`phenomenon_miner/FINDING_RULES.md`](phenomenon_miner/FINDING_RULES.md) — **唯一选题协议；先过 PAPER-SCALE**
+2. [`phenomenon_miner/HANDOFF_HAMDI_SEARCH_2026-08-31.md`](phenomenon_miner/HANDOFF_HAMDI_SEARCH_2026-08-31.md) — 当前状态 / 下一轮执行说明
 3. 本 README — 仓库入口
 
-执行入口：[`active/README.md`](active/README.md)。其它 gate/funnel/addendum/domain log 是冷证据；仅在新题语义接近时定向读取。一般失败经验见 [`phenomenon_miner/FAILED_TOPICS.md`](phenomenon_miner/FAILED_TOPICS.md)。
+执行入口：[`active/README.md`](active/README.md)。历史项目与失败证据见 [`archive/`](archive/) 和 [`rejected_candidates/`](rejected_candidates/)。
 
-## 五个正式注册 + active 项目
+## 当前最重要的修正
 
-### 01 Human-Like Fallacies: Alternative Filtering or Prior Contamination?
+过去的协议过度强调：
 
-Mother: ICLR 2026 `Theory-Grounded Evaluation of Human-Like Fallacy Patterns in LLM Reasoning`。已知 open-model ETR fallacy + premise-reversal rescue；新机制：premature alternative filtering vs semantic/prior contamination vs late output imitation。核心：`alternative reinstatement patch`。
+> strong mother + existing behavior + clean causal test
 
-- Registration: [`REGISTERED_ETR_HUMAN_LIKE_FALLACY_MECHANISM_2026-08-31.md`](phenomenon_miner/REGISTERED_ETR_HUMAN_LIKE_FALLACY_MECHANISM_2026-08-31.md)
-- Active plan: [`active/029_etr_human_like_fallacy/README.md`](active/029_etr_human_like_fallacy/README.md)
+这还不够。031 证明，一个题即使 mother 很强、phenotype 可复现、causal primitive 能运行，也可能仍然只是**某个 benchmark construct 内部的一条解释缝**。
 
-### 02 From Pixels to Perspectives: Reference-Frame Transformation in VLMs
-
-Mechanistic mother: ICLR 2026 `Linear Mechanisms for Spatiotemporal Reasoning in Vision Language Models`; behavioral mother: ICLR 2025 Oral `COMFORT`。现成 image-plane x/y IDs + FoR behavior；新机制：late remap vs explicit coordinate transform vs multiple frame codes + selector。
-
-- Registration: [`REGISTERED_SPATIAL_REFERENCE_FRAME_TRANSFORMATION_2026-08-31.md`](phenomenon_miner/REGISTERED_SPATIAL_REFERENCE_FRAME_TRANSFORMATION_2026-08-31.md)
-- Active plan: [`active/030_spatial_reference_frame_transformation/README.md`](active/030_spatial_reference_frame_transformation/README.md)
-
-### 03 Do Language Models Really Lie When They Fail?
-
-Mother: ICLR 2026 Oral `Beyond Prompt-Induced Lies`。已知 benign hard-wrong/easy-follow-up-correct phenotype 与公开 Llama/Mistral/Qwen/Gemma outputs；新机制：genuine knowledge-action dissociation vs reasoning-state corruption vs competing trajectories。核心：`edge-state reinstatement`。
-
-- Registration: [`REGISTERED_SPONTANEOUS_DECEPTION_KNOWLEDGE_ACTION_2026-08-31.md`](phenomenon_miner/REGISTERED_SPONTANEOUS_DECEPTION_KNOWLEDGE_ACTION_2026-08-31.md)
-- Active plan: [`active/031_spontaneous_deception_knowledge_action/README.md`](active/031_spontaneous_deception_knowledge_action/README.md)
-
-### 04 What Does Reasoning Training Forget?
-
-Mother: ACL 2026 `Temporal Sampling for Forgotten Reasoning in LLMs`。同一 reasoning item 在真实训练 checkpoint 轨迹上 deterministic `correct -> wrong`，且总体能力仍上升；新机制：upstream capability erosion vs reasoning-circuit disruption vs persistent solution with changed control/readout vs diffuse interference。核心：**checkpoint layer transplantation**。
-
-- Registration: [`REGISTERED_TEMPORAL_FORGETTING_MECHANISM_2026-08-31.md`](phenomenon_miner/REGISTERED_TEMPORAL_FORGETTING_MECHANISM_2026-08-31.md)
-- Active plan: [`active/032_temporal_forgetting_mechanism/README.md`](active/032_temporal_forgetting_mechanism/README.md)
-
-### 05 Why Bigger Models Ignore Lies but Copy Noise
-
-Behavior mother: Findings ACL 2026 `Better and Worse with Scale`; mechanistic predecessor: ACL 2025 Outstanding `Llama See, Llama Do`。Pythia/Cerebras 已建立 semantic entrainment 随规模下降、non-semantic copying 随规模上升的反向 scaling；mother 明确没有 mechanistic decomposition。新机制：shared copying writer + semantic gate vs distinct scaling circuits vs late memory/context competition。核心：跨 scale causal head/pathway decomposition + semantic-filter ablation/patching。
-
-- Registration: [`REGISTERED_CONTEXTUAL_ENTRAINMENT_OPPOSITE_SCALING_MECHANISM_2026-08-31.md`](phenomenon_miner/REGISTERED_CONTEXTUAL_ENTRAINMENT_OPPOSITE_SCALING_MECHANISM_2026-08-31.md)
-- Active plan: [`active/033_contextual_entrainment_opposite_scaling/README.md`](active/033_contextual_entrainment_opposite_scaling/README.md)
-
-## Active execution discipline
-
-Each active README contains the background, exact mother object, competing hypotheses, inherited data/models/artifacts, detailed initial validation sequence, fatal controls, and promote/kill conditions.
-
-Uniform execution order:
+新的硬顺序是：
 
 ```text
-mother artifact freeze
-→ exact matched population
-→ cheap faithful replay
-→ validate measurement
-→ causal intervention
-→ replication
-→ paper-scale expansion
+1. PAPER-SCALE natural question
+2. strong scientific object / mother
+3. concept-level novelty delta
+4. legitimate dataset as measurement window
+5. existing behavior / natural omitted axis
+6. strongest-neighbor + delta-width audit
+7. S0 measurement
+8. registration
+9. causal MI
 ```
 
-Entering `active/` does **not** mean a preferred hypothesis must win. Strong nulls that falsify the mother interpretation are allowed; construct/measurement failures must still be terminated rather than rescued post hoc.
+### 一句话 PAPER-SCALE 标准
 
-## Hamdi-style discipline
+> **把 dataset / benchmark / mother 名字删掉以后，这个问题仍然必须像一个正常的 ACL/EMNLP/NAACL scientific question。**
 
-禁止：`想 phenomenon -> 造数据/机制 -> 花算力赌行为存在`。
+如果删掉 benchmark 后只剩“这个 failure 内部是什么”“行为相似是否机制相似”“哪层坏了”，默认 KILL-SCALE。
 
-只允许：`strong mother -> exact established object/anomaly -> same-object omitted real axis or unasked causal computation -> inherit artifact/recipe -> negative memory + strongest-neighbor -> cheap falsifier -> S0/N0/N1 -> PASS-REGISTER -> active validation -> MI`。
+## 强论文尺度标尺
 
-任何认真审过后死亡的候选必须立即进入 `rejected_candidates/`，带 semantic aliases；不得通过换模型、数据、prompt、语言、subset、MI method 复活。
+下一轮不是只搜 title collision，而是要主动对齐强 Main / Outstanding 论文的**问题幅度**：
 
-## 其它状态
+- ACL 2025 Outstanding `Llama See, Llama Do`：先发现跨模型/设置的 contextual entrainment，再做 causal mechanism 与 mitigation。
+- EMNLP 2025 Outstanding `Causal Interventions Reveal Shared Structure Across English Filler–Gap Constructions`：成熟理论问题先存在，MI 用来裁决 shared mechanism。
+- NAACL 2025 `Characterizing the Role of Similarity in the Property Inferences of Language Models`：经典 taxonomy vs similarity 争论，dataset 只是测量窗口。
+- NAACL 2025 `Racing Thoughts`：先有能解释一类 contextualization errors 的统一 hypothesis，再做 causal validation。
+- ACL 2026 Main `Do LLMs Know Tool Irrelevance?`：现实中独立的 semantic relevance vs structural match，controlled dataset 只是把两者解耦。
 
-- `Individual belief lookbacks -> common ground`：高质量 HOLD；缺同 checkpoint capability bridge，不计数。
-- `014 Alias Entrainment Transfer`：已有正式结果，继续 paper development，不属于本轮五题。
-- `NTSB causal relevance vs causal-role selection`：TERMINAL `KILL-S0 / RELEVANCE-ALSO-FAILS`。
+详见 [`FINDING_RULES.md`](phenomenon_miner/FINDING_RULES.md)。
 
-> **不再问“模型可能还有什么错”；问“强 mother 已建立的对象/异常，还缺哪个决定性 causal computation？”**
+## 029–033 re-audit
+
+- **029 Human-Like Fallacies — ARCHIVE / SCALE+PROVENANCE.** ETR/PyETR 定义了几乎整个问题；删去 ETR 后问题过泛，保留后又偏窄；论文 383-item final exclusion manifest 也未公开。
+- **030 Spatial Reference Frames — ARCHIVE / TARGET MISMATCH.** 科学问题本身不判死，但它是 VLM，不属于下一轮 LLM 主线。
+- **031 Spontaneous Deception → Graph-State Audit — TERMINAL KILL.** V3 best held-out invariant reachability AUROC ~0.53，0 passing layers；更重要的是 headline object 曾随实验结果多次收窄，是新 F8 的 canonical example。
+- **032 Temporal Forgetting Mechanism — ARCHIVE / SCALE.** mother 现象很强，但当前 extension 主要是“哪个 stage/circuit 导致 mother 的 forgetting”；H1–H4 很大程度是 localization taxonomy，不够独立于 mother。
+- **033 Opposite-Scaling Entrainment — ARCHIVE / DELTA WIDTH + DATA.** ACL'25 Outstanding 已拥有 generic entrainment mechanism，ACL'26 mother 已提出 semantic filtering vs mechanical copying 的功能分离；继续做 writer/gate circuit 更像 mechanizing mother future-work，且 item-level mother data 未释放。
+
+## 仍保留的旧工作
+
+- [`active/014_alias_entrainment_transfer`](active/014_alias_entrainment_transfer/)：已有正式结果，属于 paper development，不是本轮 fresh search。
+- 其它旧 active/HOLD 目录只保留 provenance，不自动拥有新实验权限。
+
+## One-line discipline
+
+> **注册不是“这个实验值得试”；注册是“这个问题本身已经值得一篇论文，只差用实验回答”。**
