@@ -1,253 +1,166 @@
 # Hamdi-Style Topic Search — Current Handoff
 
 Date: 2026-09-01  
-Status: **AUTHORITATIVE CURRENT STATE — FRESH SEARCH IN PROGRESS**
+Status: **AUTHORITATIVE CURRENT STATE — FRESH REGISTER 5/5, SIMPLICITY RE-AUDIT ACTIVE**
 
 ```yaml
-CURRENT_FRESH_PASS_REGISTER: 2
-CURRENT_FRESH_ACTIVE_TOPICS: 2
+CURRENT_FRESH_PASS_REGISTER: 5
+CURRENT_FRESH_ACTIVE_TOPICS: 5
 fresh_register_target: 5
+fresh_register_status: COMPLETE
 fresh_target: LLM mechanistic interpretability only
 required_protocol: PAPER-SCALE v2.1
-latest_registered_project: 035_shared_dynamic_context_update
 registered_projects:
   - 034_prospective_memory_retrieval_architecture
   - 035_shared_dynamic_context_update
+  - 036_metaphor_processing_route_selection
+  - 037_generic_generalization_licensing
+  - 038_unresolved_reference_representation_architecture
 current_search_style: simplicity-first / Route C allowed
-current_strongest_unregistered_lead: unresolved referential ambiguity representation
-remaining_needed: 3
+current_task: re-audit 036-038 under v2.1 and replace any weak/over-engineered topic rather than protecting count
 ```
 
 ## Mandatory reads
 
-1. root [`README.md`](../README.md)
-2. [`FINDING_RULES.md`](FINDING_RULES.md) — **v2.1 authoritative protocol**
-3. this handoff
-4. [`../active/034_prospective_memory_retrieval_architecture/README.md`](../active/034_prospective_memory_retrieval_architecture/README.md)
-5. [`../active/035_shared_dynamic_context_update/README.md`](../active/035_shared_dynamic_context_update/README.md)
-6. [`NEXT_AGENT_PROMPT_2026-09-01.md`](NEXT_AGENT_PROMPT_2026-09-01.md)
+Read first:
 
-Only inspect `rejected_candidates/` / `archive/` when a fresh idea semantically overlaps. Do not reread all old addenda.
+1. root [`README.md`](../README.md)
+2. [`FINDING_RULES.md`](FINDING_RULES.md) — **v2.1 authoritative protocol; strict ≠ complicated**
+3. this handoff
+4. all five registered project READMEs under `active/034_*`–`active/038_*`
+5. [`NEXT_AGENT_PROMPT_2026-09-01.md`](NEXT_AGENT_PROMPT_2026-09-01.md)
+
+Only inspect old `rejected_candidates/` / `archive/` when semantic overlap requires it.
 
 ---
 
-## Current authoritative register
+## Current register
 
 ### 034 — Prospective Memory Retrieval Architecture
 
 **PASS-REGISTER / GPU AUTHORIZED / FROZEN.**
 
-> When an LLM agent must remember a future intention while continuing other work, is retrieval supported by sustained strategic monitoring, cue-triggered spontaneous retrieval, or dynamic switching?
+> When an agent must remember a future intention while continuing other work, is retrieval supported by strategic monitoring, cue-triggered spontaneous retrieval, or dynamic switching?
 
-Do not turn this back into `PM-Bench failure mechanism`.
+Keep frozen unless fatal novelty collision appears.
 
 ### 035 — Shared Dynamic Context Update Across Discourse Phenomena
 
 **PASS-REGISTER / GPU AUTHORIZED / FROZEN.**
 
-> Do LLMs maintain a reusable dynamically updated local discourse context shared by anaphora accessibility and presupposition projection, or do the phenomena rely on separate/static/lexical computations?
+> Do anaphora accessibility and presupposition projection reuse a shared dynamically updated local discourse context, or rely on separate/static computations?
 
-Do not collapse this back into a single-phenomenon mechanism paper.
+Keep frozen unless fatal novelty collision appears.
 
----
+### 036 — Metaphor Processing Route Selection
 
-## 2026-09-01 protocol correction: strict ≠ complicated
+**PASS-REGISTER / GPU AUTHORIZED, UNDER v2.1 SIMPLICITY RE-AUDIT.**
 
-The earlier v2 rules successfully stopped benchmark-dependent / mother-mechanization projects, but the search then became systematically over-engineered: increasingly abstract architecture questions were being preferred simply because they could support three prewritten mechanisms and a complex causal statistic.
+> What selects comparison vs categorization in metaphor comprehension: conventionality, aptness, or no discrete route switch?
 
-That is now corrected in [`FINDING_RULES.md`](FINDING_RULES.md) v2.1.
+Why it was registered: classic Career-of-Metaphor vs aptness debate; human 2×2 stimuli orthogonalize conventionality and aptness; recent modern open LLM metaphor/norm evidence; no direct causal LLM adjudication found.
 
-### What stays strict
+Re-audit question: is this still a naturally explainable paper-level question under v2.1, or did the frozen causal machinery make it look stronger than the actual object? Do not demote merely because the experiment contract is elaborate; demote only for scale/novelty/substrate weakness.
 
-- benchmark-removal;
-- natural object;
-- normal paper scope;
-- strongest-neighbor N0/N1/N2;
-- exact accessible substrate / auditable gold;
-- no GPU to discover whether the paper question exists;
-- no post-hoc headline drift;
-- fatal confound controls;
-- venue-scale comparison with strong ACL/EMNLP/NAACL papers.
+### 037 — Generic Generalization Licensing
 
-### What is relaxed
+**PASS-REGISTER / GPU AUTHORIZED, UNDER v2.1 SIMPLICITY RE-AUDIT.**
 
-The following are **no longer universal hard requirements**:
+> Why do some properties support statements like `Birds lay eggs` or `Mosquitoes carry malaria` despite many exceptions: prevalence, probabilistic diagnosticity, or a principled conceptual/causal relation?
 
-- every candidate must have 2–3 mature competing cognitive mechanisms before registration;
-- every candidate must have an exact mathematical first causal interaction statistic frozen before registration;
-- every candidate must have two fully matched modern open-family published artifacts before registration.
+Why it was registered: mature generics theory, published human prevalence/cue-validity/conceptual manipulations, modern open-family generic behavior, no direct causal LLM adjudication found.
 
-They remain required when the **claim itself** needs them, especially Route B theory-adjudication projects.
+Re-audit question: can the headline be stated simply enough that the theory serves the natural phenomenon rather than vice versa?
 
-### New Route C — simple phenomenon / simple latent object first
+### 038 — Unresolved Reference Representation Architecture
 
-A project may now register if it has:
+**PASS-REGISTER / GPU AUTHORIZED, UNDER v2.1 SIMPLICITY RE-AUDIT.**
 
-1. a very simple, natural, surprising phenomenon/object;
-2. clean matched controls separating obvious confounds;
-3. strongest-neighbor novelty;
-4. accessible/analyzable open model + data;
-5. a minimal falsifiable causal-use question;
-6. story-invariant headline.
+> When language does not yet identify one unique referent, does the model keep several possibilities alive, leave the reference unresolved, or prematurely pick one?
 
-Mechanism structure may be discovered during execution, as long as the scientific object does not change.
+Key substrate improvement that justified registration:
 
-This is intentionally aligned with strong top-down/model-biology papers such as ACL'25 `Llama See, Llama Do`: phenomenon first, mechanism second.
+- AmbiCoref supplies human-validated ambiguous/unambiguous minimal pairs with the same participants/pronoun/skeleton;
+- Correct-Detect establishes the Llama-3.1 phenotype;
+- It Depends independently supplies Qwen3/Llama/DeepSeek persistent-ambiguity behavior and deterministic candidate-set metadata;
+- central scoring does not require an API judge.
+
+This is currently the most obviously v2.1-compatible of 036–038: the ordinary-language question is simple even though the causal contract is detailed.
 
 ---
 
-## Recent serious deaths now frozen in `rejected_candidates/`
+## 2026-09-01 protocol correction — simplicity prior
 
-The following were hard-audited and must not be revived by changing model / dataset / language / probe / SAE / patching method:
+The search had become over-engineered after correctly learning the 031/F8 lesson. `FINDING_RULES.md` v2.1 now preserves strict novelty/evidence gates while explicitly allowing **Route C: simple phenomenon / simple latent object first**.
 
-- good-enough syntax–semantic arbitration — **KILL-NOVELTY**
-- belief-bias dual-process arbitration — **KILL-NOVELTY**
-- idiom literal-vs-figurative architecture — **KILL-NOVELTY**
-- anchoring process architecture — **KILL-NOVELTY**
-- false-premise / Moses-illusion processing locus — **KILL-NOVELTY**
-- reflexive attraction retrieval architecture — **KILL-BEHAVIOR**
-- depth-charge illusion mechanism — **KILL-NOVELTY**
-- linguistic convergence automatic alignment vs audience design — **KILL-NOVELTY / KILL-DATA**
-- proactive interference encoding vs retrieval — **KILL-NOVELTY**
-- shared monotonicity computation — **KILL-NOVELTY**
-- negation suppression vs constructive representation — **KILL-NOVELTY**
-- agreement attraction encoding vs retrieval — **KILL-BEHAVIOR**
-- similarity-based NP interference encoding vs retrieval — **KILL-NOVELTY / active collision risk**
-- regular polysemy shared transformation — **KILL-NOVELTY**
-- implicit-causality production/comprehension sharing — **KILL-NOVELTY**
-- analogy relational structure vs surface similarity mechanism — **KILL-NOVELTY**
-- morphology rule-vs-analogy — **KILL-NOVELTY**
-- DRM false memory — **KILL-BEHAVIOR**
-- retrieval-induced forgetting — **KILL-BEHAVIOR**
-- directed vs random exploration — **KILL-NOVELTY**
-- status-quo mechanism — **KILL-NOVELTY / DATA**
-- shared semantic frame state — **KILL-NOVELTY / BEHAVIOR**
-- gradable-adjective standard setting — **KILL-NOVELTY**
-- literal semantics vs pragmatic enrichment — **KILL-NOVELTY**
-- sound symbolism sublexical vs distributional mechanism — **KILL-NOVELTY**
-- thematic-fit event-schema vs surface mechanism — **KILL-NOVELTY**
-- verbatim vs gist dual native traces — **KILL-NOVELTY**
-
-Failure records should continue to be written immediately for every serious death.
-
----
-
-## Current strongest unregistered lead — unresolved referential ambiguity representation
-
-Status:
-
-```yaml
-verdict: HARD-AUDIT
-registered: false
-GPU_AUTHORIZED: false
-```
-
-### Simple natural question
-
-> When a reference genuinely does not identify one unique thing yet, does a language model keep several possibilities alive, keep an underspecified reference, or prematurely pick one interpretation?
-
-This is deliberately simple and benchmark-independent.
-
-### Why it survived initial N2
-
-Recent neighbors cover:
-
-- ambiguity detection vs resolution behavior;
-- semantic collapse in other prompt/task settings;
-- lexical-sense representations after context disambiguation;
-- attribution of ambiguous-prompt failures.
-
-No 2025–2026 neighbor found so far directly causally adjudicates **the format of a still-unresolved referential state**: parallel candidates vs underspecification vs premature commitment.
-
-### Behavioral/data anchors
-
-- EMNLP 2025 Main `Correct-Detect` establishes the unusual `can resolve / can detect ambiguity / struggles to do both` pattern on Llama-3.1 + GPT-4o.
-- `It Depends: Resolving Referential Ambiguity in Minimal Contexts with Commonsense Knowledge` provides released Qwen3-32B, Llama-3.1-8B, DeepSeek-V3 outputs and structured inputs.
-- The `It Depends` generator stores the candidate referent set explicitly in each item (`positive` entities vs negative entity), so central ambiguity gold can be made deterministic without using an API LLM judge.
-
-### Current unresolved fatal issue
-
-The `It Depends` SharedRef/ClearRef cells are not always lexical-minimal pairs. Entity identities and commonsense properties differ, so naive activation patching can confuse **referent identity semantics** with **representation format of ambiguity**.
-
-Before registration, find an existing released substrate with genuine ambiguous↔disambiguated minimal pairs (preferably same lexical skeleton), or show that the released construction supports a deterministic matched causal microscope without manufacturing the paper question.
-
-Do **not** register if the only way forward is to invent synthetic triads and run models to see whether a phenomenon appears.
-
----
-
-## Search strategy from here: simplicity prior
-
-Fresh candidates should now be generated in this order:
-
-### 1. Simple orthogonal semantic axes
-
-Look for a strong mother that studies property X, then ask whether a very natural property Y has been conflated with X.
-
-Good shape:
-
-> two things can be equally familiar but differ on Y; does the model encode/use Y separately?
-
-The new axis itself must be natural and not already owned.
-
-### 2. Everyday stable biases
-
-Look for behaviors ordinary people understand immediately:
-
-- arbitrary choices;
-- ordering / defaults;
-- names / categories / quantities;
-- certainty / ambiguity;
-- repetition / frequency;
-- familiar vs unfamiliar;
-- real vs hypothetical;
-- generic vs specific;
-- one vs many;
-- same vs different.
-
-The phenomenon must already have public evidence; do not use GPU to discover it.
-
-### 3. Simple generalization questions
-
-Examples of shape, not fixed topics:
-
-> Is the model representing the underlying property, or only a correlated surface cue?
-
-> Does one latent object generalize across domains/items, or is it item-specific memorization?
-
-These can support a full paper if the object is genuinely new and causally used.
-
-### 4. Mature theory questions
-
-Still allowed, but do not prefer them merely because they sound more academic.
-
----
-
-## Registration checklist v2.1
-
-Universal core:
+Universal strict core remains:
 
 ```text
 natural one-sentence question / phenomenon
 + explainable without AI/MI jargon
-+ benchmark-removal PASS
++ benchmark-removal
 + normal paper scope
-+ >=3 venue-scale comparators
-+ N0 object ownership clear
-+ N1 no fatal causal collision
-+ N2 new object/axis/phenomenon, not mechanism detail
-+ exact accessible substrate / auditable gold
++ venue-scale comparison
++ N0/N1/N2
++ exact/auditable substrate
 + analyzable open checkpoint
-+ established behavior OR legitimate omitted axis/object
++ established phenomenon/axis
 + story-invariant headline
-+ minimal causal-use contract
-+ strongest confound controls / hard kills
-= PASS-REGISTER / GPU AUTHORIZED
++ minimal falsifiable causal-use contract
++ confound controls / hard kills
 ```
 
-Route B additionally requires competing theory mechanisms and discriminating predictions.
+No longer universal hard requirements:
 
-Route C does **not** need a three-mechanism architecture before registration.
+- three mature mechanisms for every topic;
+- exact mathematical first interaction statistic for every topic;
+- two perfectly matched published modern families for every topic.
+
+Route B still needs theory-level competing mechanisms. Route C can discover mechanism structure during execution as long as the scientific object does not change.
+
+---
+
+## What the Hamdi-style calibration teaches
+
+Do **not** copy another researcher's unpublished object. Copy the search shape:
+
+1. start from a strong established object / everyday model behavior;
+2. identify one simple orthogonal property or surprising regularity;
+3. design matched controls against the obvious confound;
+4. ask whether the model carries and causally uses that property;
+5. let richer mechanism structure emerge later.
+
+The target shape is closer to:
+
+> `Can the model distinguish X from Y even when obvious correlate Z is matched?`
+
+or
+
+> `Why does a stable everyday bias appear across otherwise different choices?`
+
+than to an over-written three-stage architecture question.
+
+External research-taste calibration also supports this top-down/model-biology style: start from interesting high-level model facts, use the simplest decisive experiment, then descend into mechanism.
+
+---
+
+## Recent serious deaths
+
+All serious deaths belong in `rejected_candidates/` immediately. Recent frozen deaths include good-enough processing, agreement/similarity attraction, proactive interference locus, negation architecture, linguistic convergence mechanism split, regular polysemy shared structure, implicit-causality production/comprehension sharing, analogy relational-transfer mechanism, morphology rule-vs-analogy, sound-symbolism mechanism, thematic-fit event-schema mechanism, verbatim-vs-gist native traces, shared frame state, and literal-vs-pragmatic enrichment.
+
+Do not revive these by changing model/dataset/language/probe/SAE/patching method.
+
+---
+
+## Current task
+
+The register currently reads 5/5, but **count is not protected**.
+
+1. Re-audit 036/037/038 under v2.1 simplicity + actual ACL/EMNLP paper standards.
+2. In parallel, continue a fresh simplicity-first search for stronger replacements.
+3. If a registered topic has a fatal scale/novelty/substrate problem, demote it and write a rejection/archive record even though this reopens the register.
+4. If all five survive, stop adding topics merely for count and move toward frozen experiment execution.
 
 ## One-line instruction
 
-> **Keep 034/035 frozen. Search for simple natural model facts and orthogonal semantic axes first; novelty and evidence stay strict, theoretical ornamentation does not. A candidate should be easy to explain before it is clever to mechanize.**
+> **Keep novelty and evidence strict, keep questions simple. The register is currently 5/5, but replace any topic that only looks strong because its mechanism contract is complicated.**
