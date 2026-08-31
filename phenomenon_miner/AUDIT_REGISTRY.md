@@ -1,9 +1,12 @@
 # Audit Registry — Model Dispatch
 
 版本：2026-08-31  
-状态：`AUTHORITATIVE MODEL-CALL AUTHORIZATION / HAMDI-STYLE N0+N1`
+状态：`AUTHORITATIVE MODEL-CALL AUTHORIZATION / S0-FIRST / ALL FALSE`
 
-本文件只控制**接下来还能跑什么**。scientific focus 见 [`CURRENT_TOPICS.md`](CURRENT_TOPICS.md)。新题必须先过 Natural-Question Gate、mother-inclusion N0、strongest-neighbor/successor N1。
+本文件只控制**接下来还能跑什么**。scientific focus 见 [`CURRENT_TOPICS.md`](CURRENT_TOPICS.md)。新题必须依次通过 Natural-Question Gate、type-specific S0、mother-inclusion N0、strongest-neighbor/successor N1。
+
+2026-08-31 的 [`48-way S0 funnel`](S0_FUNNEL_2026-08-31.md) 得到 0 个
+registration survivor。因此没有 fresh behavior、D0 或 MI call 获得授权。
 
 ## Current dispatch
 
@@ -13,14 +16,14 @@
 | `active/018_stock_flow_correlation_intrusion` | false | false | **D0-v2 NO-PROMOTE / NO-MI / TERMINAL** |
 | `active/024_alignment_descriptive_normative_arbitration` | false | false | **HOLD-INCONCLUSIVE-D0** |
 | `active/025_world_indexed_truth` | **false; both frozen behavior runs complete** | false | **HOLD_PREREQUISITE_CAPABILITY / NO-MI** |
-| `active/026_scientific_plausibility_testability_factorization` | false | false | **PARK-DATA / independent P/T gold absent** |
-| `active/027_rhetorical_force_implied_assertion` | false | false | **PARK-DATA / implied-assertion gold absent** |
-| `active/028_causality_responsibility_factorization` | false | false | **PARK-ARTIFACT / matched population unverified** |
+| `active/026_scientific_plausibility_testability_factorization` | false | false | **RETROSPECTIVE S0 KILL / independent P/T gold absent** |
+| `active/027_rhetorical_force_implied_assertion` | false | false | **RETROSPECTIVE S0 KILL / implied-assertion gold absent** |
+| `active/028_causality_responsibility_factorization` | false | false | **RETROSPECTIVE S0 KILL / matched population unverified** |
 | `active/003_diagnostic_counterevidence_revision` | false | false | **HOLD / legacy pre-candidate** |
 | `active/013_publicness_coordination_dissociation` | false | false | **HOLD-DATA** |
 | `active/023_description_experience_gap` | false | false | **HOLD-CAPABILITY-FAILURE / NO-MI** |
 
-Only the explicitly frozen cheap calls in this table are authorized at this exact commit.
+No new call is authorized at this exact commit.
 
 Registration means the scientific object survived N0/N1. It does not authorize probing, patching, SAE, steering, or even a behavioral run before the source/population/capability contract is frozen.
 
@@ -104,7 +107,8 @@ world binding. No additional call is authorized. See
 
 ## 026 — scientific plausibility vs testability
 
-N0+N1: **PASS**.
+Historical N0+N1 under the old order: **PASS**. New S0-first adjudication:
+**RETROSPECTIVE KILL before registration**.
 
 Only legal object:
 
@@ -132,7 +136,8 @@ anti_narrowing_stop: required
 
 If only one materials-specific rubric can support the story, PARK-DATA rather than narrowing the title.
 
-Frozen source audit result: `PARK-DATA`. MOF/SFBench provide composite
+Frozen source audit result under the old registry was `PARK-DATA`. Under
+S0-first rules this is a terminal S0 KILL. MOF/SFBench provide composite
 feasibility only; the sole artifact with separate named P/T ratings has 24
 materials rows evaluated by o1-preview; the clinical instrument does not yield
 a broad reliable public two-axis corpus. No behavior or MI call is authorized.
@@ -142,7 +147,8 @@ See `active/026_scientific_plausibility_testability_factorization/SOURCE_AUDIT.m
 
 ## 027 — rhetorical force vs implied assertion
 
-N0+N1: **PASS**.
+Historical N0+N1 under the old order: **PASS**. New S0-first adjudication:
+**RETROSPECTIVE KILL before registration**.
 
 Only legal object:
 
@@ -175,15 +181,17 @@ rows; the public QT30 question artifact supplies 2,867
 Pure/Rhetorical/Assertive force rows. Neither source releases a validated
 implied-assertion or speaker-commitment target aligned to the question. AIF's
 question I-node represents interrogative semantics, and following response
-locutions are not aligned self-answer gold. Status is therefore `PARK-DATA`;
-behavior and mechanism calls remain unauthorized. See
+locutions are not aligned self-answer gold. Under S0-first rules this is a
+terminal S0 KILL, not a parked fresh candidate; behavior and mechanism calls
+remain unauthorized. See
 `active/027_rhetorical_force_implied_assertion/SOURCE_AUDIT.md`.
 
 ---
 
 ## 028 — event causality vs responsibility framing
 
-N0+N1: **PASS**.
+Historical N0+N1 under the old order: **PASS**. New S0-first adjudication:
+**RETROSPECTIVE KILL before registration**.
 
 Only legal object:
 
@@ -217,7 +225,8 @@ GitHub API endpoint currently return 404. Paper totals cover 2,203 relations,
 but its 569 non-singleton event clusters and fragmentation analysis concern
 competing causes for shared effects; they do not report repeated directed
 cause-effect pairs with divergent responsibility frames. Exact matched support
-is therefore uncountable and all model calls remain unauthorized. See
+is therefore uncountable. Under S0-first rules this is a terminal S0 KILL and
+all model calls remain unauthorized. See
 `active/028_causality_responsibility_factorization/SOURCE_AUDIT.md`.
 
 ---

@@ -1,13 +1,15 @@
 # Current Topics
 
 日期：2026-08-31
-状态：`AUTHORITATIVE FOCUS QUEUE / HAMDI-STYLE N0+N1`
+状态：`AUTHORITATIVE FOCUS QUEUE / S0-FIRST`
 
 仓库已经停止“从可构造数据反推题目”的路线。所有新题必须按下面顺序：
 
 ```text
 Natural-Question Gate
 → strong mother / existence anchor
+→ classify failure-mechanism | factorization/object
+→ S0 open-model existence OR objective row-level substrate
 → N0 mother-inclusion + internal-history audit
 → N1 strongest-neighbor + successor attack
 → if title narrows into a benchmark/subtype, KILL and replace
@@ -18,6 +20,16 @@ Natural-Question Gate
 
 第一轮 adjacent-axis N0：[`HAMDI_AXIS_N0_2026-08-31.md`](HAMDI_AXIS_N0_2026-08-31.md)
 第二轮三题 N0+N1：[`HAMDI_MOTHER_N0_N1_3_2026-08-31.md`](HAMDI_MOTHER_N0_N1_3_2026-08-31.md)
+首轮 S0-first 48-way 漏斗：[`S0_FUNNEL_2026-08-31.md`](S0_FUNNEL_2026-08-31.md)
+
+## Fresh-registration result
+
+**48 ideas audited → 0 survivors → no new active registration → no D0 call.**
+
+32 个方向在 S0 因 effect/substrate 不成立被杀，14 个在进入 S0 前已因
+mother/direct successor 拥有标题被杀；真正取得双轴 row-level substrate 的
+MAVEN-FACT certainty×polarity 与 ModaFact factuality×modality，分别在 N0 和
+N1 被杀。当前 fresh registration queue 为空。
 
 ---
 
@@ -74,11 +86,11 @@ native median delta-r 为 +.070，因此 HOLD 而非 hard kill。禁止继续 D0
 
 ---
 
-## PARK-DATA — 026 Plausibility Is Not Testability
+## RETROSPECTIVE S0 KILL — 026 Plausibility Is Not Testability
 
 [`../active/026_scientific_plausibility_testability_factorization/`](../active/026_scientific_plausibility_testability_factorization/)
 
-**N0+N1 PASS / PARK-DATA / NO CALL**
+**LEGACY REGISTERED / RETROSPECTIVE S0 KILL / NO CALL**
 
 自然问题：
 
@@ -97,11 +109,11 @@ annotations，不自行/用 LLM 补标签。
 
 ---
 
-## Priority 6 — 027 Questions That Assert
+## RETROSPECTIVE S0 KILL — 027 Questions That Assert
 
 [`../active/027_rhetorical_force_implied_assertion/`](../active/027_rhetorical_force_implied_assertion/)
 
-**PARK-DATA / NO CALL**
+**LEGACY REGISTERED / RETROSPECTIVE S0 KILL / NO CALL**
 
 自然问题：
 
@@ -119,11 +131,11 @@ polarity/next-turn 缩窄版。
 
 ---
 
-## Priority 7 — 028 Cause Is Not Blame
+## RETROSPECTIVE S0 KILL — 028 Cause Is Not Blame
 
 [`../active/028_causality_responsibility_factorization/`](../active/028_causality_responsibility_factorization/)
 
-**PARK-ARTIFACT / NO CALL**
+**LEGACY REGISTERED / RETROSPECTIVE S0 KILL / NO CALL**
 
 自然问题：
 
@@ -178,9 +190,10 @@ Llama-only rescue 或继续缩成 output-format 题。
 018 -> D0-v2 NO-PROMOTE / NO-MI / TERMINAL
 024 -> HOLD-INCONCLUSIVE-D0; no further calls
 025 -> HOLD-PREREQUISITE-CAPABILITY / NO-MI
-026/027 -> PARK-DATA; 028 -> PARK-ARTIFACT
+026/027/028 -> legacy registrations; retrospective S0 KILL; no revival without a new external artifact
 003/013/023 -> HOLD
-fresh hidden-state/causal MI on 024-028 -> forbidden until project-specific source + behavior/capability contract passes
+fresh registration queue -> empty after 48-way S0-first funnel
+hidden-state/causal MI on 024-028 -> forbidden
 ```
 
 ---

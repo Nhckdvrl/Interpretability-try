@@ -1,0 +1,260 @@
+{
+  "dataset": "ModaFact-ITA",
+  "artifact_root": "/home/xiang/.cache/huggingface/hub/datasets--dhfbk--modafact-ita/snapshots/39ffe63f4491a4e7953ff2d2f18d2402bdb7ee34",
+  "fold": 21,
+  "representation": "coarse factuality + multitask modality BIO",
+  "readme_sha256": "615336919ad7c8e630a4ea86ded54a2f439997e2f469d8ccadd047447d07bc81",
+  "files": {
+    "train": {
+      "path": "/home/xiang/.cache/huggingface/hub/datasets--dhfbk--modafact-ita/snapshots/39ffe63f4491a4e7953ff2d2f18d2402bdb7ee34/cg/multitask_seq_bio/fold_21/training_set.tsv",
+      "sha256": "3243f8b400abba35a0e372fef8135c2bd83be1b6e8b1ca451b1a97607b853ac9"
+    },
+    "dev": {
+      "path": "/home/xiang/.cache/huggingface/hub/datasets--dhfbk--modafact-ita/snapshots/39ffe63f4491a4e7953ff2d2f18d2402bdb7ee34/cg/multitask_seq_bio/fold_21/dev_set.tsv",
+      "sha256": "2b191feb8e267dd7a86a9bc23811f4dd931ac7822b6e5cfe49df18a13e5a58e3"
+    },
+    "test": {
+      "path": "/home/xiang/.cache/huggingface/hub/datasets--dhfbk--modafact-ita/snapshots/39ffe63f4491a4e7953ff2d2f18d2402bdb7ee34/cg/multitask_seq_bio/fold_21/test_set.tsv",
+      "sha256": "59593594b4e4b0ac65009f51d03c4839b4d68c4bd8ce94ef5948f11aec118b60"
+    }
+  },
+  "event_head_count": 10445,
+  "sentence_counts": {
+    "train": 1762,
+    "dev": 613,
+    "test": 641
+  },
+  "factuality_counts": {
+    "FACTUAL": 7221,
+    "NON_FACTUAL": 2409,
+    "COUNTERFACTUAL": 457,
+    "UNDERSPECIFIED": 358
+  },
+  "modality_counts": {
+    "NONE": 8751,
+    "FINAL": 365,
+    "DUTY": 188,
+    "COERCION": 168,
+    "DECISION": 156,
+    "WILL": 147,
+    "EXHORTATIVE": 145,
+    "CAPABILITY": 143,
+    "CONCESSIVE": 137,
+    "COMMITMENT": 123,
+    "POSSIBILITY": 122
+  },
+  "factuality_by_modality_presence": {
+    "COUNTERFACTUAL x MODAL": 65,
+    "COUNTERFACTUAL x NONE": 392,
+    "FACTUAL x MODAL": 240,
+    "FACTUAL x NONE": 6981,
+    "NON_FACTUAL x MODAL": 1321,
+    "NON_FACTUAL x NONE": 1088,
+    "UNDERSPECIFIED x MODAL": 68,
+    "UNDERSPECIFIED x NONE": 290
+  },
+  "factuality_by_modality": {
+    "COUNTERFACTUAL x CAPABILITY": 31,
+    "COUNTERFACTUAL x COERCION": 1,
+    "COUNTERFACTUAL x COMMITMENT": 1,
+    "COUNTERFACTUAL x CONCESSIVE": 4,
+    "COUNTERFACTUAL x DECISION": 8,
+    "COUNTERFACTUAL x DUTY": 3,
+    "COUNTERFACTUAL x FINAL": 7,
+    "COUNTERFACTUAL x NONE": 392,
+    "COUNTERFACTUAL x POSSIBILITY": 8,
+    "COUNTERFACTUAL x WILL": 2,
+    "FACTUAL x CAPABILITY": 36,
+    "FACTUAL x COERCION": 54,
+    "FACTUAL x COMMITMENT": 3,
+    "FACTUAL x CONCESSIVE": 2,
+    "FACTUAL x DECISION": 39,
+    "FACTUAL x DUTY": 58,
+    "FACTUAL x EXHORTATIVE": 10,
+    "FACTUAL x FINAL": 24,
+    "FACTUAL x NONE": 6981,
+    "FACTUAL x POSSIBILITY": 13,
+    "FACTUAL x WILL": 1,
+    "NON_FACTUAL x CAPABILITY": 55,
+    "NON_FACTUAL x COERCION": 111,
+    "NON_FACTUAL x COMMITMENT": 119,
+    "NON_FACTUAL x CONCESSIVE": 109,
+    "NON_FACTUAL x DECISION": 109,
+    "NON_FACTUAL x DUTY": 111,
+    "NON_FACTUAL x EXHORTATIVE": 135,
+    "NON_FACTUAL x FINAL": 333,
+    "NON_FACTUAL x NONE": 1088,
+    "NON_FACTUAL x POSSIBILITY": 95,
+    "NON_FACTUAL x WILL": 144,
+    "UNDERSPECIFIED x CAPABILITY": 21,
+    "UNDERSPECIFIED x COERCION": 2,
+    "UNDERSPECIFIED x CONCESSIVE": 22,
+    "UNDERSPECIFIED x DUTY": 16,
+    "UNDERSPECIFIED x FINAL": 1,
+    "UNDERSPECIFIED x NONE": 290,
+    "UNDERSPECIFIED x POSSIBILITY": 6
+  },
+  "random_seed": 20260831,
+  "random_20_event_heads": [
+    {
+      "split": "train",
+      "sentence_id": 930,
+      "sentence": "Essi dispongono di un senso dell' orientamento talmente sviluppato e di un' abilità istintiva e quasi mistica nel collegare il nome a una persona , che sono in grado di localizzare esattamente il ricevente anche senza bisogno di conoscerne l' indirizzo .",
+      "trigger": "collegare",
+      "factuality": "UNDERSPECIFIED",
+      "modality": "NONE"
+    },
+    {
+      "split": "train",
+      "sentence_id": 875,
+      "sentence": "Nelle giornate in cui il vento spira da W - NW gli aerei in decollo ed atterraggio usano la pista 30 .",
+      "trigger": "usano",
+      "factuality": "FACTUAL",
+      "modality": "NONE"
+    },
+    {
+      "split": "test",
+      "sentence_id": 24,
+      "sentence": "Le grandi disparità regionali iniziali sono rimaste oppure incrementate , come prova il fatto che il reddito pro capite del 10 per cento della popolazione che vive nelle regioni più prospere dell' Unione è ancora superiore di 2,6 volte al reddito del 10 per cento della popolazione che abita nelle regioni meno sviluppate .",
+      "trigger": "vive",
+      "factuality": "FACTUAL",
+      "modality": "NONE"
+    },
+    {
+      "split": "train",
+      "sentence_id": 1381,
+      "sentence": "Questi , commosso dall' amore di Argene , accetta di sposarla , mentre Megacle ed Aristea si uniranno in matrimonio secondo il volere del sovrano .",
+      "trigger": "sposarla",
+      "factuality": "NON_FACTUAL",
+      "modality": "NONE"
+    },
+    {
+      "split": "dev",
+      "sentence_id": 352,
+      "sentence": "Inizia per il giovane , appena adolescente , una lunga odissea per ricongiungersi con il padre , nel frattempo tornato a Ravenna dopo la malattia contratta nell' Agro Romano .",
+      "trigger": "contratta",
+      "factuality": "FACTUAL",
+      "modality": "NONE"
+    },
+    {
+      "split": "train",
+      "sentence_id": 377,
+      "sentence": "Un principio cardine , quasi platonico , del suo credo politico era che la rivoluzione dovesse essere diretta e indirizzata dall \"\"\"\" 'intellighenzia \"\"\"\" , dai \"\"\"\" lumières \"\"\"\" , ovvero dall' establishment scientifico .",
+      "trigger": "rivoluzione",
+      "factuality": "UNDERSPECIFIED",
+      "modality": "NONE"
+    },
+    {
+      "split": "dev",
+      "sentence_id": 283,
+      "sentence": "La notizia provoca un terremoto ai vertici dei servizi segreti e tra i sottosegretari , e si decide di affidare le indagini allo stesso Preston , che scopre l' identità di colui che ha trafugato i documenti :",
+      "trigger": "affidare",
+      "factuality": "FACTUAL",
+      "modality": "DECISION"
+    },
+    {
+      "split": "test",
+      "sentence_id": 262,
+      "sentence": "Nel 1875 Garibaldi , arrivato a Roma come parlamentare , risuscitò l' idea di Cesare di deviare il corso del fiume presentando una proposta in merito .",
+      "trigger": "presentando",
+      "factuality": "FACTUAL",
+      "modality": "NONE"
+    },
+    {
+      "split": "test",
+      "sentence_id": 278,
+      "sentence": "“ Signor Presidente , il dibattito sulle innovazioni attuate per mezzo di elaboratori elettronici è stato interessante e appassionato , ma purtroppo la maggior parte degli oratori intervenuti ha assunto una posizione manichea .",
+      "trigger": "intervenuti",
+      "factuality": "FACTUAL",
+      "modality": "NONE"
+    },
+    {
+      "split": "dev",
+      "sentence_id": 124,
+      "sentence": "Secondo Tacito , prima sarebbero stati arrestati quanti confessavano e quindi , su denuncia di questi , ne sarebbero stati condannati moltissimi , ma non tanto a causa del crimine dell' incendio , quanto per il loro odio nei confronti del genere umano .",
+      "trigger": "incendio",
+      "factuality": "FACTUAL",
+      "modality": "NONE"
+    },
+    {
+      "split": "test",
+      "sentence_id": 632,
+      "sentence": "la progettazione di un' insurrezione antifascista e repubblicana in Sardegna ;",
+      "trigger": "insurrezione",
+      "factuality": "UNDERSPECIFIED",
+      "modality": "NONE"
+    },
+    {
+      "split": "train",
+      "sentence_id": 407,
+      "sentence": "La società continua ad effettuare investimenti ed innovazioni , riuscendo anche a produrre una linea propria di prodotti e merchandising che viene distribuita nei negozi sportivi della città .",
+      "trigger": "riuscendo",
+      "factuality": "FACTUAL",
+      "modality": "NONE"
+    },
+    {
+      "split": "train",
+      "sentence_id": 1699,
+      "sentence": "Quattro navi capitali ed altre imbarcazioni erano di stanza a Mers-el - Kebir , la Forza H doveva persuadere l' ammiraglio Marcel-Bruno Gensoul a disobbedire agli ordini di Vichy e togliere le sue navi dalla guerra in Europa ;",
+      "trigger": "ordini",
+      "factuality": "NON_FACTUAL",
+      "modality": "NONE"
+    },
+    {
+      "split": "train",
+      "sentence_id": 1477,
+      "sentence": "Non vi è consenso su quale fra quelle citate sia la causa del notevole incremento nel numero di denunce registrate nell' ultimo ventennio .",
+      "trigger": "incremento",
+      "factuality": "FACTUAL",
+      "modality": "NONE"
+    },
+    {
+      "split": "dev",
+      "sentence_id": 580,
+      "sentence": "\"\"\"\" Come Taste the Band \"\"\"\" era molto atteso , si voleva capire chi poteva essere all' altezza di rimpiazzare un mito come Blackmore nel gruppo , ed ebbe grande successo .",
+      "trigger": "rimpiazzare",
+      "factuality": "NON_FACTUAL",
+      "modality": "CAPABILITY"
+    },
+    {
+      "split": "train",
+      "sentence_id": 1067,
+      "sentence": "Lo scioglimento delle Brigate non intaccò minimamente la passione e l' entusiasmo dei tifosi gialloblù che rimangono ad applaudire la squadra anche dopo la retrocessione in Serie C del 2007 .",
+      "trigger": "scioglimento",
+      "factuality": "FACTUAL",
+      "modality": "NONE"
+    },
+    {
+      "split": "dev",
+      "sentence_id": 184,
+      "sentence": "Al Wiener Staatsoper viene ripresa nel 1955 diretta da Karl Böhm con Leonie Rysanek e fino al 2012 ha avuto 84 recite .",
+      "trigger": "recite",
+      "factuality": "FACTUAL",
+      "modality": "NONE"
+    },
+    {
+      "split": "train",
+      "sentence_id": 1232,
+      "sentence": "Giacomo , intanto , vedendosi respinto dalla banda di Consanti , che pesta lui e la fidanzata intimando loro di mollare il giro dello spaccio , decide di vendicarsi e così una sera piazza un bomba fatta in casa nel locale di Franchino provocando una vertiginosa esplosione , che uccide il trafficante e ferisce molti dei presenti .",
+      "trigger": "provocando",
+      "factuality": "FACTUAL",
+      "modality": "NONE"
+    },
+    {
+      "split": "test",
+      "sentence_id": 622,
+      "sentence": "Il raggiungimento della maggioranza assoluta durante tre consultazioni elettorali consecutivi , 1982 , 1986 e 1989 , permise al PSOE di legiferare e governare senza dover stabilire accordi con altre forze politiche .",
+      "trigger": "legiferare",
+      "factuality": "FACTUAL",
+      "modality": "NONE"
+    },
+    {
+      "split": "test",
+      "sentence_id": 31,
+      "sentence": "Da quel momento in poi il libro cominciò a vendere milioni di copie e ad arricchire Timothy e non Hoggins , dato che era stato rinchiuso in prigione e aveva venduto i diritti alla casa editrice , prima che il libro diventasse famoso .",
+      "trigger": "diventasse",
+      "factuality": "FACTUAL",
+      "modality": "NONE"
+    }
+  ]
+}

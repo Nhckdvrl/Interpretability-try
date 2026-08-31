@@ -2,10 +2,11 @@
 
 `active/` 只保留当前仍有科学投入理由的项目、需要 bounded redesign 的项目，以及少量明确标注的 HOLD / provenance。目录存在 **不等于** model call 已授权；唯一调用权限看 [`../phenomenon_miner/AUDIT_REGISTRY.md`](../phenomenon_miner/AUDIT_REGISTRY.md)。
 
-2026-08-31 已完成两轮 Hamdi-style 审计：
+2026-08-31 已完成两轮 Hamdi-style 审计，并随后启用 S0-first gate：
 
 - 第一轮 mother-inclusion N0：[`../phenomenon_miner/HAMDI_AXIS_N0_2026-08-31.md`](../phenomenon_miner/HAMDI_AXIS_N0_2026-08-31.md)
 - 第二轮严格 N0 + N1：[`../phenomenon_miner/HAMDI_MOTHER_N0_N1_3_2026-08-31.md`](../phenomenon_miner/HAMDI_MOTHER_N0_N1_3_2026-08-31.md)
+- 48-way S0-first 漏斗：[`../phenomenon_miner/S0_FUNNEL_2026-08-31.md`](../phenomenon_miner/S0_FUNNEL_2026-08-31.md)（0 survivors）
 
 原则不变：**强 mother 先证明 scientific object 值得研究；我们只沿 mother 留下的自然概念轴/内部含义走一步。审计过程中如果 novelty 被迫缩成 benchmark-specific/subtype-specific 小缝，立即 KILL，不保题。**
 
@@ -17,9 +18,9 @@
 | [`018_stock_flow_correlation_intrusion`](018_stock_flow_correlation_intrusion/) | **D0-v2 NO-PROMOTE / NO-MI / TERMINAL** | 0/4 family；禁止继续 repair、subset rescue 或机制实验 |
 | [`024_alignment_descriptive_normative_arbitration`](024_alignment_descriptive_normative_arbitration/) | **HOLD-INCONCLUSIVE-D0** | 2/4 native family passes; no mechanism calls |
 | [`025_world_indexed_truth`](025_world_indexed_truth/) | **HOLD_PREREQUISITE_CAPABILITY / NO-MI** | conflict-only success fails aligned world-index controls |
-| [`026_scientific_plausibility_testability_factorization`](026_scientific_plausibility_testability_factorization/) | **PARK-DATA / NO CALL** | independent expert-grounded P/T cross-axis gold absent |
-| [`027_rhetorical_force_implied_assertion`](027_rhetorical_force_implied_assertion/) | **PARK-DATA / NO CALL** | force gold exists; validated implied-assertion gold absent |
-| [`028_causality_responsibility_factorization`](028_causality_responsibility_factorization/) | **PARK-ARTIFACT / NO CALL** | official rows unavailable; stable-pair/divergent-frame count unknown |
+| [`026_scientific_plausibility_testability_factorization`](026_scientific_plausibility_testability_factorization/) | **LEGACY / RETROSPECTIVE S0 KILL** | independent expert-grounded P/T cross-axis gold absent |
+| [`027_rhetorical_force_implied_assertion`](027_rhetorical_force_implied_assertion/) | **LEGACY / RETROSPECTIVE S0 KILL** | force gold exists; validated implied-assertion gold absent |
+| [`028_causality_responsibility_factorization`](028_causality_responsibility_factorization/) | **LEGACY / RETROSPECTIVE S0 KILL** | official rows unavailable; stable-pair/divergent-frame count unknown |
 
 ## 024 — Alignment: descriptive social model vs normative readout
 
@@ -50,7 +51,7 @@ Mother scientific-feasibility work把“符合科学知识”与“能被实验�
 
 > **LLM 内部是否把“这个假设可能是真的”和“这个假设能否被实验检验”分成两个 scientific judgments？它们在哪一步被合成最终 feasibility？**
 
-不能退化成 materials-specific rubric classification。数据不够就 `PARK-DATA`。
+不能退化成 materials-specific rubric classification。按 S0-first 规则已终止。
 
 ## 027 — Questions that assert
 
@@ -65,7 +66,7 @@ SRAQ 已证明 context-sensitive RQ recognition 难；ACL 2026 已证明 rhetori
 Source preflight 已冻结 SRAQ 971 条与 QT30 question artifact 2,867 条。
 前者只有二元 force，后者虽有 Pure/Rhetorical/Assertive 三类，却没有与问句
 对齐的 implied assertion/commitment gold；AIF question proposition 仍是问句
-语义，following turns 也未标注为 self-answer。因此 `PARK-DATA / NO CALL`，
+语义，following turns 也未标注为 self-answer。因此 retrospective S0 KILL / NO CALL，
 详见 [`SOURCE_AUDIT.md`](027_rhetorical_force_implied_assertion/SOURCE_AUDIT.md)。
 
 ## 028 — Cause is not blame
@@ -81,7 +82,7 @@ ACL 2026 FrECI 已把 causal relation、responsibility target、evaluative frami
 Source preflight 证实论文 schema 与 human provenance 可用，但官方 FrECI
 仓库当前 404。论文公开统计的是 shared effect 下 competing causes，不是
 same directed cause-effect pair 下 frame 改变；中央 matched population 无法
-从 PDF 总量恢复。因此 `PARK-ARTIFACT / NO CALL`，详见
+从 PDF 总量恢复。因此 retrospective S0 KILL / NO CALL，详见
 [`SOURCE_AUDIT.md`](028_causality_responsibility_factorization/SOURCE_AUDIT.md)。
 
 ## 保留但非当前主线
@@ -114,9 +115,9 @@ same directed cause-effect pair 下 frame 改变；中央 matched population 无
 018 -> D0-v2 NO-PROMOTE / NO-MI / TERMINAL
 024 -> HOLD-INCONCLUSIVE-D0; no further calls
 025 -> HOLD-PREREQUISITE-CAPABILITY / NO-MI
-026/027 -> PARK-DATA; 028 -> PARK-ARTIFACT
+026/027/028 -> legacy registrations; retrospective S0 KILL
 003/013/023 -> HOLD
-fresh MI on 024-028 -> forbidden until each behavior/data contract passes
+fresh registration queue -> empty; MI on 024-028 -> forbidden
 ```
 
 ## One-line discipline

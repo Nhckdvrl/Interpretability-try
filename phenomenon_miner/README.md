@@ -14,6 +14,8 @@
 - [`../active/README.md`](../active/README.md) — active / HOLD 项目入口。
 - [`../archive/README.md`](../archive/README.md) — 正式终止项目。
 - [`AUDIT_REGISTRY.md`](AUDIT_REGISTRY.md) — 唯一 model-call authorization。
+- [`S0_FUNNEL_2026-08-31.md`](S0_FUNNEL_2026-08-31.md) — 48 个 mother extensions 的首轮 S0-first 漏斗（0 survivors）。
+- [`audit_scientific_substrate.py`](audit_scientific_substrate.py) — row-level counts、hash 与 deterministic random-20 审计。
 - [`FAILED_TOPICS.md`](FAILED_TOPICS.md) — anti-revival lessons。
 - [`DATASET_SCOPE_AUDIT.md`](DATASET_SCOPE_AUDIT.md) — population / attrition / factor-not-filter。
 - [`FINDING_RULES.md`](FINDING_RULES.md) — promotion 与 confirmation 规则。

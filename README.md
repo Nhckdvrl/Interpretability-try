@@ -58,7 +58,7 @@ Mother：ACL 2026 scientific feasibility + NAACL scientific-hypothesis evaluatio
 
 详细合同：[`active/026_scientific_plausibility_testability_factorization/`](active/026_scientific_plausibility_testability_factorization/)
 
-Source preflight: `PARK-DATA`。当前公开 artifact 没有 broad、independent、
+Retrospective S0：`KILL`。当前公开 artifact 没有 broad、independent、
 expert-grounded P/T 双 gold；不使用 o1-preview ratings 替代专家标注。
 
 ### 027 Questions That Assert
@@ -69,7 +69,7 @@ Mother：EMNLP 2025 SRAQ + ACL 2026 RQ representation。不能退化成 RQ detec
 
 详细合同：[`active/027_rhetorical_force_implied_assertion/`](active/027_rhetorical_force_implied_assertion/)
 
-Source preflight: `PARK-DATA`。SRAQ/QT30 提供自然、多功能 force gold，
+Retrospective S0：`KILL`。SRAQ/QT30 提供自然、多功能 force gold，
 但没有发布与 question 对齐的 implied assertion / speaker commitment gold；
 不以 polarity inversion、任意 following turn 或 LLM label 代替中央 target。
 
@@ -81,7 +81,7 @@ Mother：ACL 2026 FrECI。不能退化成 source identity / political bias probe
 
 详细合同：[`active/028_causality_responsibility_factorization/`](active/028_causality_responsibility_factorization/)
 
-Source preflight: `PARK-ARTIFACT`。论文 schema/human annotation 通过，但
+Retrospective S0：`KILL`。论文 schema/human annotation 通过，但
 官方 row-level repository 当前 404；论文的 shared-effect fragmentation
 统计不能回答 same cause-effect pair / different responsibility frame 的数量。
 
@@ -104,6 +104,7 @@ Source preflight: `PARK-ARTIFACT`。论文 schema/human annotation 通过，但
 - [`phenomenon_miner/CURRENT_TOPICS.md`](phenomenon_miner/CURRENT_TOPICS.md)
 - [`active/README.md`](active/README.md)
 - [`phenomenon_miner/AUDIT_REGISTRY.md`](phenomenon_miner/AUDIT_REGISTRY.md)
+- [`phenomenon_miner/S0_FUNNEL_2026-08-31.md`](phenomenon_miner/S0_FUNNEL_2026-08-31.md) — 48-way S0-first discovery funnel；本轮 0 survivors。
 - [`archive/README.md`](archive/README.md)
 - [`rejected_candidates/README.md`](rejected_candidates/README.md)
 

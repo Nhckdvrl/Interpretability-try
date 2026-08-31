@@ -1,0 +1,705 @@
+{
+  "dataset": "MAVEN-FACT",
+  "artifact_root": "/home/xiang/Interpretability-try/phenomenon_miner/data/MAVEN-FACT",
+  "files": {
+    "data/train.jsonl": "190522b44f0702af030161924d7cb94c4a06bd5d6e2b40d79f8f1eaa5886bab7",
+    "data/valid.jsonl": "396fcf0779b67f0229f2cdaad4df0771682d9238a94b082d61659059b8dc7cff"
+  },
+  "document_counts": {
+    "train": 2913,
+    "valid": 710
+  },
+  "event_chain_counts": {
+    "train": 67984,
+    "valid": 16301
+  },
+  "mention_count": 91719,
+  "factuality_counts": {
+    "CT+": 86650,
+    "CT-": 1876,
+    "PS+": 2718,
+    "PS-": 337,
+    "Uu": 138
+  },
+  "mixed_factuality_chain_count": 90,
+  "random_seed": 20260831,
+  "random_20_mentions": [
+    {
+      "split": "train",
+      "document_id": "1a0a7c7b496ad1d984ee02d240f1d5f8",
+      "event_id": "EVENT_cf7364c81e39e68d5b47bcba0480f170",
+      "event_type": "Conquering",
+      "trigger": "defeated",
+      "sentence": "In this match, World Heavyweight Champion Triple H defeated Kevin Nash to retain his title.",
+      "factuality": "CT+"
+    },
+    {
+      "split": "train",
+      "document_id": "42555c53870b0c14b44d2be11accee77",
+      "event_id": "EVENT_88a118ff5e675409cc2046c2953b7857",
+      "event_type": "Supporting",
+      "trigger": "support",
+      "sentence": "An Evening with Adele was the debut concert tour by British singer Adele, in support of her debut album, \"19\".",
+      "factuality": "CT+"
+    },
+    {
+      "split": "train",
+      "document_id": "a108dd2d6ad858c01a3229b7b4c4c430",
+      "event_id": "EVENT_b624b8004260276bb68f3a541e41622d",
+      "event_type": "Competition",
+      "trigger": "Cup",
+      "sentence": "South Africa hosted the tournament for the second time, after previously hosting the 1996 African Cup of Nations.",
+      "factuality": "CT+"
+    },
+    {
+      "split": "train",
+      "document_id": "3d78ce6cc9567690093101c0f6b83c7a",
+      "event_id": "EVENT_af1781fa50b51bfecff219e918bb2c60",
+      "event_type": "Hostile_encounter",
+      "trigger": "engaged",
+      "sentence": "The engagement was fought off the Norwegian coastal island of Eigerøya, then in Danish Norway, the opposing forces engaged in protecting their respective countries' trade routes to the Baltic Sea.",
+      "factuality": "CT+"
+    },
+    {
+      "split": "train",
+      "document_id": "01031838fe01f093b7f38825eaeb2bd8",
+      "event_id": "EVENT_c019b6fa208cd39fbbee3168b8581c56",
+      "event_type": "Preventing_or_letting",
+      "trigger": "prevent",
+      "sentence": "The Union blockade in the American Civil War was a naval strategy by the United States to prevent the Confederacy from trading.",
+      "factuality": "PS+"
+    },
+    {
+      "split": "valid",
+      "document_id": "b75e6df44b111e2c305102a015746f73",
+      "event_id": "EVENT_e08d5052810ef8360adaccbd23131a27",
+      "event_type": "Earnings_and_losses",
+      "trigger": "lose",
+      "sentence": "Despite Canada's silver medal, the first round saw a professionally stocked Canada lose to the Americans for the first time.",
+      "factuality": "CT+"
+    },
+    {
+      "split": "train",
+      "document_id": "1d019f861c90f2ecf4b6c0ac826efb76",
+      "event_id": "EVENT_33313a070002e41f5e7c313745e12f59",
+      "event_type": "Change",
+      "trigger": "took",
+      "sentence": "The 2012–15 unrest in Romania refers to a prolonged period of civil unrest and political scandals in Romania, which took magnitude after the second half of the 2000s.",
+      "factuality": "CT+"
+    },
+    {
+      "split": "train",
+      "document_id": "2fa75c0d4f95b65bb1676abc09c9f614",
+      "event_id": "EVENT_89798a96b28aa005847ff9adeb5adc4e",
+      "event_type": "Using",
+      "trigger": "used",
+      "sentence": "In January 2009 Sri Lankan authorities arrested a suspect, Balachandran, who reportedly helped construct the bomb used in the attack.",
+      "factuality": "CT+"
+    },
+    {
+      "split": "train",
+      "document_id": "9d07cd704c7f47916aecfc7d85c6c648",
+      "event_id": "EVENT_94641d523f345dbb6a470ed153a50bf7",
+      "event_type": "Getting",
+      "trigger": "acquired",
+      "sentence": "In 2014, WE Fest was acquired by Townsquare Media.",
+      "factuality": "CT+"
+    },
+    {
+      "split": "valid",
+      "document_id": "1be6ace18f7c4756879310733c1f0fff",
+      "event_id": "EVENT_7beb34d222760faebf8e14901c2a5c23",
+      "event_type": "Choosing",
+      "trigger": "choosing",
+      "sentence": "The protests were sparked by the Ukrainian government's decision to suspend the signing of an association agreement with the European Union, instead choosing closer ties to Russia and the Eurasian Economic Union.",
+      "factuality": "CT+"
+    },
+    {
+      "split": "valid",
+      "document_id": "db50381e7d1dd4a41fb4ac60eaebe3a4",
+      "event_id": "EVENT_0c8a69a1e76d5d63fde5a16eb0c3db00",
+      "event_type": "Defending",
+      "trigger": "repelled",
+      "sentence": "The outnumbered French repelled several Allied assaults on their right flank, but their center and left flank were overcome and Soult was compelled to retreat.",
+      "factuality": "CT+"
+    },
+    {
+      "split": "train",
+      "document_id": "4974582b753a33635561ae9ba6f7a5a9",
+      "event_id": "EVENT_50b1704af16634ca3cc491e9acff716b",
+      "event_type": "Motion",
+      "trigger": "pulled",
+      "sentence": "The Ottoman Empire and British Empire were involved in different capacities: the Ottoman Empire left the region after the Armistice of Mudros but British influence continued until Dunsterforce was pulled back in the 1920s.",
+      "factuality": "CT+"
+    },
+    {
+      "split": "valid",
+      "document_id": "72f377d680499b8c5466e35819dda1a0",
+      "event_id": "EVENT_d4f94024deb3f3c7e0a5bc81b1df46c4",
+      "event_type": "Becoming",
+      "trigger": "became",
+      "sentence": "The system subsequently rapidly weakened and became an extratropical cyclone during December 1, before they were absorbed by an advancing trough of low pressure near 50°S on December 4.",
+      "factuality": "CT+"
+    },
+    {
+      "split": "train",
+      "document_id": "dd0f57617600fda8b3561a466ff50fe5",
+      "event_id": "EVENT_fcebd4c9333ea839262061b8b01cce6d",
+      "event_type": "Process_end",
+      "trigger": "ended",
+      "sentence": "The 1954 Guatemalan coup d'état, code-named Operation PBSUCCESS, was a covert operation carried out by the U.S. Central Intelligence Agency (CIA) that deposed the democratically elected Guatemalan President Jacobo Árbenz and ended the Guatemalan Revolution of 1944–1954.",
+      "factuality": "CT+"
+    },
+    {
+      "split": "train",
+      "document_id": "1acab5884168fe8e130337ac787c8635",
+      "event_id": "EVENT_3029320a97549a3208b553535c491af5",
+      "event_type": "Cost",
+      "trigger": "cost",
+      "sentence": "The defensive cost the loss of the SS Volunteer Panzergrenadier Regiment 48 due to their tactical errors.",
+      "factuality": "CT+"
+    },
+    {
+      "split": "valid",
+      "document_id": "99dff40885570cc82f499d05f7108034",
+      "event_id": "EVENT_98435fd54ce1be015928c7a8bcb07437",
+      "event_type": "Coming_to_be",
+      "trigger": "developed",
+      "sentence": "The fifth tropical cyclone and storm of the season, as well as the fourth hurricane and second major hurricane, Edna developed from a tropical wave on September 2.",
+      "factuality": "CT+"
+    },
+    {
+      "split": "train",
+      "document_id": "93436d1139e8c73c92bfb1810179d723",
+      "event_id": "EVENT_5e4ac0bc1dc91dda683aff4a82c8546a",
+      "event_type": "Death",
+      "trigger": "dead",
+      "sentence": "One person was reported dead.",
+      "factuality": "CT+"
+    },
+    {
+      "split": "train",
+      "document_id": "889cb91b61354314d9b9a2dc56217d27",
+      "event_id": "EVENT_a1539fbc0fe019d6793f5255ac3ce951",
+      "event_type": "Participation",
+      "trigger": "participate",
+      "sentence": "It was the first time that the teams of all International Cricket Council (ICC) member nations visited Sri Lanka to participate in a cricket tournament.",
+      "factuality": "CT+"
+    },
+    {
+      "split": "train",
+      "document_id": "8bfc94b9c2dc6458544db45cbdc6a372",
+      "event_id": "EVENT_0a3dbb3c92e2111d6efc2a28ce309324",
+      "event_type": "Use_firearm",
+      "trigger": "shots",
+      "sentence": "The Thor missile was also used to lift warheads into near-space to conduct high-altitude nuclear explosion tests; these shots were collectively called Operation Fishbowl.",
+      "factuality": "CT+"
+    },
+    {
+      "split": "train",
+      "document_id": "e2c14c8ef0661addcd54a411b66df7f3",
+      "event_id": "EVENT_1775956301d623d9dad88ffc33324af4",
+      "event_type": "Motion",
+      "trigger": "driving",
+      "sentence": "Reasons for the Royalist defeat include shortage of ammunition, the relative lack of professionalism of their soldiers and the tactics of Essex, who compensated \"for his much lamented paucity of cavalry by tactical ingenuity and firepower\", countering Rupert's cavalry by driving them off with mass infantry formations.",
+      "factuality": "CT+"
+    }
+  ],
+  "random_up_to_20_mixed_chains": [
+    {
+      "split": "train",
+      "document_id": "59a44df7515985055f582e686225f354",
+      "event_id": "EVENT_0b121236452d4db0a2ed00d5a5b3ec4f",
+      "event_type": "Violence",
+      "mentions": [
+        {
+          "trigger": "Riots",
+          "sentence": "The 2000 UEFA Cup Final Riots, also known as the Battle of Copenhagen, were a series of riots in City Hall Square, Copenhagen, Denmark between fans of English football team Arsenal and Turkish team Galatasaray around the 2000 UEFA Cup Final on 17 May 2000.",
+          "factuality": "CT-"
+        },
+        {
+          "trigger": "Battle",
+          "sentence": "The 2000 UEFA Cup Final Riots, also known as the Battle of Copenhagen, were a series of riots in City Hall Square, Copenhagen, Denmark between fans of English football team Arsenal and Turkish team Galatasaray around the 2000 UEFA Cup Final on 17 May 2000.",
+          "factuality": "CT+"
+        },
+        {
+          "trigger": "riots",
+          "sentence": "The 2000 UEFA Cup Final Riots, also known as the Battle of Copenhagen, were a series of riots in City Hall Square, Copenhagen, Denmark between fans of English football team Arsenal and Turkish team Galatasaray around the 2000 UEFA Cup Final on 17 May 2000.",
+          "factuality": "CT+"
+        },
+        {
+          "trigger": "riot",
+          "sentence": "The police had prior warning of potential trouble and deployed 2,000 officers to the area, yet they were unable to control the riot until they fired tear gas.",
+          "factuality": "CT+"
+        },
+        {
+          "trigger": "riots",
+          "sentence": "This led to 19 injuries, including 4 stabbings, and 60 arrests with similar events occurring in England and Turkey in the aftermath of the riots.",
+          "factuality": "CT+"
+        },
+        {
+          "trigger": "riots",
+          "sentence": "Football authorities condemned the riots and threatened to expel national football teams from European competition if such events happened again.",
+          "factuality": "CT+"
+        },
+        {
+          "trigger": "riots",
+          "sentence": "The Danish police also were criticized for their handling of the riots.",
+          "factuality": "CT+"
+        }
+      ]
+    },
+    {
+      "split": "valid",
+      "document_id": "96e86414e1ba12dc2b1ca71d855ffdb5",
+      "event_id": "EVENT_57bc7a9e8decdfe0eb68577847fa6b9e",
+      "event_type": "Attack",
+      "mentions": [
+        {
+          "trigger": "attacks",
+          "sentence": "The British built up their bomber force and introduced navigational aids and tactics such as the bomber stream that enabled them to mount larger and larger attacks with an acceptable loss rate.",
+          "factuality": "PS+"
+        },
+        {
+          "trigger": "attacks",
+          "sentence": "After these attacks, recovery efforts in the following month could only bring back 65% of aviation fuel production temporarily.",
+          "factuality": "CT+"
+        }
+      ]
+    },
+    {
+      "split": "train",
+      "document_id": "0d9b97991cbe268c37853c464ecbfba8",
+      "event_id": "EVENT_aa875a012abbbedf1bfd4703035b984b",
+      "event_type": "Competition",
+      "mentions": [
+        {
+          "trigger": "match",
+          "sentence": "A match to determine the number-one contender to the NWA World Heavyweight Championship took place at Genesis, in which Monty Brown defeated Jeff Hardy for a future title match.",
+          "factuality": "CT+"
+        },
+        {
+          "trigger": "match",
+          "sentence": "A match to determine the number-one contender to the NWA World Heavyweight Championship took place at Genesis, in which Monty Brown defeated Jeff Hardy for a future title match.",
+          "factuality": "PS+"
+        }
+      ]
+    },
+    {
+      "split": "train",
+      "document_id": "430bf7c437ae69d47759a2b59755b1fb",
+      "event_id": "EVENT_e99fa1d4adf800ff6b192743ff33ae7b",
+      "event_type": "Competition",
+      "mentions": [
+        {
+          "trigger": "competition",
+          "sentence": "The 2007 Tri Nations Series was an annual rugby union competition between the national teams of Australia, New Zealand and South Africa.",
+          "factuality": "CT+"
+        },
+        {
+          "trigger": "matches",
+          "sentence": "The 2007 series consisted of six matches (two home matches each), three fewer than the 2006 series, because of the 2007 Rugby World Cup which would commence on 7 September.",
+          "factuality": "CT+"
+        },
+        {
+          "trigger": "competition",
+          "sentence": "Early in 2007, it was thought that there was a chance that could be admitted to the competition as early as 2008, as it had been reported that the worldwide governing body for rugby union, the International Rugby Board, was brokering a deal for the entry of the \"Pumas\".",
+          "factuality": "CT+"
+        },
+        {
+          "trigger": "competition",
+          "sentence": "However, by August of that year, it became clear that the competition would not be expanded while the current media contracts ran; the key contract with News Corporation would not expire until 2010.",
+          "factuality": "CT+"
+        },
+        {
+          "trigger": "tournament",
+          "sentence": "The tournament had been put into jeopardy after the Springboks team confirmed they were sending a below strength side for the Australasian leg of the tournament.",
+          "factuality": "Uu"
+        }
+      ]
+    },
+    {
+      "split": "train",
+      "document_id": "265dd05e8c49d93ee9ca6c9fb112d4cd",
+      "event_id": "EVENT_40391b7874b8c3177fd73ec9aa686833",
+      "event_type": "Change_of_leadership",
+      "mentions": [
+        {
+          "trigger": "election",
+          "sentence": "On 12 April 2012, a coup d'état in Guinea-Bissau was staged by elements of the armed forces about two weeks before the second round of a presidential election between Carlos Gomes Júnior and Kumba Ialá.",
+          "factuality": "CT+"
+        },
+        {
+          "trigger": "election",
+          "sentence": "Following international condemnation and sanctions against leaders of the junta, an agreement was signed that led to the third place candidate in the election, Manuel Serifo Nhamadjo, being selected as interim president.",
+          "factuality": "CT-"
+        },
+        {
+          "trigger": "election",
+          "sentence": "The presidential election was aborted and postponed for at least two years into the future.",
+          "factuality": "CT+"
+        }
+      ]
+    },
+    {
+      "split": "valid",
+      "document_id": "a2ef12d399e30291e070dd0d5944c8dd",
+      "event_id": "EVENT_8c1edd7ea1706de457f6e4887a95a2eb",
+      "event_type": "Control",
+      "mentions": [
+        {
+          "trigger": "control",
+          "sentence": "The Irish Rebellion of 1641 () began as an attempted \"coup d'état\" by Irish Catholic gentry, who tried to seize control of the English administration in Ireland to force concessions for Catholics.",
+          "factuality": "PS+"
+        },
+        {
+          "trigger": "control",
+          "sentence": "The Confederation became a de facto government of most of Ireland, free from the control of the English administration and loosely aligned with the Royalist side in the Wars of the Three Kingdoms.",
+          "factuality": "CT-"
+        }
+      ]
+    },
+    {
+      "split": "train",
+      "document_id": "49bb3dbce7e40725138ab1c23145486c",
+      "event_id": "EVENT_1b7787ecfdd693e48c428d81fca34641",
+      "event_type": "Surrendering",
+      "mentions": [
+        {
+          "trigger": "surrender",
+          "sentence": "A few days before, when pay did not arrive on time, the English soldiers mutinied, and was rumored that Wingfield had intended to surrender (or \"sold\") the city to the Spaniards.",
+          "factuality": "PS+"
+        },
+        {
+          "trigger": "surrender",
+          "sentence": "The States-General and Prince Maurice of Nassau () accused him of treason for its surrender, but Wingfield denied the charges against him.",
+          "factuality": "CT+"
+        }
+      ]
+    },
+    {
+      "split": "train",
+      "document_id": "b058520f785400dde5078211085ec00d",
+      "event_id": "EVENT_adb2e0ac7ceca0e98f007b4c56676c61",
+      "event_type": "Testing",
+      "mentions": [
+        {
+          "trigger": "test",
+          "sentence": "The 2006–07 ICC Intercontinental Cup was the third edition of the ICC Intercontinental Cup first-class cricket tournament, an international cricket tournament between nations who have not been awarded Test status by the International Cricket Council.",
+          "factuality": "CT+"
+        },
+        {
+          "trigger": "test",
+          "sentence": "All teams without Test status which qualified for the 2007 Cricket World Cup participated, along with the United Arab Emirates and the winner of the challenge match between Namibia and Nepal (runners-up in Africa and Asia in the 2005 edition).",
+          "factuality": "CT-"
+        }
+      ]
+    },
+    {
+      "split": "train",
+      "document_id": "11fb82ecacca361a045592ea2991b902",
+      "event_id": "EVENT_900e18af72e2cd985b751d9e86625ff4",
+      "event_type": "Attack",
+      "mentions": [
+        {
+          "trigger": "hit",
+          "sentence": "On 24 January, amateur video footage of a second explosion was released where the roar of over-flying jet, after missile hit, can be heard.",
+          "factuality": "CT+"
+        },
+        {
+          "trigger": "hit",
+          "sentence": "Unnamed experts quoted by \"EA Worldview\" identified the missile as air-to-ground, as opposed to ballistic missile that Syrian government claimed to hit the university.",
+          "factuality": "CT-"
+        }
+      ]
+    },
+    {
+      "split": "train",
+      "document_id": "365e6bddf948743851f37f318c6edcad",
+      "event_id": "EVENT_ce8d45b9069bef24d6cb9af45cc9b6ce",
+      "event_type": "Conquering",
+      "mentions": [
+        {
+          "trigger": "recapture",
+          "sentence": "It was partially successful, recapturing the important cities of Acre and Jaffa, and reversing most of Saladin's conquests, but it failed to recapture Jerusalem, which was the major aim of the Crusade and its religious focus.",
+          "factuality": "CT-"
+        },
+        {
+          "trigger": "recapture",
+          "sentence": "Saladin ultimately brought both the Egyptian and Syrian forces under his own control, and employed them to reduce the Crusader states and to recapture Jerusalem in 1187.",
+          "factuality": "CT+"
+        }
+      ]
+    },
+    {
+      "split": "valid",
+      "document_id": "7c633ba4e7385d20300625dae21777ba",
+      "event_id": "EVENT_d4622adc7945385f065f64bd902890b1",
+      "event_type": "Catastrophe",
+      "mentions": [
+        {
+          "trigger": "hurricane",
+          "sentence": "The 1940 Louisiana hurricane caused record flooding across much of the Southern United States in August 1940.",
+          "factuality": "CT+"
+        },
+        {
+          "trigger": "storm",
+          "sentence": "Early on August 4, the depression attained tropical storm intensity.",
+          "factuality": "CT+"
+        },
+        {
+          "trigger": "storm",
+          "sentence": "Ships in the vicinity of the storm reported a much stronger tropical cyclone than initially suggested.",
+          "factuality": "CT+"
+        },
+        {
+          "trigger": "storm",
+          "sentence": "After reaching hurricane strength on August 5 south of the Mississippi River Delta, the storm strengthened further into a Category 2 hurricane with maximum sustained winds of 100 mph and a minimum barometric pressure of 972 mbar (hPa; 28.71 inHg) at 0600 UTC on August 7.",
+          "factuality": "CT+"
+        },
+        {
+          "trigger": "hurricane",
+          "sentence": "The hurricane moved ashore near Sabine Pass, Texas later that day at peak strength.",
+          "factuality": "CT+"
+        },
+        {
+          "trigger": "storm",
+          "sentence": "Once inland, the storm executed a sharp curve to the north and quickly weakened, degenerating into a tropical storm on August 8 before dissipating over Arkansas on August 10.",
+          "factuality": "CT+"
+        },
+        {
+          "trigger": "storm",
+          "sentence": "Reports of a potentially destructive hurricane near the United States Gulf Coast forced thousands of residents in low-lying areas to evacuate prior to the storm moving inland.",
+          "factuality": "PS+"
+        },
+        {
+          "trigger": "hurricane",
+          "sentence": "Offshore, the hurricane generated rough seas and a strong storm surge, peaking at 6.4 ft (1.95 m) on the western edge of Lake Pontchartrain.",
+          "factuality": "CT+"
+        },
+        {
+          "trigger": "hurricane",
+          "sentence": "However, much of the property and crop damage wrought by the hurricane was due to the torrential rainfall it produced in low-lying areas, setting off record floods.",
+          "factuality": "CT+"
+        },
+        {
+          "trigger": "storm",
+          "sentence": "Overall, the storm caused $10.75 million in damages and seven fatalities.",
+          "factuality": "CT+"
+        }
+      ]
+    },
+    {
+      "split": "train",
+      "document_id": "8bd3b56b6648adfe6764b99a8841a819",
+      "event_id": "EVENT_5d53fed366b7807e6c20a3abce425a1d",
+      "event_type": "Arriving",
+      "mentions": [
+        {
+          "trigger": "entering",
+          "sentence": "The action formed part of the blockade of the French Biscay ports during the war by the British Royal Navy, a strategy designed to prevent ships from entering or leaving French harbours, thus eliminating foreign trade with France and damaging the French economy as well as cutting France off from her overseas colonies.",
+          "factuality": "CT-"
+        },
+        {
+          "trigger": "enter",
+          "sentence": "\"Thétis\" had not even cleared the French coast when she was discovered by a patrolling British frigate of the inshore squadron, a unit tasked with watching the entrance to the French Biscay ports, principally Brest, and intercepting any ships seeking to enter or leave the harbours.",
+          "factuality": "PS+"
+        }
+      ]
+    },
+    {
+      "split": "train",
+      "document_id": "1046189a18015a2edf87a7d547a8f200",
+      "event_id": "EVENT_3a2bc025a2e02c92ecd283d5d0d2903d",
+      "event_type": "Warning",
+      "mentions": [
+        {
+          "trigger": "warning",
+          "sentence": "There were numerous historical precedents for the unannounced military action by Japan, but the lack of any formal warning, particularly while peace negotiations were still apparently ongoing, led President Franklin D. Roosevelt to proclaim December 7, 1941, \"a date which will live in infamy\".",
+          "factuality": "CT+"
+        },
+        {
+          "trigger": "warning",
+          "sentence": "Because the attack happened without a declaration of war and without explicit warning, the attack on Pearl Harbor was later judged in the Tokyo Trials to be a war crime.",
+          "factuality": "CT-"
+        }
+      ]
+    },
+    {
+      "split": "train",
+      "document_id": "d686a51df352c5f33f84f9e9e3642768",
+      "event_id": "EVENT_da63470c471c22366fbe0c30666e1b5f",
+      "event_type": "Emptying",
+      "mentions": [
+        {
+          "trigger": "evacuate",
+          "sentence": "The Axis' predicament had been recognised earlier and a large scale effort to evacuate Axis personnel was expected.",
+          "factuality": "CT+"
+        },
+        {
+          "trigger": "evacuate",
+          "sentence": "In the event, the Italian Fleet did not leave port and there was no organised attempt to evacuate Axis forces by sea.",
+          "factuality": "CT-"
+        }
+      ]
+    },
+    {
+      "split": "valid",
+      "document_id": "765e6da580c1927afe85e5a7d5a821a6",
+      "event_id": "EVENT_9d99e71ba2ae0847a7ab093ba2ccf246",
+      "event_type": "Attack",
+      "mentions": [
+        {
+          "trigger": "violence",
+          "sentence": "The 1969 Gujarat riots refers to the communal violence between Hindus and Muslims during September–October 1969, in Gujarat, India.",
+          "factuality": "CT+"
+        },
+        {
+          "trigger": "violence",
+          "sentence": "It was the most deadly Hindu-Muslim violence since the 1947 partition of India, and remained such until the 1989 Bhagalpur violence.",
+          "factuality": "CT-"
+        },
+        {
+          "trigger": "violence",
+          "sentence": "A distinctive feature of the violence was the attack on Muslim chawls by their Dalit Hindu neighbours who had maintained peaceful relations with them until this point.",
+          "factuality": "CT+"
+        },
+        {
+          "trigger": "riots",
+          "sentence": "The riots happened during the chief ministership of the Indian National Congress leader Hitendra Desai.",
+          "factuality": "CT+"
+        },
+        {
+          "trigger": "violence",
+          "sentence": "The Justice Reddy Commission set up by his government blamed the Hindu nationalist organizations for the violence.",
+          "factuality": "CT+"
+        },
+        {
+          "trigger": "violence",
+          "sentence": "The violence started on 18 September 1969 after Muslims attacked some Hindu sadhus and a temple, after the cows herded by the sadhus caused injury to them.",
+          "factuality": "CT+"
+        },
+        {
+          "trigger": "violence",
+          "sentence": "By 26 September, the violence had been brought under control, however some more violent incidents happened during 18–28 October 1969.",
+          "factuality": "CT+"
+        }
+      ]
+    },
+    {
+      "split": "valid",
+      "document_id": "28bd77edc71c639978716e6c58f7b691",
+      "event_id": "EVENT_ce6a3a66687cf4db8aa2b924600146f8",
+      "event_type": "Change_of_leadership",
+      "mentions": [
+        {
+          "trigger": "coup",
+          "sentence": "The Polish coup d'état attempt in Lithuania refers to a failed attempt by Polish statesman Józef Piłsudski to overthrow the existing Lithuanian government of Prime Minister Mykolas Sleževičius, and install a pro-Polish cabinet that would agree to a union with Poland.",
+          "factuality": "CT+"
+        },
+        {
+          "trigger": "coup",
+          "sentence": "The Polish intelligence agency, the Polish Military Organization (PMO) was to carry out the coup d'etat, planned to be implemented in August 1919.",
+          "factuality": "PS+"
+        },
+        {
+          "trigger": "coup",
+          "sentence": "The coup was designed to seem to be an initiative by local Lithuanians aiming to free their government of German influence.",
+          "factuality": "CT+"
+        },
+        {
+          "trigger": "coup",
+          "sentence": "The coup further strained Polish–Lithuanian relations.",
+          "factuality": "CT+"
+        }
+      ]
+    },
+    {
+      "split": "train",
+      "document_id": "9d64b4a6045627be59090919be0d1f04",
+      "event_id": "EVENT_3cb04a3b1d20120d7e959d529e97e221",
+      "event_type": "Motion_directional",
+      "mentions": [
+        {
+          "trigger": "crossing",
+          "sentence": "Opposition was not expected so only one battalion was chosen for the crossing: the Argyll and Sutherland Highlanders of Canada (Princess Louise's), the Argylls.",
+          "factuality": "CT+"
+        },
+        {
+          "trigger": "crossing",
+          "sentence": "The South Alberta Regiment (SARs) would place its tanks on the friendly side of the canal at either side of the crossing point and hold the flanks of the crossing with their fire along with the Vickers machine guns of The New Brunswick Rangers.",
+          "factuality": "Uu"
+        },
+        {
+          "trigger": "crossing",
+          "sentence": "The South Alberta Regiment (SARs) would place its tanks on the friendly side of the canal at either side of the crossing point and hold the flanks of the crossing with their fire along with the Vickers machine guns of The New Brunswick Rangers.",
+          "factuality": "CT+"
+        },
+        {
+          "trigger": "crossing",
+          "sentence": "Major Stockloser ordered \"B\", \"C\", and \"D\" companies to cross the canal but had not arranged for assault boats, stating that the operation would be \"a crossing of opportunity\".",
+          "factuality": "Uu"
+        }
+      ]
+    },
+    {
+      "split": "train",
+      "document_id": "9d24b8dd9ee219e00b94ae0fe01af8c2",
+      "event_id": "EVENT_f433d0268f0d7b45bf2c46a3ffd25f64",
+      "event_type": "Escaping",
+      "mentions": [
+        {
+          "trigger": "flee",
+          "sentence": "Although Hallowell immediately recognised the danger his vessel was in and turned to flee, the French ships were much faster and soon closed with his ship.",
+          "factuality": "CT+"
+        },
+        {
+          "trigger": "escape",
+          "sentence": "At 14:00, three French vessels were within long gunshot and Hallowell decided that his only hope of escape lay in disabling the three ships before the rest of the French squadron could join the engagement.",
+          "factuality": "CT-"
+        },
+        {
+          "trigger": "escape",
+          "sentence": "Threatened with complete destruction and unable to escape, the British captain surrendered.",
+          "factuality": "CT-"
+        }
+      ]
+    },
+    {
+      "split": "train",
+      "document_id": "b4184b44db764cba651d5f36269cddbc",
+      "event_id": "EVENT_b96fa38b39179a4f5840ff083ee8f17e",
+      "event_type": "Causation",
+      "mentions": [
+        {
+          "trigger": "cause",
+          "sentence": "The exact cause of the blast has not been established.",
+          "factuality": "CT-"
+        },
+        {
+          "trigger": "cause",
+          "sentence": "While a criminal investigation was initiated, city authorities suspect that the cause may have been improper use of gas appliances.",
+          "factuality": "PS+"
+        }
+      ]
+    },
+    {
+      "split": "train",
+      "document_id": "dd624a600fda162816cdc29f6f945f5f",
+      "event_id": "EVENT_bef9af1aee1f3d2fb9b5fcbdfa1bbe45",
+      "event_type": "Destroying",
+      "mentions": [
+        {
+          "trigger": "break",
+          "sentence": "The intention was to break through the German defences south of Caen on the eastern flank of the Allied positions in Normandy and exploit success by driving south, to capture the high ground north of the city of Falaise.",
+          "factuality": "PS+"
+        },
+        {
+          "trigger": "broke",
+          "sentence": "They broke through the German front lines and captured vital positions deep in the German defences.",
+          "factuality": "CT+"
+        }
+      ]
+    }
+  ]
+}
