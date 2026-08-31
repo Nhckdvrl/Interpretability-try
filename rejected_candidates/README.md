@@ -13,6 +13,19 @@
 
 ---
 
+## Mandatory logging boundary
+
+**所有被认真审查过但最终排除的问题都必须在本目录留下短记录。** 目的不是写研究日记，而是建立 semantic dedupe memory，防止未来因为换标题、dataset、model、prompt、language、subset 或 MI method 又重新花文献时间或 GPU 排查同一个死题。
+
+判定边界：
+
+- 仅仅出现在搜索结果里、没有形成 scientific question / mother-extension card 的噪声，不建文件；
+- 一旦对一个问题认真检查过 mother ownership、strongest neighbor、substrate、existing behavior、measurement 或 mechanism 中任一项，并据此决定 KILL，**必须立即建 rejection record**；
+- pre-S0 / N0 / cheap-falsifier 阶段死亡同样必须记录，不以“还没跑模型”为理由省略；
+- 同一 scientific meaning 的别名应合并到一个 canonical rejection，不为 rename 建重复文件。
+
+---
+
 ## 正确使用方式
 
 当一个具体 mother-extension card 已经形成后：
@@ -34,11 +47,15 @@
 ```yaml
 question:
 mother:
+semantic_aliases: []
+what_was_reviewed:
 kill_class: F1|F2|F3|F4|F5|F6|F7
 kill_evidence:
 nearest_neighbor_warning:
 resurrection_condition:
 ```
+
+其中 `kill_evidence` 必须写**决定性证据**，而不是“感觉不够好”。`nearest_neighbor_warning` 要尽量覆盖未来最可能的改名复活方式。
 
 F1–F7 定义见 `phenomenon_miner/FAILED_TOPICS.md`。
 
@@ -73,4 +90,4 @@ F1–F7 定义见 `phenomenon_miner/FAILED_TOPICS.md`。
 
 ## One-line rule
 
-> **先有 mother-extension，再查负知识；不要从负知识长清单反向生成下一批 `X != Y`。**
+> **认真审过就留短负记录；先有 mother-extension，再查负知识；不要从负知识长清单反向生成下一批 `X != Y`。**
