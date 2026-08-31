@@ -59,6 +59,7 @@
 - [`factuality_information_conflict.md`](./factuality_information_conflict.md) — false premises, answerability, misinformation, source credibility, repetition
 - [`multimodal_grounding.md`](./multimodal_grounding.md) — VLM perception–knowledge conflict and counterfactual visual grounding
 - [`semantic_pragmatic_factorization.md`](./semantic_pragmatic_factorization.md) — semantic / pragmatic / discourse factorization kills; includes intended-vs-perceived sarcasm, literal-vs-figurative meaning, said-vs-implicated content, emotion-vs-cause, dialogue-act-vs-affect, definiteness-vs-specificity, taxonomic-vs-thematic, animacy-vs-agentivity, and agency-vs-experience
+- [`hamdi_search_addendum_2026-08-31.md`](./hamdi_search_addendum_2026-08-31.md) — cross-domain terminal addendum that supersedes stale “under audit” wording for deontic facilitation and freezes motivated-reasoning / self-attribution ownership collisions
 - [`001.md`](./001.md) — **legacy mixed-domain batch**，保留历史记录，不再继续追加。包含 role-value binding、facts-vs-shortcuts、fan effect、VLM conflict、self-correction、tool irrelevance、irrelevant context、negation、social compliance、overthinking。
 
 后续新增 rejection **只进入对应 domain log**；如果出现新的领域，就新建 `<domain>.md`。旧 `001.md` 不删除，作为第一轮搜题历史快照。
