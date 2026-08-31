@@ -4,12 +4,15 @@ Date: 2026-08-31
 Status: **AUTHORITATIVE CURRENT STATE — FRESH SEARCH IN PROGRESS**
 
 ```yaml
-CURRENT_FRESH_PASS_REGISTER: 1
-CURRENT_FRESH_ACTIVE_TOPICS: 1
+CURRENT_FRESH_PASS_REGISTER: 2
+CURRENT_FRESH_ACTIVE_TOPICS: 2
 fresh_register_target: 5
 fresh_target: LLM mechanistic interpretability only
 required_protocol: PAPER-SCALE v2
-latest_registered_project: 034_prospective_memory_retrieval_architecture
+latest_registered_project: 035_shared_dynamic_context_update
+registered_projects:
+  - 034_prospective_memory_retrieval_architecture
+  - 035_shared_dynamic_context_update
 archived_reaudit:
   - 029_etr_human_like_fallacy
   - 030_spatial_reference_frame_transformation
@@ -26,7 +29,8 @@ Only:
 1. root [`README.md`](../README.md)
 2. [`FINDING_RULES.md`](FINDING_RULES.md) — **must read in full; v2 adds PAPER-SCALE / F8**
 3. this handoff
-4. if continuing fresh search, [`../active/034_prospective_memory_retrieval_architecture/README.md`](../active/034_prospective_memory_retrieval_architecture/README.md) to avoid duplicating the registered PM question
+4. [`../active/034_prospective_memory_retrieval_architecture/README.md`](../active/034_prospective_memory_retrieval_architecture/README.md)
+5. [`../active/035_shared_dynamic_context_update/README.md`](../active/035_shared_dynamic_context_update/README.md)
 
 Then inspect archive/rejections only on semantic overlap.
 
@@ -47,6 +51,22 @@ Why registered:
 - frozen native cells, controlled cue-focality/context microscope, H1/H2/H3 predictions, hard kills, and first causal interaction statistic are documented before GPU.
 
 Full contract: [`../active/034_prospective_memory_retrieval_architecture/README.md`](../active/034_prospective_memory_retrieval_architecture/README.md).
+
+### 035 — Shared Dynamic Context Update Across Discourse Phenomena
+
+**PASS-REGISTER / GPU AUTHORIZED.**
+
+Natural question: do LLMs interpret discourse using a reusable dynamically updated local context shared by anaphora and presupposition, or do those phenomena rely on separate/static/lexical computations?
+
+Why registered:
+
+- scientific object comes from dynamic semantics / DRT, where evolving local discourse context predates both LLM tasks;
+- two independent strong behavioral windows are public: ACL 2025 anaphora accessibility and CoNLL 2026 Outstanding presupposition in conditionals;
+- both expose a common `Llama-3.1-8B-Instruct` checkpoint and row-level artifacts;
+- strongest-neighbor search found no 2025–2026 work causally testing shared dynamic-context machinery across the phenomena;
+- frozen common structural window is conditional local context; H1 shared update vs H2 phenomenon-specific vs H3 lexical/static alternatives; primary test is preregistered cross-task causal transfer relative to within-task effect.
+
+Full contract: [`../active/035_shared_dynamic_context_update/README.md`](../active/035_shared_dynamic_context_update/README.md).
 
 ## Fresh search hard-audit since reset
 
@@ -84,7 +104,7 @@ V3 correctly stopped when held-out/polarity-invariant reachability measurement f
 
 ## Next search protocol
 
-We still need **four** fresh topics at the same bar as 034. Do not count PAPER-SCALE survivors as register entries.
+We still need **three** fresh topics at the same bar as 034/035. Do not count PAPER-SCALE survivors as register entries.
 
 For every serious candidate, before GPU freeze:
 
@@ -112,4 +132,4 @@ Hard kill if benchmark removal fails, negative results require a new headline, h
 
 ## One-line instruction for next agent
 
-> **Keep 034 frozen. Find four more LLM scientific questions that independently pass PAPER-SCALE + N0/N1/N2 + substrate + open-model evidence + frozen S0; only then move the authoritative register to 5.**
+> **Keep 034 and 035 frozen. Find three more LLM scientific questions that independently pass PAPER-SCALE + N0/N1/N2 + substrate + open-model evidence + frozen S0; only then move the authoritative register to 5.**
