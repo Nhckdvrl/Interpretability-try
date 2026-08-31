@@ -3,12 +3,12 @@
 用于寻找 **ACL / EMNLP / NAACL 风格、题目幅度正常、自然且可机制化的 LLM scientific questions**。
 
 ```yaml
-CURRENT_FRESH_PASS_REGISTER: 2
-CURRENT_FRESH_ACTIVE_TOPICS: 2
+CURRENT_FRESH_PASS_REGISTER: 3
+CURRENT_FRESH_ACTIVE_TOPICS: 3
 fresh_register_target: 5
-latest_registered_project: 035 shared dynamic context update
+latest_registered_project: 036 metaphor processing-route selection
 latest_terminal_project: 031 within-run graph-state audit
-latest_reaudit: initial fresh paper-scale pool hard-audited; all five killed before GPU
+latest_reaudit: continued fresh search with high-mortality PAPER-SCALE + N2 hard audits
 current_target: continue fresh LLM search until authoritative register reaches 5
 ```
 
@@ -18,8 +18,9 @@ current_target: continue fresh LLM search until authoritative register reaches 5
 |---|---|---|
 | [`034_prospective_memory_retrieval_architecture`](active/034_prospective_memory_retrieval_architecture/) | **PASS-REGISTER / GPU AUTHORIZED** | Future intentions: strategic monitoring, spontaneous cue-triggered retrieval, or dynamic switching? |
 | [`035_shared_dynamic_context_update`](active/035_shared_dynamic_context_update/) | **PASS-REGISTER / GPU AUTHORIZED** | Do anaphora and presupposition reuse a shared dynamic local-context update, or rely on separate/static heuristics? |
+| [`036_metaphor_processing_route_selection`](active/036_metaphor_processing_route_selection/) | **PASS-REGISTER / GPU AUTHORIZED** | What selects comparison vs categorization in metaphor comprehension: conventionality, aptness, or no discrete route switch? |
 
-**还需要 3 个同等级题目。** 不因为 target=5 降低任何 gate；候选死亡即进 `rejected_candidates/`，继续搜索替代。
+**还需要 2 个同等级题目。** 不因为 target=5 降低任何 gate；候选死亡即进 `rejected_candidates/`，继续搜索替代。
 
 **上一轮 029–033 的 `5/5 PASS` 已全部撤销。** 031 在 V3 measurement gate 失败；029/032/033 在新的 topic-scale / novelty-width re-audit 下不再值得继续；030 作为 VLM 题退出当前 LLM 主线。五个目录均已完整移动到 `archive/`，保留代码、结果与 provenance。
 
