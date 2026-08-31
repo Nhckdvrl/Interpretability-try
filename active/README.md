@@ -5,13 +5,18 @@
 ## Fresh topic search
 
 ```yaml
-CURRENT_FRESH_ACTIVE_TOPICS: 0
-CURRENT_FRESH_PASS_REGISTER: 0
+CURRENT_FRESH_ACTIVE_TOPICS: 1
+CURRENT_FRESH_PASS_REGISTER: 1
+fresh_register_target: 5
 ```
 
-029–033 已于 2026-08-31 全部移出 `active/` 并完整归档。下一轮必须先过新的 **PAPER-SCALE** gate，不能从旧 registration 直接恢复。
+| project | status | note |
+|---|---|---|
+| [`034_prospective_memory_retrieval_architecture`](034_prospective_memory_retrieval_architecture/) | **PASS-REGISTER / GPU AUTHORIZED** | Strategic monitoring vs spontaneous cue-triggered retrieval vs dynamic multiprocess control; frozen S0 + causal contract in project README |
 
-## 当前真正保留的工作
+Search continues until five fresh topics independently satisfy the same bar.
+
+## 当前真正保留的旧工作
 
 | project | status | note |
 |---|---|---|
