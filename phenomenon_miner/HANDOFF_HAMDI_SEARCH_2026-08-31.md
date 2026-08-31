@@ -1,13 +1,15 @@
 # Hamdi-Style Topic Search — Current Handoff
 
 Date: 2026-08-31  
-Status: **AUTHORITATIVE CURRENT STATE — FRESH SEARCH RESET**
+Status: **AUTHORITATIVE CURRENT STATE — FRESH SEARCH IN PROGRESS**
 
 ```yaml
-CURRENT_FRESH_PASS_REGISTER: 0
-CURRENT_FRESH_ACTIVE_TOPICS: 0
+CURRENT_FRESH_PASS_REGISTER: 1
+CURRENT_FRESH_ACTIVE_TOPICS: 1
+fresh_register_target: 5
 fresh_target: LLM mechanistic interpretability only
 required_protocol: PAPER-SCALE v2
+latest_registered_project: 034_prospective_memory_retrieval_architecture
 archived_reaudit:
   - 029_etr_human_like_fallacy
   - 030_spatial_reference_frame_transformation
@@ -24,10 +26,43 @@ Only:
 1. root [`README.md`](../README.md)
 2. [`FINDING_RULES.md`](FINDING_RULES.md) — **must read in full; v2 adds PAPER-SCALE / F8**
 3. this handoff
+4. if continuing fresh search, [`../active/034_prospective_memory_retrieval_architecture/README.md`](../active/034_prospective_memory_retrieval_architecture/README.md) to avoid duplicating the registered PM question
 
-Then inspect `archive/029–033` only when a new idea semantically overlaps. Do not reread all old addenda by default.
+Then inspect archive/rejections only on semantic overlap.
 
-## Why the previous 5/5 slate was revoked
+## Current authoritative fresh register
+
+### 034 — Prospective Memory Retrieval Architecture
+
+**PASS-REGISTER / GPU AUTHORIZED.**
+
+Natural question: when an LLM agent must remember a future intention while continuing other work, is retrieval supported by sustained strategic monitoring, cue-triggered spontaneous retrieval, or dynamic switching between the two?
+
+Why registered:
+
+- scientific distinction comes from mature prospective-memory theory, not PM-Bench;
+- PM-Bench provides a real public deterministic substrate, scorer/runtime, and 64 released trajectories;
+- modern open families include Llama-3.3, Mistral, and Qwen3 with substantial non-ceiling behavior;
+- no strongest neighbor found that causally adjudicates strategic-monitoring vs spontaneous-retrieval architecture in native open-weight LLM agents;
+- frozen native cells, controlled cue-focality/context microscope, H1/H2/H3 predictions, hard kills, and first causal interaction statistic are documented before GPU.
+
+Full contract: [`../active/034_prospective_memory_retrieval_architecture/README.md`](../active/034_prospective_memory_retrieval_architecture/README.md).
+
+## Fresh search hard-audit since reset
+
+The first five paper-scale possibilities were **not** promoted. All died under strongest-neighbor/data/behavior gates before GPU:
+
+- explicit vs implicit memory systems — ACL 2026 ImplicitMemBench already interprets the dissociation as non-reducible to explicit storage/retrieval and suggests distinct mechanisms; causal double-dissociation would be mother mechanization.
+- prototype vs exemplar categorization — EACL 2026 Best Paper already occupies abstraction-vs-exemplar language learning.
+- source independence / false corroboration — 2026 `Beyond Memory Majority` already owns correlated/shared-origin evidence being double counted and a provenance-aware correction.
+- model-based vs model-free decision control — LLM-specific work already directly studies the axis, while two-step behavior is not uniquely diagnostic.
+- event-boundary memory organization — human-like segmentation exists, but native ordinary-comprehension memory restructuring lacks a strong established open-model phenotype.
+
+Additional serious kills logged in `rejected_candidates/` include proactive-vs-reactive executive control, premise-diversity induction, garden-path serial-vs-parallel reanalysis, revision-vs-world-update, source memory, and common-ground reconstruction.
+
+The rejection discipline is mandatory: **seriously reviewed and killed -> short semantic-dedupe record immediately.**
+
+## Why the previous 029–033 slate was revoked
 
 031 exposed a selection failure, not merely an experimental null. The project moved through several different headline claims as gates failed:
 
@@ -37,85 +72,44 @@ spontaneous deception
 → within-run graph-state corruption
 ```
 
-V3 correctly stopped when held-out/polarity-invariant reachability measurement failed (best ridge AUROC 0.532; cross-polarity 0.538/0.530; recipient 0.465; 0 passing layers). But the deeper lesson is that the original question was too benchmark-dependent and did not have stable paper-scale identity.
+V3 correctly stopped when held-out/polarity-invariant reachability measurement failed (best ridge AUROC 0.532; cross-polarity 0.538/0.530; recipient 0.465; 0 passing layers). The deeper lesson is that the original question was too benchmark-dependent and did not have stable paper-scale identity.
 
-Therefore the remaining slate was re-audited under a stricter standard rather than assumed valid by sunk cost.
+### 029–033 verdicts
 
-## Re-audit verdicts
-
-### 029 — Human-Like Fallacies
-
-**ARCHIVE / SCALE + PROVENANCE.**
-
-The ICLR mother is strong, but the proposed extension is caught between two bad scales:
-
-- without ETR/PyETR specifics, `does behavioral similarity imply mechanistic similarity?` is too generic;
-- with ETR/PyETR specifics, the paper becomes a narrow mechanistic verification of one cognitive theory on a synthetic generator.
-
-The exact final 383-item exclusion manifest is also unavailable. Do not spend MI compute unless a future candidate supplies a broader independent scientific object.
-
-### 030 — Spatial Reference Frames
-
-**ARCHIVE / CURRENT TARGET MISMATCH, not scientific terminal kill.**
-
-Reference-frame transformation is a legitimate broad question, but it is VLM. The next search is explicitly LLM-focused. Preserve provenance only.
-
-### 031 — Spontaneous Deception / Graph State
-
-**TERMINAL KILL / F8 + V3 measurement gate.**
-
-Do not revive by changing probe/token position/subset or by returning to construct-validity framing. Canonical lesson: a runnable causal experiment does not imply a paper-scale question.
-
-### 032 — Temporal Forgetting Mechanism
-
-**ARCHIVE / SCALE.**
-
-Temporal Forgetting is a broad ACL Main phenomenon, but our extension was primarily `which internal stage/circuit explains this mother phenomenon?`. The hypotheses (upstream erosion vs middle reasoning vs late readout vs distributed change) are mostly localization categories rather than an independently motivated scientific debate. This is too close to generic mechanistic follow-up under the new bar.
-
-### 033 — Opposite-Scaling Contextual Entrainment
-
-**ARCHIVE / DELTA-WIDTH + DATA.**
-
-The behavior is real and broad, but ACL 2025 Outstanding already owns contextual entrainment mechanism, while Findings ACL 2026 already frames semantic filtering and mechanical copying as functionally distinct and explicitly suggests mechanistic decomposition. A writer/gate/two-circuit follow-up would mostly mechanize the mother’s interpretation/future work. Exact item-level mother data is also not released. Not enough novelty width for the current target.
+- **029 — ARCHIVE / SCALE + PROVENANCE.** ETR/PyETR defines too much of the question; exact final 383-item exclusion manifest unavailable.
+- **030 — ARCHIVE / CURRENT TARGET MISMATCH.** Legitimate reference-frame question but VLM, not current LLM target.
+- **031 — TERMINAL KILL / F8 + V3.** Do not revive by probe/token/subset/narrative changes.
+- **032 — ARCHIVE / SCALE.** `Which stage/circuit causes mother's temporal forgetting?` is generic mechanistic follow-up; hypotheses mostly localization taxonomy.
+- **033 — ARCHIVE / DELTA WIDTH + DATA.** ACL'25 already owns entrainment mechanism and ACL'26 already frames semantic filtering vs mechanical copying/future work; writer/gate circuit is too narrow.
 
 ## Next search protocol
 
-The next agent must **not** start from `mother → mechanism gap` alone.
+We still need **four** fresh topics at the same bar as 034. Do not count PAPER-SCALE survivors as register entries.
 
-For every candidate, before dataset search or GPU, write a PAPER CARD containing:
+For every serious candidate, before GPU freeze:
 
 1. one-sentence question with no dataset names;
 2. independent scientific object;
 3. why a non-benchmark reader should care;
-4. comparison to at least 3 strong ACL/EMNLP/NAACL Main/Outstanding papers on topic scale;
-5. exact conceptual delta from strongest prior work;
+4. comparison to >=3 strong ACL/EMNLP/NAACL Main/Outstanding papers on topic scale;
+5. exact conceptual delta from strongest 3–5 neighbors;
 6. why this is not merely mechanizing a mother/future-work line;
-7. whether dataset is natural or merely a controlled measurement window;
-8. 2–3 competing hypotheses whose outcomes preserve the same headline question.
+7. accessible row-level substrate / central gold;
+8. established modern open-model behavior or a legitimate Route-A omitted axis;
+9. 2–3 theory-level competing mechanisms;
+10. Result A/B/C with invariant headline;
+11. frozen S0 and causal predictions/fatal controls.
 
-Hard kill if:
-
-- removing benchmark name destroys the question;
-- negative results would force changing the headline object;
-- hypotheses are just early/middle/late localization;
-- novelty is `behavior → mechanism` with no new theoretical object;
-- synthetic dataset creates the central scientific distinction;
-- current story needs post-hoc narrowing to sound broad.
+Hard kill if benchmark removal fails, negative results require a new headline, hypotheses are localization categories, novelty is behavior→mechanism alone, dataset creates the distinction, or data/phenotype must first be discovered by GPU lottery.
 
 ## Venue-scale anchors
 
-Use these as calibration, not as topic templates:
-
-- ACL 2025 Outstanding — `Llama See, Llama Do`: broad new contextual entrainment phenomenon across models/settings → causal heads + mitigation.
-- EMNLP 2025 Outstanding — filler-gap shared structure: mature linguistic theory question → causal LM evidence.
-- NAACL 2025 — property inheritance: classic taxonomy vs similarity cognitive debate → behavioral + causal representational evidence.
-- NAACL 2025 — `Racing Thoughts`: unified hypothesis for a class of contextualization errors → causal evidence + intervention.
-- ACL 2026 Main — tool irrelevance: natural semantic relevance vs structural matching conflict → controlled dataset, competing pathways, mitigation.
-
-## Current active state
-
-No fresh 029–033 project remains active. `active/014_alias_entrainment_transfer` is separate established paper development; other legacy/HOLD directories do not count as fresh topics.
+- ACL 2025 Outstanding — `Llama See, Llama Do`
+- EMNLP 2025 Outstanding — filler-gap shared structure
+- NAACL 2025 — property inheritance taxonomy vs similarity
+- NAACL 2025 — `Racing Thoughts`
+- ACL 2026 Main — tool irrelevance / semantic relevance vs structural matching
 
 ## One-line instruction for next agent
 
-> **Find an LLM scientific question that would still deserve an ACL/EMNLP/NAACL paper if the benchmark name disappeared from the abstract; only then look for a mother, data, and MI method.**
+> **Keep 034 frozen. Find four more LLM scientific questions that independently pass PAPER-SCALE + N0/N1/N2 + substrate + open-model evidence + frozen S0; only then move the authoritative register to 5.**
