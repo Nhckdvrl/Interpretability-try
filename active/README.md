@@ -5,14 +5,15 @@
 ## Fresh topic search
 
 ```yaml
-CURRENT_FRESH_ACTIVE_TOPICS: 1
-CURRENT_FRESH_PASS_REGISTER: 1
+CURRENT_FRESH_ACTIVE_TOPICS: 2
+CURRENT_FRESH_PASS_REGISTER: 2
 fresh_register_target: 5
 ```
 
 | project | status | note |
 |---|---|---|
-| [`034_prospective_memory_retrieval_architecture`](034_prospective_memory_retrieval_architecture/) | **PASS-REGISTER / GPU AUTHORIZED** | Strategic monitoring vs spontaneous cue-triggered retrieval vs dynamic multiprocess control; frozen S0 + causal contract in project README |
+| [`034_prospective_memory_retrieval_architecture`](034_prospective_memory_retrieval_architecture/) | **PASS-REGISTER / GPU AUTHORIZED** | Strategic monitoring vs spontaneous cue-triggered retrieval vs dynamic multiprocess control; frozen S0 + causal contract |
+| [`035_shared_dynamic_context_update`](035_shared_dynamic_context_update/) | **PASS-REGISTER / GPU AUTHORIZED** | Shared dynamic local-context update across anaphora and presupposition vs phenomenon-specific/static heuristics; frozen cross-task causal-transfer contract |
 
 Search continues until five fresh topics independently satisfy the same bar.
 
