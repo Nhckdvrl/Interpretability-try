@@ -77,7 +77,10 @@
 - [`continuation_terminal_addendum_3_2026-08-31.md`](./continuation_terminal_addendum_3_2026-08-31.md) — later terminal cleanup including recognition/recall, content/source, what/where and stale physical-cognition survivors
 - [`continuation_terminal_addendum_4_2026-08-31.md`](./continuation_terminal_addendum_4_2026-08-31.md) — additional continuation hard kills; newer addenda supersede any remaining HOLD wording
 - [`continuation_terminal_addendum_5_2026-08-31.md`](./continuation_terminal_addendum_5_2026-08-31.md) — belief-update gate/dial, species moral-status axes, implicit preference/inhibition, privacy knowledge/action, generic perceptual constancy, relational-property essentialization
-- [`continuation_terminal_addendum_6_2026-08-31.md`](./continuation_terminal_addendum_6_2026-08-31.md) — **latest terminal addendum**: numeric heaping, subliminal learner/reader, common/deadly, power/status, authorship/endorsement, mass volume×density, unit invariance, anchoring, astronomy/geophysics axes, ratio bias, preference transitivity, occupational income/prestige, manipulation detection/effect, inattentional blindness, legal authority, belief-expression framing, health/sustainability, institutional-role/prominence; also records the precise blockers for the remaining unregistered frontiers
+- [`continuation_terminal_addendum_6_2026-08-31.md`](./continuation_terminal_addendum_6_2026-08-31.md) — numeric heaping, subliminal learner/reader, common/deadly, power/status, authorship/endorsement, mass volume×density, unit invariance, anchoring, astronomy/geophysics axes, ratio bias, preference transitivity, occupational income/prestige, manipulation detection/effect, inattentional blindness, legal authority, belief-expression framing, health/sustainability, institutional-role/prominence; also records blockers for the remaining frontiers
+- [`continuation_terminal_addendum_7_2026-08-31.md`](./continuation_terminal_addendum_7_2026-08-31.md) — affective validation vs epistemic endorsement; feedback/update direction vs correction magnitude
+- [`continuation_terminal_addendum_8_2026-08-31.md`](./continuation_terminal_addendum_8_2026-08-31.md) — no-resurrection alias lock; social cognition→action, population mean→heterogeneity, state-affordance, stated/revealed preference, causal overreach, probability/valence, geographic distortion families
+- [`continuation_terminal_addendum_9_2026-08-31.md`](./continuation_terminal_addendum_9_2026-08-31.md) — **LATEST TERMINAL ADDENDUM / conversation closeout**; canonical summary of all serious deaths from the final continuation conversation plus the only four nonterminal execution frontiers
 - [`001.md`](./001.md) — **legacy mixed-domain batch**，保留历史记录，不再继续追加。
 
 ## Authority rule
@@ -85,7 +88,7 @@
 When statuses conflict, use this order:
 
 1. `phenomenon_miner/HANDOFF_HAMDI_SEARCH_2026-08-31.md` (newest contents)
-2. newest `continuation_terminal_addendum_*_2026-08-31.md`
+2. newest `continuation_terminal_addendum_*_2026-08-31.md` — currently **Addendum 9**
 3. other terminal addenda
 4. domain logs
 5. old chat / old `lead`, `PRE-CANDIDATE`, `HOLD`, `under audit` prose
@@ -94,4 +97,4 @@ A stale positive label is never evidence of survival.
 
 ## Mandatory pre-search check
 
-任何新候选在进入 S0 前，除了 `phenomenon_miner/FAILED_TOPICS.md` 和 `archive/README.md`，还必须搜索本目录的 domain logs。若 scientific object 已在某个 rejection log 中死亡，**换模型、换数据、换 prompt、换语言、换 MI 方法或换名字均不能自动复活**；只能满足该条目明确写出的 resurrection condition 后重新进入 P0/S0。
+任何新候选在进入 S0 前，除了 `phenomenon_miner/FAILED_TOPICS.md` 和 `archive/README.md`，还必须搜索本目录的 domain logs 与**最新 terminal addendum**。先把候选写成一句不含 dataset/MI 词的 scientific object，再写 5–10 个语义近邻/别名去搜负知识库。若 scientific object 已死亡，**换模型、换数据、换 prompt、换语言、换 MI 方法或换名字均不能自动复活**；只能满足该条目明确写出的 resurrection condition 后重新进入 P0/S0。
