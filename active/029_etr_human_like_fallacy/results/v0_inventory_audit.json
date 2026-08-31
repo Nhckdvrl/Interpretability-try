@@ -1,0 +1,101 @@
+{
+  "candidate_datasets": [
+    {
+      "path": "datasets_invalid/250524_multiple_choice.jsonl",
+      "rows": 372
+    },
+    {
+      "path": "datasets_invalid/250524_multiple_choice_with_cot.jsonl",
+      "rows": 372
+    },
+    {
+      "path": "datasets_invalid/250524_open_ended.jsonl",
+      "rows": 372
+    },
+    {
+      "path": "datasets_invalid/250524_open_ended_with_cot.jsonl",
+      "rows": 372
+    },
+    {
+      "path": "datasets_invalid/250524_yes_no.jsonl",
+      "rows": 372
+    },
+    {
+      "path": "datasets_invalid/250524_yes_no_with_cot.jsonl",
+      "rows": 372
+    },
+    {
+      "path": "datasets_invalid/largeset_multiple_choice.jsonl",
+      "rows": 400
+    },
+    {
+      "path": "datasets_invalid/largeset_multiple_choice_with_cot.jsonl",
+      "rows": 400
+    },
+    {
+      "path": "datasets_invalid/largeset_open_ended.jsonl",
+      "rows": 400
+    },
+    {
+      "path": "datasets_invalid/largeset_open_ended_with_cot.jsonl",
+      "rows": 400
+    },
+    {
+      "path": "datasets_invalid/largeset_yes_no.jsonl",
+      "rows": 400
+    },
+    {
+      "path": "datasets_invalid/largeset_yes_no_with_cot.jsonl",
+      "rows": 400
+    },
+    {
+      "path": "datasets_invalid/old/dev_multiple_choice.jsonl",
+      "rows": 400
+    },
+    {
+      "path": "datasets_invalid/old/dev_multiple_choice_with_cot.jsonl",
+      "rows": 400
+    },
+    {
+      "path": "datasets_invalid/old/dev_open_ended.jsonl",
+      "rows": 400
+    },
+    {
+      "path": "datasets_invalid/old/dev_open_ended_with_cot.jsonl",
+      "rows": 400
+    },
+    {
+      "path": "datasets_invalid/old/dev_yes_no.jsonl",
+      "rows": 400
+    },
+    {
+      "path": "datasets_invalid/old/dev_yes_no_with_cot.jsonl",
+      "rows": 400
+    },
+    {
+      "path": "datasets_invalid/reverse_largeset_open_ended.jsonl",
+      "rows": 400
+    }
+  ],
+  "exact_383_candidates": [],
+  "exact_manifest_present": false,
+  "generator_commit": "f6477b645df72b09b07fa81120bad24529f9a0ad",
+  "paper_excluded_after_integrity_checks": 17,
+  "paper_final_population": 383,
+  "paper_initial_population": 400,
+  "public_result_tables": {
+    "forward": {
+      "models": 10,
+      "rows": 4000,
+      "unique_doc_ids": 400
+    },
+    "reverse": {
+      "models": 9,
+      "rows": 3600,
+      "unique_doc_ids": 400
+    }
+  },
+  "schema_version": 1,
+  "status": "MISSING_EXACT_383_MANIFEST",
+  "warning": "Commit c177357 marks the historical datasets invalid after a view_to_smt bug."
+}

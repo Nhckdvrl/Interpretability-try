@@ -1,6 +1,7 @@
 # 032 — What Does Reasoning Training Forget?
 
-Status: **ACTIVE / PASS-REGISTER / INITIAL VALIDATION NOT YET RUN**  
+Status: **ACTIVE / PASS-REGISTER / V0 PROVENANCE PINNED — GREEDY OUTPUTS NOT YET INGESTED**
+
 Route: **Hamdi Route B — established anomaly → unasked causal computation**  
 Canonical registration: [`../../phenomenon_miner/REGISTERED_TEMPORAL_FORGETTING_MECHANISM_2026-08-31.md`](../../phenomenon_miner/REGISTERED_TEMPORAL_FORGETTING_MECHANISM_2026-08-31.md)
 

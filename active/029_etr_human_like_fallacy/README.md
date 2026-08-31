@@ -1,6 +1,7 @@
 # 029 — Human-Like Fallacies: Alternative Filtering or Prior Contamination?
 
-Status: **ACTIVE / PASS-REGISTER / INITIAL VALIDATION NOT YET RUN**  
+Status: **ACTIVE / PASS-REGISTER / V0 PROVENANCE AUDITED — EXACT 383 MANIFEST MISSING**
+
 Route: **Hamdi Route B — established anomaly → unasked causal computation**  
 Canonical registration: [`../../phenomenon_miner/REGISTERED_ETR_HUMAN_LIKE_FALLACY_MECHANISM_2026-08-31.md`](../../phenomenon_miner/REGISTERED_ETR_HUMAN_LIKE_FALLACY_MECHANISM_2026-08-31.md)
 

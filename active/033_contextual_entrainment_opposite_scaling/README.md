@@ -1,6 +1,7 @@
 # 033 — Why Bigger Models Ignore Lies but Copy Noise
 
-Status: **ACTIVE / PASS-REGISTER / INITIAL VALIDATION NOT YET RUN**  
+Status: **ACTIVE / PASS-REGISTER / V0 AGGREGATE REPLAY COMPLETE — ITEM DATA NOT RELEASED**
+
 Route: **Hamdi Route B — established scaling anomaly → unasked causal decomposition**  
 Canonical registration: [`../../phenomenon_miner/REGISTERED_CONTEXTUAL_ENTRAINMENT_OPPOSITE_SCALING_MECHANISM_2026-08-31.md`](../../phenomenon_miner/REGISTERED_CONTEXTUAL_ENTRAINMENT_OPPOSITE_SCALING_MECHANISM_2026-08-31.md)
 

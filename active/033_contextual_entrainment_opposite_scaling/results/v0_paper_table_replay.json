@@ -1,0 +1,73 @@
+{
+  "conditions": {
+    "Counterfactual": {
+      "absolute_exponent_difference": 0.0002966792404786589,
+      "paper_exponent": -0.258,
+      "published_raw_delta": [
+        4.85,
+        3.91,
+        3.63,
+        2.93,
+        2.34,
+        2.06
+      ],
+      "replayed_exponent": -0.25829667924047867,
+      "replayed_r_squared": 0.9983760281512483
+    },
+    "Irrelevant": {
+      "absolute_exponent_difference": 2.6152546386659647e-05,
+      "paper_exponent": 0.078,
+      "published_raw_delta": [
+        2.09,
+        2.34,
+        2.37,
+        2.59,
+        2.69,
+        2.72
+      ],
+      "replayed_exponent": 0.07802615254638666,
+      "replayed_r_squared": 0.9381879257292425
+    },
+    "Random": {
+      "absolute_exponent_difference": 0.00013072904312175226,
+      "paper_exponent": 0.156,
+      "published_raw_delta": [
+        1.68,
+        1.66,
+        1.91,
+        2.25,
+        2.36,
+        2.78
+      ],
+      "replayed_exponent": 0.15613072904312175,
+      "replayed_r_squared": 0.9160304381057737
+    },
+    "Related": {
+      "absolute_exponent_difference": 0.0003190070079282792,
+      "paper_exponent": -0.089,
+      "published_raw_delta": [
+        4.78,
+        4.3,
+        4.27,
+        4.21,
+        3.4,
+        3.69
+      ],
+      "replayed_exponent": -0.08868099299207172,
+      "replayed_r_squared": 0.8357235989123286
+    }
+  },
+  "model_parameters": [
+    410000000.0,
+    1000000000.0,
+    1400000000.0,
+    2800000000.0,
+    6900000000.0,
+    12000000000.0
+  ],
+  "nonsemantic_positive": true,
+  "schema_version": 1,
+  "scope": "aggregate table replay; not item-level V0",
+  "semantic_negative": true,
+  "source": "Kukreja et al., Findings ACL 2026, Table 5"
+}
