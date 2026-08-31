@@ -3,12 +3,22 @@
 用于寻找 **ACL / EMNLP / NAACL 风格、题目幅度正常、自然且可机制化的 LLM scientific questions**。
 
 ```yaml
-CURRENT_FRESH_PASS_REGISTER: 0
-CURRENT_FRESH_ACTIVE_TOPICS: 0
+CURRENT_FRESH_PASS_REGISTER: 1
+CURRENT_FRESH_ACTIVE_TOPICS: 1
+fresh_register_target: 5
+latest_registered_project: 034 prospective memory retrieval architecture
 latest_terminal_project: 031 within-run graph-state audit
-latest_reaudit: 029-033 archived after topic-scale review
-current_target: fresh LLM topic search under PAPER-SCALE v2
+latest_reaudit: initial fresh paper-scale pool hard-audited; all five killed before GPU
+current_target: continue fresh LLM search until authoritative register reaches 5
 ```
+
+## 当前 fresh authoritative register
+
+| project | status | one-line question |
+|---|---|---|
+| [`034_prospective_memory_retrieval_architecture`](active/034_prospective_memory_retrieval_architecture/) | **PASS-REGISTER / GPU AUTHORIZED** | Future intentions: strategic monitoring, spontaneous cue-triggered retrieval, or dynamic switching? |
+
+**还需要 4 个同等级题目。** 不因为 target=5 降低任何 gate；候选死亡即进 `rejected_candidates/`，继续搜索替代。
 
 **上一轮 029–033 的 `5/5 PASS` 已全部撤销。** 031 在 V3 measurement gate 失败；029/032/033 在新的 topic-scale / novelty-width re-audit 下不再值得继续；030 作为 VLM 题退出当前 LLM 主线。五个目录均已完整移动到 `archive/`，保留代码、结果与 provenance。
 
