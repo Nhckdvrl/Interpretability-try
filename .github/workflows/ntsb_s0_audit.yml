@@ -1,0 +1,92 @@
+name: NTSB S0 artifact audit
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "phenomenon_miner/ntsb_avall_audit_2026-08-31/TRIGGER"
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install MDB tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y mdbtools unzip
+
+      - name: Download official NTSB avall.zip
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/ntsb
+          cd /tmp/ntsb
+          URL='https://data.ntsb.gov/avdata/FileDirectory/DownloadFile?fileID=C%3A%5Cavdata%5Cavall.zip'
+          curl --fail --location --retry 4 --retry-delay 5 --connect-timeout 30 \
+            --output avall.zip "$URL"
+          test -s avall.zip
+          sha256sum avall.zip | tee avall.zip.sha256
+          unzip -o avall.zip -d extracted
+          find extracted -maxdepth 3 -type f -printf '%p\t%s bytes\n' | sort | tee extracted_files.txt
+
+      - name: Export MDB tables
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd /tmp/ntsb
+          MDB="$(find extracted -type f \( -iname '*.mdb' -o -iname '*.accdb' \) | head -n 1)"
+          if [ -z "$MDB" ]; then
+            echo 'No MDB/ACCDB found after unzip' >&2
+            exit 2
+          fi
+          echo "$MDB" | tee mdb_path.txt
+          sha256sum "$MDB" | tee mdb.sha256
+          mdb-tables -1 "$MDB" | tee tables.txt
+          FINDINGS="$(awk 'tolower($0)=="findings" {print; exit}' tables.txt)"
+          EVENTS="$(awk 'tolower($0)=="events" {print; exit}' tables.txt)"
+          if [ -z "$FINDINGS" ]; then
+            echo 'findings table missing' >&2
+            exit 3
+          fi
+          mdb-export "$MDB" "$FINDINGS" > findings.csv
+          if [ -n "$EVENTS" ]; then
+            mdb-export "$MDB" "$EVENTS" > events.csv
+          fi
+          wc -l findings.csv events.csv 2>/dev/null || true
+          head -n 3 findings.csv | tee findings_head.txt
+
+      - name: Run deterministic audit
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/ntsb/audit
+          if [ -s /tmp/ntsb/events.csv ]; then
+            python phenomenon_miner/ntsb_avall_audit_2026-08-31/audit_ntsb.py \
+              --findings /tmp/ntsb/findings.csv \
+              --events /tmp/ntsb/events.csv \
+              --out-dir /tmp/ntsb/audit
+          else
+            python phenomenon_miner/ntsb_avall_audit_2026-08-31/audit_ntsb.py \
+              --findings /tmp/ntsb/findings.csv \
+              --out-dir /tmp/ntsb/audit
+          fi
+          cp /tmp/ntsb/avall.zip.sha256 /tmp/ntsb/audit/
+          cp /tmp/ntsb/mdb.sha256 /tmp/ntsb/audit/
+          cp /tmp/ntsb/tables.txt /tmp/ntsb/audit/
+          cp /tmp/ntsb/extracted_files.txt /tmp/ntsb/audit/
+          cp /tmp/ntsb/findings_head.txt /tmp/ntsb/audit/
+
+      - name: Upload audit artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: ntsb-s0-audit-2026-08-31
+          path: /tmp/ntsb/audit
+          if-no-files-found: error
+          retention-days: 30
