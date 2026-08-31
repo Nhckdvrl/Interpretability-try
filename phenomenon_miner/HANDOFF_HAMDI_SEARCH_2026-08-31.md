@@ -4,13 +4,14 @@ Date: 2026-08-31
 Status: **AUTHORITATIVE CURRENT STATE**
 
 ```yaml
-PASS_REGISTER: 0
-counts_toward_target_five: 0
-MI_authorized_for_new_topics: false
+PASS_REGISTER: 1
+counts_toward_target_five: 1
+MI_authorized_for_new_topics: ETR-human-like-fallacy-only
+latest_registration: ETR human-like fallacy mechanism
 latest_execution_fact: NTSB frontier KILL-S0 / RELEVANCE-ALSO-FAILS
 ```
 
-**No candidate passes the current bar.**
+Current target progress: **1/5 true PASS-REGISTER**.
 
 ---
 
@@ -28,7 +29,31 @@ When a concrete new mother-extension card exists, generate semantic aliases and 
 
 ---
 
-## 2. The protocol changed after the failed continuation
+## 2. Registered candidate 01
+
+### Human-Like Fallacies: Alternative Filtering or Prior Contamination?
+
+Status: **`PASS-REGISTER`**.
+
+Canonical card:
+- [`REGISTERED_ETR_HUMAN_LIKE_FALLACY_MECHANISM_2026-08-31.md`](REGISTERED_ETR_HUMAN_LIKE_FALLACY_MECHANISM_2026-08-31.md)
+
+Mother: Richardson et al., **Theory-Grounded Evaluation of Human-Like Fallacy Patterns in LLM Reasoning** (ICLR 2026).
+
+Why it passed the new protocol:
+- the anomaly is already established on 383 PyETR items across 38 models;
+- multiple analyzable open families exhibit the premise-reversal fallacy-blocking phenotype (including Gemma, Mistral and Phi; broader panel also contains Llama/OLMo);
+- the mother explicitly disclaims causal mechanism;
+- PyETR, ETR Case Generator, datasets/evaluation infrastructure are public;
+- strongest neighbors cover generic premise-order effects and syllogistic reasoning circuits, but not whether ETR-style errors arise from ETR-like alternative filtering;
+- three competing causal accounts make different predictions: premature alternative filtering vs semantic/prior contamination vs late output imitation;
+- the key intervention is an **alternative reinstatement patch** between matched original-order fallacy and reversed-order rescued runs.
+
+This is Route B done correctly: no fresh G0 was needed to discover the behavior.
+
+---
+
+## 3. The protocol after the failed continuation
 
 The old search still spent too much effort on:
 
@@ -39,7 +64,7 @@ natural-sounding distinction
 → discover the behavior does not exist
 ```
 
-That is now explicitly disallowed as the default idea source.
+That is explicitly disallowed as the default idea source.
 
 New idea generation is **mother first**:
 
@@ -63,7 +88,67 @@ Generic `where is the behavior represented?` remains too weak. A mechanism follo
 
 ---
 
-## 3. Current legacy frontiers are not PASS candidates
+## 4. Current unregistered survivors under audit
+
+None of these count toward five until they individually close N0/N1 + artifact/substrate + mechanism gates.
+
+### Preference direction × preference intensity
+
+Mother: ACL 2026 **Preference Heads in Large Language Models**. Adjacent established variable: ACL 2026 **What Makes LLMs Effective Sequential Recommenders? A Study on Preference Intensity and Temporal Context**.
+
+Question: do sparse causal Preference Heads encode *what* a user prefers separately from *how strongly* they prefer it?
+
+Current status: strong Route-A survivor; no direct mechanistic ownership found yet. Need final N1 and exact shared-unit/data interface audit.
+
+### Private belief × common ground
+
+Mother: ACL 2026 **On Emergent Social World Models** + established individual-belief mechanism from **Language Models Use Lookbacks to Track Beliefs**.
+
+Question: is common ground stored as a distinct public/shared state, or computed on demand from individual belief states?
+
+Current status: strong survivor. DPIP/Common-ToM provide independently grounded shared-belief substrate. Need freshest 2026 successor collision audit and exact open-model measurement bridge.
+
+### Training recency × source reliability
+
+Mothers share the same public `krasheninnikov/internalization` codebase: ICLR 2026 **Fresh in Memory** establishes linearly encoded acquisition recency; ICML 2024 **Implicit meta-learning may lead language models to trust more reliable sources** establishes source reliability/internalization differences.
+
+Question: are *when a fact was learned* and *how trustworthy its source was* represented as separable provenance variables, or collapsed into one epistemic/update-strength coordinate?
+
+Current status: exceptionally strong Route-A survivor. Need final direct-successor search and exact 2×2 artifact construction audit before registration.
+
+### Spatial ID × reference-frame transformation
+
+Mother: ICLR 2026 **Linear Mechanisms for Spatiotemporal Reasoning in Vision Language Models** establishes causal spatial IDs.
+
+Question: are those IDs camera-centric and remapped only late, explicitly transformed into target allocentric coordinates, or selected from multiple frame-specific codes?
+
+Current status: strong but crowded survivor. Behavioral/engineering neighbors (COMFORT, SCOPE, SymPL, Allocentric Perceiver, AlloEgo-VLM, TRACE) establish the reference-frame gap, but final N1 must prove nobody has already mechanistically reverse-engineered the spatial-ID frame transformation.
+
+---
+
+## 5. Serious deaths from the current mother-mining round
+
+All serious rejections are now logged individually in `rejected_candidates/` with semantic aliases. Recent examples include:
+
+- hidden computation after Miracle Steps — F2;
+- lexical derivation after identity/inflection — F2;
+- relation direction/algebra after relational recall — F2;
+- RAG support vs causal reliance — F2;
+- filter-head compound predicates — F2;
+- temporal preference reward-vs-delay — F2;
+- modal force/flavor from event plausibility — F3 mother-object mismatch;
+- tool relevance vs necessity — F2;
+- filler-gap vs island gate — F2;
+- world truth vs attributed user belief — F2, including open community mechanistic work;
+- contextual truth vs confidence — F2;
+- opinion-distribution mean vs disagreement — F7;
+- scientific experiment-context evidence gate — F1 because the exact anomaly was established only on proprietary models, so open-model MI would require behavior-discovery G0.
+
+Do not resurrect these via model/dataset/prompt/MI-method renaming.
+
+---
+
+## 6. Legacy frontiers are not PASS candidates
 
 ### Intervention Effect Direction ≠ Magnitude
 
@@ -75,75 +160,46 @@ The broad treatment-effect behavior is reported, but `The Illusion of Interventi
 
 Status: `DROP-FROM-ACTIVE-SEARCH / BEHAVIOR-LOTTERY`.
 
-The substrate is real, but the actual shortcut phenotype was never established. Under the new protocol, **do not launch a fresh three-family G0 merely to see whether size predicts mass error**. Reopen only if existing public/open-model outputs already expose the size-linked residual strongly enough to make behavior existence non-speculative.
+The substrate is real, but the actual shortcut phenotype was never established. Do not launch a fresh three-family G0 merely to see whether size predicts mass error.
 
 ### Mass-specific cross-view instability
 
 Status: `LEGACY-EVIDENCE-LEAD / NOT ACTIVE`.
 
-There are qualitative/older indications of view-dependent mass estimates, but the required current-open-family exact phenotype is not locked. Do not spend a new multi-family run to discover it. Reopen only from a mother/public artifact that already establishes the same-object cross-view instability on analyzable models.
+Reopen only from a mother/public artifact that already establishes the same-object cross-view instability on analyzable models.
 
 ### NTSB causal relevance ≠ causal-role selection
 
 Status: **TERMINAL — `KILL-S0 / RELEVANCE-ALSO-FAILS`**.
 
-The delegated G0 finished at commit `6ae3d41`. Four families had relevance BA 0.537–0.635, below the preregistered 0.75; there was no `relevance strong / role weak` dissociation. Metadata/length baselines also exposed construct problems. Canonical evidence:
-
-- `rejected_candidates/ntsb_causal_relevance_vs_causal_role_selection_2026-08-31.md`
-- `phenomenon_miner/ntsb_causal_role_g0/results/g0_report.md`
-
-Do not revive via another accident corpus, model, prompt, CoT or MI method.
+The delegated G0 finished at commit `6ae3d41`; four families failed the preregistered relevance premise and metadata/length baselines exposed construct problems.
 
 ---
 
-## 4. What to search next
+## 7. What to search next
 
-Do not start from a domain list or from `X != Y` free association.
+Continue **mother by mother**, not from domain lists or free-association `X != Y` axes.
 
-Search **mother by mother**. For each strong 2025–2026 paper:
+Priority next actions:
+1. try to close the three strongest Route-A survivors: provenance, preference intensity, common ground;
+2. attack spatial reference-frame candidate with freshest mechanistic neighbors;
+3. continue PaperNotes/blog/open-source mining for established open-model anomalies whose mother explicitly leaves causal mechanism unresolved;
+4. immediately log every serious death.
 
-1. write the scientific object and statistical unit;
-2. list exactly which axes the paper measures;
-3. inspect controls, limitations, appendix and residual tables for properties of the same object that are collapsed/held fixed/unasked;
-4. generate at most 1–3 omitted axes or unasked causal computations;
-5. fill the mother-extension card in `FINDING_RULES.md`;
-6. kill semantic collisions before dataset/GPU work.
-
-Priority is not “papers with large benchmark errors.” Priority is **papers with a validated measurement recipe and an object that has an important unasked neighboring property**.
+Target remains **5 true PASS-REGISTER**. HOLD/PRE-S0/frontier/under-audit do not count.
 
 ---
 
-## 5. Current hard constraints
+## Hard constraints
 
-- Target remains up to 5 true `PASS-REGISTER`; do not lower the bar.
-- `HOLD`, `PRE-S0`, `frontier`, `under audit` do not count.
 - No central LLM judge.
 - No synthetic 2×2 whose purpose is to manufacture the title.
 - No fresh expensive G0 just to discover whether a guessed behavior exists.
 - No rename revival by dataset/model/language/prompt/subset/MI method.
-- Serious deaths go into `rejected_candidates/`, but the **general lesson** only gets added to `FAILED_TOPICS.md` if it creates a new failure class. Do not create another giant addendum for every batch.
-
----
-
-## 6. Logging discipline after the cleanup
-
-For each serious rejected idea, a **short** rejection note is enough:
-
-```yaml
-question:
-mother:
-kill_class: F1|F2|F3|F4|F5|F6|F7
-kill_evidence:
-nearest_neighbor_warning:
-resurrection_condition:
-```
-
-Do not repeat the full protocol inside rejection files.
-
-A new continuation addendum should be created only if the authority/state model itself changes, not as a running diary.
+- Any candidate that reaches serious mother/neighbor/substrate/behavior/measurement/mechanism review and dies must receive a short rejection record with semantic aliases.
 
 ---
 
 ## One-line instruction
 
-> **Find five unanswered properties/computations of already-established scientific objects, not five plausible phenomena that we must pay GPU time to discover.**
+> **Find unanswered properties/computations of already-established scientific objects, not plausible phenomena that we must pay GPU time to discover.**
