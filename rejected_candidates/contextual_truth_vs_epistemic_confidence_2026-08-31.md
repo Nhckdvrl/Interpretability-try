@@ -1,0 +1,8 @@
+question: Do contextual truth representations factor statement truth from epistemic confidence, rather than encode one combined factual-confidence axis?
+mother: "How Context Shapes Truth: Geometric Transformations of Statement-level Truth Representations in LLMs" (ACL 2026)
+semantic_aliases: [truth vs confidence, truth vector vs uncertainty, factuality vs epistemic certainty, contextual truth confidence factorization]
+what_was_reviewed: Mother scope; ACL factual-confidence literature; 2026 confidence-direction work; truth/uncertainty activation and steering neighbors.
+kill_class: F2
+kill_evidence: The adjacent internal object is already substantially occupied. Prior factual-confidence work directly probes hidden states for factual confidence, and 2026 "The Confidence Manifold" reports a causal confidence direction whose steering monotonically changes error rate. Framing the extension as truth-vector versus confidence-vector factorization would therefore mostly combine two already-established representational objects rather than expose a genuinely omitted property of the mother object.
+nearest_neighbor_warning: Do not revive by changing QA dataset, context type, truth-vector estimator, probe, SAE, or model family. A paper whose core question is merely whether truth and confidence directions differ is too close to existing truth/confidence geometry work.
+resurrection_condition: Reopen only if a distinct, externally grounded scientific variable beyond generic confidence is identified on the exact statement-level truth object, with a direct causal prediction not answered by existing factual-confidence directions.
