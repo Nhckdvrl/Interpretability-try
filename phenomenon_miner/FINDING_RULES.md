@@ -1,108 +1,131 @@
 # Finding Rules — 唯一权威选题协议
 
-版本：2026-08-31 v2  
+版本：2026-09-01 v2.1  
 状态：`AUTHORITATIVE DISCOVERY PROTOCOL`
 
 本文件是**唯一选题协议**。旧 gate / funnel / addendum 只保留历史证据，不再并列定义规则。
 
-目标：寻找 ACL / EMNLP / NAACL 风格、真正有正常论文幅度的 LLM mechanistic interpretability 题目。允许最后为 0；绝不因为已经投入时间或算力而保题。
+目标：寻找 ACL / EMNLP / NAACL 风格、自然、清楚、真正有正常论文幅度的 LLM mechanistic interpretability 题目。允许最后为 0；绝不因为已经投入时间或算力而保题。
 
 ---
 
-## 0. 2026-08-31 最重要的新修正：先过 PAPER-SCALE，再谈 mother / dataset / MI
+## 0. 2026-09-01 v2.1 修正：不要把“严格”误写成“复杂”
 
-031 的失败证明旧协议仍然不够严格：它能防止“现象根本不存在”，却没有充分防止**问题本身只是某个 benchmark / mother paper 内部的一条解释缝**。
+031 之后我们正确提高了 paper-scale / novelty / substrate 门槛，但后续搜索暴露了另一个问题：**过度要求候选在 GPU 前就拥有完整的三机制理论、精确 interaction statistic、复杂 cross-task architecture，会系统性把题目推向越来越难解释的抽象问题。**
 
-031 从 `spontaneous deception` 一路缩成 `cross-query latent belief`，再缩成 `within-run graph-state corruption`。每一步单独看都能设计实验，但 headline scientific question 已经改变。这不是健康的实验分岔，而是原题死亡后的叙事救援。
+这与强 ACL/EMNLP 论文和高质量 model-biology / top-down interpretability 的实际形状并不一致。
 
-以后候选生成顺序改为：
+强题可以来自三种形状：
+
+1. 一个成熟 scientific debate，MI 用来裁决；
+2. 一个强 mother 留下的真实、独立 scientific axis；
+3. **一个极自然、稳定、令人意外的模型现象/内部 object，本身就值得命名，然后用 MI 去理解它。**
+
+第三种形状同样合法。ACL 2025 Outstanding `Llama See, Llama Do` 就是典型：先有一个简单、广泛、可复现的 contextual entrainment phenomenon，后面才长出 heads / causal mechanism / mitigation。
+
+因此 v2.1 的原则是：
+
+> **保持 novelty 严格，保持数据真实，保持问题自然；降低对“预先理论复杂度”的强迫。**
+
+新的默认顺序：
 
 ```text
-PAPER-SCALE natural question
-→ strong mother / established object
-→ exact novelty delta
-→ natural/legitimate substrate
-→ existing behavior or omitted axis
-→ strongest-neighbor attack
-→ S0 / measurement
-→ registration
-→ causal MI
+一句普通人能懂的 natural question / phenomenon
+→ benchmark-removal + natural-object + normal-scope
+→ strongest-neighbor N0/N1/N2
+→ exact accessible substrate / established behavior
+→ 选择合适路线 A / B / C
+→ 写最小但可证伪的 causal contract
+→ PASS-REGISTER
+→ GPU
 ```
 
-**没有先过 PAPER-SCALE，不允许因为 mother 很强、数据公开、现象很大就注册。**
+仍然禁止：
+
+```text
+看到 benchmark failure
+→ 找一个 layer/head/SAE
+→ 跑一点
+→ 根据结果重新定义 paper question
+```
 
 ---
 
 ## 1. PAPER-SCALE GATE：题目本身必须像一篇正常顶会论文
 
-任何 candidate 在查数据和写机制实验前，先回答下面 8 个问题。
+任何 serious candidate 先回答下面 8 个问题。
 
 ### P1 — Benchmark-removal test
 
-把 dataset / benchmark / mother paper 名字从标题和一句话问题里删掉，scientific question 是否仍然完整、自然、有意义？
+删掉 dataset / benchmark / mother 名字后，scientific question 是否仍完整、自然、有意义？
 
-- `LLM 在 CSQ broken-list 上的 deceptive event 内部是什么？` → **FAIL**，问题靠 benchmark construct 才成立。
-- `模型在工具参数结构匹配但语义无关时，为什么仍调用工具？` → **PASS**，dataset 只是隔离真实因素的测量工具。
-- `property inheritance 依赖 taxonomy 还是 similarity？` → **PASS**，这是数据集之外已有的认知科学问题。
+- `某 benchmark broken-list failure 在哪层发生？` → **FAIL**。
+- `工具参数结构匹配但语义无关时，为什么模型仍调用工具？` → **PASS**。
+- `模型被要求随便选择时，为什么输出存在稳定偏好？` → **PASS**；这是 dataset 之前就成立的行为问题。
 
-如果删除 benchmark 名后只剩：
-
-- “行为相似是否机制相似？”
-- “某 failure 到底在哪层？”
-- “某 mother metric 内部是什么？”
-
-通常说明题目过泛或过窄，默认 KILL。
+如果删除 benchmark 后只剩“这个 failure 内部是什么”“哪层坏了”“行为相似是否机制相似”，默认 KILL。
 
 ### P2 — Natural-object test
 
-核心 object 必须在 benchmark 之外就有独立意义：认知现象、推理过程、语言结构、训练动态、agent decision、context use、memory、uncertainty、social/world representation 等。
+核心 object 必须在 benchmark 之外有独立意义：实体、颜色、数量、记忆、歧义、参考、相关性、社会信号、事件、工具相关性、上下文使用、语言结构、推理过程等。
 
 **synthetic dataset 可以用，但 synthetic label 不能创造 scientific object。**
 
+一个强的 sanity test：
+
+> 能否不用 `LLM / benchmark / mechanistic interpretability / activation / SAE` 这些词，把问题讲给另一个研究方向的人听懂？
+
+如果不能，优先怀疑题目本身过度技术化。
+
 ### P3 — Normal-scope test
 
-一句话问题应当能支撑一篇完整论文，而不是一个 ablation：
+一句话问题应能支撑完整论文，而不是单个 ablation。
 
-- 能自然产生 2–4 个理论上不同、都值得解释的机制；
-- 能跨多个实例/设置/模型验证；
-- 结果会改变我们对一个广泛能力/失败/表示的理解。
+但 **不再要求每个题在注册前都天然产生 2–4 个成熟 competing mechanisms。**
 
-如果贡献最终最自然地表述成：
+正常论文幅度可以来自：
 
-- “我们找到某 layer/head/subspace”；
-- “我们解释了 mother 的一个 table”；
-- “我们验证了 mother future work 的一个猜想”；
-- “我们发现 benchmark label/proxy 不严谨”；
+- 一个广泛、稳定、值得命名的新 phenomenon；
+- 一个干净的新 semantic/cognitive axis；
+- 一个经典理论争论；
+- 一个跨实例/模型稳定的内部 object，且有因果作用与有意义的 controls。
 
-则默认不是当前目标幅度。
+仍然 FAIL 的贡献形状：
+
+- “我们找到 layer 17 的一个 head”；
+- “我们解释 mother 的一张 table”；
+- “我们验证 mother future work 的一句 mechanism 猜想”；
+- “我们证明 benchmark proxy 不完全等于 construct”。
 
 ### P4 — Novelty-step test
 
-与 strongest neighbor 的差别必须是**概念级 scientific question 的差别**，不是：
+与 strongest neighbor 的差别必须是**概念级 scientific delta**，不能只是：
 
 - 换 dataset / model / language / prompt；
-- 从 behavior 改成 mechanism；
-- 从 token 改 sentence；
-- 从 generic head 改 semantic head；
-- 从一个 mother 现象追问“具体怎么实现”；
-- 把 mother limitation/future-work 原句直接变成题目。
+- behavior → mechanism，除此之外没有新 object；
+- token → sentence；
+- probe → SAE / patching；
+- future-work completion；
+- mother 已经提出 A-vs-B，我们只定位 A/B 的 head。
 
-`mother behavior -> mechanism` 不是自动非法，但要证明新 mechanism question 本身有独立理论对象，而非 generic localization。
+但注意：**一个简单的新 object / axis 可以是足够的 concept-level delta。** 不需要为了显得新而强行把问题改写成复杂 architecture。
 
 ### P5 — Story-invariance test
 
-在跑实验前写出至少 2–3 个可能结果。**无论哪一个结果发生，论文标题里的 scientific question 必须保持不变。**
+实验前至少写 2–3 个可能结果。无论结果如何，headline scientific object 必须保持不变。
 
-合法分岔：
+合法：
 
 ```text
-同一问题：property inheritance 由 taxonomy 还是 similarity 驱动？
-结果 A：taxonomy
-结果 B：similarity
-结果 C：两者交互
+问题：模型是否有独立的 X 表示？
+A：有且因果使用
+B：可读但不因果使用
+C：连稳定表示都没有
 ```
 
-非法分岔：
+三种结果仍然回答同一个问题。
+
+非法：
 
 ```text
 原题：spontaneous deception
@@ -110,309 +133,378 @@ PAPER-SCALE natural question
 再失败：within-run graph-state corruption
 ```
 
-如果 negative result 迫使更换 headline object，原题已死，必须重新从 PAPER-SCALE 开始，不能叫“强 null 仍是同一论文”。
-
 ### P6 — Dataset-is-a-window test
 
-优先自然/真实数据。若使用 synthetic/control dataset，必须满足：
+数据可以 synthetic/control，但必须满足：
 
-1. scientific question 在 dataset 之前已独立成立；
-2. synthetic design 只是为了 causal identification；
-3. 中央变量不是我们为了题目临时发明；
-4. 最好存在 naturalistic / external validation 路线；
-5. 论文叙事不能靠 toy world 的特殊规则才成立。
+1. 问题在 dataset 之前独立成立；
+2. manipulation 隔离的是自然变量；
+3. central label 不是为论文临时发明；
+4. 最好能走向 naturalistic validation；
+5. paper story 不依赖 toy-world 特殊规则。
 
-**数据可以不自然，但问题必须自然；越 synthetic，越需要更强的外部 scientific grounding。**
+### P7 — Branch-concreteness test
 
-### P7 — Branch concreteness test
+研究中允许探索，但分支必须围绕同一 object。
 
-研究过程中允许出现很多分岔，但每个分岔必须：
+不允许：看到 null 后不断换 token position / subset / prompt / probe，直到找到可讲的故事。
 
-- 回答同一个 headline question；
-- 有预先可写出的 causal prediction；
-- 不是看到 null 后换 token position / probe / subset / prompt 继续搜；
-- 不是把 scope 从 behavior → construct → representation 一路缩窄。
+允许：对一个已冻结 object 先用简单 probe/steering 找 foothold，再根据结果选择更精确的 causal tool，前提是 headline question 不变。
 
 ### P8 — Venue-scale comparator
 
-注册前必须拿 candidate 和至少 **3 篇强 ACL/EMNLP/NAACL Main / Outstanding/Best 邻近论文**比较叙事幅度，而不仅仅做“有没有同标题”的 novelty search。
+注册前仍需与至少 **3 篇强 ACL/EMNLP/NAACL Main / Outstanding/Best 邻近论文**比较题目幅度。
 
-重点比较：
+比较的是：
 
-- scientific object 是否同样自然；
-- dataset 是 object 还是 measurement window；
-- prior-work delta 是概念差还是机制细节；
-- contribution 是否包含 broad behavior + causal explanation + cross-setting evidence；
-- 是否能在不提具体 benchmark 的情况下解释“为什么这值得知道”。
+- question 是否同样自然清楚；
+- contribution 是否有一个可一句话复述的 central object；
+- novelty 是新 object/axis，还是已有 story 的机制细节；
+- dataset 是否只是 measurement window；
+- 是否有足够 evidence package 支撑 Main-paper 规模。
+
+**不要误解为候选必须比这些论文理论更复杂。** 很多强论文的问题反而非常简单。
 
 ---
 
-## 2. 顶会尺度校准：我们真正要模仿什么
-
-以下不是固定 mother 列表，而是**题目幅度标尺**。
+## 2. 顶会尺度校准：真正要模仿的是问题形状
 
 ### ACL 2025 Outstanding — `Llama See, Llama Do`
 
-它不是先挑一个 benchmark failure 再找 head，而是先发现一个跨模型、跨 prompt setting 的广泛现象：**context 中出现过的 token 会被系统性增权，即使是随机 token**。随后才提出 contextual entrainment、找 causal entrainment heads、做 ablation/mitigation。
+广泛新现象：context 中出现过的 token 会被系统性增权，即使 token 是随机的。随后才命名 contextual entrainment、找 causal heads、做 mitigation。
 
-标尺：**广泛新现象本身就值得命名；机制解释服务于现象。**
+标尺：**simple surprising phenomenon → broad evidence → mechanism → consequence.**
 
 https://aclanthology.org/2025.acl-long.791/
 
-### EMNLP 2025 Outstanding — `Causal Interventions Reveal Shared Structure Across English Filler–Gap Constructions`
+### EMNLP 2025 Outstanding — shared filler-gap structure
 
-问题来自成熟语言学理论：不同 filler-gap construction 是否共享抽象机制。dataset/句子只是测量窗口，causal intervention 用来裁决一个本来就存在的理论问题。
+成熟理论问题：不同 filler-gap constructions 是否共享抽象机制；causal intervention 裁决。
 
-标尺：**强外部科学理论 → LMs 提供新的因果证据。**
+标尺：**external theory → causal LM evidence.**
 
 https://aclanthology.org/2025.emnlp-main.1271/
 
-### NAACL 2025 — `Characterizing the Role of Similarity in the Property Inferences of Language Models`
+### NAACL 2025 — property inference taxonomy vs similarity
 
-核心是经典认知争论：property inheritance 到底由 taxonomic structure 还是 similarity 驱动。behavior + causal representation analysis 都围绕同一问题；不管结果偏哪一边，题目不变。
+经典认知争论，dataset 只是窗口，A/B/C 都保持标题不变。
 
-标尺：**竞争机制在实验前就由科学理论给出，而不是由层位置/patch 结果事后生成。**
+标尺：**一个简单理论轴足以撑 paper，不需要三层 architecture。**
 
 https://aclanthology.org/2025.naacl-long.574/
 
 ### NAACL 2025 — `Racing Thoughts`
 
-它提出对 contextualization errors 的统一 race-condition hypothesis，再用多种 MI 方法给 correlational + causal evidence，并给 intervention。
+先提出一个能解释一类 contextualization errors 的统一 hypothesis，再做 correlational + causal validation。
 
-标尺：**先有能解释一类 failure 的统一 hypothesis，再做机制验证；不是逐 benchmark 修补。**
+标尺：**一个强 hypothesis 可以胜过复杂 taxonomy。**
 
 https://aclanthology.org/2025.naacl-long.155/
 
 ### ACL 2026 Main — `Do LLMs Know Tool Irrelevance?`
 
-现实 object 是 tool semantic relevance 与 parameter structural match 的冲突。作者设计 SABEval 是为了**解耦两个现实中本就独立的因素**，然后找到 semantic checking 与 structural matching 两条 competing pathways，并做 rebalancing mitigation。
+核心问题极简单：tool 的语义相关性与参数结构匹配冲突时，模型到底听谁的？controlled dataset 只是隔离两者。
 
-标尺：**controlled dataset 可以很人工，但它解耦的是天然变量；paper question 不依赖 SABEval 这个名字。**
+标尺：**现实变量先存在，controlled data 用来解耦。**
 
 https://aclanthology.org/2026.acl-long.1473/
 
 ---
 
-## 3. 两种合法找题路线仍保留，但必须在 PAPER-SCALE 之后
+## 3. 三种合法找题路线
 
 ### Route A — Mother omitted-axis extension
 
-必须满足：
-
-1. strong concrete mother；
-2. mother 已稳定测量 object `O`；
-3. 新轴 `B` 是现实中 `O` 的独立属性；
-4. natural counterexamples / cross-cells 已存在；
-5. mother 没回答 B；
-6. 大部分 measurement recipe 可继承；
-7. **B 本身达到 PAPER-SCALE，而不是一个方便补齐的矩阵格子。**
-
-### Route B — Established anomaly → unasked causal computation
+适合“已有 object O，但存在一个 mother 没问的自然轴 B”。
 
 必须满足：
 
-1. headline behavior 已在 open models / prior work 中稳定存在；
-2. ordinary faithful setting，不靠特殊 prompt 才有；
-3. 至少两个真正 competing causal mechanisms；
-4. mechanisms 来自对现象的理论解释，不只是 early/middle/late layer 分类；
-5. 不同机制预测不同 intervention / generalization；
-6. **即使完全不提 mother benchmark，新 causal question 仍是一个值得研究的问题。**
+1. strong mother；
+2. B 在现实/科学文献中独立存在，或是明显自然 semantic axis；
+3. natural cross-cells / counterexamples 存在；
+4. mother 没回答 B；
+5. B 不是 limitation/future-work 同义改写；
+6. B 删掉 mother 名仍足够自然；
+7. measurement recipe 大部分可继承。
 
-Route B 最危险。以后若只是：
+最理想形状不是“补一格 2×2”，而是：
 
-> `Mother discovered X; we ask which internal circuit causes X.`
+> mother 研究 X；我们发现 X 与一个被混淆但不同的自然属性 Y 可以被干净分离，且 Y 有自己的 representation/causal role。
 
-默认 **KILL-SCALE**，除非能证明这个 mechanism question 本身具有独立科学对象与广泛意义。
+### Route B — Established anomaly + independent mechanism debate
+
+适合成熟理论争论。
+
+要求：
+
+1. exact behavior 已在现代 open models / prior work 中存在；
+2. 至少两个真正 competing computations；
+3. competing mechanisms 来自科学理论，而不是 early/middle/late layer；
+4. 不提 benchmark 仍值得研究；
+5. 不同机制给出不同 intervention/generalization prediction。
+
+**Route B 仍然需要较强预注册。** 因为它最容易退化成 mother behavior → mechanism。
+
+### Route C — Simple phenomenon / simple latent object first（v2.1 新增）
+
+适合 model biology / top-down interpretability，也是今后 fresh search 的高优先级路线。
+
+形状：
+
+> 一个人人能懂、稳定而意外的行为或语义属性  
+> → 做干净 matched controls，证明不是最明显 confound  
+> → 问模型内部是否存在可泛化、可干预、行为相关的 representation/pathway  
+> → 再决定最合适的 MI 工具。
+
+Route C **不要求注册前已经有 2–3 个成熟 cognitive mechanisms**。
+
+但必须满足：
+
+1. phenomenon/object 本身简单自然，一句话可懂；
+2. broad enough：跨多个实例/域/setting，而不是一个 prompt trick；
+3. strongest neighbor 没有已经拥有这个 object；
+4. central confound 能在设计上解耦；
+5. 至少一个 modern analyzable open model 有公开或强 prior evidence；最好 ≥2 families，但不再机械要求所有题在注册前都有两家完全同型 published artifact；
+6. 有一个明确的 causal-use question，例如：`这个 representation 只是可读，还是模型实际用它决定行为？`；
+7. 至少一个 nontrivial control / falsifier 能区分“真 object”与 superficial correlate；
+8. 不能只有“找 SAE feature”这一项贡献。
+
+Route C 的 paper 可以在实验中发现 mechanism structure，**只要 object/question 不随结果变化。**
 
 ---
 
-## 4. 注册前必须写的 PAPER CARD
+## 4. 注册前 PAPER CARD
 
 ```yaml
 paper_scale:
   one_sentence_question:
-  question_without_dataset_names:
-  independent_scientific_object:
+  question_without_llm_or_method_jargon:
+  independent_scientific_or_model_object:
   why_a_non_benchmark_reader_should_care:
   three_strong_venue_comparators: []
-  scope_difference_from_each:
 
-mother:
-  paper:
-  scientific_object:
+route: A | B | C
+
+mother_or_behavioral_anchor:
+  paper_or_source:
   established_result:
   statistical_unit:
   measurement_recipe:
 
 novelty:
   exact_conceptual_delta:
-  strongest_neighbor:
+  strongest_neighbors: []
   why_not_just_mechanizing_mother:
-  why_not_future_work_completion:
+  main_confounds_to_separate: []
 
 substrate:
   natural_or_synthetic:
-  why_dataset_is_only_a_measurement_window:
   central_gold_source:
-  external_validity_path:
+  row_level_artifact:
+  analyzable_open_checkpoint:
+  modern_open_family_evidence:
+  why_dataset_is_only_a_measurement_window:
 
-mechanism:
-  hypothesis_1:
-  hypothesis_2:
-  hypothesis_3_optional:
-  discriminating_predictions:
+causal_contract:
+  central_causal_question:
+  simplest_discriminating_test:
+  negative_control_or_falsifier:
+  route_B_hypotheses_optional_for_A_C: []
 
 story_invariance:
   result_A_story:
   result_B_story:
   result_C_story:
-  same_headline_question_under_all_results: true|false
+  same_headline_object_under_all_results: true|false
 
 existence:
-  behavior_already_exists: true|false|not_applicable
-  requires_expensive_G0_to_discover_question: true|false
+  phenomenon_or_axis_already_established: true|false
+  requires_gpu_to_discover_whether_question_exists: true|false
 
-verdict: CONTINUE | KILL_SCALE | KILL_NOVELTY | KILL_DATA | KILL_BEHAVIOR
+verdict: CONTINUE-PAPER-SCALE | PASS-REGISTER | KILL-SCALE | KILL-NOVELTY | KILL-DATA | KILL-BEHAVIOR
 ```
 
 硬规则：
 
-- `same_headline_question_under_all_results = false` → KILL；
-- `requires_expensive_G0_to_discover_question = true` → 默认 KILL；
-- 无法写出 `why_not_just_mechanizing_mother` → KILL-SCALE；
-- 无法写出 3 篇强 venue comparator → 不注册。
+- headline object 不能随结果变化；
+- GPU 不能用来发现“这个现象到底存不存在”然后再决定论文问题；
+- strongest-neighbor collision 仍然致命；
+- central measurement/gold 必须可审计；
+- **不再因为候选暂时只有一个强 causal question、而没有三套 mechanism theory，就自动拒绝。**
 
 ---
 
-## 5. 数据与 S0：PAPER-SCALE 过了以后再做
+## 5. 数据与 S0
 
 ### Route A S0
 
 - 两轴定义独立于模型；
-- central gold 不由我们/LLM 临时创造；
-- row-level artifact 真正拿到；
-- natural cross-cells 可程序计数；
-- mother recipe 可合法延伸；
-- no synthetic 2×2 manufacturing。
+- central gold 不由我们/LLM judge 临时创造；
+- row-level artifact 可得；
+- natural cross-cells 可计数；
+- mother recipe 可合法延伸。
 
 ### Route B S0
 
-- exact behavior 在 analyzable open checkpoints 上存在；
-- 至少 2/3 genuinely different families 同一 qualitative signature，或 prior work 已给足强证据；
-- raw outputs 可审计；
-- capability denominator 合法；
-- effect substantial；
-- hard kill 预先冻结。
+- exact theory-diagnostic behavior 已存在；
+- open checkpoint 可分析；
+- raw outputs / scorer 可审计；
+- effect 非 floor/ceiling；
+- family/generalization evidence 足够支撑理论裁决。
 
-S0 是确认**能否测量既定问题**，不是让 experiment 帮我们决定论文究竟要讲什么。
+### Route C S0
+
+Route C 允许更接近实际 model-biology workflow，但仍不允许 behavior lottery。
+
+注册前至少需要：
+
+- phenomenon 已由 prior work / released outputs /多设置公开证据建立；或是一个 deterministic semantic axis，不依赖先跑 GPU 才知道有没有；
+- analyzable open checkpoint；
+- matched controls 能去掉最明显 confound；
+- object 有跨 item/domain 的 generality path；
+- cheap reproduction 可以在注册后作为 execution gate，但不能据此重写 question。
+
+**“≥2 modern families”从 universal hard law 改为 strong preference。**
+
+以下情况仍必须 ≥2 families：
+
+- claim 本身是“LLMs generally do X”；
+- behavior 很容易是 model-specific artifact；
+- family difference 会直接改变 scientific interpretation。
+
+如果 paper 明确是“we discover and characterize X in model family M, then test transfer/generalization”，单 family 可以进入 register，但必须把 scope 写清楚并预设第二-family replication 为 paper-strengthening step，而不是用它决定题目是否存在。
 
 ---
 
-## 6. Novelty 审计升级：不只看 collision，还看 DELTA WIDTH
+## 6. Novelty 审计：N0 / N1 / N2 仍然保留
 
-### N0 — title/object ownership
+### N0 — object ownership
 
-mother / neighbor 是否一句话已回答新问题？是 → KILL。
+strongest neighbor 是否一句话已经研究同一个 object / axis？是 → KILL。
 
 ### N1 — causal occupancy
 
-是否已有工作做了关键 factorization / causal test？是 → KILL。
+是否已有工作做了决定性的同一 factorization / intervention？是 → KILL 或必须证明新的 object-level delta。
 
-### N2 — delta-width audit（新增，注册必做）
+### N2 — delta-width audit
 
-即使 N0/N1 没撞，也要问：
+问：
 
-> 与最强 prior work 相比，我们新增的是**一个新的 scientific question**，还是只是把已有 phenomenon 再解释得更细？
+> 我们新增的是一个新 scientific/model object，还是只是把已有 phenomenon 解释得更细？
 
-以下通常不够：
+通常不够：
 
-- behavior paper → mechanism paper，除此之外无新理论对象；
-- mother 已提出两个功能因素，我们只定位它们的 heads；
-- mother future work 明确写了我们要做的 decomposition；
-- 某 benchmark proxy → 我们证明 proxy 不完全等于 construct；
-- 结果仅是更精确地分类已有 failure。
+- behavior paper → mechanism paper，且无新 object；
+- mother 已提出 A/B，我们只找 heads；
+- future-work completion；
+- benchmark proxy audit；
+- 只换更强 MI method。
+
+但以下可以足够：
+
+- 一个此前未被分离的、自然且 orthogonal 的 semantic axis；
+- 一个 broad new behavioral phenomenon；
+- 一个跨域稳定、可因果操控的新 latent object；
+- 一个简单但重要的新 factorization，且 strongest prior 没问。
+
+**不要为了 N2 而故意把题目写复杂。Novelty 的单位是“新 object / 新 axis / 新 phenomenon”，不是标题里的抽象名词数量。**
 
 ---
 
-## 7. 八类死亡模式
+## 7. 死亡模式
 
 F1 — Behavior lottery / synthetic-first  
 F2 — Mother / neighbor ownership  
 F3 — Substrate mirage  
 F4 — Measurement / denominator invalid  
-F5 — No common phenotype across families  
+F5 — Claim scope 超过 family evidence  
 F6 — Post-hoc rescue / scope drift  
-F7 — Mechanistically weak  
+F7 — Mechanistically empty: only probe/SAE without causal/use story  
+F8 — Topic-scale / benchmark-dependence failure  
+F9 — **Over-engineered question**: 为满足形式 gate 强行把一个简单现象包装成多阶段、多模块、多理论 architecture，导致问题不再自然
 
-### F8 — Topic-scale / benchmark-dependence failure（新增）
+F9 不是“题太难所以不做”，而是提醒：
 
-问题只有放在某 benchmark / mother construct 内才显得成立；或者 prior-work delta 只是“再做机制”“再细分一种 failure”“完成 future work”。
-
-典型症状：
-
-- dataset 名一删，问题变成空泛常识；
-- dataset 名保留，问题又只对该 benchmark 有意义；
-- negative result 后 headline 连续换 object；
-- mechanism hypotheses 只是 early/middle/late localization；
-- 需要把一个 Findings/mother 的讨论段扩成整篇论文才能显得新。
-
-处理：**KILL-SCALE，禁止通过更窄叙事救活。**
-
-031 是当前 canonical negative example。
+> 如果一句简单问题可以撑 paper，就不要为了显得学术而把它改造成三个 latent states + 两个 arbitration stages + 一个 cross-task architecture。
 
 ---
 
-## 8. 031 postmortem：以后绝不能重复
+## 8. 031 postmortem：仍然是 F8 / scope-drift canonical negative example
 
-031 的执行本身遵守了停止规则，V3 在 held-out、polarity-invariant reachability measurement 上失败并及时终止；真正错误发生在**选题阶段**。
+031 从 `spontaneous deception` → `cross-query latent belief` → `within-run graph-state corruption`。
 
-错误链：
+问题不是 causal tool 选错，而是：
+
+1. 原题依赖 benchmark construct；
+2. negative result 后 headline object 连续变化；
+3. 可以设计实验被误当成有正常 paper question；
+4. toy substrate 不能自动制造 broad narrative。
+
+v2.1 **不会**撤销这条教训。放松的是理论复杂度，不是允许 post-hoc rescue。
+
+---
+
+## 9. Active / registration discipline（v2.1）
+
+`PASS-REGISTER` 的 universal core：
 
 ```text
-mother: hard wrong + easy correct 被解释为 spontaneous deception
-→ 我们问 knowledge-action vs reasoning corruption
-→ V2 whole-state patch 被 shuffled donor 解释
-→ 叙事改成 cross-query construct validity
-→ 用户指出该 claim 过度依赖 benchmark 且接近 elicitation 常识
-→ 再改成 within-run graph-state corruption
-→ V3 measurement gate AUROC ≈ 0.53，终止
+PAPER-SCALE natural question / phenomenon
++ benchmark-removal PASS
++ independent object / axis / broad phenomenon
++ >=3 venue-scale comparators
++ N0 clear
++ N1 not fatally occupied
++ N2 concept-level delta
++ exact accessible substrate / central gold
++ analyzable open checkpoint
++ established behavior OR legitimate omitted axis/object
++ story-invariant headline
++ minimal causal-use contract
++ explicit confound controls / kill conditions
+= PASS-REGISTER / GPU AUTHORIZED
 ```
 
-教训不是“probe 选错了”，而是：
-
-1. 原题没有通过 benchmark-removal test；
-2. mother 的 `deception` construct 本身定义了问题；
-3. negative result 迫使 headline scientific object 连续变化；
-4. graph dataset 是 toy substrate，无法自动提供 broad narrative；
-5. 我们把“可以设计一个 causal experiment”误当成“这是正常论文幅度的问题”。
-
-以后看到类似路径，**在 GPU 前 KILL-SCALE。**
-
----
-
-## 9. Active / registration discipline
-
-`PASS-REGISTER` 现在意味着同时通过：
+Route B 额外要求：
 
 ```text
-PAPER-SCALE
-+ strong scientific object
-+ concept-level novelty delta
-+ legitimate substrate
-+ existing behavior / natural omitted axis
-+ strongest-neighbor N0/N1
-+ delta-width N2
-+ story invariance
-+ >=2 theoretically meaningful causal hypotheses
-+ frozen fatal controls
+>=2 theory-level competing mechanisms
++ theory-diagnostic S0
++ discriminating intervention predictions
 ```
 
-**注册不是“这个实验值得试”；注册是“这个问题本身已经值得一篇论文，只差用实验回答”。**
+Route C **不额外要求**三机制理论，也不要求在注册前冻结一个复杂的数学 interaction statistic。
 
-如果只能说“先跑跑看，跑出来再决定怎么讲”，禁止注册。
+注册时只需冻结：
+
+1. central object/question；
+2. decisive behavioral/representation measurement；
+3. simplest causal-use test；
+4. strongest confound controls；
+5. hard kill / scope limit。
+
+之后可以让 experiment 揭示机制结构，但不能让 experiment 重新发明 headline。
 
 ---
 
-## 10. 当前 one-line discipline
+## 10. 搜题偏好：simplicity prior
 
-> **先找一个不依赖 benchmark 名字也值得 ACL/EMNLP/NAACL 研究的问题；再找数据和 MI 去回答它。不要从一个强 mother 留下的机制缝里反推整篇论文。**
+Fresh search 默认优先顺序：
+
+1. **简单 semantic distinction**：两个普通人自然会区分、但 prior 可能混在一起的属性；
+2. **简单 everyday anomaly**：模型一个稳定、意外、跨 prompt/domain 的偏好或失误；
+3. **简单 generalization question**：模型学到的是表面相关，还是一个更一般的概念；
+4. **成熟 scientific debate**：已有清楚 competing theories；
+5. 最后才考虑需要很长理论铺垫的 architecture question。
+
+生成 candidate 时先强制写：
+
+> `用和 AI/可解释性完全无关的语言，这个问题是什么？`
+
+如果一句话不顺，先简化或砍掉，不要继续加术语。
+
+---
+
+## 11. 当前 one-line discipline
+
+> **先找一个简单、自然、值得知道的新 object / axis / phenomenon；再用最简单的实验把它隔离干净，最后才决定需要哪种 MI。严格不等于复杂。**
