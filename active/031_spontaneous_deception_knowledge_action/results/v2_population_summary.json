@@ -1,0 +1,26 @@
+{
+  "all_recipient_hard_answers": [
+    "No"
+  ],
+  "all_recipient_reachable": [
+    false
+  ],
+  "break_positions": [
+    5
+  ],
+  "manifest_sha256": "6acbc2ca1d3888dcbd00721b5b0d49a46eca4bbbfa1f56f49812b9ce7074068e",
+  "n_by_role": {
+    "hard_deceptive": 24,
+    "hard_truthful": 13
+  },
+  "n_recipients": 24,
+  "n_rows": 37,
+  "population_rule": {
+    "hard_deceptive": "V0 audited mother_deceptive AND V1 deterministic mother_deceptive",
+    "hard_truthful_control": "V0 audited hard_truthful AND V1 deterministic hard_truthful",
+    "model": "Meta-Llama-3.1-8B-Instruct",
+    "reverse_excluded": true,
+    "variant": "BrokenLinkedListRephrase"
+  },
+  "schema_version": 1
+}

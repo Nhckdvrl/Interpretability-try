@@ -1,6 +1,6 @@
 # 031 — Do Language Models Really Lie When They Fail?
 
-Status: **ACTIVE / PASS-REGISTER / V0 COMPLETE / V1 DETERMINISTIC PILOT COMPLETE**
+Status: **ACTIVE / PASS-REGISTER / V0–V1 COMPLETE / V2 MECHANISTIC PREFLIGHT COMPLETE**
 
 Route: **Hamdi Route B — established anomaly → construct-level causal audit**  
 Canonical registration: [`../../phenomenon_miner/REGISTERED_SPONTANEOUS_DECEPTION_KNOWLEDGE_ACTION_2026-08-31.md`](../../phenomenon_miner/REGISTERED_SPONTANEOUS_DECEPTION_KNOWLEDGE_ACTION_2026-08-31.md)

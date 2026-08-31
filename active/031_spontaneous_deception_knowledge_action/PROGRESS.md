@@ -20,3 +20,17 @@
 - Tracked summary: `results/v1_llama_replay_summary.json`.
 
 The first vLLM attempt failed during FlashInfer warm-up because the installed sampler mis-detected the Blackwell SM 12.x device. No environment was created or altered; the run continued with the existing environment's working PyTorch/Transformers stack.
+
+## 2026-08-31 — V2 mechanistic preflight
+
+- Frozen recipient rule: Meta-Llama-3.1-8B, positive-direction only, V0 independently rescored mother-deceptive **and** V1 deterministic mother-deceptive.
+- Frozen population: 24 hard-deceptive recipients and 13 stable hard-truthful controls. All hard graphs are length 10, broken at position 5, unreachable, with correct answer `No`.
+- Generated deterministic graph state for every item: full chain, present edges, missing edge and index, source/target components, reachability, correct answer, and prompt fact/entity character spans.
+- Population artifact: ignored `artifacts/v2_population.jsonl`, SHA-256 `6acbc2ca1d3888dcbd00721b5b0d49a46eca4bbbfa1f56f49812b9ce7074068e`; tracked summary `results/v2_population_summary.json`.
+- Layer-wise answer-state trace: 33 residual states at the hard/easy prompt-final token. Hard-deceptive runs stay substantially below hard-truthful/easy controls through the late stack, briefly approach the correct `No` direction at layer 31, and return to the wrong direction at the final state. This is an answer-token logit lens, not a graph-state probe.
+- One easy follow-up (`...i0613:740fa6e92318`) is numerically unstable under the hidden-state instrumentation path and is excluded from transplantation, leaving 23 recipients.
+- Whole-state transplantation upper bound: matched-easy replacement rescues 100% at layers 20–30, but shuffled-easy replacement also rescues 100% with nearly identical mean margin gains. Same-norm random replacements rescue only 0–8.7%; hard-truthful donors rise from 78.3% at layer 20 to 100% at layer 30.
+- Interpretation: the intervention primitive works, but the rescue is a generic cross-item answer-state transfer. It does **not** show that the hard run contains or lacks a graph-specific correct reachability state.
+- Tracked outputs: `results/v2_answer_state_trace_summary.json` and `results/v2_transplant_preflight_summary.json`. Raw activations and per-item interventions remain ignored artifacts.
+
+Next gate: identify an answer-polarity-controlled reachability/missing-edge subspace with graph-instance-grouped evaluation, then patch only that subspace. Matched patching must beat shuffled-answer-state and random controls before it can address the paper-level deception criterion.
