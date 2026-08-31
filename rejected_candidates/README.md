@@ -50,25 +50,47 @@
 - `NATURALNESS_FAILURE`
 - `METHOD_COLLISION`
 - `LOW_SURPRISE`
+- `KILL-S0`
+- `KILL-N0`
+- `KILL-N1`
+- `KILL-DATA`
+- `KILL-P0`
+- `KILL-INTERNAL-HISTORY`
 
-## Domain logs
+## Domain / terminal logs
 
 - [`agent_tool_use.md`](./agent_tool_use.md) — Agent / tool-use / execution failures
-- [`cognitive_logical_reasoning.md`](./cognitive_logical_reasoning.md) — formal / conditional / logical reasoning phenomena; its old `under audit` notes for deontic facilitation / premise-reversal blocking are superseded by the terminal addenda below
+- [`cognitive_logical_reasoning.md`](./cognitive_logical_reasoning.md) — formal / conditional / logical reasoning phenomena; old `under audit` notes are superseded by newer terminal addenda
 - [`cognitive_decision_making.md`](./cognitive_decision_making.md) — economic choice, legal judgment, anchoring, authority, risk, sunk cost
 - [`factuality_information_conflict.md`](./factuality_information_conflict.md) — false premises, answerability, misinformation, source credibility, repetition
 - [`multimodal_grounding.md`](./multimodal_grounding.md) — VLM perception–knowledge conflict and counterfactual visual grounding
-- [`semantic_pragmatic_factorization.md`](./semantic_pragmatic_factorization.md) — semantic / pragmatic / discourse factorization kills; includes intended-vs-perceived sarcasm, literal-vs-figurative meaning, said-vs-implicated content, emotion-vs-cause, dialogue-act-vs-affect, definiteness-vs-specificity, taxonomic-vs-thematic, animacy-vs-agentivity, agency-vs-experience, and local-accessibility-vs-global-salience
-- [`risk_uncertainty_factorization.md`](./risk_uncertainty_factorization.md) — likelihood-vs-severity and epistemic-vs-aleatoric uncertainty direct mechanism collisions
-- [`social_norm_factorization.md`](./social_norm_factorization.md) — moral-judgment-vs-legality killed by mother inclusion despite strong Social Chemistry substrate
-- [`social_simulation_factorization.md`](./social_simulation_factorization.md) — average-opinion-vs-population-diversity direct internal-distribution collision; keeps intervention direction-vs-magnitude as a separate lead under audit
-- [`hamdi_search_addendum_2026-08-31.md`](./hamdi_search_addendum_2026-08-31.md) — cross-domain terminal addendum that supersedes stale `under audit` wording for deontic facilitation and freezes motivated-reasoning / self-attribution ownership collisions
-- [`hamdi_search_terminal_addendum_2_2026-08-31.md`](./hamdi_search_terminal_addendum_2_2026-08-31.md) — second-wave authoritative hard kills, including assertion-vs-presupposition, polysemy-vs-homonymy, coreference-vs-bridging, prevalence-vs-diagnosticity, significance/evidence-vs-effect-size, novice-simulation curse of knowledge, and claim-content-vs-scope
-- [`late_search_addendum_2026-08-31.md`](./late_search_addendum_2026-08-31.md) — late convergence kills/warnings for truth-vs-popular-belief, plausible-vs-true, classic false consensus under current S0, and significance-vs-replicability; overlaps are subordinate to the newer authoritative terminal addendum where they conflict
-- [`final_convergence_addendum_2026-08-31.md`](./final_convergence_addendum_2026-08-31.md) — final late-session cleanup: premise-reversal fallacy blocking fails strict S0 because its existence substrate is PyETR synthetic; off-trajectory stronger-model fragility, multi-agent diversity collapse, and generation-vs-robustness fail N0 / forbidden-shape checks
-- [`001.md`](./001.md) — **legacy mixed-domain batch**，保留历史记录，不再继续追加。包含 role-value binding、facts-vs-shortcuts、fan effect、VLM conflict、self-correction、tool irrelevance、irrelevant context、negation、social compliance、overthinking。
+- [`semantic_pragmatic_factorization.md`](./semantic_pragmatic_factorization.md) — semantic / pragmatic / discourse factorization kills
+- [`risk_uncertainty_factorization.md`](./risk_uncertainty_factorization.md) — likelihood-vs-severity and epistemic-vs-aleatoric uncertainty collisions
+- [`social_norm_factorization.md`](./social_norm_factorization.md) — social / moral norm factorization
+- [`social_simulation_factorization.md`](./social_simulation_factorization.md) — social simulation and treatment-effect leads
+- [`hamdi_search_addendum_2026-08-31.md`](./hamdi_search_addendum_2026-08-31.md) — early cross-domain hard kills
+- [`hamdi_search_terminal_addendum_2_2026-08-31.md`](./hamdi_search_terminal_addendum_2_2026-08-31.md) — assertion/presupposition, prevalence/diagnosticity, significance/effect-size, etc.
+- [`late_search_addendum_2026-08-31.md`](./late_search_addendum_2026-08-31.md) — late convergence kills and resurrection warnings
+- [`final_convergence_addendum_2026-08-31.md`](./final_convergence_addendum_2026-08-31.md) — premise-reversal synthetic-only kill, off-trajectory robustness, multi-agent diversity, generation-vs-robustness
+- [`continuation_mother_search_2026-08-31.md`](./continuation_mother_search_2026-08-31.md) — continuation mother-paper search kills including geographic direction/distance, forced-choice/indifference, ordinal/cardinal quantity and other direct-collision objects
+- [`continuation_terminal_addendum_2_2026-08-31.md`](./continuation_terminal_addendum_2_2026-08-31.md) — popularity/quality, memory/control, rank/calibration, moral-ordering/intensity and related terminal objects
+- [`continuation_terminal_addendum_3_2026-08-31.md`](./continuation_terminal_addendum_3_2026-08-31.md) — later terminal cleanup including recognition/recall, content/source, what/where and stale physical-cognition survivors
+- [`continuation_terminal_addendum_4_2026-08-31.md`](./continuation_terminal_addendum_4_2026-08-31.md) — additional continuation hard kills; newer addenda supersede any remaining HOLD wording
+- [`continuation_terminal_addendum_5_2026-08-31.md`](./continuation_terminal_addendum_5_2026-08-31.md) — belief-update gate/dial, species moral-status axes, implicit preference/inhibition, privacy knowledge/action, generic perceptual constancy, relational-property essentialization
+- [`continuation_terminal_addendum_6_2026-08-31.md`](./continuation_terminal_addendum_6_2026-08-31.md) — **latest terminal addendum**: numeric heaping, subliminal learner/reader, common/deadly, power/status, authorship/endorsement, mass volume×density, unit invariance, anchoring, astronomy/geophysics axes, ratio bias, preference transitivity, occupational income/prestige, manipulation detection/effect, inattentional blindness, legal authority, belief-expression framing, health/sustainability, institutional-role/prominence; also records the precise blockers for the remaining unregistered frontiers
+- [`001.md`](./001.md) — **legacy mixed-domain batch**，保留历史记录，不再继续追加。
 
-后续新增 rejection **只进入对应 domain log**；如果出现新的领域，就新建 `<domain>.md`。旧 `001.md` 不删除，作为第一轮搜题历史快照。
+## Authority rule
+
+When statuses conflict, use this order:
+
+1. `phenomenon_miner/HANDOFF_HAMDI_SEARCH_2026-08-31.md` (newest contents)
+2. newest `continuation_terminal_addendum_*_2026-08-31.md`
+3. other terminal addenda
+4. domain logs
+5. old chat / old `lead`, `PRE-CANDIDATE`, `HOLD`, `under audit` prose
+
+A stale positive label is never evidence of survival.
 
 ## Mandatory pre-search check
 
