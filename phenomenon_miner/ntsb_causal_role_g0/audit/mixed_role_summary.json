@@ -1,0 +1,65 @@
+{
+  "definition": "event has >=1 Cause_Factor=='C' AND >=1 Cause_Factor=='F'",
+  "mixed_role_events": 3506,
+  "mixed_role_event_aircraft_units": 3587,
+  "C_rows_in_mixed_events": 7383,
+  "F_rows_in_mixed_events": 5709,
+  "CF_rows_in_mixed_events": 13092,
+  "non_CF_rows_in_mixed_events": 1592,
+  "C_per_mixed_event": {
+    "n": 3506,
+    "min": 1,
+    "p25": 1,
+    "median": 2,
+    "p75": 3,
+    "max": 12,
+    "mean": 2.106
+  },
+  "F_per_mixed_event": {
+    "n": 3506,
+    "min": 1,
+    "p25": 1,
+    "median": 1,
+    "p75": 2,
+    "max": 11,
+    "mean": 1.628
+  },
+  "non_CF_per_mixed_event": {
+    "n": 3506,
+    "min": 0,
+    "p25": 0,
+    "median": 0,
+    "p75": 1,
+    "max": 9,
+    "mean": 0.454
+  },
+  "mixed_by_year": {
+    "2008": 743,
+    "2009": 344,
+    "2010": 269,
+    "2011": 301,
+    "2012": 331,
+    "2013": 270,
+    "2014": 270,
+    "2015": 246,
+    "2016": 223,
+    "2017": 170,
+    "2018": 175,
+    "2019": 114,
+    "2020": 50
+  },
+  "mixed_by_ev_type": {
+    "ACC": 3366,
+    "INC": 140
+  },
+  "mixed_by_invest_agy": {
+    "N": 3405,
+    "": 96,
+    "O": 5
+  },
+  "mixed_with_narr_accp_factual": 3482,
+  "mixed_with_narr_accf_final": 3503,
+  "mixed_with_narr_cause": 3503,
+  "n_years_with_mixed_events": 13,
+  "max_single_year_share": 0.2119
+}

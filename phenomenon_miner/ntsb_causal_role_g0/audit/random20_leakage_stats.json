@@ -1,0 +1,46 @@
+{
+  "seed": 20260831,
+  "sampled_ev_ids": [
+    "20090309X43538",
+    "20090201X30126",
+    "20130608X41116",
+    "20100624X25616",
+    "20120825X85310",
+    "20151201X31241",
+    "20080703X00979",
+    "20120704X95425",
+    "20140408X72606",
+    "20171123X70738",
+    "20180416X75158",
+    "20190430X15852",
+    "20160204X80119",
+    "20140430X90625",
+    "20170527X93038",
+    "20120130X60836",
+    "20190925X65544",
+    "20170727X15642",
+    "20150514X71721",
+    "20080714X01041"
+  ],
+  "sample_stats": {
+    "role_C": 51,
+    "desc_had_role_suffix": 86,
+    "role_F": 35,
+    "events_with_duplicate_finding_text": 1,
+    "factual_narrative_present": 21,
+    "role_blank": 11,
+    "events_factual_narrative_contains_leak_term": 3
+  },
+  "mixed_population_narrative_leak_scan": {
+    "mixed_ac_with_factual_narrative": 3569,
+    "leakterm::the cause of": 660,
+    "leakterm::contributed to": 70,
+    "leakterm::probable cause": 33,
+    "leakterm::contributing to": 37,
+    "leakterm::contributing factor": 19,
+    "leakterm::was the cause": 7,
+    "leakterm::factor in the accident": 4,
+    "mixed_ac_without_factual_narrative": 25,
+    "leakterm::causal factor": 8
+  }
+}

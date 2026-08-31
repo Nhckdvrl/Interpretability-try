@@ -1,0 +1,5 @@
+raw/avall.zip
+raw/avall.mdb
+export/
+.conda-mdbtools/
+.venv-mdb/

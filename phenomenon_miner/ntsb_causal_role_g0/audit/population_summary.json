@@ -1,0 +1,89 @@
+{
+  "population": {
+    "source_artifact": "raw/avall.mdb (official NTSB avall.zip)",
+    "findings_rows": 72381,
+    "findings_columns": [
+      "ev_id",
+      "Aircraft_Key",
+      "finding_no",
+      "finding_code",
+      "finding_description",
+      "category_no",
+      "subcategory_no",
+      "section_no",
+      "subsection_no",
+      "modifier_no",
+      "Cause_Factor",
+      "lchg_date",
+      "lchg_userid",
+      "cm_inPc"
+    ],
+    "events_rows": 30968,
+    "narrative_rows": 28335,
+    "unique_events_in_findings": 24262,
+    "unique_event_aircraft_in_findings": 24633,
+    "cause_factor_values": {
+      "C": 37764,
+      "F": 5758,
+      "<blank>": 28859
+    },
+    "cause_factor_missing_frac": 0.39871,
+    "cm_inPc_values": {
+      "T": 61041,
+      "F": 11340
+    },
+    "cm_inPc_missing_frac": 0.0,
+    "finding_description_missing": 2,
+    "finding_code_missing": 0,
+    "finding_description_trailing_role_suffix": {
+      "C": 36646,
+      "F": 5399,
+      "<none>": 30336
+    },
+    "findings_per_event": {
+      "n": 24262,
+      "min": 1,
+      "p25": 2,
+      "median": 3,
+      "p75": 4,
+      "max": 36,
+      "mean": 2.983
+    },
+    "event_year_range": [
+      "2008",
+      "2009",
+      "2010",
+      "2011",
+      "2012",
+      "2013",
+      "2014",
+      "2015",
+      "2016",
+      "2017",
+      "2018",
+      "2019",
+      "2020",
+      "2021",
+      "2022",
+      "2023",
+      "2024",
+      "2025",
+      "2026"
+    ],
+    "narratives_available_all_events": {
+      "narr_accp_factual": 23933,
+      "narr_accf_final": 24451,
+      "narr_cause_probable_cause": 24434
+    }
+  },
+  "minimum_viability_gate": {
+    "criterion": ">=500 mixed-role events AND >=1000 C/F rows in mixed events AND spread across years/categories",
+    "mixed_role_events": 3506,
+    "cf_rows_in_mixed_events": 13092,
+    "years_with_mixed": 13,
+    "max_single_year_share": 0.2119,
+    "pass_events_500": true,
+    "pass_cf_rows_1000": true,
+    "verdict": "PASS"
+  }
+}

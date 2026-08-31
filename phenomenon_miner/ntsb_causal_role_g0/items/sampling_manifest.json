@@ -1,0 +1,77 @@
+{
+  "seed": 20260831,
+  "frozen_at": "2026-08-31 (before any model load)",
+  "preregistration": "PREREGISTRATION.md",
+  "source_sha256_avall_zip": "0cf30a610d18eb109035b83106c227b248f27c6cff794ce622548f44c455238a",
+  "eligibility": {
+    "E1": "unit has >=1 Cause_Factor=C and >=1 Cause_Factor=F",
+    "E2": "all C/F findings have non-empty text after role-suffix stripping",
+    "E3": "narr_accp present and >= 60 words",
+    "E4": "narr_accp contains no accident-role wording (cause-of-death excluded)",
+    "E5": "no identical stripped finding text with conflicting C/F role",
+    "E6": "one Aircraft_Key per event (lowest eligible)"
+  },
+  "attrition_units": {
+    "E1_not_mixed_role": 21046,
+    "E6_extra_aircraft_key_in_same_event": 75,
+    "E4_narrative_role_wording": 152,
+    "E3_no_or_short_factual_narrative": 48,
+    "E5_same_text_role_conflict": 19
+  },
+  "eligible_events": 3293,
+  "target_events": 600,
+  "sampled_events": 600,
+  "year_allocation": {
+    "2008": 128,
+    "2009": 60,
+    "2010": 48,
+    "2011": 52,
+    "2012": 56,
+    "2013": 47,
+    "2014": 45,
+    "2015": 43,
+    "2016": 39,
+    "2017": 29,
+    "2018": 29,
+    "2019": 19,
+    "2020": 5
+  },
+  "eligible_by_year": {
+    "2008": 702,
+    "2009": 332,
+    "2010": 264,
+    "2011": 286,
+    "2012": 306,
+    "2013": 259,
+    "2014": 249,
+    "2015": 234,
+    "2016": 212,
+    "2017": 158,
+    "2018": 159,
+    "2019": 105,
+    "2020": 27
+  },
+  "narrative_field": "narratives.narr_accp (NTSB 'Factual narrative')",
+  "narrative_max_words": 1200,
+  "narratives_truncated": 180,
+  "relevance_items": 2390,
+  "relevance_gold": {
+    "YES": 2149,
+    "NO": 241
+  },
+  "relevance_events_with_at_least_one_negative": 177,
+  "role_items": 2149,
+  "role_gold": {
+    "CONTRIBUTING_FACTOR": 945,
+    "CAUSE": 1204
+  },
+  "role_items_with_contributed_to_outcome_modifier": 73,
+  "dropped_items": {
+    "blank_cause_factor_but_cm_inPc_T": 36
+  },
+  "items_sha256": {
+    "g0_events.jsonl": "ea8fbd7aad8c7668984bec70a4f8618272f311077d1e1eaf8770e4d798794f2e",
+    "g0_relevance.jsonl": "c9d9df7799ac86728d890368848de26eb18a53fb9f31dd572a798eb2c042b253",
+    "g0_roles.jsonl": "676b3fb20129442768f613161865197458d0656865ccdfd7d683f7ba8014f100"
+  }
+}
