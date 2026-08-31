@@ -30,6 +30,19 @@ N1 is a direct internal-representation collision. ICLR 2026 **What Do Large Lang
 
 ---
 
-# Non-rejected neighboring lead
+# Non-rejected neighboring lead: Intervention Effect Direction ≠ Magnitude
 
-- **Right Direction ≠ Right Magnitude for intervention effects** remains under audit. It is not automatically killed by opinion-distribution work because its target is causal treatment-effect sign/strength rather than static population response distributions. However, variance collapse must be a fatal control: if magnitude inflation is fully explained by synthetic-population underdispersion or sampling mechanics, the intervention-effect topic must be killed rather than reframed.
+**Natural question:** A model may correctly predict whether an intervention moves an outcome up or down while systematically misestimating how strongly it moves the outcome. Are qualitative causal direction and quantitative causal magnitude computed differently?
+
+**Why it remains distinct from the killed opinion-distribution topic:** the target is a **causal treatment effect** rather than a static population answer distribution. 2026 Nature work reports strong correspondence between LLM-predicted and real treatment effects across 70 preregistered nationally representative survey experiments / 469 effects while also finding systematic effect-size inflation; 2025 large-scale scenario-replication work independently reports larger synthetic effect sizes than human studies.
+
+**Current status:** `HOLD-FATAL-CONTROL / NOT REGISTERED`.
+
+**Fatal controls:**
+
+1. **Population underdispersion / variance collapse.** If oversized effects are fully explained by synthetic respondents being too homogeneous, the proposed sign-vs-magnitude mechanism is not established.
+2. **Intervention-induced user drift.** 2026 **The Illusion of Intervention** shows that treatment and control prompts can make an LLM instantiate different latent respondent/persona populations. This selection/confounding effect can inflate or shrink synthetic treatment effects, and targeted confounder controls can materially change/stabilize estimates. Therefore the headline magnitude-inflation phenotype is not interpretable until user drift is controlled.
+
+**Required next step before any MI:** obtain the relevant treatment-effect and user-drift artifacts and test whether `direction mostly correct + magnitude systematically inflated` survives a faithful negative-control/confounder correction on analyzable open models. If the residual disappears, record `KILL-ARTIFACT` and do not rescue by narrowing to a subset. If a large residual survives, only then complete N1 for `causal effect sign vs strength internal representation` and formulate causal mechanistic forks.
+
+**No probe / SAE / patching is authorized while this fatal control is unresolved.**
