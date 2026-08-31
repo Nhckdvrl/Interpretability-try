@@ -1,130 +1,114 @@
 # Interpretability Topic Search
 
-这个仓库用于寻找、快速证伪、再解释 **LLM / MLLM 的自然、反直觉、可机制化的问题**。
+这个仓库用于寻找、快速证伪、再解释 **LLM / VLM 的自然、反直觉、可机制化 scientific questions**。
 
-> **2026-08-31 最新权威状态：当前 continuation search 的 `PASS_REGISTER = 0`。**
-> 继续工作必须先读 [`phenomenon_miner/HANDOFF_HAMDI_SEARCH_2026-08-31.md`](phenomenon_miner/HANDOFF_HAMDI_SEARCH_2026-08-31.md) 和最新 [`rejected_candidates/continuation_terminal_addendum_9_2026-08-31.md`](rejected_candidates/continuation_terminal_addendum_9_2026-08-31.md)。本 README 下方保留的历史 `survivor / registered / HOLD` 叙述是研究轨迹记录，**若与最新 handoff / terminal addendum 冲突，一律视为 stale，不可计入当前五题目标。**
+当前 continuation search：
 
-Top-6 实跑后，选题流程已经从“能不能构造漂亮 factorial experiment”改成：
-
-```text
-natural question
-→ strong mother / external concept anchor
-→ classify failure vs factorization
-→ S0: open-model effect OR objective row-level gold + counted cross-cells
-→ Hamdi-style mother-inclusion N0
-→ strongest-neighbor / successor N1
-→ if novelty gets narrower and narrower, KILL
-→ data as measurement instrument
-→ cheap behavioral/capability contract
-→ controls
-→ mechanistic interpretability
+```yaml
+PASS_REGISTER: 0
+counts_toward_target_five: 0
+new_topic_MI_authorized: false
+latest_terminal_execution: NTSB causal-role frontier KILL-S0
 ```
 
-核心规则：[`phenomenon_miner/NATURAL_QUESTION_GATE.md`](phenomenon_miner/NATURAL_QUESTION_GATE.md)。
-注册前一票否决：[`phenomenon_miner/SCIENTIFIC_SUBSTRATE_GATE.md`](phenomenon_miner/SCIENTIFIC_SUBSTRATE_GATE.md)。
+**No candidate passes the current bar.**
 
-> **最新跨对话接力入口：[`phenomenon_miner/HANDOFF_HAMDI_SEARCH_2026-08-31.md`](phenomenon_miner/HANDOFF_HAMDI_SEARCH_2026-08-31.md)。** 继续搜题前先读该文件与 `rejected_candidates/` 最新 terminal addenda；旧 chat 中的 `lead/HOLD` 不具有更高权威性。
+---
 
-## 当前 established / adjudicated 主线
+## 当前只认三份权威文件
+
+1. [`phenomenon_miner/FINDING_RULES.md`](phenomenon_miner/FINDING_RULES.md) — **唯一选题协议**
+2. [`phenomenon_miner/HANDOFF_HAMDI_SEARCH_2026-08-31.md`](phenomenon_miner/HANDOFF_HAMDI_SEARCH_2026-08-31.md) — 当前状态 / 下一步
+3. 本 README — 仓库入口
+
+一般失败经验：[`phenomenon_miner/FAILED_TOPICS.md`](phenomenon_miner/FAILED_TOPICS.md)。
+
+其它 gate、funnel、N0/N1、terminal addendum、domain log、old candidate 文件都是**历史证据**。除非一个新题语义上接近它们，否则下一轮不需要完整通读。
+
+旧文件里的 `lead / HOLD / PRE-S0 / registered / survivor / under audit / active` 不自动代表当前有效状态；以 handoff 为准。
+
+---
+
+## 现在怎样找题
+
+今天的核心修正是停止：
+
+```text
+想一个听起来合理的 phenomenon
+→ 设计数据和机制故事
+→ 花算力赌模型会不会出现
+```
+
+改为真正的 Hamdi-style mother extension：
+
+```text
+strong concrete mother
+→ mother 已经测清 object O
+→ 找 O 上 mother 没问的现实轴 / internal computation
+→ 尽量复用 mother 的 unit / readout / recipe
+→ semantic negative-memory + strongest-neighbor attack
+→ cheap artifact/output falsifier
+→ S0
+→ registration
+→ MI
+```
+
+只允许两类主要来源：
+
+- **omitted-axis extension**：同一个 object 上有现实中独立的新属性，例如 entity knowledge → ontological status；
+- **established anomaly → unasked causal computation**：行为已经成立，再问 prior work 没问的内部 state/computation，并要求 competing causal hypotheses 与不同 intervention prediction，例如 arbitrary-choice bias → choice-state vs entropy writer。
+
+详细合同全部集中在 `FINDING_RULES.md`。
+
+---
+
+## 最重要的失败教训
+
+48-way S0 funnel 的结果是：24 个先死于 behavior/measurement，8 个死于 substrate，14 个在 pre-S0 就被 mother/successor 占据，只有 2 个走到更后的 novelty gate，最终 **0 survivor**。
+
+因此问题不是 gate 不够多，而是过去 candidate generation 太宽、太依赖猜测。
+
+当前统一把死亡归为七类：
+
+```text
+F1 behavior lottery / synthetic-first
+F2 mother or strongest-neighbor ownership
+F3 substrate / gold / cross-cell mirage
+F4 measurement / metadata / capability artifact
+F5 no common phenotype across families
+F6 post-hoc rescue / scope drift
+F7 mechanistically weak / method-closed
+```
+
+详见 `FAILED_TOPICS.md`。逐题死因只作为证据留在 `rejected_candidates/` 和 `archive/`，不再反复复制到新协议里。
+
+---
+
+## 当前执行状态
 
 ### 014 Alias Entrainment Transfer
 
-Broad cross-surface learned-relation spillover 已成立；reference-specific/entity-salience interpretation 不成立。论文固定为 cross-surface transfer 的 structural gradient + lexical/reference boundary。
+已有正式研究结果，继续 paper development。Broad cross-surface learned-relation spillover 成立；reference-specific/entity-salience interpretation 不成立。项目证据在 [`active/014_alias_entrainment_transfer/`](active/014_alias_entrainment_transfer/)。
 
-### 018 Stock–Flow Correlation Intrusion
+### NTSB causal relevance vs causal-role selection
 
-Natural stock-flow question 经 bounded D0-v2 semantic-recognition repair 后仍为
-0/4 family PROMOTE；可估计家族的正确-net-history effect 为小幅 null 或反向。
-状态固定为 `NO-PROMOTE / NO-MI / TERMINAL`，禁止继续 gate repair 或缩成
-polarity/prompt/model-specific 子题。
+**TERMINAL `KILL-S0 / RELEVANCE-ALSO-FAILS`**。四个 open families 的 relevance BA 仅 0.537–0.635，没有预设的 `relevance strong / role weak` dissociation；metadata/length audit 也暴露 construct 问题。详见 [`rejected_candidates/ntsb_causal_relevance_vs_causal_role_selection_2026-08-31.md`](rejected_candidates/ntsb_causal_relevance_vs_causal_role_selection_2026-08-31.md)。
 
-## 第一轮 Hamdi-style N0 survivors
+其它旧 frontier / HOLD 的最新处理见 handoff；它们都**不计入五题**。
 
-> **历史记录提示：本节中的 survivor 标签不是当前 continuation 的 PASS 状态。以最新 handoff 为准。**
+---
 
-### 024 Alignment: Descriptive Social Model vs Normative Readout
+## 目录怎么用
 
-> Alignment 让模型更 normative 时，是 descriptive human model 被改坏，还是 descriptive knowledge 仍在而 normative signal / late readout 赢了？
+- `active/`：曾进入正式实验身份的项目；目录名不保证当前仍 active。
+- `archive/`：正式项目的停止/终止证据。
+- `rejected_candidates/`：逐题 negative evidence，供**定向 semantic search**，不是每轮必读清单。
+- `phenomenon_miner/`：当前协议、handoff 与历史 discovery artifacts。
 
-### 025 World-Indexed Truth
+新 rejection 文件保持短：记录 question、mother、F1–F7 kill class、decisive evidence、nearest-neighbor warning、resurrection condition 即可。不要再复制整套协议。
 
-> 同一 proposition 在 actual world 与 stipulated local world 下有不同 truth value 时，模型是否表示 `Truth(P, world)`？
-
-完整审计：[`phenomenon_miner/HAMDI_AXIS_N0_2026-08-31.md`](phenomenon_miner/HAMDI_AXIS_N0_2026-08-31.md)。
-
-## 第二轮：N0 + N1 三个新注册题
-
-> **历史记录提示：这些旧 registration 后续已被 retrospective S0 adjudication；不可从这里直接恢复为当前 PASS。**
-
-完整审计：[`phenomenon_miner/HAMDI_MOTHER_N0_N1_3_2026-08-31.md`](phenomenon_miner/HAMDI_MOTHER_N0_N1_3_2026-08-31.md)。
-
-### 026 Plausibility Is Not Testability
-
-> **“这个科学假设可能是真的”和“它能被一个有区分力的实验检验”不是同一判断。LLM 是否把 plausibility 与 testability 分成两个内部 scientific variables？**
-
-Mother：ACL 2026 scientific feasibility + NAACL scientific-hypothesis evaluation。N1 未找到 causal internal factorization 的直接工作。
-
-详细合同：[`active/026_scientific_plausibility_testability_factorization/`](active/026_scientific_plausibility_testability_factorization/)
-
-Retrospective S0：`KILL`。当前公开 artifact 没有 broad、independent、
-expert-grounded P/T 双 gold；不使用 o1-preview ratings 替代专家标注。
-
-### 027 Questions That Assert
-
-> **识别“这是 rhetorical question”和理解“speaker 借它实际上断言了什么 proposition/stance”是否是两个 computation？**
-
-Mother：EMNLP 2025 SRAQ + ACL 2026 RQ representation。不能退化成 RQ detection 或 yes/no polarity trick。
-
-详细合同：[`active/027_rhetorical_force_implied_assertion/`](active/027_rhetorical_force_implied_assertion/)
-
-Retrospective S0：`KILL`。SRAQ/QT30 提供自然、多功能 force gold，
-但没有发布与 question 对齐的 implied assertion / speaker commitment gold；
-不以 polarity inversion、任意 following turn 或 LLM label 代替中央 target。
-
-### 028 Cause Is Not Blame
-
-> **不同 narrative 改变 blame/credit 时，模型是否保留一个相对稳定的 event-causal core，还是 responsibility framing 会重写 causality itself？**
-
-Mother：ACL 2026 FrECI。不能退化成 source identity / political bias probe。
-
-详细合同：[`active/028_causality_responsibility_factorization/`](active/028_causality_responsibility_factorization/)
-
-Retrospective S0：`KILL`。论文 schema/human annotation 通过，但
-官方 row-level repository 当前 404；论文的 shared-effect fragmentation
-统计不能回答 same cause-effect pair / different responsibility frame 的数量。
-
-## Strict novelty kills
-
-- **Superseded Truth ≠ Never-True Falsehood**：2026 temporal-drift mechanism work 已覆盖独立 axis + stale/confabulation + dynamics + steering；KILL。
-- **Falsehood ≠ Deceptive Intent**：N1 发现近期 deception-specific / intent-targeted probe 与 non-lying-deception work 已逼近标题级结论；继续只能缩成 subtype，因此未注册。
-- 007 / 020 / 021 / 022 已从 active 清理进 archive，禁止换数据复活。
-
-## HOLD
-
-> **历史记录提示：本节是旧状态；当前 continuation 允许继续执行的 frontier 只以 authoritative handoff 的四条列表为准。**
-
-- 003 Diagnostic Counterevidence Revision — natural mother provenance；no call。
-- 013 Publicness–Coordination — natural question, HOLD-DATA。
-- 023 Description–Experience Gap — natural external phenomenon，HOLD-N0-REAUDIT。
-
-## 关键入口
-
-- **[`phenomenon_miner/HANDOFF_HAMDI_SEARCH_2026-08-31.md`](phenomenon_miner/HANDOFF_HAMDI_SEARCH_2026-08-31.md) — 最新跨对话 authoritative handoff；当前新题 0 PASS-REGISTER。**
-- **[`rejected_candidates/continuation_terminal_addendum_9_2026-08-31.md`](rejected_candidates/continuation_terminal_addendum_9_2026-08-31.md) — 最新 terminal negative memory / 本轮失败题总表。**
-- [`phenomenon_miner/NEXT_AGENT_PROMPT_2026-08-31.md`](phenomenon_miner/NEXT_AGENT_PROMPT_2026-08-31.md) — 下一轮对话可直接使用的完整执行提示词。
-- [`phenomenon_miner/NTSB_LOCAL_AGENT_PROMPT_2026-08-31.md`](phenomenon_miner/NTSB_LOCAL_AGENT_PROMPT_2026-08-31.md) — NTSB 验证交给本地 agent 的可复制提示词。
-- [`phenomenon_miner/NTSB_LOCAL_AGENT_HANDOFF_2026-08-31.md`](phenomenon_miner/NTSB_LOCAL_AGENT_HANDOFF_2026-08-31.md) — NTSB 本地数据审计→G0 的完整执行合同。
-- [`phenomenon_miner/NATURAL_QUESTION_GATE.md`](phenomenon_miner/NATURAL_QUESTION_GATE.md)
-- [`phenomenon_miner/SCIENTIFIC_SUBSTRATE_GATE.md`](phenomenon_miner/SCIENTIFIC_SUBSTRATE_GATE.md)
-- [`phenomenon_miner/HAMDI_MOTHER_N0_N1_3_2026-08-31.md`](phenomenon_miner/HAMDI_MOTHER_N0_N1_3_2026-08-31.md)
-- [`phenomenon_miner/CURRENT_TOPICS.md`](phenomenon_miner/CURRENT_TOPICS.md)
-- [`active/README.md`](active/README.md)
-- [`phenomenon_miner/AUDIT_REGISTRY.md`](phenomenon_miner/AUDIT_REGISTRY.md)
-- [`phenomenon_miner/S0_FUNNEL_2026-08-31.md`](phenomenon_miner/S0_FUNNEL_2026-08-31.md) — 48-way S0-first discovery funnel；本轮 0 survivors。
-- [`archive/README.md`](archive/README.md)
-- [`rejected_candidates/README.md`](rejected_candidates/README.md)
+---
 
 ## One-line discipline
 
-> **像 Hamdi 一样：mother 先给出一个无需 dataset 也值得追问的 scientific object；我们再问它内部到底是什么。若 novelty 审计迫使标题不断加限定词，题就已经死了。**
+> **不要问“模型还可能有什么有趣的错？”；问“这篇强 mother 已经测清的 object，还有哪个重要属性或 computation 它没有问？”**
