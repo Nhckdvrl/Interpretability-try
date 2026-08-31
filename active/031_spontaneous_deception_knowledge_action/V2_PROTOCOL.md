@@ -51,6 +51,10 @@ The next intervention must isolate graph state from answer state:
 6. compare against shuffled graph donors, answer-direction patches, unrelated-edge patches, and same-norm random patches;
 7. reverse the intervention on hard-truthful runs.
 
+The V3 calibration panel keeps graph identity and visible facts fixed while varying the queried node pair. For each broken graph it asks two within-component reachable queries and one cross-gap unreachable query, each under positive and reverse wording. Thus relational truth varies within graph while the answer token flips under wording.
+
+V3 failed this measurement gate with both a mean-difference instrument and a graph-grouped ridge probe. No graph-subspace intervention is authorized from these directions; the project is stopped rather than extending the probe search after observing the null.
+
 ## Paper-level decision rule
 
 Evidence for a latent correct state requires all of the following before answer emission:

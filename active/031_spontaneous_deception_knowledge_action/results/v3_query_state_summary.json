@@ -1,0 +1,37 @@
+{
+  "accuracy_by_split_polarity_query": {
+    "recipient/positive/cross_unreachable": 0.0,
+    "recipient/positive/left_reachable": 0.9166666666666666,
+    "recipient/positive/right_reachable": 0.9166666666666666,
+    "recipient/reverse/cross_unreachable": 0.8333333333333334,
+    "recipient/reverse/left_reachable": 0.375,
+    "recipient/reverse/right_reachable": 0.2916666666666667,
+    "test/positive/cross_unreachable": 0.140625,
+    "test/positive/left_reachable": 0.953125,
+    "test/positive/right_reachable": 0.859375,
+    "test/reverse/cross_unreachable": 0.5,
+    "test/reverse/left_reachable": 0.40625,
+    "test/reverse/right_reachable": 0.515625,
+    "train/positive/cross_unreachable": 0.10416666666666667,
+    "train/positive/left_reachable": 0.9166666666666666,
+    "train/positive/right_reachable": 0.9010416666666666,
+    "train/reverse/cross_unreachable": 0.5052083333333334,
+    "train/reverse/left_reachable": 0.4270833333333333,
+    "train/reverse/right_reachable": 0.46875
+  },
+  "measurement": "prompt-final hidden state for same-graph query panel",
+  "model_path": "/home/xiang/.cache/huggingface/hub/models--NousResearch--Meta-Llama-3.1-8B-Instruct/snapshots/d10aef7999a2b5ba950ab3974312feeedbfe0b77",
+  "model_snapshot": "d10aef7999a2b5ba950ab3974312feeedbfe0b77",
+  "n": 1680,
+  "pairwise_no_yes_accuracy": 0.555952380952381,
+  "schema_version": 1,
+  "shape": [
+    1680,
+    33,
+    4096
+  ],
+  "token_ids": {
+    "No": 2822,
+    "Yes": 9642
+  }
+}

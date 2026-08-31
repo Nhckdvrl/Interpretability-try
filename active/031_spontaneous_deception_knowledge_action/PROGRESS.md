@@ -34,3 +34,17 @@ The first vLLM attempt failed during FlashInfer warm-up because the installed sa
 - Tracked outputs: `results/v2_answer_state_trace_summary.json` and `results/v2_transplant_preflight_summary.json`. Raw activations and per-item interventions remain ignored artifacts.
 
 Next gate: identify an answer-polarity-controlled reachability/missing-edge subspace with graph-instance-grouped evaluation, then patch only that subspace. Matched patching must beat shuffled-answer-state and random controls before it can address the paper-level deception criterion.
+
+## 2026-08-31 — V3 within-run state measurement gate
+
+The paper-level target was deliberately narrowed before this run. Cross-query success was not treated as the claim. The only promotion route was a graph-instance-specific state trajectory inside the hard computation: correct state never formed, formed then corrupted, or remained intact but unused.
+
+- Built a same-graph calibration panel from 256 non-recipient graphs plus the 24 frozen recipients: 192 train, 64 held-out test and 24 recipient graphs; 1,680 prompts total.
+- For every graph, visible facts and graph identity remain fixed. Queries vary between two within-component reachable pairs and one cross-gap unreachable pair, each under positive and reverse wording. `Yes`/`No` is exactly balanced within every graph.
+- Behavioral pairwise accuracy remains strongly direction-dependent: held-out positive reachable queries score 85.9–95.3%, positive cross-gap only 14.1%, while reverse cells range from 40.6–51.6%.
+- Extracted all 33 prompt-final residual states from the local frozen Llama checkpoint.
+- Mean-difference reachability instrument failed: best held-out invariant AUROC 0.522; cross-polarity AUROCs 0.525 and 0.516; recipient AUROC 0.421.
+- A stronger dual-ridge linear probe with graph-group fit/validation/test and validation-only regularization also failed: best held-out invariant AUROC 0.532; cross-polarity AUROCs 0.538 and 0.530; recipient AUROC 0.465. No layer passed the frozen semantic/polarity gate.
+- Causal patching was not run. Without a held-out, polarity-invariant relational measurement, a patch would again risk transferring query wording or answer policy rather than graph state.
+
+Decision: **KILL 031 as a main mechanistic project.** The result does not prove that correct graph state never formed; it shows that the planned causal distinction is not identifiable with this final-token residual measurement, and further probe/token-position search would violate the predeclared stopping rule. V0–V2 remain a useful benchmark audit and negative-control record, but they do not support a sufficiently novel paper-level claim.

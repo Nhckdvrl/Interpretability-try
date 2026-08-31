@@ -1,0 +1,28 @@
+{
+  "design": "same graph/facts; three queried pairs; positive/reverse wording",
+  "n_calibration_graphs": 256,
+  "n_graphs_by_split": {
+    "recipient": 24,
+    "test": 64,
+    "train": 192
+  },
+  "n_rows": 1680,
+  "panel_sha256": "c33fef5e9f1f372bf8b9a17fcd60b6abbb1326890a3767855325deb32f83e003",
+  "rows_by_split_reachability_polarity": {
+    "recipient/False/positive": 24,
+    "recipient/False/reverse": 24,
+    "recipient/True/positive": 48,
+    "recipient/True/reverse": 48,
+    "test/False/positive": 64,
+    "test/False/reverse": 64,
+    "test/True/positive": 128,
+    "test/True/reverse": 128,
+    "train/False/positive": 192,
+    "train/False/reverse": 192,
+    "train/True/positive": 384,
+    "train/True/reverse": 384
+  },
+  "schema_version": 1,
+  "seed": 31033,
+  "train_fraction": 0.75
+}

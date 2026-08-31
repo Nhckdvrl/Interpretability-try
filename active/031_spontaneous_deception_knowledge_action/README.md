@@ -1,15 +1,15 @@
-# 031 — Do Language Models Really Lie When They Fail?
+# 031 — Within-Run Graph-State Corruption Audit
 
-Status: **ACTIVE / PASS-REGISTER / V0–V1 COMPLETE / V2 MECHANISTIC PREFLIGHT COMPLETE**
+Status: **KILL / V3 REACHABILITY MEASUREMENT GATE FAILED**
 
 Route: **Hamdi Route B — established anomaly → construct-level causal audit**  
 Canonical registration: [`../../phenomenon_miner/REGISTERED_SPONTANEOUS_DECEPTION_KNOWLEDGE_ACTION_2026-08-31.md`](../../phenomenon_miner/REGISTERED_SPONTANEOUS_DECEPTION_KNOWLEDGE_ACTION_2026-08-31.md)
 
 ## 1. One-sentence question
 
-When an LLM answers a difficult benign reasoning question incorrectly but answers a matched easier follow-up correctly, did the difficult run already contain the correct internal state and suppress it, or was the difficult run's reasoning state itself wrong?
+Does a deterministic hard reasoning failure arise because the correct graph state never forms, because it forms and is later corrupted, or because an intact state fails to control the answer?
 
-This decides whether the mother phenomenon is genuine **knowledge–action dissociation / spontaneous deception** or a reasoning failure that only looks deceptive under a behavioral proxy for internal belief.
+The easy follow-up is only a population-selection and calibration aid. Paper-level evidence would have to come from a graph-instance-specific causal state transition inside the hard run itself.
 
 ## 2. Background and mother result
 
