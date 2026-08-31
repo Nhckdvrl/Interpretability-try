@@ -68,6 +68,7 @@
 - [`risk_uncertainty_factorization.md`](./risk_uncertainty_factorization.md) — likelihood-vs-severity and epistemic-vs-aleatoric uncertainty collisions
 - [`social_norm_factorization.md`](./social_norm_factorization.md) — social / moral norm factorization
 - [`social_simulation_factorization.md`](./social_simulation_factorization.md) — social simulation and treatment-effect leads
+- [`ntsb_causal_relevance_vs_causal_role_selection_2026-08-31.md`](./ntsb_causal_relevance_vs_causal_role_selection_2026-08-31.md) — NTSB causal relevance vs cause/contributing-factor role selection; `KILL-S0 / RELEVANCE-ALSO-FAILS` after a full four-family G0
 - [`hamdi_search_addendum_2026-08-31.md`](./hamdi_search_addendum_2026-08-31.md) — early cross-domain hard kills
 - [`hamdi_search_terminal_addendum_2_2026-08-31.md`](./hamdi_search_terminal_addendum_2_2026-08-31.md) — assertion/presupposition, prevalence/diagnosticity, significance/effect-size, etc.
 - [`late_search_addendum_2026-08-31.md`](./late_search_addendum_2026-08-31.md) — late convergence kills and resurrection warnings

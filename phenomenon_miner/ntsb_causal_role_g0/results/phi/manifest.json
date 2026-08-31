@@ -1,0 +1,35 @@
+{
+  "family": "phi",
+  "model_id": "microsoft/Phi-4-mini-instruct",
+  "resolved_snapshot": "/home/xiang/.cache/huggingface/hub/models--microsoft--Phi-4-mini-instruct/snapshots/cfbefacb99257ffa30c83adab238a50856ac3083",
+  "revision_or_snapshot": "cfbefacb99257ffa30c83adab238a50856ac3083",
+  "tokenizer_class": "TokenizersBackend",
+  "tokenizer_name_or_path": "microsoft/Phi-4-mini-instruct",
+  "chat_template_sha1": "d926af6b513b7bd248411732a24b287dc7a423a6",
+  "vllm": "0.28.0",
+  "transformers": "5.16.1",
+  "torch": "2.13.0+cu130",
+  "python": "3.12.13",
+  "cuda": "13.0",
+  "gpu": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition",
+  "decoding": {
+    "temperature": 0.0,
+    "top_p": 1.0,
+    "max_tokens": 8,
+    "seed": 20260831
+  },
+  "max_model_len": 8192,
+  "enforce_eager": false,
+  "conditions_run": [
+    "relevance",
+    "role",
+    "role_paraphrase",
+    "role_findingonly",
+    "role_narrativeonly"
+  ],
+  "items_sha256": {
+    "g0_events.jsonl": "ea8fbd7aad8c7668984bec70a4f8618272f311077d1e1eaf8770e4d798794f2e",
+    "g0_relevance.jsonl": "c9d9df7799ac86728d890368848de26eb18a53fb9f31dd572a798eb2c042b253",
+    "g0_roles.jsonl": "676b3fb20129442768f613161865197458d0656865ccdfd7d683f7ba8014f100"
+  }
+}

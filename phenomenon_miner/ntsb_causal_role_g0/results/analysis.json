@@ -1,0 +1,1457 @@
+{
+  "thresholds": {
+    "relevance_BA_min": 0.75,
+    "role_BA_max": 0.62,
+    "gap_min": 0.15,
+    "families_required": 2
+  },
+  "families": {
+    "qwen": {
+      "manifest": {
+        "family": "qwen",
+        "model_id": "Qwen/Qwen3-8B",
+        "resolved_snapshot": "/home/xiang/.cache/huggingface/hub/models--Qwen--Qwen3-8B/snapshots/b968826d9c46dd6066d109eabc6255188de91218",
+        "revision_or_snapshot": "b968826d9c46dd6066d109eabc6255188de91218",
+        "tokenizer_class": "Qwen2Tokenizer",
+        "tokenizer_name_or_path": "Qwen/Qwen3-8B",
+        "chat_template_sha1": "b066ba71c1b579388fd5a74a44bfe0fc582cf715",
+        "vllm": "0.28.0",
+        "transformers": "5.16.1",
+        "torch": "2.13.0+cu130",
+        "python": "3.12.13",
+        "cuda": "13.0",
+        "gpu": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition",
+        "decoding": {
+          "temperature": 0.0,
+          "top_p": 1.0,
+          "max_tokens": 8,
+          "seed": 20260831
+        },
+        "max_model_len": 8192,
+        "conditions_run": [
+          "relevance",
+          "role",
+          "role_paraphrase",
+          "role_findingonly",
+          "role_narrativeonly"
+        ],
+        "items_sha256": {
+          "g0_events.jsonl": "ea8fbd7aad8c7668984bec70a4f8618272f311077d1e1eaf8770e4d798794f2e",
+          "g0_relevance.jsonl": "c9d9df7799ac86728d890368848de26eb18a53fb9f31dd572a798eb2c042b253",
+          "g0_roles.jsonl": "676b3fb20129442768f613161865197458d0656865ccdfd7d683f7ba8014f100"
+        }
+      },
+      "task_A_relevance": {
+        "n_items": 2390,
+        "n_events": 600,
+        "gold_counts": {
+          "YES": 2149,
+          "NO": 241
+        },
+        "balanced_accuracy": 0.5619,
+        "ci95": [
+          0.5346,
+          0.59
+        ],
+        "macro_f1": 0.5678,
+        "recall_per_class": {
+          "YES": {
+            "correct": 2005,
+            "n": 2149,
+            "recall": 0.933
+          },
+          "NO": {
+            "correct": 46,
+            "n": 241,
+            "recall": 0.1909
+          }
+        },
+        "unparsed": 0,
+        "accuracy_raw": 0.8582
+      },
+      "role": {
+        "n_items": 2149,
+        "n_events": 600,
+        "balanced_accuracy": 0.5441,
+        "ci95": [
+          0.5251,
+          0.5633
+        ],
+        "macro_f1": 0.5044,
+        "recall_per_class": {
+          "CAUSE": {
+            "correct": 384,
+            "n": 1204,
+            "recall": 0.3189
+          },
+          "CONTRIBUTING_FACTOR": {
+            "correct": 727,
+            "n": 945,
+            "recall": 0.7693
+          }
+        },
+        "confusion": {
+          "CONTRIBUTING_FACTOR->CAUSE": 218,
+          "CAUSE->CONTRIBUTING_FACTOR": 820,
+          "CONTRIBUTING_FACTOR->CONTRIBUTING_FACTOR": 727,
+          "CAUSE->CAUSE": 384
+        },
+        "unparsed": 0,
+        "pred_distribution": {
+          "CAUSE": 602,
+          "CONTRIBUTING_FACTOR": 1547
+        },
+        "ba_excluding_contributed_to_outcome_modifier": 0.5426,
+        "n_excluded_modifier_items": 73,
+        "ba_by_year": {
+          "2008": {
+            "n": 419,
+            "ba": 0.5461
+          },
+          "2009": {
+            "n": 201,
+            "ba": 0.5389
+          },
+          "2010": {
+            "n": 157,
+            "ba": 0.571
+          },
+          "2011": {
+            "n": 173,
+            "ba": 0.516
+          },
+          "2012": {
+            "n": 204,
+            "ba": 0.5604
+          },
+          "2013": {
+            "n": 179,
+            "ba": 0.5796
+          },
+          "2014": {
+            "n": 172,
+            "ba": 0.4824
+          },
+          "2015": {
+            "n": 162,
+            "ba": 0.6076
+          },
+          "2016": {
+            "n": 156,
+            "ba": 0.522
+          },
+          "2017": {
+            "n": 122,
+            "ba": 0.4941
+          },
+          "2018": {
+            "n": 125,
+            "ba": 0.5739
+          },
+          "2019": {
+            "n": 65,
+            "ba": 0.5042
+          },
+          "2020": {
+            "n": 14,
+            "ba": 0.5417
+          }
+        },
+        "ba_by_finding_text_length_tercile": {
+          "short": {
+            "n": 719,
+            "chars": "<= 77",
+            "ba": 0.496,
+            "frac_pred_CAUSE": 0.2893
+          },
+          "long": {
+            "n": 686,
+            "chars": "> 95",
+            "ba": 0.5612,
+            "frac_pred_CAUSE": 0.258
+          },
+          "mid": {
+            "n": 744,
+            "chars": "78-95",
+            "ba": 0.5808,
+            "frac_pred_CAUSE": 0.2917
+          }
+        },
+        "ba_by_finding_no": {
+          "1": {
+            "n": 579,
+            "gold_frac_CAUSE": 0.8273,
+            "pred_frac_CAUSE": 0.3765,
+            "ba": 0.4798
+          },
+          "2": {
+            "n": 569,
+            "gold_frac_CAUSE": 0.6134,
+            "pred_frac_CAUSE": 0.2882,
+            "ba": 0.5349
+          },
+          "3": {
+            "n": 459,
+            "gold_frac_CAUSE": 0.3943,
+            "pred_frac_CAUSE": 0.2614,
+            "ba": 0.4803
+          },
+          "4": {
+            "n": 288,
+            "gold_frac_CAUSE": 0.3854,
+            "pred_frac_CAUSE": 0.2257,
+            "ba": 0.5363
+          },
+          "5": {
+            "n": 142,
+            "gold_frac_CAUSE": 0.3732,
+            "pred_frac_CAUSE": 0.1549,
+            "ba": 0.6022
+          },
+          "6": {
+            "n": 61,
+            "gold_frac_CAUSE": 0.3115,
+            "pred_frac_CAUSE": 0.1311,
+            "ba": 0.5959
+          },
+          "7": {
+            "n": 30,
+            "gold_frac_CAUSE": 0.2333,
+            "pred_frac_CAUSE": 0.0333,
+            "ba": 0.5714
+          },
+          "8+": {
+            "n": 21,
+            "gold_frac_CAUSE": 0.2381,
+            "pred_frac_CAUSE": 0.1905,
+            "ba": 0.7688
+          }
+        }
+      },
+      "role_paraphrase": {
+        "n_items": 2149,
+        "n_events": 600,
+        "balanced_accuracy": 0.5102,
+        "ci95": [
+          0.5028,
+          0.5179
+        ],
+        "macro_f1": 0.3451,
+        "recall_per_class": {
+          "CAUSE": {
+            "correct": 50,
+            "n": 1204,
+            "recall": 0.0415
+          },
+          "CONTRIBUTING_FACTOR": {
+            "correct": 925,
+            "n": 945,
+            "recall": 0.9788
+          }
+        },
+        "confusion": {
+          "CONTRIBUTING_FACTOR->CONTRIBUTING_FACTOR": 925,
+          "CAUSE->CONTRIBUTING_FACTOR": 1154,
+          "CONTRIBUTING_FACTOR->CAUSE": 20,
+          "CAUSE->CAUSE": 50
+        },
+        "unparsed": 0,
+        "pred_distribution": {
+          "CONTRIBUTING_FACTOR": 2079,
+          "CAUSE": 70
+        }
+      },
+      "role_findingonly": {
+        "n_items": 2149,
+        "n_events": 600,
+        "balanced_accuracy": 0.6182,
+        "ci95": [
+          0.5984,
+          0.6383
+        ],
+        "macro_f1": 0.6132,
+        "recall_per_class": {
+          "CAUSE": {
+            "correct": 984,
+            "n": 1204,
+            "recall": 0.8173
+          },
+          "CONTRIBUTING_FACTOR": {
+            "correct": 396,
+            "n": 945,
+            "recall": 0.419
+          }
+        },
+        "confusion": {
+          "CONTRIBUTING_FACTOR->CONTRIBUTING_FACTOR": 396,
+          "CAUSE->CAUSE": 984,
+          "CONTRIBUTING_FACTOR->CAUSE": 549,
+          "CAUSE->CONTRIBUTING_FACTOR": 220
+        },
+        "unparsed": 0,
+        "pred_distribution": {
+          "CONTRIBUTING_FACTOR": 616,
+          "CAUSE": 1533
+        }
+      },
+      "role_narrativeonly": {
+        "n_items": 2149,
+        "n_events": 600,
+        "balanced_accuracy": 0.4981,
+        "ci95": [
+          0.4842,
+          0.5118
+        ],
+        "macro_f1": 0.4914,
+        "recall_per_class": {
+          "CAUSE": {
+            "correct": 807,
+            "n": 1204,
+            "recall": 0.6703
+          },
+          "CONTRIBUTING_FACTOR": {
+            "correct": 308,
+            "n": 945,
+            "recall": 0.3259
+          }
+        },
+        "confusion": {
+          "CONTRIBUTING_FACTOR->CAUSE": 637,
+          "CAUSE->CAUSE": 807,
+          "CONTRIBUTING_FACTOR->CONTRIBUTING_FACTOR": 308,
+          "CAUSE->CONTRIBUTING_FACTOR": 397
+        },
+        "unparsed": 0,
+        "pred_distribution": {
+          "CAUSE": 1444,
+          "CONTRIBUTING_FACTOR": 705
+        }
+      },
+      "dissociation": {
+        "relevance_BA_minus_role_BA": 0.0178,
+        "gap_ci95_event_bootstrap": [
+          -0.0148,
+          0.0505
+        ],
+        "n_events_compared": 600,
+        "relevance_all_correct_and_role_wrong": 308,
+        "relevance_all_correct_and_role_all_correct": 48,
+        "relevance_wrong_and_role_wrong": 222,
+        "relevance_wrong_and_role_all_correct": 22,
+        "fraction_relevance_correct_role_wrong": 0.5133
+      },
+      "s0_criterion": {
+        "relevance_BA>=0.75": false,
+        "role_BA<=0.62": true,
+        "gap>=0.15": false,
+        "gap_ci_excludes_0": false,
+        "paraphrase_role_BA<=0.62": true,
+        "all": false
+      },
+      "control_lexical_artifact": {
+        "finding_only_BA": 0.6182,
+        "full_context_BA": 0.5441,
+        "kill_triggered": false
+      }
+    },
+    "gemma": {
+      "manifest": {
+        "family": "gemma",
+        "model_id": "google/gemma-3-12b-it",
+        "resolved_snapshot": "/home/xiang/.cache/huggingface/hub/models--google--gemma-3-12b-it/snapshots/96b6f1eccf38110c56df3a15bffe176da04bfd80",
+        "revision_or_snapshot": "96b6f1eccf38110c56df3a15bffe176da04bfd80",
+        "tokenizer_class": "GemmaTokenizer",
+        "tokenizer_name_or_path": "google/gemma-3-12b-it",
+        "chat_template_sha1": "3f7731dd04d6fb3e41478bea860489dac5c6115c",
+        "vllm": "0.28.0",
+        "transformers": "5.16.1",
+        "torch": "2.13.0+cu130",
+        "python": "3.12.13",
+        "cuda": "13.0",
+        "gpu": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition",
+        "decoding": {
+          "temperature": 0.0,
+          "top_p": 1.0,
+          "max_tokens": 8,
+          "seed": 20260831
+        },
+        "max_model_len": 8192,
+        "conditions_run": [
+          "relevance",
+          "role",
+          "role_paraphrase",
+          "role_findingonly",
+          "role_narrativeonly"
+        ],
+        "items_sha256": {
+          "g0_events.jsonl": "ea8fbd7aad8c7668984bec70a4f8618272f311077d1e1eaf8770e4d798794f2e",
+          "g0_relevance.jsonl": "c9d9df7799ac86728d890368848de26eb18a53fb9f31dd572a798eb2c042b253",
+          "g0_roles.jsonl": "676b3fb20129442768f613161865197458d0656865ccdfd7d683f7ba8014f100"
+        }
+      },
+      "task_A_relevance": {
+        "n_items": 2390,
+        "n_events": 600,
+        "gold_counts": {
+          "YES": 2149,
+          "NO": 241
+        },
+        "balanced_accuracy": 0.5368,
+        "ci95": [
+          0.5146,
+          0.5605
+        ],
+        "macro_f1": 0.5416,
+        "recall_per_class": {
+          "YES": {
+            "correct": 2022,
+            "n": 2149,
+            "recall": 0.9409
+          },
+          "NO": {
+            "correct": 32,
+            "n": 241,
+            "recall": 0.1328
+          }
+        },
+        "unparsed": 0,
+        "accuracy_raw": 0.8594
+      },
+      "role": {
+        "n_items": 2149,
+        "n_events": 600,
+        "balanced_accuracy": 0.5465,
+        "ci95": [
+          0.5339,
+          0.559
+        ],
+        "macro_f1": 0.4355,
+        "recall_per_class": {
+          "CAUSE": {
+            "correct": 177,
+            "n": 1204,
+            "recall": 0.147
+          },
+          "CONTRIBUTING_FACTOR": {
+            "correct": 894,
+            "n": 945,
+            "recall": 0.946
+          }
+        },
+        "confusion": {
+          "CONTRIBUTING_FACTOR->CONTRIBUTING_FACTOR": 894,
+          "CAUSE->CONTRIBUTING_FACTOR": 1027,
+          "CONTRIBUTING_FACTOR->CAUSE": 51,
+          "CAUSE->CAUSE": 177
+        },
+        "unparsed": 0,
+        "pred_distribution": {
+          "CONTRIBUTING_FACTOR": 1921,
+          "CAUSE": 228
+        },
+        "ba_excluding_contributed_to_outcome_modifier": 0.5446,
+        "n_excluded_modifier_items": 73,
+        "ba_by_year": {
+          "2008": {
+            "n": 419,
+            "ba": 0.5653
+          },
+          "2009": {
+            "n": 201,
+            "ba": 0.5443
+          },
+          "2010": {
+            "n": 157,
+            "ba": 0.5362
+          },
+          "2011": {
+            "n": 173,
+            "ba": 0.5236
+          },
+          "2012": {
+            "n": 204,
+            "ba": 0.5542
+          },
+          "2013": {
+            "n": 179,
+            "ba": 0.5478
+          },
+          "2014": {
+            "n": 172,
+            "ba": 0.569
+          },
+          "2015": {
+            "n": 162,
+            "ba": 0.5887
+          },
+          "2016": {
+            "n": 156,
+            "ba": 0.5209
+          },
+          "2017": {
+            "n": 122,
+            "ba": 0.5345
+          },
+          "2018": {
+            "n": 125,
+            "ba": 0.4915
+          },
+          "2019": {
+            "n": 65,
+            "ba": 0.5122
+          },
+          "2020": {
+            "n": 14,
+            "ba": 0.625
+          }
+        },
+        "ba_by_finding_text_length_tercile": {
+          "short": {
+            "n": 719,
+            "chars": "<= 77",
+            "ba": 0.5208,
+            "frac_pred_CAUSE": 0.0904
+          },
+          "long": {
+            "n": 686,
+            "chars": "> 95",
+            "ba": 0.5748,
+            "frac_pred_CAUSE": 0.1341
+          },
+          "mid": {
+            "n": 744,
+            "chars": "78-95",
+            "ba": 0.5458,
+            "frac_pred_CAUSE": 0.0954
+          }
+        },
+        "ba_by_finding_no": {
+          "1": {
+            "n": 579,
+            "gold_frac_CAUSE": 0.8273,
+            "pred_frac_CAUSE": 0.1641,
+            "ba": 0.5689
+          },
+          "2": {
+            "n": 569,
+            "gold_frac_CAUSE": 0.6134,
+            "pred_frac_CAUSE": 0.1178,
+            "ba": 0.5478
+          },
+          "3": {
+            "n": 459,
+            "gold_frac_CAUSE": 0.3943,
+            "pred_frac_CAUSE": 0.0828,
+            "ba": 0.5138
+          },
+          "4": {
+            "n": 288,
+            "gold_frac_CAUSE": 0.3854,
+            "pred_frac_CAUSE": 0.0694,
+            "ba": 0.5095
+          },
+          "5": {
+            "n": 142,
+            "gold_frac_CAUSE": 0.3732,
+            "pred_frac_CAUSE": 0.0352,
+            "ba": 0.5321
+          },
+          "6": {
+            "n": 61,
+            "gold_frac_CAUSE": 0.3115,
+            "pred_frac_CAUSE": 0.0328,
+            "ba": 0.5144
+          },
+          "7": {
+            "n": 30,
+            "gold_frac_CAUSE": 0.2333,
+            "pred_frac_CAUSE": 0.0333,
+            "ba": 0.5714
+          },
+          "8+": {
+            "n": 21,
+            "gold_frac_CAUSE": 0.2381,
+            "pred_frac_CAUSE": 0.0,
+            "ba": 0.5
+          }
+        }
+      },
+      "role_paraphrase": {
+        "n_items": 2149,
+        "n_events": 600,
+        "balanced_accuracy": 0.6022,
+        "ci95": [
+          0.5825,
+          0.6215
+        ],
+        "macro_f1": 0.6035,
+        "recall_per_class": {
+          "CAUSE": {
+            "correct": 785,
+            "n": 1204,
+            "recall": 0.652
+          },
+          "CONTRIBUTING_FACTOR": {
+            "correct": 522,
+            "n": 945,
+            "recall": 0.5524
+          }
+        },
+        "confusion": {
+          "CONTRIBUTING_FACTOR->CAUSE": 421,
+          "CAUSE->CAUSE": 785,
+          "CONTRIBUTING_FACTOR->CONTRIBUTING_FACTOR": 522,
+          "CAUSE->CONTRIBUTING_FACTOR": 412,
+          "CAUSE->UNPARSED": 7,
+          "CONTRIBUTING_FACTOR->UNPARSED": 2
+        },
+        "unparsed": 9,
+        "pred_distribution": {
+          "CAUSE": 1206,
+          "CONTRIBUTING_FACTOR": 934,
+          "UNPARSED": 9
+        }
+      },
+      "role_findingonly": {
+        "n_items": 2149,
+        "n_events": 600,
+        "balanced_accuracy": 0.5507,
+        "ci95": [
+          0.5393,
+          0.5622
+        ],
+        "macro_f1": 0.4362,
+        "recall_per_class": {
+          "CAUSE": {
+            "correct": 173,
+            "n": 1204,
+            "recall": 0.1437
+          },
+          "CONTRIBUTING_FACTOR": {
+            "correct": 905,
+            "n": 945,
+            "recall": 0.9577
+          }
+        },
+        "confusion": {
+          "CONTRIBUTING_FACTOR->CONTRIBUTING_FACTOR": 905,
+          "CAUSE->CAUSE": 173,
+          "CAUSE->CONTRIBUTING_FACTOR": 1031,
+          "CONTRIBUTING_FACTOR->CAUSE": 40
+        },
+        "unparsed": 0,
+        "pred_distribution": {
+          "CONTRIBUTING_FACTOR": 1936,
+          "CAUSE": 213
+        }
+      },
+      "role_narrativeonly": {
+        "n_items": 2149,
+        "n_events": 600,
+        "balanced_accuracy": 0.4992,
+        "ci95": [
+          0.489,
+          0.5095
+        ],
+        "macro_f1": 0.4107,
+        "recall_per_class": {
+          "CAUSE": {
+            "correct": 188,
+            "n": 1204,
+            "recall": 0.1561
+          },
+          "CONTRIBUTING_FACTOR": {
+            "correct": 796,
+            "n": 945,
+            "recall": 0.8423
+          }
+        },
+        "confusion": {
+          "CONTRIBUTING_FACTOR->CAUSE": 149,
+          "CAUSE->CAUSE": 188,
+          "CONTRIBUTING_FACTOR->CONTRIBUTING_FACTOR": 796,
+          "CAUSE->CONTRIBUTING_FACTOR": 1016
+        },
+        "unparsed": 0,
+        "pred_distribution": {
+          "CAUSE": 337,
+          "CONTRIBUTING_FACTOR": 1812
+        }
+      },
+      "dissociation": {
+        "relevance_BA_minus_role_BA": -0.0097,
+        "gap_ci95_event_bootstrap": [
+          -0.0346,
+          0.0163
+        ],
+        "n_events_compared": 600,
+        "relevance_all_correct_and_role_wrong": 338,
+        "relevance_all_correct_and_role_all_correct": 27,
+        "relevance_wrong_and_role_wrong": 221,
+        "relevance_wrong_and_role_all_correct": 14,
+        "fraction_relevance_correct_role_wrong": 0.5633
+      },
+      "s0_criterion": {
+        "relevance_BA>=0.75": false,
+        "role_BA<=0.62": true,
+        "gap>=0.15": false,
+        "gap_ci_excludes_0": false,
+        "paraphrase_role_BA<=0.62": true,
+        "all": false
+      },
+      "control_lexical_artifact": {
+        "finding_only_BA": 0.5507,
+        "full_context_BA": 0.5465,
+        "kill_triggered": false
+      }
+    },
+    "llama": {
+      "manifest": {
+        "family": "llama",
+        "model_id": "NousResearch/Meta-Llama-3.1-8B-Instruct",
+        "resolved_snapshot": "/home/xiang/.cache/huggingface/hub/models--NousResearch--Meta-Llama-3.1-8B-Instruct/snapshots/d10aef7999a2b5ba950ab3974312feeedbfe0b77",
+        "revision_or_snapshot": "d10aef7999a2b5ba950ab3974312feeedbfe0b77",
+        "tokenizer_class": "TokenizersBackend",
+        "tokenizer_name_or_path": "NousResearch/Meta-Llama-3.1-8B-Instruct",
+        "chat_template_sha1": "3f2b03151bedf77aa0256809853c68e4c6ce13e9",
+        "vllm": "0.28.0",
+        "transformers": "5.16.1",
+        "torch": "2.13.0+cu130",
+        "python": "3.12.13",
+        "cuda": "13.0",
+        "gpu": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition",
+        "decoding": {
+          "temperature": 0.0,
+          "top_p": 1.0,
+          "max_tokens": 8,
+          "seed": 20260831
+        },
+        "max_model_len": 8192,
+        "conditions_run": [
+          "relevance",
+          "role",
+          "role_paraphrase",
+          "role_findingonly",
+          "role_narrativeonly"
+        ],
+        "items_sha256": {
+          "g0_events.jsonl": "ea8fbd7aad8c7668984bec70a4f8618272f311077d1e1eaf8770e4d798794f2e",
+          "g0_relevance.jsonl": "c9d9df7799ac86728d890368848de26eb18a53fb9f31dd572a798eb2c042b253",
+          "g0_roles.jsonl": "676b3fb20129442768f613161865197458d0656865ccdfd7d683f7ba8014f100"
+        }
+      },
+      "task_A_relevance": {
+        "n_items": 2390,
+        "n_events": 600,
+        "gold_counts": {
+          "YES": 2149,
+          "NO": 241
+        },
+        "balanced_accuracy": 0.6345,
+        "ci95": [
+          0.5962,
+          0.6713
+        ],
+        "macro_f1": 0.5248,
+        "recall_per_class": {
+          "YES": {
+            "correct": 1452,
+            "n": 2149,
+            "recall": 0.6757
+          },
+          "NO": {
+            "correct": 143,
+            "n": 241,
+            "recall": 0.5934
+          }
+        },
+        "unparsed": 0,
+        "accuracy_raw": 0.6674
+      },
+      "role": {
+        "n_items": 2149,
+        "n_events": 600,
+        "balanced_accuracy": 0.5031,
+        "ci95": [
+          0.4989,
+          0.5074
+        ],
+        "macro_f1": 0.3181,
+        "recall_per_class": {
+          "CAUSE": {
+            "correct": 15,
+            "n": 1204,
+            "recall": 0.0125
+          },
+          "CONTRIBUTING_FACTOR": {
+            "correct": 939,
+            "n": 945,
+            "recall": 0.9937
+          }
+        },
+        "confusion": {
+          "CONTRIBUTING_FACTOR->CONTRIBUTING_FACTOR": 939,
+          "CAUSE->CONTRIBUTING_FACTOR": 1186,
+          "CAUSE->CAUSE": 15,
+          "CONTRIBUTING_FACTOR->CAUSE": 5,
+          "CAUSE->UNPARSED": 3,
+          "CONTRIBUTING_FACTOR->UNPARSED": 1
+        },
+        "unparsed": 4,
+        "pred_distribution": {
+          "CONTRIBUTING_FACTOR": 2125,
+          "CAUSE": 20,
+          "UNPARSED": 4
+        },
+        "ba_excluding_contributed_to_outcome_modifier": 0.5028,
+        "n_excluded_modifier_items": 73,
+        "ba_by_year": {
+          "2008": {
+            "n": 419,
+            "ba": 0.5044
+          },
+          "2009": {
+            "n": 201,
+            "ba": 0.5045
+          },
+          "2010": {
+            "n": 157,
+            "ba": 0.5161
+          },
+          "2011": {
+            "n": 173,
+            "ba": 0.4789
+          },
+          "2012": {
+            "n": 204,
+            "ba": 0.5
+          },
+          "2013": {
+            "n": 179,
+            "ba": 0.4991
+          },
+          "2014": {
+            "n": 172,
+            "ba": 0.516
+          },
+          "2015": {
+            "n": 162,
+            "ba": 0.5169
+          },
+          "2016": {
+            "n": 156,
+            "ba": 0.4923
+          },
+          "2017": {
+            "n": 122,
+            "ba": 0.5
+          },
+          "2018": {
+            "n": 125,
+            "ba": 0.5
+          },
+          "2019": {
+            "n": 65,
+            "ba": 0.5116
+          },
+          "2020": {
+            "n": 14,
+            "ba": 0.5
+          }
+        },
+        "ba_by_finding_text_length_tercile": {
+          "short": {
+            "n": 719,
+            "chars": "<= 77",
+            "ba": 0.4976,
+            "frac_pred_CAUSE": 0.007
+          },
+          "long": {
+            "n": 686,
+            "chars": "> 95",
+            "ba": 0.5035,
+            "frac_pred_CAUSE": 0.0044
+          },
+          "mid": {
+            "n": 744,
+            "chars": "78-95",
+            "ba": 0.5102,
+            "frac_pred_CAUSE": 0.0161
+          }
+        },
+        "ba_by_finding_no": {
+          "1": {
+            "n": 579,
+            "gold_frac_CAUSE": 0.8273,
+            "pred_frac_CAUSE": 0.0173,
+            "ba": 0.4984
+          },
+          "2": {
+            "n": 569,
+            "gold_frac_CAUSE": 0.6134,
+            "pred_frac_CAUSE": 0.0105,
+            "ba": 0.4989
+          },
+          "3": {
+            "n": 459,
+            "gold_frac_CAUSE": 0.3943,
+            "pred_frac_CAUSE": 0.0044,
+            "ba": 0.501
+          },
+          "4": {
+            "n": 288,
+            "gold_frac_CAUSE": 0.3854,
+            "pred_frac_CAUSE": 0.0035,
+            "ba": 0.5045
+          },
+          "5": {
+            "n": 142,
+            "gold_frac_CAUSE": 0.3732,
+            "pred_frac_CAUSE": 0.007,
+            "ba": 0.5094
+          },
+          "6": {
+            "n": 61,
+            "gold_frac_CAUSE": 0.3115,
+            "pred_frac_CAUSE": 0.0,
+            "ba": 0.5
+          },
+          "7": {
+            "n": 30,
+            "gold_frac_CAUSE": 0.2333,
+            "pred_frac_CAUSE": 0.0,
+            "ba": 0.5
+          },
+          "8+": {
+            "n": 21,
+            "gold_frac_CAUSE": 0.2381,
+            "pred_frac_CAUSE": 0.0,
+            "ba": 0.5
+          }
+        }
+      },
+      "role_paraphrase": {
+        "n_items": 2149,
+        "n_events": 600,
+        "balanced_accuracy": 0.4991,
+        "ci95": [
+          0.4966,
+          0.5015
+        ],
+        "macro_f1": 0.3081,
+        "recall_per_class": {
+          "CAUSE": {
+            "correct": 3,
+            "n": 1204,
+            "recall": 0.0025
+          },
+          "CONTRIBUTING_FACTOR": {
+            "correct": 941,
+            "n": 945,
+            "recall": 0.9958
+          }
+        },
+        "confusion": {
+          "CONTRIBUTING_FACTOR->CONTRIBUTING_FACTOR": 941,
+          "CAUSE->CONTRIBUTING_FACTOR": 1193,
+          "CAUSE->UNPARSED": 8,
+          "CONTRIBUTING_FACTOR->CAUSE": 2,
+          "CAUSE->CAUSE": 3,
+          "CONTRIBUTING_FACTOR->UNPARSED": 2
+        },
+        "unparsed": 10,
+        "pred_distribution": {
+          "CONTRIBUTING_FACTOR": 2134,
+          "UNPARSED": 10,
+          "CAUSE": 5
+        }
+      },
+      "role_findingonly": {
+        "n_items": 2149,
+        "n_events": 600,
+        "balanced_accuracy": 0.4995,
+        "ci95": [
+          0.4984,
+          0.5
+        ],
+        "macro_f1": 0.3053,
+        "recall_per_class": {
+          "CAUSE": {
+            "correct": 0,
+            "n": 1204,
+            "recall": 0.0
+          },
+          "CONTRIBUTING_FACTOR": {
+            "correct": 944,
+            "n": 945,
+            "recall": 0.9989
+          }
+        },
+        "confusion": {
+          "CONTRIBUTING_FACTOR->CONTRIBUTING_FACTOR": 944,
+          "CAUSE->CONTRIBUTING_FACTOR": 1203,
+          "CAUSE->UNPARSED": 1,
+          "CONTRIBUTING_FACTOR->UNPARSED": 1
+        },
+        "unparsed": 2,
+        "pred_distribution": {
+          "CONTRIBUTING_FACTOR": 2147,
+          "UNPARSED": 2
+        }
+      },
+      "role_narrativeonly": {
+        "n_items": 2149,
+        "n_events": 600,
+        "balanced_accuracy": 0.0274,
+        "ci95": [
+          0.019,
+          0.0366
+        ],
+        "macro_f1": 0.0513,
+        "recall_per_class": {
+          "CAUSE": {
+            "correct": 52,
+            "n": 1204,
+            "recall": 0.0432
+          },
+          "CONTRIBUTING_FACTOR": {
+            "correct": 11,
+            "n": 945,
+            "recall": 0.0116
+          }
+        },
+        "confusion": {
+          "CONTRIBUTING_FACTOR->UNPARSED": 889,
+          "CAUSE->UNPARSED": 1133,
+          "CONTRIBUTING_FACTOR->CAUSE": 45,
+          "CAUSE->CAUSE": 52,
+          "CONTRIBUTING_FACTOR->CONTRIBUTING_FACTOR": 11,
+          "CAUSE->CONTRIBUTING_FACTOR": 19
+        },
+        "unparsed": 2022,
+        "pred_distribution": {
+          "UNPARSED": 2022,
+          "CAUSE": 97,
+          "CONTRIBUTING_FACTOR": 30
+        }
+      },
+      "dissociation": {
+        "relevance_BA_minus_role_BA": 0.1314,
+        "gap_ci95_event_bootstrap": [
+          0.0933,
+          0.1682
+        ],
+        "n_events_compared": 600,
+        "relevance_all_correct_and_role_wrong": 170,
+        "relevance_all_correct_and_role_all_correct": 3,
+        "relevance_wrong_and_role_wrong": 426,
+        "relevance_wrong_and_role_all_correct": 1,
+        "fraction_relevance_correct_role_wrong": 0.2833
+      },
+      "s0_criterion": {
+        "relevance_BA>=0.75": false,
+        "role_BA<=0.62": true,
+        "gap>=0.15": false,
+        "gap_ci_excludes_0": true,
+        "paraphrase_role_BA<=0.62": true,
+        "all": false
+      },
+      "control_lexical_artifact": {
+        "finding_only_BA": 0.4995,
+        "full_context_BA": 0.5031,
+        "kill_triggered": false
+      }
+    },
+    "phi": {
+      "manifest": {
+        "family": "phi",
+        "model_id": "microsoft/Phi-4-mini-instruct",
+        "resolved_snapshot": "/home/xiang/.cache/huggingface/hub/models--microsoft--Phi-4-mini-instruct/snapshots/cfbefacb99257ffa30c83adab238a50856ac3083",
+        "revision_or_snapshot": "cfbefacb99257ffa30c83adab238a50856ac3083",
+        "tokenizer_class": "TokenizersBackend",
+        "tokenizer_name_or_path": "microsoft/Phi-4-mini-instruct",
+        "chat_template_sha1": "d926af6b513b7bd248411732a24b287dc7a423a6",
+        "vllm": "0.28.0",
+        "transformers": "5.16.1",
+        "torch": "2.13.0+cu130",
+        "python": "3.12.13",
+        "cuda": "13.0",
+        "gpu": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition",
+        "decoding": {
+          "temperature": 0.0,
+          "top_p": 1.0,
+          "max_tokens": 8,
+          "seed": 20260831
+        },
+        "max_model_len": 8192,
+        "enforce_eager": false,
+        "conditions_run": [
+          "relevance",
+          "role",
+          "role_paraphrase",
+          "role_findingonly",
+          "role_narrativeonly"
+        ],
+        "items_sha256": {
+          "g0_events.jsonl": "ea8fbd7aad8c7668984bec70a4f8618272f311077d1e1eaf8770e4d798794f2e",
+          "g0_relevance.jsonl": "c9d9df7799ac86728d890368848de26eb18a53fb9f31dd572a798eb2c042b253",
+          "g0_roles.jsonl": "676b3fb20129442768f613161865197458d0656865ccdfd7d683f7ba8014f100"
+        }
+      },
+      "task_A_relevance": {
+        "n_items": 2390,
+        "n_events": 600,
+        "gold_counts": {
+          "YES": 2149,
+          "NO": 241
+        },
+        "balanced_accuracy": 0.5389,
+        "ci95": [
+          0.5047,
+          0.573
+        ],
+        "macro_f1": 0.4972,
+        "recall_per_class": {
+          "YES": {
+            "correct": 1567,
+            "n": 2149,
+            "recall": 0.7292
+          },
+          "NO": {
+            "correct": 84,
+            "n": 241,
+            "recall": 0.3485
+          }
+        },
+        "unparsed": 0,
+        "accuracy_raw": 0.6908
+      },
+      "role": {
+        "n_items": 2149,
+        "n_events": 600,
+        "balanced_accuracy": 0.5331,
+        "ci95": [
+          0.5195,
+          0.5466
+        ],
+        "macro_f1": 0.4347,
+        "recall_per_class": {
+          "CAUSE": {
+            "correct": 188,
+            "n": 1204,
+            "recall": 0.1561
+          },
+          "CONTRIBUTING_FACTOR": {
+            "correct": 860,
+            "n": 945,
+            "recall": 0.9101
+          }
+        },
+        "confusion": {
+          "CONTRIBUTING_FACTOR->CONTRIBUTING_FACTOR": 860,
+          "CAUSE->CONTRIBUTING_FACTOR": 1001,
+          "CONTRIBUTING_FACTOR->CAUSE": 74,
+          "CAUSE->CAUSE": 188,
+          "CAUSE->UNPARSED": 15,
+          "CONTRIBUTING_FACTOR->UNPARSED": 11
+        },
+        "unparsed": 26,
+        "pred_distribution": {
+          "CONTRIBUTING_FACTOR": 1861,
+          "CAUSE": 262,
+          "UNPARSED": 26
+        },
+        "ba_excluding_contributed_to_outcome_modifier": 0.5315,
+        "n_excluded_modifier_items": 73,
+        "ba_by_year": {
+          "2008": {
+            "n": 419,
+            "ba": 0.527
+          },
+          "2009": {
+            "n": 201,
+            "ba": 0.5297
+          },
+          "2010": {
+            "n": 157,
+            "ba": 0.5631
+          },
+          "2011": {
+            "n": 173,
+            "ba": 0.5319
+          },
+          "2012": {
+            "n": 204,
+            "ba": 0.532
+          },
+          "2013": {
+            "n": 179,
+            "ba": 0.5318
+          },
+          "2014": {
+            "n": 172,
+            "ba": 0.5371
+          },
+          "2015": {
+            "n": 162,
+            "ba": 0.5644
+          },
+          "2016": {
+            "n": 156,
+            "ba": 0.5341
+          },
+          "2017": {
+            "n": 122,
+            "ba": 0.5038
+          },
+          "2018": {
+            "n": 125,
+            "ba": 0.5351
+          },
+          "2019": {
+            "n": 65,
+            "ba": 0.5011
+          },
+          "2020": {
+            "n": 14,
+            "ba": 0.4792
+          }
+        },
+        "ba_by_finding_text_length_tercile": {
+          "short": {
+            "n": 719,
+            "chars": "<= 77",
+            "ba": 0.4829,
+            "frac_pred_CAUSE": 0.0723
+          },
+          "long": {
+            "n": 686,
+            "chars": "> 95",
+            "ba": 0.5631,
+            "frac_pred_CAUSE": 0.1603
+          },
+          "mid": {
+            "n": 744,
+            "chars": "78-95",
+            "ba": 0.5605,
+            "frac_pred_CAUSE": 0.1344
+          }
+        },
+        "ba_by_finding_no": {
+          "1": {
+            "n": 579,
+            "gold_frac_CAUSE": 0.8273,
+            "pred_frac_CAUSE": 0.1744,
+            "ba": 0.5169
+          },
+          "2": {
+            "n": 569,
+            "gold_frac_CAUSE": 0.6134,
+            "pred_frac_CAUSE": 0.1178,
+            "ba": 0.5307
+          },
+          "3": {
+            "n": 459,
+            "gold_frac_CAUSE": 0.3943,
+            "pred_frac_CAUSE": 0.0937,
+            "ba": 0.5212
+          },
+          "4": {
+            "n": 288,
+            "gold_frac_CAUSE": 0.3854,
+            "pred_frac_CAUSE": 0.1042,
+            "ba": 0.4964
+          },
+          "5": {
+            "n": 142,
+            "gold_frac_CAUSE": 0.3732,
+            "pred_frac_CAUSE": 0.0775,
+            "ba": 0.5681
+          },
+          "6": {
+            "n": 61,
+            "gold_frac_CAUSE": 0.3115,
+            "pred_frac_CAUSE": 0.082,
+            "ba": 0.5432
+          },
+          "7": {
+            "n": 30,
+            "gold_frac_CAUSE": 0.2333,
+            "pred_frac_CAUSE": 0.1333,
+            "ba": 0.6925
+          },
+          "8+": {
+            "n": 21,
+            "gold_frac_CAUSE": 0.2381,
+            "pred_frac_CAUSE": 0.0476,
+            "ba": 0.4688
+          }
+        }
+      },
+      "role_paraphrase": {
+        "n_items": 2149,
+        "n_events": 600,
+        "balanced_accuracy": 0.5,
+        "ci95": [
+          0.5,
+          0.5
+        ],
+        "macro_f1": 0.3054,
+        "recall_per_class": {
+          "CAUSE": {
+            "correct": 0,
+            "n": 1204,
+            "recall": 0.0
+          },
+          "CONTRIBUTING_FACTOR": {
+            "correct": 945,
+            "n": 945,
+            "recall": 1.0
+          }
+        },
+        "confusion": {
+          "CONTRIBUTING_FACTOR->CONTRIBUTING_FACTOR": 945,
+          "CAUSE->CONTRIBUTING_FACTOR": 1204
+        },
+        "unparsed": 0,
+        "pred_distribution": {
+          "CONTRIBUTING_FACTOR": 2149
+        }
+      },
+      "role_findingonly": {
+        "n_items": 2149,
+        "n_events": 600,
+        "balanced_accuracy": 0.6083,
+        "ci95": [
+          0.5923,
+          0.6239
+        ],
+        "macro_f1": 0.5583,
+        "recall_per_class": {
+          "CAUSE": {
+            "correct": 406,
+            "n": 1204,
+            "recall": 0.3372
+          },
+          "CONTRIBUTING_FACTOR": {
+            "correct": 831,
+            "n": 945,
+            "recall": 0.8794
+          }
+        },
+        "confusion": {
+          "CONTRIBUTING_FACTOR->CONTRIBUTING_FACTOR": 831,
+          "CAUSE->CAUSE": 406,
+          "CONTRIBUTING_FACTOR->CAUSE": 114,
+          "CAUSE->CONTRIBUTING_FACTOR": 798
+        },
+        "unparsed": 0,
+        "pred_distribution": {
+          "CONTRIBUTING_FACTOR": 1629,
+          "CAUSE": 520
+        }
+      },
+      "role_narrativeonly": {
+        "n_items": 2149,
+        "n_events": 600,
+        "balanced_accuracy": 0.5013,
+        "ci95": [
+          0.4978,
+          0.5049
+        ],
+        "macro_f1": 0.3309,
+        "recall_per_class": {
+          "CAUSE": {
+            "correct": 35,
+            "n": 1204,
+            "recall": 0.0291
+          },
+          "CONTRIBUTING_FACTOR": {
+            "correct": 920,
+            "n": 945,
+            "recall": 0.9735
+          }
+        },
+        "confusion": {
+          "CONTRIBUTING_FACTOR->CONTRIBUTING_FACTOR": 920,
+          "CAUSE->CONTRIBUTING_FACTOR": 1169,
+          "CONTRIBUTING_FACTOR->CAUSE": 25,
+          "CAUSE->CAUSE": 35
+        },
+        "unparsed": 0,
+        "pred_distribution": {
+          "CONTRIBUTING_FACTOR": 2089,
+          "CAUSE": 60
+        }
+      },
+      "dissociation": {
+        "relevance_BA_minus_role_BA": 0.0058,
+        "gap_ci95_event_bootstrap": [
+          -0.0298,
+          0.0412
+        ],
+        "n_events_compared": 600,
+        "relevance_all_correct_and_role_wrong": 180,
+        "relevance_all_correct_and_role_all_correct": 17,
+        "relevance_wrong_and_role_wrong": 384,
+        "relevance_wrong_and_role_all_correct": 19,
+        "fraction_relevance_correct_role_wrong": 0.3
+      },
+      "s0_criterion": {
+        "relevance_BA>=0.75": false,
+        "role_BA<=0.62": true,
+        "gap>=0.15": false,
+        "gap_ci_excludes_0": false,
+        "paraphrase_role_BA<=0.62": true,
+        "all": false
+      },
+      "control_lexical_artifact": {
+        "finding_only_BA": 0.6083,
+        "full_context_BA": 0.5331,
+        "kill_triggered": false
+      }
+    }
+  },
+  "control1_label_prior": {
+    "role_gold_counts": {
+      "CONTRIBUTING_FACTOR": 945,
+      "CAUSE": 1204
+    },
+    "majority_class": "CAUSE",
+    "majority_class_accuracy": 0.5603,
+    "majority_class_balanced_accuracy": 0.5,
+    "stratified_random_balanced_accuracy": 0.5
+  },
+  "control0_metadata_stupid_baselines": {
+    "source": "audit/metadata_leak_audit.json (PREREGISTRATION_ADDENDUM_1.md)",
+    "grouped_cv_balanced_accuracy": {
+      "META (semantics-free bookkeeping)": 0.697,
+      "META+LEN (bookkeeping + text length stats)": 0.7969,
+      "CODE (taxonomy codes; NOT model-visible)": 0.7505,
+      "majority-class baseline": 0.5
+    },
+    "reading": "Task-B balanced accuracy must be read against META=0.697 and META+LEN=0.797, not against 0.5. Finding-text length alone reaches 0.668 and IS inside the model's evidence envelope; finding position reaches 0.693 and is NOT (each item shows one isolated finding), so part of the C/F gold is coder ordering convention no model can recover from the evidence given.",
+    "evidence_envelope_check": {
+      "taskA_prompt_fields": [
+        "finding",
+        "narrative"
+      ],
+      "taskB_prompt_fields": [
+        "finding",
+        "narrative"
+      ],
+      "identical_fields": true,
+      "role_items_with_matching_taskA_item": 2149,
+      "mismatches": [],
+      "verdict": "PASS"
+    }
+  },
+  "scope_note": "C is not a unique 'principal cause'. NTSB determines one or more probable causes; multiple C findings per event are normal. The object is cause vs contributing factor, never root-cause analysis.",
+  "data_side_lexical_ceiling_note": "A leave-one-out finding-text lookup table built from corpus annotation statistics (unavailable to the models) reaches C/F balanced accuracy 0.758 inside mixed-role events. See PREREGISTRATION.md sec. 12.",
+  "verdict": {
+    "families_run": 4,
+    "families_meeting_full_criterion": 0,
+    "required": 2,
+    "s0_pass": false
+  }
+}

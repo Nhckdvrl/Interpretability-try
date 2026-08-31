@@ -2,12 +2,25 @@
 
 Date: 2026-08-31
 
-Status: **REGISTERED-FRONTIER / DELEGATED-G0 / NOT PASS-REGISTER / NO MI AUTHORIZED**
+Status: **TERMINAL — `KILL-S0 / RELEVANCE-ALSO-FAILS` (2026-08-31)**
+
+> **This frontier is closed.** The delegated G0 was executed end to end. The data
+> gate passed (3,506 natural mixed-role events) but the behavioural gate failed:
+> Task-A causal-relevance balanced accuracy was 0.537–0.635 across four open
+> families, far below the preregistered 0.75, while Task-B role selection sat at
+> chance through degenerate class collapse. 0 of 4 families met the criterion.
+>
+> Terminal record: [`../rejected_candidates/ntsb_causal_relevance_vs_causal_role_selection_2026-08-31.md`](../rejected_candidates/ntsb_causal_relevance_vs_causal_role_selection_2026-08-31.md)
+> Evidence: [`ntsb_causal_role_g0/results/g0_report.md`](ntsb_causal_role_g0/results/g0_report.md)
+>
+> Everything below is preserved as the original registration text. Do not treat
+> it as a live frontier.
 
 ```yaml
 PASS_REGISTER: false
 counts_toward_target_five: false
-stage: delegated_artifact_audit_then_G0
+stage: TERMINAL
+death_code: KILL-S0 / RELEVANCE-ALSO-FAILS
 owner: local_agent
 MI_authorized: false
 ```

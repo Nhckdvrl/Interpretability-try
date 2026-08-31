@@ -14,7 +14,11 @@ ROOT = Path(__file__).resolve().parents[1]
 SEED = 20260831
 NBOOT = 10000
 
-FAMILIES = ["qwen", "gemma", "llama", "mistral"]
+# mistral: infrastructure hang on this host (see g0_report.md); phi is the
+# documented repo-standard substitute, chosen before any result was inspected.
+# mistral hung on this host before dispatching any batch; phi is the documented
+# substitute fourth family (see results/mistral_infrastructure_failure.md).
+FAMILIES = ["qwen", "gemma", "llama", "phi"]
 ROLE_CONDS = ["role", "role_paraphrase", "role_findingonly", "role_narrativeonly"]
 
 # S0 thresholds — frozen in PREREGISTRATION.md sec. 9, never recomputed here.
@@ -22,7 +26,13 @@ TH_REL, TH_ROLE, TH_GAP, N_FAMILIES_REQUIRED = 0.75, 0.62, 0.15, 2
 
 
 def load_jsonl(p: Path):
-    return [json.loads(l) for l in p.read_text(encoding="utf-8").splitlines() if l.strip()]
+    """Reads .jsonl, or the .gz beside it (raw panel outputs are stored gzipped)."""
+    if not p.exists() and p.with_suffix(p.suffix + ".gz").exists():
+        import gzip
+        text = gzip.decompress(p.with_suffix(p.suffix + ".gz").read_bytes()).decode("utf-8")
+    else:
+        text = p.read_text(encoding="utf-8")
+    return [json.loads(l) for l in text.splitlines() if l.strip()]
 
 
 # ---------------------------------------------------------------- parsing ---
@@ -109,7 +119,8 @@ def main() -> None:
 
     for fam in FAMILIES:
         fdir = ROOT / "results" / fam
-        if not (fdir / "raw_relevance.jsonl").exists():
+        if not ((fdir / "raw_relevance.jsonl").exists()
+                or (fdir / "raw_relevance.jsonl.gz").exists()):
             continue
         fam_out: dict = {"manifest": json.loads((fdir / "manifest.json").read_text())}
 
@@ -118,6 +129,7 @@ def main() -> None:
         rel_scored = []
         for r in rel:
             p = parse_relevance(r["raw"])
+            r.pop("first_token_logprobs", None)
             rel_scored.append({**r, "pred": p, "correct": p == r["gold"]})
         (fdir / "scored_relevance.jsonl").write_text(
             "\n".join(json.dumps(r, ensure_ascii=False) for r in rel_scored), encoding="utf-8")
@@ -148,12 +160,13 @@ def main() -> None:
         # ---------------- Task B + controls -------------------------------
         for cond in ROLE_CONDS:
             p = fdir / f"raw_{cond}.jsonl"
-            if not p.exists():
+            if not (p.exists() or p.with_suffix(".jsonl.gz").exists()):
                 continue
             rr = load_jsonl(p)
             sc = []
             for r in rr:
                 pr = parse_role(r["raw"])
+                r.pop("first_token_logprobs", None)
                 sc.append({**r, "pred": pr, "correct": pr == r["gold"]})
             (fdir / f"scored_{cond}.jsonl").write_text(
                 "\n".join(json.dumps(r, ensure_ascii=False) for r in sc), encoding="utf-8")

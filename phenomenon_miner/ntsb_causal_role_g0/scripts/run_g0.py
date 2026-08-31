@@ -22,6 +22,10 @@ FAMILIES = {
     "gemma":   "google/gemma-3-12b-it",
     "llama":   "NousResearch/Meta-Llama-3.1-8B-Instruct",
     "mistral": "mistralai/Mistral-Small-24B-Instruct-2501",
+    # Repo-standard 4th family (MODEL_PANEL.md). Used as the documented
+    # substitute after Mistral-Small-24B hung on this host during KV-cache
+    # profiling, both with and without CUDA-graph capture, on two GPUs.
+    "phi": "microsoft/Phi-4-mini-instruct",
 }
 
 P_RELEVANCE = """You are given the factual description of an aviation accident and one investigation finding.
@@ -97,6 +101,8 @@ def main() -> None:
     ap.add_argument("--conditions", nargs="*", default=list(CONDITIONS))
     ap.add_argument("--tp", type=int, default=1)
     ap.add_argument("--max-model-len", type=int, default=8192)
+    ap.add_argument("--eager", action="store_true",
+                    help="disable CUDA-graph capture/compile (Mistral-24B hung there on this host)")
     args = ap.parse_args()
 
     from vllm import LLM, SamplingParams
@@ -105,14 +111,19 @@ def main() -> None:
     from transformers import AutoTokenizer
 
     model_id = FAMILIES[args.family]
-    local = snapshot_download(model_id)
+    # Only the files vLLM actually loads. Without this, repos that also ship
+    # Meta's original consolidated *.pth mirror re-download the weights twice.
+    local = snapshot_download(
+        model_id,
+        ignore_patterns=["original/*", "*.pth", "*.gguf", "*.bin", "consolidated*"],
+    )
     rev = Path(local).name  # HF snapshot dirs are named by commit sha
 
     events = {e["ev_id"]: e for e in load_jsonl(ROOT / "items" / "g0_events.jsonl")}
     tok = AutoTokenizer.from_pretrained(model_id)
 
     llm = LLM(model=model_id, tensor_parallel_size=args.tp, max_model_len=args.max_model_len,
-              gpu_memory_utilization=0.85, dtype="bfloat16", enforce_eager=False, seed=20260831)
+              gpu_memory_utilization=0.85, dtype="bfloat16", enforce_eager=args.eager, seed=20260831)
     sp = SamplingParams(temperature=0.0, top_p=1.0, max_tokens=8, logprobs=20, seed=20260831)
 
     outdir = ROOT / "results" / args.family
@@ -130,7 +141,7 @@ def main() -> None:
         "cuda": torch.version.cuda,
         "gpu": torch.cuda.get_device_name(0) if torch.cuda.is_available() else None,
         "decoding": {"temperature": 0.0, "top_p": 1.0, "max_tokens": 8, "seed": 20260831},
-        "max_model_len": args.max_model_len,
+        "max_model_len": args.max_model_len, "enforce_eager": args.eager,
         "conditions_run": args.conditions,
         "items_sha256": json.loads(
             (ROOT / "items" / "sampling_manifest.json").read_text())["items_sha256"],
