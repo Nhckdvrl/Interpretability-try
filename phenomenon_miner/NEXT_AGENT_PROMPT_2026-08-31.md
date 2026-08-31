@@ -2,60 +2,107 @@
 
 请继续我在 GitHub 仓库 `Nhckdvrl/Interpretability-try` 中进行的 **ACL / EMNLP / NAACL 风格 mechanistic interpretability 找题工作**。
 
-这是前一轮的直接续接。**不要从零 brainstorm，不要让我重新解释背景，不要把旧 HOLD / PRE-S0 当成 survivor，也不要为了凑五个降低标准。**
+这是前一轮的直接续接。**不要从零 brainstorm，不要让我重新解释背景，不要把任何 HOLD / PRE-S0 / REGISTERED-FRONTIER 算作 PASS，也不要为了凑五个降低标准。**
 
-## 0. 第一件事：读取最新权威状态
+## 0. 第一件事：完整读取最新权威状态
 
-严格按这个顺序读：
+严格按顺序读：
 
 1. `README.md`
-2. `phenomenon_miner/HANDOFF_HAMDI_SEARCH_2026-08-31.md` —— **当前最高优先级 authoritative handoff**
-3. `phenomenon_miner/NATURAL_QUESTION_GATE.md`
-4. `phenomenon_miner/SCIENTIFIC_SUBSTRATE_GATE.md`
-5. `phenomenon_miner/S0_FUNNEL_2026-08-31.md`
-6. `phenomenon_miner/FAILED_TOPICS.md`
-7. `archive/README.md`
-8. `rejected_candidates/README.md`
-9. `rejected_candidates/continuation_terminal_addendum_6_2026-08-31.md` —— **最新 terminal log**
-10. `rejected_candidates/continuation_terminal_addendum_5_2026-08-31.md`
-11. 所有与任何新候选相关的 `rejected_candidates/*.md`
+2. `phenomenon_miner/HANDOFF_HAMDI_SEARCH_2026-08-31.md` —— 当前最高优先级 authoritative handoff
+3. `phenomenon_miner/NEXT_AGENT_PROMPT_2026-08-31.md` —— 本文件
+4. `rejected_candidates/continuation_terminal_addendum_9_2026-08-31.md` —— **最新 terminal negative memory**
+5. `rejected_candidates/continuation_terminal_addendum_8_2026-08-31.md`
+6. `rejected_candidates/continuation_terminal_addendum_7_2026-08-31.md`
+7. `phenomenon_miner/NATURAL_QUESTION_GATE.md`
+8. `phenomenon_miner/SCIENTIFIC_SUBSTRATE_GATE.md`
+9. `phenomenon_miner/S0_FUNNEL_2026-08-31.md`
+10. `phenomenon_miner/FAILED_TOPICS.md`
+11. `archive/README.md`
+12. `rejected_candidates/README.md`
+13. 所有与任何新候选语义接近的 `rejected_candidates/*.md`
 
-如果旧 chat、旧 candidate 文档、旧 domain log 中的 `lead / HOLD / PRE-CANDIDATE / under audit / survivor` 与最新 handoff + terminal addenda 冲突，**以最新 handoff + 最新 terminal addendum 为准**。
+如果旧 chat、旧 candidate、旧 domain log、旧 frontier 中的 `lead / HOLD / PRE-CANDIDATE / PRE-S0 / survivor / under audit` 与最新 handoff 或 addendum 9 冲突，**以最新 handoff + addendum 9 为准**。
 
-## 1. 当前硬状态
+当前硬状态：
 
 ```yaml
-new_PASS_REGISTER: 0
-registered_new_topics: []
+PASS_REGISTER: 0
+counts_toward_target_five: 0
 MI_authorized_now: false
 ```
 
-**No candidate passes the current bar.**
+如果这一轮仍然没有题过门槛，就明确写：
 
-不要把下面任何 HOLD / PRE-S0 算作五个题之一。
+`No candidate passes the current bar.`
 
-## 2. 当前四条未注册 frontier
+然后继续扩大新的 mother families，不要降低 gate。
+
+---
+
+## 1. 新增硬规则：先做 semantic negative-memory audit，再搜论文
+
+上一轮最大的浪费，是一些自然问题看起来很漂亮，但其实 2025–2026 已经把 title-level scientific object 直接占掉了。
+
+因此任何新题在 P0 后，先做：
+
+1. 用一句普通话/英文写 scientific object，不出现 dataset/benchmark/MI 方法；
+2. 写 5–10 个语义别名/近邻说法；
+3. 搜 `rejected_candidates/`, `archive/`, `FAILED_TOPICS.md`；
+4. 如果同一个 scientific meaning 已经死掉，立即停止；
+5. 只有没撞内部负知识，才做 strongest-neighbor 外部检索；
+6. 只有 title-level object 看起来没被直接占，才值得做 S0。
+
+**换 dataset、model、language、prompt、subset、CoT、MI tool、标题 adjective，不构成新题。**
+
+---
+
+## 2. 本轮刚刚死亡、绝对不要换名复活的题
+
+完整死因看 `continuation_terminal_addendum_9_2026-08-31.md`。以下全部 terminal：
+
+- affective validation / emotional support ≠ epistemic endorsement；
+- feedback/update direction ≠ correction magnitude / step size；
+- social-cue recognition ≠ accommodation / socially appropriate action；
+- population mean / aggregate fit ≠ heterogeneity / dispersion / correlation structure；
+- object identity / recognition ≠ state-dependent affordance / actionability；
+- stated preference ≠ revealed preference / actual choice；
+- study-design/evidence-boundary recognition ≠ causal-claim generation；
+- likelihood/probability ≠ desirability/valence；
+- geographic metric distance/reality ≠ semantic/cultural/landmark salience。
+
+尤其注意：
+
+`phenomenon_miner/frontier_social_state_routing_2026-08-31.md` 已经改成 **TERMINAL POINTER**。不要把 Social Agnosia / Enron / power-accommodation 再捡回来。
+
+更早 Addenda 2–8 与 domain logs 里的死题也全部有效，包括 mass volume×density/material、generic perceptual constancy、belief-update gate/dial、privacy knowledge/action、recognition/recall、what/where、truth/popular-belief、prevalence/diagnosticity、assertion/presupposition、statistical significance/effect magnitude、ratio bias、preference transitivity、anchoring 等。
+
+---
+
+## 3. 当前只有四条 nonterminal execution frontier
+
+**它们都不算 PASS。** 不要因为是 frontier 就美化成题目。
 
 ### A. Intervention Effect Direction ≠ Magnitude
 
 状态：
 
 ```text
-HOLD-FATAL-CONTROL / NOT REGISTERED / NO MI AUTHORIZED
+HOLD-FATAL-CONTROL / NOT REGISTERED / NO MI
 ```
 
-这是当前最高优先级。
+先解决 user/persona-drift fatal control。
 
-先做：
+必须：
 
-1. 拿到 2026 Nature treatment-effect artifact/code；
-2. 拿到 `The Illusion of Intervention` user-drift artifact/code；
-3. 在可解释现代 open models 上确认 `effect sign 大体正确 + magnitude 系统性放大`；
-4. 按 user-drift 工作做 faithful negative-control/confounder correction；
-5. 如果 magnitude inflation residual 消失，立即 `KILL-ARTIFACT`，写 rejection，不准缩 subset 救；
-6. 只有 substantial residual 跨 open families 留下后，才允许 N1 和 MI。
+1. 获取 2026 Nature treatment-effect artifact/code；
+2. 获取 `The Illusion of Intervention` drift artifact/code；
+3. 在 current interpretable open models 上复现 sign mostly correct + magnitude inflated；
+4. faithful 实现 drift/confounder correction；
+5. residual 消失 → `KILL-ARTIFACT`，写 rejection，不准 subset rescue；
+6. 只有 substantial residual 跨 open families 存在，才允许 N1，然后才可能 MI。
 
-不要在 fatal control 之前 probe / SAE / patch / steer。
+禁止 fatal control 前做 probes/SAE/patching/steering。
 
 ### B. Visual size → mass shortcut
 
@@ -65,20 +112,17 @@ HOLD-FATAL-CONTROL / NOT REGISTERED / NO MI AUTHORIZED
 PRE-S0 / NOT REGISTERED / NO MI
 ```
 
-已验证：
+已知真实 substrate：VisPhysQuant 221 real objects，true `weight_kg`，multi-view images，Record3D RGB-D，公开代码可算 metric size。
 
-- VisPhysQuant `output.json` 已真实解析，共 **221 个真实对象**；
-- row 有 `ID`, `weight_kg`, multi-view image paths；
-- public Drive 有约 **14.27GB** Record3D RGB-D archive；
-- `draw_bbox_axis.py` 能从 depth + camera intrinsics deterministic 计算 metric `x_length / y_length`；
-- PhysQuantAgent repo **没有**隐藏的 per-view Qwen3-VL result file，不要再浪费时间搜 supplementary；
-- `mass = volume × density/material` factorization 本身已 `KILL-N0`，不要复活。
+真正要验证的是：
 
-真正需要验证的是行为：**mass signed/residual error 是否系统性沿 size 走**。
+> mass signed/residual error 是否系统性随 apparent/metric size 变化？
 
-G0：真实物体、ordinary prompt、至少 3 个 current interpretable VLM families；如果 <2/3 family 同方向或 effect 不 substantial，直接 `KILL-S0`，不准挑 extreme object/subtype 救。
+不是 generic mass error，也不是 `mass = volume × density/material`（后者已死）。
 
-### C. Mass-specific cross-view instability / latent physical-property constancy
+G0：>=3 current interpretable VLM families，ordinary identical prompt，真实对象，raw item-level outputs，pre-frozen controls；>=2/3 family broad effect 才活，否则 `KILL-S0`，不准挑 extreme subtype 救。
+
+### C. Mass-specific cross-view instability
 
 状态：
 
@@ -86,280 +130,162 @@ G0：真实物体、ordinary prompt、至少 3 个 current interpretable VLM fam
 HOLD-OPEN-MODEL-EXISTENCE / NOT REGISTERED / NO MI
 ```
 
-旧 open-VLM qualitative evidence 显示同一真实物体只换视角，mass estimate 可以相差很大；但 generic perceptual constancy 已被 direct mother 占掉，所以只有**mass 作为 latent physical property**这个更具体对象可能活。
+验证同一真实物体只换视角时 mass estimate 是否仍大幅变化：
 
-必须实际跑 modern open-family G0：
-
-- same real object；
-- >=4 views；
+- >=4 views/object；
 - identical prompt；
-- deterministic decoding；
+- deterministic decode；
 - >=3 current open VLM families；
-- log-mass within-object dispersion；
-- object identity/category stable control；
-- image resize/crop + same-view repeat controls。
+- within-object log-mass dispersion；
+- identity/category stable control；
+- resize/crop + same-view repeat controls；
+- broad >=2/3-family effect 才活，否则 `KILL-S0`。
 
-只有 broad >=2/3-family instability 才允许进入 N0/N1；否则 `KILL-S0`。
+不要重新包装成 generic perceptual constancy。
 
-### D. Real-investigation causal relevance ≠ principal/actual-cause selection
+### D. NTSB causal relevance ≠ causal-role selection
 
 状态：
 
 ```text
-PRE-G0 / ARTIFACT-EXECUTION-BLOCKER / NOT REGISTERED / NO MI
+REGISTERED-FRONTIER / DELEGATED-G0 / NOT PASS-REGISTER / NO MI
 ```
 
-不要再搜 NTSB schema。官方 artifact 已确认：
+这是**执行追踪注册**，不计入五个题。
 
-- data page: `https://www.ntsb.gov/safety/data/pages/Data_Stats.aspx`
-- download directory: `https://data.ntsb.gov/avdata`
-- `avall.zip`: 2026-08-01 snapshot, **95,636,276 bytes**
-- 1982-present civil aviation accidents
-- structured findings historical `cause_factor` has `C` / `F`; newer metadata includes probable-cause inclusion such as `cm_inPC`
+正确问题：
 
-当前 chat 只是 binary download endpoint cache-miss，**不是数据不存在**。
+> 在真实事故中，模型是否能识别哪些 finding 是 causally relevant，却仍分不清调查员标为 cause 的 finding 和 contributing factor？
 
-下一步在正常联网 shell 直接下载 `avall.zip`，解析 MDB：
+关键语义：
 
-1. list tables/columns；
-2. inspect `findings`；
-3. count `C/F`, `cm_inPC`, missingness, years；
-4. count accidents with multiple findings and mixed roles；
-5. random-20 audit；
-6. 确认普通 prompt 能把 finding universe 给模型，而不需要我们手标核心 label；
-7. 再做 current-open-family G0。
+```text
+cm_inPC = probable-cause statement 中被引用为 cause OR contributing factor
+legacy cause_factor = C vs F role label
+```
 
-注意：`C/F taxonomy` 本身不是题目。
+**绝对不要**把 `cm_inPC=TRUE` 当 principal cause，也不要假设每个事故只有一个 C。
 
-只有当模型**能识别多个 finding 的 causal relevance，却系统性不会像专家一样选 principal/actual cause**，才可能形成 scientific object。
+本地执行由以下文件负责：
 
-若只是 `cause vs factor classification`，或者 formal actual causation benchmark，直接 N0/N1 kill。
+1. `phenomenon_miner/REGISTERED_FRONTIER_NTSB_CAUSAL_ROLE_2026-08-31.md`
+2. `phenomenon_miner/NTSB_LOCAL_AGENT_HANDOFF_2026-08-31.md`
+3. `phenomenon_miner/NTSB_LOCAL_AGENT_PROMPT_2026-08-31.md`
 
-## 3. 不要只审核这四条，继续找新题
+如果本地 agent 已经跑出结果，下一轮必须**先读它提交的 audit/results/rejection**，再决定 NTSB 是 KILL 还是继续 N0/N1；不要重复下载/重复定义任务。
 
-主要任务仍然是：
+---
 
-> **继续寻找新的 scientific objects，直到真正找到 5 个足够硬的 `PASS-REGISTER`，或者本轮搜索再次证据性归零后继续扩大新的 mother families。**
+## 4. 不要只处理这四条：继续找新的 scientific objects
 
-不要为了凑五个降低标准。
+目标仍然是找到真正的 5 个 `PASS-REGISTER`，但绝对不能为数量放水。
 
-### Priority 1 — 2025–2026 strong mother anomaly → lateral new object
-
-系统搜索：
+优先搜索 2025–2026：
 
 - ACL / Findings ACL
 - EMNLP / Findings EMNLP
 - NAACL
-- ICLR
-- ICML
-- NeurIPS
 - TACL / Computational Linguistics
-- Nature
-- Nature Machine Intelligence
-- Nature Computational Science
+- ICLR / ICML / NeurIPS
+- Nature / Nature Machine Intelligence / Nature Computational Science
 
-优先找：
+重点不是论文标题已经写出来的 gap，而是：
 
-- large, counterintuitive behavior；
-- current open-weight family；
-- natural / externally grounded population；
-- row-level data/code 真开放；
-- behavior 已明显存在；
-- **mother 没有把这个 dissociation 自己命名成 headline object**；
-- mother 没有已经把 MI extension 写成明显 future-work successor；
-- 我们能提出一个新的 title-level scientific object，而不是 `解释 mother failure 的 circuit`。
+> **strong mother paper 的 table / ablation / appendix 中存在稳定、反直觉、跨模型的 residual anomaly，但作者没有把它命名成 headline scientific object，也没有已经做掉明显的 MI successor。**
 
-尤其看 mother 的 tables / ablations 中**稳定但未被命名的 dissociation**。
+优先三类来源：
 
-### Priority 2 — Everyday deterministic/distributional behavior
+1. **Everyday deterministic/distributional behavior**：普通 prompt 就能看到，不依赖 benchmark 才成立。
+2. **External-world grounded distinction**：两个量本来就在世界里不同，有 deterministic/expert/human gold，自然 cross-cells。
+3. **Strong mother anomaly 的 lateral extension**：不是解释 mother 的主结论，而是从一个未命名 anomaly 横向长出新的 scientific object。
 
-像 Hamdi arbitrary/random choice 一样：普通 prompt 里现象本身肉眼可见，不依赖 dataset、复杂 2×2、subset 筛选才成立。
+不要机械生成 `X ≠ Y`。
 
-但 random-choice 家族已经占位，不要换数字/颜色/quiz 复活。
+---
 
-### Priority 3 — External-world structure / orthogonal axis
+## 5. 严格 funnel
 
-只有满足以下条件才深审：
-
-- 两个变量在人类世界里本来就是不同东西；
-- independent external gold；
-- same natural units/objects；
-- natural cross-cells；
-- 样本量足够；
-- 不需要新人工标核心变量；
-- 不需要 LLM judge；
-- 即使模型把两轴分得很好，论文仍然成立；
-- 不是已有 joint-prediction / disentanglement mother 的直接 hidden-state follow-up。
-
-目前更值得探索的**抽象形状**，不是候选标题：
-
-- intrinsic property vs genuinely relational/context-bound property；
-- latent stable physical property vs irrelevant observation/view change；
-- causal relevance vs downstream causal-role selection；
-- upstream state vs downstream selector，**但必须行为先迫使这个区分出现**。
-
-不要机械写 `X ≠ Y`。
-
-## 4. Hamdi-style 真正标准
-
-Hamdi random-choice 的价值不是“有 reader/writer 两个 direction”。
-
-正确顺序：
+每个 serious candidate 必须走：
 
 ```text
-natural behavior
-→ internal state
-→ competing mechanism
-→ causal test
-→ mechanism predicts a surprising/simple intervention
-```
-
-最好的结果应能推翻默认直觉，例如：
-
-```text
-one randomness dial
-→ actually reader/switch + writer/dial
-```
-
-并且机制发现最好能预测一个原先不会想到的低秩/简单 intervention，而不只是“第 17 层有一个 feature”。
-
-优先机制 fork：
-
-- switch vs dial
-- reader vs writer
-- upstream prior vs downstream selector
-- parallel states vs overwrite
-- shared scalar vs separate axes
-- content vs binding/index
-
-但不能因为想做这些 fork 而反过来编行为故事。
-
-## 5. 每个 serious candidate 严格流程
-
-```text
-P0 Natural Question
-→ classify Failure-mechanism / Factorization-object
-→ internal negative-memory audit
-→ S0 actual substrate audit
-→ open-model existence/capability
+P0 natural question
+→ semantic negative-memory audit
+→ strongest-neighbor/title collision attack
+→ S0 real substrate
+→ current-open-model existence/capability
 → N0 mother-inclusion attack
 → N1 strongest-neighbor/successor attack
-→ narrative-width + anti-narrowing
-→ MI-fit + Hamdi-surprise
-→ only then PASS-REGISTER
+→ anti-narrowing / narrative width
+→ MI-fit / Hamdi-surprise
+→ PASS-REGISTER
 ```
 
-### Failure-mechanism 注册前
+### Failure-mechanism 在注册前必须满足
 
-- failure 已经在我们能做 MI 的 current open checkpoints 上存在；
-- 默认至少 2/3 family 同方向；
-- ordinary faithful prompt；
-- synthetic-only 不行；
-- post-hoc subset 不行；
-- 经典人类 bias 存在不等于 LLM 存在；
-- 保存 item-level output / scorer / checkpoint revision。
+- failure 在 current analyzable open checkpoints 上真实存在；
+- 默认 >=2/3 genuinely different families 同方向；
+- ordinary faithful prompts；
+- no synthetic-only existence；
+- no post-hoc subset rescue；
+- effect scientifically substantial；
+- item-level outputs/scorer/exact checkpoint revisions 保存；
+- N0/N1 通过。
 
-### Factorization/internal-object 注册前
+### Factorization/internal-object 在注册前必须满足
 
-- A/B 独立定义；
-- independent gold；
-- row-level artifact 真取得并解析；
-- 实数 natural cross-cells；
+- A/B 在模型外独立定义；
+- independent deterministic/expert/human gold；
+- row-level artifact 已真实获得和解析；
+- natural cross-cells 已计数；
 - random-20 sanity audit；
-- attrition；
-- restriction budget；
-- central labels 不能我们临时标；
-- 不能 LLM judge；
-- 不能 synthetic 2×2 制造现象；
-- 第二轴不能用“差不多相关的 proxy column”偷换。
+- attrition/restriction budget；
+- core axis 不由我们临时人工标；
+- central gold 不用 LLM judge；
+- 第二轴不是 proxy；
+- 不允许 synthetic 2×2 制造现象。
 
-## 6. N0/N1 禁止放水
+---
+
+## 6. N0/N1 不许放水
 
 默认不是新题：
 
 - mother behavior → mechanism；
-- representation exists → causal or not；
-- 哪一层/哪个 head；
-- 换模型；
-- 换 dataset；
-- 换语言；
-- task 做难；
-- stricter subset；
+- `representation exists` → `is it causal?`；
+- 哪层/哪个 head；
+- 换模型/dataset/language；
+- generic `knows X but doesn't use X`；
+- title 加 adjective；
 - existing joint labels → probe disentanglement；
-- generic `knows/can do X but doesn't use X`；
 - hidden-state-defined phenomenon；
-- novelty 只能靠标题加 adjective。
+- central LLM judge；
+- proxy second axis。
 
-N1 每题至少找 3 个 strongest neighbors，主动搜：
+N1 是为了**杀题**。至少查 strongest neighbors，覆盖 arXiv / ACL Anthology / OpenReview / PMLR / relevant journals，主动搜 mechanism-adjacent 词：
 
-`representation`, `latent`, `direction`, `feature`, `circuit`, `SAE`, `activation patching`, `causal intervention`, `steering`, `disentangle`, `factorization`, `mechanism`
+`representation`, `latent`, `direction`, `feature`, `circuit`, `SAE`, `activation patching`, `causal intervention`, `steering`, `disentangle`, `factorization`, `mechanism`。
 
-覆盖 arXiv、ACL Anthology、OpenReview、PMLR 等。
+---
 
-**搜索是为了杀题，不是为了找支持文献。**
+## 7. Hamdi-style surprise 标准
 
-## 7. 最新新增 terminal 负知识
+最终 MI 不是“找到表示”，而应有 competing causal mechanisms，并最好出现这种结果：
 
-先完整读 `rejected_candidates/continuation_terminal_addendum_6_2026-08-31.md`。
+```text
+natural intuitive mechanism
+→ causal test says intuition is wrong/incomplete
+→ decomposition predicts a simpler intervention
+```
 
-这一轮新增死亡包括：
+例如 switch vs dial、reader vs writer、upstream prior vs downstream selector、parallel states vs overwrite、shared scalar vs separate axes、content vs binding/index。
 
-- numeric heaping / round-number attraction；
-- subliminal learner-channel vs reader-channel；
-- disease commonness/prevalence vs lethality；
-- social power vs status；
-- authorship/source vs endorsement/commitment；
-- mass volume×density/material factorization；
-- unit invariance；
-- anchoring reader/writer；
-- apparent brightness vs intrinsic luminosity；
-- earthquake magnitude vs local intensity；
-- absolute count vs proportion / ratio bias；
-- pairwise preference vs global/transitive utility；
-- occupational income vs prestige/status；
-- manipulation strategy detection vs human effect magnitude；
-- inattentional blindness；
-- legal case content vs authority/applicability；
-- belief-expression framing vs context/prior integration；
-- healthfulness vs sustainability；
-- institutional role vs prominence (`capital` vs `largest city`)。
+但这些只能在行为已经迫使区分后使用，**不能反过来为了想做 reader/writer 而编一个行为题。**
 
-Addendum 5 已杀：
+---
 
-- belief-update gate vs step-size；
-- sentience/suffering vs intelligence；
-- implicit preference vs inhibition；
-- privacy knowledge vs action；
-- generic perceptual constancy；
-- relational-property essentialization。
+## 8. 负知识必须落仓库
 
-更早 terminal 负知识全部仍有效：Truth/Popular Belief、Prevalence/Diagnosticity、Assertion/Presupposition、Statistical Evidence/Effect Magnitude、Premise Reversal、Deontic Facilitation、Description-History、recognition/recall、what/where、typicality、popularity/quality 等。
-
-**不能换 dataset/model/language/prompt/MI tool 复活。**
-
-## 8. 特别禁止继续浪费时间的形状
-
-- temporal forgetting / stale state
-- task-switch carryover
-- ambiguity-history hysteresis
-- evidence-more-hurts
-- local-success/global-composition gap
-- generic truth/belief/factuality/uncertainty
-- ownership/self-attribution
-- semantic relation inventory
-- sentiment/emotion/dialogue-act label pairing
-- synthetic moral/logic 2×2
-- representation→causal follow-up
-- mother→layer/head localization
-- LLM-judge central gold
-- proxy second axis
-- title adjective narrowing after collision
-
-## 9. 负知识必须持续写仓库
-
-任何认真审过但死亡的题，立即追加到对应 `rejected_candidates/` 文件。
-
-至少记录：
+任何认真审过但死亡的题，立即写进 `rejected_candidates/`，至少包含：
 
 - Natural question
 - Why it looked good
@@ -368,45 +294,20 @@ Addendum 5 已杀：
 - Nearest-neighbor warning
 - Resurrection condition
 
-不要只在 chat 里说“这个不行”。
+重要的新死亡再追加到新的 `continuation_terminal_addendum_*`，并更新 `rejected_candidates/README.md` 的 latest pointer。
 
-## 10. 最终只有真正 survivor 才输出
+不要只在 chat 里说“不行”。
 
-每个 survivor 完整输出 20 节：
+---
 
-1. Plain question
-2. One example
-3. Why this matters
-4. Topic type
-5. Mother paper
-6. Hamdi-style extension
-7. S0 Scientific Substrate
-8. Open-model viability
-9. N0
-10. N1，至少 3 strongest neighbors
-11. Internal-history audit
-12. Exact novelty
-13. Forbidden claims
-14. Mechanistic forks
-15. Decisive causal experiment
-16. Fatal controls
-17. ACL/EMNLP title
-18. Four-sentence abstract skeleton
-19. Anti-narrowing verdict
-20. Final verdict
+## 9. 这一轮的执行风格
 
-真正要凑的五个必须是：
+不要长时间只汇报“还在搜”。尽快给出可判定动作：
 
-**`PASS-REGISTER`**
+- 找到候选 → 先 negative-memory/N0/N1 杀；
+- 找到 real substrate → 真正解析/计数；
+- 有现成 G0 scaffold → 直接跑或明确交给本地 agent；
+- 死亡 → 立即写 rejection；
+- 存活 → 明确它当前过到哪一 gate，不要提前叫 candidate/PASS。
 
-而不是五个 HOLD/PRE-S0。
-
-如果一个都过不了，明确写：
-
-`No candidate passes the current bar.`
-
-然后继续扩大新的 mother families，不要降低 gate。
-
-最重要的一句话：
-
-> **先确保 scientific object 已经真实、可观测、能在 current open model 上研究；MI 的作用是告诉我们模型内部为什么会这样、或世界中本来不同的变量被模型表示成了什么，而不是替 dataset 或 hidden state 编故事。**
+最终目标仍是 5 个真正 `PASS-REGISTER`，但当前起点就是 **0**。
