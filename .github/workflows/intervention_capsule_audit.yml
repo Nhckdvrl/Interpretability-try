@@ -1,0 +1,60 @@
+name: Hewitt intervention capsule audit
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "phenomenon_miner/intervention_direction_magnitude_2026-08-31/TRIGGER_CAPSULE_AUDIT"
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout topic repository
+        uses: actions/checkout@v4
+
+      - name: Set up R
+        uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: 'release'
+
+      - name: Clone official public Code Ocean capsule
+        shell: bash
+        run: |
+          set -euo pipefail
+          git clone --depth 1 https://git.codeocean.com/capsule-9843791.git /tmp/hewitt_capsule
+          git -C /tmp/hewitt_capsule rev-parse HEAD | tee /tmp/capsule_commit.txt
+          find /tmp/hewitt_capsule -maxdepth 3 -type f -printf '%P\t%s bytes\n' | sort > /tmp/capsule_tree.txt
+
+      - name: Audit released RDS structure
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/hewitt_audit
+          Rscript phenomenon_miner/intervention_direction_magnitude_2026-08-31/audit_capsule.R \
+            /tmp/hewitt_capsule /tmp/hewitt_audit
+          cp /tmp/capsule_commit.txt /tmp/hewitt_audit/
+          cp /tmp/capsule_tree.txt /tmp/hewitt_audit/
+
+      - name: Locate released aggregation code
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd /tmp/hewitt_capsule
+          grep -RniE 'llm_responses|expectation|samples|estimate\.llm|prediction|effect' code \
+            --include='*.R' --include='*.Rmd' --include='*.py' \
+            > /tmp/hewitt_audit/aggregation_code_hits.txt || true
+          head -n 500 /tmp/hewitt_audit/aggregation_code_hits.txt \
+            > /tmp/hewitt_audit/aggregation_code_hits_head500.txt
+
+      - name: Upload audit artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: hewitt-capsule-audit-2026-08-31
+          path: /tmp/hewitt_audit
+          if-no-files-found: error
+          retention-days: 30
