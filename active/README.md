@@ -1,125 +1,99 @@
 # Active Projects
 
-`active/` 只保留当前仍有科学投入理由的项目、需要 bounded redesign 的项目，以及少量明确标注的 HOLD / provenance。目录存在 **不等于** model call 已授权；唯一调用权限看 [`../phenomenon_miner/AUDIT_REGISTRY.md`](../phenomenon_miner/AUDIT_REGISTRY.md)。
+`active/` 是已经有明确科学投入理由、允许进入**预注册式初步验证 / causal MI** 的项目目录。
 
-2026-08-31 已完成两轮 Hamdi-style 审计，并随后启用 S0-first gate：
+当前发现协议与状态只认：
 
-- 第一轮 mother-inclusion N0：[`../phenomenon_miner/HAMDI_AXIS_N0_2026-08-31.md`](../phenomenon_miner/HAMDI_AXIS_N0_2026-08-31.md)
-- 第二轮严格 N0 + N1：[`../phenomenon_miner/HAMDI_MOTHER_N0_N1_3_2026-08-31.md`](../phenomenon_miner/HAMDI_MOTHER_N0_N1_3_2026-08-31.md)
-- 48-way S0-first 漏斗：[`../phenomenon_miner/S0_FUNNEL_2026-08-31.md`](../phenomenon_miner/S0_FUNNEL_2026-08-31.md)（0 survivors）
+1. [`../README.md`](../README.md)
+2. [`../phenomenon_miner/FINDING_RULES.md`](../phenomenon_miner/FINDING_RULES.md)
+3. [`../phenomenon_miner/HANDOFF_HAMDI_SEARCH_2026-08-31.md`](../phenomenon_miner/HANDOFF_HAMDI_SEARCH_2026-08-31.md)
 
-原则不变：**强 mother 先证明 scientific object 值得研究；我们只沿 mother 留下的自然概念轴/内部含义走一步。审计过程中如果 novelty 被迫缩成 benchmark-specific/subtype-specific 小缝，立即 KILL，不保题。**
+旧 `AUDIT_REGISTRY`、gate、funnel、addendum、历史 active 目录只保留 provenance，不再与上述三份文件并列作为权限源。
 
-## 当前重点
+## 当前主线
 
-| project | scientific status | current action |
+| project | status | first execution target |
 |---|---|---|
-| [`014_alias_entrainment_transfer`](014_alias_entrainment_transfer/) | **ESTABLISHED / PAPER DEVELOPMENT** | broad cross-surface spillover + structural gradient + lexical/reference boundary |
-| [`018_stock_flow_correlation_intrusion`](018_stock_flow_correlation_intrusion/) | **D0-v2 NO-PROMOTE / NO-MI / TERMINAL** | 0/4 family；禁止继续 repair、subset rescue 或机制实验 |
-| [`024_alignment_descriptive_normative_arbitration`](024_alignment_descriptive_normative_arbitration/) | **HOLD-INCONCLUSIVE-D0** | 2/4 native family passes; no mechanism calls |
-| [`025_world_indexed_truth`](025_world_indexed_truth/) | **HOLD_PREREQUISITE_CAPABILITY / NO-MI** | conflict-only success fails aligned world-index controls |
-| [`026_scientific_plausibility_testability_factorization`](026_scientific_plausibility_testability_factorization/) | **LEGACY / RETROSPECTIVE S0 KILL** | independent expert-grounded P/T cross-axis gold absent |
-| [`027_rhetorical_force_implied_assertion`](027_rhetorical_force_implied_assertion/) | **LEGACY / RETROSPECTIVE S0 KILL** | force gold exists; validated implied-assertion gold absent |
-| [`028_causality_responsibility_factorization`](028_causality_responsibility_factorization/) | **LEGACY / RETROSPECTIVE S0 KILL** | official rows unavailable; stable-pair/divergent-frame count unknown |
+| [`029_etr_human_like_fallacy`](029_etr_human_like_fallacy/) | **ACTIVE / PASS-REGISTER** | 冻结 mother reversal-rescue pairs → formal ETR-state measurement → alternative reinstatement patch |
+| [`030_spatial_reference_frame_transformation`](030_spatial_reference_frame_transformation/) | **ACTIVE / PASS-REGISTER** | 复现 mother x/y spatial IDs + COMFORT overlap → analytic FoR transform / selector patch |
+| [`031_spontaneous_deception_knowledge_action`](031_spontaneous_deception_knowledge_action/) | **ACTIVE / PASS-REGISTER** | 从官方 outputs 重建 deceptive events → graph-state measurement → edge-state reinstatement |
+| [`032_temporal_forgetting_mechanism`](032_temporal_forgetting_mechanism/) | **ACTIVE / PASS-REGISTER** | 重建 greedy checkpoint transitions → checkpoint layer transplantation |
+| [`033_contextual_entrainment_opposite_scaling`](033_contextual_entrainment_opposite_scaling/) | **ACTIVE / PASS-REGISTER** | 复现 mother sign split + ACL'25 entrainment causality → semantic-gate / writer decomposition |
+| [`014_alias_entrainment_transfer`](014_alias_entrainment_transfer/) | **ESTABLISHED / PAPER DEVELOPMENT** | 已有正式结果；继续 paper development |
 
-## 024 — Alignment: descriptive social model vs normative readout
+五个新项目的 README 都同时承担：
 
-不能讲“首次发现 descriptive/normative 两个轴”。真正问题：
+- 背景与 mother object；
+- 新 scientific question；
+- competing causal hypotheses；
+- 可复用数据 / 模型 / artifact；
+- 初步验证 V0→Vn；
+- fatal controls；
+- promote / kill 条件。
 
-> Alignment 让模型更 normative 时，是 descriptive human model 被改坏了，还是 descriptive knowledge 仍在、normative signal / late readout 赢了？
+在真正产生代码和结果前，**不要为每个项目再拆多份 planning 文档**。实验开始后再按需添加 `scripts/`、`data/manifest`、`results/`、`PREFLIGHT.md` / `REPORT.md`。
 
-只有能裁决 `descriptive degradation vs dual retention vs late arbitration` 才有独立 narrative。
+## 五题的一句话
 
-D0 v1 已在 3,483 个真实 round 2–10 决策、四个严格 base/aligned
-家族上完成：Gemma/Llama 通过，Qwen null，SmolLM reversal，冻结 gate
-要求 3/4、实际 2/4，因此 `HOLD-INCONCLUSIVE-D0`。问题本身不收窄，当前
-禁止 mechanism；完整结果见 [`D0_REPORT.md`](024_alignment_descriptive_normative_arbitration/D0_REPORT.md)。
+### 029 — Human-Like Fallacies
 
-## 025 — World-indexed truth
+> LLM 与人类犯同一个 ETR-predicted fallacy，是因为内部也过早过滤了必要 alternative，还是语义 prior / late readout 恰好产生同样输出？
 
-不能讲 fictional-vs-empirical truth direction。真正问题：
+核心：**premise reversal + alternative reinstatement patch**。
 
-> **同一个 proposition 在 actual world 与 stipulated local world 下 truth 不同时，模型是否表示 `Truth(P, world)`，并用 world index 选择正确 valuation？**
+### 030 — Spatial Reference Frames
 
-必须坚持 same proposition / same context / query-world swap。
+> VLM 从 camera/image-plane spatial ID 回答另一个视角时，真的变换内部坐标，还是选择另一套 code / 最后才翻译？
 
-## 026 — Plausibility is not testability
+核心：**mother x/y ID 的解析几何变换 + FoR selector patch**。
 
-Mother scientific-feasibility work把“符合科学知识”与“能被实验支持/反驳”放进一个 feasibility task；科学 hypothesis evaluation 又把 Scientific Plausibility 与 Testability 作为不同维度。
+### 031 — Spontaneous Deception
 
-新问题：
+> hard question 答错、easy follow-up 答对时，hard run 内部真的知道真相但没说，还是 reasoning state 本身已经错了？
 
-> **LLM 内部是否把“这个假设可能是真的”和“这个假设能否被实验检验”分成两个 scientific judgments？它们在哪一步被合成最终 feasibility？**
+核心：**ground-truth graph-state tracing + edge-state reinstatement**。
 
-不能退化成 materials-specific rubric classification。按 S0-first 规则已终止。
+### 032 — Temporal Forgetting
 
-## 027 — Questions that assert
+> reasoning training 让同一道题 `correct -> wrong` 时，是擦掉能力、破坏推理 circuit，还是只改变哪个 latent solution 控制输出？
 
-SRAQ 已证明 context-sensitive RQ recognition 难；ACL 2026 已证明 rhetorical status 在 hidden states 可读。
+核心：**同架构相邻 checkpoint layer transplantation + reverse transplant**。
 
-新问题不是再 probe rhetoricality，而是：
+### 033 — Opposite-Scaling Contextual Entrainment
 
-> **识别“这是 rhetorical speech act”和理解“speaker 实际断言/承诺了什么 proposition/stance”是不是两个 computation？**
+> 为什么模型越大越抗 semantic misinformation，却越容易机械复制 meaningless context？
 
-不能缩成 yes/no RQ polarity reversal；必须覆盖自然 argumentative RQs / assertive questions。
+核心：**shared copying writer + semantic gate vs distinct circuits vs late competition** 的跨 scale causal decomposition。
 
-Source preflight 已冻结 SRAQ 971 条与 QT30 question artifact 2,867 条。
-前者只有二元 force，后者虽有 Pure/Rhetorical/Assertive 三类，却没有与问句
-对齐的 implied assertion/commitment gold；AIF question proposition 仍是问句
-语义，following turns 也未标注为 self-answer。因此 retrospective S0 KILL / NO CALL，
-详见 [`SOURCE_AUDIT.md`](027_rhetorical_force_implied_assertion/SOURCE_AUDIT.md)。
+## 执行纪律
 
-## 028 — Cause is not blame
+这些项目已经通过选题 gate，但 **ACTIVE 不等于允许跳过验证**。
 
-ACL 2026 FrECI 已把 causal relation、responsibility target、evaluative framing、source/modality放进同一个自然多语任务。
-
-新问题：
-
-> **不同叙事改变 blame/credit 时，模型是否保留相对稳定的 event-causal core，还是 framing 会直接重写 causality representation？**
-
-不能退化成 source identity / political bias probe。
-
-Source preflight 证实论文 schema 与 human provenance 可用，但官方 FrECI
-仓库当前 404。论文公开统计的是 shared effect 下 competing causes，不是
-same directed cause-effect pair 下 frame 改变；中央 matched population 无法
-从 PDF 总量恢复。因此 retrospective S0 KILL / NO CALL，详见
-[`SOURCE_AUDIT.md`](028_causality_responsibility_factorization/SOURCE_AUDIT.md)。
-
-## 保留但非当前主线
-
-- [`003_diagnostic_counterevidence_revision`](003_diagnostic_counterevidence_revision/) — natural mother behavior；legacy provenance，暂无 authorization。
-- [`013_publicness_coordination_dissociation`](013_publicness_coordination_dissociation/) — natural common-knowledge/publicness object；`HOLD-DATA`。
-- [`023_description_experience_gap`](023_description_experience_gap/) — exact-frequency inference-vs-policy D0；`HOLD-CAPABILITY-FAILURE / NO-MI`。
-
-## 已归档 / 禁止复活
-
-近期物理移出 active：
-
-- `007_weak_evidence_backfire` — terminal hard kill；
-- `020_incremental_clue_backfire` — 被 `candidate_topics` Topic 28 吞并；
-- `021_task_switch_carryover` — 只有已知 mother 的细 diagnostic signature；
-- `022_local_success_global_composition_failure` — core object 已是 compositionality gap。
-
-015/016/017/019 也已在 Top-6 审计后 terminal archive。
-
-## 本轮 strict search 中被 KILL 的例子
-
-**Falsehood ≠ Deceptive Intent** 没有因为问题天然就被保留。N1 发现 2026 work 已经直接进入 deception-specific / intent-targeted probing 与 non-lying deception；继续做只能缩成某个 deception subtype，因此直接放弃。
-
-这正是新的 anti-narrowing discipline：**自然问题只是第一道门，不是 novelty 豁免。**
-
-## 当前调度
+统一执行顺序：
 
 ```text
-014 -> paper development
-018 -> D0-v2 NO-PROMOTE / NO-MI / TERMINAL
-024 -> HOLD-INCONCLUSIVE-D0; no further calls
-025 -> HOLD-PREREQUISITE-CAPABILITY / NO-MI
-026/027/028 -> legacy registrations; retrospective S0 KILL
-003/013/023 -> HOLD
-fresh registration queue -> empty; MI on 024-028 -> forbidden
+mother artifact freeze
+→ exact matched population
+→ cheap faithful replay
+→ measurement validation
+→ causal intervention
+→ replication
+→ paper-scale expansion
 ```
 
-## One-line discipline
+禁止：
 
-> **像 Hamdi 一样：mother 先给一个已经重要的 scientific object，我们再问它真正意味着什么；dataset 和 MI 都只能是回答问题的工具，不能反过来制造问题。**
+- 重新发明一个更容易跑的数据集替代 mother object；
+- fresh expensive G0 只是为了重新确认已知行为；
+- 看到结果后换 subset / threshold / prompt 救 hypothesis；
+- probe 有信号就直接写 mechanism；
+- 用 LLM judge 取代已有确定性 formal / graph / exact-answer gold；
+- 把 generic head localization 当作论文贡献。
+
+如果 initial validation 暴露 construct、measurement 或 causal-identification 致命问题，应立即降级/终止并留下 evidence，而不是因为已经进 `active/` 就强行保题。
+
+## Legacy / provenance directories
+
+`003`、`013`、`018`、`023`–`028` 等旧目录仍保留历史材料，但它们的目录存在**不表示当前 ACTIVE**。其最新状态以 root README / handoff 与各自 terminal evidence 为准。
+
+> **active 的意义是：问题已经值得认真验证；不是问题已经被证明，更不是 hypothesis 必须成功。**
