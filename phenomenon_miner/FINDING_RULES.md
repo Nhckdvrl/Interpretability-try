@@ -1,412 +1,323 @@
-# Finding Rules — 如何找一个值得做的 LLM 可解释性题目
+# Finding Rules — 唯一权威选题协议
 
-版本：2026-08-31
-状态：`AUTHORITATIVE DISCOVERY RULES`
+版本：2026-08-31  
+状态：`AUTHORITATIVE DISCOVERY PROTOCOL`
 
-本文件合并旧的 `PROCESS.md`、`REQUIREMENTS.md`、`NOVELTY_GATE.md`、`CONFERENCE_SCALE_AUDIT.md` 和短版 mining guide 中仍然有效的规则。以后寻找新题只维护这一份。
+本文件是**唯一需要维护的选题规则**。旧的 `NATURAL_QUESTION_GATE.md`、`SCIENTIFIC_SUBSTRATE_GATE.md`、各轮 funnel / addendum 只保留历史证据，不再各自定义流程。
 
----
-
-## 1. 我们到底在找什么
-
-目标不是“找一个没人写过的 benchmark drop”，也不是先选 SAE / attention head / patching 再找故事。
-
-理想题目应同时具有：
-
-```text
-自然 mother question
-+ 一句话反直觉矛盾
-+ decisive contrast
-+ 可预测的结构 signature / wrong destination
-+ 至少两个 competing mechanisms
-+ 可落地自然数据
-+ 明确 hard kill
-```
-
-最好的句式通常是：
-
-> **模型明明 A，却仍然 B。**
-
-其中 A 不是自报告式“知道”，而是可独立验证的能力/表征/规则理解；B 是规范上不应该发生、且有结构的 downstream failure。
-
-### 优先从这些地方找
-
-1. **人人都能理解的自然 failure**：真实知识、证据、记忆、工具、行动、社会协调、状态更新。
-2. **强 mother paper 的真空**：论文已经证明一个 scientific object 重要，但留下 causal role、scope boundary、representation→use、lifecycle、implementation switch 等真正下一问。
-3. **两个应分离的心智步骤**：识别任务 ≠ 执行策略；知道来源 ≠ 正确加权；表示状态 ≠ 用状态行动。
-4. **规范关系被破坏**：invariance、monotonicity、reversibility、composition、state transition、binding。
-5. **现实系统里的路径冲突**：prior vs evidence、old state vs current state、surface success vs semantic rule、retrieval vs use。
-
-### 不优先从这些地方找
-
-- 先决定一个心理学 bias 名字，再去模型里找样本；
-- 一个数据集 × 一个 perturbation；
-- 只有 prompt wording / option order 敏感；
-- 换语言、模型、领域、payload 就声称新题；
-- 只有平均 accuracy drop，没有结构性错误落点；
-- 只有 probe accuracy，没有可区分的 causal question；
-- pure synthetic toy world 是唯一行为锚点。
+目标：为 ACL / EMNLP / NAACL 风格 mechanistic interpretability 找到真正值得做的问题。允许最后为 0；不为数量降低标准。
 
 ---
 
-## 2. 主会尺度怎么判断
+## 1. 今天最大的修正：不再“猜一个现象，然后赌 G0”
 
-题目可以很窄，但证据链必须厚。ACL/EMNLP/NAACL Main 风格通常不是靠“覆盖很多任务”变大，而是形成：
-
-```text
-一句话 phenotype
-→ 跨模型/设置稳定
-→ decisive controls
-→ 结构 signature
-→ causal mechanism
-→ 机制导出的预测 / 修复
-```
-
-删掉模型名、数据集名和 transformation 名以后，如果仍能讲出一个现实世界中重要、反直觉、且存在两个竞争计算解释的问题，才有主会尺度的可能。
-
-### 一票否决的“小题味”
-
-- 研究问题离开某 benchmark 就不存在；
-- 只是已有 mother phenomenon 的一个 item subtype；
-- 需要五六个 arbitrary condition 才能描述现象；
-- 结果只有“模型会犯错”，没有为什么这个错误特别奇怪；
-- 方法贡献与科学问题彼此可替换，换个 probe 也能讲同样故事。
-
-### 2.1 Mother-paper extension 不等于新 phenomenon
-
-Hamdi-style extension 是重要找题方式，但必须区分两种合法产物：
+过去最主要的失败不是模型实验做得不够，而是**候选生成方式错了**：
 
 ```text
-A. NEW PHENOMENON
-mother 已证明 scientific object X 重要
-→ 我们发现一个 mother 没有拥有的 behavioral contradiction / structural signature Y
-→ Y 有独立自然 D0
-
-B. MECH-FOLLOWUP
-mother 已经拥有 headline behavior X
-→ 我们只问 X 的 representation / causal role / routing / localization
+听起来很自然的 distinction
+→ 找一个能拼出 contrast 的 dataset
+→ 猜模型也许会有某种 failure
+→ 跑 3–4 家族昂贵 G0
+→ 发现 effect 不存在 / scorer 有问题 / gold 不对 / metadata 泄漏
 ```
 
-B 可以是好 interpretability project，但**不能因为机制问题很漂亮就占用 phenomenon discovery Tier S**。
+这条路线现在禁止作为默认找题方法。
 
-尤其警惕这个高风险模板：
+真正要模仿 Hamdi 的是：
 
 ```text
-representation / predictive signal exists
-→ is it causal?
+一个强 mother 已经建立了 object O
+→ 看 mother 到底测了 O 的哪些属性
+→ 找同一个 O 上一个现实中独立、但 mother 没问的轴 B
+→ 尽量继承 mother 的 unit / readout / recipe
+→ 先证明“B 是未被问过的问题”，而不是先赌“模型会不会出错”
 ```
 
-内部历史已经多次证明：decodability/predictiveness 与 downstream use 可以完全分离。此类题若没有独立 behavioral anomaly，只能标 `MECH-FOLLOWUP`。
+实体题的结构是：
 
-一个简单 gate：
+```text
+mother: known / unknown entity
+new axis: real / fictional entity
+```
 
-> **不看 hidden state，只看自然输入/输出，我们的新 headline 还能成立吗？**
+两轴本来就在世界里不同；著名虚构实体提供 `known + fictional` 的自然 cross-cell。新题不是猜一个新 failure，而是在**同一个 entity representation** 上问 mother 没问过的 ontology 属性。
 
-若不能，默认不是新 phenomenon。
+随机选择题是第二种合法路线：随机偏置本身早已肉眼可见并被 prior work 建立；新问题不是“会不会偏”，而是**模型是否有 random/arbitrary-choice state，以及这个 state 是否就是控制 entropy 的变量**。因果分析最后推翻了单一 dial 直觉，得到 switch/reader 与 downstream writer，并预测出 gated intervention。
 
 ---
 
-## 3. 题目必须在 discovery 阶段一次做透
+## 2. 只允许两种候选生成路线
 
-新项目正式注册前必须按成本顺序通过：
+### Route A — Mother omitted-axis extension
 
-```text
-Natural Question PASS
-+ type-specific S0 Scientific-Substrate PASS
-+ N0 breadth PASS
-+ N1 depth PASS
-+ registration-ready D0 population/estimand contract
-= DISCOVERY-PASS
-```
+适合 factorization / representation object。
 
-实际顺序是 `Natural → S0 → N0 → N1 → register → D0`。S0 必须已经取得
-row-level artifact、运行 counts/audit，或在目标 open models 上证明 failure
-existence。详见 [`SCIENTIFIC_SUBSTRATE_GATE.md`](SCIENTIFIC_SUBSTRATE_GATE.md)。
-N0、N1 都属于找题，不是题目确定后的补票。
+必须满足：
 
-### 3.0 S0 — scientific substrate before novelty
+1. 有一个**具体 strong mother**，而不是宽泛领域；
+2. mother 已经稳定测量 object `O`；
+3. 新轴 `B` 是 `O` 在现实世界中的独立属性，不是我们为论文发明的 label；
+4. 有天然 counterexample / cross-cell 证明 `A != B`；
+5. mother 没有已经回答 `B`；
+6. 能继承 mother 的大部分 measurement recipe；
+7. 不需要先跑昂贵多家族实验才能知道“这个问题是否存在”。
 
-先分类：
+标准句式：
 
-- `failure-mechanism`：目标 analyzable open models 上的结构 effect 已存在；
-- `factorization/object`：两个轴都有独立 objective gold，row-level artifact
-  已取得，natural cross-cells 已程序计数并人工审计。
+> Paper M established A about object O. But A does not answer B, because B is an independently meaningful property of the same O. Natural A/B counterexamples already exist, and M's validated recipe can be extended to ask B.
 
-缺中央 gold、依赖 synthetic contrast、只在闭源/人类 mother 上成立、或 paper
-看似有字段但 row-level matched population 未验证，均直接 KILL，不注册为
-`PARK-DATA`。
+### Route B — Established anomaly → unasked causal computation
 
-### 3.1 N0 — breadth novelty screen after S0
+适合 failure-mechanism。
 
-先冻结一句 claim，再快速攻击：
+必须满足：
 
-- exact / near-exact LLM phenotype；
-- mother phenomenon + LLM；
-- decisive contrast / wrong destination；
-- 同义词、旧术语和邻近 benchmark；
-- repo 里已经死亡的同 family / rename；
-- 明显已经占位的 mechanism story。
+1. headline behavior **已经存在**：prior work、公开 raw outputs，或普通 prompt 下极易观察；
+2. 最好已经在当前/相近 open families 上出现，不从纯人类 bias 外推；
+3. 新问题不是“哪个 layer/head”，而是一个 prior work 没问过的内部 computation/state；
+4. 至少有两个真正 competing causal mechanisms；
+5. 不同机制会预测不同干预或泛化结果；
+6. 即使最终机制很简单，答案也会改变我们对该 behavior 的解释。
 
-N0 的任务是尽快杀掉明显撞车，不是证明绝对“没人做过”。
-
-#### N0 的 mother-ownership test
-
-必须额外回答：
-
-```yaml
-mother_headline_behavior:
-our_headline_behavior:
-can_our_headline_be_seen_without_hidden_state: true|false
-independent_behavioral_D0_exists: true|false
-```
-
-若 `our_headline_behavior` 实际就是 mother 已经报告的行为，而 novelty 只剩 `where/why/causal?`，则默认：
-
-```text
-ROUTE → MECH-FOLLOWUP
-```
-
-而不是 N0-PASS phenomenon。
-
-### 3.2 N1 — depth novelty closure
-
-只对 N0 survivor 做，而且仍然在注册之前。
-
-至少检查：
-
-1. strongest 3–5 papers 全文；
-2. appendix / supplement / limitations；
-3. public code、released prompts、dataset notes；
-4. predecessor / successor / citation chain；
-5. mother paper 是否已经顺手回答我们的下一问；
-6. exact factorial / intervention 是否已经存在；
-7. 既有机制是否完整吸收 causal question；
-8. 邻近现象是否在更强模型上已经自然消失。
-
-必须留下：
-
-```yaml
-strongest_neighbor:
-what_it_already_solves:
-our_decisive_difference:
-why_not_a_rename:
-mother_inclusion_test:
-mechanism_occupancy:
-scale_survival_risk:
-hard_kill:
-search_date:
-```
-
-只允许写“截至 search date 未检索到完整覆盖”，不写绝对 `first`。
-
-### 3.3 Registration-ready D0 contract
-
-S0 已经证明 substrate 存在。正式注册前还必须冻结：
-
-```yaml
-source:
-version:
-license:
-statistical_unit:
-gold_source:
-extraction_or_construction_recipe:
-estimated_eligible_count:
-feasibility_audit_ids: []   # >=20 real examples
-external_validation_anchor:
-scope_integrity_verdict: PASS | HOLD-SCOPE
-```
-
-最低要求：
-
-- exact source/version 已锁定；
-- license/adaptation/redistribution 条件明确；
-- gold 来自原数据、正式 protocol、可执行语义或数学/程序 oracle；
-- statistical unit 真实独立；
-- dry-run 能估出足够 eligible cases；
-- 随机人工看至少 20 个真实 source examples/pairs；
-- nuisance/confound 在模型调用前列清楚；
-- **scientific population 必须在强过滤前写清楚；**
-- **raw bank、validity-eligible bank、matched-control bank、analysis strata 必须分离；**
-- **理论上有意义的 moderator 默认 factor-not-filter；**
-- **必须输出完整 attrition table，并审计主要 drop reason；**
-- **必须通过 [`DATASET_SCOPE_AUDIT.md`](DATASET_SCOPE_AUDIT.md)。**
-
-#### D0 的 independent-phenotype test
-
-D0 不只是“有数据能喂模型”。还必须问：
-
-> **这个 D0 是否独立定义了我们的 behavioral scientific object，还是只给 mechanism experiment 提供输入？**
-
-如果 source 只能定义 mother 已知 behavior，而我们的新 claim 必须查看 head/probe/patch 才出现，则它不能作为新 phenomenon 的 D0-PASS；应 route 到 `MECH-FOLLOWUP`。
-
-#### D0 的 scope-integrity test
-
-除了“source/gold/count 能不能用”，还必须问：
-
-> **经过 construction/matching 后，剩下的数据还是原来的 scientific population，还是已经因为 clean subset、control availability、domain/type、direction、difficulty、capability gate 等条件换了题？**
-
-强制原则：
-
-```text
-scientific population 先冻结
-→ raw bank 尽量保留自然 variation
-→ 只把测量定义本身无效的样本从 validity bank 删除
-→ control availability 只决定 matched bank
-→ domain/type/direction/difficulty/structure/gate 默认作为 factor/stratum
-```
-
-若为了“更干净”“更独立”“更好匹配”“更容易达到 capability floor”而删掉一个理论 factor level，默认判 `HOLD-SCOPE`，除非显式改 mother question / estimand 并留下 amendment。
-
-详细合同、attrition table、双轮人工 audit 和 builder regression-test 要求见 [`DATASET_SCOPE_AUDIT.md`](DATASET_SCOPE_AUDIT.md)。
-
-#### 没有现成 paired data 时
-
-允许：
-
-```text
-public natural source
-→ deterministic/programmatic transformation
-→ independently provable gold
-→ dry-run confirms yield
-→ >=20 sample naturalness/artifact audit
-→ scope-integrity audit
-```
-
-不允许：先注册题目，再发明 generator 或到处换数据源凑数量。
-
-如果 source/gold/license/count 仍答不清，说明 S0 不应通过，直接 KILL。
-`HOLD-SCOPE` 只用于 substrate 存在但 population-preserving construction 尚未
-解决的极少数情况；它也不能进入 active。
+因此，`mother behavior → mechanism` **不再一刀切禁止**。禁止的是 generic localization；允许的是像 random-choice 一样，提出一个未被问过、可被因果实验证伪的内部 scientific object。
 
 ---
 
-## 4. Candidate card：一个题至少要填到这个程度
+## 3. Mother-extension card：任何新题先填这个
+
+没有这张卡，不进入文献深搜、数据构建或 GPU。
 
 ```yaml
-title:
-mother_question:
-plain_language_contradiction:
-decisive_contrast:
-structural_signature:
-competing_mechanisms: []
-hard_kill:
-
-n0:
-  obvious_neighbors: []
-  mother_headline_behavior:
-  our_headline_behavior:
-  can_our_headline_be_seen_without_hidden_state:
-  independent_behavioral_D0_exists:
-  verdict: PASS | HOLD | ROUTE-MECH-FOLLOWUP | KILLED
-
-n1:
-  strongest_papers: []
-  full_text_checked: true
-  appendix_checked: true
-  code_or_supplement_checked: true
-  citation_chain_checked: true
-  mother_inclusion_test:
-  why_not_a_rename:
-  mechanism_occupancy:
-  scale_survival_risk:
-  verdict: PASS | HOLD | KILLED
-
-d0_feasibility:
-  source:
-  version:
-  license:
+mother:
+  paper:
+  scientific_object:
+  established_result:
   statistical_unit:
-  gold_source:
-  recipe:
-  estimated_eligible_count:
-  feasibility_audit_ids: []
-  external_validation_anchor:
-  independent_phenotype_without_MI:
-  scientific_population:
-  theoretical_factors: []
-  raw_bank_artifact:
-  validity_exclusions: []
-  matched_control_recipe:
-  attrition_table_artifact:
-  scope_integrity_verdict: PASS | HOLD-SCOPE
-  verdict: PASS | HOLD | HOLD-SCOPE | KILLED
+  measurement_recipe:
+
+extension:
+  new_question:
+  omitted_axis_or_internal_object:
+  why_mother_does_not_answer_it:
+  natural_counterexample_or_cross_cell:
+  what_can_be_inherited_from_mother:
+
+existence:
+  route: omitted_axis | established_anomaly
+  behavior_already_exists: true|false|not_applicable
+  evidence:
+  requires_expensive_G0_to_discover_the_question: true|false
+
+novelty:
+  semantic_aliases: []
+  strongest_neighbor:
+  title_level_collision: true|false
+
+mechanism:
+  hypothesis_1:
+  hypothesis_2:
+  different_prediction:
+  possible_surprising_intervention:
+
+verdict: CONTINUE | KILL
 ```
 
-填不完整就继续 discovery；不要创建 active project 等以后补洞。
+硬规则：`requires_expensive_G0_to_discover_the_question = true` 时默认 KILL。
 
 ---
 
-## 5. DISCOVERY-PASS 之后才发生什么
-
-题目确定 ≠ 现象已经成立。
+## 4. 正确的成本顺序
 
 ```text
-DISCOVERY-PASS
-→ formal registration
-→ materialize/freeze 已锁定 D0 raw/eligible/matched artefacts
-→ scope summary + attrition audit
-→ READY-TO-SMOKE
-→ two-family behavioral smoke
-→ raw-case/scorer/capability/artifact audit
-→ 3/5 family + size sequence
-→ strong-model kill test
-→ MECHANISM-READY
-→ white-box mechanism
-→ mechanism-derived prediction/method
+1. concrete mother
+2. omitted-axis / unasked-computation card
+3. semantic negative-memory search
+4. strongest-neighbor/title collision
+5. cheap substrate / artifact / existing-output audit
+6. only if necessary: small faithful behavior sanity
+7. formal S0
+8. N0/N1 closure
+9. registration
+10. mechanistic experiments
 ```
 
-注册后的 D0 **只做 materialization/freeze**：exact IDs、hash、split、provenance、gold verification、scope summary。若发现必须换 source、核心 recipe、scientific population 或关键 factor levels，退回 discovery；不能把这种改变包装成普通 feasibility adaptation。
+注意：S0 的职责是**确认 measurement 可执行**，不是替我们发现一个可能不存在的 behavior。
 
-模型 panel 的具体 checkpoint 约定见 [`MODEL_PANEL.md`](MODEL_PANEL.md)。
-
----
-
-## 6. Behavior first：机制不能救行为
-
-- matched control 上先证明模型有基础能力；
-- 两个便宜独立家族先做 fatal smoke；
-- 正式 generality 至少 3/5 家族同方向；
-- 至少一个家族做三尺寸序列；
-- 尽早做强模型 kill test；
-- 看 paired raw trajectories 和 wrong destinations，不只看均值；
-- deterministic scorer 优先，不依赖昂贵 LLM judge；
-- behavior/generality 没过，不扫大量 layer/head/SAE 来“证明内部其实有东西”。
+Fresh 3–4-family G0 是后期验证工具，不再是候选生成工具。
 
 ---
 
-## 7. Stop-loss：什么时候必须砍
+## 5. Cheap falsifier：先用最便宜的东西杀
 
-以下任一成立，默认 KILL / ROUTE / HOLD：
+优先级从高到低：
 
-- exact/near-exact collision；
-- mother paper 已逻辑包含 decisive contrast；
-- 剩余 novelty 只是换 benchmark/domain/readout；
-- mother 已拥有 headline behavior，剩余只有 representation/causal/routing/localization，且没有独立 behavioral D0 → `ROUTE-MECH-FOLLOWUP`；
-- 自然数据不存在，只能依赖任意 synthetic prompt；
-- gold 需要研究者主观判断；
-- capability gate 没过；
-- effect 主要由 answer order、length、format、prompt artifact 解释；
-- 跨模型不是同一个 phenotype；
-- 强模型几乎消失且没有重要 scaling transition；
-- 需要看完结果后改 subset、阈值、readout 或名字才能续命；
-- **dataset construction 把 mother question 的理论 factor 当 filter 删除，导致 estimand drift，且无法恢复原 population。**
+- mother paper 已有 per-model table / appendix；
+- released raw predictions / logits / outputs；
+- row-level artifact + cross-cell count；
+- deterministic majority / length / position / metadata baseline；
+- scorer sanity；
+- 5–20 个普通 faithful examples；
+- 最后才是 fresh multi-family inference。
 
-失败后记录到 [`FAILED_TOPICS.md`](FAILED_TOPICS.md)。**失败知识的价值是阻止 rename revival，不是给旧题找补。**
+如果一个 metadata/length baseline 已经比语义模型更强，先解释 substrate，不要继续 MI。
 
 ---
 
-## 8. Novelty 什么时候可以重开
+## 6. 七类通用死亡模式
 
-没有 routine post-smoke N1。只有三种触发：
+以后不要为每个死题发明一套新哲学。绝大多数失败都落在下面七类。
 
-1. core claim / decisive contrast / mechanism question 实质改变；
-2. audit date 后出现具体新论文；
-3. reviewer/collaborator 指出此前漏掉的具体 strongest neighbor。
+### F1 — Behavior lottery / synthetic-first
 
-此时做 targeted `NOVELTY-REFRESH`，只检查受影响部分。
+我们只是觉得某 failure “应该会有”，却没有既有 open-model evidence；或者必须靠 synthetic 2×2 / 特殊 prompt 才出现。
+
+**处理：** 不跑大 G0；回到 mother。
+
+### F2 — Mother / neighbor ownership
+
+mother 已经拥有 headline object，或 strongest neighbor 已经问了同一个轴。剩余 novelty 只是在换 dataset、model、language、subtype 或 MI tool。
+
+**处理：** KILL；semantic rename 不算新题。
+
+### F3 — Substrate mirage
+
+哲学 distinction 很漂亮，但没有独立 gold、row-level artifact、自然 cross-cell；第二轴其实是 proxy；schema 中有字段不代表它就是标题变量。
+
+**处理：** KILL-DATA。不要自己补 central labels，也不要用 LLM judge 替代。
+
+### F4 — Measurement / denominator invalid
+
+scorer、option position、format、长度、metadata、prompt interface 或 capability floor 制造了 apparent effect。
+
+**处理：** 先修 measurement；修完 effect 消失就终止。
+
+### F5 — No common phenotype across families
+
+不同模型“都错了”不等于它们在犯同一种错；强模型消失也不能靠弱模型续命。
+
+**处理：** 没有同方向、同结构 signature 就 KILL。
+
+### F6 — Post-hoc rescue / scope drift
+
+看完结果后改 subset、threshold、prompt、label、模型、标题；或者为了 clean data 把理论 factor 全过滤掉。
+
+**处理：** 原题死亡；新 estimand 必须从头重新过协议。
+
+### F7 — Mechanistically weak
+
+结果最多是“某信息可 probe”“某 layer 更强”“某 head 相关”；没有 competing causal hypotheses，或一个简单外部 wrapper 无论机制如何都解决问题。
+
+**处理：** 不作为当前高标准候选。
 
 ---
 
-## 9. 最终一句原则
+## 7. 过往失败告诉我们的统计事实
 
-> **找题阶段的目标不是尽快拥有一个题，而是尽快知道这个题是否值得存在。数据构建的目标不是尽快得到一个“干净小数据集”，而是先忠实保存 scientific population，再用 contrast / strata / statistics 收敛解释。GPU 只负责证伪现象，不负责替选题和 scope drift 收拾残局。**
+`S0_FUNNEL_2026-08-31.md` 的 48 个 idea 中：
+
+- 24 个首先死于 behavior 不存在、不稳定、synthetic-only 或 scorer artifact；
+- 8 个死于独立 gold / artifact / natural cross-cell 不成立；
+- 14 个在进入 S0 前就被 mother / direct successor 占据；
+- 只有 2 个走到更后面的 N0/N1，仍然死亡；
+- **0 survivor**。
+
+这说明主要瓶颈不是“MI 做不出来”，而是**candidate generation 太宽、太猜、太晚做 ownership audit**。
+
+因此未来优化方向不是再增加 gate，而是让进入 gate 的 idea 本来就来自更窄、更可靠的 mother extension。
+
+---
+
+## 8. S0：只保留最必要的合同
+
+### Route A / omitted-axis
+
+注册前确认：
+
+- 两轴定义独立于模型；
+- central gold 不由我们/LLM 临时创造；
+- row-level artifact 真正拿到；
+- natural cross-cells 程序计数；
+- 随机审至少 20 rows；
+- mother recipe 可合法延伸；
+- no synthetic 2×2 manufacturing。
+
+### Route B / established anomaly
+
+注册前确认：
+
+- exact behavior 在 analyzable open checkpoints 上存在；
+- 至少 2/3 genuinely different families 同一 qualitative signature；
+- ordinary faithful prompt；
+- raw item outputs 保存；
+- capability denominator 合法；
+- effect substantial，不是几个百分点噪声；
+- hard kill 预先冻结。
+
+如果 prior work 已经给出足够 current-open-family evidence，S0 可以复核现有 artifact，而不要求重新烧一遍大 G0。
+
+---
+
+## 9. Novelty：两次攻击就够，不再堆文档
+
+### N0 — title ownership
+
+只问：
+
+> mother 或最强 neighbor 是否已经可以用一句话回答我们的新 question？
+
+如果可以，KILL。
+
+### N1 — causal/mechanistic occupancy
+
+只问：
+
+> 即使 title 还没撞，是否已有工作已经做了我们关键的 factorization / causal test / intervention？
+
+如果答案是 yes，而且我们只能靠 subtype/domain/method 差异续命，KILL。
+
+不再为每个候选写长篇 novelty essay。保存 strongest 3–5 neighbors 和一段 decisive difference 即可。
+
+---
+
+## 10. PASS-REGISTER 的真正含义
+
+只有同时满足：
+
+```text
+strong mother provenance
++ no behavior lottery
++ new omitted axis / unasked causal computation
++ semantic negative-memory clean
++ strongest-neighbor clean
++ valid substrate / existing behavior
++ no artifact/capability problem
++ broad enough narrative
++ >=2 competing causal mechanisms
++ plausible surprising prediction/intervention
+```
+
+才叫 `PASS-REGISTER`。
+
+`HOLD`、`PRE-S0`、`frontier`、`under audit` 都不计入目标五题。
+
+---
+
+## 11. 仓库文档纪律
+
+当前权威层只保留三份：
+
+1. `README.md` — 入口与目录；
+2. `phenomenon_miner/FINDING_RULES.md` — **唯一选题协议**；
+3. `phenomenon_miner/HANDOFF_HAMDI_SEARCH_2026-08-31.md` — 当前状态。
+
+失败的一般规律只维护在 `phenomenon_miner/FAILED_TOPICS.md`。
+
+`rejected_candidates/` 内逐题文件是**证据库**：只有当新题语义接近时搜索，不要求下一轮完整通读所有 addendum/domain logs。
+
+旧 gate / funnel / N0 文件保留历史 provenance，但不再成为并列 authority。
+
+---
+
+## One-line discipline
+
+> **不要问“模型还可能有什么有趣的错？”；先问“这篇强 mother 已经测清的 object，还有哪个现实属性或内部 computation 是它明确没有问的？”**
