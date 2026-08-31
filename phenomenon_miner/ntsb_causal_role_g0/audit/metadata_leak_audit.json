@@ -1,0 +1,32 @@
+{
+  "n_role_items": 2149,
+  "n_events": 600,
+  "gold_counts": {
+    "CAUSE": 1204,
+    "CONTRIBUTING_FACTOR": 945
+  },
+  "cv": "GroupKFold(5) clustered on ev_id",
+  "balanced_accuracy": {
+    "META (semantics-free bookkeeping)": 0.697,
+    "META+LEN (bookkeeping + text length stats)": 0.7969,
+    "CODE (taxonomy codes; NOT model-visible)": 0.7505,
+    "majority-class baseline": 0.5
+  },
+  "S0_role_threshold_for_reference": 0.62,
+  "metadata_leak_verdict": "FAIL \u2014 semantics-free metadata alone reaches the S0 role ceiling",
+  "evidence_envelope_check": {
+    "taskA_prompt_fields": [
+      "finding",
+      "narrative"
+    ],
+    "taskB_prompt_fields": [
+      "finding",
+      "narrative"
+    ],
+    "identical_fields": true,
+    "role_items_with_matching_taskA_item": 2149,
+    "mismatches": [],
+    "verdict": "PASS"
+  },
+  "note": "CODE is reported only as the annotation-regularity ceiling. finding_code, category_no, subcategory_no, section_no, subsection_no and modifier_no are never rendered into any model prompt (PREREGISTRATION.md sec. 6)."
+}
