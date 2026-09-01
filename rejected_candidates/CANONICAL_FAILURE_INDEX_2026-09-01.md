@@ -126,6 +126,21 @@ Record: `cardinal_vs_ordinal_number_representation_collision_2026-09-01.md`.
 
 **KILL-NOVELTY.** Earlier audit found direct ownership/crowding. Do not reopen as phonological latent direction.
 
+## B10. Mass/count grammar vs conceptual individuation / object-substance construal
+
+**KILL-NOVELTY / N0-N2.** The attractive axis is real, but older neural and contextual-representation work already directly studies it.
+
+Aliases: mass vs count, grammatical countability, conceptual individuation, object vs substance construal, object-mass nouns, nominal coercion, mass-to-count/count-to-mass coercion, mass/count syntax-semantics interface.
+
+Decisive warning:
+
+- Kulkarni, Treves & Rothstein (2020), *Can mass-count syntax be derived from semantics?*, directly frames the relation between mass/count syntactic use and semantic classes and tests it with a neural model;
+- Liu & Chersoni (CogALex 2022) studies nominal coercion in static/contextual embeddings including BERT.
+
+Modern Llama/Qwen + SAE/probe/patching does not create a fresh object.
+
+Record: `mass_count_grammar_vs_conceptual_individuation_collision_2026-09-01.md`.
+
 ---
 
 # C. Epistemic / belief / uncertainty cluster
@@ -212,7 +227,7 @@ Record: `tool_relevance_vs_operational_availability_collision_2026-09-01.md`.
 
 ---
 
-# E. Cognitive bias / decision cluster
+# E. Cognitive bias / decision / moral cluster
 
 ## E1. Choice-supportive bias: memory distortion vs evaluative reweighting
 
@@ -246,9 +261,19 @@ Record: `self_consistency_false_consensus_confidence_collision_2026-09-01.md`.
 
 See E3. Do not rename and revive.
 
+## E8. Means vs side effect / instrumental vs incidental harm
+
+**KILL-NOVELTY for the simple object.** Means/side-effect is already an explicit LLM moral factor in MoCa and procedural dilemma work such as OffTheRails.
+
+Aliases: means vs side effect, means vs byproduct, instrumental vs incidental harm, necessary means vs foreseen consequence, Doctrine of Double Effect, causal role of harm, means principle.
+
+A stronger independent human theory question exists — direct moral-rule computation vs mediation through intentional attribution — but it is **not GPU-authorized** here because the exact theory-diagnostic means/side-effect phenotype is not frozen on an analyzable modern open checkpoint. Searching models/prompts until it appears would be behavior lottery.
+
+Record: `means_vs_side_effect_moral_role_collision_2026-09-01.md`.
+
 ---
 
-# F. Event / temporal / discourse cluster
+# F. Event / temporal / discourse / reference cluster
 
 ## F1. Event completion / imperfective paradox / culmination
 
@@ -273,6 +298,26 @@ See E3. Do not rename and revive.
 ## F6. Unresolved reference alternatives vs underspecification
 
 **ACTIVE 038 PASS.** Not a rejection. Do not create near-duplicate ambiguity-architecture topics.
+
+## F7. Context-conditioned modifier set restriction — LIVE OVERRIDE
+
+**NOT A REJECTION. ACTIVE 041 PASS-REGISTER.**
+
+Frozen object:
+
+> whether a modifier actually reduces the currently live referent set, separately from the modifier's ordinary property meaning.
+
+Do **not** kill 041 merely because old reference-resolution/pragmatic work studies distractors, informative adjectives, candidate elimination or redundant modifiers. Those are explicitly conceded neighbors.
+
+041 survives only at the stronger object level:
+
+> an abstract, reusable, context-conditioned modifier-role state in a pretrained AR LLM, cross-lexical/domain/surface and causally used for referent narrowing while preserving property truth.
+
+The decisive microscope keeps the same world, target, target phrase and modifier truths fixed while swapping only the live candidate set, causing which modifier actually rules out an alternative to swap.
+
+Hard kill if the signal reduces to raw scene facts, active-candidate identity, lexical position, salience, generic reference competence, or merely `informative > redundant` behavior.
+
+Read `active/041_contextual_set_restriction/README.md` before claiming a collision.
 
 ---
 
@@ -336,7 +381,7 @@ Crossing two already-established axes is usually not enough.
 
 ## I3. Strong human theory does not rescue an occupied neural/LLM object
 
-Gettier, risk-vs-ambiguity, de re/de dicto, habituality, scalar adjectives etc. remain scientifically real but are not fresh once neural/LLM work owns them.
+Gettier, risk-vs-ambiguity, de re/de dicto, habituality, scalar adjectives, means-vs-side-effect etc. remain scientifically real but are not fresh once neural/LLM work owns them.
 
 ## I4. Route C does NOT require an exact modern-open published phenotype
 
@@ -344,11 +389,13 @@ The obsolete over-strict rule is removed. A deterministic natural semantic/cogni
 
 But GPU may not be used to discover whether the topic should be renamed after the fact.
 
-040 is the canonical live example.
+040 and 041 are canonical live examples.
 
 ## I5. Generic mechanism occupation can kill special cases
 
-If the contribution is only applying a known generic binding/retrieval/uncertainty mechanism to a new label, N2 may still fail.
+If the contribution is only applying a known generic binding/retrieval/uncertainty/reference mechanism to a new label, N2 may still fail.
+
+041 therefore dies if its result is merely generic referent elimination or modifier informativeness, just as 040 dies if it is merely generic coreference/entity tracking.
 
 ## I6. Failure logging is mandatory
 
@@ -364,6 +411,7 @@ PASS_REGISTER:
   - 035_shared_dynamic_context_update
   - 038_unresolved_reference_representation_architecture
   - 040_numerical_identity_vs_qualitative_sameness
+  - 041_contextual_set_restriction
 
 HARD_AUDIT_NOT_REGISTERED:
   - 036_metaphor_processing_route_selection
@@ -373,8 +421,9 @@ HARD_LEADS_NOT_REGISTERED:
   - collective_vs_distributive_plurality
 
 TARGET: 5
-CURRENT_PASS: 4
-REMAINING: 1
+CURRENT_PASS: 5
+REMAINING: 0
+SEARCH_STATUS: TARGET_REACHED_STOP_BY_DEFAULT
 ```
 
-> **Before spending literature time or GPU, semantic-dedupe the scientific object here first.**
+> **Before spending literature time or GPU, semantic-dedupe the scientific object here first. The fresh target is now 5/5; count never protects a topic from new fatal evidence.**
