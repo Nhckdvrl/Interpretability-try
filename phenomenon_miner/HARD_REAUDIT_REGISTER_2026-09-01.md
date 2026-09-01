@@ -1,116 +1,137 @@
 # Fresh Register Hard Re-Audit — 2026-09-01
 
 Protocol: `FINDING_RULES.md` v2.1  
-Trigger: former 039 was found to have a fatal N2 collision after registration. The entire non-frozen edge of the register was therefore re-audited using the stricter rule **object ownership, not title ownership**.
-
-## Result
+Current status: **4/5 PASS after 040 registration**.
 
 ```yaml
 PASS_REGISTER:
   - 034_prospective_memory_retrieval_architecture
   - 035_shared_dynamic_context_update
   - 038_unresolved_reference_representation_architecture
+  - 040_numerical_identity_vs_qualitative_sameness
 HARD_AUDIT_NOT_REGISTERED:
   - 036_metaphor_processing_route_selection
 ARCHIVED:
   - 037_generic_generalization_licensing
   - 039_same_kind_vs_go_together_semantic_relation
-CURRENT_FRESH_PASS_REGISTER: 3
+CURRENT_FRESH_PASS_REGISTER: 4
 TARGET: 5
+REMAINING: 1
 ```
 
-## 039 — KILL-NOVELTY
+## 039 — canonical N2 kill
 
-Former question: taxonomic similarity / `same kind` versus thematic relatedness / `go together` as a reusable causal relation state.
+Taxonomic similarity vs thematic relatedness was already studied directly enough in language-model representations/behavior that the remaining delta collapsed to stronger MI. Keep archived.
 
-Fatal result: the object is already studied directly enough in language-model representations and LLM behavior that the remaining contribution was primarily stronger MI.
+Lesson: **object ownership, not title ownership**.
 
-See:
-
-- `rejected_candidates/taxonomic_vs_thematic_relation_type_n2_collision_2026-09-01.md`
-- `archive/039_same_kind_vs_go_together_semantic_relation/`
-
-Canonical lesson:
-
-> A neighbor can own the scientific object inside its experiments/discussion even if its headline is about cultural fidelity, topic modeling, evaluation, or something else.
-
-## 036 — QUESTION SURVIVES, REGISTRATION DOES NOT
+## 036 — question survives, metric still does not
 
 Question:
 
 > What selects comparison versus categorization in metaphor comprehension: conventionality, aptness, or neither?
 
-### Novelty audit
-
-The exact selector question still appears unoccupied.
-
-Important neighbors:
-
-- Yang et al. (2026), `Rethinking Metaphor Evaluation: Aptness Judgments as a Cognitive Probe for Language Models` — already owns aptness as an LLM cognitive/evaluation axis.
-- Ye et al. (ACL 2026 Main), `Probing Semantic Alignment, Lexical Invariance, and Syntactic Influence in LLM Metaphor Processing` — already owns lexical anchoring, novelty/conventionality-related analysis, semantic alignment and syntax.
-
-Neither orthogonalizes conventionality × aptness to decide comparison versus categorization. Thus the **question-level N2 delta survives**.
-
-### Why former PASS was nevertheless too early
-
-The former first causal statistic equated metaphor↔simile activation non-interchangeability with comparison↔categorization route difference.
-
-That is underidentified. `X is Y` and `X is like Y` differ in syntax, the token `like`, positions and generic form processing. Even strong form controls do not prove that the remaining causal difference is specifically the claimed cognitive route.
-
-Utsumi (2011) explicitly validates comparison/categorization using multiple independent processing signatures, including grammatical concordance and directionality, before using the models to adjudicate selector theories.
-
-Therefore 036 is now:
+The exact selector question remains plausible, but the former `X is Y` vs `X is like Y` causal difference does not uniquely identify comparison vs categorization. Reauthorization still requires a clean two-signature route-calibration contract, with at least one signature not defined by grammatical metaphor/simile form.
 
 ```yaml
-verdict: CONTINUE-PAPER-SCALE / HARD AUDIT
-PASS_REGISTER: false
-GPU_AUTHORIZED: false
-reason: route-identifiability contract not yet sufficient
+036:
+  PASS_REGISTER: false
+  GPU_AUTHORIZED: false
+  verdict: CONTINUE-PAPER-SCALE / HARD AUDIT
 ```
 
-Re-authorization requires a frozen route-calibration design with at least two independent theory-grounded signatures, at least one not defined by metaphor-versus-simile grammatical form.
+## 038 — hard re-audit passed
 
-## 038 — HARD RE-AUDIT PASSED
+Frozen question:
 
-Question:
+> Before reference is uniquely resolved, does the model keep multiple candidate referents, an underspecified state, or prematurely commit?
 
-> Before reference is uniquely resolved, does the model keep multiple candidate referents, an underspecified reference state, or prematurely commit?
+Strongest-neighbor attacks did not find direct ownership of this exact still-unresolved representational-format question. Existing H1-vs-H2 identifiability kill prevents retreat to generic ambiguity representation.
 
-Checked strongest neighbors include:
+## 040 — PASS after deep novelty + identifiability audit
 
-- `It Depends` — persistent referential ambiguity behavior;
-- `Correct-Detect` — ambiguity detection/resolution trade-off;
-- `When Agents Commit Too Soon` — generic hidden-state representational commitment in agents;
-- EACL 2026 idiom `Tug-of-war` — parallel literal/figurative causal pathways;
-- Aug 2026 ambiguous-word activation patching — internal representations after lexical sense disambiguation;
-- BlackboxNLP 2024 contextual grammatical cues — activation patching among redundant disambiguating cues.
+Frozen question:
 
-None owns the exact unresolved-reference representational-format question. 038 also already freezes an explicit H1-vs-H2 identifiability kill: if candidate-specific causal coverage cannot be distinguished from a candidate-balanced shared unresolved state, the architecture claim terminates.
+> **If two things are exactly alike, does an LLM still know whether they are literally the same individual or merely two different objects of the same kind?**
+
+### External scientific object
+
+Human cognitive/philosophical work distinguishes:
+
+- **numerical identity** — one and the same individual;
+- **qualitative/type sameness** — same properties or same kind.
+
+Dranseika et al. (Cognition 2023) explicitly studies two senses of sameness, including lexical separation in Lithuanian.
+
+Solomon et al. (J Cogn Neurosci 2015) supplies a natural token × state-change design with the critical cross-cases:
+
+```text
+same token despite substantial state change
+vs
+different token of the same type despite high similarity
+```
+
+### Strongest precursor
+
+Davis & Altmann (Cognition 2021) is a serious LSTM/RNN predecessor. It shows sensitivity to `the onion` vs `another onion` in event representations. Therefore 040 cannot claim `neural models distinguish same-token vs another-token` as novel.
+
+The required N2 delta is broader:
+
+> an **abstract numerical-identity state** in modern LLMs that generalizes across surface/domain windows and causally controls token-specific history inheritance separately from type/category knowledge.
+
+### Modern entity-tracking neighbors
+
+ICLR 2024, EMNLP 2024, ACL 2026 binding work and ICML 2026 state-change tracking study how already individuated/indexed entities bind or propagate attributes/states.
+
+ICML 2026 is the closest warning: its original data largely make object label sufficient for individuation, and a same-label duplicate stress test exposes failure of a global REMOVE mechanism. This is highly relevant evidence, but it does not factorize numerical identity vs qualitative sameness as the causal scientific object.
+
+### Frozen causal-use contract
+
+Primary test:
+
+```text
+identity intervention
+→ changes token-specific HistoryTransferLogit
+→ preserves TypeKnowledgeLogit shared by same-type objects
+```
+
+Mandatory controls include lexical cue, noun repetition, recency, semantic similarity/type, shuffled labels, random directions, and generic coreference/binding.
+
+### Hard kills
+
+040 dies if:
+
+- only the original `the` vs `another` event effect survives;
+- cross-surface abstraction fails;
+- generic coreference/binding fully explains the result;
+- identity intervention changes shared type knowledge as much as token-specific history;
+- a new direct modern LLM collision is found.
 
 Verdict: **PASS-REGISTER / GPU AUTHORIZED**.
 
-Detailed audit: `active/038_unresolved_reference_representation_architecture/HARD_REAUDIT_2026-09-01.md`.
+Full card: `active/040_numerical_identity_vs_qualitative_sameness/README.md`.
 
-## 034 / 035 — lightweight fatal-collision-only scan
+## 034 / 035
 
-No new direct fatal collision was found.
+Remain frozen PASS. No new fatal collision found in lightweight scans.
 
-### 034
+## Paper-scale expansion discipline
 
-2026 human prospective-memory work continues to sharpen strategic monitoring / spontaneous retrieval / dynamic multiprocess theory, but the search did not find an LLM mechanistic paper that causally adjudicates these retrieval architectures. Keep frozen.
+For 040 and future topics, use `PAPER_EXPANSION_REFERENCE_2026-09-01.md`.
 
-### 035
+Reference-backed evidence ladder:
 
-Dynamic semantics continues to independently motivate anaphora + presupposition as context-update phenomena, but the search did not find a modern LLM paper demonstrating a shared causal dynamic local-context operation across the two phenomena. Keep frozen.
+```text
+phenomenon / object
+→ generalization / abstraction
+→ causal use / specificity
+→ mechanism-derived falsifiable prediction
+→ targeted behavioral confirmation
+→ optional mitigation / architecture generalization
+```
+
+Do not pre-invent later stages. Strong papers such as ACL 2025 `Llama See, Llama Do`, NAACL 2025 `Racing Thoughts`, ACL 2026 Tool Irrelevance, EMNLP 2025 filler-gap Outstanding, and ICML 2026 entity tracking all expand only after earlier evidence earns the next step.
 
 ## Current discipline
 
-The honest register is now **3/5**, not 5/5 and not 4/5.
-
-Do not repair the count first. Repair/audit the science first.
-
-Next work:
-
-1. either repair 036's route-identifiability contract to PASS quality, or leave it out;
-2. broad-search replacements using the 039 object-ownership lesson;
-3. expect high mortality; do not register a candidate merely because two slots are open.
+The honest state is **4/5**. One genuine PASS remains. Do not count-fill, and do not reopen canonical failures by renaming them.
