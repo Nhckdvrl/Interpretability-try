@@ -31,59 +31,47 @@ archived:
 
 ## Mandatory reads next turn
 
-Read in this order:
-
 1. `README.md`
-2. `phenomenon_miner/FINDING_RULES.md` — v2.1 base protocol
-3. `phenomenon_miner/STRICT_EXTENSION_GATE_2026-09-01.md` — additive higher bar for 042+
+2. `phenomenon_miner/FINDING_RULES.md`
+3. `phenomenon_miner/STRICT_EXTENSION_GATE_2026-09-01.md`
 4. `phenomenon_miner/STRICT_EXTENSION_REGISTER_2026-09-01.md`
 5. this handoff
 6. `rejected_candidates/CANONICAL_FAILURE_INDEX_2026-09-01.md`
-7. `phenomenon_miner/HARD_REAUDIT_REGISTER_2026-09-01.md`
-8. active READMEs for 034/035/036/038/040/041/042/043/044/045
-9. hard re-audits for 038/041/042/044/045
-10. `phenomenon_miner/PAPER_EXPANSION_REFERENCE_2026-09-01.md`
-11. `phenomenon_miner/NEXT_AGENT_PROMPT_2026-09-01.md`
+7. `rejected_candidates/STRICT_EXTENSION_FAILURE_INDEX_ADDENDUM_2026-09-01.md`
+8. `phenomenon_miner/CURRENT_SEARCH_FLOW_2026-09-01.md`
+9. `phenomenon_miner/HARD_REAUDIT_REGISTER_2026-09-01.md`
+10. active READMEs for 034/035/036/038/040/041/042/043/044/045
+11. hard re-audits for 038/041/042/044/045
+12. `phenomenon_miner/PAPER_EXPANSION_REFERENCE_2026-09-01.md`
+13. `phenomenon_miner/NEXT_AGENT_PROMPT_2026-09-01.md`
 
-## Frozen base register
-
-034 / 035 / 038 / 040 remain frozen unless a genuinely new fatal collision appears.
-
-041 survived a second strict audit only for the narrow object:
-
-> same-lexical context-conditioned modifier set-restriction role, cross-setting and causally specific to referent narrowing while preserving property truth.
-
-Recent descriptor-necessity work owns weaker claims.
+The canonical failure index and strict-extension addendum are **joint mandatory semantic memory** for any new candidate.
 
 ## Strict extension standard
 
 Post-base topics do not pass by `old behavior + modern open model + stronger MI`.
 
-Every strict topic must add a genuinely orthogonal object and causal specificity, and pass at least two of:
+A strict topic needs a genuinely orthogonal object and causal specificity with preserved raw content, plus at least two:
 
 - Lock A: same-surface / orthogonal role-swap identifiability;
 - Lock B: cross-setting abstraction;
 - Lock C: two independent theory-grounded consequences.
 
-A neighboring raw capability/fact must be preserved under intervention.
+If Lock C is used, exact diagnostics are frozen before GPU.
 
-## 042 — PASS after corrected re-audit
+## 041
+
+Retained after second strict audit only for the same-lexical context-conditioned modifier set-restriction role. Weaker descriptor necessity/informativeness is already occupied.
+
+## 042 — STRICT PASS
 
 Question:
 
 > Is a definite description licensed by uniqueness or by strong discourse familiarity?
 
-Important correction: strong familiarity is explicit interlocutor mention/re-mention, not mere antecedent existence.
+Strong familiarity = explicit discourse/interlocutor re-mention, not simple antecedent presence.
 
-Critical source cross:
-
-```text
-unique + not strongly familiar
-vs
-non-unique + strongly familiar
-```
-
-Preservation denominators:
+Preserve:
 
 ```text
 CandidateStructureLogit
@@ -91,13 +79,7 @@ DialogueMentionFactLogit
 EntityPresenceLogit
 ```
 
-Raw recency/salience collapse is fatal.
-
 ## 043 — DOWNGRADED / NOT COUNTED
-
-Question: direct kind predication vs characterizing/member-level generic predication.
-
-Status:
 
 ```yaml
 PASS_REGISTER: false
@@ -105,12 +87,7 @@ GPU_AUTHORIZED: false
 verdict: STRICT HARD AUDIT
 ```
 
-Why paused:
-
-- surrounding generic LLM space is heavily occupied;
-- broad formal partition is not fully theory-neutral;
-- no sufficiently large consensus-clear model-independent causal inventory was frozen;
-- lexical predicate shortcut remains too strong for Lock A.
+Blockers: theory-neutrality, insufficient consensus-clear item gold, severe lexical-predicate confound, and no true Lock A.
 
 Frozen diagnostics if resurrected:
 
@@ -119,39 +96,37 @@ MemberInheritance
 IndefiniteSingularCompatibility
 ```
 
-Resurrection needs an auditable consensus-clear inventory, genuine same-lexical factorization, or explicit Route-B theory adjudication.
+No GPU until its documented resurrection condition is met.
 
-## 044 — PASS after metric repair
+## 044 — STRICT PASS
 
 Question:
 
-> Does a true property characterize the individual as such or only a particular stage/situation?
+> Does a property characterize the individual as such or only a particular stage/situation?
 
 Not temporary vs permanent.
 
-Two exact diagnostics are frozen:
+Exact diagnostics:
 
 ```text
 SituationBoundLogit
 DepictiveCompatibilityLogit
 ```
 
-The same causal state must shift both while preserving `PropertyTruthLogit`. No later diagnostic shopping.
+Same causal state must shift both while preserving `PropertyTruthLogit`.
 
-## 045 — replacement strict PASS
+## 045 — STRICT PASS
 
 Question:
 
-> Does the model follow a person the speaker independently has in mind, or whoever actually satisfies the definite description?
+> Does reference follow a person the speaker independently has in mind, or whoever actually satisfies the description?
 
-Functional object: `DescriptionUseMode` — REFERENTIAL vs ATTRIBUTIVE use.
+Functional `DescriptionUseMode`, theory-neutral about semantic-vs-pragmatic analysis.
 
-Same critical description changes role only by discourse context.
-
-Two exact consequences:
+Exact consequences:
 
 ```text
-MisdescriptionTargetMargin / TargetVsSatisfierMargin
+TargetVsSatisfierMargin
 DescriptionEssentialityLogit
 ```
 
@@ -163,33 +138,23 @@ DescriptionTruthLogit
 EntityFactLogit
 ```
 
-045 is theory-neutral about whether Donnellan's distinction is semantically encoded or pragmatically derived. It tests functional causal organization, not the philosophy-of-language label.
-
 ## 036
 
 Still HARD AUDIT / GPU PAUSED. Do not force-repair.
 
-## New strict-search deaths
+## Failure memory
 
-Do not revive:
+Recent strict terminal families include:
 
-- focus/background information structure — direct neural object ownership;
-- permission vs ability / deontic vs dynamic modal sense — BERT modal-sense representation work already owns abstraction beyond modal words.
+- focus/background information structure;
+- permission vs ability / deontic vs dynamic modal sense.
 
-Detailed records are in `rejected_candidates/`.
+Read their individual rejection records and the strict failure addendum. Do not revive through model/language/MI changes.
 
-## Current default task
+## Current task boundary
 
-The user explicitly requested the strict extension and it is now complete at **3/3**. Do not keep count-filling automatically.
-
-Next sensible work is:
-
-- execute frozen cheap S0 / implementation for registered topics;
-- compare the eight projects and prioritize execution;
-- harden/reformulate 036 or 043 only if explicitly requested;
-- react to new fatal novelty collisions;
-- search further only on explicit instruction.
+The user-requested extension target is complete at **3/3**. Default next work is execution/prioritization, not automatic count filling.
 
 ## One-line instruction
 
-> **Authoritative state is 8 registered: 034, 035, 038, 040, 041, 042, 044, 045. 043 was honestly downgraded after the stricter audit. Count never protects a topic.**
+> **Authoritative register is 8: 034, 035, 038, 040, 041, 042, 044, 045. 043 was honestly downgraded after the stronger audit. Count never protects a topic.**
