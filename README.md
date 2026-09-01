@@ -1,147 +1,242 @@
 # Interpretability Topic Search
 
-用于寻找 **ACL / EMNLP / NAACL 风格、自然、清楚、题目幅度正常且可机制化的 LLM scientific questions**。
+用于寻找 **ACL / EMNLP / NAACL 风格、自然、清楚、paper-scale 且可机制化的 LLM scientific questions**。
+
+## Authoritative state — 2026-09-01
 
 ```yaml
-CURRENT_FRESH_PASS_REGISTER: 5
-CURRENT_FRESH_ACTIVE_TOPICS: 5
-CURRENT_HARD_AUDIT_TOPICS: 1
-fresh_register_target: 5
-fresh_register_status: TARGET_REACHED
-required_protocol: PAPER-SCALE v2.1
-registered:
+BASE_PASS_REGISTER: 5
+STRICT_EXTENSION_PASS: 3
+TOTAL_REGISTERED: 8
+
+base_registered:
   - 034_prospective_memory_retrieval_architecture
   - 035_shared_dynamic_context_update
   - 038_unresolved_reference_representation_architecture
   - 040_numerical_identity_vs_qualitative_sameness
   - 041_contextual_set_restriction
+
+strict_extension_registered:
+  - 042_uniqueness_vs_familiarity_definite_licensing
+  - 044_stage_vs_individual_predication
+  - 045_referential_vs_attributive_description_use
+
 hard_audit_not_registered:
   - 036_metaphor_processing_route_selection
-archived_after_registration:
+  - 043_kind_vs_member_generic_predication
+
+archived:
   - 037_generic_generalization_licensing
   - 039_same_kind_vs_go_together_semantic_relation
-remaining_needed: 0
 ```
 
-## Fresh authoritative register
+**The original 5/5 target remains complete. The later 3/3 extension was accepted under a strictly higher bar. Prior PASS never protects a topic from downgrade: 043 was removed from the strict register after the second audit and replaced by 045.**
 
-| project | status | one-line question |
+---
+
+## Protocol hierarchy
+
+1. [`phenomenon_miner/FINDING_RULES.md`](phenomenon_miner/FINDING_RULES.md) — **v2.1 base authoritative discovery protocol**.
+2. [`phenomenon_miner/STRICT_EXTENSION_GATE_2026-09-01.md`](phenomenon_miner/STRICT_EXTENSION_GATE_2026-09-01.md) — mandatory **additive** higher bar for post-base topics 042+; it does not weaken or replace v2.1.
+3. [`phenomenon_miner/STRICT_EXTENSION_REGISTER_2026-09-01.md`](phenomenon_miner/STRICT_EXTENSION_REGISTER_2026-09-01.md) — authoritative strict-extension count/status.
+4. [`rejected_candidates/CANONICAL_FAILURE_INDEX_2026-09-01.md`](rejected_candidates/CANONICAL_FAILURE_INDEX_2026-09-01.md) — semantic dedupe memory.
+5. [`phenomenon_miner/PAPER_EXPANSION_REFERENCE_2026-09-01.md`](phenomenon_miner/PAPER_EXPANSION_REFERENCE_2026-09-01.md) — evidence-based post-selection paper growth.
+
+For 042+ the strict overlay requires a new orthogonal scientific object plus hard identifiability, causal specificity with a preserved neighboring capability, held-out abstraction, and at least two of:
+
+- **Lock A:** same-surface / orthogonal role-swap factorization;
+- **Lock B:** cross-setting abstraction;
+- **Lock C:** two independent theory-grounded consequences.
+
+`owned behavior + newer open model + probe/SAE/patching` is not novelty.
+
+---
+
+# Registered projects
+
+| project | status | frozen question/object |
 |---|---|---|
-| [`034_prospective_memory_retrieval_architecture`](active/034_prospective_memory_retrieval_architecture/) | **PASS-REGISTER / GPU AUTHORIZED / FROZEN** | Future intentions: strategic monitoring, spontaneous cue-triggered retrieval, or dynamic switching? |
-| [`035_shared_dynamic_context_update`](active/035_shared_dynamic_context_update/) | **PASS-REGISTER / GPU AUTHORIZED / FROZEN** | Do anaphora and presupposition reuse a shared dynamic local-context update? |
-| [`038_unresolved_reference_representation_architecture`](active/038_unresolved_reference_representation_architecture/) | **PASS-REGISTER / GPU AUTHORIZED / HARD RE-AUDIT PASSED** | When reference is still unresolved, does the model keep alternatives, underspecify, or prematurely commit? |
-| [`040_numerical_identity_vs_qualitative_sameness`](active/040_numerical_identity_vs_qualitative_sameness/) | **PASS-REGISTER / GPU AUTHORIZED / FROZEN** | If two things are exactly alike, does the model still know whether they are literally the same individual or merely two different things of the same kind? |
-| [`041_contextual_set_restriction`](active/041_contextual_set_restriction/) | **PASS-REGISTER / GPU AUTHORIZED** | In the same description, does the model know which modifier is actually narrowing the live referent set and which modifier is merely extra description in the current context? |
+| [`034`](active/034_prospective_memory_retrieval_architecture/) | **PASS / GPU / FROZEN** | Prospective memory: strategic monitoring, spontaneous cue-triggered retrieval, or dynamic switching? |
+| [`035`](active/035_shared_dynamic_context_update/) | **PASS / GPU / FROZEN** | Do anaphora and presupposition reuse a shared dynamic local-context update? |
+| [`038`](active/038_unresolved_reference_representation_architecture/) | **PASS / GPU / HARD RE-AUDIT PASSED / FROZEN** | Before reference resolves, multiple candidates, underspecification, or premature commitment? |
+| [`040`](active/040_numerical_identity_vs_qualitative_sameness/) | **PASS / GPU / FROZEN** | Same individual vs merely same kind/qualities. |
+| [`041`](active/041_contextual_set_restriction/) | **STRICT RE-AUDIT PASS / GPU / FROZEN** | Which modifier currently narrows the live referent set, separately from property truth? |
+| [`042`](active/042_uniqueness_vs_familiarity_definite_licensing/) | **STRICT-PASS / GPU / HARD RE-AUDIT PASSED** | Is `the X` licensed by uniqueness or strong discourse familiarity? |
+| [`044`](active/044_stage_vs_individual_predication/) | **STRICT-PASS / GPU / HARD RE-AUDIT PASSED** | Does a property characterize the individual or only a particular stage? |
+| [`045`](active/045_referential_vs_attributive_description_use/) | **STRICT-PASS / GPU / HARD RE-AUDIT PASSED** | Does a description follow an independently intended speaker-target or whoever satisfies the description? |
 
-**Current honest fresh PASS register: 5/5. Count does not protect any topic from a future fatal collision.**
+---
 
-## 041 — fifth PASS after broad high-mortality search
+## 041 — contextual modifier set restriction
 
-Frozen object:
+041 survived a second post-5/5 audit only under a narrow claim. Recent referring-expression work already owns hard distractors, minimal necessary descriptors and descriptor-deletion sufficiency.
 
-> **Context-conditioned modifier set restriction:** whether a modifier actually reduces the currently live set of possible referents, separately from the modifier's ordinary property meaning.
+Frozen N2:
 
-Natural question:
+> **same-lexical context-conditioned modifier set-restriction role**, transferable across property/domain/surface families and causally affecting referent narrowing while preserving property truth.
 
-> **When a description contains several properties, does an LLM know which property is actually narrowing down which object we mean, and which property is merely extra description in the current context?**
+Same-world role swap:
 
-Why it survives the final audit:
+```text
+A = large red circle
+B = large blue circle
+C = small red circle
 
-- restrictive/non-restrictive or contrastive modification is an independent semantics/psycholinguistics object;
-- Leffel et al. 2014 provides a same-lexical human manipulation where context changes whether an identical adjective/determiner restricts the live referent set;
-- old incremental reference-resolution and neural pragmatic-reference work already owns distractor elimination, informativeness and redundancy behavior, so 041 explicitly **does not** claim those as novelty;
-- the N2 delta is an **abstract reusable modifier-role state** in a pretrained autoregressive LLM, cross-lexical/domain and causally used for reference while property truth is preserved;
-- the strongest confound is frozen as a hard kill: if the signal is only raw distractor facts, candidate identity, lexical position, salience, or generic reference competence, terminate.
+target = "the large red circle"
 
-The decisive controlled microscope uses a **same-world three-object role swap**: all world facts, target, target phrase, modifier words and modifier truth stay fixed; only the live candidate set changes, causing which modifier actually rules out the alternative to swap.
+live {A,B}: red restricts, large does not
+live {A,C}: large restricts, red does not
+```
 
-First causal specificity contract:
+Causal specificity:
 
 ```text
 SetRestrictionRole intervention
-→ changes modifier-specific referent narrowing / ReferentMargin
-while
-preserving PropertyTruthLogit
+→ changes referent narrowing / ReferentMargin
+while preserving PropertyTruthLogit
 ```
 
-See [`active/041_contextual_set_restriction/README.md`](active/041_contextual_set_restriction/README.md).
+See `SECOND_HARD_REAUDIT_2026-09-01.md` in the project directory.
 
-## 040 — frozen identity object
+## 042 — uniqueness vs strong familiarity
 
-040 remains **numerical identity vs qualitative/type sameness**, not generic entity tracking. Its first causal contract remains:
+Important correction from the second audit: `+Familiarity` is not simply `antecedent present`. The human 2×2 establishes **strong discourse familiarity** through explicit interlocutor mention/re-mention while both candidate entities remain represented in the broader context.
+
+Critical cross:
 
 ```text
-identity intervention
-→ changes token-specific HistoryTransferLogit
-while
-preserving shared TypeKnowledgeLogit
+unique + not strongly familiar
+vs
+non-unique + strongly familiar
 ```
 
-Davis & Altmann 2021 is a serious RNN precursor. If 040 reduces to `the` vs `another`, generic coreference/binding, or the old event-specific RNN effect, kill it.
+Causal source edits must change definite/referent licensing while preserving:
 
-## 036 — still not counted
+```text
+CandidateStructureLogit
+DialogueMentionFactLogit
+EntityPresenceLogit
+```
 
-[`036_metaphor_processing_route_selection`](active/036_metaphor_processing_route_selection/) remains:
+Raw recency/mention-count/salience collapse is fatal.
 
-**HARD AUDIT / CONTINUE-PAPER-SCALE / GPU PAUSED / NOT PASS-REGISTER.**
+## 043 — downgraded after the strict second audit
 
-The selector question (`conventionality vs aptness -> comparison vs categorization`) survives novelty, but the former causal metric was underidentified. It may return only after a clean two-signature route-identification contract is frozen.
+**STRICT HARD AUDIT / GPU PAUSED / NOT REGISTERED.**
+
+Question: direct kind predication vs characterizing/member-level generic predication.
+
+Why paused:
+
+- the surrounding generic LLM family is already heavily occupied;
+- the broad formal partition is not fully theory-neutral;
+- existing experimental material does not yet yield a sufficiently large, consensus-clear, model-independent causal inventory that defeats predicate lexical shortcuts.
+
+Frozen diagnostics if resurrected:
+
+```text
+MemberInheritance
+IndefiniteSingularCompatibility
+```
+
+Resurrection requires an auditable consensus-clear inventory, a genuine same-lexical factorization, or explicit Route-B theory adjudication. **No GPU now.**
+
+## 044 — stage-level vs individual-level
+
+Not temporary vs permanent. Same-adjective shifts and anti-duration counterexamples are mandatory.
+
+Two exact diagnostics are frozen before GPU:
+
+```text
+SituationBoundLogit
+DepictiveCompatibilityLogit
+```
+
+The same causal state must move both while preserving `PropertyTruthLogit`; systematic diagnostic dissociation kills the unified object.
+
+## 045 — referential vs attributive use
+
+Frozen functional object:
+
+> **DescriptionUseMode** — does reference follow a particular speaker-target independently established by context, or whoever actually satisfies the description?
+
+The project is theory-neutral about whether Donnellan's distinction is semantic or pragmatic.
+
+Two exact consequences:
+
+```text
+MisdescriptionTargetMargin / TargetVsSatisfierMargin
+DescriptionEssentialityLogit
+```
+
+Causal edit must preserve:
+
+```text
+SpeakerTargetFactLogit
+DescriptionTruthLogit
+EntityFactLogit
+```
+
+Generic ToM, salience or coreference collapse is fatal.
+
+---
+
+# Non-registered boundary
+
+## 036
+
+**HARD AUDIT / GPU PAUSED.** Conventionality vs aptness as selector of comparison vs categorization in metaphor processing remains scientifically plausible, but route identifiability is still under-repaired.
+
+## 043
+
+**STRICT HARD AUDIT / GPU PAUSED.** See above. Do not count it and do not run it merely because it was once provisionally registered.
 
 ## 037 / 039
 
-- 037: **KILL-NOVELTY / ARCHIVED**.
-- 039: **KILL-NOVELTY / ARCHIVED** after deeper object-ownership audit. Taxonomic-vs-thematic relation type was already directly studied in language-model representations/behavior; stronger MI alone was not enough.
+Archived terminal deaths. Do not revive by renaming.
 
-Canonical lesson:
+---
 
-> **Object ownership, not title ownership.**
+# Failure-library discipline
 
-## Discovery / dedupe discipline
+Every new serious candidate still follows:
 
-Before HARD AUDIT, check:
+```text
+one-sentence object
+→ semantic aliases
+→ canonical failure index
+→ rejected_candidates + archive
+→ strongest-neighbor BODY / appendix
+→ N0/N1/N2
+→ real substrate
+→ confound identifiability
+→ causal specificity
+```
 
-1. [`phenomenon_miner/FINDING_RULES.md`](phenomenon_miner/FINDING_RULES.md) — v2.1 authoritative protocol;
-2. [`rejected_candidates/CANONICAL_FAILURE_INDEX_2026-09-01.md`](rejected_candidates/CANONICAL_FAILURE_INDEX_2026-09-01.md) — semantic dedupe memory;
-3. `rejected_candidates/` + `archive/` aliases;
-4. strongest-neighbor paper bodies, not title wording.
+Changing model, dataset, language, probe, SAE, steering, patching or architecture does not create a new scientific object.
 
-Changing model, dataset, language, probe, SAE, patching or steering does not create a new scientific object.
+Recent strict-search terminal families include focus/background information structure and permission-vs-ability modal sense; detailed rejection records live in `rejected_candidates/`.
 
-## How to grow a surviving topic into a Main-paper package
+---
 
-See [`phenomenon_miner/PAPER_EXPANSION_REFERENCE_2026-09-01.md`](phenomenon_miner/PAPER_EXPANSION_REFERENCE_2026-09-01.md).
+# Paper expansion
 
-Evidence-based pattern:
+Strong-paper evidence ladder remains:
 
 ```text
 phenomenon / natural object
 → broad characterization / clean factorization
-→ abstraction or cross-setting transfer
+→ abstraction / cross-setting transfer
 → causal use / specificity
 → mechanism-derived falsifiable prediction
 → targeted behavioral confirmation
 → optional mitigation / architecture generalization
 ```
 
-For 041 specifically, freeze only the first three earned stages now:
+Do not invent later stages before earlier evidence earns them.
 
-```text
-same-world modifier-role double dissociation
-→ cross-lexical/domain/surface abstraction
-→ causal referent-narrowing specificity while preserving property truth
-```
-
-Only after a stable mechanism is found may it generate a new failure prediction, targeted verification, or mitigation.
-
-## Current authority
-
-1. `phenomenon_miner/FINDING_RULES.md` — sole discovery protocol, v2.1
-2. `phenomenon_miner/HANDOFF_HAMDI_SEARCH_2026-08-31.md` — current handoff
-3. `phenomenon_miner/HARD_REAUDIT_REGISTER_2026-09-01.md` — audit state
-4. `phenomenon_miner/CURRENT_SEARCH_FLOW_2026-09-01.md` — execution flow
-5. `phenomenon_miner/PAPER_EXPANSION_REFERENCE_2026-09-01.md` — post-selection evidence ladder
-6. this README — register count and entrypoint
+---
 
 ## One-line discipline
 
-> **Simple is good. Trivial is not. Method-only novelty is not. The fresh target is now honestly 5/5: 034, 035, 038, 040, 041. Future work should execute frozen S0/causal contracts or react only to genuinely new fatal novelty evidence, not reopen count-filling search by default.**
+> **Current honest state is 8 registered projects: base 5/5 plus strict extension 3/3 = 042, 044, 045. The stricter search explicitly downgraded 043 rather than protecting its previous PASS. Simple is good; method-only novelty is not; causal specificity must preserve the neighboring raw capability.**
