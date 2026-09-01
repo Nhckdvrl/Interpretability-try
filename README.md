@@ -32,15 +32,16 @@ archived:
 
 **The original 5/5 target remains complete. The later 3/3 extension was accepted under a strictly higher bar. Prior PASS never protects a topic from downgrade: 043 was removed from the strict register after the second audit and replaced by 045.**
 
----
-
-## Protocol hierarchy
+## Mandatory authority / memory read order
 
 1. [`phenomenon_miner/FINDING_RULES.md`](phenomenon_miner/FINDING_RULES.md) — **v2.1 base authoritative discovery protocol**.
 2. [`phenomenon_miner/STRICT_EXTENSION_GATE_2026-09-01.md`](phenomenon_miner/STRICT_EXTENSION_GATE_2026-09-01.md) — mandatory **additive** higher bar for post-base topics 042+; it does not weaken or replace v2.1.
 3. [`phenomenon_miner/STRICT_EXTENSION_REGISTER_2026-09-01.md`](phenomenon_miner/STRICT_EXTENSION_REGISTER_2026-09-01.md) — authoritative strict-extension count/status.
-4. [`rejected_candidates/CANONICAL_FAILURE_INDEX_2026-09-01.md`](rejected_candidates/CANONICAL_FAILURE_INDEX_2026-09-01.md) — semantic dedupe memory.
-5. [`phenomenon_miner/PAPER_EXPANSION_REFERENCE_2026-09-01.md`](phenomenon_miner/PAPER_EXPANSION_REFERENCE_2026-09-01.md) — evidence-based post-selection paper growth.
+4. [`rejected_candidates/CANONICAL_FAILURE_INDEX_2026-09-01.md`](rejected_candidates/CANONICAL_FAILURE_INDEX_2026-09-01.md) — base semantic dedupe memory.
+5. [`rejected_candidates/STRICT_EXTENSION_FAILURE_INDEX_ADDENDUM_2026-09-01.md`](rejected_candidates/STRICT_EXTENSION_FAILURE_INDEX_ADDENDUM_2026-09-01.md) — **mandatory 042+ semantic-dedupe addendum**; read together with the canonical index.
+6. [`phenomenon_miner/HANDOFF_HAMDI_SEARCH_2026-08-31.md`](phenomenon_miner/HANDOFF_HAMDI_SEARCH_2026-08-31.md) — current handoff.
+7. [`phenomenon_miner/HARD_REAUDIT_REGISTER_2026-09-01.md`](phenomenon_miner/HARD_REAUDIT_REGISTER_2026-09-01.md) — audit state.
+8. [`phenomenon_miner/PAPER_EXPANSION_REFERENCE_2026-09-01.md`](phenomenon_miner/PAPER_EXPANSION_REFERENCE_2026-09-01.md) — evidence-based paper growth.
 
 For 042+ the strict overlay requires a new orthogonal scientific object plus hard identifiability, causal specificity with a preserved neighboring capability, held-out abstraction, and at least two of:
 
@@ -69,24 +70,11 @@ For 042+ the strict overlay requires a new orthogonal scientific object plus har
 
 ## 041 — contextual modifier set restriction
 
-041 survived a second post-5/5 audit only under a narrow claim. Recent referring-expression work already owns hard distractors, minimal necessary descriptors and descriptor-deletion sufficiency.
-
-Frozen N2:
+041 survived a second strict audit only for:
 
 > **same-lexical context-conditioned modifier set-restriction role**, transferable across property/domain/surface families and causally affecting referent narrowing while preserving property truth.
 
-Same-world role swap:
-
-```text
-A = large red circle
-B = large blue circle
-C = small red circle
-
-target = "the large red circle"
-
-live {A,B}: red restricts, large does not
-live {A,C}: large restricts, red does not
-```
+Recent descriptor-necessity work owns weaker claims.
 
 Causal specificity:
 
@@ -96,11 +84,9 @@ SetRestrictionRole intervention
 while preserving PropertyTruthLogit
 ```
 
-See `SECOND_HARD_REAUDIT_2026-09-01.md` in the project directory.
-
 ## 042 — uniqueness vs strong familiarity
 
-Important correction from the second audit: `+Familiarity` is not simply `antecedent present`. The human 2×2 establishes **strong discourse familiarity** through explicit interlocutor mention/re-mention while both candidate entities remain represented in the broader context.
+Important correction: `+Familiarity` is **strong discourse familiarity via explicit interlocutor mention/re-mention**, not simple antecedent presence.
 
 Critical cross:
 
@@ -110,7 +96,7 @@ vs
 non-unique + strongly familiar
 ```
 
-Causal source edits must change definite/referent licensing while preserving:
+Causal source edits must preserve:
 
 ```text
 CandidateStructureLogit
@@ -120,17 +106,16 @@ EntityPresenceLogit
 
 Raw recency/mention-count/salience collapse is fatal.
 
-## 043 — downgraded after the strict second audit
+## 043 — downgraded after second audit
 
 **STRICT HARD AUDIT / GPU PAUSED / NOT REGISTERED.**
 
-Question: direct kind predication vs characterizing/member-level generic predication.
+The question remains scientifically promising, but:
 
-Why paused:
-
-- the surrounding generic LLM family is already heavily occupied;
+- the surrounding generic LLM family is heavily occupied;
 - the broad formal partition is not fully theory-neutral;
-- existing experimental material does not yet yield a sufficiently large, consensus-clear, model-independent causal inventory that defeats predicate lexical shortcuts.
+- no sufficiently large consensus-clear model-independent causal inventory is frozen;
+- predicate lexical semantics still defeats true Lock A.
 
 Frozen diagnostics if resurrected:
 
@@ -160,12 +145,12 @@ Frozen functional object:
 
 > **DescriptionUseMode** — does reference follow a particular speaker-target independently established by context, or whoever actually satisfies the description?
 
-The project is theory-neutral about whether Donnellan's distinction is semantic or pragmatic.
+045 is theory-neutral about whether Donnellan's distinction is semantic or pragmatic.
 
 Two exact consequences:
 
 ```text
-MisdescriptionTargetMargin / TargetVsSatisfierMargin
+TargetVsSatisfierMargin
 DescriptionEssentialityLogit
 ```
 
@@ -183,29 +168,23 @@ Generic ToM, salience or coreference collapse is fatal.
 
 # Non-registered boundary
 
-## 036
+- **036:** HARD AUDIT / GPU PAUSED. Metaphor route-identification contract remains under-repaired.
+- **043:** STRICT HARD AUDIT / GPU PAUSED. Do not count it and do not run GPU merely because it was once provisionally registered.
+- **037 / 039:** archived terminal deaths.
 
-**HARD AUDIT / GPU PAUSED.** Conventionality vs aptness as selector of comparison vs categorization in metaphor processing remains scientifically plausible, but route identifiability is still under-repaired.
-
-## 043
-
-**STRICT HARD AUDIT / GPU PAUSED.** See above. Do not count it and do not run it merely because it was once provisionally registered.
-
-## 037 / 039
-
-Archived terminal deaths. Do not revive by renaming.
+Recent strict-search terminal families include focus/background information structure and permission-vs-ability modal sense. Their individual records plus the strict failure addendum are mandatory semantic memory.
 
 ---
 
 # Failure-library discipline
 
-Every new serious candidate still follows:
+Every new serious candidate:
 
 ```text
 one-sentence object
-→ semantic aliases
-→ canonical failure index
-→ rejected_candidates + archive
+→ aliases
+→ canonical index + strict addendum
+→ individual rejected/archive records
 → strongest-neighbor BODY / appendix
 → N0/N1/N2
 → real substrate
@@ -215,13 +194,9 @@ one-sentence object
 
 Changing model, dataset, language, probe, SAE, steering, patching or architecture does not create a new scientific object.
 
-Recent strict-search terminal families include focus/background information structure and permission-vs-ability modal sense; detailed rejection records live in `rejected_candidates/`.
-
 ---
 
 # Paper expansion
-
-Strong-paper evidence ladder remains:
 
 ```text
 phenomenon / natural object
@@ -234,8 +209,6 @@ phenomenon / natural object
 ```
 
 Do not invent later stages before earlier evidence earns them.
-
----
 
 ## One-line discipline
 
