@@ -1,128 +1,153 @@
 # Hamdi-Style Topic Search — Current Handoff
 
 Date: 2026-09-01  
-Status: **AUTHORITATIVE CURRENT STATE — 3/5 PASS AFTER DEEP HARD RE-AUDIT**
+Status: **AUTHORITATIVE CURRENT STATE — 4/5 PASS**
 
 ```yaml
-CURRENT_FRESH_PASS_REGISTER: 3
-CURRENT_FRESH_ACTIVE_TOPICS: 3
+CURRENT_FRESH_PASS_REGISTER: 4
+CURRENT_FRESH_ACTIVE_TOPICS: 4
 CURRENT_HARD_AUDIT_TOPICS: 1
 fresh_register_target: 5
-fresh_register_status: OPEN_AFTER_039_KILL_AND_036_DEMOTION
+remaining_needed: 1
 required_protocol: PAPER-SCALE v2.1
 registered_projects:
   - 034_prospective_memory_retrieval_architecture
   - 035_shared_dynamic_context_update
   - 038_unresolved_reference_representation_architecture
+  - 040_numerical_identity_vs_qualitative_sameness
 hard_audit_not_registered:
   - 036_metaphor_processing_route_selection
 archived_after_registration:
   - 037_generic_generalization_licensing
   - 039_same_kind_vs_go_together_semantic_relation
-current_search_style: simplicity-first, strongest-neighbor object-ownership audit first
-current_task: do not count-fill; repair 036 only if route identifiability can be frozen, and search enough candidates to obtain two genuine PASS projects
+current_search_style: simplicity-first + semantic dedupe + deepest object-ownership audit
+current_task: find exactly one more genuine PASS without count filling; 036 may re-enter only if identifiability is truly repaired
 ```
 
-## Mandatory reads
+## Mandatory reads next turn
 
 1. root `README.md`
-2. `phenomenon_miner/FINDING_RULES.md`
+2. `phenomenon_miner/FINDING_RULES.md` — v2.1
 3. this handoff
-4. `phenomenon_miner/HARD_REAUDIT_REGISTER_2026-09-01.md`
-5. active 034 / 035 / 036 / 038 READMEs
-6. `active/038_unresolved_reference_representation_architecture/HARD_REAUDIT_2026-09-01.md`
-7. `rejected_candidates/taxonomic_vs_thematic_relation_type_n2_collision_2026-09-01.md`
-8. `phenomenon_miner/NEXT_AGENT_PROMPT_2026-09-01.md`
+4. `phenomenon_miner/CURRENT_SEARCH_FLOW_2026-09-01.md`
+5. `rejected_candidates/CANONICAL_FAILURE_INDEX_2026-09-01.md`
+6. `phenomenon_miner/HARD_REAUDIT_REGISTER_2026-09-01.md`
+7. active 034 / 035 / 036 / 038 / 040 READMEs
+8. `active/038_unresolved_reference_representation_architecture/HARD_REAUDIT_2026-09-01.md`
+9. `phenomenon_miner/PAPER_EXPANSION_REFERENCE_2026-09-01.md`
+10. `phenomenon_miner/NEXT_AGENT_PROMPT_2026-09-01.md`
 
-## 034 — frozen PASS
+## 034 / 035
 
-**PASS-REGISTER / GPU AUTHORIZED / FROZEN.**
+**PASS-REGISTER / GPU AUTHORIZED / FROZEN.** Do not rewrite headlines absent a new fatal collision.
 
-> Future intentions: strategic monitoring, cue-triggered spontaneous retrieval, or dynamic switching?
+## 038
 
-A fresh fatal-collision-only scan found no LLM mechanistic paper directly adjudicating these prospective-memory retrieval architectures. Do not rewrite the headline absent new fatal evidence.
+**PASS-REGISTER / GPU AUTHORIZED / HARD RE-AUDIT PASSED.**
 
-## 035 — frozen PASS
+Frozen question:
 
-**PASS-REGISTER / GPU AUTHORIZED / FROZEN.**
+> When reference is still unresolved, does the model keep multiple candidate referents, an underspecified state, or prematurely commit?
 
-> Do anaphora and presupposition reuse a shared dynamically updated local discourse context, or rely on separate/static computations?
+Keep its H1-vs-H2 identifiability kill. Do not rescue a failure as generic ambiguity representation.
 
-A fresh fatal-collision-only scan found no modern LLM paper demonstrating the same shared causal dynamic-context operation across the two phenomena. Keep frozen.
+## 040 — newly registered
 
-## 038 — PASS after hard re-audit
+**PASS-REGISTER / GPU AUTHORIZED.**
 
-**PASS-REGISTER / GPU AUTHORIZED — HARD RE-AUDIT PASSED.**
+Frozen question:
 
-> When reference is still unresolved, does the model keep multiple candidate referents, a compact underspecified reference state, or prematurely commit?
+> **If two things are exactly alike, does the model still know whether they are literally the same individual or merely two different things of the same kind?**
 
-Hard audit checked object ownership against:
+### Why this survived
 
-- `It Depends` referential-ambiguity behavior;
-- `Correct-Detect` ambiguity resolution/detection trade-off;
-- 2026 generic hidden-state premature commitment;
-- EACL 2026 idiom literal/figurative competing pathways;
-- Aug 2026 lexical-ambiguity activation patching;
-- 2024 activation patching among redundant grammatical disambiguation cues.
+- numerical identity vs qualitative sameness is an independent human scientific distinction;
+- natural event-comprehension materials supply the two crucial cross-cases: same token after large state change vs different token of same type;
+- Davis & Altmann 2021 LSTM/RNN work is explicitly treated as a serious precursor;
+- modern binding/entity-tracking work explains how already individuated entities bind or propagate states, but does not own the abstract numerical-vs-qualitative identity object;
+- ICML 2026 same-label duplicate failures are a strong neighbor and a useful warning, not direct ownership.
 
-None owns the exact representational-format question for **still-unresolved discourse reference**. 038 also already has an explicit H1-vs-H2 identifiability kill, so a failure cannot be rescued as generic ambiguity representation.
+### 040 is NOT allowed to become
 
-Audit record: `active/038_unresolved_reference_representation_architecture/HARD_REAUDIT_2026-09-01.md`.
+- `the` vs `another` representation;
+- generic coreference/entity-tracking mechanism;
+- RNN-result replication on a newer backbone;
+- best identity head/SAE feature;
+- architecture-comparison paper.
 
-## 036 — scientific question survives, registration revoked for measurement
+### Frozen first causal test
 
-**CONTINUE-PAPER-SCALE / HARD AUDIT / GPU PAUSED / NOT IN PASS REGISTER.**
+Intervene on numerical-identity state and require:
 
-> What selects comparison vs categorization in metaphor comprehension: conventionality, aptness, or neither?
+```text
+changes token-specific history transfer
+while preserving shared type/category knowledge
+```
 
-### Novelty result
+Cross-surface generalization is mandatory. If the effect collapses to lexical cues or generic binding, terminate.
 
-The exact selector question still survives. However, neighboring work is closer than the original registration admitted:
+### Architecture extension
 
-- 2026 Cognitive Computation directly treats **aptness** as an LLM cognitive/evaluation dimension across LLaMA and other models;
-- ACL 2026 Main analyzes semantic alignment, lexical invariance, syntax, and conventional/novel metaphor behavior.
+After primary AR-Transformer evidence is secure, dLLM (LLaDA/Dream-family) and linear/recurrent-like models (Mamba/RWKV-family) may be used as **secondary architecture-generalization evidence**. They do not define novelty and cannot rescue a failed 040.
 
-No direct work found orthogonalizes conventionality × aptness to decide comparison vs categorization, so question-level N2 is still plausible.
+Full card: `active/040_numerical_identity_vs_qualitative_sameness/README.md`.
 
-### Why the former PASS was too early
+## 036
 
-The old first causal statistic used metaphor↔simile activation non-interchangeability as the route indicator. That can reflect `like`, syntax, position or generic grammatical-form differences rather than comparison vs categorization.
+**CONTINUE-PAPER-SCALE / HARD AUDIT / GPU PAUSED / NOT REGISTERED.**
 
-Utsumi (2011) explicitly validates comparison/categorization models against multiple independent process phenomena, including **grammatical concordance and directionality**, before using them for selector theory testing.
+Question-level novelty survives, but its comparison-vs-categorization route metric remains underidentified. Re-enter only after a clean two-signature route-identification contract exists, with at least one non-grammatical-form diagnostic.
 
-Therefore 036 cannot count until a route-identification contract is frozen with:
+## 037 / 039
 
-1. at least two independent theory-grounded route signatures;
-2. at least one not defined by metaphor-vs-simile grammatical form;
-3. independent held-out route calibration;
-4. causal validation before applying route labels to Jones–Estes metaphors.
+Archived. Do not revive. 039 remains the canonical warning that naturalness + excellent substrate is not enough if strongest prior already owns the object.
 
-No GPU until then.
+## Failure-library discipline
 
-## 037 — archived
+Before any new serious candidate:
 
-Direct 2026 principled-vs-statistical generics collision. Do not revive.
+```text
+one-sentence object
+→ 5–10 semantic aliases
+→ canonical failure index
+→ rejected_candidates + archive
+→ strongest-neighbor BODY search
+```
 
-## 039 — archived; canonical N2 lesson
+A semantic match is dead by default unless a documented resurrection condition is met.
 
-Former `same kind vs go together` passed naturalness/substrate but failed deeper object ownership. Taxonomic similarity vs thematic relatedness is already studied in language-model representations and modern LLM behavior, including the same TxThmNorms substrate and explicit taxonomic/thematic reasoning.
+## How to expand a PASS into a full ACL / EMNLP paper
 
-The remaining `hidden direction + steering` delta was method-level, not object-level.
+Read `phenomenon_miner/PAPER_EXPANSION_REFERENCE_2026-09-01.md`.
 
-**Lesson:** read neighbors for experiment-level scientific interpretation, not title wording.
+Reference-backed pattern:
+
+```text
+phenomenon / natural object
+→ broad characterization and controls
+→ abstraction / cross-setting transfer
+→ causal use and specificity
+→ mechanism-derived falsifiable behavioral prediction
+→ targeted confirmation
+→ optional mitigation / architecture generalization
+```
+
+Examples:
+
+- ACL 2025 Outstanding `Llama See, Llama Do`: broad phenomenon -> semantic modulation -> head discovery -> ablation -> mitigation.
+- NAACL 2025 `Racing Thoughts`: recurring failure -> one algorithmic hypothesis -> correlational + causal evidence -> inference-time intervention.
+- ACL 2026 Tool Irrelevance: factor dissociation -> competing pathways -> causal explanation -> rebalancing with generic-capability control.
+- EMNLP 2025 Outstanding filler-gap: shared causal representation -> cross-construction transfer -> newly discovered moderators -> linguistic-theory implications.
+- ICML 2026 entity tracking: behavior -> mechanism -> mechanism predicts missing failure mode -> targeted behavior verifies -> mechanistic partial fix.
+
+Do not pre-write a downstream circuit story. Let earlier evidence earn the next analysis.
 
 ## Current search target
 
-The honest target gap is **2**, not 1.
+Only **one** genuine PASS remains, but do not generate only one candidate. Continue a high-mortality simplicity-first search, semantic-dedupe first.
 
-Do not generate only two candidates. Prepare a high-mortality broad search (10–20 serious simple candidates), but audit strongest neighbors before investing in elaborate mechanism design.
-
-For every Route C candidate ask first:
-
-> If I remove `activation`, `probe`, `SAE`, `steering`, `patching`, and `causal`, what scientific/model object remains that prior LLM work has not already studied?
-
-If nothing remains, KILL.
+The active leads that are **not registered** include 036; previous weak leads such as focus/background and collective/distributive plurality should not be promoted without solving their documented substrate/overlap problems.
 
 ## One-line instruction
 
-> **Current PASS register is 3/5. 038 survived; 039 died on novelty; 036 was demoted because its route metric was underidentified. Keep the standard high even if the count goes backward.**
+> **Current PASS register is 4/5: 034, 035, 038, 040. 040 is numerical identity, not generic entity tracking. One slot remains; keep novelty and identifiability strict, but do not restore the obsolete rule that a Route-C object must already have an exact modern-open published phenotype.**
