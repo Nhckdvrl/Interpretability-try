@@ -11,6 +11,10 @@
 
 - `../phenomenon_miner/FAILED_TOPICS.md`
 
+**语义去重第一入口：**
+
+- [`CANONICAL_FAILURE_INDEX_2026-09-01.md`](CANONICAL_FAILURE_INDEX_2026-09-01.md) — 按 scientific object / semantic aliases 聚类的 canonical failure index。任何新 serious candidate 进入 HARD AUDIT 前必须先查这里，防止换标题、dataset、model、prompt、language、subset 或 MI method 后重复审同一个死题。
+
 ---
 
 ## Mandatory logging boundary
@@ -22,7 +26,8 @@
 - 仅仅出现在搜索结果里、没有形成 scientific question / mother-extension card 的噪声，不建文件；
 - 一旦对一个问题认真检查过 mother ownership、strongest neighbor、substrate、existing behavior、measurement 或 mechanism 中任一项，并据此决定 KILL，**必须立即建 rejection record**；
 - pre-S0 / N0 / cheap-falsifier 阶段死亡同样必须记录，不以“还没跑模型”为理由省略；
-- 同一 scientific meaning 的别名应合并到一个 canonical rejection，不为 rename 建重复文件。
+- 同一 scientific meaning 的别名应合并到一个 canonical rejection，不为 rename 建重复文件；
+- 如果一次死亡新增了一个未来很容易被换名复活的 alias family，**同时更新 `CANONICAL_FAILURE_INDEX_2026-09-01.md`**。
 
 ---
 
@@ -32,11 +37,24 @@
 
 1. 把新 scientific object 写成一句话；
 2. 生成 5–10 个 semantic aliases / nearest-neighbor formulations；
-3. 在本目录和 `../archive/` 定向搜索；
-4. 命中相同 scientific meaning 时，再读对应详细 rejection；
-5. 只有满足该 rejection 的 resurrection condition 才允许重开。
+3. **先查 `CANONICAL_FAILURE_INDEX_2026-09-01.md`**；
+4. 再在本目录和 `../archive/` 定向搜索；
+5. 命中相同 scientific meaning 时，再读对应详细 rejection；
+6. 只有满足该 rejection 的 resurrection condition 才允许重开。
 
 不要每轮完整通读所有 addendum。不要因为换 dataset、model、language、prompt、subset 或 MI method 就视为新题。
+
+尤其禁止：
+
+```text
+旧死题 X
+→ 换一个更学术的名字 X'
+→ 找一个新 benchmark
+→ 换成 SAE / steering / patching
+→ 重新当 fresh candidate
+```
+
+如果 scientific object 没变，就仍然属于同一个 terminal cluster。
 
 ---
 
@@ -59,7 +77,7 @@ resurrection_condition:
 
 F1–F7 定义见 `phenomenon_miner/FAILED_TOPICS.md`。
 
-只有当一次死亡产生了**新的通用失败模式**，才更新 `FAILED_TOPICS.md`。否则只写本目录的局部证据。
+只有当一次死亡产生了**新的通用失败模式**，才更新 `FAILED_TOPICS.md`。否则只写本目录的局部证据；如果只是新增 alias/dedupe family，则更新 canonical failure index。
 
 ---
 
@@ -90,4 +108,4 @@ F1–F7 定义见 `phenomenon_miner/FAILED_TOPICS.md`。
 
 ## One-line rule
 
-> **认真审过就留短负记录；先有 mother-extension，再查负知识；不要从负知识长清单反向生成下一批 `X != Y`。**
+> **认真审过就留短负记录；新题先查 canonical semantic failure index；scientific object 相同就禁止靠改名/换数据/换模型/换 MI 方法复活。**
