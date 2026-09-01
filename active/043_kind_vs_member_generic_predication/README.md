@@ -1,215 +1,110 @@
-# 043 — Is the Property About the Kind, or About Its Members? Generic Predication Level in LLMs
+# 043 — Kind-Level vs Member-Level Generic Predication
 
-Status: **STRICT-PASS-REGISTER / GPU AUTHORIZED WITH LEXICAL-CONFOUND HARD KILL**  
+Status: **STRICT HARD AUDIT / GPU PAUSED / NOT REGISTERED**  
 Date: 2026-09-01  
-Route: **A/C — classic semantic distinction inside an already-studied generic family**  
+Route under audit: A/B/C hybrid  
 Protocol: `FINDING_RULES.md` v2.1 + `STRICT_EXTENSION_GATE_2026-09-01.md`
 
-## A. Frozen natural question
+## Frozen natural question
 
-> **When a model reads a generic statement, does it know whether the property belongs to the kind itself, or is instead a generalization about individual members of that kind?**
+> **When a model reads a generic statement, does it treat the property as predicated directly of the kind, or as a generalization involving members of that kind?**
 
-Classic contrast:
+Canonical examples:
 
 ```text
-Dinosaurs are extinct.   # property of the kind dinosaur
-Tigers are striped.      # generalization about individual tigers
+Dinosaurs are extinct.   # clear direct kind predication
+Tigers are striped.      # canonical characterizing generic
 ```
 
-Formal-semantics terminology:
+This is a real and important formal-semantic distinction. The project is **not** rejected as scientifically meaningless. It is paused because the stronger post-5/5 gate exposed unresolved theory-gold and substrate problems that make immediate GPU authorization unjustified.
 
-- **direct kind predication / D-generic** — a predicate is applied to the kind as an entity;
-- **characterizing generic / I-generic** — the statement characterizes members/instances of the kind.
+## Why the former STRICT-PASS was too optimistic
 
-No individual dinosaur is itself `extinct` in the relevant sense; extinction is a property of the dinosaur kind. By contrast, individual tigers can be striped.
+### 1. The surrounding LLM object family is already heavily occupied
 
-The scientific object is **predication level**, not generic-vs-specific language and not quantifier strength.
+Existing work already owns:
 
----
+- generic exceptions, instantiations, and property inheritance in LLMs;
+- generic-vs-quantificational organization;
+- abstractness/inclusiveness dimensions of generic noun phrases;
+- statistical-vs-principled licensing of generic generalizations (former 037 fatal collision).
 
-## B. Why this is independently real
+Therefore 043 cannot survive as `generic reasoning + stronger MI`, `member inheritance mechanism`, or `kind-like representation`.
 
-The distinction is standard in formal semantic work on generics and kinds. Carlson/Krifka-style theories explicitly separate direct kind predication from characterizing generics. Reference works such as the Cambridge Handbook of Formal Semantics and the Stanford Encyclopedia of Philosophy use exactly this contrast.
+### 2. Direct-kind vs characterizing is not a universally theory-neutral gold partition
 
-The distinction also has independent grammatical consequences:
+The traditional Carlson/Krifka analysis distinguishes direct kind predication from characterizing generics, and clear cases such as `Dinosaurs are extinct` remain useful. But contemporary formal work includes analyses on which characterizing generics themselves involve kind reference / kind predication. Thus the broad headline `property belongs to kind vs members` is not a simple observational label in the same sense as 040 numerical identity.
 
-1. **member/exemplar inheritance** differs: a characterizing property can normally be instantiated by members, while a pure kind property such as extinction cannot be inherited by an arbitrary member;
-2. **indefinite-singular realization** differs: characterizing generics can have forms such as `A tiger has stripes`, whereas direct kind predication normally cannot be rendered as `A dinosaur is extinct` on the relevant reading;
-3. **overt Q-adverb interaction** differs for clear kind predicates such as `extinct` versus characterizing predicates. Current formal work continues to use this diagnostic.
+A valid project must therefore either:
 
-Thus the object exists independently of any LLM dataset.
+1. restrict itself to **consensus-clear operational cases** where independent diagnostics converge; or
+2. become an explicit Route-B theory-adjudication paper with competing semantic analyses and discriminating predictions.
 
----
+It may not silently treat one formal analysis as ground truth.
 
-## C. The surrounding LLM space is crowded
+### 3. A real experimental substrate exists, but the exact causal object is not yet sufficiently auditable
 
-043 passes only because its claim is narrower than existing genericity work.
+Ionin, Montrul & Santos (2011) experimentally distinguish two sources of genericity: characterizing/sentence-level genericity and kind reference. Lazaridou-Chatzigoga & Alexiadou extend the exact design to Greek with 20 test items and context-based acceptability judgments.
 
-### C1 — Computational Linguistics 2024 — exceptions, instantiations and inheritance
+This is useful external evidence, but the test materials are optimized for determiner/kind-reference distribution, not for a large model-independent internal `PredicationLevel` label inventory. The strongest direct-kind examples also remain highly lexically diagnostic (`extinct`, `widespread`, `common`, `rare`).
 
-Allaway et al. study ~17k generics and ~370k generated exemplars, explicitly testing exceptions, instantiations, overgeneralization and property inheritance in LLMs.
+Under the strict extension gate, `we can create a classifier and hold out some predicates` is not enough to declare the central confound solved.
 
-**Occupies:**
+## What remains genuinely promising
 
-- generic reasoning;
-- exemplar generation;
-- property inheritance from generics;
-- overgeneralization / exceptions.
+A resurrected 043 could ask whether one causal state jointly predicts **multiple independent consequences** of clear predication-level cases while transferring beyond lexical predicate families.
 
-Therefore 043 may not claim novelty as `LLMs overgeneralize generics` or `do LLMs inherit generic properties to examples?`.
+Candidate independent diagnostics already justified by formal semantics include:
 
-### C2 — Findings ACL 2026 — generics vs quantification
+1. **MemberInheritance** — whether a property is licensed to an arbitrary member/exemplar;
+2. **IndefiniteSingularCompatibility** — characterizing generics can often be realized with an individual-denoting indefinite singular, while clear direct-kind predications cannot on the relevant reading.
 
-`Generics are not quantificational` compares thousands of generics with quantificational counterparts using LM probabilities and uses the results in a semantic-theory argument.
+The second diagnostic is now frozen to `IndefiniteSingularCompatibility`; no post-hoc switch to whichever Q-adverb or construction happens to work is allowed.
 
-**Occupies:** generic-vs-quantifier semantic organization in LMs.
+## Strict locks after re-audit
 
-043 is not allowed to become a generic-vs-most/all paper.
+```yaml
+Lock_A_same_surface_or_orthogonal_role_swap: NOT_YET_SATISFIED
+Lock_B_cross_predicate_and_surface_transfer: REQUIRED_AND_PLAUSIBLE
+Lock_C_two_independent_diagnostics:
+  - MemberInheritance
+  - IndefiniteSingularCompatibility
+  status: FROZEN_BUT_NOT_YET_SUFFICIENT_FOR_REGISTRATION
+```
 
-### C3 — LREC-COLING / ABRICOT 2024 — abstractness and inclusiveness
+The strict overlay requires two strong locks, but the lack of a clean Lock A matters here because the dominant superficial explanation is exactly predicate lexical semantics.
 
-Recent genericity annotation work decomposes noun-phrase genericity into continuous abstractness and inclusiveness. ABRICOT even keeps the same noun phrase while context changes these dimensions and asks language models to recover them.
+## Required resurrection condition
 
-This is a major N2 warning because `kind-like / abstract NP representation` is not itself new.
+043 may return to `STRICT-PASS-REGISTER / GPU AUTHORIZED` only after **one** of the following is obtained before GPU:
 
-**Does not own:** direct-kind predication versus member-level characterizing predication when **both sides remain generic**, with predication-level causal consequences.
+### Option A — auditable consensus-clear inventory
 
-### C4 — exact surviving N2
-
-The only acceptable 043 claim is:
-
-> **Modern LLMs maintain an abstract predication-level state that distinguishes a true generic property of the kind itself from a characterizing property inherited by members, and causally use that state to control member inheritance and independent generic-form diagnostics while preserving the truth/content of the generic proposition.**
-
-If the result becomes `generic abstractness`, `inheritance behavior`, or `kind predicate vocabulary`, kill it.
-
----
-
-## D. Strict Extension Gate
-
-### Lock A — orthogonal identifiability: PARTIAL, strengthened by anti-lexical controls
-
-The central danger is severe: lexical predicates such as `extinct`, `widespread`, `common`, `rare` can themselves reveal kind-level selection.
-
-Therefore 043 cannot pass by training a classifier on `extinct` vs `striped`.
-
-Required design:
-
-1. hold noun kind/domain balanced;
-2. use multiple semantically distinct direct-kind predicate families;
-3. use multiple characterizing predicate families;
-4. leave entire predicate families out of discovery;
-5. use constructional diagnostics where the **same proposition type** is tested through alternative generic forms;
-6. explicitly compare against predicate-selectional-semantic directions.
-
-Lock A is considered satisfied only because the first causal claim is not defined from lexical classification and the project also requires Locks B+C. Failure of held-out predicate-family transfer is an immediate hard kill.
-
-### Lock B — cross-setting abstraction: PASS
-
-Mandatory transfer across:
-
-- predicate family;
-- noun/kind domain;
-- bare plural vs generic definite / alternative generic forms where licensed;
-- at least one held-out language/constructional realization if a clean resource is available.
-
-### Lock C — two independent theory-diagnostic consequences: PASS
-
-At least two independent diagnostics are frozen:
-
-1. **MemberInheritance** — whether the generic property is licensed to transfer to a member/exemplar;
-2. **GenericForm/Q-adverb diagnostic** — compatibility with an individual-denoting indefinite singular and/or overt quantificational-adverb realization, chosen from theory-grounded held-out materials.
-
-A latent state is not called `PredicationLevel` unless it causally affects both diagnostics in the theory-predicted direction.
-
----
-
-## E. Substrate
-
-### E1 — formal-theory anchor
-
-Start from independently classified examples in formal genericity literature: clear direct kind predicates and clear characterizing generics.
-
-The labels come from semantic diagnostics, not from model outputs.
-
-### E2 — large generic window
-
-Existing generic datasets (including the CL 2024 generic inventory) provide nouns/properties and member exemplars. They can be filtered only by a **preregistered external predication-level criterion**; model behavior may not define the classes.
-
-### E3 — controlled causal microscope
-
-For each held-out generic proposition, construct deterministic questions/continuations that test:
+A reconstructible/public inventory large enough for held-out causal analysis where every included item is classified by at least two independent non-model diagnostics:
 
 ```text
-GenericTruthLogit
+predication-level source classification
++ member-applicability diagnostic
++ indefinite-singular compatibility diagnostic
+```
+
+Ambiguous/theory-contested items must be excluded by a rule frozen before model runs.
+
+### Option B — genuine same-lexical/context factorization
+
+A theory-grounded construction in which substantially the same predicate/content changes direct-kind vs characterizing role by context, without changing the lexical cue that defines the class.
+
+### Option C — explicit Route-B theory adjudication
+
+Two live semantic theories must make different intervention/generalization predictions on the same materials; the paper question then becomes the theory debate rather than a presumed latent label.
+
+## If resurrected: causal specificity requirement
+
+Any future `PredicationLevel` intervention must change both:
+
+```text
 MemberInheritanceLogit
-IndefiniteSingularCompatibility
-QAdverbCompatibility
-```
-
-Human/theory-defined predication level is central gold. No API judge.
-
----
-
-## F. Frozen S0
-
-Primary models:
-
-- `meta-llama/Llama-3.1-8B-Instruct`
-- `Qwen/Qwen3-8B`
-
-### S0-1 — proposition comprehension
-
-Require the model to know the base proposition well enough that the generic truth/readout is meaningful. Exclude only items using a prespecified fact-knowledge rule, never by selecting desired inheritance effects.
-
-### S0-2 — behavioral predication double dissociation
-
-For clear theory-grounded items:
-
-```text
-characterizing generic:
-  GenericTruth high
-  MemberInheritance relatively licensed
-
-pure direct-kind predication:
-  GenericTruth high
-  MemberInheritance not licensed in the same way
-```
-
-This separates `sentence is true` from `property belongs to arbitrary member`.
-
-### S0-3 — second diagnostic
-
-The same item classes must show the expected distinction on an independently motivated constructional diagnostic (indefinite-singular and/or Q-adverb compatibility) without selecting the diagnostic after seeing model activations.
-
-### S0-4 — lexical shortcut controls
-
-- held-out direct-kind predicate families;
-- held-out characterizing predicate families;
-- nonce or paraphrased property descriptions only when truth can be deterministically specified from context;
-- matched frequency/length;
-- predicate-only baselines;
-- noun-only baselines.
-
-If predicate-only classification explains the entire effect and no held-out family transfer exists, terminate.
-
----
-
-## G. Frozen causal-use contract
-
-### G1 — estimate `PredicationLevel`
-
-Estimate a low-dimensional state from training families with noun/domain/predicate balancing. No best-layer selection on final tests.
-
-### G2 — primary consequence: member inheritance
-
-On held-out true generic propositions:
-
-```text
-steer toward MEMBER-CHARACTERIZING
-→ increase MemberInheritanceLogit
-
-steer toward DIRECT-KIND
-→ reduce inappropriate member inheritance
+IndefiniteSingularCompatibilityLogit
 ```
 
 while preserving:
@@ -219,91 +114,44 @@ GenericTruthLogit
 PredicateContentLogit
 ```
 
-If the edit simply makes `extinct` or `striped` less semantically available, the claim fails.
+Mandatory controls:
 
-### G3 — independent consequence
-
-The same direction/subspace must causally affect a prespecified second diagnostic:
-
-- indefinite-singular generic compatibility; and/or
-- Q-adverb compatibility.
-
-It must generalize to held-out predicates and nouns.
-
-### G4 — controls
-
-- direct predicate lexical-semantic direction;
+- predicate-only baseline;
+- held-out entire predicate families;
+- noun/kind domain holdout;
 - generic-vs-episodic direction;
-- abstractness/inclusiveness controls inspired by LREC/ABRICOT;
-- random/shuffled labels/subspaces;
-- frequency/length matched donors.
+- abstractness/inclusiveness controls;
+- random/shuffled subspaces.
 
-The headline result is a cross-diagnostic causal state, not a high probe score.
+If predicate-only classification or content destruction explains the effect, kill.
 
----
+## Relationship to former 037
 
-## H. Story invariance
+Former 037 asked:
 
-### Result A — reusable predication-level state
+> what licenses a generic generalization — statistical prevalence/cue validity or principled/causal structure?
 
-The model represents whether a generic property applies to the kind or characterizes members and uses the distinction to regulate inheritance and generic-form behavior.
+043 asks a different object: predication level inside generic statements. Thus 037 does **not** directly kill 043. The current pause is instead caused by the stricter identifiability/theory-gold/substrate standard.
 
-### Result B — correct behavior without abstract state
-
-The model handles many items but the signal is predicate-family local; generic reasoning is implemented through lexical/selectional knowledge rather than a reusable predication-level object.
-
-### Result C — inheritance collapse
-
-The model treats direct-kind and characterizing generics through the same member-level generalization machinery, helping explain systematic overinheritance from kind-level truths.
-
-All outcomes retain the same object.
-
----
-
-## I. Fatal kills
-
-1. New direct neural/LLM work already factorizes D-generics vs I-generics internally and causally -> `KILL-NOVELTY`.
-2. Predicate vocabulary alone carries the result -> `KILL-LEXICAL-CONFOUND`.
-3. No held-out predicate-family transfer -> no abstract predication-level claim.
-4. Only member inheritance is measured -> `KILL-N2` relative to CL 2024.
-5. Only generic-vs-quantifier behavior is measured -> `KILL-N2` relative to Findings ACL 2026.
-6. Only NP abstractness/inclusiveness is decoded -> `KILL-N2` relative to LREC/ABRICOT.
-7. Intervention changes generic truth/content as much as predication consequences -> `KILL-SPECIFICITY`.
-8. The two independent diagnostics cannot be jointly explained by the same causal state -> terminate the unified object claim rather than choosing one successful metric.
-
----
-
-## J. Venue-scale comparison
-
-- **CL 2024 generic reasoning:** establishes a broad behavior family and inheritance failures; 043 asks an orthogonal semantic factorization that predicts when inheritance is licensed at all.
-- **EMNLP 2025 Outstanding filler-gap:** the object must transfer across constructions and causal consequences rather than exist only as decodable class labels.
-- **ACL 2026 Tool Irrelevance:** semantic factors are dissociated and intervention specificity is required.
-- **ACL 2025 Llama See, Llama Do:** a simple object earns paper scale through broad characterization, causal specificity and consequences—not through a complicated title.
-
----
-
-## K. Strict registration verdict
+## Current verdict
 
 ```yaml
-base_FINDING_RULES_v2_1: PASS
-new_orthogonal_object_or_axis: PASS_PREDICATION_LEVEL
-old_neural_exact_object_ownership: CLEAR_IN_SEARCH
-recent_LLM_surrounding_family: HEAVILY_OCCUPIED
-N2: PASS_ONLY_FOR_NARROW_CROSS_DIAGNOSTIC_OBJECT
-external_formal_semantic_anchor: PASS
-Lock_A_role_swap_or_equivalent: PASS_WITH_LEXICAL_HARD_KILL
-Lock_B_cross_setting_abstraction: PASS
-Lock_C_two_independent_consequences: PASS
-specificity_denominators:
-  - GenericTruthLogit
-  - PredicateContentLogit
-central_confound: PREDICATE_LEXICAL_SELECTION
-central_confound_identifiable: PASS_WITH_HARD_KILL
-behavior_lottery: false
-verdict: STRICT-PASS-REGISTER
-GPU_AUTHORIZED: true
+natural_question: PASS
+scientific_object: REAL_BUT_THEORY_CONTESTED_AT_BROAD_LEVEL
+N0_direct_neural_ownership: NOT_FOUND
+N2_if_narrow_cross_diagnostic_object: PLAUSIBLE
+external_experimental_anchor: EXISTS
+model_independent_large_item_gold: INSUFFICIENTLY_FROZEN
+lexical_predicate_confound: SEVERE
+Lock_A: FAIL_FOR_NOW
+Lock_B: REQUIRED
+Lock_C: FROZEN
+story_invariance: PASS
+verdict: CONTINUE-HARD-AUDIT
+PASS_REGISTER: false
+GPU_AUTHORIZED: false
 ```
 
 ## One-line freeze
 
-> **043 is not a generic-reasoning paper. It asks whether LLMs causally distinguish a property of the kind itself from a member-level generic property. The same state must generalize across predicate families and control at least two independent semantic consequences while preserving the base generic proposition; otherwise the topic dies.**
+> **043 remains scientifically promising but is no longer counted. Do not run GPU. It can return only with an auditable consensus-clear predication-level inventory, a genuine same-lexical factorization, or a properly reformulated theory-adjudication contract. `Generic behavior + causal MI` is not enough.**
