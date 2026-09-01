@@ -1,247 +1,201 @@
 # Current Topic-Search Flow — 2026-09-01
 
-Protocol source: `FINDING_RULES.md` v2.1  
-Purpose: operationalize strict novelty without over-killing simple Route-C ideas.
+Base protocol: `FINDING_RULES.md` v2.1  
+Post-base overlay: `STRICT_EXTENSION_GATE_2026-09-01.md`
 
-## Current register boundary
+## Current boundary
 
 ```yaml
-PASS_REGISTER:
+BASE_PASS_REGISTER: 5
+STRICT_EXTENSION_PASS: 3
+TOTAL_REGISTERED: 8
+
+REGISTERED:
   - 034_prospective_memory_retrieval_architecture
   - 035_shared_dynamic_context_update
   - 038_unresolved_reference_representation_architecture
   - 040_numerical_identity_vs_qualitative_sameness
   - 041_contextual_set_restriction
+  - 042_uniqueness_vs_familiarity_definite_licensing
+  - 044_stage_vs_individual_predication
+  - 045_referential_vs_attributive_description_use
 
 HARD_AUDIT_NOT_REGISTERED:
   - 036_metaphor_processing_route_selection
-
-TARGET: 5
-CURRENT_PASS: 5
-REMAINING: 0
-SEARCH_STATUS: TARGET_REACHED_STOP_BY_DEFAULT
+  - 043_kind_vs_member_generic_predication
 ```
 
-034/035 remain frozen. 038 passed hard re-audit. 040 passed deep novelty + identifiability audit. 041 passed the final Route-C N0/N1/N2 + confound audit. 036's question survives but its route-identification contract is still not good enough.
+034/035/038/040 remain frozen. 041 survived strict re-audit. 042/044/045 passed the raised post-base gate. 043 was downgraded after second audit.
 
 ---
 
-# The funnel
-
-## Stage 0 — semantic dedupe before literature spending
-
-1. state the one-sentence scientific object;
-2. generate 5–10 aliases;
-3. search `rejected_candidates/CANONICAL_FAILURE_INDEX_2026-09-01.md`, detailed rejection files and `archive/`;
-4. same scientific object in a terminal cluster -> dead by default unless a real resurrection condition is met.
-
-Changing benchmark/model/language/probe/SAE/patching/steering does not create a new object.
-
-## Stage 1 — natural-object gate
-
-Can another NLP/ML researcher understand why the question matters without hearing a benchmark or MI method?
-
-Valid examples:
-
-- `Does the model know that two identical-looking objects can still be different individuals?`
-- `When reference is unresolved, does the model keep alternatives alive or prematurely pick one?`
-- `In a description, does the model know which property is actually ruling out alternative referents?`
-
-Invalid:
-
-- `Which layer encodes benchmark feature X?`
-- `Can an SAE separate label A/B?`
-
-## Stage 2 — paper scale without forced theory complexity
-
-Check benchmark-removal, natural-object, normal scope, story invariance and venue-scale comparators.
-
-Do not require three mechanism theories. A simple new object can be paper-scale if it is broad, important/surprising, separable from confounds, and causally usable.
-
-## Stage 3 — deepest strongest-neighbor audit: N0 / N1 / N2
-
-### N0 — object ownership
-
-Has prior neural/LLM work already asked the same scientific question? Read methods, factors, appendices and discussion, not titles only.
-
-### N1 — causal occupancy
-
-Has prior work already performed the decisive factorization/intervention?
-
-### N2 — delta width
-
-Is the remaining contribution a new object/axis/phenomenon, or merely:
-
-```text
-old behavior/representation
-→ modern open model
-→ stronger MI method
-```
-
-The latter is normally kill.
-
-Canonical lesson: **object ownership, not title ownership.**
-
-041 is a useful N2 example: old reference-resolution/pragmatics work already owns distractor elimination, modifier informativeness and redundancy. Its surviving delta is specifically an **abstract context-conditioned modifier set-restriction role**, with cross-family causal transfer and property-truth preservation. If experiments collapse back to `informative adjectives matter`, 041 dies.
-
-## Stage 4 — route-aware substrate / existence
-
-### Route A
-
-Need independent axis B, natural cross-cells, row-level auditable substrate, and a legitimate extension of the mother recipe.
-
-### Route B
-
-Need established exact behavior on analyzable models and real competing computations.
-
-### Route C
-
-**Do not require an exact published Llama/Qwen phenotype as a universal hard gate.**
-
-Legal anchors include:
-
-- deterministic externally established semantic/cognitive axis;
-- natural human substrate with non-LLM labels/manipulations;
-- public behavior/released outputs;
-- strong prior evidence that analyzable open models can engage the domain.
-
-A frozen cheap capability/S0 check is legal after registration if the question already exists independently and a null cannot trigger topic rewriting.
-
-Thus:
-
-```text
-no exact modern-open published phenotype != automatic kill
-```
-
-But:
-
-```text
-no external object/substrate + GPU sweep to see whether anything interesting appears = behavior lottery
-```
-
-040 and 041 are canonical Route-C examples.
-
-## Stage 5 — confound identifiability
-
-Write the strongest superficial alternative and design a way to separate it.
-
-Examples:
-
-- 040: determiner cue, repetition, recency, ordinary coreference, semantic/type similarity;
-- 038: generic ambiguity detection vs candidate-specific unresolved representation;
-- 036: syntax/`like` token vs comparison/categorization processing route;
-- 041: raw scene facts / active-candidate identity / lexical position vs an abstract context-conditioned modifier role.
-
-If measurement cannot identify the headline object, question may survive but GPU pauses.
-
-## Stage 6 — minimal causal-use contract
-
-For Route A/C, one strong falsifiable causal question is enough at registration.
-
-Typical form:
-
-> Is X merely decodable, or does changing X while controlling obvious correlates alter an X-sensitive downstream decision?
-
-Required:
-
-- negative/random/shuffled controls;
-- no best-layer cherry-picking as primary result;
-- intervention tied to the natural object;
-- decodability alone cannot carry the paper.
-
-041's frozen form is:
-
-```text
-SetRestrictionRole intervention
-→ changes modifier-specific referent narrowing / ReferentMargin
-while preserving PropertyTruthLogit
-```
-
-## Stage 7 — PASS registration
-
-```yaml
-natural_question: pass
-paper_scale: pass
-N0_N1_N2: pass
-substrate: auditable
-central_confound: identifiable
-story_invariance: pass
-causal_use_question: frozen enough
-execution_not_behavior_lottery: true
-```
-
-GPU then answers the frozen question; it does not discover what the paper should be about.
-
----
-
-# After PASS: how a phenomenon becomes a full paper
-
-Read `PAPER_EXPANSION_REFERENCE_2026-09-01.md`.
-
-Evidence-backed ladder:
-
-```text
-phenomenon / natural object
-→ broad characterization / clean controls
-→ abstraction / cross-setting transfer
-→ causal use and specificity
-→ mechanism-derived falsifiable prediction
-→ targeted behavioral confirmation
-→ optional mitigation / architecture generalization
-```
-
-Do not pre-register speculative later stages before earlier evidence earns them.
-
-For 040:
-
-```text
-identity double dissociation
-→ cross-surface/domain abstraction
-→ causal token-history transfer while preserving type knowledge
-→ only then: mechanism-derived new failure prediction
-→ targeted verification
-→ optional correction and architecture generalization
-```
-
-For 041:
-
-```text
-same-world modifier-role double dissociation
-→ cross-lexical/domain/surface abstraction
-→ causal referent-narrowing specificity while preserving property truth
-→ only then: mechanism-derived new failure prediction
-→ targeted verification
-→ optional mitigation/generalization
-```
-
----
-
-# Target-reached discipline
-
-The fresh target is now **5/5**. This changes the default action, not the standard:
-
-1. do not keep generating candidates merely because search is enjoyable;
-2. do not force-repair 036 to make it a sixth topic;
-3. do not routine re-audit frozen PASSes;
-4. move to frozen cheap S0 / causal execution, or prioritize the five topics;
-5. reopen search only if the user explicitly asks for more topics or a genuinely fatal collision removes a registered topic.
-
-Count never protects a topic. If a new direct collision appears, remove it honestly and return to search.
-
----
-
-## One-line flow
+# Base funnel — still mandatory
 
 ```text
 natural object
 → semantic dedupe
 → paper scale
-→ deepest object-ownership audit
-→ route-aware real substrate
-→ confound identifiability
-→ minimal causal-use contract
+→ strongest-neighbor N0/N1/N2
+→ real substrate / deterministic gold
+→ central confound identifiability
+→ causal-use contract
 → PASS
-→ evidence-based paper expansion
 ```
 
-> **Current honest state: 5/5. Target reached without relaxing Route-C novelty or identifiability. Stop fresh count-filling search by default.**
+Route C remains legal without an exact published Llama/Qwen phenotype when the scientific object and deterministic substrate exist independently. GPU may not discover/rewrite the paper question.
+
+---
+
+# Strict extension funnel for any future 042+ style topic
+
+After the base 5/5 was reached, the bar was explicitly raised.
+
+## S1 — exact object must still be new
+
+Search old RNN/BERT/ELMo, recent 2024–2026 behavior/internal work, and methods/appendices.
+
+If prior work owns the same scientific object and the only delta is mechanism/tool/model, kill.
+
+## S2 — orthogonal object, not just a narrower label
+
+The new question must factor something that prior behavior did not already own.
+
+## S3 — preserved neighboring capability
+
+Freeze an intervention of the form:
+
+```text
+change object-sensitive downstream decision
+while preserving the raw fact/content/capability from which the object is computed
+```
+
+If the intervention merely deletes the underlying information, fail.
+
+## S4 — pass at least two strict locks
+
+### Lock A
+
+Same-surface / role-swap / orthogonal cross-case where the object changes while the strongest obvious lexical/content correlate is held fixed.
+
+### Lock B
+
+Held-out transfer across at least two meaningful setting families: lexical, constructional, discourse-domain, language, or task/readout.
+
+### Lock C
+
+Two independent theory-grounded consequences fixed before MI. One successful metric cannot identify the object if the second fails.
+
+## S5 — no metric shopping
+
+If Lock C is used, exact diagnostics are frozen before GPU.
+
+Examples:
+
+- 044: `SituationBoundLogit` + `DepictiveCompatibilityLogit`.
+- 045: `TargetVsSatisfierMargin` + `DescriptionEssentialityLogit`.
+
+---
+
+# Live strict examples
+
+## 042
+
+Orthogonal uniqueness × strong-familiarity 2×2.
+
+Strong familiarity means explicit discourse re-mention, not simple antecedent existence.
+
+Preserve:
+
+```text
+CandidateStructureLogit
+DialogueMentionFactLogit
+EntityPresenceLogit
+```
+
+## 044
+
+Same adjective can shift IL/SL reading; permanent/temporary shortcuts are directly falsified.
+
+Exact consequences:
+
+```text
+SituationBoundLogit
+DepictiveCompatibilityLogit
+```
+
+Preserve `PropertyTruthLogit`.
+
+## 045
+
+Same description switches REFERENTIAL vs ATTRIBUTIVE use by context.
+
+Exact consequences:
+
+```text
+TargetVsSatisfierMargin
+DescriptionEssentialityLogit
+```
+
+Preserve speaker-target fact, description truth and entity facts.
+
+---
+
+# 043 as canonical strict-gate downgrade
+
+043 is scientifically interesting but not registered.
+
+Why this matters:
+
+- previous PASS status did not protect it;
+- formal-theory gold was less theory-neutral than first assumed;
+- available substrate did not solve the lexical-predicate confound strongly enough;
+- Lock A was not genuinely satisfied.
+
+This is now the canonical example of the stricter rule:
+
+> **multiple plausible diagnostics + held-out lexical controls are not automatically equivalent to a genuine orthogonal factorization.**
+
+Do not run GPU until a resurrection condition in its README is satisfied.
+
+---
+
+# Failure-memory discipline
+
+Before any new serious search:
+
+```text
+one-sentence scientific object
+→ 5–10 aliases
+→ canonical failure index
+→ individual rejection/archive records
+→ strongest-neighbor body/appendix
+```
+
+Recent strict deaths:
+
+- focus/background information structure;
+- permission vs ability / deontic vs dynamic modal sense.
+
+Backbone/dataset/language/probe/SAE/steering/patching changes do not create novelty.
+
+---
+
+# After PASS
+
+Use `PAPER_EXPANSION_REFERENCE_2026-09-01.md`:
+
+```text
+phenomenon/object
+→ broad controls
+→ abstraction/transfer
+→ causal specificity
+→ mechanism-derived falsifiable prediction
+→ targeted confirmation
+→ optional mitigation/generalization
+```
+
+Do not pre-invent later stages.
+
+## One-line flow
+
+> **Base v2.1 remains simplicity-first. The strict extension adds a higher requirement: orthogonal object + preserved-content causal specificity + hard transfer/diagnostic locks. Current honest total is 8 registered; 043 is paused, not counted.**
