@@ -1,15 +1,15 @@
 # Active Projects
 
-`active/` may contain PASS projects and serious HARD-AUDIT projects. Physical directory presence is **not** authorization. Authority is root README + `phenomenon_miner/FINDING_RULES.md` + current handoff.
+`active/` may contain PASS projects and serious HARD-AUDIT projects. Physical directory presence is **not authorization**. Authority is root README + `phenomenon_miner/FINDING_RULES.md` + current handoff.
 
 ## Fresh authoritative PASS register
 
 ```yaml
-CURRENT_FRESH_ACTIVE_TOPICS: 3
-CURRENT_FRESH_PASS_REGISTER: 3
+CURRENT_FRESH_ACTIVE_TOPICS: 4
+CURRENT_FRESH_PASS_REGISTER: 4
 CURRENT_HARD_AUDIT_TOPICS: 1
 fresh_register_target: 5
-fresh_register_status: OPEN_AFTER_039_KILL_AND_036_DEMOTION
+fresh_register_status: OPEN_ONE_SLOT
 required_protocol: PAPER-SCALE v2.1
 ```
 
@@ -17,32 +17,55 @@ required_protocol: PAPER-SCALE v2.1
 |---|---|---|
 | [`034_prospective_memory_retrieval_architecture`](034_prospective_memory_retrieval_architecture/) | **PASS-REGISTER / GPU AUTHORIZED / FROZEN** | strategic monitoring vs spontaneous cue-triggered retrieval vs dynamic switching |
 | [`035_shared_dynamic_context_update`](035_shared_dynamic_context_update/) | **PASS-REGISTER / GPU AUTHORIZED / FROZEN** | shared dynamic local-context update across anaphora and presupposition |
-| [`038_unresolved_reference_representation_architecture`](038_unresolved_reference_representation_architecture/) | **PASS-REGISTER / GPU AUTHORIZED — HARD RE-AUDIT PASSED** | parallel candidate referents vs underspecification vs premature commitment |
+| [`038_unresolved_reference_representation_architecture`](038_unresolved_reference_representation_architecture/) | **PASS-REGISTER / GPU AUTHORIZED / HARD RE-AUDIT PASSED** | alternatives vs underspecification vs premature commitment |
+| [`040_numerical_identity_vs_qualitative_sameness`](040_numerical_identity_vs_qualitative_sameness/) | **PASS-REGISTER / GPU AUTHORIZED** | literally same individual vs merely same kind/properties; causal history-transfer test frozen |
 
 ## Hard audit — not counted
 
 | project | status | decisive issue |
 |---|---|---|
-| [`036_metaphor_processing_route_selection`](036_metaphor_processing_route_selection/) | **CONTINUE-PAPER-SCALE / GPU PAUSED / NOT PASS-REGISTER** | exact selector question survives novelty, but former metaphor↔simile causal statistic does not uniquely identify comparison vs categorization |
+| [`036_metaphor_processing_route_selection`](036_metaphor_processing_route_selection/) | **CONTINUE-PAPER-SCALE / GPU PAUSED / NOT PASS-REGISTER** | exact selector question survives novelty, but route-identification metric is not yet clean enough |
 
-036 may re-enter only after a preregistered route-calibration contract uses at least two independent theory-grounded diagnostics, with at least one not defined by grammatical metaphor/simile form.
+036 may re-enter only after at least two independent theory-grounded route signatures are frozen, including one not defined by metaphor/simile grammatical form.
 
 ## Archived after registration
 
 - `037_generic_generalization_licensing` — **KILL-NOVELTY**.
-- `039_same_kind_vs_go_together_semantic_relation` — **KILL-NOVELTY** after deeper object-ownership audit; stronger causal MI was not enough to create a new scientific object.
+- `039_same_kind_vs_go_together_semantic_relation` — **KILL-NOVELTY** after deeper object-ownership audit.
 
-See:
+## 040 hard boundary
 
-- `../rejected_candidates/taxonomic_vs_thematic_relation_type_n2_collision_2026-09-01.md`
-- `../phenomenon_miner/HARD_REAUDIT_REGISTER_2026-09-01.md`
+040 is **not** generic entity tracking. It survives only as the abstract numerical-identity question:
 
-## v2.1 calibration
+```text
+same individual despite large qualitative/state change
+vs
+different individual despite same type / near-identical qualities
+```
 
-> **Simple new object can be strong. Simple already-owned object + better MI is still weak novelty. A natural question with an underidentified causal test is also not GPU-ready.**
+Fatal collapse conditions include:
 
-Current honest state: **3/5 PASS + 1 hard-audit lead**. Do not count-fill.
+- only `the` vs `another` lexical effects;
+- generic coreference/binding fully explains the result;
+- no cross-surface abstraction;
+- intervention changes type/category knowledge as much as token-specific history;
+- result reduces to Davis–Altmann 2021 event-specific RNN sensitivity.
 
-## Existing older work
+## Paper-building reference
 
-`014_alias_entrainment_transfer` remains established/paper-development work and is separate from the fresh register.
+After a topic survives selection, use `../phenomenon_miner/PAPER_EXPANSION_REFERENCE_2026-09-01.md` for evidence-based expansion toward Main-paper scale:
+
+```text
+phenomenon
+→ generalization / abstraction
+→ causal specificity
+→ mechanism-derived prediction
+→ behavioral verification
+→ optional mitigation / architecture generalization
+```
+
+## Current state
+
+**4/5 PASS + 1 hard-audit lead. Remaining genuine PASS needed: 1. Do not count-fill.**
+
+`014_alias_entrainment_transfer` remains older established/paper-development work and is separate from the fresh register.
