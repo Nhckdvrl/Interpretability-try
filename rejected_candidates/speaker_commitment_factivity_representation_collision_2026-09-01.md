@@ -25,7 +25,7 @@ Pan & Bergen, **“Are explicit belief representations necessary? A comparison b
 
 That makes an internal `speaker commitment / factivity direction` project too close to the same scientific object. The remaining novelty would mostly be replacing behavioral/model comparison with causal MI, which fails N2.
 
-Source: https://aclanthology.org/2025.naacl-long.442/
+Source: https://aclanthology.org/2025.naacl-long.572/
 
 ## Strongest-neighbor warning
 
