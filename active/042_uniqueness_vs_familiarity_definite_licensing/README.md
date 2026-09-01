@@ -1,169 +1,117 @@
-# 042 — Why Is “the X” Licensed? Uniqueness vs Familiarity in LLM Definiteness
+# 042 — Why Is “the X” Licensed? Uniqueness vs Strong Familiarity
 
-Status: **STRICT-PASS-REGISTER / GPU AUTHORIZED**  
+Status: **STRICT-PASS-REGISTER / GPU AUTHORIZED / HARD RE-AUDIT PASSED**  
 Date: 2026-09-01  
-Route: **A/C hybrid — mature omitted semantic axis + simple latent object**  
+Route: **A/C hybrid — mature semantic axis + causal source factorization**  
 Protocol: `FINDING_RULES.md` v2.1 + `STRICT_EXTENSION_GATE_2026-09-01.md`
 
 ## A. Frozen natural question
 
-> **When an LLM understands a phrase like “the door”, does it know whether that definite description works because only one door fits, or because the intended door is already familiar from the discourse?**
+> **When an LLM understands a phrase like “the door”, does it know whether the definite description is licensed because exactly one door fits, or because the intended door has been made strongly familiar in the discourse?**
 
-These are two classic but different sources of definiteness:
+Frozen factors:
 
-- **UNIQUENESS** — exactly one contextually relevant entity satisfies the description;
-- **FAMILIARITY** — the intended entity is discourse-familiar / already introduced.
+- **UNIQUENESS** — exactly one contextually relevant entity satisfies the descriptive content;
+- **STRONG FAMILIARITY** — the intended referent has been explicitly established/re-mentioned in the relevant interlocutor discourse strongly enough to support anaphoric pickup.
 
-The crucial natural cross-cases are:
+Critical cross:
 
 ```text
-unique but unfamiliar
+unique but not strongly familiar
 vs
-familiar but non-unique
+non-unique but strongly familiar
 ```
 
-The project asks whether modern LLMs maintain and causally use these two licensing sources separately rather than collapsing them into one generic `definite / salient referent` signal.
+This is not an article-prediction paper and not a generic coreference/salience paper.
 
----
+## B. Why the familiarity wording was tightened
 
-## B. Independent scientific object
+Srinivas, Rawlins & Heller (SALT 2020/2021) provide the primary human 2×2. Their stories contain two potential referents and orthogonally manipulate uniqueness and familiarity while keeping the critical final definite condition-matched.
 
-The uniqueness-vs-familiarity debate predates neural language models by many decades. Russell/Frege-style accounts emphasize unique satisfaction; Heim/Kamp-style dynamic accounts emphasize familiarity/discourse referents; hybrid and strong/weak-definite theories use both in different ways.
+A second hard audit found an important precision issue: the potential referents are already linguistically introduced in the broader story setup. The `+Familiarity` manipulation is therefore **not** simply `antecedent exists vs antecedent absent`. It makes the target strongly discourse-familiar through explicit interlocutor mention/re-mention before the critical definite.
 
-The strongest controlled human anchor is Srinivas, Rawlins & Heller, *Asymmetries between uniqueness and familiarity in the semantics of definite descriptions* (SALT 2020/2021 publication). They orthogonally manipulate:
+Thus 042 must not operationalize familiarity as generic memory for whether an entity ever occurred in context.
 
-```text
-Uniqueness:   unique / non-unique matching referent
-Familiarity:  previously mentioned / not previously mentioned
-```
+The external result remains strong: uniqueness and familiarity independently affect comprehension/production, but familiarity is a weaker cue than uniqueness. The two sources are behaviorally separable.
 
-while keeping the critical final definite description constant across conditions.
-
-Their comprehension/production results show an important asymmetry: familiarity helps, but is weaker than uniqueness. Thus the two cues are empirically separable rather than merely two labels for the same successful reference condition.
-
-Cross-linguistic semantics strengthens the reality of the distinction: some languages morphosyntactically distinguish uniqueness-based from anaphoric/familiarity-based definiteness, and recent Mandarin bridging work explicitly teases apart uniqueness and familiarity mechanisms.
-
----
-
-## C. Strongest computational neighbors — N0 / N1 / N2
+## C. Strongest-neighbor audit
 
 ### C1 — NAACL 2022 BERT article-system work
 
-`Abstraction not Memory: BERT and the English Article System` evaluates BERT on three-way article prediction (`a/an`, `the`, zero) and argues that BERT captures high-level article-use generalization rather than merely memorizing corpus strings.
+`Abstraction not Memory: BERT and the English Article System` studies `a/an` vs `the` vs zero article prediction and abstract generalization.
 
-**Occupies:** article choice / abstract article-system competence in BERT.
+**Occupies:** neural article-system competence.  
+**Does not occupy:** orthogonal uniqueness × strong-familiarity source states or source-selective causal crossover.
 
-**Does not occupy:** orthogonal uniqueness × familiarity factorization, source-specific internal states, or source-specific causal intervention.
+042 dies if it reduces to `models know when to predict the`.
 
-Therefore 042 may not claim novelty as `BERT/LLMs understand definiteness or the article the`.
+### C2 — coreference / discourse salience
 
-### C2 — computational coreference / discourse models
+Prior models use mention history, salience, uniqueness and compatibility to resolve reference.
 
-Coreference and discourse models obviously exploit prior mention, salience, candidate uniqueness and lexical compatibility.
+**Occupies:** cue use for reference.  
+**Does not automatically occupy:** whether uniqueness and strong familiarity form separable *licensing-source states* when crossed while the raw source facts are preserved.
 
-**Occupy:** reference resolution using these cues.
+042 dies if it becomes `which cue matters more for coreference`.
 
-**Do not automatically occupy:** whether the *same definite licensing judgment* contains separable uniqueness-source and familiarity-source states with distinct causal roles when the factors conflict.
+### C3 — modern definiteness/bridging work
 
-If 042 only becomes `which cue matters more for coreference`, kill N2.
+Recent formal/experimental work continues to tease apart uniqueness and familiarity, especially through bridging/relational definites. This strengthens the naturalness and cross-setting path but is not neural causal ownership of the source factorization.
 
-### C3 — 038 / 035 overlap warning
+### C4 — exact N2
 
-- 038 asks how a **still-unresolved reference** is internally represented.
-- 035 asks whether anaphora and presupposition share a **dynamic local-context update**.
-- 042 asks a different factorization: **what licenses a definite description when uniqueness and familiarity are crossed?**
+> **Modern LLMs maintain causally separable uniqueness-source and strong-familiarity-source states that transfer across discourse realizations and differentially license definite reference while preserving the raw candidate-structure and discourse-mention facts from which those sources are computed.**
 
-042 may not retreat into ambiguity architecture or generic dynamic-context representation.
+No direct neural/LLM causal ownership of this exact object was found in the hard search.
 
-### C4 — exact N2 delta
+## D. Strict extension locks
 
-The required contribution is:
-
-> **A causally separable pair of definite-licensing sources — uniqueness and familiarity — that generalize across lexical/discourse realizations and control definite/referent licensing while preserving the raw candidate-count and antecedent-memory facts from which those sources are computed.**
-
-No strongest-neighbor search found a neural/LLM paper directly owning this factorization and causal-use question.
-
----
-
-## D. Strict Extension Gate
-
-### Lock A — orthogonal 2×2 identifiability: PASS
-
-Use the human-established four cells:
+### Lock A — orthogonal 2×2: PASS
 
 ```text
-U- F-  # nonunique + unfamiliar
-U- F+  # nonunique + familiar
-U+ F-  # unique + unfamiliar
-U+ F+  # unique + familiar
+U- F-
+U- F+
+U+ F-
+U+ F+
 ```
 
-The decisive comparison is not `the` vs `a`. It is:
-
-```text
-unique-but-unfamiliar
-vs
-familiar-but-nonunique
-```
-
-which forces the two sources apart.
-
-Critical final definite description is held constant inside each item family.
+The decisive source conflict is `U+F-` vs `U-F+`, not `the` vs `a`.
 
 ### Lock B — cross-setting abstraction: PASS
 
-Required transfer across at least:
+Mandatory transfer across at least:
 
-1. ordinary English definite descriptions;
-2. bridging / relational definites where antecedent mention and uniqueness can be manipulated separately;
-3. held-out lexical/domain families;
-4. optional cross-lingual validation in a language whose nominal forms independently distinguish relevant definiteness sources.
+1. original-style ordinary definite descriptions;
+2. bridging / relational definite contexts where uniqueness and anaphoric familiarity can be separated;
+3. held-out noun/domain families;
+4. held-out discourse wording and mention-position families.
 
-### Lock C — two independent consequences: available but not required
+Cross-lingual morphology may strengthen the paper later but is not needed to define novelty.
 
-Two theory-grounded downstream consequences can be used:
+### Lock C — two consequences: AVAILABLE / strengthening
 
-- definite-form / licensing preference;
-- candidate-specific referent resolution under source conflict.
+- `DefiniteLicensingLogit`;
+- candidate-specific `ReferentMargin` under source conflict.
 
-042 already passes A+B, but both readouts should be reported when feasible.
-
----
+042 already passes strict A+B; both should still be reported when feasible.
 
 ## E. Substrate
 
-### E1 — human 2×2 comprehension materials
+### E1 — human 2×2
 
-The Srinivas–Rawlins–Heller paradigm uses 32 story families with two potential referents and orthogonal uniqueness/familiarity manipulation. The critical final definite remains condition-matched.
+Primary anchor: Srinivas–Rawlins–Heller, 32 story families, each instantiated in the four uniqueness/familiarity conditions. Critical definite descriptions are matched within item families.
 
-This is the primary human semantic anchor.
+### E2 — deterministic causal microscope
 
-### E2 — deterministic controlled clones
+Create theory-licensed clones with two or more explicit candidate entities.
 
-For scalable causal analysis, create theory-licensed discourse worlds from the same 2×2:
+Uniqueness is manipulated by how many candidates satisfy the critical descriptive content.
 
-```text
-entities: A, B
-shared noun class: door / cup / technician / etc.
+Strong familiarity is manipulated by whether the target is explicitly selected/re-mentioned in the interlocutor dialogue, **while all entities remain represented in the broader context**.
 
-Uniqueness manipulation:
-  only A satisfies target description
-  vs A and B both satisfy it
+This mirrors the human distinction more faithfully than deleting an antecedent entirely.
 
-Familiarity manipulation:
-  A previously explicitly introduced
-  vs A not previously introduced
-```
-
-Gold candidate count and mention history are deterministic. No LLM judge.
-
-The synthetic extension is a microscope; it does not define the distinction.
-
-### E3 — independent naturalistic validation
-
-Recent work on bridging and cross-linguistic definiteness supplies contexts where uniqueness and familiarity mechanisms can be independently licensed. Use only released/reconstructible stimuli whose source factor is theory-defined.
-
----
+Gold is deterministic. No LLM judge.
 
 ## F. Frozen S0
 
@@ -172,165 +120,143 @@ Primary models:
 - `meta-llama/Llama-3.1-8B-Instruct`
 - `Qwen/Qwen3-8B`
 
-### S0-1 — raw capability denominators
+### F1 — raw source-fact denominators
 
-Before any source claim, verify deterministic competence on:
-
-- `CandidateCountLogit`: whether one or multiple candidates satisfy the description;
-- `AntecedentRecallLogit`: whether the intended entity was previously introduced;
-- basic target identity under unconflicted U+F+ cases.
-
-### S0-2 — licensing-source double dissociation
-
-Use forced candidate/article scoring, not free-form LLM judges.
-
-Primary behavioral quantities:
+Before source claims, require intact:
 
 ```text
-DefiniteLicensingLogit = log P(definite continuation) - log P(indefinite/repair continuation)
+CandidateStructureLogit
+  # which/how many candidates satisfy the description
 
-ReferentMargin = log P(intended referent) - log P(competing referent)
+DialogueMentionFactLogit
+  # whether the target received the explicit strong-familiarity re-mention/manipulation
+
+EntityPresenceLogit
+  # both candidates are still represented/remembered
+```
+
+`AntecedentRecallLogit` is no longer the primary familiarity denominator because mere prior occurrence does not identify the human manipulation.
+
+### F2 — licensing-source behavior
+
+```text
+DefiniteLicensingLogit =
+  log P(definite continuation)
+  - log P(indefinite/repair continuation)
+
+ReferentMargin =
+  log P(intended referent)
+  - log P(competing referent)
 ```
 
 Required qualitative structure:
 
-- U+F- should receive substantial licensing from uniqueness without antecedent familiarity;
-- U-F+ should show familiarity-driven recovery despite non-unique descriptive content;
-- U-F- should be weakest;
-- U+F+ provides the aligned control.
+- U+F-: uniqueness can license despite lack of strong dialogue familiarity;
+- U-F+: strong familiarity can help despite descriptive non-uniqueness;
+- U-F-: weakest source configuration;
+- U+F+: aligned control.
 
-The paper does not require LLM behavior to match the exact human cue weighting; all stable outcomes answer the same question.
+The model need not reproduce human weighting exactly.
 
-### S0-3 — shortcut controls
+### F3 — mandatory salience controls
 
-Balance/reverse:
+Balance or independently manipulate:
 
+- recency;
+- raw mention count;
+- grammatical subject/object position;
+- entity order;
 - noun repetition;
-- antecedent recency;
-- candidate order;
-- lexical description length;
-- entity names;
-- discourse wording.
+- description length;
+- speaker identity;
+- candidate naming.
 
-If the cross-cells collapse after these controls, terminate the current model scope.
-
----
+If `+F` is reducible to raw recency or extra token count, no abstract familiarity-source claim.
 
 ## G. Frozen causal-use contract
 
-### G1 — estimate source-specific states
+### G1 — uniqueness source
 
-Estimate candidate `UniquenessSource` and `FamiliaritySource` directions/subspaces from balanced training items while controlling raw source facts.
+Estimate `UniquenessSource` on balanced training families.
 
-Discovery and test splits are disjoint in nouns/domains and discourse templates.
-
-### G2 — uniqueness intervention
-
-On held-out U+F- vs matched controls:
+On held-out U+F- items:
 
 ```text
 attenuate / swap UniquenessSource
 → change definite/referent licensing
-while preserving CandidateCountLogit
+while preserving CandidateStructureLogit
 ```
 
-If the edit merely makes the model forget how many matching candidates exist, the uniqueness-source claim fails.
+If candidate counting itself is damaged, fail specificity.
 
-### G3 — familiarity intervention
+### G2 — strong-familiarity source
 
-On held-out U-F+ vs matched controls:
+Estimate `StrongFamiliaritySource` while explicitly controlling recency, mention count and raw entity memory.
+
+On held-out U-F+ items:
 
 ```text
-attenuate / swap FamiliaritySource
+attenuate / swap StrongFamiliaritySource
 → change definite/referent licensing
-while preserving AntecedentRecallLogit
+while preserving:
+   DialogueMentionFactLogit
+   EntityPresenceLogit
 ```
 
-If the edit merely deletes the antecedent entity from memory, the familiarity-source claim fails.
+If the intervention simply erases the re-mention event or the entity, fail specificity.
 
-### G4 — source-selective crossover
-
-The decisive statistic is a `Source × Intervention` interaction:
+### G3 — decisive crossover
 
 ```text
 UniquenessSource edit:
-  larger effect when uniqueness is the active licensing source
+  larger source-specific effect when uniqueness is the active licensing source
 
-FamiliaritySource edit:
-  larger effect when familiarity is the active licensing source
+StrongFamiliaritySource edit:
+  larger source-specific effect when strong familiarity is the active licensing source
 ```
 
-with random/shuffled directions, matched raw-fact directions and generic coreference controls.
-
-### G5 — strongest superficial alternative
-
-A generic `salience / easy reference` direction could correlate with both factors. Therefore a PASS result requires source-specific crossover and preservation denominators, not merely linear separability of U/F labels.
-
----
+Require matched raw-fact directions, generic salience/coreference directions, random and shuffled controls.
 
 ## H. Story invariance
 
-### Result A — separable licensing sources
+- **A — separable sources:** two reusable causal licensing sources.
+- **B — one source dominates:** both raw facts understood, but only one source becomes a reusable licensing computation.
+- **C — salience collapse:** source behavior reduces to recency/coreference/easy-reference heuristics despite intact raw facts.
 
-Modern LLMs maintain distinct, abstract uniqueness and familiarity signals and use them differentially to license definite reference.
-
-### Result B — one source dominates
-
-Both raw facts are understood, but only one source forms a reusable causal licensing state; this provides model evidence relevant to the long-standing asymmetry debate.
-
-### Result C — collapsed salience/reference heuristic
-
-After controls, the model has no separable source states; definiteness behavior reduces to generic referent salience/ease despite knowing candidate count and mention history.
-
-All three answer the same headline question.
-
----
+All outcomes answer the same headline.
 
 ## I. Hard kills
 
-1. New direct neural/LLM collision that already factorizes uniqueness × familiarity internally and causally -> `KILL-NOVELTY`.
-2. Only `the` article prediction is shown -> `KILL-N2` relative to NAACL 2022.
-3. Familiarity state is just antecedent/coreference memory and fails preservation -> `KILL-IDENTIFIABILITY`.
-4. Uniqueness state is just candidate counting and fails preservation -> `KILL-IDENTIFIABILITY`.
-5. Both states reduce to generic salience/confidence -> no source-specific claim.
-6. Cross-lexical/discourse transfer fails -> no abstract source claim.
-7. Best-layer/probe-only result -> `KILL-SCALE`.
-8. Failed frozen S0 cannot be repaired through prompt/subset search.
+1. Direct neural/LLM uniqueness × familiarity causal factorization found -> `KILL-NOVELTY`.
+2. Only article prediction -> `KILL-N2`.
+3. Familiarity effect is raw recency/mention count -> `KILL-IDENTIFIABILITY`.
+4. Familiarity intervention erases target/entity or raw dialogue-mention fact -> `KILL-SPECIFICITY`.
+5. Uniqueness intervention destroys candidate structure -> `KILL-SPECIFICITY`.
+6. Both source states collapse to generic salience/confidence -> no source claim.
+7. No held-out discourse/domain transfer -> no abstract source claim.
+8. Probe/best-layer only -> `KILL-SCALE`.
+9. Failed S0 cannot be rescued by prompt/subset search.
 
----
-
-## J. Venue-scale comparison
-
-- **NAACL 2025 property-inference theory paper:** a classic cognitive factorization remains the scientific object; model evidence adjudicates rather than invents it.
-- **EMNLP 2025 Outstanding filler-gap:** cross-setting causal transfer is required to call an internal representation abstract.
-- **ACL 2026 Tool Irrelevance:** two natural factors are orthogonalized and causal pathway specificity is tested while preserving generic capability.
-- **NAACL 2022 BERT article system:** establishes that neural models can capture abstract article-use regularities, but does not own the uniqueness-vs-familiarity source factorization.
-
----
-
-## K. Strict registration verdict
+## J. Strict verdict
 
 ```yaml
-base_FINDING_RULES_v2_1: PASS
-route: A/C
-new_orthogonal_object_or_axis: PASS
-old_neural_object_ownership: CLEAR_FOR_SOURCE_FACTORIZATION
-recent_LLM_object_ownership: CLEAR_FOR_SOURCE_FACTORIZATION
-external_human_2x2: PASS
-model_independent_gold: PASS
-Lock_A_orthogonal_factorization: PASS
-Lock_B_cross_setting_abstraction: PASS
-Lock_C_two_consequences: AVAILABLE
+base_v2_1: PASS
+human_orthogonal_2x2: PASS
+familiarity_definition_corrected: STRONG_DISCOURSE_FAMILIARITY
+N0_N1_N2: PASS_AFTER_SECOND_AUDIT
+Lock_A: PASS
+Lock_B: PASS
+Lock_C: AVAILABLE
 specificity_denominators:
-  - CandidateCountLogit
-  - AntecedentRecallLogit
-central_confound_identifiable: PASS_WITH_HARD_KILLS
+  - CandidateStructureLogit
+  - DialogueMentionFactLogit
+  - EntityPresenceLogit
+central_salience_confound: IDENTIFIABLE_WITH_HARD_KILL
 story_invariance: PASS
-behavior_lottery: false
 verdict: STRICT-PASS-REGISTER
 GPU_AUTHORIZED: true
 ```
 
 ## One-line freeze
 
-> **042 asks whether modern LLMs distinguish and causally use two classic sources of definiteness — uniqueness and discourse familiarity — rather than merely predicting `the` or resolving a salient referent. The source intervention must change definite/referent licensing while preserving the raw candidate-count or antecedent-memory fact that licenses it.**
+> **042 asks whether LLMs causally separate uniqueness from strong discourse familiarity as two sources of definite licensing. Familiarity is not mere antecedent recall: source interventions must change licensing while preserving candidate structure, the explicit dialogue re-mention fact, and entity memory.**
