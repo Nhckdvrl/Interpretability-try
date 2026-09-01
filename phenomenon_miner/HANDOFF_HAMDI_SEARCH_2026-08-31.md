@@ -1,27 +1,27 @@
 # Hamdi-Style Topic Search — Current Handoff
 
 Date: 2026-09-01  
-Status: **AUTHORITATIVE CURRENT STATE — 4/5 PASS**
+Status: **AUTHORITATIVE CURRENT STATE — 5/5 PASS / TARGET REACHED**
 
 ```yaml
-CURRENT_FRESH_PASS_REGISTER: 4
-CURRENT_FRESH_ACTIVE_TOPICS: 4
+CURRENT_FRESH_PASS_REGISTER: 5
+CURRENT_FRESH_ACTIVE_TOPICS: 5
 CURRENT_HARD_AUDIT_TOPICS: 1
 fresh_register_target: 5
-remaining_needed: 1
+remaining_needed: 0
 required_protocol: PAPER-SCALE v2.1
 registered_projects:
   - 034_prospective_memory_retrieval_architecture
   - 035_shared_dynamic_context_update
   - 038_unresolved_reference_representation_architecture
   - 040_numerical_identity_vs_qualitative_sameness
+  - 041_contextual_set_restriction
 hard_audit_not_registered:
   - 036_metaphor_processing_route_selection
 archived_after_registration:
   - 037_generic_generalization_licensing
   - 039_same_kind_vs_go_together_semantic_relation
-current_search_style: simplicity-first + semantic dedupe + deepest object-ownership audit
-current_task: find exactly one more genuine PASS without count filling; 036 may re-enter only if identifiability is truly repaired
+fresh_search_status: STOP_BY_DEFAULT_TARGET_REACHED
 ```
 
 ## Mandatory reads next turn
@@ -32,95 +32,123 @@ current_task: find exactly one more genuine PASS without count filling; 036 may 
 4. `phenomenon_miner/CURRENT_SEARCH_FLOW_2026-09-01.md`
 5. `rejected_candidates/CANONICAL_FAILURE_INDEX_2026-09-01.md`
 6. `phenomenon_miner/HARD_REAUDIT_REGISTER_2026-09-01.md`
-7. active 034 / 035 / 036 / 038 / 040 READMEs
+7. active 034 / 035 / 036 / 038 / 040 / 041 READMEs
 8. `active/038_unresolved_reference_representation_architecture/HARD_REAUDIT_2026-09-01.md`
 9. `phenomenon_miner/PAPER_EXPANSION_REFERENCE_2026-09-01.md`
 10. `phenomenon_miner/NEXT_AGENT_PROMPT_2026-09-01.md`
 
-## 034 / 035
+## Frozen PASS register
 
-**PASS-REGISTER / GPU AUTHORIZED / FROZEN.** Do not rewrite headlines absent a new fatal collision.
+### 034
 
-## 038
+**PASS-REGISTER / GPU AUTHORIZED / FROZEN.**
 
-**PASS-REGISTER / GPU AUTHORIZED / HARD RE-AUDIT PASSED.**
+Future intentions: strategic monitoring vs spontaneous cue-triggered retrieval vs dynamic switching.
 
-Frozen question:
+### 035
+
+**PASS-REGISTER / GPU AUTHORIZED / FROZEN.**
+
+Shared dynamic local-context update across anaphora and presupposition.
+
+### 038
+
+**PASS-REGISTER / GPU AUTHORIZED / HARD RE-AUDIT PASSED / FROZEN.**
+
+Question:
 
 > When reference is still unresolved, does the model keep multiple candidate referents, an underspecified state, or prematurely commit?
 
-Keep its H1-vs-H2 identifiability kill. Do not rescue a failure as generic ambiguity representation.
+Keep its H1-vs-H2 identifiability kill. Do not rescue failure as generic ambiguity representation.
 
-## 040 — newly registered
+### 040
 
-**PASS-REGISTER / GPU AUTHORIZED.**
+**PASS-REGISTER / GPU AUTHORIZED / FROZEN.**
 
-Frozen question:
+Question:
 
 > **If two things are exactly alike, does the model still know whether they are literally the same individual or merely two different things of the same kind?**
 
-### Why this survived
+040 is numerical identity vs qualitative/type sameness, not generic entity tracking. Davis & Altmann 2021 RNN is a serious precursor. Required N2 delta remains an abstract cross-surface numerical-identity state causally controlling token-specific history transfer while preserving shared type knowledge.
 
-- numerical identity vs qualitative sameness is an independent human scientific distinction;
-- natural event-comprehension materials supply the two crucial cross-cases: same token after large state change vs different token of same type;
-- Davis & Altmann 2021 LSTM/RNN work is explicitly treated as a serious precursor;
-- modern binding/entity-tracking work explains how already individuated entities bind or propagate states, but does not own the abstract numerical-vs-qualitative identity object;
-- ICML 2026 same-label duplicate failures are a strong neighbor and a useful warning, not direct ownership.
-
-### 040 is NOT allowed to become
-
-- `the` vs `another` representation;
-- generic coreference/entity-tracking mechanism;
-- RNN-result replication on a newer backbone;
-- best identity head/SAE feature;
-- architecture-comparison paper.
-
-### Frozen first causal test
-
-Intervene on numerical-identity state and require:
+Frozen first causal contract:
 
 ```text
-changes token-specific history transfer
-while preserving shared type/category knowledge
+identity intervention
+→ changes token-specific HistoryTransferLogit
+while
+preserving shared TypeKnowledgeLogit
 ```
 
-Cross-surface generalization is mandatory. If the effect collapses to lexical cues or generic binding, terminate.
+### 041 — fifth PASS
 
-### Architecture extension
+**PASS-REGISTER / GPU AUTHORIZED. Route C.**
 
-After primary AR-Transformer evidence is secure, dLLM (LLaDA/Dream-family) and linear/recurrent-like models (Mamba/RWKV-family) may be used as **secondary architecture-generalization evidence**. They do not define novelty and cannot rescue a failed 040.
+Natural question:
 
-Full card: `active/040_numerical_identity_vs_qualitative_sameness/README.md`.
+> **When a description contains several properties, does an LLM know which property is actually narrowing down which object we mean, and which property is merely extra description in the current context?**
+
+Frozen object:
+
+> **context-conditioned modifier set restriction** — whether a modifier actually reduces the currently live referent set, separately from ordinary property meaning.
+
+Why this survived:
+
+1. Leffel et al. 2014 supplies an independent same-lexical human semantics/neuroscience object: context changes whether the same adjective/determiner limits the set under discussion.
+2. Old incremental reference resolution, neural pragmatic reference, and overmodification work are treated as serious predecessors. They own candidate elimination, informativeness, distractor sensitivity and redundancy behavior.
+3. Therefore the N2 claim is deliberately stronger: a **reusable context-conditioned modifier-role state** in a pretrained AR LLM, cross-lexical/domain/surface and causally used for referent narrowing.
+4. The controlled causal microscope uses a three-object **same-world role swap**. Object facts, target, target phrase, modifier words, modifier truth, total world and live-set cardinality stay fixed; only which already-known alternatives are live changes, causing the identifying modifier to swap.
+5. The biggest confound is a hard kill: if the signal is raw scene facts, active-candidate identity, lexical position, salience, or generic reference competence, no abstract-role claim survives.
+
+Frozen first causal contract:
+
+```text
+SetRestrictionRole intervention
+→ changes modifier-specific ReferentMargin / referent narrowing
+while
+preserving PropertyTruthLogit
+```
+
+Cross-property/domain/surface transfer plus scene-fact controls are mandatory. If only `informative adjective > redundant adjective` survives, `KILL-N2`.
+
+Full card: `active/041_contextual_set_restriction/README.md`.
 
 ## 036
 
 **CONTINUE-PAPER-SCALE / HARD AUDIT / GPU PAUSED / NOT REGISTERED.**
 
-Question-level novelty survives, but its comparison-vs-categorization route metric remains underidentified. Re-enter only after a clean two-signature route-identification contract exists, with at least one non-grammatical-form diagnostic.
+The conventionality/aptness selector question survives, but comparison-vs-categorization route identification remains underidentified. Re-enter only after a real two-signature calibration contract exists. The 5/5 target gives no reason to force-repair it.
 
 ## 037 / 039
 
-Archived. Do not revive. 039 remains the canonical warning that naturalness + excellent substrate is not enough if strongest prior already owns the object.
+Archived. Do not revive. 039 remains the canonical warning that naturalness + excellent substrate is not enough if prior work owns the scientific object.
 
-## Failure-library discipline
+## New terminal records from the final search
 
-Before any new serious candidate:
+- `mass_count_grammar_vs_conceptual_individuation_collision_2026-09-01.md`: old neural mass/count syntax-semantics and contextual coercion work already own the attractive object; modern AR + MI would be N2-thin.
+- `means_vs_side_effect_moral_role_collision_2026-09-01.md`: means-vs-side-effect is directly an LLM moral factor in MoCa/OffTheRails; the stronger intentionality-mediation theory variant lacks a frozen analyzable-open behavior anchor and is not GPU-authorized.
+
+Keep these in semantic dedupe memory.
+
+## Failure-library discipline remains binding
+
+Before any future serious candidate:
 
 ```text
 one-sentence object
-→ 5–10 semantic aliases
+→ 5–10 aliases
 → canonical failure index
 → rejected_candidates + archive
-→ strongest-neighbor BODY search
+→ strongest-neighbor BODY / appendix search
 ```
 
-A semantic match is dead by default unless a documented resurrection condition is met.
+A semantic match is dead by default unless a documented resurrection condition is met. Backbone/dataset/language/probe/SAE/patching/steering changes do not create a new object.
 
-## How to expand a PASS into a full ACL / EMNLP paper
+## Main-paper expansion discipline
 
 Read `phenomenon_miner/PAPER_EXPANSION_REFERENCE_2026-09-01.md`.
 
-Reference-backed pattern:
+Reference-backed ladder:
 
 ```text
 phenomenon / natural object
@@ -132,22 +160,25 @@ phenomenon / natural object
 → optional mitigation / architecture generalization
 ```
 
-Examples:
+For 041 freeze only the earned first three stages now:
 
-- ACL 2025 Outstanding `Llama See, Llama Do`: broad phenomenon -> semantic modulation -> head discovery -> ablation -> mitigation.
-- NAACL 2025 `Racing Thoughts`: recurring failure -> one algorithmic hypothesis -> correlational + causal evidence -> inference-time intervention.
-- ACL 2026 Tool Irrelevance: factor dissociation -> competing pathways -> causal explanation -> rebalancing with generic-capability control.
-- EMNLP 2025 Outstanding filler-gap: shared causal representation -> cross-construction transfer -> newly discovered moderators -> linguistic-theory implications.
-- ICML 2026 entity tracking: behavior -> mechanism -> mechanism predicts missing failure mode -> targeted behavior verifies -> mechanistic partial fix.
+```text
+same-world modifier-role double dissociation
+→ cross-lexical/domain/surface abstraction
+→ causal referent-narrowing specificity while preserving property truth
+```
 
-Do not pre-write a downstream circuit story. Let earlier evidence earn the next analysis.
+Do not pre-write a failure mechanism. Only after Stage 3 reveals a stable mechanism may it derive a new falsifiable failure and later mitigation.
 
-## Current search target
+## Current task boundary
 
-Only **one** genuine PASS remains, but do not generate only one candidate. Continue a high-mortality simplicity-first search, semantic-dedupe first.
+The fresh-search target is complete at **5/5**. Do not continue count-filling search by default. Next work should be one of:
 
-The active leads that are **not registered** include 036; previous weak leads such as focus/background and collective/distributive plurality should not be promoted without solving their documented substrate/overlap problems.
+- execute the frozen cheap S0 / causal microscope for a registered topic;
+- compare/prioritize the five registered projects for execution;
+- react to genuinely new fatal novelty evidence;
+- continue fresh search only if the user explicitly asks for more than five.
 
 ## One-line instruction
 
-> **Current PASS register is 4/5: 034, 035, 038, 040. 040 is numerical identity, not generic entity tracking. One slot remains; keep novelty and identifiability strict, but do not restore the obsolete rule that a Route-C object must already have an exact modern-open published phenotype.**
+> **Authoritative register is now 5/5: 034, 035, 038, 040, 041. 041 is contextual modifier set restriction, not generic reference resolution or adjective redundancy. The target is reached; preserve strict kills and move from topic search to frozen experimental execution unless explicitly asked to search further.**
