@@ -6,6 +6,7 @@
 
 - `../phenomenon_miner/FINDING_RULES.md`
 - `../phenomenon_miner/HANDOFF_HAMDI_SEARCH_2026-08-31.md`
+- `../phenomenon_miner/CURRENT_SEARCH_FLOW_2026-09-01.md` — 当前 v2.1 实际执行顺序，尤其明确 Route C 不再机械要求 exact modern-open published phenotype。
 
 一般失败规律只看：
 
@@ -14,6 +15,14 @@
 **语义去重第一入口：**
 
 - [`CANONICAL_FAILURE_INDEX_2026-09-01.md`](CANONICAL_FAILURE_INDEX_2026-09-01.md) — 按 scientific object / semantic aliases 聚类的 canonical failure index。任何新 serious candidate 进入 HARD AUDIT 前必须先查这里，防止换标题、dataset、model、prompt、language、subset 或 MI method 后重复审同一个死题。
+
+### Live-audit override rule
+
+Canonical failure index 是快速 dedupe 层，不高于当前 live HARD AUDIT。若某个旧 index 条目后来因为更好的 scientific object / substrate 被重新定性，必须以**明确命名的最新 HARD AUDIT 文件**为准，并最终回写 index。
+
+当前明确 override：
+
+- `numerical identity / same token vs qualitative sameness` 不再视为 terminal `entity tracking` 近义题；当前状态见 `../phenomenon_miner/HARD_AUDIT_NUMERICAL_IDENTITY_VS_QUALITATIVE_SAMENESS_2026-09-01.md`。它仍未注册，但应继续做 N2 hard audit，而不是在 dedupe 阶段自动 kill。
 
 ---
 
@@ -38,9 +47,10 @@
 1. 把新 scientific object 写成一句话；
 2. 生成 5–10 个 semantic aliases / nearest-neighbor formulations；
 3. **先查 `CANONICAL_FAILURE_INDEX_2026-09-01.md`**；
-4. 再在本目录和 `../archive/` 定向搜索；
-5. 命中相同 scientific meaning 时，再读对应详细 rejection；
-6. 只有满足该 rejection 的 resurrection condition 才允许重开。
+4. 再查是否存在明确的 live HARD AUDIT override；
+5. 再在本目录和 `../archive/` 定向搜索；
+6. 命中相同 scientific meaning 时，再读对应详细 rejection；
+7. 只有满足该 rejection 的 resurrection condition 或已有明确 live override 才允许重开。
 
 不要每轮完整通读所有 addendum。不要因为换 dataset、model、language、prompt、subset 或 MI method 就视为新题。
 
@@ -108,4 +118,4 @@ F1–F7 定义见 `phenomenon_miner/FAILED_TOPICS.md`。
 
 ## One-line rule
 
-> **认真审过就留短负记录；新题先查 canonical semantic failure index；scientific object 相同就禁止靠改名/换数据/换模型/换 MI 方法复活。**
+> **认真审过就留短负记录；新题先查 canonical semantic failure index；scientific object 相同就禁止靠改名/换数据/换模型/换 MI 方法复活；但 Route C 的 deterministic natural axis 也不能因为缺 exact published modern-open phenotype 被旧规则误杀。**
