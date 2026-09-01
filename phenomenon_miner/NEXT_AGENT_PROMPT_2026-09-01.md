@@ -1,8 +1,8 @@
 # Next Agent Prompt — 2026-09-01
 
-继续 GitHub 仓库 `Nhckdvrl/Interpretability-try` 的 ACL / EMNLP / NAACL 风格 **LLM mechanistic interpretability 找题工作**。
+继续 GitHub 仓库 `Nhckdvrl/Interpretability-try` 的 ACL / EMNLP / NAACL 风格 **LLM mechanistic interpretability 工作**。
 
-这是 direct continuation。**当前 authoritative PASS register 是 4/5。不要从旧的 2/5、3/5、短暂 5/5 状态继续。**
+这是 direct continuation。**当前 authoritative fresh PASS register 已经是 5/5，目标已完成。不要从旧的 4/5 或更早状态继续，也不要默认继续 count-filling 找题。**
 
 ## 一、第一步必须完整读取最新 authority
 
@@ -20,22 +20,25 @@
 10. `active/038_unresolved_reference_representation_architecture/README.md`
 11. `active/038_unresolved_reference_representation_architecture/HARD_REAUDIT_2026-09-01.md`
 12. `active/040_numerical_identity_vs_qualitative_sameness/README.md`
-13. `phenomenon_miner/PAPER_EXPANSION_REFERENCE_2026-09-01.md`
-14. 本文件
+13. `active/041_contextual_set_restriction/README.md`
+14. `phenomenon_miner/PAPER_EXPANSION_REFERENCE_2026-09-01.md`
+15. 本文件
 
-## 二、当前 authoritative state
+## 二、authoritative state
 
 ```yaml
-CURRENT_FRESH_PASS_REGISTER: 4
-CURRENT_FRESH_ACTIVE_TOPICS: 4
+CURRENT_FRESH_PASS_REGISTER: 5
+CURRENT_FRESH_ACTIVE_TOPICS: 5
 CURRENT_HARD_AUDIT_TOPICS: 1
 target: 5
-remaining_needed: 1
+remaining_needed: 0
+fresh_search_status: TARGET_REACHED_STOP_BY_DEFAULT
 registered:
   - 034_prospective_memory_retrieval_architecture
   - 035_shared_dynamic_context_update
   - 038_unresolved_reference_representation_architecture
   - 040_numerical_identity_vs_qualitative_sameness
+  - 041_contextual_set_restriction
 hard_audit_not_registered:
   - 036_metaphor_processing_route_selection
 archived_after_registration:
@@ -43,21 +46,11 @@ archived_after_registration:
   - 039_same_kind_vs_go_together_semantic_relation
 ```
 
-## 三、034 / 035 / 038
+034 / 035 / 038 / 040 are frozen unless a genuinely new fatal collision appears. 036 remains HARD AUDIT / GPU PAUSED and is not needed to make the count.
 
-Keep frozen unless a genuinely new fatal collision is found.
+## 三、040 remains frozen
 
-- 034: future intention retrieval — strategic monitoring vs cue-triggered spontaneous retrieval vs dynamic switching.
-- 035: shared dynamic local discourse context across anaphora and presupposition.
-- 038: still-unresolved reference — multiple candidate referents vs underspecified state vs premature commitment.
-
-Do not rewrite headlines or perform routine re-audits.
-
-## 四、040 — NEW PASS, do not collapse it into generic entity tracking
-
-Status: **PASS-REGISTER / GPU AUTHORIZED**.
-
-Frozen question:
+Question:
 
 > **If two things are exactly alike, does an LLM still know whether they are literally the same individual object or merely two different objects of the same kind?**
 
@@ -69,210 +62,199 @@ numerical identity
 qualitative/type sameness
 ```
 
-Critical natural cross-cases:
+Strongest precursor: Davis & Altmann 2021 LSTM/RNN same-token vs different-token-same-type event representation. Therefore 040 dies if it only reproduces `the onion` vs `another onion`.
+
+Required N2:
+
+> abstract, reusable cross-surface numerical-identity state causally controlling token-specific history inheritance, separately from type knowledge.
+
+Frozen first causal contract:
 
 ```text
-same individual despite substantial state/property change
-vs
-different individuals despite same type / near-identical qualities
-```
-
-### Important strongest neighbors
-
-1. Solomon et al. human event-comprehension work: natural token × state-change substrate.
-2. Dranseika et al. Cognition 2023: explicit numerical-vs-qualitative sameness distinction, including lexical separation.
-3. Davis & Altmann Cognition 2021: LSTM/RNN hidden representations already distinguish same token vs different token of same type in event contexts.
-4. ICLR 2024 / EMNLP 2024 / ACL 2026 binding work: mechanisms for already individuated entities.
-5. ICML 2026 entity tracking: PUT/MOVE/REMOVE mechanism; same-label duplicate stress test exposes fragile global removal behavior.
-
-### Why RNN does NOT automatically kill 040
-
-Do not claim novelty merely from moving RNN -> Transformer. That would be insufficient.
-
-040 survives because its required object-level delta is broader:
-
-> **an abstract, reusable numerical-identity state in modern LLMs, separable from qualitative/type similarity and causally controlling token-specific history inheritance.**
-
-Davis–Altmann is a strong precursor and hard baseline. If 040 only reproduces `the onion` vs `another onion` event sensitivity, kill it.
-
-### Frozen first causal contract
-
-Identity intervention must:
-
-```text
-change token-specific HistoryTransferLogit
+identity intervention
+→ changes token-specific HistoryTransferLogit
 while preserving shared TypeKnowledgeLogit
 ```
 
-Required controls include:
+Architecture comparison (dLLM / Mamba / RWKV) remains secondary only after primary AR evidence.
 
-- `the` vs `another` lexical cue;
-- noun repetition;
-- recency;
-- semantic/type similarity;
-- generic coreference/binding;
-- random/shuffled directions;
-- held-out surface cue family.
+## 四、041 — fifth PASS
 
-### Architecture generalization
+Status: **PASS-REGISTER / GPU AUTHORIZED / Route C**.
 
-After primary Llama/Qwen AR-Transformer evidence is secure, optional secondary generalization can test:
+Frozen natural question:
 
-- diffusion LM: LLaDA / Dream-family;
-- linear/recurrent-like LM: Mamba / RWKV-family.
+> **When a description contains several properties, does an LLM know which property is actually narrowing down which object we mean, and which property is merely extra description in the current context?**
 
-This asks whether numerical identity is architecture-general or differently implemented. **Architecture comparison is not the novelty claim and cannot rescue a failed primary result.**
+Frozen object:
 
-## 五、完整 ACL/EMNLP paper 不能停在“现象 + latent direction”
+> **context-conditioned modifier set restriction / contrastive role** — whether a modifier actually reduces the currently live referent set, separately from ordinary property meaning.
 
-必须读：`phenomenon_miner/PAPER_EXPANSION_REFERENCE_2026-09-01.md`。
+Do not broaden this into generic `restrictive vs nonrestrictive syntax` or shrink it into `informative adjectives help reference`.
 
-从强论文中学到的真实扩展模式：
+### Scientific anchor
 
-### ACL 2025 Outstanding — Llama See, Llama Do
+Leffel et al. 2014 gives a same-lexical human semantics/neuroscience manipulation where context changes whether the same modifier limits the set under discussion. Their inventory was 53 manually constructed sets, naturalness-normed by 105 respondents and reduced to 46 sets.
+
+### Strongest-neighbor concessions
+
+Already owned and therefore **not** novelty:
+
+- incremental reference resolution as candidate-set elimination;
+- neural pragmatic reference and distractor sensitivity;
+- adjective redundancy / overmodification;
+- relative-clause restrictive/nonrestrictive form/punctuation behavior;
+- current LLM/VLM pragmatic referring-expression success/failure.
+
+041 survives only at the following N2 level:
+
+> **abstract context-conditioned modifier role in a pretrained open AR LM, transferable across lexical/domain/surface families and causally controlling which modifier narrows reference while preserving property truth.**
+
+### Decisive same-world role swap
 
 ```text
-broad phenomenon
-→ semantic modulation
-→ head discovery
-→ causal ablation
-→ mitigation
+A = large red circle      # target
+B = large blue circle
+C = small red circle
+
+target phrase = "the large red circle"
 ```
 
-### NAACL 2025 — Racing Thoughts
+Keep all object facts and target phrase fixed.
 
 ```text
-recurring failure
-→ one algorithmic hypothesis
-→ correlational + causal evidence
-→ inference-time intervention
+live set {A,B}: red restricts, large does not
+live set {A,C}: large restricts, red does not
 ```
 
-### ACL 2026 — Do LLMs Know Tool Irrelevance?
+Thus the world facts, target, modifier truth, words, word order and candidate-set cardinality stay fixed; only the current alternatives change.
+
+Gold:
 
 ```text
-natural factor dissociation
-→ competing pathways
-→ relative pathway strength explains behavior
-→ rebalancing intervention
-→ verify generic capability is preserved
+Restricts(m) =
+  |Compatible(D_without_m, C)|
+  >
+  |Compatible(D, C)|
 ```
 
-### EMNLP 2025 Outstanding — filler-gap shared structure
+### Frozen cheap S0
+
+Primary models:
+
+- `meta-llama/Llama-3.1-8B-Instruct`
+- `Qwen/Qwen3-8B`
+
+First reproduce the frozen behavioral role swap with deterministic scoring:
 
 ```text
-external theory
-→ causal shared representation
-→ cross-construction transfer
-→ discover previously overlooked moderators
-→ feed mechanism evidence back into linguistic theory
+ModifierOmissionCost(m) =
+  ReferentMargin(full)
+  - ReferentMargin(without m)
 ```
 
-### ICML 2026 — entity tracking
+Same lexical modifier should have high omission cost when it removes the live distractor and low cost when it does not. The identity of the costly modifier must swap with the live candidate set.
+
+No prompt/subset search after null.
+
+### Frozen first causal contract
 
 ```text
-behavior
-→ mechanism
-→ mechanism predicts a new failure missing from original evaluation
-→ targeted behavior confirms prediction
-→ mechanistic partial fix
+SetRestrictionRole intervention
+→ changes modifier-specific referent narrowing / ReferentMargin
+while
+preserving PropertyTruthLogit
 ```
 
-### Therefore 040's evidence ladder
+Mandatory controls:
 
-Do not guess the circuit in advance. Conditional on success:
+- same-world role swap;
+- held-out property/adjective and noun/domain families;
+- role-matched / fact-mismatched transfer;
+- arbitrary candidate labels and balanced positions;
+- modifier order reversal;
+- held-out wording of candidate-set introduction;
+- raw property-truth and candidate-identity directions;
+- shuffled/random controls.
 
-```text
-1. identity double dissociation
-2. cross-surface / cross-domain abstraction
-3. causal history-transfer specificity while preserving type knowledge
-4. mechanism-derived NEW falsifiable failure prediction
-5. targeted behavioral verification
-6. optional mitigation
-7. optional dLLM / linear-LM architecture generalization
+Hard kill if the latent signal is only raw scene facts, candidate identity, salience, lexical position, generic reference competence, or `informative > redundant` behavior.
+
+## 五、036 remains NOT PASS
+
+Status:
+
+```yaml
+PASS_REGISTER: false
+GPU_AUTHORIZED: false
+verdict: HARD_AUDIT
 ```
 
-Only do stages 4–7 if earlier evidence earns them. Do not invent downstream experiments just to make the paper long.
+The metaphor selector question survives, but the comparison-vs-categorization route metric remains underidentified. Do not repair it just to create a sixth topic.
 
-## 六、036
+## 六、final-search deaths now in failure memory
 
-Status: **HARD AUDIT / GPU PAUSED / NOT REGISTERED**.
+Do not revive:
 
-Question survives:
+1. **mass/count grammar vs conceptual individuation** — old neural mass/count syntax-semantics + BERT/contextual coercion already own the object; modern AR + MI is N2-thin.
+2. **means vs side-effect / instrumental vs incidental harm** — directly an LLM factor in MoCa/OffTheRails; stronger intentionality-mediation variant lacks a frozen analyzable-open behavior anchor.
 
-> conventionality vs aptness — which selects comparison vs categorization in metaphor comprehension?
+Detailed records live in `rejected_candidates/`.
 
-But former metaphor↔simile causal statistic is underidentified. Re-enter only if a clean two-signature route-identification contract is frozen, with at least one diagnostic not defined by grammatical form.
+## 七、failure-library discipline remains mandatory
 
-Do not force-repair 036 merely because one slot remains.
-
-## 七、failure-library discipline — mandatory before new search
-
-Every new serious candidate:
+For any future new candidate:
 
 ```text
-one-sentence scientific object
-→ generate 5–10 semantic aliases
-→ search CANONICAL_FAILURE_INDEX
-→ search rejected_candidates + archive
-→ strongest-neighbor BODY/appendix search
-→ only then HARD AUDIT
-```
-
-Do not recreate killed topics under new names.
-
-Important recent dead clusters include:
-
-- taxonomic vs thematic relation (former 039);
-- ownership vs possession;
-- authority vs expertise;
-- role vs current occupant;
-- canonical function vs ad-hoc affordance;
-- habitual vs episodic;
-- cardinal vs ordinal;
-- use vs mention;
-- evidential source types;
-- Gettier knowledge vs JTB;
-- de re vs de dicto;
-- desire vs intention;
-- relative vs absolute adjectives;
-- tool relevance vs availability;
-- tool necessity vs usefulness;
-- self-authorship vs user source;
-- self-consistency/high agreement vs real confidence / false consensus;
-- metonymy;
-- whole-part vs taxonomy;
-- generic same-label entity tracking.
-
-The canonical index contains aliases and warnings. Every serious death must still get an individual rejection record.
-
-## 八、next search task
-
-We need **one** more genuine PASS, but do not search only one candidate.
-
-Continue high-mortality Hamdi-style / Route-C / strong-mother search:
-
-```text
-simple natural question
-→ semantic dedupe
-→ deepest N0/N1/N2 object-ownership attack
-→ real deterministic substrate
+one-sentence object
+→ aliases
+→ CANONICAL_FAILURE_INDEX
+→ rejected_candidates + archive
+→ strongest-neighbor BODY / appendix
+→ N0/N1/N2
+→ substrate
 → confound identifiability
-→ one clear causal-use question
-→ PASS only if all survive
+→ causal use
 ```
 
-Do not reinstate the obsolete over-strict rule that a Route-C candidate must already have an exact modern-open published phenotype. A real deterministic human/scientific axis can be enough to justify a frozen cheap S0, as 040 demonstrates.
+Changing model/dataset/language/probe/SAE/steering/patching does not create a new object.
 
-But also do not confuse `no paper found` with PASS: older RNN/BERT/ELMo work and hidden experiment-level object ownership still count.
+## 八、what to do next
 
-Candidate families currently only HARD LEADS, not registered:
+The default task is **no longer fresh topic search**. The target is complete.
 
-- focus vs background / information structure;
-- collective vs distributive plurality (currently unattractive due to existing plural-bias work and overlap with 038-style unresolved architecture).
+Unless the user explicitly asks for more ideas, next work should be one of:
 
-Broad-search beyond them. Do not anchor.
+1. execute a frozen cheap S0 for 041 or another registered topic;
+2. prioritize the five topics by expected paper value / execution risk / compute cost;
+3. write implementation code and preregistration for a chosen PASS;
+4. respond to genuinely new fatal novelty evidence;
+5. continue fresh search only if the user explicitly asks for >5 topics.
 
-## 九、final discipline
+## 九、paper expansion rule
 
-> **Current honest register is 4/5: 034, 035, 038, 040. 040 is a simple natural identity question with a serious RNN precursor and strong modern entity-tracking neighbors, but its novelty is the abstract causal numerical-identity object, not the backbone change. One slot remains. Search broadly, dedupe aggressively, and only register a fifth topic that survives the same depth of audit.**
+Read `PAPER_EXPANSION_REFERENCE_2026-09-01.md`.
+
+```text
+phenomenon
+→ abstraction/generalization
+→ causal use/specificity
+→ mechanism-derived new falsifiable prediction
+→ targeted verification
+→ optional mitigation/generalization
+```
+
+Do not invent later stages before evidence earns them.
+
+For 041, freeze only:
+
+```text
+1. same-world modifier-role behavioral double dissociation
+2. cross-lexical/domain/surface abstraction
+3. causal referent-narrowing specificity while preserving property truth
+```
+
+Only after Stage 3 reveals a stable mechanism may it generate a new failure prediction.
+
+## Final discipline
+
+> **Current honest register is 5/5: 034, 035, 038, 040, 041. 041 is contextual modifier set restriction, not generic reference resolution or adjective redundancy. The fresh-search target is complete; move to frozen experimental execution unless explicitly asked to search further.**
