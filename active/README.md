@@ -8,25 +8,31 @@
 CURRENT_FRESH_ACTIVE_TOPICS: 5
 CURRENT_FRESH_PASS_REGISTER: 5
 fresh_register_target: 5
-fresh_register_status: COMPLETE
+fresh_register_status: COMPLETE_AFTER_039_REGISTRATION
 required_protocol: PAPER-SCALE v2.1
 ```
 
 | project | status | note |
 |---|---|---|
-| [`034_prospective_memory_retrieval_architecture`](034_prospective_memory_retrieval_architecture/) | **PASS-REGISTER / GPU AUTHORIZED** | Prospective-memory retrieval: strategic monitoring vs spontaneous cue-triggered retrieval vs dynamic switching |
-| [`035_shared_dynamic_context_update`](035_shared_dynamic_context_update/) | **PASS-REGISTER / GPU AUTHORIZED** | Shared dynamic local-context update across anaphora and presupposition vs separate/static computation |
-| [`036_metaphor_processing_route_selection`](036_metaphor_processing_route_selection/) | **PASS-REGISTER / GPU AUTHORIZED** | What selects comparison vs categorization in metaphor processing: conventionality, aptness, or no discrete switch? |
-| [`037_generic_generalization_licensing`](037_generic_generalization_licensing/) | **PASS-REGISTER / GPU AUTHORIZED** | What licenses generic generalization: prevalence, probabilistic diagnosticity, or conceptual/causal relation? |
-| [`038_unresolved_reference_representation_architecture`](038_unresolved_reference_representation_architecture/) | **PASS-REGISTER / GPU AUTHORIZED** | When reference is unresolved, does the model keep alternatives, underspecify, or prematurely commit? |
+| [`034_prospective_memory_retrieval_architecture`](034_prospective_memory_retrieval_architecture/) | **PASS-REGISTER / GPU AUTHORIZED / FROZEN** | Prospective-memory retrieval: strategic monitoring vs spontaneous cue-triggered retrieval vs dynamic switching |
+| [`035_shared_dynamic_context_update`](035_shared_dynamic_context_update/) | **PASS-REGISTER / GPU AUTHORIZED / FROZEN** | Shared dynamic local-context update across anaphora and presupposition vs separate/static computation |
+| [`036_metaphor_processing_route_selection`](036_metaphor_processing_route_selection/) | **PASS-REGISTER / GPU AUTHORIZED — v2.1 RE-AUDIT PASSED** | What selects comparison vs categorization in metaphor processing: conventionality, aptness, or no discrete switch? |
+| [`038_unresolved_reference_representation_architecture`](038_unresolved_reference_representation_architecture/) | **PASS-REGISTER / GPU AUTHORIZED — v2.1 RE-AUDIT PASSED** | When reference is unresolved, does the model keep alternatives, underspecify, or prematurely commit? |
+| [`039_same_kind_vs_go_together_semantic_relation`](039_same_kind_vs_go_together_semantic_relation/) | **PASS-REGISTER / GPU AUTHORIZED** | Does the model distinguish **same kind** from **go together in an event/scenario** as a reusable, causally used semantic relation? |
 
-The fresh target is currently **5/5**, but count is not a protection rule. Any project can still be demoted if a new novelty collision, substrate failure, or v2.1 simplicity/paper-scale re-audit finds a fatal problem.
+The fresh target is now **5/5**, but count is not a protection rule. Any project can still be demoted if a new novelty collision, substrate failure, or frozen falsifier is found.
+
+## Deregistered 037
+
+`037_generic_generalization_licensing` is **not active and does not count**. It was moved to `archive/037_generic_generalization_licensing/` after the 2026-07 direct principled-vs-statistical generic-property collision. Do not recreate it inside the fresh register.
 
 ## v2.1 calibration
 
-`FINDING_RULES.md` now explicitly states **strict ≠ complicated**. Route C (simple phenomenon / simple latent object first) is legal. N0/N1/N2, benchmark-removal, auditable substrate, story invariance, and anti-post-hoc rules remain strict; universal three-mechanism / two-family / exact-interaction requirements do not.
+`FINDING_RULES.md` explicitly states **strict ≠ complicated**. Route C (simple phenomenon / simple latent object first) is legal. N0/N1/N2, benchmark-removal, auditable substrate, story invariance, and anti-post-hoc rules remain strict; universal three-mechanism / two-family / exact-interaction requirements do not.
 
-Therefore 036–038 should be judged by whether their *headline question* is naturally paper-scale, not by how elaborate their frozen causal contract looks. If a simpler, stronger replacement appears, the register may change despite already reaching 5.
+036 and 038 passed the present v2.1 re-audit: no new fatal direct collision was found, and their natural headline questions remain broader than their individual benchmarks. Their headlines remain frozen.
+
+039 is the clean Route-C example for this round: a natural pre-existing semantic distinction (`same kind` vs `go together`) with dual human ratings on the same word pairs, strongest-neighbor separation, and one minimal causal-use test.
 
 ## 当前真正保留的旧工作
 
