@@ -11,16 +11,18 @@ PASS_REGISTER:
   - 035_shared_dynamic_context_update
   - 038_unresolved_reference_representation_architecture
   - 040_numerical_identity_vs_qualitative_sameness
+  - 041_contextual_set_restriction
 
 HARD_AUDIT_NOT_REGISTERED:
   - 036_metaphor_processing_route_selection
 
 TARGET: 5
-CURRENT_PASS: 4
-REMAINING: 1
+CURRENT_PASS: 5
+REMAINING: 0
+SEARCH_STATUS: TARGET_REACHED_STOP_BY_DEFAULT
 ```
 
-034/035 remain frozen. 038 passed hard re-audit. 040 passed deep novelty + identifiability audit. 036's question survives but its route-identification contract is not yet good enough.
+034/035 remain frozen. 038 passed hard re-audit. 040 passed deep novelty + identifiability audit. 041 passed the final Route-C N0/N1/N2 + confound audit. 036's question survives but its route-identification contract is still not good enough.
 
 ---
 
@@ -39,10 +41,11 @@ Changing benchmark/model/language/probe/SAE/patching/steering does not create a 
 
 Can another NLP/ML researcher understand why the question matters without hearing a benchmark or MI method?
 
-Valid:
+Valid examples:
 
 - `Does the model know that two identical-looking objects can still be different individuals?`
 - `When reference is unresolved, does the model keep alternatives alive or prematurely pick one?`
+- `In a description, does the model know which property is actually ruling out alternative referents?`
 
 Invalid:
 
@@ -79,6 +82,8 @@ The latter is normally kill.
 
 Canonical lesson: **object ownership, not title ownership.**
 
+041 is a useful N2 example: old reference-resolution/pragmatics work already owns distractor elimination, modifier informativeness and redundancy. Its surviving delta is specifically an **abstract context-conditioned modifier set-restriction role**, with cross-family causal transfer and property-truth preservation. If experiments collapse back to `informative adjectives matter`, 041 dies.
+
 ## Stage 4 — route-aware substrate / existence
 
 ### Route A
@@ -114,7 +119,7 @@ But:
 no external object/substrate + GPU sweep to see whether anything interesting appears = behavior lottery
 ```
 
-040 is the canonical live example of this corrected Route-C rule.
+040 and 041 are canonical Route-C examples.
 
 ## Stage 5 — confound identifiability
 
@@ -124,7 +129,8 @@ Examples:
 
 - 040: determiner cue, repetition, recency, ordinary coreference, semantic/type similarity;
 - 038: generic ambiguity detection vs candidate-specific unresolved representation;
-- 036: syntax/`like` token vs comparison/categorization processing route.
+- 036: syntax/`like` token vs comparison/categorization processing route;
+- 041: raw scene facts / active-candidate identity / lexical position vs an abstract context-conditioned modifier role.
 
 If measurement cannot identify the headline object, question may survive but GPU pauses.
 
@@ -142,6 +148,14 @@ Required:
 - no best-layer cherry-picking as primary result;
 - intervention tied to the natural object;
 - decodability alone cannot carry the paper.
+
+041's frozen form is:
+
+```text
+SetRestrictionRole intervention
+→ changes modifier-specific referent narrowing / ReferentMargin
+while preserving PropertyTruthLogit
+```
 
 ## Stage 7 — PASS registration
 
@@ -164,7 +178,7 @@ GPU then answers the frozen question; it does not discover what the paper should
 
 Read `PAPER_EXPANSION_REFERENCE_2026-09-01.md`.
 
-Evidence-backed ladder from strong ACL/EMNLP/NAACL/ICML papers:
+Evidence-backed ladder:
 
 ```text
 phenomenon / natural object
@@ -178,7 +192,7 @@ phenomenon / natural object
 
 Do not pre-register speculative later stages before earlier evidence earns them.
 
-For 040 specifically, the primary full-paper path is:
+For 040:
 
 ```text
 identity double dissociation
@@ -186,22 +200,33 @@ identity double dissociation
 → causal token-history transfer while preserving type knowledge
 → only then: mechanism-derived new failure prediction
 → targeted verification
-→ optional correction and dLLM/linear-LM architecture generalization
+→ optional correction and architecture generalization
 ```
 
-Architecture diversity is strengthening evidence, not the novelty claim.
+For 041:
+
+```text
+same-world modifier-role double dissociation
+→ cross-lexical/domain/surface abstraction
+→ causal referent-narrowing specificity while preserving property truth
+→ only then: mechanism-derived new failure prediction
+→ targeted verification
+→ optional mitigation/generalization
+```
 
 ---
 
-# Why finding topics is hard
+# Target-reached discipline
 
-1. 2025–2026 work moves rapidly from behavior to hidden-state/causal analysis.
-2. Older RNN/BERT/ELMo papers can own scientific objects too.
-3. Strong human science proves naturalness, not LLM novelty.
-4. We intentionally reject method-only novelty.
-5. We do not protect the target count.
+The fresh target is now **5/5**. This changes the default action, not the standard:
 
-This high mortality is expected under Main-paper standards.
+1. do not keep generating candidates merely because search is enjoyable;
+2. do not force-repair 036 to make it a sixth topic;
+3. do not routine re-audit frozen PASSes;
+4. move to frozen cheap S0 / causal execution, or prioritize the five topics;
+5. reopen search only if the user explicitly asks for more topics or a genuinely fatal collision removes a registered topic.
+
+Count never protects a topic. If a new direct collision appears, remove it honestly and return to search.
 
 ---
 
@@ -219,4 +244,4 @@ natural object
 → evidence-based paper expansion
 ```
 
-> **Current honest state: 4/5. Strict novelty, real data, simple question. One genuine PASS remains.**
+> **Current honest state: 5/5. Target reached without relaxing Route-C novelty or identifiability. Stop fresh count-filling search by default.**
