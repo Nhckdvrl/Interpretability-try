@@ -1,177 +1,128 @@
 # Hamdi-Style Topic Search — Current Handoff
 
 Date: 2026-09-01  
-Status: **AUTHORITATIVE CURRENT STATE — FRESH REGISTER 4/5 AFTER 039 DEREGISTRATION**
+Status: **AUTHORITATIVE CURRENT STATE — 3/5 PASS AFTER DEEP HARD RE-AUDIT**
 
 ```yaml
-CURRENT_FRESH_PASS_REGISTER: 4
-CURRENT_FRESH_ACTIVE_TOPICS: 4
+CURRENT_FRESH_PASS_REGISTER: 3
+CURRENT_FRESH_ACTIVE_TOPICS: 3
+CURRENT_HARD_AUDIT_TOPICS: 1
 fresh_register_target: 5
-fresh_register_status: OPEN_AFTER_039_DEREGISTRATION
-fresh_target: LLM mechanistic interpretability only
+fresh_register_status: OPEN_AFTER_039_KILL_AND_036_DEMOTION
 required_protocol: PAPER-SCALE v2.1
 registered_projects:
   - 034_prospective_memory_retrieval_architecture
   - 035_shared_dynamic_context_update
-  - 036_metaphor_processing_route_selection
   - 038_unresolved_reference_representation_architecture
+hard_audit_not_registered:
+  - 036_metaphor_processing_route_selection
 archived_after_registration:
   - 037_generic_generalization_licensing
   - 039_same_kind_vs_go_together_semantic_relation
-current_search_style: simplicity-first / Route C legal / strongest-neighbor-first
-current_task: complete hard re-audit of 036 and 038, then search for one genuinely novel replacement without protecting count
+current_search_style: simplicity-first, strongest-neighbor object-ownership audit first
+current_task: do not count-fill; repair 036 only if route identifiability can be frozen, and search enough candidates to obtain two genuine PASS projects
 ```
 
 ## Mandatory reads
 
-Read first:
-
-1. root [`README.md`](../README.md)
-2. [`FINDING_RULES.md`](FINDING_RULES.md) — **v2.1 authoritative protocol; strict ≠ complicated**
+1. root `README.md`
+2. `phenomenon_miner/FINDING_RULES.md`
 3. this handoff
-4. registered project READMEs:
-   - [`034`](../active/034_prospective_memory_retrieval_architecture/README.md)
-   - [`035`](../active/035_shared_dynamic_context_update/README.md)
-   - [`036`](../active/036_metaphor_processing_route_selection/README.md)
-   - [`038`](../active/038_unresolved_reference_representation_architecture/README.md)
-5. [`NEXT_AGENT_PROMPT_2026-09-01.md`](NEXT_AGENT_PROMPT_2026-09-01.md)
+4. `phenomenon_miner/HARD_REAUDIT_REGISTER_2026-09-01.md`
+5. active 034 / 035 / 036 / 038 READMEs
+6. `active/038_unresolved_reference_representation_architecture/HARD_REAUDIT_2026-09-01.md`
+7. `rejected_candidates/taxonomic_vs_thematic_relation_type_n2_collision_2026-09-01.md`
+8. `phenomenon_miner/NEXT_AGENT_PROMPT_2026-09-01.md`
 
-037 and 039 are archived. A stale historical reference is never authorization.
-
----
-
-## Current register
-
-### 034 — Prospective Memory Retrieval Architecture
+## 034 — frozen PASS
 
 **PASS-REGISTER / GPU AUTHORIZED / FROZEN.**
 
-> When an agent must remember a future intention while continuing other work, is retrieval supported by strategic monitoring, cue-triggered spontaneous retrieval, or dynamic switching?
+> Future intentions: strategic monitoring, cue-triggered spontaneous retrieval, or dynamic switching?
 
-No headline edits unless a new fatal collision appears.
+A fresh fatal-collision-only scan found no LLM mechanistic paper directly adjudicating these prospective-memory retrieval architectures. Do not rewrite the headline absent new fatal evidence.
 
-### 035 — Shared Dynamic Context Update Across Discourse Phenomena
+## 035 — frozen PASS
 
 **PASS-REGISTER / GPU AUTHORIZED / FROZEN.**
 
-> Do anaphora accessibility and presupposition projection reuse a shared dynamically updated local discourse context, or rely on separate/static computations?
+> Do anaphora and presupposition reuse a shared dynamically updated local discourse context, or rely on separate/static computations?
 
-No narrowing back to one discourse phenomenon.
+A fresh fatal-collision-only scan found no modern LLM paper demonstrating the same shared causal dynamic-context operation across the two phenomena. Keep frozen.
 
-### 036 — Metaphor Processing Route Selection
+## 038 — PASS after hard re-audit
 
-**PASS-REGISTER / GPU AUTHORIZED — HARD RE-AUDIT ACTIVE.**
+**PASS-REGISTER / GPU AUTHORIZED — HARD RE-AUDIT PASSED.**
 
-> What selects comparison vs categorization in metaphor comprehension: conventionality, aptness, or no discrete route switch?
+> When reference is still unresolved, does the model keep multiple candidate referents, a compact underspecified reference state, or prematurely commit?
 
-Prior registration rests on the independent Career-of-Metaphor vs aptness debate and the Jones–Estes human 2×2. It remains active, but the present audit must specifically test whether 2025–2026 LLM metaphor work already owns the `conventionality/aptness -> comparison/categorization route` interpretation rather than merely adjacent metaphor competence/representation.
+Hard audit checked object ownership against:
 
-### 038 — Unresolved Reference Representation Architecture
+- `It Depends` referential-ambiguity behavior;
+- `Correct-Detect` ambiguity resolution/detection trade-off;
+- 2026 generic hidden-state premature commitment;
+- EACL 2026 idiom literal/figurative competing pathways;
+- Aug 2026 lexical-ambiguity activation patching;
+- 2024 activation patching among redundant grammatical disambiguation cues.
 
-**PASS-REGISTER / GPU AUTHORIZED — HARD RE-AUDIT ACTIVE.**
+None owns the exact representational-format question for **still-unresolved discourse reference**. 038 also already has an explicit H1-vs-H2 identifiability kill, so a failure cannot be rescued as generic ambiguity representation.
 
-> When language does not yet identify one unique referent, does the model keep several possibilities alive, leave the reference unresolved, or prematurely pick one?
+Audit record: `active/038_unresolved_reference_representation_architecture/HARD_REAUDIT_2026-09-01.md`.
 
-Prior registration rests on AmbiCoref + Correct-Detect + It Depends and independent ambiguity-representation theories. The present audit must search specifically for modern open-LM work on simultaneous candidate activation, semantic underspecification, early commitment, coreference uncertainty, or causal reference representations.
+## 036 — scientific question survives, registration revoked for measurement
 
----
+**CONTINUE-PAPER-SCALE / HARD AUDIT / GPU PAUSED / NOT IN PASS REGISTER.**
 
-## Deregistered 037 — do not revive
+> What selects comparison vs categorization in metaphor comprehension: conventionality, aptness, or neither?
 
-Former 037 generic generalization licensing is **KILL-NOVELTY / ARCHIVED**.
+### Novelty result
 
-Fatal collision: Hu, van Paridon & Lupyan (2026), `Failures and Successes to Learn a Core Conceptual Distinction from the Statistics of Language` (`arXiv:2607.04523`) directly tests the principled-vs-statistical generic-property distinction while controlling prevalence/cue validity. Causal MI would be too close to behavior/factorization -> mechanism under N2.
+The exact selector question still survives. However, neighboring work is closer than the original registration admitted:
 
-Archive: [`archive/037_generic_generalization_licensing/`](../archive/037_generic_generalization_licensing/)
+- 2026 Cognitive Computation directly treats **aptness** as an LLM cognitive/evaluation dimension across LLaMA and other models;
+- ACL 2026 Main analyzes semantic alignment, lexical invariance, syntax, and conventional/novel metaphor behavior.
 
----
+No direct work found orthogonalizes conventionality × aptness to decide comparison vs categorization, so question-level N2 is still plausible.
 
-## Deregistered 039 — canonical new N2 lesson
+### Why the former PASS was too early
 
-Former 039 asked:
+The old first causal statistic used metaphor↔simile activation non-interchangeability as the route indicator. That can reflect `like`, syntax, position or generic grammatical-form differences rather than comparison vs categorization.
 
-> Does an LLM distinguish **same kind / taxonomic similarity** from **go together / thematic relatedness** as a reusable, causally used relation type?
+Utsumi (2011) explicitly validates comparison/categorization models against multiple independent process phenomena, including **grammatical concordance and directionality**, before using them for selector theory testing.
 
-The naturalness and data were real, but a deeper strongest-neighbor search found the object was already occupied:
+Therefore 036 cannot count until a route-identification contract is frozen with:
 
-1. 2026 `Disentangling Similarity and Relatedness in Topic Models` explicitly factorizes taxonomic similarity vs thematic relatedness, uses the same Landrigan–Mirman TxThmNorms 659-pair human data, evaluates language-model embedding representations on both axes, and obtains both-axis ratings from modern LLMs including Qwen.
-2. CoNLL 2025 `Human-likeness of LLMs in the Mental Lexicon` studies Llama-3.1 semantic-relatedness representations and explicitly includes taxonomic/thematic relations.
-3. 2026 cross-cultural-surrogate work directly runs LLaMA/Qwen on taxonomic–thematic forced choice and explicitly analyzes taxonomic versus thematic reasoning in LLM explanations.
+1. at least two independent theory-grounded route signatures;
+2. at least one not defined by metaphor-vs-simile grammatical form;
+3. independent held-out route calibration;
+4. causal validation before applying route labels to Jones–Estes metaphors.
 
-Therefore the proposed `hidden relation direction -> steering / cross-task causal transfer` was primarily **stronger MI on an already-owned scientific object**, which fails v2.1 N2.
+No GPU until then.
 
-Detailed record: [`rejected_candidates/taxonomic_vs_thematic_relation_type_n2_collision_2026-09-01.md`](../rejected_candidates/taxonomic_vs_thematic_relation_type_n2_collision_2026-09-01.md)
+## 037 — archived
 
-Archive: [`archive/039_same_kind_vs_go_together_semantic_relation/`](../archive/039_same_kind_vs_go_together_semantic_relation/)
+Direct 2026 principled-vs-statistical generics collision. Do not revive.
 
-### New canonical lesson from 039
+## 039 — archived; canonical N2 lesson
 
-Do not infer novelty from a neighbor's headline. A paper whose headline is cultural fidelity, topic modeling, or mental lexicon can still **own the scientific object inside its experiments and interpretation**.
+Former `same kind vs go together` passed naturalness/substrate but failed deeper object ownership. Taxonomic similarity vs thematic relatedness is already studied in language-model representations and modern LLM behavior, including the same TxThmNorms substrate and explicit taxonomic/thematic reasoning.
 
-Hard N2 question must be:
+The remaining `hidden direction + steering` delta was method-level, not object-level.
 
-> If we remove the words `activation`, `steering`, `patching`, `SAE`, and `causal`, what scientific object remains that the strongest prior did not already study?
+**Lesson:** read neighbors for experiment-level scientific interpretation, not title wording.
 
-If the answer is “none,” KILL.
+## Current search target
 
----
+The honest target gap is **2**, not 1.
 
-## v2.1 simplicity rule
+Do not generate only two candidates. Prepare a high-mortality broad search (10–20 serious simple candidates), but audit strongest neighbors before investing in elaborate mechanism design.
 
-Legal Route C:
+For every Route C candidate ask first:
 
-```text
-simple natural object / robust ordinary phenomenon
-→ benchmark-removal + normal-scope
-→ strongest-neighbor N0/N1/N2
-→ auditable existing axis / substrate
-→ obvious confounds
-→ one minimal causal-use question
-→ richer mechanism only if the data earn it
-```
+> If I remove `activation`, `probe`, `SAE`, `steering`, `patching`, and `causal`, what scientific/model object remains that prior LLM work has not already studied?
 
-Still forbidden:
-
-- behavior lottery on GPU;
-- benchmark construct becoming the headline;
-- `prior behavior/representation paper -> our activation patching` as the entire N2 delta;
-- probe-only paper whose final claim is “feature decodable”;
-- changing the scientific object after null results;
-- protecting a 5/5 count from fatal evidence.
-
----
-
-## Serious deaths from the latest simplicity-first search
-
-Written to `rejected_candidates/`:
-
-- use vs mention / asserted vs quoted;
-- speaker commitment / factivity;
-- typicality vs frequency/commonness;
-- action precondition vs effect;
-- hard constraint vs soft preference;
-- cause vs enabling condition;
-- epistemic vs deontic modality;
-- final goal vs subgoal status;
-- concrete vs abstract representation;
-- causal vs correlational relation;
-- intentional lie vs honest error;
-- **taxonomic vs thematic relation type (former 039)**.
-
-Do not revive by changing model, benchmark, language, or MI method.
-
----
-
-## Current task
-
-The honest state is **4/5**, not 5/5.
-
-1. Finish a fresh direct-collision audit of 036 and 038.
-2. Do a lightweight fatal-collision scan of frozen 034/035 only; do not rewrite their headlines absent new evidence.
-3. Only after the surviving register is clean, resume broad Hamdi-style search for **one** replacement.
-4. A replacement must survive the exact 039 lesson: strongest neighbors are read for internal object ownership, not merely titles/abstract headlines.
-5. Do not register a new number merely because the count is 4.
+If nothing remains, KILL.
 
 ## One-line instruction
 
-> **Current register is 4/5. 039 was correctly killed after deeper N2 audit. Audit first, replacement second; simple is good, method-only novelty is not.**
+> **Current PASS register is 3/5. 038 survived; 039 died on novelty; 036 was demoted because its route metric was underidentified. Keep the standard high even if the count goes backward.**
