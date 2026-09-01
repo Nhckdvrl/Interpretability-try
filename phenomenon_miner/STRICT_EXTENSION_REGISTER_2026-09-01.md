@@ -1,6 +1,6 @@
 # Strict Extension Register — 2026-09-01
 
-Status: **3/3 STRICT EXTENSION PASS**  
+Status: **3/3 STRICT EXTENSION PASS — FINAL AFTER SECOND AUDIT**  
 Base register: **5/5 already reached before this search**  
 Protocol: `FINDING_RULES.md` v2.1 + `STRICT_EXTENSION_GATE_2026-09-01.md`
 
@@ -19,71 +19,73 @@ base_registered:
 
 strict_extension_registered:
   - 042_uniqueness_vs_familiarity_definite_licensing
-  - 043_kind_vs_member_generic_predication
   - 044_stage_vs_individual_predication
+  - 045_referential_vs_attributive_description_use
 
 hard_audit_not_registered:
   - 036_metaphor_processing_route_selection
+  - 043_kind_vs_member_generic_predication
 ```
 
-## Why 042–044 have a higher bar than the base five
+## Why the post-5/5 bar is higher
 
-Every 042+ topic must pass the complete v2.1 protocol **plus** the strict extension overlay:
+Every 042+ topic must pass the complete v2.1 protocol plus the strict extension overlay:
 
-1. an orthogonal new scientific object/axis;
-2. old RNN/BERT/ELMo object-ownership attack;
-3. recent 2024–2026 body/appendix attack;
-4. a causal specificity denominator that must be preserved;
+1. a genuinely new orthogonal scientific object/axis;
+2. old RNN/BERT/ELMo ownership attack;
+3. 2024–2026 body/appendix attack;
+4. preserved neighboring capability / raw-content denominator;
 5. held-out cross-setting abstraction;
-6. at least **two of three** extra locks:
-   - Lock A: orthogonal/same-surface/role-swap identifiability;
-   - Lock B: cross-setting abstraction;
-   - Lock C: two independent theory-grounded consequences.
+6. at least two of:
+   - **Lock A:** same-surface / orthogonal role-swap identifiability;
+   - **Lock B:** cross-setting abstraction;
+   - **Lock C:** two independent theory-grounded consequences.
 
-Mechanizing an already-owned behavior is explicitly insufficient.
+`owned behavior + newer LLM + causal MI` is explicitly insufficient.
 
 ---
 
-# 041 second re-audit
+# 041 — second strict re-audit retained
 
-041 remains registered under the stricter standard, but its claim is narrowed.
+041 remains registered only under the narrow object:
 
-Recent Ref-Adv-style work already owns:
+> **same-lexical context-conditioned modifier set-restriction role**, transferable across property/domain/surface families and causally affecting referent narrowing while preserving property truth.
 
-- hard distractor reference;
-- minimal necessary descriptors;
-- descriptor deletion sufficiency;
-- shortcut failures from redundant information.
+Recent hard-distractor / minimal-descriptor work already owns descriptor necessity and deletion sufficiency. Those weaker claims are not 041 novelty.
 
-Thus 041 is alive only for:
+Strict locks:
 
-> **same-lexical context-conditioned modifier set-restriction role, transferable across property/domain/surface families and causally affecting referent narrowing while preserving property truth.**
+```yaml
+Lock_A_same_world_role_swap: PASS
+Lock_B_cross_setting_transfer: PASS
+specificity: preserve PropertyTruthLogit
+```
 
 See `active/041_contextual_set_restriction/SECOND_HARD_REAUDIT_2026-09-01.md`.
 
 ---
 
-# 042 — Uniqueness vs Familiarity as Sources of Definiteness
+# 042 — Uniqueness vs Strong Familiarity as Sources of Definiteness
 
 Frozen question:
 
-> When an LLM understands `the X`, does it know whether the definite is licensed because exactly one X fits, or because the intended X is already discourse-familiar?
+> When `the X` is licensed, does the model know whether this comes from uniqueness or from strong discourse familiarity?
 
-Critical factorization:
+Important second-audit correction:
+
+`+Familiarity` in the primary human 2×2 is **not** merely antecedent-present vs antecedent-absent. Both potential referents exist in the broader discourse; strong familiarity is established by explicit interlocutor mention/re-mention.
+
+Critical cross:
 
 ```text
-unique + unfamiliar
+unique + not strongly familiar
 vs
-nonunique + familiar
+non-unique + strongly familiar
 ```
-
-Human anchor: Srinivas, Rawlins & Heller orthogonal uniqueness × familiarity experiments.
-
-Strongest computational warning: NAACL 2022 BERT article-system work already owns abstract article prediction, so 042 cannot be `does BERT/LLM know the article the?`.
 
 Exact N2:
 
-> **source-specific definite-licensing states for uniqueness and familiarity, with source-specific causal crossover while preserving the raw candidate-count and antecedent-memory facts.**
+> **source-specific uniqueness and strong-familiarity licensing states with source-selective causal crossover while preserving the raw source facts.**
 
 Strict locks:
 
@@ -92,55 +94,45 @@ Lock_A_orthogonal_2x2: PASS
 Lock_B_cross_setting_transfer: PASS
 Lock_C_two_readouts: AVAILABLE
 specificity:
-  uniqueness: preserve CandidateCountLogit
-  familiarity: preserve AntecedentRecallLogit
+  uniqueness: preserve CandidateStructureLogit
+  familiarity:
+    - preserve DialogueMentionFactLogit
+    - preserve EntityPresenceLogit
 ```
+
+Mandatory familiarity confounds: recency, mention count, grammatical role, entity order and generic salience.
 
 Verdict: **STRICT-PASS-REGISTER / GPU AUTHORIZED**.
 
+See:
+- `active/042_uniqueness_vs_familiarity_definite_licensing/README.md`
+- `active/042_uniqueness_vs_familiarity_definite_licensing/HARD_REAUDIT_2026-09-01.md`
+
 ---
 
-# 043 — Direct Kind Predication vs Member-Level Characterizing Generic
+# 043 — Kind-Level vs Member-Level Generic Predication
 
-Frozen question:
+**DOWNGRADED: STRICT HARD AUDIT / GPU PAUSED / NOT REGISTERED.**
 
-> Does the model know whether a true generic property belongs to the kind itself or is a generalization about individual members?
+The natural question remains promising, but the second audit found two problems too serious for immediate registration:
 
-Classic contrast:
+1. broad direct-kind vs characterizing analysis is not a completely theory-neutral gold partition; modern formal work contains competing analyses of characterizing generics;
+2. available experimental material is useful but does not yet supply a large, consensus-clear, model-independent predication-level inventory that defeats the severe lexical-predicate shortcut.
+
+Frozen diagnostics if resurrected:
 
 ```text
-Dinosaurs are extinct.  # direct kind predication
-Tigers are striped.     # characterizing/member generic
+MemberInheritance
+IndefiniteSingularCompatibility
 ```
 
-This surrounding family is heavily occupied:
+No post-hoc switch to whichever Q-adverb/construction works.
 
-- CL 2024 owns generic exceptions, instantiations and property inheritance;
-- Findings ACL 2026 owns generic-vs-quantificational distributional theory;
-- LREC/ABRICOT owns abstractness/inclusiveness and context variation.
+Resurrection requires an auditable consensus-clear inventory, a true same-lexical factorization, or a genuine Route-B theory-adjudication contract.
 
-Therefore 043 is the highest-risk extension topic.
+**GPU_AUTHORIZED: false.**
 
-Exact N2:
-
-> **a cross-predicate-family PredicationLevel state that causally governs whether a property is inherited by members and also affects an independent generic-form diagnostic, while preserving the base generic proposition.**
-
-Strict locks:
-
-```yaml
-Lock_A_equivalent_factorization: PASS_WITH_LEXICAL_HARD_KILL
-Lock_B_cross_predicate_surface_transfer: PASS
-Lock_C_two_independent_diagnostics: PASS
-specificity:
-  - preserve GenericTruthLogit
-  - preserve PredicateContentLogit
-```
-
-Fatal cliff:
-
-> If `extinct/widespread/common` vocabulary or any predicate-only baseline explains the effect, **KILL immediately**. One successful inheritance metric is insufficient because CL 2024 already owns inheritance behavior.
-
-Verdict: **STRICT-PASS-REGISTER / GPU AUTHORIZED WITH HARD LEXICAL KILL**.
+See `active/043_kind_vs_member_generic_predication/README.md`.
 
 ---
 
@@ -148,48 +140,92 @@ Verdict: **STRICT-PASS-REGISTER / GPU AUTHORIZED WITH HARD LEXICAL KILL**.
 
 Frozen question:
 
-> Does a true property characterize the individual as such, or only a particular spatiotemporal stage of that individual?
+> Does a true property characterize the individual as such, or only a particular spatiotemporal stage?
 
-The topic is **not temporary vs permanent**.
+Not temporary vs permanent.
 
-Mandatory anti-shortcut evidence includes:
+Mandatory anti-shortcut evidence:
 
 - same adjective with context/copula-induced reading shift;
-- permanent-looking stage cases such as `dead`;
-- temporally restricted individual/ser constructions such as `queen for a day`;
-- duration-matched controls.
+- permanent-looking stage cases;
+- temporary descriptions compatible with individual-level configurations;
+- duration-matched controls;
+- transfer beyond `ser`/`estar` tokens.
 
-Old corpus semantics already uses IL/SL classes, so novelty is not the labels. Targeted search found no direct neural/LLM causal ownership of a context-conditioned predication-level state.
+The former loose second diagnostic has been repaired. Two exact diagnostics are now frozen:
 
-Exact N2:
+```text
+SituationBoundLogit
+DepictiveCompatibilityLogit
+```
 
-> **a cross-context/cross-language predication-level state that controls at least two independent stage-sensitive consequences while preserving the asserted property itself.**
+The same causal state must move both while preserving `PropertyTruthLogit`. If they dissociate, the unified predication-level claim dies.
 
 Strict locks:
 
 ```yaml
 Lock_A_same_lexical_anti_duration: PASS
 Lock_B_cross_setting_transfer: PASS
-Lock_C_two_independent_stage_diagnostics: PASS
-specificity:
-  - preserve PropertyTruthLogit
+Lock_C_two_exact_diagnostics: PASS
+specificity: preserve PropertyTruthLogit
 ```
 
 Verdict: **STRICT-PASS-REGISTER / GPU AUTHORIZED**.
 
+See:
+- `active/044_stage_vs_individual_predication/README.md`
+- `active/044_stage_vs_individual_predication/HARD_REAUDIT_2026-09-01.md`
+
 ---
 
-# Serious deaths during this extension search
+# 045 — Referential vs Attributive Description Use
+
+Frozen question:
+
+> When a speaker uses `the F`, does the model follow a particular person the speaker independently has in mind, or whoever actually satisfies F?
+
+The same description can switch use mode by context.
+
+Exact N2:
+
+> **a context-conditioned `DescriptionUseMode` state that causally determines whether downstream reference follows an independent speaker-target or the descriptive satisfier while preserving both raw facts.**
+
+Strict locks:
+
+```yaml
+Lock_A_same_description_role_switch: PASS
+Lock_B_cross_setting_transfer: PASS
+Lock_C_two_exact_consequences:
+  - MisdescriptionTargetMargin
+  - DescriptionEssentialityLogit
+  status: PASS
+specificity:
+  - preserve SpeakerTargetFactLogit
+  - preserve DescriptionTruthLogit
+  - preserve EntityFactLogit
+```
+
+045 is theory-neutral about whether Donnellan's contrast is semantic or pragmatic. It tests the model's functional reference mode; it does not claim to settle the philosophy-of-language debate.
+
+Verdict: **STRICT-PASS-REGISTER / GPU AUTHORIZED**.
+
+See:
+- `active/045_referential_vs_attributive_description_use/README.md`
+- `active/045_referential_vs_attributive_description_use/HARD_REAUDIT_2026-09-01.md`
+
+---
+
+# Serious deaths in the extension search
 
 ## Focus/background / information structure
 
-**KILL-NOVELTY.** 2026 GPT-2/GPT-Neo work directly manipulates contextual QUD focus and lexical `only`, including cue conflict, and explicitly argues models maintain discourse-level focus representations.
+**KILL-NOVELTY.** 2026 neural work already manipulates contextual/QUD focus, lexical focus and cue conflict and argues for discourse-level focus representations.
 
 Record: `rejected_candidates/focus_information_structure_object_ownership_2026-09-01.md`.
 
 ## Permission vs ability / deontic vs dynamic modal sense
 
-**KILL-NOVELTY.** IWCS 2023 directly probes BERT modal-sense representations, including whether modal sense abstracts beyond particular modal verbs. Modern AR + stronger causal MI is insufficient.
+**KILL-NOVELTY.** IWCS 2023 directly probes BERT modal-sense representations and tests abstraction beyond individual modal verbs.
 
 Record: `rejected_candidates/deontic_permission_vs_dynamic_ability_modal_sense_collision_2026-09-01.md`.
 
@@ -203,11 +239,12 @@ Record: `rejected_candidates/deontic_permission_vs_dynamic_ability_modal_sense_c
 038: PASS / FROZEN
 040: PASS / FROZEN
 041: STRICT-REAUDIT PASS / FROZEN
-042: STRICT-PASS
-043: STRICT-PASS / HIGH-RISK LEXICAL KILL
-044: STRICT-PASS
+042: STRICT-PASS / HARD-REAUDIT PASSED
+044: STRICT-PASS / HARD-REAUDIT PASSED
+045: STRICT-PASS / HARD-REAUDIT PASSED
 
 036: HARD AUDIT / NOT REGISTERED
+043: STRICT HARD AUDIT / GPU PAUSED / NOT REGISTERED
 037: DEAD
 039: DEAD
 
@@ -216,4 +253,4 @@ TOTAL_REGISTERED: 8
 
 ## One-line discipline
 
-> **The extension search did not loosen the bar after reaching 5/5. It raised it: 042–044 survive only because each adds an orthogonal scientific object plus hard causal specificity and cross-setting/theory-diagnostic locks. Any collapse to an already-owned behavior kills the topic rather than downgrading the claim.**
+> **The strict extension target is honestly 3/3 only after replacing the over-optimistic 043 with 045. 042/044/045 survive because each has an orthogonal scientific object, hard identifiability, cross-setting transfer, and causal specificity with preserved raw facts. Prior registration never protects a topic from downgrade.**
