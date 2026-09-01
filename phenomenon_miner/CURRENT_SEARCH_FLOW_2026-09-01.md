@@ -44,55 +44,74 @@ natural object
 
 Route C remains legal without an exact published Llama/Qwen phenotype when the scientific object and deterministic substrate exist independently. GPU may not discover/rewrite the paper question.
 
+## Stage 0 semantic memory — updated
+
+For every serious candidate consult **both**:
+
+```text
+rejected_candidates/CANONICAL_FAILURE_INDEX_2026-09-01.md
++
+rejected_candidates/STRICT_EXTENSION_FAILURE_INDEX_ADDENDUM_2026-09-01.md
+```
+
+then individual `rejected_candidates/` and `archive/` records.
+
+Same scientific object is dead by default unless a documented resurrection condition is satisfied. Model/dataset/language/probe/SAE/steering/patching changes do not create a new object.
+
 ---
 
-# Strict extension funnel for any future 042+ style topic
-
-After the base 5/5 was reached, the bar was explicitly raised.
+# Strict extension funnel for future post-base topics
 
 ## S1 — exact object must still be new
 
-Search old RNN/BERT/ELMo, recent 2024–2026 behavior/internal work, and methods/appendices.
+Search old RNN/BERT/ELMo, 2024–2026 behavior/internal work, and methods/appendices.
 
-If prior work owns the same scientific object and the only delta is mechanism/tool/model, kill.
+If prior work owns the scientific object and only mechanism/tool/model changes, kill.
 
-## S2 — orthogonal object, not just a narrower label
+## S2 — orthogonal object
 
-The new question must factor something that prior behavior did not already own.
+The topic must add a scientific factorization not already owned by the surrounding behavior family.
 
 ## S3 — preserved neighboring capability
 
-Freeze an intervention of the form:
+Freeze:
 
 ```text
 change object-sensitive downstream decision
 while preserving the raw fact/content/capability from which the object is computed
 ```
 
-If the intervention merely deletes the underlying information, fail.
+If intervention merely deletes underlying information, fail specificity.
 
-## S4 — pass at least two strict locks
+## S4 — at least two strict locks
 
 ### Lock A
 
-Same-surface / role-swap / orthogonal cross-case where the object changes while the strongest obvious lexical/content correlate is held fixed.
+Same-surface / role-swap / orthogonal cross-case with the strongest lexical/content correlate fixed.
 
 ### Lock B
 
-Held-out transfer across at least two meaningful setting families: lexical, constructional, discourse-domain, language, or task/readout.
+Held-out transfer across meaningful lexical/construction/discourse/language/task families.
 
 ### Lock C
 
-Two independent theory-grounded consequences fixed before MI. One successful metric cannot identify the object if the second fails.
+Two independent theory-grounded consequences fixed before MI.
 
 ## S5 — no metric shopping
 
-If Lock C is used, exact diagnostics are frozen before GPU.
+Exact diagnostics are frozen before GPU whenever Lock C is used.
 
 Examples:
 
-- 044: `SituationBoundLogit` + `DepictiveCompatibilityLogit`.
-- 045: `TargetVsSatisfierMargin` + `DescriptionEssentialityLogit`.
+```text
+044:
+  SituationBoundLogit
+  DepictiveCompatibilityLogit
+
+045:
+  TargetVsSatisfierMargin
+  DescriptionEssentialityLogit
+```
 
 ---
 
@@ -102,7 +121,7 @@ Examples:
 
 Orthogonal uniqueness × strong-familiarity 2×2.
 
-Strong familiarity means explicit discourse re-mention, not simple antecedent existence.
+Strong familiarity = explicit discourse/interlocutor re-mention, not simple antecedent presence.
 
 Preserve:
 
@@ -114,7 +133,7 @@ EntityPresenceLogit
 
 ## 044
 
-Same adjective can shift IL/SL reading; permanent/temporary shortcuts are directly falsified.
+Same adjective can shift IL/SL reading; duration and `ser/estar` shortcuts are direct falsifiers.
 
 Exact consequences:
 
@@ -127,7 +146,7 @@ Preserve `PropertyTruthLogit`.
 
 ## 045
 
-Same description switches REFERENTIAL vs ATTRIBUTIVE use by context.
+Same definite description switches REFERENTIAL vs ATTRIBUTIVE use by context.
 
 Exact consequences:
 
@@ -142,41 +161,32 @@ Preserve speaker-target fact, description truth and entity facts.
 
 # 043 as canonical strict-gate downgrade
 
-043 is scientifically interesting but not registered.
+043 is scientifically interesting but **not registered**.
 
-Why this matters:
+Why:
 
-- previous PASS status did not protect it;
+- previous PASS never protected it;
 - formal-theory gold was less theory-neutral than first assumed;
-- available substrate did not solve the lexical-predicate confound strongly enough;
-- Lock A was not genuinely satisfied.
+- existing experimental substrate did not defeat the lexical-predicate confound strongly enough;
+- true Lock A was not established.
 
-This is now the canonical example of the stricter rule:
+Frozen diagnostics if resurrected:
 
-> **multiple plausible diagnostics + held-out lexical controls are not automatically equivalent to a genuine orthogonal factorization.**
+```text
+MemberInheritance
+IndefiniteSingularCompatibility
+```
 
-Do not run GPU until a resurrection condition in its README is satisfied.
+Do not run GPU until a documented resurrection condition is satisfied.
 
 ---
 
-# Failure-memory discipline
-
-Before any new serious search:
-
-```text
-one-sentence scientific object
-→ 5–10 aliases
-→ canonical failure index
-→ individual rejection/archive records
-→ strongest-neighbor body/appendix
-```
-
-Recent strict deaths:
+# Recent strict deaths
 
 - focus/background information structure;
 - permission vs ability / deontic vs dynamic modal sense.
 
-Backbone/dataset/language/probe/SAE/steering/patching changes do not create novelty.
+Their detailed records are mandatory failure memory. Do not revive through newer backbone/language/MI methods.
 
 ---
 
@@ -198,4 +208,4 @@ Do not pre-invent later stages.
 
 ## One-line flow
 
-> **Base v2.1 remains simplicity-first. The strict extension adds a higher requirement: orthogonal object + preserved-content causal specificity + hard transfer/diagnostic locks. Current honest total is 8 registered; 043 is paused, not counted.**
+> **Base v2.1 remains simplicity-first. The strict extension adds orthogonal-object, preserved-content causal specificity and hard transfer/diagnostic locks. Current honest total is 8 registered; 043 is paused, not counted.**
