@@ -1,184 +1,195 @@
 # Hamdi-Style Topic Search — Current Handoff
 
 Date: 2026-09-01  
-Status: **AUTHORITATIVE CURRENT STATE — 5/5 PASS / TARGET REACHED**
+Status: **AUTHORITATIVE CURRENT STATE — BASE 5/5 + STRICT EXTENSION 3/3 = 8 REGISTERED**
 
 ```yaml
-CURRENT_FRESH_PASS_REGISTER: 5
-CURRENT_FRESH_ACTIVE_TOPICS: 5
-CURRENT_HARD_AUDIT_TOPICS: 1
-fresh_register_target: 5
-remaining_needed: 0
-required_protocol: PAPER-SCALE v2.1
-registered_projects:
+BASE_PASS_REGISTER: 5
+STRICT_EXTENSION_PASS: 3
+TOTAL_REGISTERED: 8
+
+base_registered:
   - 034_prospective_memory_retrieval_architecture
   - 035_shared_dynamic_context_update
   - 038_unresolved_reference_representation_architecture
   - 040_numerical_identity_vs_qualitative_sameness
   - 041_contextual_set_restriction
+
+strict_extension_registered:
+  - 042_uniqueness_vs_familiarity_definite_licensing
+  - 044_stage_vs_individual_predication
+  - 045_referential_vs_attributive_description_use
+
 hard_audit_not_registered:
   - 036_metaphor_processing_route_selection
-archived_after_registration:
+  - 043_kind_vs_member_generic_predication
+
+archived:
   - 037_generic_generalization_licensing
   - 039_same_kind_vs_go_together_semantic_relation
-fresh_search_status: STOP_BY_DEFAULT_TARGET_REACHED
 ```
 
 ## Mandatory reads next turn
 
-1. root `README.md`
-2. `phenomenon_miner/FINDING_RULES.md` — v2.1
-3. this handoff
-4. `phenomenon_miner/CURRENT_SEARCH_FLOW_2026-09-01.md`
-5. `rejected_candidates/CANONICAL_FAILURE_INDEX_2026-09-01.md`
-6. `phenomenon_miner/HARD_REAUDIT_REGISTER_2026-09-01.md`
-7. active 034 / 035 / 036 / 038 / 040 / 041 READMEs
-8. `active/038_unresolved_reference_representation_architecture/HARD_REAUDIT_2026-09-01.md`
-9. `phenomenon_miner/PAPER_EXPANSION_REFERENCE_2026-09-01.md`
-10. `phenomenon_miner/NEXT_AGENT_PROMPT_2026-09-01.md`
+Read in this order:
 
-## Frozen PASS register
+1. `README.md`
+2. `phenomenon_miner/FINDING_RULES.md` — v2.1 base protocol
+3. `phenomenon_miner/STRICT_EXTENSION_GATE_2026-09-01.md` — additive higher bar for 042+
+4. `phenomenon_miner/STRICT_EXTENSION_REGISTER_2026-09-01.md`
+5. this handoff
+6. `rejected_candidates/CANONICAL_FAILURE_INDEX_2026-09-01.md`
+7. `phenomenon_miner/HARD_REAUDIT_REGISTER_2026-09-01.md`
+8. active READMEs for 034/035/036/038/040/041/042/043/044/045
+9. hard re-audits for 038/041/042/044/045
+10. `phenomenon_miner/PAPER_EXPANSION_REFERENCE_2026-09-01.md`
+11. `phenomenon_miner/NEXT_AGENT_PROMPT_2026-09-01.md`
 
-### 034
+## Frozen base register
 
-**PASS-REGISTER / GPU AUTHORIZED / FROZEN.**
+034 / 035 / 038 / 040 remain frozen unless a genuinely new fatal collision appears.
 
-Future intentions: strategic monitoring vs spontaneous cue-triggered retrieval vs dynamic switching.
+041 survived a second strict audit only for the narrow object:
 
-### 035
+> same-lexical context-conditioned modifier set-restriction role, cross-setting and causally specific to referent narrowing while preserving property truth.
 
-**PASS-REGISTER / GPU AUTHORIZED / FROZEN.**
+Recent descriptor-necessity work owns weaker claims.
 
-Shared dynamic local-context update across anaphora and presupposition.
+## Strict extension standard
 
-### 038
+Post-base topics do not pass by `old behavior + modern open model + stronger MI`.
 
-**PASS-REGISTER / GPU AUTHORIZED / HARD RE-AUDIT PASSED / FROZEN.**
+Every strict topic must add a genuinely orthogonal object and causal specificity, and pass at least two of:
+
+- Lock A: same-surface / orthogonal role-swap identifiability;
+- Lock B: cross-setting abstraction;
+- Lock C: two independent theory-grounded consequences.
+
+A neighboring raw capability/fact must be preserved under intervention.
+
+## 042 — PASS after corrected re-audit
 
 Question:
 
-> When reference is still unresolved, does the model keep multiple candidate referents, an underspecified state, or prematurely commit?
+> Is a definite description licensed by uniqueness or by strong discourse familiarity?
 
-Keep its H1-vs-H2 identifiability kill. Do not rescue failure as generic ambiguity representation.
+Important correction: strong familiarity is explicit interlocutor mention/re-mention, not mere antecedent existence.
 
-### 040
+Critical source cross:
 
-**PASS-REGISTER / GPU AUTHORIZED / FROZEN.**
+```text
+unique + not strongly familiar
+vs
+non-unique + strongly familiar
+```
+
+Preservation denominators:
+
+```text
+CandidateStructureLogit
+DialogueMentionFactLogit
+EntityPresenceLogit
+```
+
+Raw recency/salience collapse is fatal.
+
+## 043 — DOWNGRADED / NOT COUNTED
+
+Question: direct kind predication vs characterizing/member-level generic predication.
+
+Status:
+
+```yaml
+PASS_REGISTER: false
+GPU_AUTHORIZED: false
+verdict: STRICT HARD AUDIT
+```
+
+Why paused:
+
+- surrounding generic LLM space is heavily occupied;
+- broad formal partition is not fully theory-neutral;
+- no sufficiently large consensus-clear model-independent causal inventory was frozen;
+- lexical predicate shortcut remains too strong for Lock A.
+
+Frozen diagnostics if resurrected:
+
+```text
+MemberInheritance
+IndefiniteSingularCompatibility
+```
+
+Resurrection needs an auditable consensus-clear inventory, genuine same-lexical factorization, or explicit Route-B theory adjudication.
+
+## 044 — PASS after metric repair
 
 Question:
 
-> **If two things are exactly alike, does the model still know whether they are literally the same individual or merely two different things of the same kind?**
+> Does a true property characterize the individual as such or only a particular stage/situation?
 
-040 is numerical identity vs qualitative/type sameness, not generic entity tracking. Davis & Altmann 2021 RNN is a serious precursor. Required N2 delta remains an abstract cross-surface numerical-identity state causally controlling token-specific history transfer while preserving shared type knowledge.
+Not temporary vs permanent.
 
-Frozen first causal contract:
-
-```text
-identity intervention
-→ changes token-specific HistoryTransferLogit
-while
-preserving shared TypeKnowledgeLogit
-```
-
-### 041 — fifth PASS
-
-**PASS-REGISTER / GPU AUTHORIZED. Route C.**
-
-Natural question:
-
-> **When a description contains several properties, does an LLM know which property is actually narrowing down which object we mean, and which property is merely extra description in the current context?**
-
-Frozen object:
-
-> **context-conditioned modifier set restriction** — whether a modifier actually reduces the currently live referent set, separately from ordinary property meaning.
-
-Why this survived:
-
-1. Leffel et al. 2014 supplies an independent same-lexical human semantics/neuroscience object: context changes whether the same adjective/determiner limits the set under discussion.
-2. Old incremental reference resolution, neural pragmatic reference, and overmodification work are treated as serious predecessors. They own candidate elimination, informativeness, distractor sensitivity and redundancy behavior.
-3. Therefore the N2 claim is deliberately stronger: a **reusable context-conditioned modifier-role state** in a pretrained AR LLM, cross-lexical/domain/surface and causally used for referent narrowing.
-4. The controlled causal microscope uses a three-object **same-world role swap**. Object facts, target, target phrase, modifier words, modifier truth, total world and live-set cardinality stay fixed; only which already-known alternatives are live changes, causing the identifying modifier to swap.
-5. The biggest confound is a hard kill: if the signal is raw scene facts, active-candidate identity, lexical position, salience, or generic reference competence, no abstract-role claim survives.
-
-Frozen first causal contract:
+Two exact diagnostics are frozen:
 
 ```text
-SetRestrictionRole intervention
-→ changes modifier-specific ReferentMargin / referent narrowing
-while
-preserving PropertyTruthLogit
+SituationBoundLogit
+DepictiveCompatibilityLogit
 ```
 
-Cross-property/domain/surface transfer plus scene-fact controls are mandatory. If only `informative adjective > redundant adjective` survives, `KILL-N2`.
+The same causal state must shift both while preserving `PropertyTruthLogit`. No later diagnostic shopping.
 
-Full card: `active/041_contextual_set_restriction/README.md`.
+## 045 — replacement strict PASS
+
+Question:
+
+> Does the model follow a person the speaker independently has in mind, or whoever actually satisfies the definite description?
+
+Functional object: `DescriptionUseMode` — REFERENTIAL vs ATTRIBUTIVE use.
+
+Same critical description changes role only by discourse context.
+
+Two exact consequences:
+
+```text
+MisdescriptionTargetMargin / TargetVsSatisfierMargin
+DescriptionEssentialityLogit
+```
+
+Preserve:
+
+```text
+SpeakerTargetFactLogit
+DescriptionTruthLogit
+EntityFactLogit
+```
+
+045 is theory-neutral about whether Donnellan's distinction is semantically encoded or pragmatically derived. It tests functional causal organization, not the philosophy-of-language label.
 
 ## 036
 
-**CONTINUE-PAPER-SCALE / HARD AUDIT / GPU PAUSED / NOT REGISTERED.**
+Still HARD AUDIT / GPU PAUSED. Do not force-repair.
 
-The conventionality/aptness selector question survives, but comparison-vs-categorization route identification remains underidentified. Re-enter only after a real two-signature calibration contract exists. The 5/5 target gives no reason to force-repair it.
+## New strict-search deaths
 
-## 037 / 039
+Do not revive:
 
-Archived. Do not revive. 039 remains the canonical warning that naturalness + excellent substrate is not enough if prior work owns the scientific object.
+- focus/background information structure — direct neural object ownership;
+- permission vs ability / deontic vs dynamic modal sense — BERT modal-sense representation work already owns abstraction beyond modal words.
 
-## New terminal records from the final search
+Detailed records are in `rejected_candidates/`.
 
-- `mass_count_grammar_vs_conceptual_individuation_collision_2026-09-01.md`: old neural mass/count syntax-semantics and contextual coercion work already own the attractive object; modern AR + MI would be N2-thin.
-- `means_vs_side_effect_moral_role_collision_2026-09-01.md`: means-vs-side-effect is directly an LLM moral factor in MoCa/OffTheRails; the stronger intentionality-mediation theory variant lacks a frozen analyzable-open behavior anchor and is not GPU-authorized.
+## Current default task
 
-Keep these in semantic dedupe memory.
+The user explicitly requested the strict extension and it is now complete at **3/3**. Do not keep count-filling automatically.
 
-## Failure-library discipline remains binding
+Next sensible work is:
 
-Before any future serious candidate:
-
-```text
-one-sentence object
-→ 5–10 aliases
-→ canonical failure index
-→ rejected_candidates + archive
-→ strongest-neighbor BODY / appendix search
-```
-
-A semantic match is dead by default unless a documented resurrection condition is met. Backbone/dataset/language/probe/SAE/patching/steering changes do not create a new object.
-
-## Main-paper expansion discipline
-
-Read `phenomenon_miner/PAPER_EXPANSION_REFERENCE_2026-09-01.md`.
-
-Reference-backed ladder:
-
-```text
-phenomenon / natural object
-→ broad characterization and controls
-→ abstraction / cross-setting transfer
-→ causal use and specificity
-→ mechanism-derived falsifiable behavioral prediction
-→ targeted confirmation
-→ optional mitigation / architecture generalization
-```
-
-For 041 freeze only the earned first three stages now:
-
-```text
-same-world modifier-role double dissociation
-→ cross-lexical/domain/surface abstraction
-→ causal referent-narrowing specificity while preserving property truth
-```
-
-Do not pre-write a failure mechanism. Only after Stage 3 reveals a stable mechanism may it derive a new falsifiable failure and later mitigation.
-
-## Current task boundary
-
-The fresh-search target is complete at **5/5**. Do not continue count-filling search by default. Next work should be one of:
-
-- execute the frozen cheap S0 / causal microscope for a registered topic;
-- compare/prioritize the five registered projects for execution;
-- react to genuinely new fatal novelty evidence;
-- continue fresh search only if the user explicitly asks for more than five.
+- execute frozen cheap S0 / implementation for registered topics;
+- compare the eight projects and prioritize execution;
+- harden/reformulate 036 or 043 only if explicitly requested;
+- react to new fatal novelty collisions;
+- search further only on explicit instruction.
 
 ## One-line instruction
 
-> **Authoritative register is now 5/5: 034, 035, 038, 040, 041. 041 is contextual modifier set restriction, not generic reference resolution or adjective redundancy. The target is reached; preserve strict kills and move from topic search to frozen experimental execution unless explicitly asked to search further.**
+> **Authoritative state is 8 registered: 034, 035, 038, 040, 041, 042, 044, 045. 043 was honestly downgraded after the stricter audit. Count never protects a topic.**
