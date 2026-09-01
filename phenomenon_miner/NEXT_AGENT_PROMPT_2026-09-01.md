@@ -1,178 +1,131 @@
 # Next Agent Prompt — 2026-09-01
 
-继续 GitHub 仓库 `Nhckdvrl/Interpretability-try` 的 ACL / EMNLP / NAACL 风格 **LLM mechanistic interpretability 找题与 hard-audit 工作**。
+继续 GitHub 仓库 `Nhckdvrl/Interpretability-try` 的 ACL / EMNLP / NAACL 风格 **LLM mechanistic interpretability 找题工作**。
 
-这是 fresh topic search 的直接 continuation。**当前 authoritative register 是 4/5，不是旧 prompt 的 2/5，也不是短暂出现过的 5/5。** Former 039 已在更深 N2 audit 中被撤销。
+这是 direct continuation。**当前 authoritative PASS register 是 3/5。不要从旧的 2/5、4/5 或短暂 5/5 状态继续。**
 
-## 第一步：先读当前 authority
+## Mandatory authority
 
-必须先完整读取：
+先完整读：
 
 1. `README.md`
-2. `phenomenon_miner/FINDING_RULES.md` — v2.1 唯一选题协议
-3. `phenomenon_miner/HANDOFF_HAMDI_SEARCH_2026-08-31.md` — 当前 authoritative handoff
-4. `active/034_prospective_memory_retrieval_architecture/README.md`
-5. `active/035_shared_dynamic_context_update/README.md`
-6. `active/036_metaphor_processing_route_selection/README.md`
-7. `active/038_unresolved_reference_representation_architecture/README.md`
-8. `rejected_candidates/taxonomic_vs_thematic_relation_type_n2_collision_2026-09-01.md`
-9. 本文件
+2. `phenomenon_miner/FINDING_RULES.md` — v2.1
+3. `phenomenon_miner/HANDOFF_HAMDI_SEARCH_2026-08-31.md`
+4. `phenomenon_miner/HARD_REAUDIT_REGISTER_2026-09-01.md`
+5. `active/034_prospective_memory_retrieval_architecture/README.md`
+6. `active/035_shared_dynamic_context_update/README.md`
+7. `active/036_metaphor_processing_route_selection/README.md`
+8. `active/038_unresolved_reference_representation_architecture/README.md`
+9. `active/038_unresolved_reference_representation_architecture/HARD_REAUDIT_2026-09-01.md`
+10. `rejected_candidates/taxonomic_vs_thematic_relation_type_n2_collision_2026-09-01.md`
+11. 本文件
 
-只在语义重合或新 fatal evidence 出现时定向查其他 `rejected_candidates/` / `archive/`。
-
-## 当前 authoritative register
+## Current state
 
 ```yaml
-CURRENT_FRESH_PASS_REGISTER: 4
-CURRENT_FRESH_ACTIVE_TOPICS: 4
+CURRENT_FRESH_PASS_REGISTER: 3
+CURRENT_FRESH_ACTIVE_TOPICS: 3
+CURRENT_HARD_AUDIT_TOPICS: 1
 target: 5
-status: OPEN_AFTER_039_DEREGISTRATION
+remaining_needed: 2
 registered:
   - 034_prospective_memory_retrieval_architecture
   - 035_shared_dynamic_context_update
-  - 036_metaphor_processing_route_selection
   - 038_unresolved_reference_representation_architecture
-archived:
+hard_audit_not_registered:
+  - 036_metaphor_processing_route_selection
+archived_after_registration:
   - 037_generic_generalization_licensing
   - 039_same_kind_vs_go_together_semantic_relation
-remaining_needed: 1
 ```
 
-### 034 — Prospective Memory Retrieval Architecture
+## 034 / 035
 
 **PASS-REGISTER / GPU AUTHORIZED / FROZEN.**
 
-> 当 agent 一边继续当前任务、一边要记住未来意图时，它依靠持续 strategic monitoring、cue-triggered spontaneous retrieval，还是动态切换？
+Fresh fatal-collision-only scans did not reveal new direct LLM mechanistic ownership. Do not rework headlines absent new fatal evidence.
 
-不要修改 headline，除非发现新 fatal novelty collision。
+## 038
 
-### 035 — Shared Dynamic Context Update
+**PASS-REGISTER / GPU AUTHORIZED — HARD RE-AUDIT PASSED.**
 
-**PASS-REGISTER / GPU AUTHORIZED / FROZEN.**
+Frozen question:
 
-> anaphora accessibility 与 presupposition projection 是否复用一个动态更新的 local discourse context，还是各有独立/static computation？
+> 指代还无法唯一确定时，模型是同时保留多个候选 referents、维护 underspecified reference state，还是过早 commit？
 
-不要缩回单独 anaphora / presupposition mechanism。
+The hard audit explicitly checked behavioral reference-ambiguity work, generic hidden-state premature commitment, idiom competing pathways, lexical ambiguity activation patching, and contextual cue patching. None owns the exact unresolved-reference representational-format factorization.
 
-### 036 — Metaphor Processing Route Selection
+Keep 038 frozen. If H1-vs-H2 candidate coverage/shared-state signatures fail to distinguish alternatives from underspecification, terminate rather than shrink the headline.
 
-**PASS-REGISTER / GPU AUTHORIZED — HARD RE-AUDIT ACTIVE.**
+## 036
 
-> metaphor comprehension 中 comparison vs categorization 的 route 由 conventionality、aptness，还是没有离散 route switch 来决定？
+**CONTINUE-PAPER-SCALE / HARD AUDIT / GPU PAUSED / NOT PASS-REGISTER.**
 
-必须重新用 039 级别的标准搜：
+Question:
 
-- Career-of-Metaphor + LLM / transformer / causal / representation；
-- conventionality × aptness + LLM；
-- comparison vs categorization metaphor processing in LLMs；
-- modern open-model metaphor probing 是否已经把 novelty/conventionality 解释为 route switch；
-- 不只看标题，要读实验与 discussion 是否拥有同一 scientific interpretation。
+> metaphor comprehension 中 comparison vs categorization 的 route 由 conventionality、aptness，还是 neither 决定？
 
-### 038 — Unresolved Reference Representation
+Question-level novelty still survives, but the former causal microscope did not.
 
-**PASS-REGISTER / GPU AUTHORIZED — HARD RE-AUDIT ACTIVE.**
-
-> 指代还无法唯一确定时，模型是同时保留多个候选、保持 underspecified，还是过早 commit？
-
-必须重新搜：
-
-- unresolved reference / pronoun ambiguity + LLM hidden states / activation / causal;
-- simultaneous candidate activation / multiple antecedents in transformers;
-- semantic underspecification + LLM representations;
-- coreference uncertainty / ambiguity detection internals;
-- early commitment / reanalysis in LLM reference resolution；
-- 2025–2026 papers that may own the object even under a different headline.
-
-## 037 — 已撤销，禁止复活
-
-Former `037_generic_generalization_licensing` is **KILL-NOVELTY / ARCHIVED** due to the direct 2026 principled-vs-statistical generic-property collision.
-
-## 039 — 已撤销，禁止用 MI 方法升级复活
-
-Former 039 asked whether LLMs distinguish **taxonomic similarity / same kind** from **thematic relatedness / go together** as a reusable causal relation state.
-
-It is **KILL-NOVELTY / ARCHIVED / GPU NOT AUTHORIZED**.
-
-The deeper audit found:
-
-1. 2026 `Disentangling Similarity and Relatedness in Topic Models` explicitly studies taxonomic similarity vs thematic relatedness with the same 659-pair TxThmNorms data, language-model embeddings, and modern LLM two-axis judgments including Qwen;
-2. CoNLL 2025 `Human-likeness of LLMs in the Mental Lexicon` studies Llama semantic-relatedness representations encompassing taxonomic/thematic relations;
-3. 2026 cross-cultural-surrogate work directly tests LLaMA/Qwen taxonomic–thematic forced choice and explicitly analyzes taxonomic vs thematic reasoning in explanations.
-
-Thus `hidden direction + steering + causal transfer` would mostly be stronger MI on an already-owned object and fails N2.
-
-Detailed record: `rejected_candidates/taxonomic_vs_thematic_relation_type_n2_collision_2026-09-01.md`.
-
-### 039 lesson — mandatory for every future Route C candidate
-
-Do not ask only:
-
-> `Has anyone done activation patching on this exact axis?`
-
-Ask:
-
-> **`Has prior work already treated this exact natural distinction as a model property, representation, behavior, reasoning mode, or explanatory axis—even if its headline is about something else?`**
-
-If yes, stronger MI alone normally does not save novelty.
-
-## v2.1 最重要纪律
-
-Route C 合法：
+Why:
 
 ```text
-simple natural object / surprising phenomenon
-→ benchmark-removal
-→ N0/N1/N2
-→ exact auditable substrate
-→ obvious confounds
-→ minimal causal-use question
-→ mechanism 在执行中长出来
+X is Y
+vs
+X is like Y
+
+cross-form patch difference
+!= automatically
+comparison vs categorization route difference
 ```
 
-仍然绝对禁止：
+The effect can come from `like`, syntax, positions, or generic form processing.
 
-- GPU lottery 决定现象是否存在再改题；
-- behavior/representation paper -> patching/SAE 而没有新 object；
-- probe-only / best-layer paper；
-- null 后换 headline；
-- 为了显得学术把简单题包装成多阶段 architecture；
-- 为保护 register 数量忽略 fatal collision。
+Before 036 can return to PASS it needs a frozen route-identification contract with:
 
-## 当前工作顺序
+- >=2 independent psycholinguistically grounded route signatures;
+- >=1 signature not defined by metaphor/simile grammatical form;
+- held-out route calibration;
+- causal validation of the route state before testing conventionality × aptness;
+- no early-layer = early-human-stage analogy.
 
-严格按：
+Utsumi (2011) is the key methodological guide: grammatical concordance + directionality are independently used to validate comparison/categorization processes.
+
+Do not use GPU until this is fixed.
+
+## 039 — canonical Route-C failure
+
+Former taxonomic vs thematic `same kind vs go together` project is **KILL-NOVELTY / ARCHIVED**.
+
+It was natural and had good human gold, but a deeper search found prior work already studies the exact distinction in language-model representations and modern LLM behavior. Adding hidden-state steering/patching was method-level novelty only.
+
+Mandatory lesson:
+
+> **Object ownership, not title ownership.** Read the experiments/discussion of strongest neighbors. A paper can own your object even if its title is about cultural fidelity, evaluation, topic modeling, etc.
+
+## Search order now
 
 ```text
-1. hard re-audit 036
-2. hard re-audit 038
-3. 对 034/035 做 lightweight fatal-collision-only scan
-4. 得到真正 clean 的 surviving count
-5. 再 broad-search 一个 replacement
-6. serious death 立即写 rejection record
-7. 只有完整 N0/N1/N2 + substrate + causal-use contract 后才允许新 PASS
+1. do NOT restore the count first
+2. optionally repair 036 only from external theory, not post-hoc activation results
+3. broad Hamdi-style simple-object search for >=10–20 serious candidates
+4. first-pass naturalness + benchmark-removal
+5. strongest-neighbor object-ownership audit BEFORE elaborate mechanism design
+6. survivors -> exact substrate / modern open-model premise
+7. freeze minimal causal-use contract + hard falsifier
+8. only then PASS-REGISTER
 ```
 
-不要因为 `remaining_needed: 1` 就只生成一个候选。仍应准备 10+ simple candidates，让 novelty gate 杀掉绝大多数。
+We need **two** genuine PASS additions unless 036 is legitimately repaired and re-registered.
 
-## 当前 recent serious deaths
+## Route-C kill question
 
-包括：
+For every candidate ask:
 
-- use vs mention / asserted vs quoted;
-- speaker commitment / factivity;
-- typicality vs frequency/commonness;
-- action precondition vs effect;
-- hard constraint vs soft preference;
-- cause vs enabling condition;
-- epistemic vs deontic modality;
-- final goal vs subgoal status;
-- concrete vs abstract representation;
-- causal vs correlational relation;
-- intentional lie vs honest error;
-- taxonomic vs thematic relation type (former 039).
+> **If I delete `activation`, `probe`, `SAE`, `steering`, `patching`, and `causal`, what new scientific/model object remains that prior LLM work has not already studied?**
 
-Do not revive by changing model/dataset/language/probe/SAE/patching method.
+If the answer is nothing, KILL-NOVELTY.
 
-## 最终一句执行指令
+## Final instruction
 
-> **当前是 4/5。先把 036/038 像 039 一样按“object ownership 而非标题 ownership”狠狠干一遍，再找 replacement。宁可保持 4/5，也不要再草率制造一个假 PASS。**
+> **Current honest state is 3/5. Do not be afraid to stay at 3/5. 038 survived a real audit; 039 failed novelty; 036 failed causal identifiability despite surviving question-level novelty. The next PASS must survive both.**
