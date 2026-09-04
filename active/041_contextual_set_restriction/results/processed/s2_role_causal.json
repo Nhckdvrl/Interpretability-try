@@ -1,0 +1,457 @@
+{
+  "contract": "attenuating the restriction-role component costs referent margin specifically when that modifier is the one restricting the live set, while raw property truth survives",
+  "models": [
+    {
+      "model": "Qwen/Qwen3-8B",
+      "model_revision": "b968826d9c46dd6066d109eabc6255188de91218",
+      "train_families": [
+        "size_color",
+        "texture_color",
+        "fill_height"
+      ],
+      "test_families": [
+        "material_color",
+        "pattern_length",
+        "color_curvature"
+      ],
+      "depths": {
+        "0.25": {
+          "role_effect_on_restricting": {
+            "estimate": -0.2864583369333313,
+            "ci95": [
+              -0.3398437555005744,
+              -0.23437500862203622
+            ],
+            "n_clusters": 192
+          },
+          "role_effect_on_non_restricting": {
+            "estimate": 0.010416670702435238,
+            "ci95": [
+              -0.02799479544483193,
+              0.04947917197333967
+            ],
+            "n_clusters": 192
+          },
+          "role_interaction": {
+            "estimate": -0.29687500763576646,
+            "ci95": [
+              -0.358723971655342,
+              -0.23567709720507102
+            ],
+            "n_clusters": 192
+          },
+          "random_effect_on_restricting": {
+            "estimate": 0.012369795386845924,
+            "ci95": [
+              -0.021484375703123136,
+              0.04427084388818076
+            ],
+            "n_clusters": 192
+          },
+          "random_effect_on_non_restricting": {
+            "estimate": 0.003906250313398456,
+            "ci95": [
+              -0.031249998128054172,
+              0.039062494732946
+            ],
+            "n_clusters": 192
+          },
+          "random_interaction": {
+            "estimate": 0.008463545073447468,
+            "ci95": [
+              -0.025390615200847372,
+              0.0423177015464769
+            ],
+            "n_clusters": 192
+          },
+          "role_minus_random_interaction": {
+            "estimate": -0.30533855270921395,
+            "ci95": [
+              -0.37565104551675144,
+              -0.2356608011260456
+            ],
+            "n_clusters": 192
+          },
+          "property_truth_accuracy": {
+            "clean": 0.984375,
+            "edited": 0.984375,
+            "drop": 0.0
+          },
+          "reference_accuracy": {
+            "clean": 1.0,
+            "edited": 1.0,
+            "drop": 0.0
+          },
+          "depth_pass": false
+        },
+        "0.5": {
+          "role_effect_on_restricting": {
+            "estimate": -1.0722656191860265,
+            "ci95": [
+              -1.2018391807096132,
+              -0.9414062549448656
+            ],
+            "n_clusters": 192
+          },
+          "role_effect_on_non_restricting": {
+            "estimate": 0.25651041762481047,
+            "ci95": [
+              0.18098958300866846,
+              0.33398437660062674
+            ],
+            "n_clusters": 192
+          },
+          "role_interaction": {
+            "estimate": -1.3287760368108368,
+            "ci95": [
+              -1.4876302025397936,
+              -1.1757649500829812
+            ],
+            "n_clusters": 192
+          },
+          "random_effect_on_restricting": {
+            "estimate": -0.30859374532376194,
+            "ci95": [
+              -0.37369791017538806,
+              -0.24348957710661928
+            ],
+            "n_clusters": 192
+          },
+          "random_effect_on_non_restricting": {
+            "estimate": 0.05013020926801618,
+            "ci95": [
+              0.01171874967296351,
+              0.08919271458247541
+            ],
+            "n_clusters": 192
+          },
+          "random_interaction": {
+            "estimate": -0.35872395459177814,
+            "ci95": [
+              -0.4251302060991429,
+              -0.29557292308997857
+            ],
+            "n_clusters": 192
+          },
+          "role_minus_random_interaction": {
+            "estimate": -0.9700520822190587,
+            "ci95": [
+              -1.1178548129886154,
+              -0.8150878780325889
+            ],
+            "n_clusters": 192
+          },
+          "property_truth_accuracy": {
+            "clean": 0.984375,
+            "edited": 0.9973958333333334,
+            "drop": -0.01302083333333337
+          },
+          "reference_accuracy": {
+            "clean": 1.0,
+            "edited": 1.0,
+            "drop": 0.0
+          },
+          "depth_pass": true
+        },
+        "0.75": {
+          "role_effect_on_restricting": {
+            "estimate": -0.0013020870599441126,
+            "ci95": [
+              -0.023437507451631083,
+              0.02148437221199901
+            ],
+            "n_clusters": 192
+          },
+          "role_effect_on_non_restricting": {
+            "estimate": 0.002604162940261334,
+            "ci95": [
+              -0.020182295090414765,
+              0.025390619434217353
+            ],
+            "n_clusters": 192
+          },
+          "role_interaction": {
+            "estimate": -0.003906250000205447,
+            "ci95": [
+              -0.026692707099774754,
+              0.02018228826709284
+            ],
+            "n_clusters": 192
+          },
+          "random_effect_on_restricting": {
+            "estimate": 0.006510415423833608,
+            "ci95": [
+              -0.01627604263889802,
+              0.028645832808127495
+            ],
+            "n_clusters": 192
+          },
+          "random_effect_on_non_restricting": {
+            "estimate": -0.0032552089495172707,
+            "ci95": [
+              -0.02669270523213208,
+              0.020182289816467445
+            ],
+            "n_clusters": 192
+          },
+          "random_interaction": {
+            "estimate": 0.009765624373350879,
+            "ci95": [
+              -0.014973961142975898,
+              0.033203122846679235
+            ],
+            "n_clusters": 192
+          },
+          "role_minus_random_interaction": {
+            "estimate": -0.013671874373556325,
+            "ci95": [
+              -0.04752604698908357,
+              0.02018229073474481
+            ],
+            "n_clusters": 192
+          },
+          "property_truth_accuracy": {
+            "clean": 0.984375,
+            "edited": 0.984375,
+            "drop": 0.0
+          },
+          "reference_accuracy": {
+            "clean": 1.0,
+            "edited": 1.0,
+            "drop": 0.0
+          },
+          "depth_pass": false
+        }
+      },
+      "positive_depths": 1,
+      "causal_pass": false
+    },
+    {
+      "model": "NousResearch/Meta-Llama-3.1-8B-Instruct",
+      "model_revision": "d10aef7999a2b5ba950ab3974312feeedbfe0b77",
+      "train_families": [
+        "size_color",
+        "texture_color",
+        "fill_height"
+      ],
+      "test_families": [
+        "material_color",
+        "pattern_length",
+        "color_curvature"
+      ],
+      "depths": {
+        "0.25": {
+          "role_effect_on_restricting": {
+            "estimate": 0.0045572775392486164,
+            "ci95": [
+              -0.0345052151893564,
+              0.04459633750355252
+            ],
+            "n_clusters": 192
+          },
+          "role_effect_on_non_restricting": {
+            "estimate": -0.010742193490339483,
+            "ci95": [
+              -0.03450521095864521,
+              0.013671870274144975
+            ],
+            "n_clusters": 192
+          },
+          "role_interaction": {
+            "estimate": 0.0152994710295881,
+            "ci95": [
+              -0.024739593492472758,
+              0.057291661655022585
+            ],
+            "n_clusters": 192
+          },
+          "random_effect_on_restricting": {
+            "estimate": -0.07063803358233638,
+            "ci95": [
+              -0.09277342981303391,
+              -0.04882813801902017
+            ],
+            "n_clusters": 192
+          },
+          "random_effect_on_non_restricting": {
+            "estimate": -0.06315104702184726,
+            "ci95": [
+              -0.08040365537975257,
+              -0.045564768150948134
+            ],
+            "n_clusters": 192
+          },
+          "random_interaction": {
+            "estimate": -0.00748698656048911,
+            "ci95": [
+              -0.03450521426276841,
+              0.018237316819517818
+            ],
+            "n_clusters": 192
+          },
+          "role_minus_random_interaction": {
+            "estimate": 0.02278645759007721,
+            "ci95": [
+              -0.025716144520192094,
+              0.07096354636352799
+            ],
+            "n_clusters": 192
+          },
+          "property_truth_accuracy": {
+            "clean": 0.9088541666666666,
+            "edited": 0.8984375,
+            "drop": 0.01041666666666663
+          },
+          "reference_accuracy": {
+            "clean": 1.0,
+            "edited": 1.0,
+            "drop": 0.0
+          },
+          "depth_pass": false
+        },
+        "0.5": {
+          "role_effect_on_restricting": {
+            "estimate": -0.003906253765289118,
+            "ci95": [
+              -0.016276033921414287,
+              0.008463538414198743
+            ],
+            "n_clusters": 192
+          },
+          "role_effect_on_non_restricting": {
+            "estimate": -0.007161467338136163,
+            "ci95": [
+              -0.018880227254843382,
+              0.004882804778454168
+            ],
+            "n_clusters": 192
+          },
+          "role_interaction": {
+            "estimate": 0.0032552135728470453,
+            "ci95": [
+              -0.009114581394794877,
+              0.016276043249629876
+            ],
+            "n_clusters": 192
+          },
+          "random_effect_on_restricting": {
+            "estimate": -0.004882814219267099,
+            "ci95": [
+              -0.016276048876170297,
+              0.006835943851652597
+            ],
+            "n_clusters": 192
+          },
+          "random_effect_on_non_restricting": {
+            "estimate": -0.0039062522420086525,
+            "ci95": [
+              -0.015950506798253862,
+              0.007161457759782763
+            ],
+            "n_clusters": 192
+          },
+          "random_interaction": {
+            "estimate": -0.0009765619772584463,
+            "ci95": [
+              -0.013346347161074353,
+              0.011393218978907053
+            ],
+            "n_clusters": 192
+          },
+          "role_minus_random_interaction": {
+            "estimate": 0.004231775550105492,
+            "ci95": [
+              -0.013346368058556853,
+              0.02148437126875867
+            ],
+            "n_clusters": 192
+          },
+          "property_truth_accuracy": {
+            "clean": 0.9088541666666666,
+            "edited": 0.9140625,
+            "drop": -0.00520833333333337
+          },
+          "reference_accuracy": {
+            "clean": 1.0,
+            "edited": 1.0,
+            "drop": 0.0
+          },
+          "depth_pass": false
+        },
+        "0.75": {
+          "role_effect_on_restricting": {
+            "estimate": -0.0097656309873931,
+            "ci95": [
+              -0.019856774213752003,
+              0.0009765511600408653
+            ],
+            "n_clusters": 192
+          },
+          "role_effect_on_non_restricting": {
+            "estimate": 0.0006510405420954157,
+            "ci95": [
+              -0.009114590353817202,
+              0.010416656393288785
+            ],
+            "n_clusters": 192
+          },
+          "role_interaction": {
+            "estimate": -0.010416671529488516,
+            "ci95": [
+              -0.02148437701376906,
+              -7.127511973218797e-09
+            ],
+            "n_clusters": 192
+          },
+          "random_effect_on_restricting": {
+            "estimate": 0.00325521229059215,
+            "ci95": [
+              -0.006510411342448445,
+              0.013346361898701531
+            ],
+            "n_clusters": 192
+          },
+          "random_effect_on_non_restricting": {
+            "estimate": 0.006184903044224181,
+            "ci95": [
+              -0.003906236877586148,
+              0.016601565667372618
+            ],
+            "n_clusters": 192
+          },
+          "random_interaction": {
+            "estimate": -0.0029296907536320305,
+            "ci95": [
+              -0.013346356025362856,
+              0.007161458506940713
+            ],
+            "n_clusters": 192
+          },
+          "role_minus_random_interaction": {
+            "estimate": -0.007486980775856485,
+            "ci95": [
+              -0.0221354101642009,
+              0.006184902746181109
+            ],
+            "n_clusters": 192
+          },
+          "property_truth_accuracy": {
+            "clean": 0.9088541666666666,
+            "edited": 0.90625,
+            "drop": 0.0026041666666666297
+          },
+          "reference_accuracy": {
+            "clean": 1.0,
+            "edited": 1.0,
+            "drop": 0.0
+          },
+          "depth_pass": false
+        }
+      },
+      "positive_depths": 0,
+      "causal_pass": false
+    }
+  ],
+  "panel_pass": false,
+  "interpretation_guard": "The direction is estimated on training property families only and applied to held-out families. A pass needs the role edit to beat a matched-norm random edit on the same token, and needs the property-truth denominator to survive the same edit."
+}

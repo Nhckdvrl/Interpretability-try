@@ -1,0 +1,21 @@
+{
+  "experiment_version": "s3_priority_deconfound_v1",
+  "stimulus_version": "s3_priority_deconfound",
+  "seed": 20260904,
+  "models": {
+    "NousResearch/Meta-Llama-3.1-8B-Instruct": {"n_blocks": 32},
+    "Qwen/Qwen3-8B": {"n_blocks": 36}
+  },
+  "dtype": "bfloat16",
+  "candidate_answers": ["A", "B", "C", "D"],
+  "mapping_indices": [0, 2],
+  "batch_size": 16,
+  "depth_fractions": [0.0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875, 1.0],
+  "gate_depth_fractions": [0.25, 0.5, 0.75],
+  "bootstrap_samples": 5000,
+  "gate": {
+    "min_crossover_models": 2,
+    "min_crossover_gap": 0.15,
+    "min_detect_balanced_accuracy": 0.65
+  }
+}

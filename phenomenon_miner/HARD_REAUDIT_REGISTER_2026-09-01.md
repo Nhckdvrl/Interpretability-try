@@ -1,5 +1,10 @@
 # Hard Re-Audit Register — 2026-09-01
 
+> **Post-registration evidence — 2026-09-04:** 035 is archived after a corrected full-data,
+> cross-model recipient validation failed; 040 is archived after its abstract-identity and
+> causal-use gates failed. 034 is kept after its final two-live-intention behavior panel. 038
+> continues only through the late-decision prediction exposed by its pronoun-state null.
+
 Base protocol: `FINDING_RULES.md` v2.1  
 Strict overlay for post-base topics: `STRICT_EXTENSION_GATE_2026-09-01.md`
 

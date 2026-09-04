@@ -1,5 +1,13 @@
 # Finding Rules — 唯一权威选题协议
 
+> **Hard constraint added 2026-09-04 — E0, the obviousness constraint.** A core claim whose
+> direction a field researcher could confidently predict before the run, and whose explanation is
+> only "the task got easier / the information got richer / the instruction got clearer", may not
+> carry a paper's novelty. See `STRICT_EXTENSION_GATE_2026-09-01.md` for the failing shapes and the
+> six ways a claim can clear it. This applies to every topic, base register included, not only to
+> post-base extensions.
+
+
 版本：2026-09-01 v2.1  
 状态：`AUTHORITATIVE DISCOVERY PROTOCOL`
 

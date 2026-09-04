@@ -1,0 +1,15 @@
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:02,  1.37it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:01<00:01,  1.42it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:02<00:00,  1.40it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:02<00:00,  1.96it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:02<00:00,  1.71it/s]
+{"scored": 16, "total": 9936}
+{"scored": 816, "total": 9936}
+{"scored": 1616, "total": 9936}
+{"scored": 2416, "total": 9936}
+{"scored": 3216, "total": 9936}
+{"scored": 4016, "total": 9936}
+{"scored": 4816, "total": 9936}
+{"scored": 5616, "total": 9936}
+{"scored": 6416, "total": 9936}
+{"scored": 7216, "total": 9936}
+{"scored": 8016, "total": 9936}
+{"scored": 8816, "total": 9936}
+{"scored": 9616, "total": 9936}
+{"output": "active/045_referential_vs_attributive_description_use/results/raw/s1_use_mode_states_v6_llama3_1_8b.jsonl", "rows": 9936, "state_rows": 720, "residual_layers": [0, 4, 8, 12, 16, 20, 24, 28, 32]}

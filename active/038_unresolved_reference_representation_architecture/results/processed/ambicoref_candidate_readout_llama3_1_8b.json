@@ -1,0 +1,28 @@
+{
+  "contract": "candidate A/B direction learned on ECO/ECS and evaluated without refit on IC/TOP",
+  "model": "NousResearch/Meta-Llama-3.1-8B-Instruct",
+  "model_revision": "d10aef7999a2b5ba950ab3974312feeedbfe0b77",
+  "activation_shape": [
+    617,
+    2,
+    33,
+    4096
+  ],
+  "design_valid": false,
+  "resolved_class_counts": {
+    "discovery": {
+      "0": 74,
+      "1": 0
+    },
+    "validation": {
+      "0": 26,
+      "1": 0
+    },
+    "causal_test": {
+      "0": 2,
+      "1": 20
+    }
+  },
+  "reason": "The released human-judgment calibration is not antecedent-direction balanced: candidate direction is confounded with structural family. No probe was fit.",
+  "scope_note": "This is a measurement-design failure, not evidence for H1, H2, or H3."
+}

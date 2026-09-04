@@ -1,0 +1,18 @@
+{
+  "stimulus_version": "s0_3_multi_intention_v1",
+  "seed": 20260904,
+  "models": [
+    "Qwen/Qwen3-8B",
+    "NousResearch/Meta-Llama-3.1-8B-Instruct"
+  ],
+  "dtype": "bfloat16",
+  "batch_size": 16,
+  "candidate_answers": ["A", "B", "C", "D"],
+  "gate": {
+    "min_no_cue_accuracy": 0.8,
+    "min_cue_cell_accuracy": 0.5,
+    "max_other_intention_intrusion": 0.1,
+    "all_cue_cells_ceiling": 0.98,
+    "min_abs_shared_focality_margin_effect": 0.25
+  }
+}

@@ -1,0 +1,191 @@
+{
+  "contract": "J1 causal qualification on held-out ClearRef; SharedRef effect is basis validation, not architecture adjudication",
+  "model": "NousResearch/Meta-Llama-3.1-8B-Instruct",
+  "model_revision": "d10aef7999a2b5ba950ab3974312feeedbfe0b77",
+  "intervention_alpha": 0.5882953222570129,
+  "n_clearref": 22,
+  "n_sharedref": 454,
+  "effects": {
+    "direction": {
+      "heldout_clearref_aligned_bidirectional_effect": {
+        "mean": 0.29619251598011365,
+        "bootstrap_95ci": [
+          0.11461902965198864,
+          0.47947609641335226
+        ]
+      },
+      "sharedref_position1_vs_position0_effect": {
+        "mean": 0.29210861138835353,
+        "bootstrap_95ci": [
+          0.2709668890495132,
+          0.31357982610290797
+        ]
+      },
+      "sharedref_candidate_effects_relative_to_distractor": {
+        "self_position0": {
+          "mean": 0.2486432785504715,
+          "bootstrap_95ci": [
+            0.23372876255522743,
+            0.26413387937167665
+          ]
+        },
+        "cross_position0": {
+          "mean": 0.10106662296513629,
+          "bootstrap_95ci": [
+            0.08668449502684472,
+            0.11579433222699269
+          ]
+        },
+        "self_position1": {
+          "mean": -0.09483540740832358,
+          "bootstrap_95ci": [
+            -0.10889005114853643,
+            -0.08079146456613419
+          ]
+        },
+        "cross_position1": {
+          "mean": -0.2393673632113419,
+          "bootstrap_95ci": [
+            -0.2546241436760856,
+            -0.22451111125525924
+          ]
+        }
+      },
+      "sharedref_CCS": {
+        "mean": 0.00020808759593998627,
+        "bootstrap_95ci": [
+          -0.026072229764596205,
+          0.027193668685581134
+        ]
+      },
+      "sharedref_Coverage": {
+        "mean": 0.45496155643846853,
+        "bootstrap_95ci": [
+          0.4231063330549898,
+          0.4865405146515596
+        ]
+      }
+    },
+    "random_direction": {
+      "heldout_clearref_aligned_bidirectional_effect": {
+        "mean": 0.003989479758522727,
+        "bootstrap_95ci": [
+          -0.024000757390802558,
+          0.032676419344815334
+        ]
+      },
+      "sharedref_position1_vs_position0_effect": {
+        "mean": -0.02374123056554584,
+        "bootstrap_95ci": [
+          -0.03323502057449408,
+          -0.014331375239704151
+        ]
+      },
+      "sharedref_candidate_effects_relative_to_distractor": {
+        "self_position0": {
+          "mean": -0.02352280133621283,
+          "bootstrap_95ci": [
+            -0.03159145237590773,
+            -0.015609652145318533
+          ]
+        },
+        "cross_position0": {
+          "mean": -0.010983000767913684,
+          "bootstrap_95ci": [
+            -0.019039448137325336,
+            -0.0031303456176220105
+          ]
+        },
+        "self_position1": {
+          "mean": 0.016503607123958906,
+          "bootstrap_95ci": [
+            0.008331781546975022,
+            0.024657404055154267
+          ]
+        },
+        "cross_position1": {
+          "mean": 0.027705037121205603,
+          "bootstrap_95ci": [
+            0.019591800756916602,
+            0.0359025278805636
+          ]
+        }
+      },
+      "sharedref_CCS": {
+        "mean": -0.033331103508981,
+        "bootstrap_95ci": [
+          -0.07351946587468029,
+          0.006094186651966094
+        ]
+      },
+      "sharedref_Coverage": {
+        "mean": 0.20399303995793963,
+        "bootstrap_95ci": [
+          0.1736773676755577,
+          0.23728704575499257
+        ]
+      }
+    },
+    "shuffled_direction": {
+      "heldout_clearref_aligned_bidirectional_effect": {
+        "mean": 0.052506880326704544,
+        "bootstrap_95ci": [
+          -0.024703285910866474,
+          0.13123682195490055
+        ]
+      },
+      "sharedref_position1_vs_position0_effect": {
+        "mean": 0.04824094730326783,
+        "bootstrap_95ci": [
+          0.03370913997095587,
+          0.06363608196443397
+        ]
+      },
+      "sharedref_candidate_effects_relative_to_distractor": {
+        "self_position0": {
+          "mean": 0.0792651407519101,
+          "bootstrap_95ci": [
+            0.06593079840034116,
+            0.09274330391232662
+          ]
+        },
+        "cross_position0": {
+          "mean": 0.052425821447162374,
+          "bootstrap_95ci": [
+            0.039100294071147096,
+            0.06571510583818746
+          ]
+        },
+        "self_position1": {
+          "mean": -0.05357323869209458,
+          "bootstrap_95ci": [
+            -0.06730962996965989,
+            -0.03935303793079528
+          ]
+        },
+        "cross_position1": {
+          "mean": -0.07497486669061468,
+          "bootstrap_95ci": [
+            -0.0883258533897904,
+            -0.061359706324102606
+          ]
+        }
+      },
+      "sharedref_CCS": {
+        "mean": 0.017468960443111615,
+        "bootstrap_95ci": [
+          -0.018822472108440885,
+          0.05228864268937458
+        ]
+      },
+      "sharedref_Coverage": {
+        "mean": 0.41768415522427094,
+        "bootstrap_95ci": [
+          0.38496256518313826,
+          0.45239513487695604
+        ]
+      }
+    }
+  },
+  "scope_note": "Passing J1 only qualifies the direction. It does not establish simultaneous candidate coverage or distinguish H1/H2/H3."
+}

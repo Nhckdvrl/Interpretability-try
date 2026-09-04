@@ -1,0 +1,27 @@
+{
+  "family_first_aggregation": true,
+  "independent_unit": "family_id",
+  "inference_good": {
+    "frozen_before_action_analysis": true,
+    "max_abs_posterior_mean_error": 0.1,
+    "must_imply_evidence_action": true
+  },
+  "primary_conditions": [
+    "posterior_use",
+    "posterior_ignore",
+    "generic_use",
+    "generic_ignore"
+  ],
+  "primary_estimands": [
+    "G_posterior",
+    "G_generic_control",
+    "G_specific"
+  ],
+  "repeated_units": [
+    "surface_id",
+    "condition",
+    "value_side"
+  ],
+  "semantic_logit": "teacher-forced ACT-minus-WAIT in A/B coordinates",
+  "version": 1
+}

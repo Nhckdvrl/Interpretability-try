@@ -2,6 +2,28 @@
 
 用于寻找 **ACL / EMNLP / NAACL 风格、自然、清楚、paper-scale 且可机制化的 LLM scientific questions**。
 
+## Execution disposition — 2026-09-04
+
+This execution update preserves the historical 2026-09-01 search register while requiring
+direct experimental KEEP/ARCHIVE decisions. Four topics were decided by experiment on this date.
+
+**Archived.** `035` after its corrected full-data cross-model presupposition recipient validation
+failed in both families. `040` after its cross-surface identity representation and history-specific
+causal-use gates failed. `034` after a null cue-token transplant at all frozen depths in both
+families, a sign-inconsistent focality gate, a refuted upgrade hypothesis, and a surviving effect
+(instruction position primacy) that prior work already owns. `045` after six rounds of construction
+repair showed its referential effect is carried by frame wording rather than by the use mode.
+
+**Advancing.** `038` passed its mechanism-derived late-selection test in both families. `041`
+completed its entire frozen chain: the same-world role swap passes in **5/5** panel families, the
+modifier-token restriction state decodes at AUC 0.997-1.000 and transfers across an orthogonal
+uniqueness manipulation in **4/4**, and the causal-specificity contract passes in **4/4** with
+held-out property families, a held-out surface form, shuffled-label and random controls and
+property truth preserved. The Leffel natural-language window replicates in 3/5 on an adequacy
+readout.
+
+Register now stands at **2 advancing (038, 041) / 2 pending re-audit (042, 044)**.
+
 ## Authoritative state — 2026-09-01
 
 ```yaml
@@ -10,15 +32,17 @@ STRICT_EXTENSION_PASS: 3
 TOTAL_REGISTERED: 8
 
 base_registered:
-  - 034_prospective_memory_retrieval_architecture
-  - 035_shared_dynamic_context_update
-  - 038_unresolved_reference_representation_architecture
-  - 040_numerical_identity_vs_qualitative_sameness
-  - 041_contextual_set_restriction
+  - 038_unresolved_reference_representation_architecture   # advancing
+  - 041_contextual_set_restriction                         # advancing, full chain passed 2026-09-04
 
 strict_extension_registered:
-  - 042_uniqueness_vs_familiarity_definite_licensing
-  - 044_stage_vs_individual_predication
+  - 042_uniqueness_vs_familiarity_definite_licensing       # pending validation
+  - 044_stage_vs_individual_predication                    # pending validation
+
+archived_by_experiment_2026-09-04:
+  - 034_prospective_memory_retrieval_architecture
+  - 035_shared_dynamic_context_update
+  - 040_numerical_identity_vs_qualitative_sameness
   - 045_referential_vs_attributive_description_use
 
 hard_audit_not_registered:
@@ -57,14 +81,14 @@ For 042+ the strict overlay requires a new orthogonal scientific object plus har
 
 | project | status | frozen question/object |
 |---|---|---|
-| [`034`](active/034_prospective_memory_retrieval_architecture/) | **PASS / GPU / FROZEN** | Prospective memory: strategic monitoring, spontaneous cue-triggered retrieval, or dynamic switching? |
-| [`035`](active/035_shared_dynamic_context_update/) | **PASS / GPU / FROZEN** | Do anaphora and presupposition reuse a shared dynamic local-context update? |
+| [`034`](archive/034_prospective_memory_retrieval_architecture/) | **ARCHIVED 2026-09-04** | Prospective memory: strategic monitoring, spontaneous cue-triggered retrieval, or dynamic switching? |
+| [`035`](archive/035_shared_dynamic_context_update/) | **ARCHIVED AFTER BEHAVIORAL GATE** | Do anaphora and presupposition reuse a shared dynamic local-context update? |
 | [`038`](active/038_unresolved_reference_representation_architecture/) | **PASS / GPU / HARD RE-AUDIT PASSED / FROZEN** | Before reference resolves, multiple candidates, underspecification, or premature commitment? |
-| [`040`](active/040_numerical_identity_vs_qualitative_sameness/) | **PASS / GPU / FROZEN** | Same individual vs merely same kind/qualities. |
-| [`041`](active/041_contextual_set_restriction/) | **STRICT RE-AUDIT PASS / GPU / FROZEN** | Which modifier currently narrows the live referent set, separately from property truth? |
+| [`040`](archive/040_numerical_identity_vs_qualitative_sameness/) | **ARCHIVED AFTER REPRESENTATION/CAUSAL GATES** | Same individual vs merely same kind/qualities. |
+| [`041`](active/041_contextual_set_restriction/) | **KEEP — S0 5/5, probe 4/4, causal 4/4** | Which modifier currently narrows the live referent set, separately from property truth? |
 | [`042`](active/042_uniqueness_vs_familiarity_definite_licensing/) | **STRICT-PASS / GPU / HARD RE-AUDIT PASSED** | Is `the X` licensed by uniqueness or strong discourse familiarity? |
 | [`044`](active/044_stage_vs_individual_predication/) | **STRICT-PASS / GPU / HARD RE-AUDIT PASSED** | Does a property characterize the individual or only a particular stage? |
-| [`045`](active/045_referential_vs_attributive_description_use/) | **STRICT-PASS / GPU / HARD RE-AUDIT PASSED** | Does a description follow an independently intended speaker-target or whoever satisfies the description? |
+| [`045`](archive/045_referential_vs_attributive_description_use/) | **ARCHIVED 2026-09-04** | Does a description follow an independently intended speaker-target or whoever satisfies the description? |
 
 ---
 

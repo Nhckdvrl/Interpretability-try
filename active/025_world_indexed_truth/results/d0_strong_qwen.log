@@ -1,0 +1,18 @@
+Loading weights:   0%|          | 0/399 [00:00<?, ?it/s]Loading weights:  12%|█▏        | 49/399 [00:00<00:00, 485.13it/s]Loading weights:  25%|██▍       | 98/399 [00:00<00:01, 285.36it/s]Loading weights:  33%|███▎      | 132/399 [00:00<00:01, 217.05it/s]Loading weights:  40%|███▉      | 158/399 [00:00<00:01, 207.43it/s]Loading weights:  46%|████▌     | 184/399 [00:00<00:00, 217.63it/s]Loading weights:  55%|█████▌    | 221/399 [00:00<00:00, 243.70it/s]Loading weights:  62%|██████▏   | 247/399 [00:01<00:00, 206.16it/s]Loading weights:  68%|██████▊   | 270/399 [00:01<00:00, 196.37it/s]Loading weights:  73%|███████▎  | 293/399 [00:01<00:00, 192.59it/s]Loading weights:  79%|███████▊  | 314/399 [00:01<00:00, 191.76it/s]Loading weights:  85%|████████▍ | 339/399 [00:01<00:00, 199.34it/s]Loading weights:  91%|█████████ | 363/399 [00:01<00:00, 207.52it/s]Loading weights:  96%|█████████▋| 385/399 [00:01<00:00, 191.98it/s]Loading weights: 100%|██████████| 399/399 [00:01<00:00, 212.55it/s]
+{
+  "contract_id": "025-d0-v2-strong-model-replication",
+  "cuda_visible_devices": "0",
+  "family": "qwen",
+  "label_token_ids": {
+    "FALSE": [
+      7833
+    ],
+    "TRUE": [
+      8214
+    ]
+  },
+  "model_id": "Qwen/Qwen3-8B",
+  "n_records": 256,
+  "revision": "b968826d9c46dd6066d109eabc6255188de91218",
+  "torch_version": "2.11.0+cu130"
+}

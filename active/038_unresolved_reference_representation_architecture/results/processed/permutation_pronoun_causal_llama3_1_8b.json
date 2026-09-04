@@ -1,0 +1,70 @@
+{
+  "contract": "same-content permutation state at unresolved pronoun -> semantic candidate preference",
+  "model": "NousResearch/Meta-Llama-3.1-8B-Instruct",
+  "model_revision": "d10aef7999a2b5ba950ab3974312feeedbfe0b77",
+  "block_index": 18,
+  "residual_layer": 19,
+  "n_rows": 216,
+  "n_semantic_items": 36,
+  "n_informative_donor_contrasts": 210,
+  "clean_both_candidates_over_distractor_rate": 0.7685185185185185,
+  "clean_opposite_permutation_preference_flip_rate": 0.26851851851851855,
+  "aligned_effect_toward_same_item_donor": {
+    "real_same_item_opposite_order": {
+      "estimate": -0.003183564685639881,
+      "ci95": [
+        -0.018269919483301957,
+        0.01224136132420059
+      ]
+    },
+    "shuffled_item_same_order_delta": {
+      "estimate": 0.001746186755952381,
+      "ci95": [
+        -0.011075434449119603,
+        0.015326068611868093
+      ]
+    },
+    "random_matched_norm": {
+      "estimate": -0.005884225027901786,
+      "ci95": [
+        -0.01915587165606311,
+        0.007930788831021605
+      ]
+    }
+  },
+  "real_minus_controls": {
+    "shuffled_item_same_order_delta": {
+      "estimate": -0.004929751441592262,
+      "ci95": [
+        -0.01386672831066115,
+        0.0035173706485142416
+      ]
+    },
+    "random_matched_norm": {
+      "estimate": 0.0027006603422619047,
+      "ci95": [
+        -0.007656383019246293,
+        0.01249696443665701
+      ]
+    }
+  },
+  "mean_effect_by_permutation_pair": {
+    "012-102": {
+      "real_same_item_opposite_order": 0.00313720703125,
+      "shuffled_item_same_order_delta": -0.0003505161830357143,
+      "random_matched_norm": -0.008608572823660714
+    },
+    "021-120": {
+      "real_same_item_opposite_order": 0.007749720982142857,
+      "shuffled_item_same_order_delta": 0.011212594168526786,
+      "random_matched_norm": 0.009429931640625
+    },
+    "201-210": {
+      "real_same_item_opposite_order": -0.0204376220703125,
+      "shuffled_item_same_order_delta": -0.005623517717633929,
+      "random_matched_norm": -0.018474033900669644
+    }
+  },
+  "gate_pass": false,
+  "interpretation_guard": "A pass shows that an entity-specific, order-induced winner state is already causally active at the unresolved pronoun beyond a generic order delta. It does not resurrect independent parallel alternatives."
+}

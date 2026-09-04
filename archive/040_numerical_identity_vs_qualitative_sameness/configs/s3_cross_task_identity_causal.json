@@ -1,0 +1,21 @@
+{
+  "experiment_version": "s3_cross_task_identity_causal_v1",
+  "seed": 20260904,
+  "model": "Qwen/Qwen3-8B",
+  "model_revision": "b968826d9c46dd6066d109eabc6255188de91218",
+  "dtype": "bfloat16",
+  "block_index": 17,
+  "residual_layer": 18,
+  "probe_C": 0.01,
+  "intervention_strength_projection_sd": 1.0,
+  "batch_size": 16,
+  "test_fraction": 0.2,
+  "bootstrap_samples": 5000,
+  "gate": {
+    "min_cross_surface_identity_auc": 0.75,
+    "identity_aligned_ci_low_above_zero": true,
+    "identity_minus_shuffled_ci_low_above_zero": true,
+    "min_clean_type_accuracy": 0.9,
+    "max_type_accuracy_drop": 0.05
+  }
+}

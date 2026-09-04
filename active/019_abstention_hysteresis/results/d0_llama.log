@@ -1,0 +1,21 @@
+Loading weights:   0%|          | 0/291 [00:00<?, ?it/s]Loading weights:   0%|          | 1/291 [00:00<01:35,  3.04it/s]Loading weights:   4%|▍         | 13/291 [00:00<00:07, 37.84it/s]Loading weights:   8%|▊         | 23/291 [00:00<00:05, 51.33it/s]Loading weights:  11%|█         | 32/291 [00:00<00:04, 57.63it/s]Loading weights:  14%|█▍        | 41/291 [00:00<00:04, 61.42it/s]Loading weights:  17%|█▋        | 50/291 [00:00<00:03, 65.79it/s]Loading weights:  20%|██        | 59/291 [00:01<00:03, 69.29it/s]Loading weights:  23%|██▎       | 68/291 [00:01<00:03, 70.35it/s]Loading weights:  26%|██▋       | 77/291 [00:01<00:03, 70.28it/s]Loading weights:  30%|██▉       | 87/291 [00:01<00:02, 71.79it/s]Loading weights:  33%|███▎      | 96/291 [00:01<00:02, 72.23it/s]Loading weights:  36%|███▌      | 105/291 [00:01<00:02, 71.32it/s]Loading weights:  39%|███▉      | 113/291 [00:01<00:02, 73.48it/s]Loading weights:  42%|████▏     | 122/291 [00:01<00:02, 71.34it/s]Loading weights:  45%|████▌     | 131/291 [00:02<00:02, 70.82it/s]Loading weights:  48%|████▊     | 140/291 [00:02<00:02, 70.67it/s]Loading weights:  51%|█████     | 149/291 [00:02<00:02, 70.66it/s]Loading weights:  54%|█████▍    | 158/291 [00:02<00:01, 69.90it/s]Loading weights:  57%|█████▋    | 167/291 [00:02<00:01, 69.18it/s]Loading weights:  60%|██████    | 176/291 [00:02<00:01, 69.08it/s]Loading weights:  64%|██████▎   | 185/291 [00:02<00:01, 68.92it/s]Loading weights:  67%|██████▋   | 194/291 [00:02<00:01, 69.15it/s]Loading weights:  70%|██████▉   | 203/291 [00:03<00:01, 69.47it/s]Loading weights:  73%|███████▎  | 212/291 [00:03<00:01, 69.33it/s]Loading weights:  76%|███████▌  | 221/291 [00:03<00:01, 69.73it/s]Loading weights:  79%|███████▉  | 230/291 [00:03<00:00, 69.49it/s]Loading weights:  82%|████████▏ | 239/291 [00:03<00:00, 68.42it/s]Loading weights:  85%|████████▌ | 248/291 [00:03<00:00, 71.52it/s]Loading weights:  88%|████████▊ | 257/291 [00:03<00:00, 71.02it/s]Loading weights:  91%|█████████▏| 266/291 [00:03<00:00, 70.69it/s]Loading weights:  95%|█████████▍| 275/291 [00:04<00:00, 69.71it/s]Loading weights:  98%|█████████▊| 284/291 [00:04<00:00, 70.62it/s]Loading weights: 100%|██████████| 291/291 [00:04<00:00, 67.51it/s]
+[transformers] Ignoring clean_up_tokenization_spaces=True for BPE tokenizer TokenizersBackend. The clean_up_tokenization post-processing step is designed for WordPiece tokenizers and is destructive for BPE (it strips spaces before punctuation). Set clean_up_tokenization_spaces=False to suppress this warning, or set clean_up_tokenization_spaces_for_bpe_even_though_it_will_corrupt_output=True to force cleanup anyway.
+{"family": "llama", "phase": "gate", "bank": 300, "gated": 76}
+{
+  "contract_id": "019-d0-v1",
+  "family": "llama",
+  "model": "/home/xiang/.cache/huggingface/hub/models--NousResearch--Meta-Llama-3.1-8B-Instruct/snapshots/d10aef7999a2b5ba950ab3974312feeedbfe0b77",
+  "model_revision": "d10aef7999a2b5ba950ab3974312feeedbfe0b77",
+  "bank_sha256": "c385061a7757a2e57f6be69a1e82723c64b66c5401878068dc67494a8cdb0a12",
+  "bank_items": 300,
+  "gated_items": 76,
+  "records": 1280,
+  "batch_size": 4,
+  "score_batch_size": 4,
+  "max_new_tokens": 32,
+  "dtype": "torch.bfloat16",
+  "elapsed_seconds": 836.2985010147095,
+  "python": "3.12.13",
+  "torch": "2.11.0+cu130",
+  "transformers": "5.12.1"
+}

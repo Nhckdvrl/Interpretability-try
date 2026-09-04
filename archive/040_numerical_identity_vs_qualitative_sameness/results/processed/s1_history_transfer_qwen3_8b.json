@@ -1,0 +1,362 @@
+{
+  "contract": "arbitrary episode-history inheritance with preserved type knowledge",
+  "model": "Qwen/Qwen3-8B",
+  "model_revision": "b968826d9c46dd6066d109eabc6255188de91218",
+  "n": 3968,
+  "history_accuracy_by_cue": {
+    "explicit_object_label": 0.6985887096774194,
+    "continuity_description": 0.6915322580645161
+  },
+  "history_accuracy_by_cue_identity_order": {
+    "same_type/explicit_object_label/same_token/alpha_first": 0.24193548387096775,
+    "same_type/explicit_object_label/same_token/beta_first": 1.0,
+    "same_type/explicit_object_label/different_token/alpha_first": 1.0,
+    "same_type/explicit_object_label/different_token/beta_first": 0.3870967741935484,
+    "same_type/continuity_description/same_token/alpha_first": 0.7096774193548387,
+    "same_type/continuity_description/same_token/beta_first": 0.9112903225806451,
+    "same_type/continuity_description/different_token/alpha_first": 1.0,
+    "same_type/continuity_description/different_token/beta_first": 0.03225806451612903,
+    "different_type/explicit_object_label/same_token/alpha_first": 0.27419354838709675,
+    "different_type/explicit_object_label/same_token/beta_first": 1.0,
+    "different_type/explicit_object_label/different_token/alpha_first": 1.0,
+    "different_type/explicit_object_label/different_token/beta_first": 0.6854838709677419,
+    "different_type/continuity_description/same_token/alpha_first": 0.8951612903225806,
+    "different_type/continuity_description/same_token/beta_first": 0.9435483870967742,
+    "different_type/continuity_description/different_token/alpha_first": 0.9919354838709677,
+    "different_type/continuity_description/different_token/beta_first": 0.04838709677419355
+  },
+  "binding_recency_prediction": {
+    "same_type": {
+      "target_code_binding_last": 0.9778225806451613,
+      "target_code_binding_not_last": 0.34274193548387094
+    },
+    "different_type": {
+      "target_code_binding_last": 0.9838709677419355,
+      "target_code_binding_not_last": 0.47580645161290325
+    }
+  },
+  "type_accuracy": 0.9611895161290323,
+  "cells": {
+    "history_transfer/same_type/explicit_object_label/same_token/alpha_first/minimal": {
+      "n": 62,
+      "accuracy": 0.22580645161290322,
+      "mean_target_margin": -2.3821091440416153
+    },
+    "type_knowledge/same_type/explicit_object_label/same_token/alpha_first/minimal": {
+      "n": 62,
+      "accuracy": 1.0,
+      "mean_target_margin": 20.5927417605154
+    },
+    "history_transfer/same_type/continuity_description/same_token/alpha_first/minimal": {
+      "n": 62,
+      "accuracy": 0.7419354838709677,
+      "mean_target_margin": 6.4995164428987815
+    },
+    "type_knowledge/same_type/continuity_description/same_token/alpha_first/minimal": {
+      "n": 62,
+      "accuracy": 1.0,
+      "mean_target_margin": 21.004031977345868
+    },
+    "history_transfer/same_type/explicit_object_label/different_token/alpha_first/minimal": {
+      "n": 62,
+      "accuracy": 1.0,
+      "mean_target_margin": 16.72980556372673
+    },
+    "type_knowledge/same_type/explicit_object_label/different_token/alpha_first/minimal": {
+      "n": 62,
+      "accuracy": 1.0,
+      "mean_target_margin": 22.354838690450116
+    },
+    "history_transfer/same_type/continuity_description/different_token/alpha_first/minimal": {
+      "n": 62,
+      "accuracy": 1.0,
+      "mean_target_margin": 8.144267843615625
+    },
+    "type_knowledge/same_type/continuity_description/different_token/alpha_first/minimal": {
+      "n": 62,
+      "accuracy": 1.0,
+      "mean_target_margin": 21.358870569736727
+    },
+    "history_transfer/same_type/explicit_object_label/same_token/beta_first/minimal": {
+      "n": 62,
+      "accuracy": 1.0,
+      "mean_target_margin": 14.507723556410882
+    },
+    "type_knowledge/same_type/explicit_object_label/same_token/beta_first/minimal": {
+      "n": 62,
+      "accuracy": 1.0,
+      "mean_target_margin": 21.088709465919003
+    },
+    "history_transfer/same_type/continuity_description/same_token/beta_first/minimal": {
+      "n": 62,
+      "accuracy": 0.9838709677419355,
+      "mean_target_margin": 10.252558485154182
+    },
+    "type_knowledge/same_type/continuity_description/same_token/beta_first/minimal": {
+      "n": 62,
+      "accuracy": 1.0,
+      "mean_target_margin": 21.366935062792994
+    },
+    "history_transfer/same_type/explicit_object_label/different_token/beta_first/minimal": {
+      "n": 62,
+      "accuracy": 0.4032258064516129,
+      "mean_target_margin": -0.17348931681725285
+    },
+    "type_knowledge/same_type/explicit_object_label/different_token/beta_first/minimal": {
+      "n": 62,
+      "accuracy": 1.0,
+      "mean_target_margin": 21.475806332403614
+    },
+    "history_transfer/same_type/continuity_description/different_token/beta_first/minimal": {
+      "n": 62,
+      "accuracy": 0.0,
+      "mean_target_margin": -4.561043002913075
+    },
+    "type_knowledge/same_type/continuity_description/different_token/beta_first/minimal": {
+      "n": 62,
+      "accuracy": 1.0,
+      "mean_target_margin": 21.955644930562666
+    },
+    "history_transfer/different_type/explicit_object_label/same_token/alpha_first/minimal": {
+      "n": 62,
+      "accuracy": 0.27419354838709675,
+      "mean_target_margin": -1.4709346082902723
+    },
+    "type_knowledge/different_type/explicit_object_label/same_token/alpha_first/minimal": {
+      "n": 62,
+      "accuracy": 1.0,
+      "mean_target_margin": 13.152950173424136
+    },
+    "history_transfer/different_type/continuity_description/same_token/alpha_first/minimal": {
+      "n": 62,
+      "accuracy": 0.9032258064516129,
+      "mean_target_margin": 9.636119225332815
+    },
+    "type_knowledge/different_type/continuity_description/same_token/alpha_first/minimal": {
+      "n": 62,
+      "accuracy": 1.0,
+      "mean_target_margin": 14.708754385671307
+    },
+    "history_transfer/different_type/explicit_object_label/different_token/alpha_first/minimal": {
+      "n": 62,
+      "accuracy": 1.0,
+      "mean_target_margin": 17.79434742658369
+    },
+    "type_knowledge/different_type/explicit_object_label/different_token/alpha_first/minimal": {
+      "n": 62,
+      "accuracy": 1.0,
+      "mean_target_margin": 19.911237851265938
+    },
+    "history_transfer/different_type/continuity_description/different_token/alpha_first/minimal": {
+      "n": 62,
+      "accuracy": 0.9838709677419355,
+      "mean_target_margin": 9.829742297049492
+    },
+    "type_knowledge/different_type/continuity_description/different_token/alpha_first/minimal": {
+      "n": 62,
+      "accuracy": 1.0,
+      "mean_target_margin": 9.103675330838849
+    },
+    "history_transfer/different_type/explicit_object_label/same_token/beta_first/minimal": {
+      "n": 62,
+      "accuracy": 1.0,
+      "mean_target_margin": 16.076390618278133
+    },
+    "type_knowledge/different_type/explicit_object_label/same_token/beta_first/minimal": {
+      "n": 62,
+      "accuracy": 1.0,
+      "mean_target_margin": 18.689480735409646
+    },
+    "history_transfer/different_type/continuity_description/same_token/beta_first/minimal": {
+      "n": 62,
+      "accuracy": 0.9838709677419355,
+      "mean_target_margin": 10.32141068866176
+    },
+    "type_knowledge/different_type/continuity_description/same_token/beta_first/minimal": {
+      "n": 62,
+      "accuracy": 1.0,
+      "mean_target_margin": 16.20544321114017
+    },
+    "history_transfer/different_type/explicit_object_label/different_token/beta_first/minimal": {
+      "n": 62,
+      "accuracy": 0.7741935483870968,
+      "mean_target_margin": 4.048546994886091
+    },
+    "type_knowledge/different_type/explicit_object_label/different_token/beta_first/minimal": {
+      "n": 62,
+      "accuracy": 0.9516129032258065,
+      "mean_target_margin": 10.624777893866263
+    },
+    "history_transfer/different_type/continuity_description/different_token/beta_first/minimal": {
+      "n": 62,
+      "accuracy": 0.016129032258064516,
+      "mean_target_margin": -4.224043215474775
+    },
+    "type_knowledge/different_type/continuity_description/different_token/beta_first/minimal": {
+      "n": 62,
+      "accuracy": 0.4032258064516129,
+      "mean_target_margin": 0.23862022738302907
+    },
+    "history_transfer/same_type/explicit_object_label/same_token/alpha_first/substantial": {
+      "n": 62,
+      "accuracy": 0.25806451612903225,
+      "mean_target_margin": -2.2692374337104058
+    },
+    "type_knowledge/same_type/explicit_object_label/same_token/alpha_first/substantial": {
+      "n": 62,
+      "accuracy": 1.0,
+      "mean_target_margin": 20.213709350555174
+    },
+    "history_transfer/same_type/continuity_description/same_token/alpha_first/substantial": {
+      "n": 62,
+      "accuracy": 0.6774193548387096,
+      "mean_target_margin": 5.608564023048647
+    },
+    "type_knowledge/same_type/continuity_description/same_token/alpha_first/substantial": {
+      "n": 62,
+      "accuracy": 1.0,
+      "mean_target_margin": 20.56048276924318
+    },
+    "history_transfer/same_type/explicit_object_label/different_token/alpha_first/substantial": {
+      "n": 62,
+      "accuracy": 1.0,
+      "mean_target_margin": 15.237681102368139
+    },
+    "type_knowledge/same_type/explicit_object_label/different_token/alpha_first/substantial": {
+      "n": 62,
+      "accuracy": 1.0,
+      "mean_target_margin": 21.673387052551394
+    },
+    "history_transfer/same_type/continuity_description/different_token/alpha_first/substantial": {
+      "n": 62,
+      "accuracy": 1.0,
+      "mean_target_margin": 7.237153205179399
+    },
+    "type_knowledge/same_type/continuity_description/different_token/alpha_first/substantial": {
+      "n": 62,
+      "accuracy": 1.0,
+      "mean_target_margin": 20.88709560325069
+    },
+    "history_transfer/same_type/explicit_object_label/same_token/beta_first/substantial": {
+      "n": 62,
+      "accuracy": 1.0,
+      "mean_target_margin": 12.25699988103682
+    },
+    "type_knowledge/same_type/explicit_object_label/same_token/beta_first/substantial": {
+      "n": 62,
+      "accuracy": 1.0,
+      "mean_target_margin": 20.701612501375138
+    },
+    "history_transfer/same_type/continuity_description/same_token/beta_first/substantial": {
+      "n": 62,
+      "accuracy": 0.8387096774193549,
+      "mean_target_margin": 8.270165831811967
+    },
+    "type_knowledge/same_type/continuity_description/same_token/beta_first/substantial": {
+      "n": 62,
+      "accuracy": 1.0,
+      "mean_target_margin": 20.766128042051868
+    },
+    "history_transfer/same_type/explicit_object_label/different_token/beta_first/substantial": {
+      "n": 62,
+      "accuracy": 0.3709677419354839,
+      "mean_target_margin": -1.0436270410014736
+    },
+    "type_knowledge/same_type/explicit_object_label/different_token/beta_first/substantial": {
+      "n": 62,
+      "accuracy": 1.0,
+      "mean_target_margin": 20.75806431616506
+    },
+    "history_transfer/same_type/continuity_description/different_token/beta_first/substantial": {
+      "n": 62,
+      "accuracy": 0.06451612903225806,
+      "mean_target_margin": -3.949639981792819
+    },
+    "type_knowledge/same_type/continuity_description/different_token/beta_first/substantial": {
+      "n": 62,
+      "accuracy": 1.0,
+      "mean_target_margin": 21.49999935588529
+    },
+    "history_transfer/different_type/explicit_object_label/same_token/alpha_first/substantial": {
+      "n": 62,
+      "accuracy": 0.27419354838709675,
+      "mean_target_margin": -1.4113690776209677
+    },
+    "type_knowledge/different_type/explicit_object_label/same_token/alpha_first/substantial": {
+      "n": 62,
+      "accuracy": 1.0,
+      "mean_target_margin": 13.49103585558553
+    },
+    "history_transfer/different_type/continuity_description/same_token/alpha_first/substantial": {
+      "n": 62,
+      "accuracy": 0.8870967741935484,
+      "mean_target_margin": 9.010732660370488
+    },
+    "type_knowledge/different_type/continuity_description/same_token/alpha_first/substantial": {
+      "n": 62,
+      "accuracy": 1.0,
+      "mean_target_margin": 14.806037460604022
+    },
+    "history_transfer/different_type/explicit_object_label/different_token/alpha_first/substantial": {
+      "n": 62,
+      "accuracy": 1.0,
+      "mean_target_margin": 16.766102838900782
+    },
+    "type_knowledge/different_type/explicit_object_label/different_token/alpha_first/substantial": {
+      "n": 62,
+      "accuracy": 1.0,
+      "mean_target_margin": 19.0039217068303
+    },
+    "history_transfer/different_type/continuity_description/different_token/alpha_first/substantial": {
+      "n": 62,
+      "accuracy": 1.0,
+      "mean_target_margin": 9.478838709092908
+    },
+    "type_knowledge/different_type/continuity_description/different_token/alpha_first/substantial": {
+      "n": 62,
+      "accuracy": 1.0,
+      "mean_target_margin": 7.918039377658598
+    },
+    "history_transfer/different_type/explicit_object_label/same_token/beta_first/substantial": {
+      "n": 62,
+      "accuracy": 1.0,
+      "mean_target_margin": 14.32586952755528
+    },
+    "type_knowledge/different_type/explicit_object_label/same_token/beta_first/substantial": {
+      "n": 62,
+      "accuracy": 1.0,
+      "mean_target_margin": 18.552393613323087
+    },
+    "history_transfer/different_type/continuity_description/same_token/beta_first/substantial": {
+      "n": 62,
+      "accuracy": 0.9032258064516129,
+      "mean_target_margin": 8.757108569145203
+    },
+    "type_knowledge/different_type/continuity_description/same_token/beta_first/substantial": {
+      "n": 62,
+      "accuracy": 1.0,
+      "mean_target_margin": 15.181147177373209
+    },
+    "history_transfer/different_type/explicit_object_label/different_token/beta_first/substantial": {
+      "n": 62,
+      "accuracy": 0.5967741935483871,
+      "mean_target_margin": 2.2658954070460413
+    },
+    "type_knowledge/different_type/explicit_object_label/different_token/beta_first/substantial": {
+      "n": 62,
+      "accuracy": 0.8870967741935484,
+      "mean_target_margin": 8.705200179930657
+    },
+    "history_transfer/different_type/continuity_description/different_token/beta_first/substantial": {
+      "n": 62,
+      "accuracy": 0.08064516129032258,
+      "mean_target_margin": -3.74687288653466
+    },
+    "type_knowledge/different_type/continuity_description/different_token/beta_first/substantial": {
+      "n": 62,
+      "accuracy": 0.5161290322580645,
+      "mean_target_margin": 0.08744037535882765
+    }
+  },
+  "gate_pass": false
+}

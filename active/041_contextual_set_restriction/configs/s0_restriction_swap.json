@@ -1,0 +1,50 @@
+{
+  "experiment_version": "s0_restriction_swap_v1",
+  "stimulus_version": "s0_restriction_swap",
+  "seed": 20260904,
+  "models": {
+    "NousResearch/Meta-Llama-3.1-8B-Instruct": {
+      "n_blocks": 32
+    },
+    "Qwen/Qwen3-8B": {
+      "n_blocks": 36
+    },
+    "google/gemma-3-12b-it": {
+      "n_blocks": 48
+    },
+    "microsoft/Phi-4-mini-instruct": {
+      "n_blocks": 32
+    },
+    "mistralai/Mistral-Small-24B-Instruct-2501": {
+      "n_blocks": 40
+    },
+    "Qwen/Qwen3-0.6B": {
+      "n_blocks": 28
+    },
+    "Qwen/Qwen3-1.7B": {
+      "n_blocks": 28
+    },
+    "Qwen/Qwen3-4B": {
+      "n_blocks": 36
+    },
+    "Qwen/Qwen3-14B": {
+      "n_blocks": 40
+    },
+    "Qwen/Qwen3-32B": {
+      "n_blocks": 64
+    }
+  },
+  "dtype": "bfloat16",
+  "candidate_answers": [
+    "A",
+    "B"
+  ],
+  "batch_size": 16,
+  "bootstrap_samples": 5000,
+  "gate": {
+    "min_full_description_accuracy": 0.8,
+    "max_bare_description_accuracy": 0.7,
+    "min_omission_cost_interaction": 0.5,
+    "min_models_passing": 3
+  }
+}

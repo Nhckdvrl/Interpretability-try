@@ -1,0 +1,16 @@
+{
+  "seed": 20260901,
+  "models": [
+    "Qwen/Qwen3-8B",
+    "NousResearch/Meta-Llama-3.1-8B-Instruct"
+  ],
+  "dtype": "bfloat16",
+  "batch_size": 8,
+  "max_items": null,
+  "candidate_answers": ["A", "B"],
+  "gate": {
+    "min_history_accuracy_per_identity_cell": 0.60,
+    "min_type_accuracy": 0.80,
+    "max_type_identity_effect_fraction": 0.50
+  }
+}

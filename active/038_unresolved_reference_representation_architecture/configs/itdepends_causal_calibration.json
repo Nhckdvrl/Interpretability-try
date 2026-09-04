@@ -1,0 +1,11 @@
+{
+  "seed": 20260904,
+  "model": "NousResearch/Meta-Llama-3.1-8B-Instruct",
+  "hidden_state_layer": 19,
+  "transformer_block": 18,
+  "probe_C": 0.01,
+  "intervention_strength_projection_sd": 1.0,
+  "batch_size": 8,
+  "clearref_evaluation_split": "test",
+  "sharedref_subset": "licensed candidates at mention positions 0 and 1; distractor at position 2"
+}

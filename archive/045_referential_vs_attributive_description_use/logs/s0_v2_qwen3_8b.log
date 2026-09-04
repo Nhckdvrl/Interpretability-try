@@ -1,0 +1,23 @@
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards:  20%|██        | 1/5 [00:00<00:02,  1.52it/s]Loading checkpoint shards:  40%|████      | 2/5 [00:01<00:01,  1.54it/s]Loading checkpoint shards:  60%|██████    | 3/5 [00:01<00:01,  1.56it/s]Loading checkpoint shards:  80%|████████  | 4/5 [00:02<00:00,  1.69it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:02<00:00,  2.17it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:02<00:00,  1.87it/s]
+{"scored": 16, "total": 16128}
+{"scored": 816, "total": 16128}
+{"scored": 1616, "total": 16128}
+{"scored": 2416, "total": 16128}
+{"scored": 3216, "total": 16128}
+{"scored": 4016, "total": 16128}
+{"scored": 4816, "total": 16128}
+{"scored": 5616, "total": 16128}
+{"scored": 6416, "total": 16128}
+{"scored": 7216, "total": 16128}
+{"scored": 8016, "total": 16128}
+{"scored": 8816, "total": 16128}
+{"scored": 9616, "total": 16128}
+{"scored": 10416, "total": 16128}
+{"scored": 11216, "total": 16128}
+{"scored": 12016, "total": 16128}
+{"scored": 12816, "total": 16128}
+{"scored": 13616, "total": 16128}
+{"scored": 14416, "total": 16128}
+{"scored": 15216, "total": 16128}
+{"scored": 16016, "total": 16128}
+{"output": "active/045_referential_vs_attributive_description_use/results/raw/s0_use_mode_crossover_v2_qwen3_8b.jsonl", "rows": 16128}

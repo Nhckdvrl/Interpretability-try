@@ -1,0 +1,24 @@
+The tokenizer you are loading from 'mistralai/Mistral-Small-24B-Instruct-2501' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+Loading checkpoint shards:   0%|          | 0/10 [00:00<?, ?it/s]Loading checkpoint shards:  10%|█         | 1/10 [01:46<15:54, 106.05s/it]Loading checkpoint shards:  20%|██        | 2/10 [03:12<12:35, 94.43s/it] Loading checkpoint shards:  30%|███       | 3/10 [04:15<09:19, 79.97s/it]Loading checkpoint shards:  40%|████      | 4/10 [05:01<06:39, 66.67s/it]Loading checkpoint shards:  50%|█████     | 5/10 [05:50<05:00, 60.19s/it]Loading checkpoint shards:  60%|██████    | 6/10 [06:37<03:43, 55.79s/it]Loading checkpoint shards:  70%|███████   | 7/10 [07:25<02:40, 53.42s/it]Loading checkpoint shards:  80%|████████  | 8/10 [08:11<01:41, 50.97s/it]Loading checkpoint shards:  90%|█████████ | 9/10 [09:00<00:50, 50.43s/it]Loading checkpoint shards: 100%|██████████| 10/10 [09:42<00:00, 47.76s/it]Loading checkpoint shards: 100%|██████████| 10/10 [09:42<00:00, 58.26s/it]
+{"scored": 16, "total": 16128}
+{"scored": 816, "total": 16128}
+{"scored": 1616, "total": 16128}
+{"scored": 2416, "total": 16128}
+{"scored": 3216, "total": 16128}
+{"scored": 4016, "total": 16128}
+{"scored": 4816, "total": 16128}
+{"scored": 5616, "total": 16128}
+{"scored": 6416, "total": 16128}
+{"scored": 7216, "total": 16128}
+{"scored": 8016, "total": 16128}
+{"scored": 8816, "total": 16128}
+{"scored": 9616, "total": 16128}
+{"scored": 10416, "total": 16128}
+{"scored": 11216, "total": 16128}
+{"scored": 12016, "total": 16128}
+{"scored": 12816, "total": 16128}
+{"scored": 13616, "total": 16128}
+{"scored": 14416, "total": 16128}
+{"scored": 15216, "total": 16128}
+{"scored": 16016, "total": 16128}
+{"output": "active/045_referential_vs_attributive_description_use/results/raw/s0_use_mode_crossover_v2_mistral_small_24b.jsonl", "rows": 16128}

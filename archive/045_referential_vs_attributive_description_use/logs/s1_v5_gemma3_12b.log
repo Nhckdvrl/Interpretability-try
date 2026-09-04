@@ -1,0 +1,13 @@
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards:  20%|██        | 1/5 [00:00<00:03,  1.08it/s]Loading checkpoint shards:  40%|████      | 2/5 [00:01<00:02,  1.18it/s]Loading checkpoint shards:  60%|██████    | 3/5 [00:02<00:01,  1.24it/s]Loading checkpoint shards:  80%|████████  | 4/5 [00:03<00:00,  1.29it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:03<00:00,  1.39it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:03<00:00,  1.31it/s]
+/home/xiang/Interpretability-try/active/045_referential_vs_attributive_description_use/scripts/run_s1_use_mode_states.py:82: RuntimeWarning: overflow encountered in cast
+  output.hidden_states[layer][i, position].float().cpu().numpy().astype(np.float16))
+{"scored": 16, "total": 6912}
+{"scored": 816, "total": 6912}
+{"scored": 1616, "total": 6912}
+{"scored": 2416, "total": 6912}
+{"scored": 3216, "total": 6912}
+{"scored": 4016, "total": 6912}
+{"scored": 4816, "total": 6912}
+{"scored": 5616, "total": 6912}
+{"scored": 6416, "total": 6912}
+{"output": "active/045_referential_vs_attributive_description_use/results/raw/s1_use_mode_states_v5_gemma3_12b.jsonl", "rows": 6912, "state_rows": 504, "residual_layers": [0, 6, 12, 18, 24, 30, 36, 42, 48]}

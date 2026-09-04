@@ -1,0 +1,269 @@
+{
+  "thresholds": {
+    "dominance_prob": 0.8,
+    "max_decoy_prob": 0.1,
+    "binary_competitor_prob": 0.6,
+    "ternary_target_ab_prob": 0.6,
+    "min_stable_fraction": 0.6666666666666666
+  },
+  "aggregate": {
+    "overall": {
+      "n_total": 20,
+      "n_gated": 0,
+      "n_strong_reversal": 0,
+      "strong_reversal_rate_among_gated": 0.0,
+      "mean_attraction_delta_gated": 0.0
+    },
+    "by_domain": {
+      "phone": {
+        "n_total": 20,
+        "n_gated": 0,
+        "n_strong_reversal": 0,
+        "strong_reversal_rate_among_gated": 0.0,
+        "mean_attraction_delta_gated": 0.0
+      }
+    }
+  },
+  "scenarios": [
+    {
+      "scenario_id": "phone-0000-targetA-s05",
+      "domain": "phone",
+      "target": "A",
+      "dominance_pass": false,
+      "decoy_pass": true,
+      "binary_competitor_mean": 0.5131204626094213,
+      "ternary_target_ab_mean": 0.5182782630277804,
+      "attraction_delta": 0.031398725637201697,
+      "reversal_fraction": 0.5,
+      "strong_reversal": false
+    },
+    {
+      "scenario_id": "phone-0000-targetA-s10",
+      "domain": "phone",
+      "target": "A",
+      "dominance_pass": false,
+      "decoy_pass": true,
+      "binary_competitor_mean": 0.5131204626094213,
+      "ternary_target_ab_mean": 0.4476675149628309,
+      "attraction_delta": -0.03921202242774774,
+      "reversal_fraction": 0.4444444444444444,
+      "strong_reversal": false
+    },
+    {
+      "scenario_id": "phone-0000-targetA-s15",
+      "domain": "phone",
+      "target": "A",
+      "dominance_pass": false,
+      "decoy_pass": true,
+      "binary_competitor_mean": 0.5131204626094213,
+      "ternary_target_ab_mean": 0.40885613540239385,
+      "attraction_delta": -0.0780234019881848,
+      "reversal_fraction": 0.3888888888888889,
+      "strong_reversal": false
+    },
+    {
+      "scenario_id": "phone-0000-targetB-s05",
+      "domain": "phone",
+      "target": "B",
+      "dominance_pass": false,
+      "decoy_pass": false,
+      "binary_competitor_mean": 0.48687953739057865,
+      "ternary_target_ab_mean": 0.6772782341246816,
+      "attraction_delta": 0.16415777151526023,
+      "reversal_fraction": 0.5,
+      "strong_reversal": false
+    },
+    {
+      "scenario_id": "phone-0000-targetB-s10",
+      "domain": "phone",
+      "target": "B",
+      "dominance_pass": false,
+      "decoy_pass": false,
+      "binary_competitor_mean": 0.48687953739057865,
+      "ternary_target_ab_mean": 0.6717741703711142,
+      "attraction_delta": 0.15865370776169285,
+      "reversal_fraction": 0.5,
+      "strong_reversal": false
+    },
+    {
+      "scenario_id": "phone-0000-targetB-s15",
+      "domain": "phone",
+      "target": "B",
+      "dominance_pass": false,
+      "decoy_pass": true,
+      "binary_competitor_mean": 0.48687953739057865,
+      "ternary_target_ab_mean": 0.6716844746845185,
+      "attraction_delta": 0.15856401207509718,
+      "reversal_fraction": 0.5,
+      "strong_reversal": false
+    },
+    {
+      "scenario_id": "phone-0001-targetA-s05",
+      "domain": "phone",
+      "target": "A",
+      "dominance_pass": false,
+      "decoy_pass": true,
+      "binary_competitor_mean": 0.5517877047329244,
+      "ternary_target_ab_mean": 0.45670654799337657,
+      "attraction_delta": 0.008494252726300944,
+      "reversal_fraction": 0.4444444444444444,
+      "strong_reversal": false
+    },
+    {
+      "scenario_id": "phone-0001-targetA-s10",
+      "domain": "phone",
+      "target": "A",
+      "dominance_pass": false,
+      "decoy_pass": true,
+      "binary_competitor_mean": 0.5521916434989131,
+      "ternary_target_ab_mean": 0.3884083162253626,
+      "attraction_delta": -0.05940004027572421,
+      "reversal_fraction": 0.4444444444444444,
+      "strong_reversal": false
+    },
+    {
+      "scenario_id": "phone-0001-targetA-s15",
+      "domain": "phone",
+      "target": "A",
+      "dominance_pass": false,
+      "decoy_pass": true,
+      "binary_competitor_mean": 0.5517877047329244,
+      "ternary_target_ab_mean": 0.3448813204828524,
+      "attraction_delta": -0.1033309747842232,
+      "reversal_fraction": 0.3333333333333333,
+      "strong_reversal": false
+    },
+    {
+      "scenario_id": "phone-0001-targetB-s05",
+      "domain": "phone",
+      "target": "B",
+      "dominance_pass": false,
+      "decoy_pass": false,
+      "binary_competitor_mean": 0.4482122952670756,
+      "ternary_target_ab_mean": 0.7052601065156191,
+      "attraction_delta": 0.15347240178269472,
+      "reversal_fraction": 0.5,
+      "strong_reversal": false
+    },
+    {
+      "scenario_id": "phone-0001-targetB-s10",
+      "domain": "phone",
+      "target": "B",
+      "dominance_pass": false,
+      "decoy_pass": false,
+      "binary_competitor_mean": 0.4482122952670756,
+      "ternary_target_ab_mean": 0.692678507068927,
+      "attraction_delta": 0.1408908023360026,
+      "reversal_fraction": 0.5,
+      "strong_reversal": false
+    },
+    {
+      "scenario_id": "phone-0001-targetB-s15",
+      "domain": "phone",
+      "target": "B",
+      "dominance_pass": false,
+      "decoy_pass": false,
+      "binary_competitor_mean": 0.4482122952670756,
+      "ternary_target_ab_mean": 0.6780065921564662,
+      "attraction_delta": 0.12621888742354181,
+      "reversal_fraction": 0.5,
+      "strong_reversal": false
+    },
+    {
+      "scenario_id": "phone-0002-targetA-s05",
+      "domain": "phone",
+      "target": "A",
+      "dominance_pass": false,
+      "decoy_pass": true,
+      "binary_competitor_mean": 0.6977441605598237,
+      "ternary_target_ab_mean": 0.3919145978641514,
+      "attraction_delta": 0.08965875842397514,
+      "reversal_fraction": 0.4444444444444444,
+      "strong_reversal": false
+    },
+    {
+      "scenario_id": "phone-0002-targetA-s10",
+      "domain": "phone",
+      "target": "A",
+      "dominance_pass": false,
+      "decoy_pass": true,
+      "binary_competitor_mean": 0.6977441605598237,
+      "ternary_target_ab_mean": 0.2890596433587421,
+      "attraction_delta": -0.01319619608143413,
+      "reversal_fraction": 0.2222222222222222,
+      "strong_reversal": false
+    },
+    {
+      "scenario_id": "phone-0002-targetA-s15",
+      "domain": "phone",
+      "target": "A",
+      "dominance_pass": false,
+      "decoy_pass": true,
+      "binary_competitor_mean": 0.6977441605598237,
+      "ternary_target_ab_mean": 0.26298538833664786,
+      "attraction_delta": -0.03927045110352839,
+      "reversal_fraction": 0.2222222222222222,
+      "strong_reversal": false
+    },
+    {
+      "scenario_id": "phone-0002-targetB-s05",
+      "domain": "phone",
+      "target": "B",
+      "dominance_pass": false,
+      "decoy_pass": false,
+      "binary_competitor_mean": 0.2970317182677707,
+      "ternary_target_ab_mean": 0.8451170770254006,
+      "attraction_delta": 0.14214879529317137,
+      "reversal_fraction": 0.3333333333333333,
+      "strong_reversal": false
+    },
+    {
+      "scenario_id": "phone-0002-targetB-s10",
+      "domain": "phone",
+      "target": "B",
+      "dominance_pass": false,
+      "decoy_pass": false,
+      "binary_competitor_mean": 0.30225583944017625,
+      "ternary_target_ab_mean": 0.7935980459548891,
+      "attraction_delta": 0.09585388539506545,
+      "reversal_fraction": 0.3333333333333333,
+      "strong_reversal": false
+    },
+    {
+      "scenario_id": "phone-0002-targetB-s15",
+      "domain": "phone",
+      "target": "B",
+      "dominance_pass": false,
+      "decoy_pass": false,
+      "binary_competitor_mean": 0.30225583944017625,
+      "ternary_target_ab_mean": 0.7829893598113178,
+      "attraction_delta": 0.0852451992514941,
+      "reversal_fraction": 0.3333333333333333,
+      "strong_reversal": false
+    },
+    {
+      "scenario_id": "phone-0003-targetA-s05",
+      "domain": "phone",
+      "target": "A",
+      "dominance_pass": false,
+      "decoy_pass": true,
+      "binary_competitor_mean": 0.5128884569971005,
+      "ternary_target_ab_mean": 0.48925251242544476,
+      "attraction_delta": 0.002140969422545269,
+      "reversal_fraction": 0.5,
+      "strong_reversal": false
+    },
+    {
+      "scenario_id": "phone-0003-targetA-s10",
+      "domain": "phone",
+      "target": "A",
+      "dominance_pass": false,
+      "decoy_pass": true,
+      "binary_competitor_mean": 0.5128782088117536,
+      "ternary_target_ab_mean": 0.47319374848250906,
+      "attraction_delta": -0.013928042705737387,
+      "reversal_fraction": 0.5,
+      "strong_reversal": false
+    }
+  ]
+}

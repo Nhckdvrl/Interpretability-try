@@ -1,5 +1,10 @@
 # Hamdi-Style Topic Search — Current Handoff
 
+> **Execution override — 2026-09-04:** 035 is archived after its corrected full-data,
+> cross-model recipient gate failed. 040 is archived after its abstraction and causal-use
+> gates failed. 034 is kept for mechanistic development; 038 is testing a late-decision
+> prediction exposed by the pronoun-state null.
+
 Date: 2026-09-01  
 Status: **AUTHORITATIVE CURRENT STATE — BASE 5/5 + STRICT EXTENSION 3/3 = 8 REGISTERED**
 

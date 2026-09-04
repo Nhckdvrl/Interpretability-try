@@ -1,0 +1,7 @@
+{
+  "source_commit": "e1093c470c8981daf522d4ef047a7c3a71e077d7",
+  "models": ["Qwen3-8B", "Llama 3.3 70B Instruct", "Mistral Small 3.2 24B Instruct"],
+  "setups": ["single-baseline", "heartbeat-proactive", "heartbeat-auto-60m", "heartbeat-auto-30m"],
+  "nonfloor_set_f1": 0.15,
+  "nonceiling_set_f1": 0.85
+}

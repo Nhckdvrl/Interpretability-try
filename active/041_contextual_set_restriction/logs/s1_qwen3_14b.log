@@ -1,0 +1,20 @@
+Loading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]Loading checkpoint shards:  12%|█▎        | 1/8 [00:22<02:37, 22.49s/it]Loading checkpoint shards:  25%|██▌       | 2/8 [00:23<00:58,  9.71s/it]Loading checkpoint shards:  38%|███▊      | 3/8 [00:24<00:28,  5.62s/it]Loading checkpoint shards:  50%|█████     | 4/8 [00:24<00:14,  3.69s/it]Loading checkpoint shards:  62%|██████▎   | 5/8 [00:25<00:07,  2.60s/it]Loading checkpoint shards:  75%|███████▌  | 6/8 [00:26<00:03,  1.96s/it]Loading checkpoint shards:  88%|████████▊ | 7/8 [00:26<00:01,  1.54s/it]Loading checkpoint shards: 100%|██████████| 8/8 [00:27<00:00,  1.14s/it]Loading checkpoint shards: 100%|██████████| 8/8 [00:27<00:00,  3.39s/it]
+{"scored": 8, "total": 6912}
+{"scored": 408, "total": 6912}
+{"scored": 808, "total": 6912}
+{"scored": 1208, "total": 6912}
+{"scored": 1608, "total": 6912}
+{"scored": 2008, "total": 6912}
+{"scored": 2408, "total": 6912}
+{"scored": 2808, "total": 6912}
+{"scored": 3208, "total": 6912}
+{"scored": 3608, "total": 6912}
+{"scored": 4008, "total": 6912}
+{"scored": 4408, "total": 6912}
+{"scored": 4808, "total": 6912}
+{"scored": 5208, "total": 6912}
+{"scored": 5608, "total": 6912}
+{"scored": 6008, "total": 6912}
+{"scored": 6408, "total": 6912}
+{"scored": 6808, "total": 6912}
+{"output": "active/041_contextual_set_restriction/results/raw/s1_role_vs_uniqueness_qwen3_14b.jsonl", "rows": 6912, "state_rows": 4608, "residual_layers": [0, 5, 10, 15, 20, 25, 30, 35, 40]}

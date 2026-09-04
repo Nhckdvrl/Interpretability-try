@@ -1,0 +1,10 @@
+Loading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]Loading checkpoint shards:  12%|█▎        | 1/8 [00:04<00:28,  4.06s/it]Loading checkpoint shards:  25%|██▌       | 2/8 [00:14<00:48,  8.04s/it]Loading checkpoint shards:  38%|███▊      | 3/8 [00:31<00:59, 11.93s/it]Loading checkpoint shards:  50%|█████     | 4/8 [00:35<00:34,  8.71s/it]Loading checkpoint shards:  62%|██████▎   | 5/8 [00:35<00:17,  5.79s/it]Loading checkpoint shards:  75%|███████▌  | 6/8 [00:49<00:16,  8.44s/it]Loading checkpoint shards:  88%|████████▊ | 7/8 [01:01<00:09,  9.77s/it]Loading checkpoint shards: 100%|██████████| 8/8 [01:02<00:00,  6.76s/it]Loading checkpoint shards: 100%|██████████| 8/8 [01:02<00:00,  7.78s/it]
+{"scored": 8, "total": 3136}
+{"scored": 408, "total": 3136}
+{"scored": 808, "total": 3136}
+{"scored": 1208, "total": 3136}
+{"scored": 1608, "total": 3136}
+{"scored": 2008, "total": 3136}
+{"scored": 2408, "total": 3136}
+{"scored": 2808, "total": 3136}
+{"output": "active/041_contextual_set_restriction/results/raw/s8_load_qwen3_14b.jsonl", "rows": 3136, "state_rows": 1232}

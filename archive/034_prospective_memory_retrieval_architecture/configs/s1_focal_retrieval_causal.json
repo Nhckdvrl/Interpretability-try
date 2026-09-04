@@ -1,0 +1,16 @@
+{
+  "experiment_version": "s1_focal_retrieval_causal_v1",
+  "seed": 20260904,
+  "models": {
+    "NousResearch/Meta-Llama-3.1-8B-Instruct": {"block_indices": [7, 15, 23]},
+    "Qwen/Qwen3-8B": {"block_indices": [8, 17, 26]}
+  },
+  "dtype": "bfloat16",
+  "candidate_answers": ["A", "B", "C", "D"],
+  "batch_size": 16,
+  "bootstrap_samples": 5000,
+  "gate": {
+    "min_positive_depths": 2,
+    "max_no_cue_other_action_intrusion_increase": 0.1
+  }
+}

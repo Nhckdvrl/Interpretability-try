@@ -212,3 +212,7 @@ Default next work should now be execution/prioritization rather than automatic c
 ## Final discipline
 
 > **Current honest register is 8 total: 034, 035, 038, 040, 041, 042, 044, 045. 043 is HARD AUDIT / GPU PAUSED. The strict search raised the bar and actually revoked one provisional PASS; do not undo that.**
+> **Execution override — 2026-09-04:** 035 is archived after the corrected cross-model
+> presupposition recipient gate failed; 040 is archived after abstraction and causal-use
+> failures. 034 is kept for a focal-versus-nonfocal retrieval rescue. 038 is testing whether
+> ambiguous preference is constructed only at response comparison.

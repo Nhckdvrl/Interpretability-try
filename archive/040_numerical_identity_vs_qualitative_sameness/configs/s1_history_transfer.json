@@ -1,0 +1,12 @@
+{
+  "seed": 20260904,
+  "model": "Qwen/Qwen3-8B",
+  "dtype": "bfloat16",
+  "batch_size": 8,
+  "candidate_answers": ["A", "B"],
+  "code_words": ["DAX", "VEK"],
+  "gate": {
+    "min_history_accuracy_per_cue_identity_order_cell": 0.75,
+    "min_type_accuracy": 0.90
+  }
+}

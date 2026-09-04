@@ -1,0 +1,59 @@
+{
+  "base_config": null,
+  "changed_factor": null,
+  "code_commit": "4f94a1693ce4376e19fdc5e6db1386da0875035d",
+  "config_path": "/home/xiang/Interpretability-try/active/006_bayesian_latent_inference_use_gap/mechanism/configs/dev/v2_d1.json",
+  "config_sha256": "1ddee35b1b663564b86e29900125a954ae2e82882e3ffbfd1dc7e0f5b7d99bc7",
+  "d2_opened": null,
+  "evidence_class": "development",
+  "freeze_version": "v2-m12-1",
+  "model": "Qwen/Qwen2.5-14B-Instruct",
+  "model_revision": "cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8",
+  "output_sha256": {
+    "evidence": "ddfad0ddb078cff5114c55af278790934835ae10bffc44f0acf9805d3aebb640",
+    "factorial": "b29d7b69d1ebd36981a5bf9f64001fdbe66f51e88862e66afc9cf35d97589633",
+    "families": "f46c563b0d8ef2174398bd37b3380f968202608b252ac80fc51b6bfddedacd05",
+    "schema": "085c74cf8cea267f67f92f0a0927e15e5316b29a53edddd4d1994c9e9c310862",
+    "token_audit": "2fc026ffd95384d9cc3ec77934f9fb43d72efa7fac68e2f93d9c3aa80b0bec79"
+  },
+  "resolved_config_sha256": "f89eeed8793fb44c7a0dcd826d7e19877977725861f6bfa0092e618c0dc8465a",
+  "seed": 6001,
+  "split": "d1",
+  "token_audit": {
+    "model": "Qwen/Qwen2.5-14B-Instruct",
+    "model_revision": "cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8",
+    "n_prompts": 6144,
+    "records_sha256": "33c1d8120f7b0eaf048cf79d622bede66b6d4594fdae9fd029e6e5a795346df6",
+    "role_marker_token_counts": {
+      "DECISION_SCORE": [
+        3
+      ],
+      "IGNORE": [
+        1
+      ],
+      "POSTERIOR": [
+        3
+      ],
+      "USE": [
+        1
+      ]
+    },
+    "tokenizer_class": "Qwen2TokenizerFast",
+    "value_token_counts": [
+      8
+    ],
+    "within_family_low_high_fertility_matched": true
+  },
+  "validation": {
+    "conditions": [
+      "posterior_use",
+      "posterior_ignore",
+      "generic_use",
+      "generic_ignore"
+    ],
+    "n_families": 48,
+    "n_family_surface_groups": 768,
+    "n_rows": 6144,
+    "n_surfaces": 16
+  }
+}

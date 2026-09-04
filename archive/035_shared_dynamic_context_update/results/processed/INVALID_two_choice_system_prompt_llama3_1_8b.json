@@ -1,0 +1,41 @@
+{
+  "contract": "label-counterbalanced deterministic presupposition probability classification",
+  "model": "NousResearch/Meta-Llama-3.1-8B-Instruct",
+  "model_revision": "d10aef7999a2b5ba950ab3974312feeedbfe0b77",
+  "n_source_items": 90,
+  "n_counterbalanced_prompts": 540,
+  "balanced_accuracy": 0.3333333333333333,
+  "high_vs_low_accuracy": 0.5,
+  "confusion_matrix_labels": [
+    "low",
+    "mid",
+    "high"
+  ],
+  "confusion_matrix": [
+    [
+      0,
+      0,
+      30
+    ],
+    [
+      0,
+      0,
+      30
+    ],
+    [
+      0,
+      0,
+      30
+    ]
+  ],
+  "prediction_counts": {
+    "high": 90
+  },
+  "label_order_stability_rate": 0.0,
+  "mean_gold_margin_by_band": {
+    "high": 1.0133395724826388,
+    "mid": -0.9767740885416668,
+    "low": -1.1291897243923612
+  },
+  "gate_pass": false
+}

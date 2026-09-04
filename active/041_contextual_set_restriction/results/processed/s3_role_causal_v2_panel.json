@@ -1,0 +1,4422 @@
+{
+  "contract": "replacing the restriction-role component at a modifier token with its non-restricting counterfactual value costs referent margin specifically for the restricting modifier, beyond shuffled-label and random directions, on a held-out surface form, while raw property truth survives",
+  "models": [
+    {
+      "model": "Qwen/Qwen3-8B",
+      "model_revision": "b968826d9c46dd6066d109eabc6255188de91218",
+      "train_families": [
+        "size_color",
+        "texture_color",
+        "fill_height"
+      ],
+      "test_families": [
+        "material_color",
+        "pattern_length",
+        "color_curvature"
+      ],
+      "depths": {
+        "0.25": {
+          "alphas": {
+            "1": {
+              "role": {
+                "on_restricting": {
+                  "estimate": -0.2031249967902499,
+                  "ci95": [
+                    -0.2447916558222689,
+                    -0.16080728680468678
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": -0.042317706463290715,
+                  "ci95": [
+                    -0.07421874727671318,
+                    -0.01041667068513604
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": -0.16080729032695917,
+                  "ci95": [
+                    -0.2018229100731309,
+                    -0.11979166522181005
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "shuffled": {
+                "on_restricting": {
+                  "estimate": 0.04166666915683337,
+                  "ci95": [
+                    0.00520834202148693,
+                    0.07812500902743508
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": -0.012369791971317545,
+                  "ci95": [
+                    -0.04557291516356251,
+                    0.020833333343145403
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": 0.054036461128150914,
+                  "ci95": [
+                    0.02016601037998202,
+                    0.08854166544098294
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "random": {
+                "on_restricting": {
+                  "estimate": -0.016927083633696532,
+                  "ci95": [
+                    -0.05013020337005943,
+                    0.015624995097677813
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": -0.0013020873646606979,
+                  "ci95": [
+                    -0.03645833645974526,
+                    0.03320312469234502
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": -0.015624996269035832,
+                  "ci95": [
+                    -0.050130200885356024,
+                    0.01822917331117306
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "reference_accuracy": {
+                "clean": 1.0,
+                "edited": 1.0
+              },
+              "property_truth_accuracy": {
+                "clean": 0.9479166666666666,
+                "edited": 0.953125
+              },
+              "property_truth_drop": -0.00520833333333337,
+              "reference_accuracy_drop": 0.0,
+              "by_surface_form": {
+                "np": {
+                  "estimate": -0.19010416719646758,
+                  "ci95": [
+                    -0.24869791826742477,
+                    -0.13277993298751473
+                  ],
+                  "n_clusters": 192
+                },
+                "relative_21": {
+                  "estimate": -0.13151041345745076,
+                  "ci95": [
+                    -0.19140624447278687,
+                    -0.07291666353570178
+                  ],
+                  "n_clusters": 192
+                }
+              },
+              "reverse_direction": {
+                "estimate": 0.06315103572544539,
+                "ci95": [
+                  0.022786454583656617,
+                  0.10416665892317903
+                ],
+                "n_clusters": 384
+              },
+              "role_beats_controls": false,
+              "property_preserved": true,
+              "cross_surface_consistent": true
+            },
+            "2": {
+              "role": {
+                "on_restricting": {
+                  "estimate": -0.37890625204198863,
+                  "ci95": [
+                    -0.43751628534827436,
+                    -0.32159830132601164
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": -0.044921877462276126,
+                  "ci95": [
+                    -0.08268229349058884,
+                    -0.008463549644542224
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": -0.3339843745797125,
+                  "ci95": [
+                    -0.39192708824446826,
+                    -0.2747395798161489
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "shuffled": {
+                "on_restricting": {
+                  "estimate": 0.022786464553399777,
+                  "ci95": [
+                    -0.013671864249242978,
+                    0.05989583213270049
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": 0.003906255284984413,
+                  "ci95": [
+                    -0.029947916049894184,
+                    0.03710937749420766
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": 0.018880209268415365,
+                  "ci95": [
+                    -0.01953124257964911,
+                    0.056005868750152246
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "random": {
+                "on_restricting": {
+                  "estimate": 0.012369787635591342,
+                  "ci95": [
+                    -0.02018229632748355,
+                    0.04492186787895128
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": 0.02604166853203847,
+                  "ci95": [
+                    -0.007161459920237098,
+                    0.05924479201117869
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": -0.013671880896447127,
+                  "ci95": [
+                    -0.0475260414227475,
+                    0.01953124256945825
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "reference_accuracy": {
+                "clean": 1.0,
+                "edited": 1.0
+              },
+              "property_truth_accuracy": {
+                "clean": 0.9479166666666666,
+                "edited": 0.9583333333333334
+              },
+              "property_truth_drop": -0.01041666666666674,
+              "reference_accuracy_drop": 0.0,
+              "by_surface_form": {
+                "np": {
+                  "estimate": -0.3723958394215434,
+                  "ci95": [
+                    -0.46223958994130476,
+                    -0.2864583394006709
+                  ],
+                  "n_clusters": 192
+                },
+                "relative_21": {
+                  "estimate": -0.29557290973788164,
+                  "ci95": [
+                    -0.37890623244067145,
+                    -0.21614583817570623
+                  ],
+                  "n_clusters": 192
+                }
+              },
+              "reverse_direction": {
+                "estimate": 0.1269531230780118,
+                "ci95": [
+                  0.07031249858691863,
+                  0.18359373447605884
+                ],
+                "n_clusters": 384
+              },
+              "role_beats_controls": false,
+              "property_preserved": true,
+              "cross_surface_consistent": true
+            },
+            "4": {
+              "role": {
+                "on_restricting": {
+                  "estimate": -0.8092447936146424,
+                  "ci95": [
+                    -0.9114746164881882,
+                    -0.7102864586608966
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": -0.03450520924565614,
+                  "ci95": [
+                    -0.07291667040543673,
+                    0.003906241082605687
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": -0.7747395843689863,
+                  "ci95": [
+                    -0.8756510418795285,
+                    -0.6770670552462381
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "shuffled": {
+                "on_restricting": {
+                  "estimate": 0.05013020865435225,
+                  "ci95": [
+                    -0.0013020685714757137,
+                    0.10416665809804178
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": -0.007161458925742159,
+                  "ci95": [
+                    -0.044921877451850764,
+                    0.031250006584978764
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": 0.05729166758009441,
+                  "ci95": [
+                    0.001953125028507849,
+                    0.11393230435971968
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "random": {
+                "on_restricting": {
+                  "estimate": 0.0013020817838266252,
+                  "ci95": [
+                    -0.03125000466719614,
+                    0.033203116033127804
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": -0.0026041638670118807,
+                  "ci95": [
+                    -0.03450520647997309,
+                    0.028662117129125544
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": 0.003906245650838506,
+                  "ci95": [
+                    -0.02799479669517502,
+                    0.03710936241338614
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "reference_accuracy": {
+                "clean": 1.0,
+                "edited": 1.0
+              },
+              "property_truth_accuracy": {
+                "clean": 0.9479166666666666,
+                "edited": 0.96875
+              },
+              "property_truth_drop": -0.02083333333333337,
+              "reference_accuracy_drop": 0.0,
+              "by_surface_form": {
+                "np": {
+                  "estimate": -0.8567708340521359,
+                  "ci95": [
+                    -1.0078124776662298,
+                    -0.713541662373473
+                  ],
+                  "n_clusters": 192
+                },
+                "relative_21": {
+                  "estimate": -0.6927083346858364,
+                  "ci95": [
+                    -0.8359375058258881,
+                    -0.5585937516754029
+                  ],
+                  "n_clusters": 192
+                }
+              },
+              "reverse_direction": {
+                "estimate": 0.31770833417294403,
+                "ci95": [
+                  0.14192708887342584,
+                  0.5026041631568302
+                ],
+                "n_clusters": 384
+              },
+              "role_beats_controls": true,
+              "property_preserved": true,
+              "cross_surface_consistent": true
+            }
+          },
+          "depth_pass": true
+        },
+        "0.5": {
+          "alphas": {
+            "1": {
+              "role": {
+                "on_restricting": {
+                  "estimate": -0.9453125004778862,
+                  "ci95": [
+                    -1.057307943381811,
+                    -0.8313639273460135
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": 0.1822916722522091,
+                  "ci95": [
+                    0.1373697977786501,
+                    0.2291666654219657
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": -1.1276041727300952,
+                  "ci95": [
+                    -1.2552083396408962,
+                    -0.9980468813069118
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "shuffled": {
+                "on_restricting": {
+                  "estimate": -0.028645832382459196,
+                  "ci95": [
+                    -0.07552083024903866,
+                    0.01627603738286562
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": -0.0078124990737945725,
+                  "ci95": [
+                    -0.04557291420953634,
+                    0.03255209203154253
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": -0.02083333330866462,
+                  "ci95": [
+                    -0.07942708584828027,
+                    0.035807291995120304
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "random": {
+                "on_restricting": {
+                  "estimate": -0.0039062487510704478,
+                  "ci95": [
+                    -0.03255208552663817,
+                    0.024739589287516708
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": 0.00585937128901944,
+                  "ci95": [
+                    -0.02343750401798182,
+                    0.034505204296886735
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": -0.009765620040089887,
+                  "ci95": [
+                    -0.04101561631498929,
+                    0.020182303189256068
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "reference_accuracy": {
+                "clean": 1.0,
+                "edited": 1.0
+              },
+              "property_truth_accuracy": {
+                "clean": 0.9479166666666666,
+                "edited": 0.9895833333333334
+              },
+              "property_truth_drop": -0.04166666666666674,
+              "reference_accuracy_drop": 0.0,
+              "by_surface_form": {
+                "np": {
+                  "estimate": -0.7591145832491458,
+                  "ci95": [
+                    -0.9140625006184846,
+                    -0.6041666578443508
+                  ],
+                  "n_clusters": 192
+                },
+                "relative_21": {
+                  "estimate": -1.4960937622110446,
+                  "ci95": [
+                    -1.6953125151638104,
+                    -1.3059896061335095
+                  ],
+                  "n_clusters": 192
+                }
+              },
+              "reverse_direction": {
+                "estimate": 0.4388020818043734,
+                "ci95": [
+                  0.3326660125501917,
+                  0.5507975255194474
+                ],
+                "n_clusters": 384
+              },
+              "role_beats_controls": true,
+              "property_preserved": true,
+              "cross_surface_consistent": true
+            },
+            "2": {
+              "role": {
+                "on_restricting": {
+                  "estimate": -2.9752604270563983,
+                  "ci95": [
+                    -3.2161621138092205,
+                    -2.7434733188130167
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": 0.3574218836874694,
+                  "ci95": [
+                    0.2832031469975374,
+                    0.436848960390942
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": -3.3326823107438677,
+                  "ci95": [
+                    -3.5989583502689704,
+                    -3.0703125165974496
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "shuffled": {
+                "on_restricting": {
+                  "estimate": -0.15104166657978335,
+                  "ci95": [
+                    -0.23437499689268845,
+                    -0.07291666681961835
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": -0.0319010463303064,
+                  "ci95": [
+                    -0.10939128803419451,
+                    0.044270828430280094
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": -0.11914062024947696,
+                  "ci95": [
+                    -0.2363281252931929,
+                    -0.0026041584733221554
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "random": {
+                "on_restricting": {
+                  "estimate": -0.004557287627340589,
+                  "ci95": [
+                    -0.032552083685927845,
+                    0.02408854078562248
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": -0.007161459868710048,
+                  "ci95": [
+                    -0.03580729261098411,
+                    0.022135410489053316
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": 0.002604172241369459,
+                  "ci95": [
+                    -0.025390617580556996,
+                    0.031250001578277904
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "reference_accuracy": {
+                "clean": 1.0,
+                "edited": 1.0
+              },
+              "property_truth_accuracy": {
+                "clean": 0.9479166666666666,
+                "edited": 1.0
+              },
+              "property_truth_drop": -0.05208333333333337,
+              "reference_accuracy_drop": 0.0,
+              "by_surface_form": {
+                "np": {
+                  "estimate": -2.481770843249452,
+                  "ci95": [
+                    -2.760449234644774,
+                    -2.216113293848572
+                  ],
+                  "n_clusters": 192
+                },
+                "relative_21": {
+                  "estimate": -4.183593778238284,
+                  "ci95": [
+                    -4.619824255005697,
+                    -3.7513021131883164
+                  ],
+                  "n_clusters": 192
+                }
+              },
+              "reverse_direction": {
+                "estimate": 2.7421875031180836,
+                "ci95": [
+                  2.1464843801856213,
+                  3.3808756581934722
+                ],
+                "n_clusters": 384
+              },
+              "role_beats_controls": true,
+              "property_preserved": true,
+              "cross_surface_consistent": true
+            },
+            "4": {
+              "role": {
+                "on_restricting": {
+                  "estimate": -4.163411470740326,
+                  "ci95": [
+                    -4.5494791713986285,
+                    -3.801432314593331
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": 0.11523437562579365,
+                  "ci95": [
+                    -0.15431314635924384,
+                    0.3515787743535151
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": -4.27864584636612,
+                  "ci95": [
+                    -4.782617205014629,
+                    -3.7812337374475966
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "shuffled": {
+                "on_restricting": {
+                  "estimate": -0.840494784920208,
+                  "ci95": [
+                    -1.0345052032515394,
+                    -0.6581705600090756
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": -0.4863281286137919,
+                  "ci95": [
+                    -0.7760416695547359,
+                    -0.22005208588029215
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": -0.3541666563064161,
+                  "ci95": [
+                    -0.7187499941925363,
+                    0.018229170116213896
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "random": {
+                "on_restricting": {
+                  "estimate": -0.0377604144756965,
+                  "ci95": [
+                    -0.06705728918475155,
+                    -0.007812490236032469
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": 0.001302080549705209,
+                  "ci95": [
+                    -0.02669270494250845,
+                    0.028645831177853794
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": -0.03906249502540171,
+                  "ci95": [
+                    -0.06901041364102527,
+                    -0.009114581770474178
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "reference_accuracy": {
+                "clean": 1.0,
+                "edited": 0.9895833333333334
+              },
+              "property_truth_accuracy": {
+                "clean": 0.9479166666666666,
+                "edited": 1.0
+              },
+              "property_truth_drop": -0.05208333333333337,
+              "reference_accuracy_drop": 0.01041666666666663,
+              "by_surface_form": {
+                "np": {
+                  "estimate": -2.4023437647799093,
+                  "ci95": [
+                    -2.9440755460704358,
+                    -1.8176432454210398
+                  ],
+                  "n_clusters": 192
+                },
+                "relative_21": {
+                  "estimate": -6.154947927952331,
+                  "ci95": [
+                    -6.933593756310253,
+                    -5.414062497743593
+                  ],
+                  "n_clusters": 192
+                }
+              },
+              "reverse_direction": {
+                "estimate": 4.309895828626406,
+                "ci95": [
+                  3.377604176228704,
+                  5.304736324353954
+                ],
+                "n_clusters": 384
+              },
+              "role_beats_controls": true,
+              "property_preserved": true,
+              "cross_surface_consistent": true
+            }
+          },
+          "depth_pass": true
+        },
+        "0.75": {
+          "alphas": {
+            "1": {
+              "role": {
+                "on_restricting": {
+                  "estimate": -0.020182293826537207,
+                  "ci95": [
+                    -0.04427083546760307,
+                    0.0019531228508009428
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": 0.003906250322960621,
+                  "ci95": [
+                    -0.018229170097067253,
+                    0.0253906225481088
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": -0.02408854414949783,
+                  "ci95": [
+                    -0.045572921352682365,
+                    -0.0019531271664136713
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "shuffled": {
+                "on_restricting": {
+                  "estimate": 0.005208330849833446,
+                  "ci95": [
+                    -0.017578121652890542,
+                    0.026057946046568175
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": -0.0006510413534202009,
+                  "ci95": [
+                    -0.02343749969611905,
+                    0.020833336449363474
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": 0.005859372203253647,
+                  "ci95": [
+                    -0.018229169154033876,
+                    0.029947905826955487
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "random": {
+                "on_restricting": {
+                  "estimate": -0.00911458426394444,
+                  "ci95": [
+                    -0.029947918570171997,
+                    0.012369790432252404
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": 0.0065104172892860674,
+                  "ci95": [
+                    -0.014973958046132215,
+                    0.027994791045592972
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": -0.015625001553230506,
+                  "ci95": [
+                    -0.03645833644754306,
+                    0.005208330537271198
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "reference_accuracy": {
+                "clean": 1.0,
+                "edited": 1.0
+              },
+              "property_truth_accuracy": {
+                "clean": 0.9479166666666666,
+                "edited": 0.9479166666666666
+              },
+              "property_truth_drop": 0.0,
+              "reference_accuracy_drop": 0.0,
+              "by_surface_form": {
+                "np": {
+                  "estimate": -0.018229166045775513,
+                  "ci95": [
+                    -0.05078124023663402,
+                    0.013020833348859598
+                  ],
+                  "n_clusters": 192
+                },
+                "relative_21": {
+                  "estimate": -0.029947922253220145,
+                  "ci95": [
+                    -0.05992840542934511,
+                    0.0013020808842016415
+                  ],
+                  "n_clusters": 192
+                }
+              },
+              "reverse_direction": {
+                "estimate": -0.0013020811630385376,
+                "ci95": [
+                  -0.023437499702839735,
+                  0.020849616025641945
+                ],
+                "n_clusters": 384
+              },
+              "role_beats_controls": false,
+              "property_preserved": true,
+              "cross_surface_consistent": false
+            },
+            "2": {
+              "role": {
+                "on_restricting": {
+                  "estimate": -3.104293303894205e-10,
+                  "ci95": [
+                    -0.022135415432624518,
+                    0.022135417613546263
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": -0.0013020854999583793,
+                  "ci95": [
+                    -0.022786452116238306,
+                    0.019531249389784237
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": 0.001302085189529049,
+                  "ci95": [
+                    -0.021484367953151978,
+                    0.023453790364851606
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "shuffled": {
+                "on_restricting": {
+                  "estimate": -0.0013020864390416165,
+                  "ci95": [
+                    -0.02408854542429782,
+                    0.020833336142803183
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": -0.0013020851927496764,
+                  "ci95": [
+                    -0.02408855038678256,
+                    0.02213541326302533
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": -1.2462919400194987e-09,
+                  "ci95": [
+                    -0.022786458052277872,
+                    0.022786455868459274
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "random": {
+                "on_restricting": {
+                  "estimate": 0.005208332403752551,
+                  "ci95": [
+                    -0.01757812315272205,
+                    0.02799478887841162
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": -0.00455729166621105,
+                  "ci95": [
+                    -0.026692708347173792,
+                    0.018229165129463806
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": 0.0097656240699636,
+                  "ci95": [
+                    -0.010416668218414814,
+                    0.03124999629925628
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "reference_accuracy": {
+                "clean": 1.0,
+                "edited": 1.0
+              },
+              "property_truth_accuracy": {
+                "clean": 0.9479166666666666,
+                "edited": 0.9479166666666666
+              },
+              "property_truth_drop": 0.0,
+              "reference_accuracy_drop": 0.0,
+              "by_surface_form": {
+                "np": {
+                  "estimate": -0.011718750009430345,
+                  "ci95": [
+                    -0.044270814334584,
+                    0.019531249375994132
+                  ],
+                  "n_clusters": 192
+                },
+                "relative_21": {
+                  "estimate": 0.014322920388488444,
+                  "ci95": [
+                    -0.014322917287548234,
+                    0.044270834575095584
+                  ],
+                  "n_clusters": 192
+                }
+              },
+              "reverse_direction": {
+                "estimate": -0.009765622506761848,
+                "ci95": [
+                  -0.033203122222676594,
+                  0.013671875019175926
+                ],
+                "n_clusters": 384
+              },
+              "role_beats_controls": false,
+              "property_preserved": true,
+              "cross_surface_consistent": false
+            },
+            "4": {
+              "role": {
+                "on_restricting": {
+                  "estimate": -0.014322913248922597,
+                  "ci95": [
+                    -0.037125651408868,
+                    0.007161462991186525
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": 0.0032552046087178286,
+                  "ci95": [
+                    -0.020833334883206576,
+                    0.027343744730573483
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": -0.017578117857640425,
+                  "ci95": [
+                    -0.041015612626660966,
+                    0.005875663752759473
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "shuffled": {
+                "on_restricting": {
+                  "estimate": -0.013671876539005609,
+                  "ci95": [
+                    -0.0371093777905379,
+                    0.008463541051807947
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": -0.02148437220421262,
+                  "ci95": [
+                    -0.04361978423848121,
+                    0.0006510432206877535
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": 0.007812495665207013,
+                  "ci95": [
+                    -0.014322926317921418,
+                    0.02994791237316656
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "random": {
+                "on_restricting": {
+                  "estimate": -0.005859380276809378,
+                  "ci95": [
+                    -0.0286458367464694,
+                    0.01627603516357398
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": -0.0071614632949801305,
+                  "ci95": [
+                    -0.02931315864619466,
+                    0.014973949041658035
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": 0.0013020830181707521,
+                  "ci95": [
+                    -0.019531253419804252,
+                    0.022786459896456827
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "reference_accuracy": {
+                "clean": 1.0,
+                "edited": 1.0
+              },
+              "property_truth_accuracy": {
+                "clean": 0.9479166666666666,
+                "edited": 0.9479166666666666
+              },
+              "property_truth_drop": 0.0,
+              "reference_accuracy_drop": 0.0,
+              "by_surface_form": {
+                "np": {
+                  "estimate": -0.01562499316817271,
+                  "ci95": [
+                    -0.048177082727964254,
+                    0.01692708830044262
+                  ],
+                  "n_clusters": 192
+                },
+                "relative_21": {
+                  "estimate": -0.01953124254710814,
+                  "ci95": [
+                    -0.05211588613056129,
+                    0.01562500621099179
+                  ],
+                  "n_clusters": 192
+                }
+              },
+              "reverse_direction": {
+                "estimate": -0.016927076810031434,
+                "ci95": [
+                  -0.039062496598625575,
+                  0.005859381219722108
+                ],
+                "n_clusters": 384
+              },
+              "role_beats_controls": false,
+              "property_preserved": true,
+              "cross_surface_consistent": false
+            }
+          },
+          "depth_pass": false
+        }
+      },
+      "positive_depths": 2,
+      "causal_pass": true
+    },
+    {
+      "model": "NousResearch/Meta-Llama-3.1-8B-Instruct",
+      "model_revision": "d10aef7999a2b5ba950ab3974312feeedbfe0b77",
+      "train_families": [
+        "size_color",
+        "texture_color",
+        "fill_height"
+      ],
+      "test_families": [
+        "material_color",
+        "pattern_length",
+        "color_curvature"
+      ],
+      "depths": {
+        "0.25": {
+          "alphas": {
+            "1": {
+              "role": {
+                "on_restricting": {
+                  "estimate": -0.16406250761513283,
+                  "ci95": [
+                    -0.20865886085824478,
+                    -0.12044271503824647
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": 0.0009765551618935812,
+                  "ci95": [
+                    -0.01855468903838234,
+                    0.019856760880130508
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": -0.1650390627770264,
+                  "ci95": [
+                    -0.21126302048759366,
+                    -0.11914062649653302
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "shuffled": {
+                "on_restricting": {
+                  "estimate": -0.021484384011889308,
+                  "ci95": [
+                    -0.039388020590198636,
+                    -0.0032552276639224924
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": -0.006510431979952121,
+                  "ci95": [
+                    -0.022794624708939653,
+                    0.010416648487879125
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": -0.014973952031937188,
+                  "ci95": [
+                    -0.03287759874060233,
+                    0.0029296998119318594
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "random": {
+                "on_restricting": {
+                  "estimate": 0.0003255050926043168,
+                  "ci95": [
+                    -0.014322937611543551,
+                    0.015633131255196157
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": 0.00423176587156604,
+                  "ci95": [
+                    -0.010416666783148069,
+                    0.019213874014703335
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": -0.003906260778961723,
+                  "ci95": [
+                    -0.019531258420608093,
+                    0.011718744398272444
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "reference_accuracy": {
+                "clean": 1.0,
+                "edited": 1.0
+              },
+              "property_truth_accuracy": {
+                "clean": 0.8098958333333334,
+                "edited": 0.78125
+              },
+              "property_truth_drop": 0.02864583333333337,
+              "reference_accuracy_drop": 0.0,
+              "by_surface_form": {
+                "np": {
+                  "estimate": -0.07682293363982733,
+                  "ci95": [
+                    -0.15104166880694264,
+                    -0.007812532775304722
+                  ],
+                  "n_clusters": 192
+                },
+                "relative_21": {
+                  "estimate": -0.25325519191422546,
+                  "ci95": [
+                    -0.31510415492857646,
+                    -0.19531246456981158
+                  ],
+                  "n_clusters": 192
+                }
+              },
+              "reverse_direction": {
+                "estimate": 0.048177070721957684,
+                "ci95": [
+                  0.020833329570181528,
+                  0.07520345325681639
+                ],
+                "n_clusters": 384
+              },
+              "role_beats_controls": false,
+              "property_preserved": true,
+              "cross_surface_consistent": true
+            },
+            "2": {
+              "role": {
+                "on_restricting": {
+                  "estimate": -0.48144532283505254,
+                  "ci95": [
+                    -0.5703287901834249,
+                    -0.3964843994155629
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": 0.02311196783544271,
+                  "ci95": [
+                    -0.0003255257218270913,
+                    0.04654946009892976
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": -0.5045572906704953,
+                  "ci95": [
+                    -0.5973307206304653,
+                    -0.4147054093807181
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "shuffled": {
+                "on_restricting": {
+                  "estimate": -0.09602865397513938,
+                  "ci95": [
+                    -0.12728679992539824,
+                    -0.0670573078592516
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": -0.022460934388590204,
+                  "ci95": [
+                    -0.041341144068213015,
+                    -0.003580735482348748
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": -0.07356771958654917,
+                  "ci95": [
+                    -0.10449218898489339,
+                    -0.04492189475951776
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "random": {
+                "on_restricting": {
+                  "estimate": -0.004231780870478967,
+                  "ci95": [
+                    -0.020182308690592284,
+                    0.012695293913702698
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": -0.0035807473081016874,
+                  "ci95": [
+                    -0.01822918825529361,
+                    0.011393211036372482
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": -0.0006510335623772789,
+                  "ci95": [
+                    -0.015299467792536348,
+                    0.01399740663780662
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "reference_accuracy": {
+                "clean": 1.0,
+                "edited": 0.9973958333333334
+              },
+              "property_truth_accuracy": {
+                "clean": 0.8098958333333334,
+                "edited": 0.7786458333333334
+              },
+              "property_truth_drop": 0.03125,
+              "reference_accuracy_drop": 0.0026041666666666297,
+              "by_surface_form": {
+                "np": {
+                  "estimate": -0.4576823038922271,
+                  "ci95": [
+                    -0.6074218943302896,
+                    -0.31445314768891847
+                  ],
+                  "n_clusters": 192
+                },
+                "relative_21": {
+                  "estimate": -0.5514322774487633,
+                  "ci95": [
+                    -0.6614746146204084,
+                    -0.4446451612033364
+                  ],
+                  "n_clusters": 192
+                }
+              },
+              "reverse_direction": {
+                "estimate": 0.12825521750103044,
+                "ci95": [
+                  0.0686849055257286,
+                  0.18684897120831798
+                ],
+                "n_clusters": 384
+              },
+              "role_beats_controls": true,
+              "property_preserved": true,
+              "cross_surface_consistent": true
+            },
+            "4": {
+              "role": {
+                "on_restricting": {
+                  "estimate": -1.609049477594586,
+                  "ci95": [
+                    -1.7594482405472445,
+                    -1.4612548821592315
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": 0.056966146051953125,
+                  "ci95": [
+                    0.015942374268453345,
+                    0.09700519526851085
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": -1.6660156236465393,
+                  "ci95": [
+                    -1.8333333391218507,
+                    -1.5097656128259578
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "shuffled": {
+                "on_restricting": {
+                  "estimate": -0.36946614922340854,
+                  "ci95": [
+                    -0.4554036510034886,
+                    -0.28807780616860473
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": -0.09635416633546849,
+                  "ci95": [
+                    -0.12891438950028253,
+                    -0.06412760466434902
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": -0.27311198288794003,
+                  "ci95": [
+                    -0.35579426887850757,
+                    -0.19270834172150728
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "random": {
+                "on_restricting": {
+                  "estimate": -0.0009765703327578497,
+                  "ci95": [
+                    -0.01627604646097893,
+                    0.014331054913920956
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": -0.0058593779375542,
+                  "ci95": [
+                    -0.02115885745623866,
+                    0.009765624604167062
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": 0.0048828076047963504,
+                  "ci95": [
+                    -0.01139323677771292,
+                    0.020833324413859107
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "reference_accuracy": {
+                "clean": 1.0,
+                "edited": 0.9348958333333334
+              },
+              "property_truth_accuracy": {
+                "clean": 0.8098958333333334,
+                "edited": 0.8619791666666666
+              },
+              "property_truth_drop": -0.05208333333333326,
+              "reference_accuracy_drop": 0.06510416666666663,
+              "by_surface_form": {
+                "np": {
+                  "estimate": -1.837239583907414,
+                  "ci95": [
+                    -2.0872395676450606,
+                    -1.5891764406427935
+                  ],
+                  "n_clusters": 192
+                },
+                "relative_21": {
+                  "estimate": -1.4947916633856646,
+                  "ci95": [
+                    -1.714208992208201,
+                    -1.2753906236226686
+                  ],
+                  "n_clusters": 192
+                }
+              },
+              "reverse_direction": {
+                "estimate": 0.40039062432264433,
+                "ci95": [
+                  0.2981689419914391,
+                  0.5039062440437865
+                ],
+                "n_clusters": 384
+              },
+              "role_beats_controls": true,
+              "property_preserved": true,
+              "cross_surface_consistent": true
+            }
+          },
+          "depth_pass": true
+        },
+        "0.5": {
+          "alphas": {
+            "1": {
+              "role": {
+                "on_restricting": {
+                  "estimate": -0.013346357535851894,
+                  "ci95": [
+                    -0.02441406019276802,
+                    -0.002278642262354443
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": -0.003906252412178901,
+                  "ci95": [
+                    -0.015950529101247685,
+                    0.008789056694985694
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": -0.009440105123672993,
+                  "ci95": [
+                    -0.022460942778017787,
+                    0.0032552057960498833
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "shuffled": {
+                "on_restricting": {
+                  "estimate": -0.003255214585256757,
+                  "ci95": [
+                    -0.015625003476230383,
+                    0.009114580433515583
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": -0.004882810266915764,
+                  "ci95": [
+                    -0.016935237590116017,
+                    0.007486981443179748
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": 0.0016275956816590071,
+                  "ci95": [
+                    -0.010742197317190498,
+                    0.014322905741907734
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "random": {
+                "on_restricting": {
+                  "estimate": -0.0035807242552531684,
+                  "ci95": [
+                    -0.016276044166163926,
+                    0.008789062758421078
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": -0.0052083434089240654,
+                  "ci95": [
+                    -0.01757813601024007,
+                    0.007486959189607252
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": 0.0016276191536708968,
+                  "ci95": [
+                    -0.010742172813392632,
+                    0.014322928474058472
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "reference_accuracy": {
+                "clean": 1.0,
+                "edited": 1.0
+              },
+              "property_truth_accuracy": {
+                "clean": 0.8098958333333334,
+                "edited": 0.8151041666666666
+              },
+              "property_truth_drop": -0.005208333333333259,
+              "reference_accuracy_drop": 0.0,
+              "by_surface_form": {
+                "np": {
+                  "estimate": -0.009114585182999235,
+                  "ci95": [
+                    -0.026709020533733484,
+                    0.009114589266764029
+                  ],
+                  "n_clusters": 192
+                },
+                "relative_21": {
+                  "estimate": -0.00976562506434675,
+                  "ci95": [
+                    -0.028645837514775015,
+                    0.008463521775769324
+                  ],
+                  "n_clusters": 192
+                }
+              },
+              "reverse_direction": {
+                "estimate": -0.011393224966373813,
+                "ci95": [
+                  -0.023763008222933972,
+                  0.0006510414253147208
+                ],
+                "n_clusters": 384
+              },
+              "role_beats_controls": false,
+              "property_preserved": true,
+              "cross_surface_consistent": false
+            },
+            "2": {
+              "role": {
+                "on_restricting": {
+                  "estimate": -0.0074869796999621485,
+                  "ci95": [
+                    -0.019205737196066743,
+                    0.004557295095030157
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": -0.009440101390813046,
+                  "ci95": [
+                    -0.020833337819417135,
+                    0.0029296827062341413
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": 0.001953121690850897,
+                  "ci95": [
+                    -0.010416660436120396,
+                    0.01367186822792424
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "shuffled": {
+                "on_restricting": {
+                  "estimate": -0.00911458597936606,
+                  "ci95": [
+                    -0.021158860395174867,
+                    0.0035807182036653746
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": -0.004231778331501346,
+                  "ci95": [
+                    -0.01627604794486004,
+                    0.008138003841116397
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": -0.0048828076478647136,
+                  "ci95": [
+                    -0.018229151287596324,
+                    0.008138025803692508
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "random": {
+                "on_restricting": {
+                  "estimate": -0.001302085014287968,
+                  "ci95": [
+                    -0.012369797250591574,
+                    0.01041667119259936
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": -0.007161464124484003,
+                  "ci95": [
+                    -0.018554697150359328,
+                    0.004231781447413852
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": 0.005859379110196035,
+                  "ci95": [
+                    -0.005859364610885839,
+                    0.017903645374634417
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "reference_accuracy": {
+                "clean": 1.0,
+                "edited": 1.0
+              },
+              "property_truth_accuracy": {
+                "clean": 0.8098958333333334,
+                "edited": 0.8125
+              },
+              "property_truth_drop": -0.0026041666666666297,
+              "reference_accuracy_drop": 0.0,
+              "by_surface_form": {
+                "np": {
+                  "estimate": 0.0006510423928413426,
+                  "ci95": [
+                    -0.016927090644070594,
+                    0.018880204886234726
+                  ],
+                  "n_clusters": 192
+                },
+                "relative_21": {
+                  "estimate": 0.0032552009888604516,
+                  "ci95": [
+                    -0.013020842109252346,
+                    0.019531229638687364
+                  ],
+                  "n_clusters": 192
+                }
+              },
+              "reverse_direction": {
+                "estimate": -0.0029296948471350484,
+                "ci95": [
+                  -0.015625006614265167,
+                  0.009765624268103087
+                ],
+                "n_clusters": 384
+              },
+              "role_beats_controls": false,
+              "property_preserved": true,
+              "cross_surface_consistent": false
+            },
+            "4": {
+              "role": {
+                "on_restricting": {
+                  "estimate": -0.011393235908030874,
+                  "ci95": [
+                    -0.023763026472636048,
+                    0.0013020748656179155
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": -0.011718756468724223,
+                  "ci95": [
+                    -0.023437502362067635,
+                    0.0003255223723132398
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": 0.00032552056069334867,
+                  "ci95": [
+                    -0.011393232789449096,
+                    0.012695317683224279
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "shuffled": {
+                "on_restricting": {
+                  "estimate": -0.0013020769210735732,
+                  "ci95": [
+                    -0.01302082705803637,
+                    0.01041667167506451
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": -0.007812501879726597,
+                  "ci95": [
+                    -0.02018230328920675,
+                    0.004557297184544022
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": 0.006510424958653023,
+                  "ci95": [
+                    -0.006184890485821863,
+                    0.018880214523888602
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "random": {
+                "on_restricting": {
+                  "estimate": -0.007486980386962235,
+                  "ci95": [
+                    -0.018880211084038003,
+                    0.004557287874054102
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": -0.0016276017280176802,
+                  "ci95": [
+                    -0.013020835697282488,
+                    0.010416672695443432
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": -0.0058593786589445545,
+                  "ci95": [
+                    -0.017252606465047886,
+                    0.005533848433498653
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "reference_accuracy": {
+                "clean": 1.0,
+                "edited": 1.0
+              },
+              "property_truth_accuracy": {
+                "clean": 0.8098958333333334,
+                "edited": 0.8151041666666666
+              },
+              "property_truth_drop": -0.005208333333333259,
+              "reference_accuracy_drop": 0.0,
+              "by_surface_form": {
+                "np": {
+                  "estimate": -0.002604160658885727,
+                  "ci95": [
+                    -0.020833326473832868,
+                    0.014973961708421276
+                  ],
+                  "n_clusters": 192
+                },
+                "relative_21": {
+                  "estimate": 0.0032552017802724245,
+                  "ci95": [
+                    -0.013671881784747104,
+                    0.02018228878706244
+                  ],
+                  "n_clusters": 192
+                }
+              },
+              "reverse_direction": {
+                "estimate": 0.07910156714307466,
+                "ci95": [
+                  0.059895831144688806,
+                  0.0989583328430373
+                ],
+                "n_clusters": 384
+              },
+              "role_beats_controls": false,
+              "property_preserved": true,
+              "cross_surface_consistent": false
+            }
+          },
+          "depth_pass": false
+        },
+        "0.75": {
+          "alphas": {
+            "1": {
+              "role": {
+                "on_restricting": {
+                  "estimate": -0.0052083330055173365,
+                  "ci95": [
+                    -0.01595052008822222,
+                    0.0055338563782996175
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": -0.0009765571331475561,
+                  "ci95": [
+                    -0.012044271285087406,
+                    0.01009115194967715
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": -0.004231775872369781,
+                  "ci95": [
+                    -0.014973964071041006,
+                    0.006835929571717258
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "shuffled": {
+                "on_restricting": {
+                  "estimate": -0.0032552141343368626,
+                  "ci95": [
+                    -0.013020849069009919,
+                    0.0068359347961101475
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": -0.003580728660068644,
+                  "ci95": [
+                    -0.014322907992547585,
+                    0.007486978931112039
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": 0.00032551452573178114,
+                  "ci95": [
+                    -0.009765631606178951,
+                    0.010742185546848523
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "random": {
+                "on_restricting": {
+                  "estimate": -0.0019531212912511364,
+                  "ci95": [
+                    -0.012044273576265377,
+                    0.008138028210888847
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": -0.002278654567552015,
+                  "ci95": [
+                    -0.013020833071707472,
+                    0.008789058331273006
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": 0.00032553327630087853,
+                  "ci95": [
+                    -0.01074216946588109,
+                    0.011393241031453508
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "reference_accuracy": {
+                "clean": 1.0,
+                "edited": 1.0
+              },
+              "property_truth_accuracy": {
+                "clean": 0.8098958333333334,
+                "edited": 0.8098958333333334
+              },
+              "property_truth_drop": 0.0,
+              "reference_accuracy_drop": 0.0,
+              "by_surface_form": {
+                "np": {
+                  "estimate": -0.0006510509443842238,
+                  "ci95": [
+                    -0.017578147104664293,
+                    0.015624995275224289
+                  ],
+                  "n_clusters": 192
+                },
+                "relative_21": {
+                  "estimate": -0.007812500800355338,
+                  "ci95": [
+                    -0.02213542847650842,
+                    0.005859386552909503
+                  ],
+                  "n_clusters": 192
+                }
+              },
+              "reverse_direction": {
+                "estimate": 0.003255216267528264,
+                "ci95": [
+                  -0.006835940504582775,
+                  0.013671888033119946
+                ],
+                "n_clusters": 384
+              },
+              "role_beats_controls": false,
+              "property_preserved": true,
+              "cross_surface_consistent": false
+            },
+            "2": {
+              "role": {
+                "on_restricting": {
+                  "estimate": -0.003580732231057482,
+                  "ci95": [
+                    -0.01399740065424216,
+                    0.007161453362573411
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": -0.002929689478643619,
+                  "ci95": [
+                    -0.013997398768822222,
+                    0.008138019302474694
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": -0.0006510427524138626,
+                  "ci95": [
+                    -0.010416670671740746,
+                    0.009765632109547083
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "shuffled": {
+                "on_restricting": {
+                  "estimate": 0.007161456086331934,
+                  "ci95": [
+                    -0.0032633561032712984,
+                    0.017903642226544038
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": 0.0013020794366885486,
+                  "ci95": [
+                    -0.009122738218908917,
+                    0.012044267929392779
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": 0.005859376649643385,
+                  "ci95": [
+                    -0.005208333566318639,
+                    0.016927075475029578
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "random": {
+                "on_restricting": {
+                  "estimate": -0.006835936255773352,
+                  "ci95": [
+                    -0.017903635968035778,
+                    0.00455729752903693
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": 0.00032551917638556915,
+                  "ci95": [
+                    -0.010742186919461716,
+                    0.011393235585344049
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": -0.007161455432158921,
+                  "ci95": [
+                    -0.017903641200805252,
+                    0.003255209094637716
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "reference_accuracy": {
+                "clean": 1.0,
+                "edited": 1.0
+              },
+              "property_truth_accuracy": {
+                "clean": 0.8098958333333334,
+                "edited": 0.8046875
+              },
+              "property_truth_drop": 0.00520833333333337,
+              "reference_accuracy_drop": 0.0,
+              "by_surface_form": {
+                "np": {
+                  "estimate": 0.006510412027561567,
+                  "ci95": [
+                    -0.00846354094562969,
+                    0.020833337221134705
+                  ],
+                  "n_clusters": 192
+                },
+                "relative_21": {
+                  "estimate": -0.007812497532389291,
+                  "ci95": [
+                    -0.022786452111866615,
+                    0.0065104164816186015
+                  ],
+                  "n_clusters": 192
+                }
+              },
+              "reverse_direction": {
+                "estimate": -0.005208335700871203,
+                "ci95": [
+                  -0.016276047336170763,
+                  0.005533855726400106
+                ],
+                "n_clusters": 384
+              },
+              "role_beats_controls": false,
+              "property_preserved": true,
+              "cross_surface_consistent": false
+            },
+            "4": {
+              "role": {
+                "on_restricting": {
+                  "estimate": -0.001953125483576438,
+                  "ci95": [
+                    -0.012369794074354463,
+                    0.008789064447164919
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": -0.0013020825853307845,
+                  "ci95": [
+                    -0.011067713614424454,
+                    0.008789066409657665
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": -0.0006510428982456536,
+                  "ci95": [
+                    -0.011393224591587387,
+                    0.009765616916688202
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "shuffled": {
+                "on_restricting": {
+                  "estimate": 0.003255212216468332,
+                  "ci95": [
+                    -0.007486971067247576,
+                    0.014005556554161913
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": -0.0009765629123042647,
+                  "ci95": [
+                    -0.011718751353439907,
+                    0.010416660497771584
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": 0.004231775128772597,
+                  "ci95": [
+                    -0.007812484208836186,
+                    0.016276052906630884
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "random": {
+                "on_restricting": {
+                  "estimate": -0.0006510466958123592,
+                  "ci95": [
+                    -0.011718754402957643,
+                    0.009765617962564239
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": -0.0006510410355247132,
+                  "ci95": [
+                    -0.011718738942097436,
+                    0.010416664967425979
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": -5.660287645999536e-09,
+                  "ci95": [
+                    -0.0110677063967285,
+                    0.010099290178775653
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "reference_accuracy": {
+                "clean": 1.0,
+                "edited": 1.0
+              },
+              "property_truth_accuracy": {
+                "clean": 0.8098958333333334,
+                "edited": 0.8046875
+              },
+              "property_truth_drop": 0.00520833333333337,
+              "reference_accuracy_drop": 0.0,
+              "by_surface_form": {
+                "np": {
+                  "estimate": 8.075365561429256e-10,
+                  "ci95": [
+                    -0.014322911026612909,
+                    0.014973945114980817
+                  ],
+                  "n_clusters": 192
+                },
+                "relative_21": {
+                  "estimate": -0.0013020866040278634,
+                  "ci95": [
+                    -0.01627602719255871,
+                    0.013020819307094674
+                  ],
+                  "n_clusters": 192
+                }
+              },
+              "reverse_direction": {
+                "estimate": 0.0013020847149315766,
+                "ci95": [
+                  -0.009440097000075792,
+                  0.012369791876133717
+                ],
+                "n_clusters": 384
+              },
+              "role_beats_controls": false,
+              "property_preserved": true,
+              "cross_surface_consistent": false
+            }
+          },
+          "depth_pass": false
+        }
+      },
+      "positive_depths": 1,
+      "causal_pass": true
+    },
+    {
+      "model": "microsoft/Phi-4-mini-instruct",
+      "model_revision": "cfbefacb99257ffa30c83adab238a50856ac3083",
+      "train_families": [
+        "size_color",
+        "texture_color",
+        "fill_height"
+      ],
+      "test_families": [
+        "material_color",
+        "pattern_length",
+        "color_curvature"
+      ],
+      "depths": {
+        "0.25": {
+          "alphas": {
+            "1": {
+              "role": {
+                "on_restricting": {
+                  "estimate": -0.11523436985263895,
+                  "ci95": [
+                    -0.1497395577817296,
+                    -0.08072916283409862
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": 0.04036460441019093,
+                  "ci95": [
+                    0.018880250582907362,
+                    0.0631510428655948
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": -0.15559897426282987,
+                  "ci95": [
+                    -0.19335941581173868,
+                    -0.11717123323402182
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "shuffled": {
+                "on_restricting": {
+                  "estimate": -0.03971354697728202,
+                  "ci95": [
+                    -0.059895841081642705,
+                    -0.019531249884937554
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": -0.007812515822934074,
+                  "ci95": [
+                    -0.02473962538167977,
+                    0.009130868411882176
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": -0.03190103115434795,
+                  "ci95": [
+                    -0.05403643556887327,
+                    -0.010416670487254958
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "random": {
+                "on_restricting": {
+                  "estimate": -0.029296887141905852,
+                  "ci95": [
+                    -0.04687495541063716,
+                    -0.012369811105154819
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": -0.004557288844959355,
+                  "ci95": [
+                    -0.021484382562350864,
+                    0.012369816125796736
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": -0.024739598296946497,
+                  "ci95": [
+                    -0.04231774272800237,
+                    -0.007161469923969813
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "reference_accuracy": {
+                "clean": 1.0,
+                "edited": 1.0
+              },
+              "property_truth_accuracy": {
+                "clean": 0.9713541666666666,
+                "edited": 0.9765625
+              },
+              "property_truth_drop": -0.00520833333333337,
+              "reference_accuracy_drop": 0.0,
+              "by_surface_form": {
+                "np": {
+                  "estimate": -0.007812489016563025,
+                  "ci95": [
+                    -0.0533854114490263,
+                    0.03906248754014427
+                  ],
+                  "n_clusters": 192
+                },
+                "relative_21": {
+                  "estimate": -0.30338545950909673,
+                  "ci95": [
+                    -0.3580729830905644,
+                    -0.2500000454776796
+                  ],
+                  "n_clusters": 192
+                }
+              },
+              "reverse_direction": {
+                "estimate": 0.07161459794319096,
+                "ci95": [
+                  0.04882810821448705,
+                  0.09440104344308509
+                ],
+                "n_clusters": 384
+              },
+              "role_beats_controls": false,
+              "property_preserved": true,
+              "cross_surface_consistent": false
+            },
+            "2": {
+              "role": {
+                "on_restricting": {
+                  "estimate": -0.4837239663628452,
+                  "ci95": [
+                    -0.5507812362671937,
+                    -0.4147135680103456
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": 0.07812500805190818,
+                  "ci95": [
+                    0.04882815909688815,
+                    0.11002606008238255
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": -0.5618489744147533,
+                  "ci95": [
+                    -0.6393229483061049,
+                    -0.48632815094351256
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "shuffled": {
+                "on_restricting": {
+                  "estimate": -0.10416664265426334,
+                  "ci95": [
+                    -0.1367187110600971,
+                    -0.07291664792336026
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": -0.011718748379015173,
+                  "ci95": [
+                    -0.03190102924564637,
+                    0.009114582378528743
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": -0.09244789427524817,
+                  "ci95": [
+                    -0.12499999867979929,
+                    -0.058593729354708066
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "random": {
+                "on_restricting": {
+                  "estimate": -0.029947906870916086,
+                  "ci95": [
+                    -0.04752603070438492,
+                    -0.013020828866869276
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": -0.00911457126676396,
+                  "ci95": [
+                    -0.02604167428320352,
+                    0.008463564479426585
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": -0.020833335604152126,
+                  "ci95": [
+                    -0.039062508259645294,
+                    -0.0019531342045458664
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "reference_accuracy": {
+                "clean": 1.0,
+                "edited": 0.9973958333333334
+              },
+              "property_truth_accuracy": {
+                "clean": 0.9713541666666666,
+                "edited": 0.96875
+              },
+              "property_truth_drop": 0.0026041666666666297,
+              "reference_accuracy_drop": 0.0026041666666666297,
+              "by_surface_form": {
+                "np": {
+                  "estimate": -0.2760416842768336,
+                  "ci95": [
+                    -0.3580729285141899,
+                    -0.20182294479974416
+                  ],
+                  "n_clusters": 192
+                },
+                "relative_21": {
+                  "estimate": -0.8476562645526732,
+                  "ci95": [
+                    -0.9752604091965471,
+                    -0.7317708392831282
+                  ],
+                  "n_clusters": 192
+                }
+              },
+              "reverse_direction": {
+                "estimate": 0.07421874634106491,
+                "ci95": [
+                  0.036458358982451956,
+                  0.11197915333818477
+                ],
+                "n_clusters": 384
+              },
+              "role_beats_controls": true,
+              "property_preserved": true,
+              "cross_surface_consistent": true
+            },
+            "4": {
+              "role": {
+                "on_restricting": {
+                  "estimate": -1.7604166603518554,
+                  "ci95": [
+                    -1.9420572832313903,
+                    -1.5729166580270042
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": 0.1373697821073847,
+                  "ci95": [
+                    0.0930989519002016,
+                    0.18554683736362754
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": -1.89778644245924,
+                  "ci95": [
+                    -2.1132812346918657,
+                    -1.7050618466737435
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "shuffled": {
+                "on_restricting": {
+                  "estimate": -0.4999999897731868,
+                  "ci95": [
+                    -0.6048176906459996,
+                    -0.3984211806175762
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": -0.1263020657824351,
+                  "ci95": [
+                    -0.18881836019266698,
+                    -0.07226561761458186
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": -0.3736979239907517,
+                  "ci95": [
+                    -0.49218751827730217,
+                    -0.25911457882763406
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "random": {
+                "on_restricting": {
+                  "estimate": -0.0488281198616202,
+                  "ci95": [
+                    -0.06835937081478581,
+                    -0.029296876626047682
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": -0.012369782027235487,
+                  "ci95": [
+                    -0.03059893889982656,
+                    0.005208350046135971
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": -0.036458337834384714,
+                  "ci95": [
+                    -0.057942670864303145,
+                    -0.0149739809475714
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "reference_accuracy": {
+                "clean": 1.0,
+                "edited": 0.953125
+              },
+              "property_truth_accuracy": {
+                "clean": 0.9713541666666666,
+                "edited": 0.9713541666666666
+              },
+              "property_truth_drop": 0.0,
+              "reference_accuracy_drop": 0.046875,
+              "by_surface_form": {
+                "np": {
+                  "estimate": -1.3541666408455815,
+                  "ci95": [
+                    -1.592447896312577,
+                    -1.1353840775103934
+                  ],
+                  "n_clusters": 192
+                },
+                "relative_21": {
+                  "estimate": -2.441406244072899,
+                  "ci95": [
+                    -2.7760416691863194,
+                    -2.1184570244523178
+                  ],
+                  "n_clusters": 192
+                }
+              },
+              "reverse_direction": {
+                "estimate": 1.0384114547814534,
+                "ci95": [
+                  0.8385253764442041,
+                  1.2408854242932004
+                ],
+                "n_clusters": 384
+              },
+              "role_beats_controls": true,
+              "property_preserved": true,
+              "cross_surface_consistent": true
+            }
+          },
+          "depth_pass": true
+        },
+        "0.5": {
+          "alphas": {
+            "1": {
+              "role": {
+                "on_restricting": {
+                  "estimate": 0.013020832299578919,
+                  "ci95": [
+                    -0.0390788036013788,
+                    0.06640624773943954
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": 0.044921875698226664,
+                  "ci95": [
+                    0.021484375612497313,
+                    0.06901042576757371
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": -0.031901043398647744,
+                  "ci95": [
+                    -0.08528645415739788,
+                    0.022802748425070025
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "shuffled": {
+                "on_restricting": {
+                  "estimate": 0.07486977698097992,
+                  "ci95": [
+                    0.05143225156930005,
+                    0.09895831616713621
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": -0.03645832388819296,
+                  "ci95": [
+                    -0.05403645878999725,
+                    -0.018880195920143214
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": 0.11132810086917289,
+                  "ci95": [
+                    0.08658852815017894,
+                    0.13606766819805785
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "random": {
+                "on_restricting": {
+                  "estimate": -0.003255200644351438,
+                  "ci95": [
+                    -0.018245460173055974,
+                    0.012369791787176608
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": -0.002604179190977144,
+                  "ci95": [
+                    -0.0169270786934239,
+                    0.011067704331818126
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": -0.0006510214533742934,
+                  "ci95": [
+                    -0.014973937438232571,
+                    0.013671885114816481
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "reference_accuracy": {
+                "clean": 1.0,
+                "edited": 1.0
+              },
+              "property_truth_accuracy": {
+                "clean": 0.9713541666666666,
+                "edited": 0.9791666666666666
+              },
+              "property_truth_drop": -0.0078125,
+              "reference_accuracy_drop": 0.0,
+              "by_surface_form": {
+                "np": {
+                  "estimate": -0.018229205874528514,
+                  "ci95": [
+                    -0.07812501673842955,
+                    0.040364560999586276
+                  ],
+                  "n_clusters": 192
+                },
+                "relative_21": {
+                  "estimate": -0.04557288092276698,
+                  "ci95": [
+                    -0.13671872549754577,
+                    0.0455729483928773
+                  ],
+                  "n_clusters": 192
+                }
+              },
+              "reverse_direction": {
+                "estimate": 0.32291667551051734,
+                "ci95": [
+                  0.28709310303120317,
+                  0.3600260330593945
+                ],
+                "n_clusters": 384
+              },
+              "role_beats_controls": false,
+              "property_preserved": true,
+              "cross_surface_consistent": false
+            },
+            "2": {
+              "role": {
+                "on_restricting": {
+                  "estimate": -0.10286458342360068,
+                  "ci95": [
+                    -0.16668296448324704,
+                    -0.03710938033854821
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": 0.022786486355395635,
+                  "ci95": [
+                    -0.00585932770668478,
+                    0.050781288502986396
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": -0.12565106977899632,
+                  "ci95": [
+                    -0.19335939347755204,
+                    -0.0572916759106666
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "shuffled": {
+                "on_restricting": {
+                  "estimate": 0.06184895224623688,
+                  "ci95": [
+                    0.023437520022431123,
+                    0.10091143976877864
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": -0.15429686032553036,
+                  "ci95": [
+                    -0.18815103595183397,
+                    -0.1230468519656038
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": 0.21614581257176724,
+                  "ci95": [
+                    0.16992184367789967,
+                    0.2643391813563793
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "random": {
+                "on_restricting": {
+                  "estimate": -0.009765632979375974,
+                  "ci95": [
+                    -0.02540694290771341,
+                    0.005208342547182572
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": -4.0309942050953396e-09,
+                  "ci95": [
+                    -0.014973951833061959,
+                    0.01497396298242298
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": -0.009765628948381769,
+                  "ci95": [
+                    -0.024739581387633318,
+                    0.005208352809550358
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "reference_accuracy": {
+                "clean": 1.0,
+                "edited": 1.0
+              },
+              "property_truth_accuracy": {
+                "clean": 0.9713541666666666,
+                "edited": 0.9817708333333334
+              },
+              "property_truth_drop": -0.01041666666666674,
+              "reference_accuracy_drop": 0.0,
+              "by_surface_form": {
+                "np": {
+                  "estimate": -0.06640628832004343,
+                  "ci95": [
+                    -0.1367187925088596,
+                    0.002604124295063078
+                  ],
+                  "n_clusters": 192
+                },
+                "relative_21": {
+                  "estimate": -0.1848958512379492,
+                  "ci95": [
+                    -0.3007812815567225,
+                    -0.0677083593324672
+                  ],
+                  "n_clusters": 192
+                }
+              },
+              "reverse_direction": {
+                "estimate": 1.429036471469999,
+                "ci95": [
+                  1.2916503822182053,
+                  1.5690104134038212
+                ],
+                "n_clusters": 384
+              },
+              "role_beats_controls": false,
+              "property_preserved": true,
+              "cross_surface_consistent": false
+            },
+            "4": {
+              "role": {
+                "on_restricting": {
+                  "estimate": -0.1510416701064893,
+                  "ci95": [
+                    -0.21744789034839584,
+                    -0.08333333664141662
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": -0.20507811817788024,
+                  "ci95": [
+                    -0.2753906017754294,
+                    -0.14127602169742962
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": 0.05403644807139093,
+                  "ci95": [
+                    -0.02864584619222607,
+                    0.13802082509970243
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "shuffled": {
+                "on_restricting": {
+                  "estimate": -0.13476562862138053,
+                  "ci95": [
+                    -0.22656251100486602,
+                    -0.04816079176999347
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": -0.8541666687835155,
+                  "ci95": [
+                    -1.009765637551154,
+                    -0.7148274676265888
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": 0.719401040162135,
+                  "ci95": [
+                    0.5481607904811407,
+                    0.9023600289889835
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "random": {
+                "on_restricting": {
+                  "estimate": -0.007812515797506117,
+                  "ci95": [
+                    -0.022786479745872154,
+                    0.00716147458842992
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": -0.011718747534890403,
+                  "ci95": [
+                    -0.02734375392203674,
+                    0.003906269987634422
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": 0.003906231737384284,
+                  "ci95": [
+                    -0.011718770241752925,
+                    0.019531237082413593
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "reference_accuracy": {
+                "clean": 1.0,
+                "edited": 1.0
+              },
+              "property_truth_accuracy": {
+                "clean": 0.9713541666666666,
+                "edited": 0.9817708333333334
+              },
+              "property_truth_drop": -0.01041666666666674,
+              "reference_accuracy_drop": 0.0,
+              "by_surface_form": {
+                "np": {
+                  "estimate": 0.32421873167459125,
+                  "ci95": [
+                    0.22526042031184565,
+                    0.42838539893999156
+                  ],
+                  "n_clusters": 192
+                },
+                "relative_21": {
+                  "estimate": -0.2161458355318094,
+                  "ci95": [
+                    -0.3333333502225002,
+                    -0.09895831963560794
+                  ],
+                  "n_clusters": 192
+                }
+              },
+              "reverse_direction": {
+                "estimate": 2.757812519098593,
+                "ci95": [
+                  2.559244827050847,
+                  2.9531412900825473
+                ],
+                "n_clusters": 384
+              },
+              "role_beats_controls": false,
+              "property_preserved": true,
+              "cross_surface_consistent": false
+            }
+          },
+          "depth_pass": false
+        },
+        "0.75": {
+          "alphas": {
+            "1": {
+              "role": {
+                "on_restricting": {
+                  "estimate": -0.009114571675543933,
+                  "ci95": [
+                    -0.02213540327516057,
+                    0.003906276011166673
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": -0.005208327968603044,
+                  "ci95": [
+                    -0.01822914765745717,
+                    0.007812479421643085
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": -0.0039062437069408893,
+                  "ci95": [
+                    -0.017578102783007428,
+                    0.00911460334194487
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "shuffled": {
+                "on_restricting": {
+                  "estimate": -0.006510417027357107,
+                  "ci95": [
+                    -0.020182300571106756,
+                    0.007812483168330194
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": -0.0019531231666102637,
+                  "ci95": [
+                    -0.014973946998854142,
+                    0.011718742378972517
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": -0.004557293860746843,
+                  "ci95": [
+                    -0.017578123440874074,
+                    0.008479836248507648
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "random": {
+                "on_restricting": {
+                  "estimate": -0.01171873762981098,
+                  "ci95": [
+                    -0.026041638366601207,
+                    0.002604139168647634
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": 0.0006510465538743423,
+                  "ci95": [
+                    -0.013020807629629871,
+                    0.013671883481066516
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": -0.01236978418368532,
+                  "ci95": [
+                    -0.0266927029722865,
+                    0.0013020985639040342
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "reference_accuracy": {
+                "clean": 1.0,
+                "edited": 1.0
+              },
+              "property_truth_accuracy": {
+                "clean": 0.9713541666666666,
+                "edited": 0.96875
+              },
+              "property_truth_drop": 0.0026041666666666297,
+              "reference_accuracy_drop": 0.0,
+              "by_surface_form": {
+                "np": {
+                  "estimate": 1.250335420384848e-08,
+                  "ci95": [
+                    -0.019531252775794882,
+                    0.019531296403276124
+                  ],
+                  "n_clusters": 192
+                },
+                "relative_21": {
+                  "estimate": -0.007812499917235982,
+                  "ci95": [
+                    -0.026041682612897906,
+                    0.010416660977690147
+                  ],
+                  "n_clusters": 192
+                }
+              },
+              "reverse_direction": {
+                "estimate": -0.011067692205794325,
+                "ci95": [
+                  -0.02408852064325515,
+                  0.0019694436420477266
+                ],
+                "n_clusters": 384
+              },
+              "role_beats_controls": false,
+              "property_preserved": true,
+              "cross_surface_consistent": false
+            },
+            "2": {
+              "role": {
+                "on_restricting": {
+                  "estimate": -0.006510400180597268,
+                  "ci95": [
+                    -0.01888020239881977,
+                    0.006510435866341405
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": -0.010416651565909282,
+                  "ci95": [
+                    -0.023437491765368655,
+                    0.003255226473578432
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": 0.0039062513853120135,
+                  "ci95": [
+                    -0.00846355670019913,
+                    0.016276042237355643
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "shuffled": {
+                "on_restricting": {
+                  "estimate": -0.005208327691661907,
+                  "ci95": [
+                    -0.01888018798491468,
+                    0.008463541945205103
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": -0.01106770222668274,
+                  "ci95": [
+                    -0.02408852115394874,
+                    0.001953131861268768
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": 0.005859374535020834,
+                  "ci95": [
+                    -0.007161463844665643,
+                    0.019531237839382244
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "random": {
+                "on_restricting": {
+                  "estimate": -0.003906254405402858,
+                  "ci95": [
+                    -0.01629235347796035,
+                    0.00911458762354395
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": 0.0019531158900463197,
+                  "ci95": [
+                    -0.011067708994036706,
+                    0.014973942143805631
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": -0.005859370295449177,
+                  "ci95": [
+                    -0.019531265858375,
+                    0.007812519126574102
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "reference_accuracy": {
+                "clean": 1.0,
+                "edited": 1.0
+              },
+              "property_truth_accuracy": {
+                "clean": 0.9713541666666666,
+                "edited": 0.9713541666666666
+              },
+              "property_truth_drop": 0.0,
+              "reference_accuracy_drop": 0.0,
+              "by_surface_form": {
+                "np": {
+                  "estimate": 0.0013020877275569849,
+                  "ci95": [
+                    -0.014322937604549679,
+                    0.016927078279604758
+                  ],
+                  "n_clusters": 192
+                },
+                "relative_21": {
+                  "estimate": 0.0065104150430670416,
+                  "ci95": [
+                    -0.01302082844731558,
+                    0.02604165589373982
+                  ],
+                  "n_clusters": 192
+                }
+              },
+              "reverse_direction": {
+                "estimate": -0.0019531087430474752,
+                "ci95": [
+                  -0.015624992537864084,
+                  0.011067743612312598
+                ],
+                "n_clusters": 384
+              },
+              "role_beats_controls": false,
+              "property_preserved": true,
+              "cross_surface_consistent": false
+            },
+            "4": {
+              "role": {
+                "on_restricting": {
+                  "estimate": -0.0039062613985076195,
+                  "ci95": [
+                    -0.017578142322194405,
+                    0.009765614168316006
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": -0.009114579529106473,
+                  "ci95": [
+                    -0.022135395399699102,
+                    0.0032552202139915685
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": 0.005208318130598855,
+                  "ci95": [
+                    -0.007812521117710958,
+                    0.018880183268383158
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "shuffled": {
+                "on_restricting": {
+                  "estimate": 0.002604177032443052,
+                  "ci95": [
+                    -0.011067698681826717,
+                    0.016276052198505416
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": -0.0026041720864213858,
+                  "ci95": [
+                    -0.01692706211242694,
+                    0.011067717124038269
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": 0.0052083491188644375,
+                  "ci95": [
+                    -0.008463518763602452,
+                    0.01888021995769596
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "random": {
+                "on_restricting": {
+                  "estimate": -0.0032551943854741694,
+                  "ci95": [
+                    -0.017578100030594138,
+                    0.011067717153008517
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": -0.009114594584502811,
+                  "ci95": [
+                    -0.02148440148925772,
+                    0.0032551930880657665
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": 0.0058594001990286415,
+                  "ci95": [
+                    -0.006510392369421917,
+                    0.01888023592784691
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "reference_accuracy": {
+                "clean": 1.0,
+                "edited": 1.0
+              },
+              "property_truth_accuracy": {
+                "clean": 0.9713541666666666,
+                "edited": 0.96875
+              },
+              "property_truth_drop": 0.0026041666666666297,
+              "reference_accuracy_drop": 0.0,
+              "by_surface_form": {
+                "np": {
+                  "estimate": 0.0039062424270923657,
+                  "ci95": [
+                    -0.015625016647857135,
+                    0.023437481864042792
+                  ],
+                  "n_clusters": 192
+                },
+                "relative_21": {
+                  "estimate": 0.0065103938341053436,
+                  "ci95": [
+                    -0.011718791949855737,
+                    0.026041606669321024
+                  ],
+                  "n_clusters": 192
+                }
+              },
+              "reverse_direction": {
+                "estimate": -0.009114596024384506,
+                "ci95": [
+                  -0.022135422220570907,
+                  0.0032552040865814055
+                ],
+                "n_clusters": 384
+              },
+              "role_beats_controls": false,
+              "property_preserved": true,
+              "cross_surface_consistent": false
+            }
+          },
+          "depth_pass": false
+        }
+      },
+      "positive_depths": 1,
+      "causal_pass": true
+    },
+    {
+      "model": "google/gemma-3-12b-it",
+      "model_revision": "96b6f1eccf38110c56df3a15bffe176da04bfd80",
+      "train_families": [
+        "size_color",
+        "texture_color",
+        "fill_height"
+      ],
+      "test_families": [
+        "material_color",
+        "pattern_length",
+        "color_curvature"
+      ],
+      "depths": {
+        "0.25": {
+          "alphas": {
+            "1": {
+              "role": {
+                "on_restricting": {
+                  "estimate": -0.03320308993888362,
+                  "ci95": [
+                    -0.05957023641353449,
+                    -0.007812471076256178
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": 0.0374349143993958,
+                  "ci95": [
+                    0.016601572901559673,
+                    0.05924481549807763
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": -0.07063800433827942,
+                  "ci95": [
+                    -0.10253905850059253,
+                    -0.04166666713600169
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "shuffled": {
+                "on_restricting": {
+                  "estimate": 0.009440119732891125,
+                  "ci95": [
+                    -0.006510421381626719,
+                    0.025390630311795465
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": 0.007812537775615228,
+                  "ci95": [
+                    -0.007486940764404267,
+                    0.023763042970900986
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": 0.0016275819572758958,
+                  "ci95": [
+                    -0.013671890884379272,
+                    0.0172525849612671
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "random": {
+                "on_restricting": {
+                  "estimate": 0.005533892620123382,
+                  "ci95": [
+                    -0.010416605284569594,
+                    0.02083336883289843
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": 0.0006510684282264497,
+                  "ci95": [
+                    -0.015624976256080354,
+                    0.0169270938986226
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": 0.004882824191896932,
+                  "ci95": [
+                    -0.010416646778635326,
+                    0.020507831236332708
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "reference_accuracy": {
+                "clean": 1.0,
+                "edited": 1.0
+              },
+              "property_truth_accuracy": {
+                "clean": 1.0,
+                "edited": 1.0
+              },
+              "property_truth_drop": 0.0,
+              "reference_accuracy_drop": 0.0,
+              "by_surface_form": {
+                "np": {
+                  "estimate": -0.029947910305896386,
+                  "ci95": [
+                    -0.07421874719622704,
+                    0.011067727287655342
+                  ],
+                  "n_clusters": 192
+                },
+                "relative_21": {
+                  "estimate": -0.11132809837066245,
+                  "ci95": [
+                    -0.15496417930556286,
+                    -0.0709634817370214
+                  ],
+                  "n_clusters": 192
+                }
+              },
+              "reverse_direction": {
+                "estimate": -0.04166666462691134,
+                "ci95": [
+                  -0.06901043360668246,
+                  -0.014322934824391545
+                ],
+                "n_clusters": 384
+              },
+              "role_beats_controls": false,
+              "property_preserved": true,
+              "cross_surface_consistent": false
+            },
+            "2": {
+              "role": {
+                "on_restricting": {
+                  "estimate": -0.17936195390330756,
+                  "ci95": [
+                    -0.2558756408019055,
+                    -0.11132812228113931
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": 0.049479164085073656,
+                  "ci95": [
+                    0.01920572703794811,
+                    0.08008629300145802
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": -0.22884111798838122,
+                  "ci95": [
+                    -0.31217444464230604,
+                    -0.15722658171831327
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "shuffled": {
+                "on_restricting": {
+                  "estimate": -0.007812475888086645,
+                  "ci95": [
+                    -0.024739552884128265,
+                    0.009765648645255968
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": 0.005859377799462291,
+                  "ci95": [
+                    -0.010416637422018947,
+                    0.022135420020498973
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": -0.013671853687548937,
+                  "ci95": [
+                    -0.030924443996482184,
+                    0.004231767862504284
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "random": {
+                "on_restricting": {
+                  "estimate": 0.0029296844584448443,
+                  "ci95": [
+                    -0.013020832084833563,
+                    0.019531213857859407
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": 0.005208347472409318,
+                  "ci95": [
+                    -0.010742176697617744,
+                    0.02115884943233735
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": -0.0022786630139644735,
+                  "ci95": [
+                    -0.018229208038258005,
+                    0.013346335488175246
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "reference_accuracy": {
+                "clean": 1.0,
+                "edited": 1.0
+              },
+              "property_truth_accuracy": {
+                "clean": 1.0,
+                "edited": 1.0
+              },
+              "property_truth_drop": 0.0,
+              "reference_accuracy_drop": 0.0,
+              "by_surface_form": {
+                "np": {
+                  "estimate": -0.06966144582082616,
+                  "ci95": [
+                    -0.14973956238223224,
+                    0.005208321455031066
+                  ],
+                  "n_clusters": 192
+                },
+                "relative_21": {
+                  "estimate": -0.38802079015593627,
+                  "ci95": [
+                    -0.5305988898512998,
+                    -0.27146804170107414
+                  ],
+                  "n_clusters": 192
+                }
+              },
+              "reverse_direction": {
+                "estimate": -0.1598307204836491,
+                "ci95": [
+                  -0.2135416655648178,
+                  -0.10773927726023423
+                ],
+                "n_clusters": 384
+              },
+              "role_beats_controls": false,
+              "property_preserved": true,
+              "cross_surface_consistent": false
+            },
+            "4": {
+              "role": {
+                "on_restricting": {
+                  "estimate": -0.9098307269758044,
+                  "ci95": [
+                    -1.1663574358216433,
+                    -0.6946533011274709
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": -0.018554658097898507,
+                  "ci95": [
+                    -0.07390949253806785,
+                    0.030924524827433027
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": -0.8912760688779059,
+                  "ci95": [
+                    -1.1507243119193806,
+                    -0.6702473922818201
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "shuffled": {
+                "on_restricting": {
+                  "estimate": -0.031901021065539936,
+                  "ci95": [
+                    -0.05468746651303275,
+                    -0.009440091404119137
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": 0.007161489868471686,
+                  "ci95": [
+                    -0.011718736858299798,
+                    0.026367220946945033
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": -0.03906251093401162,
+                  "ci95": [
+                    -0.06445312262742864,
+                    -0.01529132566679264
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "random": {
+                "on_restricting": {
+                  "estimate": 0.016276090699498386,
+                  "ci95": [
+                    3.594974130975243e-08,
+                    0.032877654351141046
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": 0.0039062563140011735,
+                  "ci95": [
+                    -0.012044226036106338,
+                    0.020507827770349138
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": 0.012369834385497214,
+                  "ci95": [
+                    -0.0035806726502168873,
+                    0.027343828113941086
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "reference_accuracy": {
+                "clean": 1.0,
+                "edited": 0.984375
+              },
+              "property_truth_accuracy": {
+                "clean": 1.0,
+                "edited": 1.0
+              },
+              "property_truth_drop": 0.0,
+              "reference_accuracy_drop": 0.015625,
+              "by_surface_form": {
+                "np": {
+                  "estimate": -0.33789063984795104,
+                  "ci95": [
+                    -0.5130208100491529,
+                    -0.1633952051959912
+                  ],
+                  "n_clusters": 192
+                },
+                "relative_21": {
+                  "estimate": -1.4446614979078607,
+                  "ci95": [
+                    -1.928483125467532,
+                    -1.0383952003973564
+                  ],
+                  "n_clusters": 192
+                }
+              },
+              "reverse_direction": {
+                "estimate": -0.4788411557863205,
+                "ci95": [
+                  -0.6842447732914296,
+                  -0.3010986666518417
+                ],
+                "n_clusters": 384
+              },
+              "role_beats_controls": true,
+              "property_preserved": true,
+              "cross_surface_consistent": true
+            }
+          },
+          "depth_pass": true
+        },
+        "0.5": {
+          "alphas": {
+            "1": {
+              "role": {
+                "on_restricting": {
+                  "estimate": NaN,
+                  "ci95": [
+                    NaN,
+                    NaN
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": NaN,
+                  "ci95": [
+                    NaN,
+                    NaN
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": NaN,
+                  "ci95": [
+                    NaN,
+                    NaN
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "shuffled": {
+                "on_restricting": {
+                  "estimate": NaN,
+                  "ci95": [
+                    NaN,
+                    NaN
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": NaN,
+                  "ci95": [
+                    NaN,
+                    NaN
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": NaN,
+                  "ci95": [
+                    NaN,
+                    NaN
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "random": {
+                "on_restricting": {
+                  "estimate": NaN,
+                  "ci95": [
+                    NaN,
+                    NaN
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": NaN,
+                  "ci95": [
+                    NaN,
+                    NaN
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": NaN,
+                  "ci95": [
+                    NaN,
+                    NaN
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "reference_accuracy": {
+                "clean": 1.0,
+                "edited": 0.0
+              },
+              "property_truth_accuracy": {
+                "clean": 1.0,
+                "edited": 0.0
+              },
+              "property_truth_drop": 1.0,
+              "reference_accuracy_drop": 1.0,
+              "by_surface_form": {
+                "np": {
+                  "estimate": NaN,
+                  "ci95": [
+                    NaN,
+                    NaN
+                  ],
+                  "n_clusters": 192
+                },
+                "relative_21": {
+                  "estimate": NaN,
+                  "ci95": [
+                    NaN,
+                    NaN
+                  ],
+                  "n_clusters": 192
+                }
+              },
+              "reverse_direction": {
+                "estimate": NaN,
+                "ci95": [
+                  NaN,
+                  NaN
+                ],
+                "n_clusters": 384
+              },
+              "role_beats_controls": false,
+              "property_preserved": false,
+              "cross_surface_consistent": false
+            },
+            "2": {
+              "role": {
+                "on_restricting": {
+                  "estimate": NaN,
+                  "ci95": [
+                    NaN,
+                    NaN
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": NaN,
+                  "ci95": [
+                    NaN,
+                    NaN
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": NaN,
+                  "ci95": [
+                    NaN,
+                    NaN
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "shuffled": {
+                "on_restricting": {
+                  "estimate": NaN,
+                  "ci95": [
+                    NaN,
+                    NaN
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": NaN,
+                  "ci95": [
+                    NaN,
+                    NaN
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": NaN,
+                  "ci95": [
+                    NaN,
+                    NaN
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "random": {
+                "on_restricting": {
+                  "estimate": NaN,
+                  "ci95": [
+                    NaN,
+                    NaN
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": NaN,
+                  "ci95": [
+                    NaN,
+                    NaN
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": NaN,
+                  "ci95": [
+                    NaN,
+                    NaN
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "reference_accuracy": {
+                "clean": 1.0,
+                "edited": 0.0
+              },
+              "property_truth_accuracy": {
+                "clean": 1.0,
+                "edited": 0.0
+              },
+              "property_truth_drop": 1.0,
+              "reference_accuracy_drop": 1.0,
+              "by_surface_form": {
+                "np": {
+                  "estimate": NaN,
+                  "ci95": [
+                    NaN,
+                    NaN
+                  ],
+                  "n_clusters": 192
+                },
+                "relative_21": {
+                  "estimate": NaN,
+                  "ci95": [
+                    NaN,
+                    NaN
+                  ],
+                  "n_clusters": 192
+                }
+              },
+              "reverse_direction": {
+                "estimate": NaN,
+                "ci95": [
+                  NaN,
+                  NaN
+                ],
+                "n_clusters": 384
+              },
+              "role_beats_controls": false,
+              "property_preserved": false,
+              "cross_surface_consistent": false
+            },
+            "4": {
+              "role": {
+                "on_restricting": {
+                  "estimate": NaN,
+                  "ci95": [
+                    NaN,
+                    NaN
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": NaN,
+                  "ci95": [
+                    NaN,
+                    NaN
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": NaN,
+                  "ci95": [
+                    NaN,
+                    NaN
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "shuffled": {
+                "on_restricting": {
+                  "estimate": NaN,
+                  "ci95": [
+                    NaN,
+                    NaN
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": NaN,
+                  "ci95": [
+                    NaN,
+                    NaN
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": NaN,
+                  "ci95": [
+                    NaN,
+                    NaN
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "random": {
+                "on_restricting": {
+                  "estimate": NaN,
+                  "ci95": [
+                    NaN,
+                    NaN
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": NaN,
+                  "ci95": [
+                    NaN,
+                    NaN
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": NaN,
+                  "ci95": [
+                    NaN,
+                    NaN
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "reference_accuracy": {
+                "clean": 1.0,
+                "edited": 0.0
+              },
+              "property_truth_accuracy": {
+                "clean": 1.0,
+                "edited": 0.0
+              },
+              "property_truth_drop": 1.0,
+              "reference_accuracy_drop": 1.0,
+              "by_surface_form": {
+                "np": {
+                  "estimate": NaN,
+                  "ci95": [
+                    NaN,
+                    NaN
+                  ],
+                  "n_clusters": 192
+                },
+                "relative_21": {
+                  "estimate": NaN,
+                  "ci95": [
+                    NaN,
+                    NaN
+                  ],
+                  "n_clusters": 192
+                }
+              },
+              "reverse_direction": {
+                "estimate": NaN,
+                "ci95": [
+                  NaN,
+                  NaN
+                ],
+                "n_clusters": 384
+              },
+              "role_beats_controls": false,
+              "property_preserved": false,
+              "cross_surface_consistent": false
+            }
+          },
+          "depth_pass": false
+        },
+        "0.75": {
+          "alphas": {
+            "1": {
+              "role": {
+                "on_restricting": {
+                  "estimate": NaN,
+                  "ci95": [
+                    NaN,
+                    NaN
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": NaN,
+                  "ci95": [
+                    NaN,
+                    NaN
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": NaN,
+                  "ci95": [
+                    NaN,
+                    NaN
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "shuffled": {
+                "on_restricting": {
+                  "estimate": NaN,
+                  "ci95": [
+                    NaN,
+                    NaN
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": NaN,
+                  "ci95": [
+                    NaN,
+                    NaN
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": NaN,
+                  "ci95": [
+                    NaN,
+                    NaN
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "random": {
+                "on_restricting": {
+                  "estimate": NaN,
+                  "ci95": [
+                    NaN,
+                    NaN
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": NaN,
+                  "ci95": [
+                    NaN,
+                    NaN
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": NaN,
+                  "ci95": [
+                    NaN,
+                    NaN
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "reference_accuracy": {
+                "clean": 1.0,
+                "edited": 0.0
+              },
+              "property_truth_accuracy": {
+                "clean": 1.0,
+                "edited": 0.0
+              },
+              "property_truth_drop": 1.0,
+              "reference_accuracy_drop": 1.0,
+              "by_surface_form": {
+                "np": {
+                  "estimate": NaN,
+                  "ci95": [
+                    NaN,
+                    NaN
+                  ],
+                  "n_clusters": 192
+                },
+                "relative_21": {
+                  "estimate": NaN,
+                  "ci95": [
+                    NaN,
+                    NaN
+                  ],
+                  "n_clusters": 192
+                }
+              },
+              "reverse_direction": {
+                "estimate": NaN,
+                "ci95": [
+                  NaN,
+                  NaN
+                ],
+                "n_clusters": 384
+              },
+              "role_beats_controls": false,
+              "property_preserved": false,
+              "cross_surface_consistent": false
+            },
+            "2": {
+              "role": {
+                "on_restricting": {
+                  "estimate": NaN,
+                  "ci95": [
+                    NaN,
+                    NaN
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": NaN,
+                  "ci95": [
+                    NaN,
+                    NaN
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": NaN,
+                  "ci95": [
+                    NaN,
+                    NaN
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "shuffled": {
+                "on_restricting": {
+                  "estimate": NaN,
+                  "ci95": [
+                    NaN,
+                    NaN
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": NaN,
+                  "ci95": [
+                    NaN,
+                    NaN
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": NaN,
+                  "ci95": [
+                    NaN,
+                    NaN
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "random": {
+                "on_restricting": {
+                  "estimate": NaN,
+                  "ci95": [
+                    NaN,
+                    NaN
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": NaN,
+                  "ci95": [
+                    NaN,
+                    NaN
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": NaN,
+                  "ci95": [
+                    NaN,
+                    NaN
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "reference_accuracy": {
+                "clean": 1.0,
+                "edited": 0.0
+              },
+              "property_truth_accuracy": {
+                "clean": 1.0,
+                "edited": 0.0
+              },
+              "property_truth_drop": 1.0,
+              "reference_accuracy_drop": 1.0,
+              "by_surface_form": {
+                "np": {
+                  "estimate": NaN,
+                  "ci95": [
+                    NaN,
+                    NaN
+                  ],
+                  "n_clusters": 192
+                },
+                "relative_21": {
+                  "estimate": NaN,
+                  "ci95": [
+                    NaN,
+                    NaN
+                  ],
+                  "n_clusters": 192
+                }
+              },
+              "reverse_direction": {
+                "estimate": NaN,
+                "ci95": [
+                  NaN,
+                  NaN
+                ],
+                "n_clusters": 384
+              },
+              "role_beats_controls": false,
+              "property_preserved": false,
+              "cross_surface_consistent": false
+            },
+            "4": {
+              "role": {
+                "on_restricting": {
+                  "estimate": NaN,
+                  "ci95": [
+                    NaN,
+                    NaN
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": NaN,
+                  "ci95": [
+                    NaN,
+                    NaN
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": NaN,
+                  "ci95": [
+                    NaN,
+                    NaN
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "shuffled": {
+                "on_restricting": {
+                  "estimate": NaN,
+                  "ci95": [
+                    NaN,
+                    NaN
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": NaN,
+                  "ci95": [
+                    NaN,
+                    NaN
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": NaN,
+                  "ci95": [
+                    NaN,
+                    NaN
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "random": {
+                "on_restricting": {
+                  "estimate": NaN,
+                  "ci95": [
+                    NaN,
+                    NaN
+                  ],
+                  "n_clusters": 384
+                },
+                "on_non_restricting": {
+                  "estimate": NaN,
+                  "ci95": [
+                    NaN,
+                    NaN
+                  ],
+                  "n_clusters": 384
+                },
+                "interaction": {
+                  "estimate": NaN,
+                  "ci95": [
+                    NaN,
+                    NaN
+                  ],
+                  "n_clusters": 384
+                }
+              },
+              "reference_accuracy": {
+                "clean": 1.0,
+                "edited": 0.0
+              },
+              "property_truth_accuracy": {
+                "clean": 1.0,
+                "edited": 0.0
+              },
+              "property_truth_drop": 1.0,
+              "reference_accuracy_drop": 1.0,
+              "by_surface_form": {
+                "np": {
+                  "estimate": NaN,
+                  "ci95": [
+                    NaN,
+                    NaN
+                  ],
+                  "n_clusters": 192
+                },
+                "relative_21": {
+                  "estimate": NaN,
+                  "ci95": [
+                    NaN,
+                    NaN
+                  ],
+                  "n_clusters": 192
+                }
+              },
+              "reverse_direction": {
+                "estimate": NaN,
+                "ci95": [
+                  NaN,
+                  NaN
+                ],
+                "n_clusters": 384
+              },
+              "role_beats_controls": false,
+              "property_preserved": false,
+              "cross_surface_consistent": false
+            }
+          },
+          "depth_pass": false
+        }
+      },
+      "positive_depths": 1,
+      "causal_pass": true
+    }
+  ],
+  "panel_pass": true
+}

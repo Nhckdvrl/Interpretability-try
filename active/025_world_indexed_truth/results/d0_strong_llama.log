@@ -1,0 +1,18 @@
+Loading weights:   0%|          | 0/291 [00:00<?, ?it/s]Loading weights:  19%|█▊        | 54/291 [00:00<00:00, 385.25it/s]Loading weights:  38%|███▊      | 112/291 [00:00<00:00, 248.96it/s]Loading weights: 100%|██████████| 291/291 [00:00<00:00, 581.36it/s]
+{
+  "contract_id": "025-d0-v2-strong-model-replication",
+  "cuda_visible_devices": "2",
+  "family": "llama",
+  "label_token_ids": {
+    "FALSE": [
+      7989
+    ],
+    "TRUE": [
+      8378
+    ]
+  },
+  "model_id": "NousResearch/Meta-Llama-3.1-8B-Instruct",
+  "n_records": 256,
+  "revision": "d10aef7999a2b5ba950ab3974312feeedbfe0b77",
+  "torch_version": "2.11.0+cu130"
+}

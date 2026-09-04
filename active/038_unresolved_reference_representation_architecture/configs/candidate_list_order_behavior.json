@@ -1,0 +1,17 @@
+{
+  "experiment_version": "s3_candidate_list_order_v1",
+  "seed": 20260904,
+  "models": [
+    "NousResearch/Meta-Llama-3.1-8B-Instruct",
+    "Qwen/Qwen3-8B"
+  ],
+  "dtype": "bfloat16",
+  "batch_size": 16,
+  "semantic_split": "sha256 semantic_id modulo 10 in buckets 8-9",
+  "bootstrap_samples": 5000,
+  "gate": {
+    "min_clearref_accuracy": 0.75,
+    "min_sharedref_both_over_distractor_rate": 0.65,
+    "min_ambiguity_specific_flip_gap": 0.1
+  }
+}

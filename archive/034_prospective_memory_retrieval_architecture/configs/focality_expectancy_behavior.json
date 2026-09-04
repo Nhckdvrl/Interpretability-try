@@ -1,0 +1,16 @@
+{
+  "stimulus_version": "s0_2_v1",
+  "seed": 20260904,
+  "models": [
+    "Qwen/Qwen3-8B",
+    "NousResearch/Meta-Llama-3.1-8B-Instruct"
+  ],
+  "dtype": "bfloat16",
+  "batch_size": 16,
+  "gate": {
+    "min_no_cue_accuracy": 0.8,
+    "min_cue_cell_accuracy": 0.55,
+    "min_abs_focality_effect": 0.05,
+    "all_cells_ceiling": 0.98
+  }
+}

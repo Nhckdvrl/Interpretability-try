@@ -1,0 +1,11 @@
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:00<00:00,  1.15it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.57it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.49it/s]
+{"scored": 16, "total": 6912}
+{"scored": 816, "total": 6912}
+{"scored": 1616, "total": 6912}
+{"scored": 2416, "total": 6912}
+{"scored": 3216, "total": 6912}
+{"scored": 4016, "total": 6912}
+{"scored": 4816, "total": 6912}
+{"scored": 5616, "total": 6912}
+{"scored": 6416, "total": 6912}
+{"output": "active/041_contextual_set_restriction/results/raw/s1_role_vs_uniqueness_phi4_mini.jsonl", "rows": 6912, "state_rows": 4608, "residual_layers": [0, 4, 8, 12, 16, 20, 24, 28, 32]}

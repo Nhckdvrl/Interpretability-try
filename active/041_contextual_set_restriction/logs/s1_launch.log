@@ -1,0 +1,4 @@
+Warning: Permanently added 'fvcrc00' (ED25519) to the list of known hosts.
+Warning: Permanently added 'fvcrc11' (ED25519) to the list of known hosts.
+zsh:1: no such file or directory: active/041_contextual_set_restriction/logs/s1_llama3_1_8b.log
+zsh:1: no such file or directory: active/041_contextual_set_restriction/logs/s1_qwen3_8b.log

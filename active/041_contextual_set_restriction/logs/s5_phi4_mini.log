@@ -1,0 +1,8 @@
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:00<00:00,  1.01it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.37it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.30it/s]
+{"scored": 16, "total": 4608}
+{"scored": 816, "total": 4608}
+{"scored": 1616, "total": 4608}
+{"scored": 2416, "total": 4608}
+{"scored": 3216, "total": 4608}
+{"scored": 4016, "total": 4608}
+{"output": "active/041_contextual_set_restriction/results/raw/s5_graded_phi4_mini.jsonl", "rows": 4608, "state_rows": 3072, "residual_layers": [0, 4, 8, 12, 16, 20, 24, 28, 32]}

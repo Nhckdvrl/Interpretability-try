@@ -1,0 +1,23 @@
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [01:43<01:43, 103.04s/it]Loading checkpoint shards: 100%|██████████| 2/2 [02:35<00:00, 73.52s/it] Loading checkpoint shards: 100%|██████████| 2/2 [02:35<00:00, 77.95s/it]
+{"scored": 16, "total": 16128}
+{"scored": 816, "total": 16128}
+{"scored": 1616, "total": 16128}
+{"scored": 2416, "total": 16128}
+{"scored": 3216, "total": 16128}
+{"scored": 4016, "total": 16128}
+{"scored": 4816, "total": 16128}
+{"scored": 5616, "total": 16128}
+{"scored": 6416, "total": 16128}
+{"scored": 7216, "total": 16128}
+{"scored": 8016, "total": 16128}
+{"scored": 8816, "total": 16128}
+{"scored": 9616, "total": 16128}
+{"scored": 10416, "total": 16128}
+{"scored": 11216, "total": 16128}
+{"scored": 12016, "total": 16128}
+{"scored": 12816, "total": 16128}
+{"scored": 13616, "total": 16128}
+{"scored": 14416, "total": 16128}
+{"scored": 15216, "total": 16128}
+{"scored": 16016, "total": 16128}
+{"output": "active/045_referential_vs_attributive_description_use/results/raw/s0_use_mode_crossover_v2_phi4_mini.jsonl", "rows": 16128}

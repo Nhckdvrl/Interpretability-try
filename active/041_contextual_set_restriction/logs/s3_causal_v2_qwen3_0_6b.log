@@ -1,0 +1,4 @@
+{"depth_completed": "0.25", "conditions": 36}
+{"depth_completed": "0.5", "conditions": 36}
+{"depth_completed": "0.75", "conditions": 36}
+{"output": "active/041_contextual_set_restriction/results/raw/s3_role_causal_v2_qwen3_0_6b.jsonl", "rows": 768, "depths": ["0.25", "0.5", "0.75"]}

@@ -1,0 +1,429 @@
+{
+  "contract": "modifier restriction is represented at the modifier token independently of whether the description still picks out a unique referent",
+  "models": [
+    {
+      "model": "Qwen/Qwen3-8B",
+      "model_revision": "b968826d9c46dd6066d109eabc6255188de91218",
+      "n_probe_examples": 2304,
+      "behaviour": {
+        "cells": {
+          "unique/full": {
+            "n": 1152,
+            "accuracy": 1.0,
+            "mean_margin": 28.94900173590415
+          },
+          "unique/drop_dim1": {
+            "n": 1152,
+            "accuracy": 0.7630208333333334,
+            "mean_margin": 14.5284288092928
+          },
+          "unique/drop_dim2": {
+            "n": 1152,
+            "accuracy": 0.7795138888888888,
+            "mean_margin": 14.691406241852313
+          },
+          "unique/dropped_restricting": {
+            "n": 1152,
+            "accuracy": 0.5425347222222222,
+            "mean_margin": 0.8865017178117804
+          },
+          "unique/dropped_other": {
+            "n": 1152,
+            "accuracy": 1.0,
+            "mean_margin": 28.333333333333332
+          },
+          "duplicate/full": {
+            "n": 1152,
+            "accuracy": 1.0,
+            "mean_margin": 19.263454817739625
+          },
+          "duplicate/drop_dim1": {
+            "n": 1152,
+            "accuracy": 0.8185763888888888,
+            "mean_margin": 10.17968747206844
+          },
+          "duplicate/drop_dim2": {
+            "n": 1152,
+            "accuracy": 0.8498263888888888,
+            "mean_margin": 10.67404510764472
+          },
+          "duplicate/dropped_restricting": {
+            "n": 1152,
+            "accuracy": 0.6684027777777778,
+            "mean_margin": 2.5256076343874514
+          },
+          "duplicate/dropped_other": {
+            "n": 1152,
+            "accuracy": 1.0,
+            "mean_margin": 18.32812494532571
+          }
+        },
+        "contrasts": {
+          "unique/restricting_minus_other_omission_cost": {
+            "estimate": 27.44683161552155,
+            "ci95": [
+              26.117616125460486,
+              28.772352447517715
+            ],
+            "n_clusters": 192
+          },
+          "duplicate/restricting_minus_other_omission_cost": {
+            "estimate": 15.802517310938255,
+            "ci95": [
+              15.248909462833415,
+              16.382617146410244
+            ],
+            "n_clusters": 192
+          }
+        }
+      },
+      "probes": {
+        "0": {
+          "residual_layer": 0,
+          "restriction_balanced_accuracy": 0.5,
+          "restriction_auc": 0.5,
+          "uniqueness_balanced_accuracy": 0.5,
+          "restriction_auc_within_unique": 0.5,
+          "restriction_auc_within_duplicate": 0.5,
+          "restriction_from_unique_worlds_tested_on_duplicate": 0.5,
+          "restriction_from_unique_worlds_tested_on_duplicate_auc": 0.5,
+          "restriction_from_duplicate_worlds_tested_on_unique": 0.5,
+          "restriction_from_duplicate_worlds_tested_on_unique_auc": 0.5,
+          "restriction_accuracy_using_uniqueness_direction": 0.5,
+          "direction_cosine": 0.0
+        },
+        "0.125": {
+          "residual_layer": 4,
+          "restriction_balanced_accuracy": 0.7356770833333333,
+          "restriction_auc": 0.8105205017843364,
+          "uniqueness_balanced_accuracy": 0.7282986111111112,
+          "restriction_auc_within_unique": 0.9222186053240741,
+          "restriction_auc_within_duplicate": 0.7868471498842593,
+          "restriction_from_unique_worlds_tested_on_duplicate": 0.5980902777777778,
+          "restriction_from_unique_worlds_tested_on_duplicate_auc": 0.7816990981867284,
+          "restriction_from_duplicate_worlds_tested_on_unique": 0.685763888888889,
+          "restriction_from_duplicate_worlds_tested_on_unique_auc": 0.8804886429398148,
+          "restriction_accuracy_using_uniqueness_direction": 0.2664930555555556,
+          "direction_cosine": -0.9364713430404663
+        },
+        "0.25": {
+          "residual_layer": 9,
+          "restriction_balanced_accuracy": 0.7573784722222222,
+          "restriction_auc": 0.8500569661458334,
+          "uniqueness_balanced_accuracy": 0.7074652777777777,
+          "restriction_auc_within_unique": 0.8435661410108025,
+          "restriction_auc_within_duplicate": 0.9437512056327161,
+          "restriction_from_unique_worlds_tested_on_duplicate": 0.603298611111111,
+          "restriction_from_unique_worlds_tested_on_duplicate_auc": 0.8908510561342593,
+          "restriction_from_duplicate_worlds_tested_on_unique": 0.6215277777777778,
+          "restriction_from_duplicate_worlds_tested_on_unique_auc": 0.7509660132137346,
+          "restriction_accuracy_using_uniqueness_direction": 0.2864583333333333,
+          "direction_cosine": -0.8219008445739746
+        },
+        "0.375": {
+          "residual_layer": 14,
+          "restriction_balanced_accuracy": 0.8220486111111112,
+          "restriction_auc": 0.9238966953607253,
+          "uniqueness_balanced_accuracy": 0.7452256944444444,
+          "restriction_auc_within_unique": 0.9930947386188271,
+          "restriction_auc_within_duplicate": 0.9997980565200617,
+          "restriction_from_unique_worlds_tested_on_duplicate": 0.515625,
+          "restriction_from_unique_worlds_tested_on_duplicate_auc": 0.9927209924768519,
+          "restriction_from_duplicate_worlds_tested_on_unique": 0.5303819444444444,
+          "restriction_from_duplicate_worlds_tested_on_unique_auc": 0.9384313512731481,
+          "restriction_accuracy_using_uniqueness_direction": 0.2482638888888889,
+          "direction_cosine": -0.8983439207077026
+        },
+        "0.5": {
+          "residual_layer": 18,
+          "restriction_balanced_accuracy": 0.8680555555555556,
+          "restriction_auc": 0.9537217881944444,
+          "uniqueness_balanced_accuracy": 0.8611111111111112,
+          "restriction_auc_within_unique": 0.9968171296296297,
+          "restriction_auc_within_duplicate": 0.9992283950617284,
+          "restriction_from_unique_worlds_tested_on_duplicate": 0.5026041666666666,
+          "restriction_from_unique_worlds_tested_on_duplicate_auc": 0.9658836082175926,
+          "restriction_from_duplicate_worlds_tested_on_unique": 0.5972222222222222,
+          "restriction_from_duplicate_worlds_tested_on_unique_auc": 0.8668619791666666,
+          "restriction_accuracy_using_uniqueness_direction": 0.3550347222222222,
+          "direction_cosine": -0.7018252611160278
+        },
+        "0.625": {
+          "residual_layer": 22,
+          "restriction_balanced_accuracy": 0.8953993055555556,
+          "restriction_auc": 0.9885879328221451,
+          "uniqueness_balanced_accuracy": 0.9019097222222222,
+          "restriction_auc_within_unique": 0.9987039448302469,
+          "restriction_auc_within_duplicate": 1.0,
+          "restriction_from_unique_worlds_tested_on_duplicate": 0.5,
+          "restriction_from_unique_worlds_tested_on_duplicate_auc": 0.9024070457175926,
+          "restriction_from_duplicate_worlds_tested_on_unique": 0.6519097222222222,
+          "restriction_from_duplicate_worlds_tested_on_unique_auc": 0.6171453028549383,
+          "restriction_accuracy_using_uniqueness_direction": 0.4149305555555556,
+          "direction_cosine": -0.5816448926925659
+        },
+        "0.75": {
+          "residual_layer": 27,
+          "restriction_balanced_accuracy": 0.9305555555555556,
+          "restriction_auc": 0.9905825014467593,
+          "uniqueness_balanced_accuracy": 0.8949652777777778,
+          "restriction_auc_within_unique": 0.9967598620756173,
+          "restriction_auc_within_duplicate": 1.0,
+          "restriction_from_unique_worlds_tested_on_duplicate": 0.5017361111111112,
+          "restriction_from_unique_worlds_tested_on_duplicate_auc": 0.8023998119212963,
+          "restriction_from_duplicate_worlds_tested_on_unique": 0.6458333333333333,
+          "restriction_from_duplicate_worlds_tested_on_unique_auc": 0.7343659577546297,
+          "restriction_accuracy_using_uniqueness_direction": 0.3993055555555556,
+          "direction_cosine": -0.4266507625579834
+        },
+        "0.875": {
+          "residual_layer": 32,
+          "restriction_balanced_accuracy": 0.8567708333333334,
+          "restriction_auc": 0.9449417679398148,
+          "uniqueness_balanced_accuracy": 0.8888888888888888,
+          "restriction_auc_within_unique": 0.9337082851080247,
+          "restriction_auc_within_duplicate": 0.9974832417052469,
+          "restriction_from_unique_worlds_tested_on_duplicate": 0.5251736111111112,
+          "restriction_from_unique_worlds_tested_on_duplicate_auc": 0.7868682484567902,
+          "restriction_from_duplicate_worlds_tested_on_unique": 0.6189236111111112,
+          "restriction_from_duplicate_worlds_tested_on_unique_auc": 0.7512267312885802,
+          "restriction_accuracy_using_uniqueness_direction": 0.4166666666666667,
+          "direction_cosine": -0.3924577832221985
+        },
+        "1": {
+          "residual_layer": 36,
+          "restriction_balanced_accuracy": 0.765625,
+          "restriction_auc": 0.8685491114486883,
+          "uniqueness_balanced_accuracy": 0.89453125,
+          "restriction_auc_within_unique": 0.8419204523533951,
+          "restriction_auc_within_duplicate": 0.9268391927083334,
+          "restriction_from_unique_worlds_tested_on_duplicate": 0.5772569444444444,
+          "restriction_from_unique_worlds_tested_on_duplicate_auc": 0.6954481336805556,
+          "restriction_from_duplicate_worlds_tested_on_unique": 0.6189236111111112,
+          "restriction_from_duplicate_worlds_tested_on_unique_auc": 0.7190845630787037,
+          "restriction_accuracy_using_uniqueness_direction": 0.4548611111111111,
+          "direction_cosine": -0.3189159035682678
+        }
+      },
+      "gate_summary": {
+        "best_restriction_accuracy": 0.9305555555555556,
+        "worst_cross_uniqueness_transfer_auc": 0.8668619791666666,
+        "restriction_accuracy_from_uniqueness_direction": 0.3993055555555556
+      },
+      "probe_pass": true
+    },
+    {
+      "model": "NousResearch/Meta-Llama-3.1-8B-Instruct",
+      "model_revision": "d10aef7999a2b5ba950ab3974312feeedbfe0b77",
+      "n_probe_examples": 2304,
+      "behaviour": {
+        "cells": {
+          "unique/full": {
+            "n": 1152,
+            "accuracy": 0.9991319444444444,
+            "mean_margin": 4.364040796136077
+          },
+          "unique/drop_dim1": {
+            "n": 1152,
+            "accuracy": 0.6831597222222222,
+            "mean_margin": 2.21180554376954
+          },
+          "unique/drop_dim2": {
+            "n": 1152,
+            "accuracy": 0.6822916666666666,
+            "mean_margin": 2.167751733341523
+          },
+          "unique/dropped_restricting": {
+            "n": 1152,
+            "accuracy": 0.3654513888888889,
+            "mean_margin": -0.33441840440627857
+          },
+          "unique/dropped_other": {
+            "n": 1152,
+            "accuracy": 1.0,
+            "mean_margin": 4.713975681517342
+          },
+          "duplicate/full": {
+            "n": 1152,
+            "accuracy": 1.0,
+            "mean_margin": 3.282118055143302
+          },
+          "duplicate/drop_dim1": {
+            "n": 1152,
+            "accuracy": 0.8194444444444444,
+            "mean_margin": 1.8090277788119744
+          },
+          "duplicate/drop_dim2": {
+            "n": 1152,
+            "accuracy": 0.8559027777777778,
+            "mean_margin": 1.9694010423236756
+          },
+          "duplicate/dropped_restricting": {
+            "n": 1152,
+            "accuracy": 0.6770833333333334,
+            "mean_margin": 0.6904296867044953
+          },
+          "duplicate/dropped_other": {
+            "n": 1152,
+            "accuracy": 0.9982638888888888,
+            "mean_margin": 3.0879991344311546
+          }
+        },
+        "contrasts": {
+          "unique/restricting_minus_other_omission_cost": {
+            "estimate": 5.048394085923621,
+            "ci95": [
+              4.836151793803907,
+              5.260527882610172
+            ],
+            "n_clusters": 192
+          },
+          "duplicate/restricting_minus_other_omission_cost": {
+            "estimate": 2.397569447726659,
+            "ci95": [
+              2.2735405896711915,
+              2.516840281015225
+            ],
+            "n_clusters": 192
+          }
+        }
+      },
+      "probes": {
+        "0": {
+          "residual_layer": 0,
+          "restriction_balanced_accuracy": 0.5,
+          "restriction_auc": 0.5,
+          "uniqueness_balanced_accuracy": 0.5,
+          "restriction_auc_within_unique": 0.5,
+          "restriction_auc_within_duplicate": 0.5,
+          "restriction_from_unique_worlds_tested_on_duplicate": 0.5,
+          "restriction_from_unique_worlds_tested_on_duplicate_auc": 0.5,
+          "restriction_from_duplicate_worlds_tested_on_unique": 0.5,
+          "restriction_from_duplicate_worlds_tested_on_unique_auc": 0.5,
+          "restriction_accuracy_using_uniqueness_direction": 0.5,
+          "direction_cosine": 0.0
+        },
+        "0.125": {
+          "residual_layer": 4,
+          "restriction_balanced_accuracy": 0.7052951388888888,
+          "restriction_auc": 0.7916402934510031,
+          "uniqueness_balanced_accuracy": 0.6480034722222222,
+          "restriction_auc_within_unique": 0.8492597415123457,
+          "restriction_auc_within_duplicate": 0.8072494695216049,
+          "restriction_from_unique_worlds_tested_on_duplicate": 0.5512152777777778,
+          "restriction_from_unique_worlds_tested_on_duplicate_auc": 0.8008686583719136,
+          "restriction_from_duplicate_worlds_tested_on_unique": 0.6987847222222222,
+          "restriction_from_duplicate_worlds_tested_on_unique_auc": 0.7945571711033951,
+          "restriction_accuracy_using_uniqueness_direction": 0.3203125,
+          "direction_cosine": -0.8610125780105591
+        },
+        "0.25": {
+          "residual_layer": 8,
+          "restriction_balanced_accuracy": 0.8298611111111112,
+          "restriction_auc": 0.9285873601466049,
+          "uniqueness_balanced_accuracy": 0.7339409722222222,
+          "restriction_auc_within_unique": 0.9877387152777778,
+          "restriction_auc_within_duplicate": 0.9974741994598766,
+          "restriction_from_unique_worlds_tested_on_duplicate": 0.5329861111111112,
+          "restriction_from_unique_worlds_tested_on_duplicate_auc": 0.9861955054012346,
+          "restriction_from_duplicate_worlds_tested_on_unique": 0.5607638888888888,
+          "restriction_from_duplicate_worlds_tested_on_unique_auc": 0.929419246720679,
+          "restriction_accuracy_using_uniqueness_direction": 0.2378472222222222,
+          "direction_cosine": -0.8817214369773865
+        },
+        "0.375": {
+          "residual_layer": 12,
+          "restriction_balanced_accuracy": 0.8914930555555556,
+          "restriction_auc": 0.9685616198881173,
+          "uniqueness_balanced_accuracy": 0.7855902777777778,
+          "restriction_auc_within_unique": 0.9987370997299383,
+          "restriction_auc_within_duplicate": 1.0,
+          "restriction_from_unique_worlds_tested_on_duplicate": 0.5,
+          "restriction_from_unique_worlds_tested_on_duplicate_auc": 0.9144558376736112,
+          "restriction_from_duplicate_worlds_tested_on_unique": 0.5546875,
+          "restriction_from_duplicate_worlds_tested_on_unique_auc": 0.783959659529321,
+          "restriction_accuracy_using_uniqueness_direction": 0.2829861111111111,
+          "direction_cosine": -0.7777819037437439
+        },
+        "0.5": {
+          "residual_layer": 16,
+          "restriction_balanced_accuracy": 0.8702256944444444,
+          "restriction_auc": 0.9745370370370371,
+          "uniqueness_balanced_accuracy": 0.9088541666666667,
+          "restriction_auc_within_unique": 0.9982066213348766,
+          "restriction_auc_within_duplicate": 1.0,
+          "restriction_from_unique_worlds_tested_on_duplicate": 0.5,
+          "restriction_from_unique_worlds_tested_on_duplicate_auc": 0.9485074266975309,
+          "restriction_from_duplicate_worlds_tested_on_unique": 0.5217013888888888,
+          "restriction_from_duplicate_worlds_tested_on_unique_auc": 0.8396719473379629,
+          "restriction_accuracy_using_uniqueness_direction": 0.4045138888888889,
+          "direction_cosine": -0.6481528282165527
+        },
+        "0.625": {
+          "residual_layer": 20,
+          "restriction_balanced_accuracy": 0.8498263888888888,
+          "restriction_auc": 0.9611921899112654,
+          "uniqueness_balanced_accuracy": 0.9014756944444444,
+          "restriction_auc_within_unique": 0.9860387731481481,
+          "restriction_auc_within_duplicate": 0.9999969859182098,
+          "restriction_from_unique_worlds_tested_on_duplicate": 0.5017361111111112,
+          "restriction_from_unique_worlds_tested_on_duplicate_auc": 0.7760687934027778,
+          "restriction_from_duplicate_worlds_tested_on_unique": 0.53125,
+          "restriction_from_duplicate_worlds_tested_on_unique_auc": 0.7000174816743827,
+          "restriction_accuracy_using_uniqueness_direction": 0.4027777777777778,
+          "direction_cosine": -0.5904847383499146
+        },
+        "0.75": {
+          "residual_layer": 24,
+          "restriction_balanced_accuracy": 0.8307291666666667,
+          "restriction_auc": 0.9150081681616512,
+          "uniqueness_balanced_accuracy": 0.8828125,
+          "restriction_auc_within_unique": 0.9420150945216049,
+          "restriction_auc_within_duplicate": 0.9987732687114198,
+          "restriction_from_unique_worlds_tested_on_duplicate": 0.5572916666666666,
+          "restriction_from_unique_worlds_tested_on_duplicate_auc": 0.6919608410493827,
+          "restriction_from_duplicate_worlds_tested_on_unique": 0.5173611111111112,
+          "restriction_from_duplicate_worlds_tested_on_unique_auc": 0.6812035831404321,
+          "restriction_accuracy_using_uniqueness_direction": 0.3888888888888889,
+          "direction_cosine": -0.5777806639671326
+        },
+        "0.875": {
+          "residual_layer": 28,
+          "restriction_balanced_accuracy": 0.7165798611111112,
+          "restriction_auc": 0.7867687837577161,
+          "uniqueness_balanced_accuracy": 0.8181423611111112,
+          "restriction_auc_within_unique": 0.7446590470679012,
+          "restriction_auc_within_duplicate": 0.8741470148533951,
+          "restriction_from_unique_worlds_tested_on_duplicate": 0.5763888888888888,
+          "restriction_from_unique_worlds_tested_on_duplicate_auc": 0.6526662567515432,
+          "restriction_from_duplicate_worlds_tested_on_unique": 0.5381944444444444,
+          "restriction_from_duplicate_worlds_tested_on_unique_auc": 0.5803674768518519,
+          "restriction_accuracy_using_uniqueness_direction": 0.3515625,
+          "direction_cosine": -0.5643899440765381
+        },
+        "1": {
+          "residual_layer": 32,
+          "restriction_balanced_accuracy": 0.6302083333333333,
+          "restriction_auc": 0.7104220920138888,
+          "uniqueness_balanced_accuracy": 0.8198784722222222,
+          "restriction_auc_within_unique": 0.6927987557870371,
+          "restriction_auc_within_duplicate": 0.7821813512731481,
+          "restriction_from_unique_worlds_tested_on_duplicate": 0.5659722222222222,
+          "restriction_from_unique_worlds_tested_on_duplicate_auc": 0.7172791280864198,
+          "restriction_from_duplicate_worlds_tested_on_unique": 0.5321180555555556,
+          "restriction_from_duplicate_worlds_tested_on_unique_auc": 0.5878454137731481,
+          "restriction_accuracy_using_uniqueness_direction": 0.3793402777777778,
+          "direction_cosine": -0.562888503074646
+        }
+      },
+      "gate_summary": {
+        "best_restriction_accuracy": 0.8702256944444444,
+        "worst_cross_uniqueness_transfer_auc": 0.929419246720679,
+        "restriction_accuracy_from_uniqueness_direction": 0.4045138888888889
+      },
+      "probe_pass": true
+    }
+  ],
+  "panel_pass": true,
+  "interpretation_guard": "Restriction and uniqueness are orthogonal by construction here. A restriction direction that transfers across uniqueness levels, while the uniqueness direction fails to classify restriction, is what separates a modifier-role state from a generic ambiguity signal."
+}

@@ -1,0 +1,14 @@
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards:  20%|██        | 1/5 [00:01<00:05,  1.46s/it]Loading checkpoint shards:  40%|████      | 2/5 [00:02<00:03,  1.12s/it]Loading checkpoint shards:  60%|██████    | 3/5 [00:03<00:02,  1.01s/it]Loading checkpoint shards:  80%|████████  | 4/5 [00:04<00:00,  1.06it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:04<00:00,  1.15it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:04<00:00,  1.04it/s]
+{"scored": 8, "total": 4608}
+{"scored": 408, "total": 4608}
+{"scored": 808, "total": 4608}
+{"scored": 1208, "total": 4608}
+{"scored": 1608, "total": 4608}
+{"scored": 2008, "total": 4608}
+{"scored": 2408, "total": 4608}
+{"scored": 2808, "total": 4608}
+{"scored": 3208, "total": 4608}
+{"scored": 3608, "total": 4608}
+{"scored": 4008, "total": 4608}
+{"scored": 4408, "total": 4608}
+{"output": "active/041_contextual_set_restriction/results/raw/s5_graded_gemma3_12b.jsonl", "rows": 4608, "state_rows": 3072, "residual_layers": [0, 6, 12, 18, 24, 30, 36, 42, 48]}

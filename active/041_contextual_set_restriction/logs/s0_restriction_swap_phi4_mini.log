@@ -1,0 +1,14 @@
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [01:42<01:42, 102.84s/it]Loading checkpoint shards: 100%|██████████| 2/2 [02:35<00:00, 73.60s/it] Loading checkpoint shards: 100%|██████████| 2/2 [02:35<00:00, 77.98s/it]
+{"scored": 16, "total": 9216}
+{"scored": 816, "total": 9216}
+{"scored": 1616, "total": 9216}
+{"scored": 2416, "total": 9216}
+{"scored": 3216, "total": 9216}
+{"scored": 4016, "total": 9216}
+{"scored": 4816, "total": 9216}
+{"scored": 5616, "total": 9216}
+{"scored": 6416, "total": 9216}
+{"scored": 7216, "total": 9216}
+{"scored": 8016, "total": 9216}
+{"scored": 8816, "total": 9216}
+{"output": "active/041_contextual_set_restriction/results/raw/s0_restriction_swap_phi4_mini.jsonl", "rows": 9216}

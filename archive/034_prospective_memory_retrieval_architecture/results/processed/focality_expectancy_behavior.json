@@ -1,0 +1,184 @@
+{
+  "contract": "matched-cue focality x target-context-expectancy behavioral denominator",
+  "models": [
+    {
+      "model": "Qwen/Qwen3-8B",
+      "model_revision": "b968826d9c46dd6066d109eabc6255188de91218",
+      "n_semantic_cells": 128,
+      "cells": {
+        "no_cue/focal/expected": {
+          "n": 16,
+          "accuracy": 0.0625,
+          "mean_reminder_margin": -17.86612903823455,
+          "raw_label_map_stability": 0.875
+        },
+        "no_cue/focal/unexpected": {
+          "n": 16,
+          "accuracy": 0.0625,
+          "mean_reminder_margin": -17.80246139441927,
+          "raw_label_map_stability": 0.8125
+        },
+        "no_cue/nonfocal/expected": {
+          "n": 16,
+          "accuracy": 1.0,
+          "mean_reminder_margin": -19.02334533507625,
+          "raw_label_map_stability": 1.0
+        },
+        "no_cue/nonfocal/unexpected": {
+          "n": 16,
+          "accuracy": 1.0,
+          "mean_reminder_margin": -19.161267060786486,
+          "raw_label_map_stability": 1.0
+        },
+        "cue/focal/expected": {
+          "n": 16,
+          "accuracy": 1.0,
+          "mean_reminder_margin": 17.023502389589943,
+          "raw_label_map_stability": 0.9375
+        },
+        "cue/focal/unexpected": {
+          "n": 16,
+          "accuracy": 1.0,
+          "mean_reminder_margin": 17.257477855930723,
+          "raw_label_map_stability": 1.0
+        },
+        "cue/nonfocal/expected": {
+          "n": 16,
+          "accuracy": 1.0,
+          "mean_reminder_margin": 21.213540642211832,
+          "raw_label_map_stability": 1.0
+        },
+        "cue/nonfocal/unexpected": {
+          "n": 16,
+          "accuracy": 1.0,
+          "mean_reminder_margin": 21.406249072402716,
+          "raw_label_map_stability": 1.0
+        }
+      },
+      "focality_effects": {
+        "expected": 0.0,
+        "unexpected": 0.0
+      },
+      "expectancy_effects": {
+        "focal": 0.0,
+        "nonfocal": 0.0
+      },
+      "focality_x_expectancy_interaction": 0.0,
+      "paired_reminder_margin_contrasts": {
+        "focality_expected": {
+          "estimate": -4.190038252621889,
+          "ci95": [
+            -5.166478182872135,
+            -3.203204570058731
+          ]
+        },
+        "focality_unexpected": {
+          "estimate": -4.148771216471992,
+          "ci95": [
+            -4.950932811511055,
+            -3.3569981263950424
+          ]
+        },
+        "interaction": {
+          "estimate": -0.041267036149896796,
+          "ci95": [
+            -0.4000189137955517,
+            0.3518479106326898
+          ]
+        }
+      },
+      "behavior_gate_pass": false,
+      "scope_note": "Behavioral interaction licenses but does not identify native monitoring or cue-time retrieval."
+    },
+    {
+      "model": "NousResearch/Meta-Llama-3.1-8B-Instruct",
+      "model_revision": "d10aef7999a2b5ba950ab3974312feeedbfe0b77",
+      "n_semantic_cells": 128,
+      "cells": {
+        "no_cue/focal/expected": {
+          "n": 16,
+          "accuracy": 0.8125,
+          "mean_reminder_margin": -1.850365956624349,
+          "raw_label_map_stability": 0.375
+        },
+        "no_cue/focal/unexpected": {
+          "n": 16,
+          "accuracy": 0.8125,
+          "mean_reminder_margin": -1.5455077489217122,
+          "raw_label_map_stability": 0.125
+        },
+        "no_cue/nonfocal/expected": {
+          "n": 16,
+          "accuracy": 0.9375,
+          "mean_reminder_margin": -1.9987233479817708,
+          "raw_label_map_stability": 0.6875
+        },
+        "no_cue/nonfocal/unexpected": {
+          "n": 16,
+          "accuracy": 0.9375,
+          "mean_reminder_margin": -1.9532267252604167,
+          "raw_label_map_stability": 0.8125
+        },
+        "cue/focal/expected": {
+          "n": 16,
+          "accuracy": 0.9375,
+          "mean_reminder_margin": 1.665634473164876,
+          "raw_label_map_stability": 0.0
+        },
+        "cue/focal/unexpected": {
+          "n": 16,
+          "accuracy": 1.0,
+          "mean_reminder_margin": 2.033787568410238,
+          "raw_label_map_stability": 0.0625
+        },
+        "cue/nonfocal/expected": {
+          "n": 16,
+          "accuracy": 1.0,
+          "mean_reminder_margin": 0.6690311431884766,
+          "raw_label_map_stability": 0.0
+        },
+        "cue/nonfocal/unexpected": {
+          "n": 16,
+          "accuracy": 1.0,
+          "mean_reminder_margin": 1.2806700070699057,
+          "raw_label_map_stability": 0.0
+        }
+      },
+      "focality_effects": {
+        "expected": -0.0625,
+        "unexpected": 0.0
+      },
+      "expectancy_effects": {
+        "focal": -0.0625,
+        "nonfocal": 0.0
+      },
+      "focality_x_expectancy_interaction": -0.0625,
+      "paired_reminder_margin_contrasts": {
+        "focality_expected": {
+          "estimate": 0.9966033299763994,
+          "ci95": [
+            0.6479424397150674,
+            1.3677119493484489
+          ]
+        },
+        "focality_unexpected": {
+          "estimate": 0.753117561340332,
+          "ci95": [
+            0.3540315508842468,
+            1.194774262110392
+          ]
+        },
+        "interaction": {
+          "estimate": 0.2434857686360674,
+          "ci95": [
+            0.045867868264516776,
+            0.49060573180516504
+          ]
+        }
+      },
+      "behavior_gate_pass": true,
+      "scope_note": "Behavioral interaction licenses but does not identify native monitoring or cue-time retrieval."
+    }
+  ],
+  "panel_gate_pass": false
+}

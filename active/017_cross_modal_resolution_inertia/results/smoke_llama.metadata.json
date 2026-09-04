@@ -1,0 +1,15 @@
+{
+  "contract_id": "017-d0-v1",
+  "family": "llama",
+  "model": "/home/xiang/.cache/huggingface/hub/models--unsloth--Llama-3.2-11B-Vision-Instruct-bnb-4bit/snapshots/25bca24a9e42116fe4a687fba648124be4af45f6",
+  "model_commit": "25bca24a9e42116fe4a687fba648124be4af45f6",
+  "bank_sha256": "19fe5f8068a901dce5ce70a3183aa9c5f301dd1ddadaacef17dc164b3fc169f0",
+  "bank_items": 1,
+  "records": 14,
+  "answer_token_ids": {
+    "A": 32,
+    "B": 33
+  },
+  "dtype": "torch.bfloat16",
+  "elapsed_seconds": 101.99475383758545
+}

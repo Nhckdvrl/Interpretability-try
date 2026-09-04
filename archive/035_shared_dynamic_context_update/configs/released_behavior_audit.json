@@ -1,0 +1,7 @@
+{
+  "anaphora_commit": "5d44efa61b49ab270aace476620e9aeda5e55814",
+  "presupposition_commit": "9dca0a9edb4ac358f80e565173de19fdcd20cc06",
+  "checkpoint": "meta-llama/Llama-3.1-8B-Instruct",
+  "anaphora_file": "results/accuracy/exp1b_Llama3-1-8B-Instruct_name.csv",
+  "presupposition_file": "inference/opensource/outputs/llama_without_context_likert.json"
+}

@@ -1,0 +1,87 @@
+{
+  "contract": "content-preserving binding-order state -> history transfer while preserving type knowledge",
+  "model": "Qwen/Qwen3-8B",
+  "model_revision": "b968826d9c46dd6066d109eabc6255188de91218",
+  "block_index": 17,
+  "residual_layer": 18,
+  "test_frames": [
+    5,
+    7,
+    17,
+    19,
+    20,
+    21
+  ],
+  "n_label_aggregated_items": 384,
+  "n_history_nonzero_donor_contrasts": 192,
+  "history_aligned_effect_toward_opposite_order": {
+    "real_opposite_order": {
+      "estimate": -0.20617943971107403,
+      "ci95": [
+        -0.29241607084404675,
+        -0.13466066680848598
+      ]
+    },
+    "shuffled_opposite_order_delta": {
+      "estimate": -0.15547331360479197,
+      "ci95": [
+        -0.21812048150847355,
+        -0.10012349641571443
+      ]
+    },
+    "random_matched_norm": {
+      "estimate": -0.050916220061481,
+      "ci95": [
+        -0.10325275330493848,
+        -0.0003748762731750806
+      ]
+    }
+  },
+  "history_real_minus_controls": {
+    "shuffled_opposite_order_delta": {
+      "estimate": -0.05070612610628208,
+      "ci95": [
+        -0.07765306470294793,
+        -0.02536606788635254
+      ]
+    },
+    "random_matched_norm": {
+      "estimate": -0.15526321964959303,
+      "ci95": [
+        -0.2175600714981556,
+        -0.09017155095934905
+      ]
+    }
+  },
+  "clean_type_accuracy": 0.9739583333333334,
+  "patched_type_accuracy": {
+    "real_opposite_order": 0.96875,
+    "shuffled_opposite_order_delta": 0.9739583333333334,
+    "random_matched_norm": 0.9739583333333334
+  },
+  "type_absolute_margin_change": {
+    "real_opposite_order": {
+      "estimate": 0.2552156091357271,
+      "ci95": [
+        0.23308300067825866,
+        0.28003607286761206
+      ]
+    },
+    "shuffled_opposite_order_delta": {
+      "estimate": 0.24669596614936987,
+      "ci95": [
+        0.20189192425459623,
+        0.28048718503365916
+      ]
+    },
+    "random_matched_norm": {
+      "estimate": 0.22394974436610937,
+      "ci95": [
+        0.21032553569724163,
+        0.2375739530349771
+      ]
+    }
+  },
+  "gate_pass": false,
+  "interpretation_guard": "A pass identifies causal use of a content-preserving binding-order state, not a numerical-identity representation. It develops 040 only through its identity-use failure and preserved type control."
+}

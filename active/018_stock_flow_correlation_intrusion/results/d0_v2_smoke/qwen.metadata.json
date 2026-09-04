@@ -1,0 +1,23 @@
+{
+  "contract_id": "018-d0-v2-semantic-recognition",
+  "family": "qwen",
+  "model": "Qwen/Qwen3-8B",
+  "model_revision": "b968826d9c46dd6066d109eabc6255188de91218",
+  "bank_sha256": "27e2ca2cd1bf01c1172d55290dfb2d4ba4381c40af6f4d1fd58a2f3a3efecbf6",
+  "bank_items": 2,
+  "records": 44,
+  "semantic_token_ids": {
+    "positive": 30487,
+    "negative": 42224
+  },
+  "letter_token_ids": {
+    "A": 32,
+    "B": 33
+  },
+  "batch_size": 8,
+  "dtype": "torch.bfloat16",
+  "elapsed_seconds": 9.17246127128601,
+  "python": "3.12.13",
+  "torch": "2.11.0+cu130",
+  "transformers": "5.12.1"
+}

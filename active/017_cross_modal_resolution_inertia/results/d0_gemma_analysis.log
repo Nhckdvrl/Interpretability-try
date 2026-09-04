@@ -1,0 +1,165 @@
+{
+  "contract_id": "017-d0-v1",
+  "families": {
+    "gemma": {
+      "metadata": {
+        "contract_id": "017-d0-v1",
+        "family": "gemma",
+        "model": "/home/xiang/.cache/huggingface/hub/models--google--gemma-3-12b-it/snapshots/96b6f1eccf38110c56df3a15bffe176da04bfd80",
+        "model_commit": "96b6f1eccf38110c56df3a15bffe176da04bfd80",
+        "bank_sha256": "19fe5f8068a901dce5ce70a3183aa9c5f301dd1ddadaacef17dc164b3fc169f0",
+        "bank_items": 186,
+        "records": 2604,
+        "answer_token_ids": {
+          "A": 236776,
+          "B": 236799
+        },
+        "dtype": "torch.bfloat16",
+        "elapsed_seconds": 359.3146743774414
+      },
+      "analysis": {
+        "gate": {
+          "complete_item_orders": 372,
+          "missing": [],
+          "gated_item_orders": 45
+        },
+        "gated_pair_clusters": 20,
+        "gated_languages": {
+          "1": 9,
+          "2": 17,
+          "3": 19
+        },
+        "conditions": {
+          "text_first_actual_label": {
+            "persistence": {
+              "estimate": 0.6666666666666666,
+              "ci_low": 0.4594594594594595,
+              "ci_high": 0.8372093023255814,
+              "n_item_orders": 45,
+              "n_pair_clusters": 20
+            },
+            "gold_probability_drop_from_simultaneous": {
+              "estimate": 0.55992344914923,
+              "ci_low": 0.3723099677103062,
+              "ci_high": 0.7261776947942353,
+              "n_item_orders": 45,
+              "n_pair_clusters": 20
+            }
+          },
+          "text_first_actual_ordinal": {
+            "persistence": {
+              "estimate": 0.5555555555555556,
+              "ci_low": 0.3255668604651163,
+              "ci_high": 0.7777777777777778,
+              "n_item_orders": 45,
+              "n_pair_clusters": 20
+            },
+            "gold_probability_drop_from_simultaneous": {
+              "estimate": 0.47366135752349187,
+              "ci_low": 0.26181338228322426,
+              "ci_high": 0.6755234424720168,
+              "n_item_orders": 45,
+              "n_pair_clusters": 20
+            }
+          },
+          "text_first_masked": {
+            "persistence": {
+              "estimate": 0.4888888888888889,
+              "ci_low": 0.2857142857142857,
+              "ci_high": 0.6666666666666666,
+              "n_item_orders": 45,
+              "n_pair_clusters": 20
+            },
+            "gold_probability_drop_from_simultaneous": {
+              "estimate": 0.41726860444145536,
+              "ci_low": 0.2199369663211444,
+              "ci_high": 0.5913118896163808,
+              "n_item_orders": 45,
+              "n_pair_clusters": 20
+            }
+          },
+          "matched_history": {
+            "persistence": {
+              "estimate": 0.4444444444444444,
+              "ci_low": 0.25,
+              "ci_high": 0.6585365853658537,
+              "n_item_orders": 45,
+              "n_pair_clusters": 20
+            },
+            "gold_probability_drop_from_simultaneous": {
+              "estimate": 0.3196670793721245,
+              "ci_low": 0.15907938193201765,
+              "ci_high": 0.5011212384291205,
+              "n_item_orders": 45,
+              "n_pair_clusters": 20
+            }
+          },
+          "image_first": {
+            "persistence": {
+              "estimate": 0.3333333333333333,
+              "ci_low": 0.2,
+              "ci_high": 0.4772727272727273,
+              "n_item_orders": 45,
+              "n_pair_clusters": 20
+            },
+            "gold_probability_drop_from_simultaneous": {
+              "estimate": 0.24358006564434617,
+              "ci_low": 0.1409186922779935,
+              "ci_high": 0.36027444013424553,
+              "n_item_orders": 45,
+              "n_pair_clusters": 20
+            }
+          }
+        },
+        "actual_minus_matched_persistence": {
+          "estimate": 0.2222222222222222,
+          "ci_low": -0.1111111111111111,
+          "ci_high": 0.5217391304347826,
+          "n_item_orders": 45,
+          "n_pair_clusters": 20
+        },
+        "ordinal_minus_matched_persistence": {
+          "estimate": 0.1111111111111111,
+          "ci_low": -0.2857142857142857,
+          "ci_high": 0.475,
+          "n_item_orders": 45,
+          "n_pair_clusters": 20
+        },
+        "masked_minus_matched_persistence": {
+          "estimate": 0.044444444444444446,
+          "ci_low": -0.2857936507936507,
+          "ci_high": 0.36538461538461536,
+          "n_item_orders": 45,
+          "n_pair_clusters": 20
+        },
+        "actual_minus_masked_persistence": {
+          "estimate": 0.17777777777777778,
+          "ci_low": 0.018173701298701304,
+          "ci_high": 0.3617021276595745,
+          "n_item_orders": 45,
+          "n_pair_clusters": 20
+        },
+        "ordinal_minus_masked_persistence": {
+          "estimate": 0.06666666666666667,
+          "ci_low": -0.08163265306122448,
+          "ci_high": 0.2391304347826087,
+          "n_item_orders": 45,
+          "n_pair_clusters": 20
+        },
+        "promotion_checks": {
+          "minimum_gated_item_orders": false,
+          "minimum_gated_pair_clusters": false,
+          "actual_minus_matched_at_least_10pp": true,
+          "actual_minus_matched_ci_positive": false,
+          "ordinal_minus_matched_ci_positive": false,
+          "ordinal_minus_masked_ci_positive": false,
+          "actual_gold_probability_drop_ci_positive": true
+        },
+        "promotion": false
+      }
+    }
+  },
+  "promoted_families": [],
+  "overall_promotion": false,
+  "overall_decision": "NO-PROMOTE"
+}

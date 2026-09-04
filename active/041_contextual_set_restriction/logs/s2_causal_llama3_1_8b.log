@@ -1,0 +1,5 @@
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:02,  1.35it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:01<00:01,  1.40it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:02<00:00,  1.38it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:02<00:00,  1.93it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:02<00:00,  1.69it/s]
+{"depth_completed": "0.25", "block": 7}
+{"depth_completed": "0.5", "block": 15}
+{"depth_completed": "0.75", "block": 23}
+{"output": "active/041_contextual_set_restriction/results/raw/s2_role_causal_llama3_1_8b.jsonl", "rows": 768, "depths": ["0.25", "0.5", "0.75"]}

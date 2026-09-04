@@ -1,0 +1,84 @@
+{
+  "contract": "040 S0 identity-sensitive history transfer with preserved same-type knowledge",
+  "models": [
+    {
+      "model": "Qwen/Qwen3-8B",
+      "model_revision": "b968826d9c46dd6066d109eabc6255188de91218",
+      "n": 992,
+      "cells": {
+        "history/released_determiner": {
+          "accuracy": 0.8104838709677419,
+          "same_accuracy": 0.9758064516129032,
+          "different_accuracy": 0.6451612903225806,
+          "same_margin": 14.896818866652827,
+          "different_margin": -2.8730295954212064,
+          "identity_effect": 17.769848462074034,
+          "frame_bootstrap_95ci": [
+            15.238027691841125,
+            20.29623720049858
+          ]
+        },
+        "history/continuity_description": {
+          "accuracy": 1.0,
+          "same_accuracy": 1.0,
+          "different_accuracy": 1.0,
+          "same_margin": 23.659274182012005,
+          "different_margin": -15.356324504460058,
+          "identity_effect": 39.01559868647206,
+          "frame_bootstrap_95ci": [
+            38.38028327015138,
+            39.630299084609554
+          ]
+        },
+        "type_control": {
+          "accuracy": 0.9939516129032258,
+          "same_margin": 18.245834821654903,
+          "different_margin": 16.34136323678878,
+          "absolute_identity_effect": 1.9044715848661227,
+          "fraction_of_history_effect": 0.06707604432114846
+        }
+      },
+      "gate_pass": true
+    },
+    {
+      "model": "NousResearch/Meta-Llama-3.1-8B-Instruct",
+      "model_revision": "d10aef7999a2b5ba950ab3974312feeedbfe0b77",
+      "n": 992,
+      "cells": {
+        "history/released_determiner": {
+          "accuracy": 0.7701612903225806,
+          "same_accuracy": 0.9193548387096774,
+          "different_accuracy": 0.6209677419354839,
+          "same_margin": 1.4885647681451613,
+          "different_margin": -0.20399130544354838,
+          "identity_effect": 1.6925560735887095,
+          "frame_bootstrap_95ci": [
+            1.3967235934349798,
+            1.987582299017137
+          ]
+        },
+        "history/continuity_description": {
+          "accuracy": 1.0,
+          "same_accuracy": 1.0,
+          "different_accuracy": 1.0,
+          "same_margin": 4.881160859138735,
+          "different_margin": -3.907424234574841,
+          "identity_effect": 8.788585093713575,
+          "frame_bootstrap_95ci": [
+            8.292251802259877,
+            9.33993991728752
+          ]
+        },
+        "type_control": {
+          "accuracy": 0.5080645161290323,
+          "same_margin": -0.10287377142137097,
+          "different_margin": 0.7906230803458921,
+          "absolute_identity_effect": 0.8934968517672631,
+          "fraction_of_history_effect": 0.17049610104565885
+        }
+      },
+      "gate_pass": false
+    }
+  ],
+  "panel_gate_pass": false
+}

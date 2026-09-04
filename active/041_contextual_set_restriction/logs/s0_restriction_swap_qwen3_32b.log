@@ -1,0 +1,26 @@
+Loading checkpoint shards:   0%|          | 0/17 [00:00<?, ?it/s]Loading checkpoint shards:   6%|▌         | 1/17 [02:47<44:37, 167.36s/it]Loading checkpoint shards:  12%|█▏        | 2/17 [04:37<33:26, 133.74s/it]Loading checkpoint shards:  18%|█▊        | 3/17 [05:50<24:41, 105.83s/it]Loading checkpoint shards:  24%|██▎       | 4/17 [07:03<20:09, 93.05s/it] Loading checkpoint shards:  29%|██▉       | 5/17 [08:15<17:03, 85.32s/it]Loading checkpoint shards:  35%|███▌      | 6/17 [09:20<14:23, 78.48s/it]Loading checkpoint shards:  41%|████      | 7/17 [09:26<09:07, 54.70s/it]Loading checkpoint shards:  47%|████▋     | 8/17 [09:29<05:46, 38.48s/it]Loading checkpoint shards:  53%|█████▎    | 9/17 [10:18<05:33, 41.72s/it]Loading checkpoint shards:  59%|█████▉    | 10/17 [11:11<05:16, 45.21s/it]Loading checkpoint shards:  65%|██████▍   | 11/17 [11:12<03:09, 31.61s/it]Loading checkpoint shards:  71%|███████   | 12/17 [11:13<01:51, 22.22s/it]Loading checkpoint shards:  76%|███████▋  | 13/17 [11:14<01:02, 15.73s/it]Loading checkpoint shards:  82%|████████▏ | 14/17 [11:14<00:33, 11.23s/it]Loading checkpoint shards:  88%|████████▊ | 15/17 [11:15<00:16,  8.08s/it]Loading checkpoint shards:  94%|█████████▍| 16/17 [11:16<00:05,  5.88s/it]Loading checkpoint shards: 100%|██████████| 17/17 [11:17<00:00,  4.31s/it]Loading checkpoint shards: 100%|██████████| 17/17 [11:17<00:00, 39.83s/it]
+{"scored": 8, "total": 9216}
+{"scored": 408, "total": 9216}
+{"scored": 808, "total": 9216}
+{"scored": 1208, "total": 9216}
+{"scored": 1608, "total": 9216}
+{"scored": 2008, "total": 9216}
+{"scored": 2408, "total": 9216}
+{"scored": 2808, "total": 9216}
+{"scored": 3208, "total": 9216}
+{"scored": 3608, "total": 9216}
+{"scored": 4008, "total": 9216}
+{"scored": 4408, "total": 9216}
+{"scored": 4808, "total": 9216}
+{"scored": 5208, "total": 9216}
+{"scored": 5608, "total": 9216}
+{"scored": 6008, "total": 9216}
+{"scored": 6408, "total": 9216}
+{"scored": 6808, "total": 9216}
+{"scored": 7208, "total": 9216}
+{"scored": 7608, "total": 9216}
+{"scored": 8008, "total": 9216}
+{"scored": 8408, "total": 9216}
+{"scored": 8808, "total": 9216}
+{"scored": 9208, "total": 9216}
+{"output": "active/041_contextual_set_restriction/results/raw/s0_restriction_swap_qwen3_32b.jsonl", "rows": 9216}

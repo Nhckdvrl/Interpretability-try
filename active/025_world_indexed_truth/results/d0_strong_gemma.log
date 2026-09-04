@@ -1,0 +1,18 @@
+Loading weights:   0%|          | 0/1065 [00:00<?, ?it/s]Loading weights:   8%|▊         | 90/1065 [00:00<00:01, 606.40it/s]Loading weights:  14%|█▍        | 151/1065 [00:00<00:02, 342.37it/s]Loading weights:  36%|███▋      | 388/1065 [00:00<00:00, 814.22it/s]Loading weights:  87%|████████▋ | 931/1065 [00:00<00:00, 2032.39it/s]Loading weights: 100%|██████████| 1065/1065 [00:00<00:00, 1601.23it/s]
+{
+  "contract_id": "025-d0-v2-strong-model-replication",
+  "cuda_visible_devices": "1",
+  "family": "gemma",
+  "label_token_ids": {
+    "FALSE": [
+      24907
+    ],
+    "TRUE": [
+      23096
+    ]
+  },
+  "model_id": "google/gemma-3-12b-it",
+  "n_records": 256,
+  "revision": "96b6f1eccf38110c56df3a15bffe176da04bfd80",
+  "torch_version": "2.11.0+cu130"
+}

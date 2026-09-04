@@ -1,0 +1,517 @@
+{
+  "contract": "the same lexical modifier costs more to omit exactly when it restricts the live candidate set",
+  "models": [
+    {
+      "model": "Qwen/Qwen3-0.6B",
+      "model_revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+      "accuracy_by_condition": {
+        "full": {
+          "n": 2304,
+          "accuracy": 0.5334201388888888,
+          "mean_margin": 0.5863715293231103
+        },
+        "drop_dim1": {
+          "n": 2304,
+          "accuracy": 0.5060763888888888,
+          "mean_margin": 0.19010416672548067
+        },
+        "drop_dim2": {
+          "n": 2304,
+          "accuracy": 0.5130208333333334,
+          "mean_margin": 0.35145399477631956
+        },
+        "bare": {
+          "n": 2304,
+          "accuracy": 0.4921875,
+          "mean_margin": 0.02669270938228389
+        },
+        "drop_dim1/restricting": {
+          "n": 1152,
+          "accuracy": 0.4835069444444444,
+          "mean_margin": -0.05859375086988115
+        },
+        "drop_dim1/non_restricting": {
+          "n": 1152,
+          "accuracy": 0.5286458333333334,
+          "mean_margin": 0.43880208432084244
+        },
+        "drop_dim2/restricting": {
+          "n": 1152,
+          "accuracy": 0.5086805555555556,
+          "mean_margin": 0.16102430735756773
+        },
+        "drop_dim2/non_restricting": {
+          "n": 1152,
+          "accuracy": 0.5173611111111112,
+          "mean_margin": 0.5418836821950713
+        }
+      },
+      "role_swap_interaction": {
+        "estimate": 0.4391276050141136,
+        "ci95": [
+          0.4024414057772851,
+          0.47493489513375
+        ],
+        "n_clusters": 192
+      },
+      "role_swap_by_family": {
+        "color_curvature": {
+          "estimate": 0.4388020812524095,
+          "ci95": [
+            0.3671874937501343,
+            0.5065104116304306
+          ],
+          "n_clusters": 32
+        },
+        "fill_height": {
+          "estimate": 0.4817708304229503,
+          "ci95": [
+            0.38932291699141697,
+            0.5768229114268858
+          ],
+          "n_clusters": 32
+        },
+        "material_color": {
+          "estimate": 0.33007812831783667,
+          "ci95": [
+            0.25128580882204304,
+            0.41538086628631055
+          ],
+          "n_clusters": 32
+        },
+        "pattern_length": {
+          "estimate": 0.41145833165016177,
+          "ci95": [
+            0.3066406290772041,
+            0.5117350318899598
+          ],
+          "n_clusters": 32
+        },
+        "size_color": {
+          "estimate": 0.49869792106862104,
+          "ci95": [
+            0.42708333691407463,
+            0.5670735790853842
+          ],
+          "n_clusters": 32
+        },
+        "texture_color": {
+          "estimate": 0.47395833737270243,
+          "ci95": [
+            0.3854166718627311,
+            0.5664062553302452
+          ],
+          "n_clusters": 32
+        }
+      },
+      "role_swap_by_surface_form": {
+        "np": {
+          "estimate": 0.4658203130560044,
+          "ci95": [
+            0.41601562453726426,
+            0.5162760435295695
+          ],
+          "n_clusters": 192
+        },
+        "relative_12": {
+          "estimate": 0.4257812509931682,
+          "ci95": [
+            0.363273109344209,
+            0.4873046948861883
+          ],
+          "n_clusters": 192
+        },
+        "relative_21": {
+          "estimate": 0.4257812509931682,
+          "ci95": [
+            0.3502604222870862,
+            0.5019531184585806
+          ],
+          "n_clusters": 192
+        }
+      },
+      "role_swap_by_question_form": {
+        "0": {
+          "estimate": 0.42578125081490725,
+          "ci95": [
+            0.38259006231427417,
+            0.46896701047141204
+          ],
+          "n_clusters": 192
+        },
+        "1": {
+          "estimate": 0.45247395921331995,
+          "ci95": [
+            0.4131944489265455,
+            0.489154735869983
+          ],
+          "n_clusters": 192
+        }
+      },
+      "role_swap_by_answer_mapping": {
+        "0": {
+          "estimate": 0.47873263744703665,
+          "ci95": [
+            0.4335937441174691,
+            0.5251736061314861
+          ],
+          "n_clusters": 192
+        },
+        "1": {
+          "estimate": 0.3995225725811906,
+          "ci95": [
+            0.35828450387473115,
+            0.4418402767653687
+          ],
+          "n_clusters": 192
+        }
+      },
+      "capability_pass": false,
+      "swap_pass": false,
+      "surface_control_pass": true,
+      "s0_pass": false
+    },
+    {
+      "model": "Qwen/Qwen3-4B",
+      "model_revision": "1cfa9a7208912126459214e8b04321603b3df60c",
+      "accuracy_by_condition": {
+        "full": {
+          "n": 2304,
+          "accuracy": 0.9943576388888888,
+          "mean_margin": 26.898546003432077
+        },
+        "drop_dim1": {
+          "n": 2304,
+          "accuracy": 0.7322048611111112,
+          "mean_margin": 11.517578125405985
+        },
+        "drop_dim2": {
+          "n": 2304,
+          "accuracy": 0.7204861111111112,
+          "mean_margin": 11.0514865347276
+        },
+        "bare": {
+          "n": 2304,
+          "accuracy": 0.453125,
+          "mean_margin": -0.9451497331614179
+        },
+        "drop_dim1/restricting": {
+          "n": 1152,
+          "accuracy": 0.4835069444444444,
+          "mean_margin": -0.18641492278105481
+        },
+        "drop_dim1/non_restricting": {
+          "n": 1152,
+          "accuracy": 0.9809027777777778,
+          "mean_margin": 23.221571173593023
+        },
+        "drop_dim2/restricting": {
+          "n": 1152,
+          "accuracy": 0.4722222222222222,
+          "mean_margin": -0.9461805677911338
+        },
+        "drop_dim2/non_restricting": {
+          "n": 1152,
+          "accuracy": 0.96875,
+          "mean_margin": 23.049153637246334
+        }
+      },
+      "role_swap_interaction": {
+        "estimate": 23.701660150705777,
+        "ci95": [
+          21.93171251263338,
+          25.414430059555382
+        ],
+        "n_clusters": 192
+      },
+      "role_swap_by_family": {
+        "color_curvature": {
+          "estimate": 21.567382803061626,
+          "ci95": [
+            17.136604796798583,
+            26.262703450344137
+          ],
+          "n_clusters": 32
+        },
+        "fill_height": {
+          "estimate": 25.870442710437526,
+          "ci95": [
+            21.13621419749343,
+            30.563810224455125
+          ],
+          "n_clusters": 32
+        },
+        "material_color": {
+          "estimate": 20.6067708276416,
+          "ci95": [
+            17.082226556568894,
+            24.13641762967342
+          ],
+          "n_clusters": 32
+        },
+        "pattern_length": {
+          "estimate": 24.64388021012824,
+          "ci95": [
+            20.38306479308834,
+            28.637377931344094
+          ],
+          "n_clusters": 32
+        },
+        "size_color": {
+          "estimate": 23.69205727978308,
+          "ci95": [
+            19.556510421406955,
+            27.75886227292629
+          ],
+          "n_clusters": 32
+        },
+        "texture_color": {
+          "estimate": 25.829427073182558,
+          "ci95": [
+            21.267488603389328,
+            30.260432897515393
+          ],
+          "n_clusters": 32
+        }
+      },
+      "role_swap_by_surface_form": {
+        "np": {
+          "estimate": 24.180175783536754,
+          "ci95": [
+            22.183907065648974,
+            26.100630691339887
+          ],
+          "n_clusters": 192
+        },
+        "relative_12": {
+          "estimate": 23.462402334290278,
+          "ci95": [
+            21.664815262344923,
+            25.225667307845338
+          ],
+          "n_clusters": 192
+        },
+        "relative_21": {
+          "estimate": 23.462402334290278,
+          "ci95": [
+            21.655725096098223,
+            25.186865226985667
+          ],
+          "n_clusters": 192
+        }
+      },
+      "role_swap_by_question_form": {
+        "0": {
+          "estimate": 23.81087240112518,
+          "ci95": [
+            21.764898019670934,
+            25.904009335613015
+          ],
+          "n_clusters": 192
+        },
+        "1": {
+          "estimate": 23.592447900286363,
+          "ci95": [
+            21.96200898671095,
+            25.205170331736344
+          ],
+          "n_clusters": 192
+        }
+      },
+      "role_swap_by_answer_mapping": {
+        "0": {
+          "estimate": 24.40266926780643,
+          "ci95": [
+            22.302509222432473,
+            26.47556151653888
+          ],
+          "n_clusters": 192
+        },
+        "1": {
+          "estimate": 23.00065103360512,
+          "ci95": [
+            21.205045558283494,
+            24.819023966199648
+          ],
+          "n_clusters": 192
+        }
+      },
+      "capability_pass": true,
+      "swap_pass": true,
+      "surface_control_pass": true,
+      "s0_pass": true
+    },
+    {
+      "model": "Qwen/Qwen3-8B",
+      "model_revision": "b968826d9c46dd6066d109eabc6255188de91218",
+      "accuracy_by_condition": {
+        "full": {
+          "n": 2304,
+          "accuracy": 0.9956597222222222,
+          "mean_margin": 21.995225678108323
+        },
+        "drop_dim1": {
+          "n": 2304,
+          "accuracy": 0.7109375,
+          "mean_margin": 8.609157981512148
+        },
+        "drop_dim2": {
+          "n": 2304,
+          "accuracy": 0.7569444444444444,
+          "mean_margin": 11.050238703050068
+        },
+        "bare": {
+          "n": 2304,
+          "accuracy": 0.4817708333333333,
+          "mean_margin": -0.008789073558017045
+        },
+        "drop_dim1/restricting": {
+          "n": 1152,
+          "accuracy": 0.4262152777777778,
+          "mean_margin": -1.9526909548844584
+        },
+        "drop_dim1/non_restricting": {
+          "n": 1152,
+          "accuracy": 0.9956597222222222,
+          "mean_margin": 19.171006917908752
+        },
+        "drop_dim2/restricting": {
+          "n": 1152,
+          "accuracy": 0.5138888888888888,
+          "mean_margin": 1.5240885451590989
+        },
+        "drop_dim2/non_restricting": {
+          "n": 1152,
+          "accuracy": 1.0,
+          "mean_margin": 20.576388860941037
+        }
+      },
+      "role_swap_interaction": {
+        "estimate": 20.08799909428757,
+        "ci95": [
+          18.90393606463381,
+          21.281366592174248
+        ],
+        "n_clusters": 192
+      },
+      "role_swap_by_family": {
+        "color_curvature": {
+          "estimate": 22.73437496578638,
+          "ci95": [
+            19.776643864347772,
+            25.774332625470617
+          ],
+          "n_clusters": 32
+        },
+        "fill_height": {
+          "estimate": 19.414713509034453,
+          "ci95": [
+            16.529248026283298,
+            22.46614572485281
+          ],
+          "n_clusters": 32
+        },
+        "material_color": {
+          "estimate": 17.447916612192284,
+          "ci95": [
+            14.756494092288762,
+            20.354833933899776
+          ],
+          "n_clusters": 32
+        },
+        "pattern_length": {
+          "estimate": 20.983723907371708,
+          "ci95": [
+            18.486979110406804,
+            23.526871665404812
+          ],
+          "n_clusters": 32
+        },
+        "size_color": {
+          "estimate": 19.50911456007598,
+          "ci95": [
+            16.84106442250546,
+            22.259846957128975
+          ],
+          "n_clusters": 32
+        },
+        "texture_color": {
+          "estimate": 20.438151011264644,
+          "ci95": [
+            17.441389931960487,
+            23.459781864124597
+          ],
+          "n_clusters": 32
+        }
+      },
+      "role_swap_by_surface_form": {
+        "np": {
+          "estimate": 20.1774088194885,
+          "ci95": [
+            18.93847655177271,
+            21.46394036934014
+          ],
+          "n_clusters": 192
+        },
+        "relative_12": {
+          "estimate": 20.043294231687113,
+          "ci95": [
+            18.859033156555785,
+            21.25590816472616
+          ],
+          "n_clusters": 192
+        },
+        "relative_21": {
+          "estimate": 20.04329423168711,
+          "ci95": [
+            18.771736627711753,
+            21.36917314777392
+          ],
+          "n_clusters": 192
+        }
+      },
+      "role_swap_by_question_form": {
+        "0": {
+          "estimate": 20.620008645235085,
+          "ci95": [
+            19.400960261308015,
+            21.892529254501312
+          ],
+          "n_clusters": 192
+        },
+        "1": {
+          "estimate": 19.555989543340065,
+          "ci95": [
+            18.34166664646662,
+            20.805392751934527
+          ],
+          "n_clusters": 192
+        }
+      },
+      "role_swap_by_answer_mapping": {
+        "0": {
+          "estimate": 19.54188363674503,
+          "ci95": [
+            18.03189559594475,
+            21.029866487908762
+          ],
+          "n_clusters": 192
+        },
+        "1": {
+          "estimate": 20.63411455183012,
+          "ci95": [
+            19.5477159189138,
+            21.75415033506938
+          ],
+          "n_clusters": 192
+        }
+      },
+      "capability_pass": true,
+      "swap_pass": true,
+      "surface_control_pass": true,
+      "s0_pass": true
+    }
+  ],
+  "panel_pass": false,
+  "interpretation_guard": "A pass means the omission cost tracks contextual set restriction with world facts, target phrase and lexical modifier held fixed. It does not by itself show an abstract role state; that is the causal contract in section H."
+}

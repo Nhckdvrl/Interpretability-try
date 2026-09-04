@@ -1,0 +1,37 @@
+Loading checkpoint shards:   0%|          | 0/17 [00:00<?, ?it/s]Loading checkpoint shards:   6%|▌         | 1/17 [00:24<06:30, 24.43s/it]Loading checkpoint shards:  12%|█▏        | 2/17 [00:25<02:37, 10.51s/it]Loading checkpoint shards:  18%|█▊        | 3/17 [00:25<01:24,  6.05s/it]Loading checkpoint shards:  24%|██▎       | 4/17 [00:26<00:51,  3.94s/it]Loading checkpoint shards:  29%|██▉       | 5/17 [00:27<00:33,  2.75s/it]Loading checkpoint shards:  35%|███▌      | 6/17 [00:28<00:22,  2.06s/it]Loading checkpoint shards:  41%|████      | 7/17 [00:28<00:15,  1.59s/it]Loading checkpoint shards:  47%|████▋     | 8/17 [00:29<00:11,  1.29s/it]Loading checkpoint shards:  53%|█████▎    | 9/17 [00:29<00:08,  1.08s/it]Loading checkpoint shards:  59%|█████▉    | 10/17 [00:34<00:16,  2.30s/it]Loading checkpoint shards:  65%|██████▍   | 11/17 [00:57<00:51,  8.65s/it]Loading checkpoint shards:  71%|███████   | 12/17 [00:59<00:32,  6.48s/it]Loading checkpoint shards:  76%|███████▋  | 13/17 [01:00<00:18,  4.72s/it]Loading checkpoint shards:  82%|████████▏ | 14/17 [01:00<00:10,  3.50s/it]Loading checkpoint shards:  88%|████████▊ | 15/17 [01:01<00:05,  2.65s/it]Loading checkpoint shards:  94%|█████████▍| 16/17 [01:02<00:02,  2.05s/it]Loading checkpoint shards: 100%|██████████| 17/17 [01:02<00:00,  1.60s/it]Loading checkpoint shards: 100%|██████████| 17/17 [01:02<00:00,  3.69s/it]
+{"scored": 4, "total": 6912}
+{"scored": 204, "total": 6912}
+{"scored": 404, "total": 6912}
+{"scored": 604, "total": 6912}
+{"scored": 804, "total": 6912}
+{"scored": 1004, "total": 6912}
+{"scored": 1204, "total": 6912}
+{"scored": 1404, "total": 6912}
+{"scored": 1604, "total": 6912}
+{"scored": 1804, "total": 6912}
+{"scored": 2004, "total": 6912}
+{"scored": 2204, "total": 6912}
+{"scored": 2404, "total": 6912}
+{"scored": 2604, "total": 6912}
+{"scored": 2804, "total": 6912}
+{"scored": 3004, "total": 6912}
+{"scored": 3204, "total": 6912}
+{"scored": 3404, "total": 6912}
+{"scored": 3604, "total": 6912}
+{"scored": 3804, "total": 6912}
+{"scored": 4004, "total": 6912}
+{"scored": 4204, "total": 6912}
+{"scored": 4404, "total": 6912}
+{"scored": 4604, "total": 6912}
+{"scored": 4804, "total": 6912}
+{"scored": 5004, "total": 6912}
+{"scored": 5204, "total": 6912}
+{"scored": 5404, "total": 6912}
+{"scored": 5604, "total": 6912}
+{"scored": 5804, "total": 6912}
+{"scored": 6004, "total": 6912}
+{"scored": 6204, "total": 6912}
+{"scored": 6404, "total": 6912}
+{"scored": 6604, "total": 6912}
+{"scored": 6804, "total": 6912}
+{"output": "active/041_contextual_set_restriction/results/raw/s1_role_vs_uniqueness_qwen3_32b.jsonl", "rows": 6912, "state_rows": 4608, "residual_layers": [0, 8, 16, 24, 32, 40, 48, 56, 64]}

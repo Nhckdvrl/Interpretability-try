@@ -1,0 +1,347 @@
+{
+  "contract": "the same lexical modifier costs more to omit exactly when it restricts the live candidate set",
+  "models": [
+    {
+      "model": "Qwen/Qwen3-8B",
+      "model_revision": "b968826d9c46dd6066d109eabc6255188de91218",
+      "accuracy_by_condition": {
+        "full": {
+          "n": 2304,
+          "accuracy": 0.9956597222222222,
+          "mean_margin": 21.995225678108323
+        },
+        "drop_dim1": {
+          "n": 2304,
+          "accuracy": 0.7109375,
+          "mean_margin": 8.609157981512148
+        },
+        "drop_dim2": {
+          "n": 2304,
+          "accuracy": 0.7569444444444444,
+          "mean_margin": 11.050238703050068
+        },
+        "bare": {
+          "n": 2304,
+          "accuracy": 0.4817708333333333,
+          "mean_margin": -0.008789073558017045
+        },
+        "drop_dim1/restricting": {
+          "n": 1152,
+          "accuracy": 0.4262152777777778,
+          "mean_margin": -1.9526909548844584
+        },
+        "drop_dim1/non_restricting": {
+          "n": 1152,
+          "accuracy": 0.9956597222222222,
+          "mean_margin": 19.171006917908752
+        },
+        "drop_dim2/restricting": {
+          "n": 1152,
+          "accuracy": 0.5138888888888888,
+          "mean_margin": 1.5240885451590989
+        },
+        "drop_dim2/non_restricting": {
+          "n": 1152,
+          "accuracy": 1.0,
+          "mean_margin": 20.576388860941037
+        }
+      },
+      "role_swap_interaction": {
+        "estimate": 20.08799909428757,
+        "ci95": [
+          18.915218057942557,
+          21.2645480283409
+        ],
+        "n_clusters": 192
+      },
+      "role_swap_by_family": {
+        "color_curvature": {
+          "estimate": 22.73437496578638,
+          "ci95": [
+            19.802083321922932,
+            25.675455675359032
+          ],
+          "n_clusters": 32
+        },
+        "fill_height": {
+          "estimate": 19.414713509034453,
+          "ci95": [
+            16.563069624774908,
+            22.292317665523417
+          ],
+          "n_clusters": 32
+        },
+        "material_color": {
+          "estimate": 17.447916612192284,
+          "ci95": [
+            14.753645823517953,
+            20.252001854317175
+          ],
+          "n_clusters": 32
+        },
+        "pattern_length": {
+          "estimate": 20.983723907371708,
+          "ci95": [
+            18.337890627712436,
+            23.47735996150209
+          ],
+          "n_clusters": 32
+        },
+        "size_color": {
+          "estimate": 19.50911456007598,
+          "ci95": [
+            16.74339190457169,
+            22.17840166385462
+          ],
+          "n_clusters": 32
+        },
+        "texture_color": {
+          "estimate": 20.438151011264644,
+          "ci95": [
+            17.456884754571888,
+            23.48966464011748
+          ],
+          "n_clusters": 32
+        }
+      },
+      "role_swap_by_surface_form": {
+        "np": {
+          "estimate": 20.1774088194885,
+          "ci95": [
+            18.90393876128,
+            21.424820933010082
+          ],
+          "n_clusters": 192
+        },
+        "relative_12": {
+          "estimate": 20.043294231687113,
+          "ci95": [
+            18.872371395036037,
+            21.199869751639568
+          ],
+          "n_clusters": 192
+        },
+        "relative_21": {
+          "estimate": 20.04329423168711,
+          "ci95": [
+            18.746695932006325,
+            21.308927367248444
+          ],
+          "n_clusters": 192
+        }
+      },
+      "role_swap_by_question_form": {
+        "0": {
+          "estimate": 20.620008645235085,
+          "ci95": [
+            19.39839405790099,
+            21.868283376813228
+          ],
+          "n_clusters": 192
+        },
+        "1": {
+          "estimate": 19.555989543340065,
+          "ci95": [
+            18.337646465462242,
+            20.74286562179817
+          ],
+          "n_clusters": 192
+        }
+      },
+      "role_swap_by_answer_mapping": {
+        "0": {
+          "estimate": 19.54188363674503,
+          "ci95": [
+            18.090207221091372,
+            21.115163779831736
+          ],
+          "n_clusters": 192
+        },
+        "1": {
+          "estimate": 20.63411455183012,
+          "ci95": [
+            19.545068345436135,
+            21.735058557079974
+          ],
+          "n_clusters": 192
+        }
+      },
+      "capability_pass": true,
+      "swap_pass": true,
+      "surface_control_pass": true,
+      "s0_pass": true
+    },
+    {
+      "model": "NousResearch/Meta-Llama-3.1-8B-Instruct",
+      "model_revision": "d10aef7999a2b5ba950ab3974312feeedbfe0b77",
+      "accuracy_by_condition": {
+        "full": {
+          "n": 2304,
+          "accuracy": 0.9713541666666666,
+          "mean_margin": 3.2619357499295396
+        },
+        "drop_dim1": {
+          "n": 2304,
+          "accuracy": 0.7447916666666666,
+          "mean_margin": 1.467339403276431
+        },
+        "drop_dim2": {
+          "n": 2304,
+          "accuracy": 0.7977430555555556,
+          "mean_margin": 2.0327690863779
+        },
+        "bare": {
+          "n": 2304,
+          "accuracy": 0.5703125,
+          "mean_margin": 0.34488932264745625
+        },
+        "drop_dim1/restricting": {
+          "n": 1152,
+          "accuracy": 0.515625,
+          "mean_margin": 0.1841362811740813
+        },
+        "drop_dim1/non_restricting": {
+          "n": 1152,
+          "accuracy": 0.9739583333333334,
+          "mean_margin": 2.750542525378781
+        },
+        "drop_dim2/restricting": {
+          "n": 1152,
+          "accuracy": 0.6050347222222222,
+          "mean_margin": 0.7915581558513117
+        },
+        "drop_dim2/non_restricting": {
+          "n": 1152,
+          "accuracy": 0.9904513888888888,
+          "mean_margin": 3.2739800169044884
+        }
+      },
+      "role_swap_interaction": {
+        "estimate": 2.5244140526289383,
+        "ci95": [
+          2.393707944418708,
+          2.6545789858078774
+        ],
+        "n_clusters": 192
+      },
+      "role_swap_by_family": {
+        "color_curvature": {
+          "estimate": 2.6458333220072445,
+          "ci95": [
+            2.2757080206857725,
+            3.0211669772483973
+          ],
+          "n_clusters": 32
+        },
+        "fill_height": {
+          "estimate": 2.424153643469708,
+          "ci95": [
+            2.0145833533211333,
+            2.8441161923562497
+          ],
+          "n_clusters": 32
+        },
+        "material_color": {
+          "estimate": 2.19401040499982,
+          "ci95": [
+            1.9475748548723868,
+            2.4401122957254664
+          ],
+          "n_clusters": 32
+        },
+        "pattern_length": {
+          "estimate": 2.73600259196049,
+          "ci95": [
+            2.506827792984494,
+            2.945987946205653
+          ],
+          "n_clusters": 32
+        },
+        "size_color": {
+          "estimate": 2.6549479055258116,
+          "ci95": [
+            2.40135903326506,
+            2.90852862404099
+          ],
+          "n_clusters": 32
+        },
+        "texture_color": {
+          "estimate": 2.4915364478105553,
+          "ci95": [
+            2.1878092288875033,
+            2.7848388645233855
+          ],
+          "n_clusters": 32
+        }
+      },
+      "role_swap_by_surface_form": {
+        "np": {
+          "estimate": 2.7128906087612754,
+          "ci95": [
+            2.5442708239414693,
+            2.8823323458388574
+          ],
+          "n_clusters": 192
+        },
+        "relative_12": {
+          "estimate": 2.4301757745627697,
+          "ci95": [
+            2.2553710954193424,
+            2.6054728105857694
+          ],
+          "n_clusters": 192
+        },
+        "relative_21": {
+          "estimate": 2.4301757745627697,
+          "ci95": [
+            2.291666657791283,
+            2.5704793294975423
+          ],
+          "n_clusters": 192
+        }
+      },
+      "role_swap_by_question_form": {
+        "0": {
+          "estimate": 2.919813364078209,
+          "ci95": [
+            2.765513777116508,
+            3.079755302642449
+          ],
+          "n_clusters": 192
+        },
+        "1": {
+          "estimate": 2.129014741179667,
+          "ci95": [
+            2.0100857018746354,
+            2.2466389769278288
+          ],
+          "n_clusters": 192
+        }
+      },
+      "role_swap_by_answer_mapping": {
+        "0": {
+          "estimate": 2.4483506857596287,
+          "ci95": [
+            2.3141140402409515,
+            2.58529187579766
+          ],
+          "n_clusters": 192
+        },
+        "1": {
+          "estimate": 2.6004774194982474,
+          "ci95": [
+            2.4525824624263355,
+            2.748063137570417
+          ],
+          "n_clusters": 192
+        }
+      },
+      "capability_pass": true,
+      "swap_pass": true,
+      "surface_control_pass": true,
+      "s0_pass": true
+    }
+  ],
+  "panel_pass": true,
+  "interpretation_guard": "A pass means the omission cost tracks contextual set restriction with world facts, target phrase and lexical modifier held fixed. It does not by itself show an abstract role state; that is the causal contract in section H."
+}

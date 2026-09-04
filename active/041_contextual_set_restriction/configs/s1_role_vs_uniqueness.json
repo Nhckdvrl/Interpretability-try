@@ -1,0 +1,65 @@
+{
+  "experiment_version": "s1_role_vs_uniqueness_v1",
+  "stimulus_version": "s1_role_vs_uniqueness",
+  "seed": 20260904,
+  "models": {
+    "NousResearch/Meta-Llama-3.1-8B-Instruct": {
+      "n_blocks": 32
+    },
+    "Qwen/Qwen3-8B": {
+      "n_blocks": 36
+    },
+    "google/gemma-3-12b-it": {
+      "n_blocks": 48
+    },
+    "microsoft/Phi-4-mini-instruct": {
+      "n_blocks": 32
+    },
+    "mistralai/Mistral-Small-24B-Instruct-2501": {
+      "n_blocks": 40
+    },
+    "Qwen/Qwen3-0.6B": {
+      "n_blocks": 28
+    },
+    "Qwen/Qwen3-1.7B": {
+      "n_blocks": 28
+    },
+    "Qwen/Qwen3-4B": {
+      "n_blocks": 36
+    },
+    "Qwen/Qwen3-14B": {
+      "n_blocks": 40
+    },
+    "Qwen/Qwen3-32B": {
+      "n_blocks": 64
+    }
+  },
+  "dtype": "bfloat16",
+  "candidate_answers": [
+    "A",
+    "B"
+  ],
+  "batch_size": 16,
+  "bootstrap_samples": 5000,
+  "gate": {
+    "min_restriction_probe_accuracy": 0.7,
+    "max_uniqueness_confound_share": 0.6,
+    "min_models_passing": 3
+  },
+  "depth_fractions": [
+    0.0,
+    0.125,
+    0.25,
+    0.375,
+    0.5,
+    0.625,
+    0.75,
+    0.875,
+    1.0
+  ],
+  "gate_depth_fractions": [
+    0.25,
+    0.5,
+    0.75
+  ]
+}

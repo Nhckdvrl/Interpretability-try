@@ -1,0 +1,323 @@
+{
+  "contract": "the same definite description follows the speaker's established target under referential use and the descriptive satisfier under attributive use, with salience matched",
+  "models": [
+    {
+      "model": "Qwen/Qwen3-8B",
+      "model_revision": "b968826d9c46dd6066d109eabc6255188de91218",
+      "raw_fact_denominators": {
+        "description_truth": {
+          "n": 3456,
+          "accuracy": 0.9976851851851852
+        },
+        "speaker_target_fact": {
+          "n": 2304,
+          "accuracy": 0.8502604166666666
+        },
+        "entity_fact": {
+          "n": 3456,
+          "accuracy": 0.9947916666666666
+        }
+      },
+      "use_mode_cells": {
+        "referential": {
+          "n": 1152,
+          "accuracy": 0.21354166666666666,
+          "mean_target_vs_satisfier_margin": -9.050564210644113,
+          "share_choosing_speaker_target": 0.21354166666666666
+        },
+        "attributive_bare": {
+          "n": 1152,
+          "accuracy": 1.0,
+          "mean_target_vs_satisfier_margin": -22.78059894943444,
+          "share_choosing_speaker_target": 0.0
+        },
+        "attributive_matched": {
+          "n": 1152,
+          "accuracy": 1.0,
+          "mean_target_vs_satisfier_margin": -24.376736107936647,
+          "share_choosing_speaker_target": 0.0
+        }
+      },
+      "downstream_action_cells": {
+        "referential": {
+          "n": 1152,
+          "accuracy": 0.1545138888888889,
+          "mean_target_vs_satisfier_margin": -9.175564181089946,
+          "share_choosing_speaker_target": 0.1545138888888889
+        },
+        "attributive_bare": {
+          "n": 1152,
+          "accuracy": 1.0,
+          "mean_target_vs_satisfier_margin": -20.420138862960137,
+          "share_choosing_speaker_target": 0.0
+        },
+        "attributive_matched": {
+          "n": 1152,
+          "accuracy": 1.0,
+          "mean_target_vs_satisfier_margin": -23.495442704236186,
+          "share_choosing_speaker_target": 0.0
+        }
+      },
+      "downstream_action_crossover": {
+        "estimate": 14.319878523146242,
+        "ci95": [
+          11.849750497923178,
+          17.036566888952894
+        ],
+        "n_clusters": 12
+      },
+      "crossovers": {
+        "referential_minus_attributive_matched": {
+          "estimate": 15.326171897292534,
+          "ci95": [
+            11.333658873650544,
+            19.67430013956129
+          ],
+          "n_clusters": 12
+        },
+        "referential_minus_attributive_bare": {
+          "estimate": 13.730034738790328,
+          "ci95": [
+            9.836675366010528,
+            18.16431750823196
+          ],
+          "n_clusters": 12
+        }
+      },
+      "by_establishment": {
+        "acquaintance": {
+          "estimate": 12.825086841034603,
+          "ci95": [
+            9.411827293810175,
+            16.824359844551175
+          ],
+          "n_clusters": 12
+        },
+        "perceptual": {
+          "estimate": 17.82725695355047,
+          "ci95": [
+            13.07682295382958,
+            22.80045571935895
+          ],
+          "n_clusters": 12
+        }
+      },
+      "by_description_family": {
+        "participial": {
+          "estimate": 10.490625013592068,
+          "ci95": [
+            6.908333349308376,
+            14.327083323915426
+          ],
+          "n_clusters": 5
+        },
+        "relational": {
+          "estimate": 11.770833385622076,
+          "ci95": [
+            9.903645897493927,
+            13.638020873750227
+          ],
+          "n_clusters": 2
+        },
+        "relative_clause": {
+          "estimate": 14.691406285843074,
+          "ci95": [
+            14.138020866724705,
+            15.244791704961443
+          ],
+          "n_clusters": 2
+        },
+        "role": {
+          "estimate": 26.178819452206593,
+          "ci95": [
+            21.23437503230332,
+            31.596354141754833
+          ],
+          "n_clusters": 3
+        }
+      },
+      "by_answer_mapping": {
+        "0": {
+          "estimate": 14.854600716457531,
+          "ci95": [
+            10.199164529294215,
+            20.21095921100152
+          ],
+          "n_clusters": 12
+        },
+        "1": {
+          "estimate": 15.797743078127539,
+          "ci95": [
+            12.428710966971744,
+            19.233995254805507
+          ],
+          "n_clusters": 12
+        }
+      },
+      "denominator_pass": true,
+      "crossover_pass": false,
+      "control_pass": true,
+      "s0_pass": false
+    },
+    {
+      "model": "NousResearch/Meta-Llama-3.1-8B-Instruct",
+      "model_revision": "d10aef7999a2b5ba950ab3974312feeedbfe0b77",
+      "raw_fact_denominators": {
+        "description_truth": {
+          "n": 3456,
+          "accuracy": 0.953125
+        },
+        "speaker_target_fact": {
+          "n": 2304,
+          "accuracy": 0.5060763888888888
+        },
+        "entity_fact": {
+          "n": 3456,
+          "accuracy": 0.9189814814814815
+        }
+      },
+      "use_mode_cells": {
+        "referential": {
+          "n": 1152,
+          "accuracy": 0.1449652777777778,
+          "mean_target_vs_satisfier_margin": -0.7008463545999903,
+          "share_choosing_speaker_target": 0.1449652777777778
+        },
+        "attributive_bare": {
+          "n": 1152,
+          "accuracy": 1.0,
+          "mean_target_vs_satisfier_margin": -1.9982638886471653,
+          "share_choosing_speaker_target": 0.0
+        },
+        "attributive_matched": {
+          "n": 1152,
+          "accuracy": 0.9956597222222222,
+          "mean_target_vs_satisfier_margin": -2.109375002086381,
+          "share_choosing_speaker_target": 0.001736111111111111
+        }
+      },
+      "downstream_action_cells": {
+        "referential": {
+          "n": 1152,
+          "accuracy": 0.049479166666666664,
+          "mean_target_vs_satisfier_margin": -1.0262586782207817,
+          "share_choosing_speaker_target": 0.049479166666666664
+        },
+        "attributive_bare": {
+          "n": 1152,
+          "accuracy": 0.9791666666666666,
+          "mean_target_vs_satisfier_margin": -1.9322916558788468,
+          "share_choosing_speaker_target": 0.001736111111111111
+        },
+        "attributive_matched": {
+          "n": 1152,
+          "accuracy": 0.9939236111111112,
+          "mean_target_vs_satisfier_margin": -2.4280598958862862,
+          "share_choosing_speaker_target": 0.0008680555555555555
+        }
+      },
+      "downstream_action_crossover": {
+        "estimate": 1.4018012176655048,
+        "ci95": [
+          1.100246855722071,
+          1.6905734688208407
+        ],
+        "n_clusters": 12
+      },
+      "crossovers": {
+        "referential_minus_attributive_matched": {
+          "estimate": 1.4085286474863905,
+          "ci95": [
+            1.1682888468203703,
+            1.6341145849543461
+          ],
+          "n_clusters": 12
+        },
+        "referential_minus_attributive_bare": {
+          "estimate": 1.297417534047175,
+          "ci95": [
+            1.0337402305429348,
+            1.56011284452551
+          ],
+          "n_clusters": 12
+        }
+      },
+      "by_establishment": {
+        "acquaintance": {
+          "estimate": 1.409288193305353,
+          "ci95": [
+            1.1417100676190481,
+            1.6649359814017062
+          ],
+          "n_clusters": 12
+        },
+        "perceptual": {
+          "estimate": 1.4077691016674283,
+          "ci95": [
+            1.1597167994614412,
+            1.6681911906812776
+          ],
+          "n_clusters": 12
+        }
+      },
+      "by_description_family": {
+        "participial": {
+          "estimate": 1.3960937543864325,
+          "ci95": [
+            0.9078124962630681,
+            1.8414062625675194
+          ],
+          "n_clusters": 5
+        },
+        "relational": {
+          "estimate": 1.2252604132760707,
+          "ci95": [
+            1.1562499924039005,
+            1.2942708341482407
+          ],
+          "n_clusters": 2
+        },
+        "relative_clause": {
+          "estimate": 1.7480468733119778,
+          "ci95": [
+            1.5520833363601316,
+            1.9440104102638238
+          ],
+          "n_clusters": 2
+        },
+        "role": {
+          "estimate": 1.3250868082428091,
+          "ci95": [
+            1.1289062527551628,
+            1.670572915521916
+          ],
+          "n_clusters": 3
+        }
+      },
+      "by_answer_mapping": {
+        "0": {
+          "estimate": 1.4696180587177674,
+          "ci95": [
+            1.1881510450372237,
+            1.7454535636862805
+          ],
+          "n_clusters": 12
+        },
+        "1": {
+          "estimate": 1.3474392362550134,
+          "ci95": [
+            1.115885418154034,
+            1.5686035136406435
+          ],
+          "n_clusters": 12
+        }
+      },
+      "denominator_pass": false,
+      "crossover_pass": false,
+      "control_pass": true,
+      "s0_pass": false
+    }
+  ],
+  "panel_pass": false,
+  "interpretation_guard": "The referential-minus-attributive_matched contrast is the only one that controls the speaker target's salience, mention count and recency. A pass on the bare contrast alone does not establish a use-mode effect."
+}

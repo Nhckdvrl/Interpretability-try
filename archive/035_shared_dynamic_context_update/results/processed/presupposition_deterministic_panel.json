@@ -1,0 +1,89 @@
+{
+  "contract": "label-counterbalanced deterministic presupposition probability classification",
+  "models": [
+    {
+      "model": "NousResearch/Meta-Llama-3.1-8B-Instruct",
+      "model_revision": "d10aef7999a2b5ba950ab3974312feeedbfe0b77",
+      "n_source_items": 90,
+      "n_counterbalanced_prompts": 540,
+      "balanced_accuracy": 0.3333333333333333,
+      "three_way_high_low_item_accuracy": 0.5,
+      "forced_binary_high_low_accuracy": 0.5,
+      "confusion_matrix_labels": [
+        "low",
+        "mid",
+        "high"
+      ],
+      "confusion_matrix": [
+        [
+          0,
+          0,
+          30
+        ],
+        [
+          0,
+          0,
+          30
+        ],
+        [
+          0,
+          0,
+          30
+        ]
+      ],
+      "prediction_counts": {
+        "high": 90
+      },
+      "label_order_stability_rate": 0.011111111111111112,
+      "mean_gold_margin_by_band": {
+        "high": 1.2971218532986113,
+        "mid": -1.2787787543402775,
+        "low": -1.5721788194444446
+      },
+      "gate_pass": false
+    },
+    {
+      "model": "Qwen/Qwen3-8B",
+      "model_revision": "b968826d9c46dd6066d109eabc6255188de91218",
+      "n_source_items": 90,
+      "n_counterbalanced_prompts": 540,
+      "balanced_accuracy": 0.3666666666666667,
+      "three_way_high_low_item_accuracy": 0.55,
+      "forced_binary_high_low_accuracy": 0.55,
+      "confusion_matrix_labels": [
+        "low",
+        "mid",
+        "high"
+      ],
+      "confusion_matrix": [
+        [
+          24,
+          0,
+          6
+        ],
+        [
+          23,
+          0,
+          7
+        ],
+        [
+          21,
+          0,
+          9
+        ]
+      ],
+      "prediction_counts": {
+        "low": 68,
+        "high": 22
+      },
+      "label_order_stability_rate": 0.5111111111111111,
+      "mean_gold_margin_by_band": {
+        "high": -3.4383199632167813,
+        "mid": -6.460281083981197,
+        "low": 4.785010766983032
+      },
+      "gate_pass": false
+    }
+  ],
+  "panel_gate_pass": false
+}

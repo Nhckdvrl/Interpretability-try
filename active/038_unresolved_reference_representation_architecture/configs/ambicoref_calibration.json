@@ -1,0 +1,16 @@
+{
+  "seed": 20260904,
+  "family_split": {
+    "discovery": ["ECO-1", "ECO-2", "ECS-1", "ECS-2"],
+    "validation": ["IC"],
+    "causal_test": ["TOP"]
+  },
+  "resolved_min_votes": 2,
+  "resolved_min_agreement": 0.6666666667,
+  "models": [
+    "NousResearch/Meta-Llama-3.1-8B-Instruct",
+    "Qwen/Qwen3-32B"
+  ],
+  "prespecified_readouts": ["pronoun", "final_decision"],
+  "layer_rule": "trajectory first; discovery families only for any dimensionality or layer choice"
+}

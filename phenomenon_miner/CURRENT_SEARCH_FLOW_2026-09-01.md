@@ -1,5 +1,21 @@
 # Current Topic-Search Flow — 2026-09-01
 
+> **Execution override — 2026-09-04:** 034, 035 and 040 are archived. 035 closed on its
+> corrected cross-model recipient validation; 040 on failed cross-surface representation and
+> causal-use gates; 034 on a null cue-token transplant at all frozen depths in both families,
+> a sign-inconsistent focality gate, a refuted upgrade hypothesis, and a surviving effect
+> (instruction position primacy) that prior work already owns. 038 passed its mechanism-derived
+> late-selection test across both families and is the one registered topic still advancing.
+>
+> Later the same day 041 completed its full frozen chain — the same-world role swap passes in 5/5
+> panel families, the modifier-token restriction state decodes at AUC 0.997-1.000 and transfers
+> across an orthogonal uniqueness manipulation in 4/4, and the causal-specificity contract passes in
+> 4/4 with held-out property families, a held-out surface form, shuffled-label and random controls
+> and property truth preserved. 045 is archived: its referential effect turned out to be carried by
+> frame wording rather than by the use mode.
+>
+> Register now stands at **2 advancing (038, 041) / 2 pending re-audit (042, 044)**.
+
 Base protocol: `FINDING_RULES.md` v2.1  
 Post-base overlay: `STRICT_EXTENSION_GATE_2026-09-01.md`
 
@@ -10,11 +26,15 @@ BASE_PASS_REGISTER: 5
 STRICT_EXTENSION_PASS: 3
 TOTAL_REGISTERED: 8
 
-REGISTERED:
+ARCHIVED_2026-09-04:
   - 034_prospective_memory_retrieval_architecture
   - 035_shared_dynamic_context_update
-  - 038_unresolved_reference_representation_architecture
   - 040_numerical_identity_vs_qualitative_sameness
+  - 045_referential_vs_attributive_description_use
+
+REGISTERED:
+  - 038_unresolved_reference_representation_architecture
+  - 041_contextual_set_restriction   # S0 5/5, S1 4/4, causal 4/4 as of 2026-09-04
   - 041_contextual_set_restriction
   - 042_uniqueness_vs_familiarity_definite_licensing
   - 044_stage_vs_individual_predication
@@ -25,7 +45,7 @@ HARD_AUDIT_NOT_REGISTERED:
   - 043_kind_vs_member_generic_predication
 ```
 
-034/035/038/040 remain frozen. 041 survived strict re-audit. 042/044/045 passed the raised post-base gate. 043 was downgraded after second audit.
+034/035/040 are archived; 038 remains frozen and advancing. 041 survived strict re-audit. 042/044/045 passed the raised post-base gate. 043 was downgraded after second audit.
 
 ---
 

@@ -1,0 +1,18 @@
+Loading weights:   0%|          | 0/146 [00:00<?, ?it/s]Loading weights: 100%|██████████| 146/146 [00:00<00:00, 10608.74it/s]
+{
+  "contract_id": "025-d0-v1-world-indexed-capability",
+  "cuda_visible_devices": "2",
+  "family": "llama",
+  "label_token_ids": {
+    "FALSE": [
+      7989
+    ],
+    "TRUE": [
+      8378
+    ]
+  },
+  "model_id": "unsloth/Llama-3.2-1B-Instruct",
+  "n_records": 256,
+  "revision": "5a8abab4a5d6f164389b1079fb721cfab8d7126c",
+  "torch_version": "2.11.0+cu130"
+}

@@ -1,0 +1,15 @@
+The tokenizer you are loading from 'mistralai/Mistral-Small-24B-Instruct-2501' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+Loading checkpoint shards:   0%|          | 0/10 [00:00<?, ?it/s]Loading checkpoint shards:  10%|█         | 1/10 [00:00<00:06,  1.30it/s]Loading checkpoint shards:  20%|██        | 2/10 [00:01<00:05,  1.34it/s]Loading checkpoint shards:  30%|███       | 3/10 [00:02<00:05,  1.38it/s]Loading checkpoint shards:  40%|████      | 4/10 [00:02<00:04,  1.38it/s]Loading checkpoint shards:  50%|█████     | 5/10 [00:03<00:03,  1.40it/s]Loading checkpoint shards:  60%|██████    | 6/10 [00:04<00:02,  1.41it/s]Loading checkpoint shards:  70%|███████   | 7/10 [00:05<00:02,  1.39it/s]Loading checkpoint shards:  80%|████████  | 8/10 [00:05<00:01,  1.41it/s]Loading checkpoint shards:  90%|█████████ | 9/10 [00:44<00:12, 12.58s/it]Loading checkpoint shards: 100%|██████████| 10/10 [01:26<00:00, 21.59s/it]Loading checkpoint shards: 100%|██████████| 10/10 [01:26<00:00,  8.62s/it]
+{"scored": 16, "total": 9216}
+{"scored": 816, "total": 9216}
+{"scored": 1616, "total": 9216}
+{"scored": 2416, "total": 9216}
+{"scored": 3216, "total": 9216}
+{"scored": 4016, "total": 9216}
+{"scored": 4816, "total": 9216}
+{"scored": 5616, "total": 9216}
+{"scored": 6416, "total": 9216}
+{"scored": 7216, "total": 9216}
+{"scored": 8016, "total": 9216}
+{"scored": 8816, "total": 9216}
+{"output": "active/041_contextual_set_restriction/results/raw/s0_restriction_swap_mistral_small_24b.jsonl", "rows": 9216}

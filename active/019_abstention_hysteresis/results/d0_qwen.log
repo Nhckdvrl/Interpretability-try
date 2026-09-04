@@ -1,0 +1,20 @@
+Loading weights:   0%|          | 0/399 [00:00<?, ?it/s]Loading weights:   0%|          | 1/399 [00:00<01:13,  5.39it/s]Loading weights:   1%|          | 2/399 [00:00<01:24,  4.70it/s]Loading weights:   4%|▍         | 15/399 [00:00<00:09, 39.98it/s]Loading weights:   7%|▋         | 27/399 [00:00<00:06, 58.66it/s]Loading weights:  10%|▉         | 38/399 [00:00<00:05, 71.30it/s]Loading weights:  12%|█▏        | 49/399 [00:00<00:04, 79.39it/s]Loading weights:  15%|█▌        | 60/399 [00:00<00:04, 83.85it/s]Loading weights:  18%|█▊        | 71/399 [00:01<00:03, 86.89it/s]Loading weights:  20%|██        | 81/399 [00:01<00:03, 85.78it/s]Loading weights:  23%|██▎       | 93/399 [00:01<00:03, 89.85it/s]Loading weights:  26%|██▌       | 104/399 [00:01<00:03, 90.28it/s]Loading weights:  29%|██▉       | 115/399 [00:01<00:03, 91.12it/s]Loading weights:  32%|███▏      | 126/399 [00:01<00:02, 92.41it/s]Loading weights:  34%|███▍      | 137/399 [00:01<00:02, 93.88it/s]Loading weights:  37%|███▋      | 148/399 [00:01<00:02, 93.10it/s]Loading weights:  40%|███▉      | 159/399 [00:02<00:02, 92.83it/s]Loading weights:  43%|████▎     | 170/399 [00:02<00:02, 93.79it/s]Loading weights:  45%|████▌     | 181/399 [00:02<00:02, 93.28it/s]Loading weights:  48%|████▊     | 192/399 [00:02<00:02, 95.47it/s]Loading weights:  51%|█████     | 203/399 [00:02<00:02, 94.65it/s]Loading weights:  54%|█████▎    | 214/399 [00:02<00:01, 93.94it/s]Loading weights:  56%|█████▋    | 225/399 [00:02<00:01, 95.74it/s]Loading weights:  59%|█████▉    | 235/399 [00:02<00:01, 93.83it/s]Loading weights:  62%|██████▏   | 247/399 [00:02<00:01, 100.04it/s]Loading weights:  65%|██████▍   | 258/399 [00:03<00:01, 97.88it/s] Loading weights:  67%|██████▋   | 269/399 [00:03<00:01, 96.54it/s]Loading weights:  70%|███████   | 280/399 [00:03<00:01, 96.43it/s]Loading weights:  73%|███████▎  | 291/399 [00:03<00:01, 95.57it/s]Loading weights:  77%|███████▋  | 307/399 [00:03<00:00, 111.70it/s]Loading weights:  80%|████████  | 320/399 [00:03<00:00, 115.77it/s]Loading weights:  83%|████████▎ | 332/399 [00:03<00:00, 111.71it/s]Loading weights:  86%|████████▌ | 344/399 [00:03<00:00, 100.36it/s]Loading weights:  89%|████████▉ | 356/399 [00:04<00:00, 96.64it/s] Loading weights:  92%|█████████▏| 368/399 [00:04<00:00, 98.60it/s]Loading weights:  95%|█████████▍| 379/399 [00:04<00:00, 98.34it/s]Loading weights:  98%|█████████▊| 390/399 [00:04<00:00, 97.80it/s]Loading weights: 100%|██████████| 399/399 [00:04<00:00, 90.13it/s]
+{"family": "qwen", "phase": "gate", "bank": 300, "gated": 91}
+{
+  "contract_id": "019-d0-v1",
+  "family": "qwen",
+  "model": "/home/xiang/.cache/huggingface/hub/models--Qwen--Qwen3-8B/snapshots/b968826d9c46dd6066d109eabc6255188de91218",
+  "model_revision": "b968826d9c46dd6066d109eabc6255188de91218",
+  "bank_sha256": "c385061a7757a2e57f6be69a1e82723c64b66c5401878068dc67494a8cdb0a12",
+  "bank_items": 300,
+  "gated_items": 91,
+  "records": 1355,
+  "batch_size": 4,
+  "score_batch_size": 4,
+  "max_new_tokens": 32,
+  "dtype": "torch.bfloat16",
+  "elapsed_seconds": 1059.9457194805145,
+  "python": "3.12.13",
+  "torch": "2.11.0+cu130",
+  "transformers": "5.12.1"
+}

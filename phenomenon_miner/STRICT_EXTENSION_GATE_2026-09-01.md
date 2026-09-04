@@ -13,6 +13,50 @@ Therefore the extension search uses a stronger prior:
 
 > **If prior computational work already owns the behavioral scientific object, mechanistic depth alone does not create novelty. The new paper must introduce an orthogonal scientific factorization/object and identify its causal use.**
 
+## E0 — Obviousness constraint (added 2026-09-04, applies to every topic)
+
+A core claim may not be the paper's main novelty if a researcher in the field could predict its
+direction with high confidence **before the experiment runs**, and the result's explanation is only
+that the task got easier, the information got richer, or the instruction got more explicit.
+
+Self-check, applied to the headline before any GPU time is spent:
+
+> If I tell someone the result, is their first reaction *"well, obviously"*?
+
+If probably yes, that result is a baseline, a mitigation, a sanity check or a supporting
+experiment — never the contribution. Keep asking what the genuinely non-obvious variable,
+mechanism, boundary or anomaly is.
+
+Recurring shapes that fail E0 on their own:
+
+- more information -> better performance;
+- more explicit instruction -> better compliance;
+- more specific target description -> better targeting;
+- repeating or re-issuing an instruction -> better adherence;
+- oracle decomposition -> easier reasoning;
+- handing over an intermediate answer or the relevant evidence -> a better final answer;
+- removing a distractor or an ambiguity -> fewer errors.
+
+A claim clears E0 if it does at least one of the following:
+
+1. its direction is not predictable in advance;
+2. it exposes a previously unknown structural regularity;
+3. it decouples two variables that prior work necessarily conflated;
+4. it finds a real counterintuitive trade-off or failure mode;
+5. a causal intervention establishes a non-trivial mechanism;
+6. the method still beats the obvious baseline **at matched information**.
+
+E0 sits alongside the two standing prohibitions: do not add defensive experiments for an imagined
+reviewer, and do not carry a Main-track submission on volume of work.
+
+### Worked example — 041
+
+`041`'s S0 result (omitting the modifier that actually distinguishes the target costs more than
+omitting the redundant one) fails E0 outright and is recorded as a capability denominator, not a
+finding. What clears E0 is the scaling dissociation — the role is decodable at AUC 0.984 in a 0.6B
+model that answers the reference question at chance — together with the uniqueness decoupling and
+the selective, bidirectional causal intervention.
+
 ## E1 — Exact-object novelty remains mandatory
 
 N0/N1/N2 from `FINDING_RULES.md` remain hard. In particular:

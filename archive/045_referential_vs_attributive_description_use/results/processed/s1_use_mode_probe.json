@@ -1,0 +1,217 @@
+{
+  "contract": "a use-mode state at the description token that survives held-out frame wordings",
+  "models": [
+    {
+      "model": "Qwen/Qwen3-8B",
+      "n_states": 432,
+      "probes": {
+        "0": {
+          "residual_layer": 0,
+          "item_held_out_auc": 0.5,
+          "paraphrase_held_out_auc": 0.5
+        },
+        "0.125": {
+          "residual_layer": 4,
+          "item_held_out_auc": 0.8653120713305898,
+          "paraphrase_held_out_auc": 0.7701260288065843
+        },
+        "0.25": {
+          "residual_layer": 9,
+          "item_held_out_auc": 0.9332776063100137,
+          "paraphrase_held_out_auc": 0.9268904320987654
+        },
+        "0.375": {
+          "residual_layer": 14,
+          "item_held_out_auc": 1.0,
+          "paraphrase_held_out_auc": 1.0
+        },
+        "0.5": {
+          "residual_layer": 18,
+          "item_held_out_auc": 0.999528463648834,
+          "paraphrase_held_out_auc": 0.9998285322359396
+        },
+        "0.625": {
+          "residual_layer": 22,
+          "item_held_out_auc": 1.0,
+          "paraphrase_held_out_auc": 1.0
+        },
+        "0.75": {
+          "residual_layer": 27,
+          "item_held_out_auc": 1.0,
+          "paraphrase_held_out_auc": 1.0
+        },
+        "0.875": {
+          "residual_layer": 32,
+          "item_held_out_auc": 1.0,
+          "paraphrase_held_out_auc": 1.0
+        },
+        "1": {
+          "residual_layer": 36,
+          "item_held_out_auc": 1.0,
+          "paraphrase_held_out_auc": 1.0
+        }
+      },
+      "best_paraphrase_held_out_auc": 1.0,
+      "best_item_held_out_auc": 1.0
+    },
+    {
+      "model": "microsoft/Phi-4-mini-instruct",
+      "n_states": 432,
+      "probes": {
+        "0": {
+          "residual_layer": 0,
+          "item_held_out_auc": 0.5,
+          "paraphrase_held_out_auc": 0.5
+        },
+        "0.125": {
+          "residual_layer": 4,
+          "item_held_out_auc": 0.7322530864197531,
+          "paraphrase_held_out_auc": 0.7224794238683128
+        },
+        "0.25": {
+          "residual_layer": 8,
+          "item_held_out_auc": 1.0,
+          "paraphrase_held_out_auc": 1.0
+        },
+        "0.375": {
+          "residual_layer": 12,
+          "item_held_out_auc": 1.0,
+          "paraphrase_held_out_auc": 1.0
+        },
+        "0.5": {
+          "residual_layer": 16,
+          "item_held_out_auc": 1.0,
+          "paraphrase_held_out_auc": 1.0
+        },
+        "0.625": {
+          "residual_layer": 20,
+          "item_held_out_auc": 1.0,
+          "paraphrase_held_out_auc": 1.0
+        },
+        "0.75": {
+          "residual_layer": 24,
+          "item_held_out_auc": 1.0,
+          "paraphrase_held_out_auc": 1.0
+        },
+        "0.875": {
+          "residual_layer": 28,
+          "item_held_out_auc": 1.0,
+          "paraphrase_held_out_auc": 1.0
+        },
+        "1": {
+          "residual_layer": 32,
+          "item_held_out_auc": 1.0,
+          "paraphrase_held_out_auc": 1.0
+        }
+      },
+      "best_paraphrase_held_out_auc": 1.0,
+      "best_item_held_out_auc": 1.0
+    },
+    {
+      "model": "google/gemma-3-12b-it",
+      "n_states": 432,
+      "probes": {
+        "0": {
+          "residual_layer": 0,
+          "item_held_out_auc": 0.5,
+          "paraphrase_held_out_auc": 0.5
+        },
+        "0.125": {
+          "residual_layer": 6,
+          "item_held_out_auc": 0.8482510288065843,
+          "paraphrase_held_out_auc": 0.7980752743484225
+        },
+        "0.25": {
+          "residual_layer": 12,
+          "item_held_out_auc": 1.0,
+          "paraphrase_held_out_auc": 1.0
+        },
+        "0.375": {
+          "residual_layer": 18,
+          "item_held_out_auc": 1.0,
+          "paraphrase_held_out_auc": 1.0
+        },
+        "0.5": {
+          "residual_layer": 24,
+          "item_held_out_auc": 0.006944444444444444,
+          "paraphrase_held_out_auc": 0.0
+        },
+        "0.625": {
+          "residual_layer": 30,
+          "item_held_out_auc": 1.0,
+          "paraphrase_held_out_auc": 1.0
+        },
+        "0.75": {
+          "residual_layer": 36,
+          "item_held_out_auc": 1.0,
+          "paraphrase_held_out_auc": 1.0
+        },
+        "0.875": {
+          "residual_layer": 42,
+          "item_held_out_auc": 0.0,
+          "paraphrase_held_out_auc": 0.0
+        },
+        "1": {
+          "residual_layer": 48,
+          "item_held_out_auc": 1.0,
+          "paraphrase_held_out_auc": 1.0
+        }
+      },
+      "best_paraphrase_held_out_auc": 1.0,
+      "best_item_held_out_auc": 1.0
+    },
+    {
+      "model": "NousResearch/Meta-Llama-3.1-8B-Instruct",
+      "n_states": 432,
+      "probes": {
+        "0": {
+          "residual_layer": 0,
+          "item_held_out_auc": 0.5,
+          "paraphrase_held_out_auc": 0.5
+        },
+        "0.125": {
+          "residual_layer": 4,
+          "item_held_out_auc": 0.7966177983539094,
+          "paraphrase_held_out_auc": 0.7499571330589849
+        },
+        "0.25": {
+          "residual_layer": 8,
+          "item_held_out_auc": 1.0,
+          "paraphrase_held_out_auc": 1.0
+        },
+        "0.375": {
+          "residual_layer": 12,
+          "item_held_out_auc": 1.0,
+          "paraphrase_held_out_auc": 1.0
+        },
+        "0.5": {
+          "residual_layer": 16,
+          "item_held_out_auc": 1.0,
+          "paraphrase_held_out_auc": 1.0
+        },
+        "0.625": {
+          "residual_layer": 20,
+          "item_held_out_auc": 1.0,
+          "paraphrase_held_out_auc": 1.0
+        },
+        "0.75": {
+          "residual_layer": 24,
+          "item_held_out_auc": 1.0,
+          "paraphrase_held_out_auc": 1.0
+        },
+        "0.875": {
+          "residual_layer": 28,
+          "item_held_out_auc": 1.0,
+          "paraphrase_held_out_auc": 1.0
+        },
+        "1": {
+          "residual_layer": 32,
+          "item_held_out_auc": 1.0,
+          "paraphrase_held_out_auc": 1.0
+        }
+      },
+      "best_paraphrase_held_out_auc": 1.0,
+      "best_item_held_out_auc": 1.0
+    }
+  ]
+}

@@ -1,0 +1,453 @@
+{
+  "contract": "does the modifier-token role state scale with how much the modifier narrows the set",
+  "models": [
+    {
+      "model": "Qwen/Qwen3-8B",
+      "depth_fraction": 0.5,
+      "held_out_families": [
+        "material_color",
+        "pattern_length",
+        "color_curvature"
+      ],
+      "behaviour_by_degree": {
+        "0": {
+          "n_worlds": 96,
+          "omission_cost_graded_modifier": {
+            "estimate": 1.42578125,
+            "ci95": [
+              1.326171875,
+              1.521484375
+            ]
+          },
+          "omission_cost_other_modifier": {
+            "estimate": 1.1041666666666667,
+            "ci95": [
+              0.9466145833333334,
+              1.2675944010416664
+            ]
+          },
+          "accuracy_full": 1.0
+        },
+        "1": {
+          "n_worlds": 96,
+          "omission_cost_graded_modifier": {
+            "estimate": 34.206380179580556,
+            "ci95": [
+              32.909472633234685,
+              35.45639645963591
+            ]
+          },
+          "omission_cost_other_modifier": {
+            "estimate": -3.5221354269523792,
+            "ci95": [
+              -4.30470378999575,
+              -2.8177083393601325
+            ]
+          },
+          "accuracy_full": 0.9921875
+        },
+        "2": {
+          "n_worlds": 96,
+          "omission_cost_graded_modifier": {
+            "estimate": 37.38216142814085,
+            "ci95": [
+              36.455696575540195,
+              38.29303383277552
+            ]
+          },
+          "omission_cost_other_modifier": {
+            "estimate": 0.13802083270521148,
+            "ci95": [
+              -0.06380208335679743,
+              0.35027669502277636
+            ]
+          },
+          "accuracy_full": 1.0
+        },
+        "3": {
+          "n_worlds": 96,
+          "omission_cost_graded_modifier": {
+            "estimate": 32.755859354810276,
+            "ci95": [
+              32.15428058767792,
+              33.3626464549338
+            ]
+          },
+          "omission_cost_other_modifier": {
+            "estimate": 0.447265625,
+            "ci95": [
+              0.326171875,
+              0.5625
+            ]
+          },
+          "accuracy_full": 1.0
+        },
+        "per_unit_cost_over_degrees_1_to_3": {
+          "estimate": 21.272026892862577,
+          "ci95": [
+            20.088028046823368,
+            22.466738984487396
+          ]
+        }
+      },
+      "projection_by_degree": {
+        "0": {
+          "graded_modifier": 3.0704128394524255,
+          "other_modifier": 21.71500054995219,
+          "n": 48
+        },
+        "1": {
+          "graded_modifier": 17.464989840984344,
+          "other_modifier": 13.300134499867758,
+          "n": 48
+        },
+        "2": {
+          "graded_modifier": 28.294453183809917,
+          "other_modifier": -4.111887291073799,
+          "n": 48
+        },
+        "3": {
+          "graded_modifier": 33.42980273564657,
+          "other_modifier": -23.45460061232249,
+          "n": 48
+        }
+      }
+    },
+    {
+      "model": "NousResearch/Meta-Llama-3.1-8B-Instruct",
+      "depth_fraction": 0.5,
+      "held_out_families": [
+        "material_color",
+        "pattern_length",
+        "color_curvature"
+      ],
+      "behaviour_by_degree": {
+        "0": {
+          "n_worlds": 96,
+          "omission_cost_graded_modifier": {
+            "estimate": 0.797851562257847,
+            "ci95": [
+              0.6569010419394774,
+              0.9349039751068122
+            ]
+          },
+          "omission_cost_other_modifier": {
+            "estimate": 0.948893209741764,
+            "ci95": [
+              0.8024088355119884,
+              1.0914713254927904
+            ]
+          },
+          "accuracy_full": 1.0
+        },
+        "1": {
+          "n_worlds": 96,
+          "omission_cost_graded_modifier": {
+            "estimate": 6.3522135244473175,
+            "ci95": [
+              6.170556622874444,
+              6.525081364567051
+            ]
+          },
+          "omission_cost_other_modifier": {
+            "estimate": -0.34212239657612525,
+            "ci95": [
+              -0.45021160033707874,
+              -0.2386067854736088
+            ]
+          },
+          "accuracy_full": 1.0
+        },
+        "2": {
+          "n_worlds": 96,
+          "omission_cost_graded_modifier": {
+            "estimate": 6.57486979659465,
+            "ci95": [
+              6.3769449876518705,
+              6.780607108276545
+            ]
+          },
+          "omission_cost_other_modifier": {
+            "estimate": -0.26464843450685294,
+            "ci95": [
+              -0.34082030097054694,
+              -0.18846842193308183
+            ]
+          },
+          "accuracy_full": 1.0
+        },
+        "3": {
+          "n_worlds": 96,
+          "omission_cost_graded_modifier": {
+            "estimate": 5.807617178321948,
+            "ci95": [
+              5.613273109063206,
+              6.003255199655592
+            ]
+          },
+          "omission_cost_other_modifier": {
+            "estimate": -0.13085935960816641,
+            "ci95": [
+              -0.20117184106183383,
+              -0.055338536850371156
+            ]
+          },
+          "accuracy_full": 1.0
+        },
+        "per_unit_cost_over_degrees_1_to_3": {
+          "estimate": 3.858506938506208,
+          "ci95": [
+            3.6388662806898853,
+            4.088863112604305
+          ]
+        }
+      },
+      "projection_by_degree": {
+        "0": {
+          "graded_modifier": 2.3421852433433137,
+          "other_modifier": 16.77023806174596,
+          "n": 48
+        },
+        "1": {
+          "graded_modifier": 22.313904881477356,
+          "other_modifier": 2.719931215668718,
+          "n": 48
+        },
+        "2": {
+          "graded_modifier": 24.7680508295695,
+          "other_modifier": -6.837365131514768,
+          "n": 48
+        },
+        "3": {
+          "graded_modifier": 25.966002702713013,
+          "other_modifier": -27.587507327397663,
+          "n": 48
+        }
+      }
+    },
+    {
+      "model": "microsoft/Phi-4-mini-instruct",
+      "depth_fraction": 0.5,
+      "held_out_families": [
+        "material_color",
+        "pattern_length",
+        "color_curvature"
+      ],
+      "behaviour_by_degree": {
+        "0": {
+          "n_worlds": 96,
+          "omission_cost_graded_modifier": {
+            "estimate": 1.2734375359785493,
+            "ci95": [
+              1.1269531635973322,
+              1.4251302585462857
+            ]
+          },
+          "omission_cost_other_modifier": {
+            "estimate": 1.9785156500808323,
+            "ci95": [
+              1.7591146141812317,
+              2.2090006555828143
+            ]
+          },
+          "accuracy_full": 1.0
+        },
+        "1": {
+          "n_worlds": 96,
+          "omission_cost_graded_modifier": {
+            "estimate": 10.956380209865225,
+            "ci95": [
+              10.498681629945914,
+              11.414746100865665
+            ]
+          },
+          "omission_cost_other_modifier": {
+            "estimate": -0.5820312424264861,
+            "ci95": [
+              -0.7122395982424157,
+              -0.4537760398777228
+            ]
+          },
+          "accuracy_full": 1.0
+        },
+        "2": {
+          "n_worlds": 96,
+          "omission_cost_graded_modifier": {
+            "estimate": 14.077473947920074,
+            "ci95": [
+              13.661458323743567,
+              14.50587565190384
+            ]
+          },
+          "omission_cost_other_modifier": {
+            "estimate": 0.5781250167572883,
+            "ci95": [
+              0.4687500119592855,
+              0.6848958533715225
+            ]
+          },
+          "accuracy_full": 1.0
+        },
+        "3": {
+          "n_worlds": 96,
+          "omission_cost_graded_modifier": {
+            "estimate": 10.679036427559708,
+            "ci95": [
+              10.403629530685842,
+              10.953141257182498
+            ]
+          },
+          "omission_cost_other_modifier": {
+            "estimate": 0.19531245219174784,
+            "ci95": [
+              0.12174475024177459,
+              0.26822913378225005
+            ]
+          },
+          "accuracy_full": 1.0
+        },
+        "per_unit_cost_over_degrees_1_to_3": {
+          "estimate": 7.184931997670611,
+          "ci95": [
+            6.80178854518963,
+            7.579831270106636
+          ]
+        }
+      },
+      "projection_by_degree": {
+        "0": {
+          "graded_modifier": 6.008932178219159,
+          "other_modifier": 11.852478265762329,
+          "n": 48
+        },
+        "1": {
+          "graded_modifier": 17.159478664398193,
+          "other_modifier": 3.8418329507112503,
+          "n": 48
+        },
+        "2": {
+          "graded_modifier": 22.932533502578735,
+          "other_modifier": -8.163874631126722,
+          "n": 48
+        },
+        "3": {
+          "graded_modifier": 25.68565607070923,
+          "other_modifier": -24.58372712135315,
+          "n": 48
+        }
+      }
+    },
+    {
+      "model": "google/gemma-3-12b-it",
+      "depth_fraction": 0.5,
+      "held_out_families": [
+        "material_color",
+        "pattern_length",
+        "color_curvature"
+      ],
+      "behaviour_by_degree": {
+        "0": {
+          "n_worlds": 96,
+          "omission_cost_graded_modifier": {
+            "estimate": -0.19856769695751333,
+            "ci95": [
+              -0.25585937559212707,
+              -0.13997396074172577
+            ]
+          },
+          "omission_cost_other_modifier": {
+            "estimate": 0.047526024144488144,
+            "ci95": [
+              -0.02962238448726706,
+              0.13184405750766373
+            ]
+          },
+          "accuracy_full": 1.0
+        },
+        "1": {
+          "n_worlds": 96,
+          "omission_cost_graded_modifier": {
+            "estimate": 12.951171796830176,
+            "ci95": [
+              12.424137281613982,
+              13.45445953847051
+            ]
+          },
+          "omission_cost_other_modifier": {
+            "estimate": -0.7571614836599961,
+            "ci95": [
+              -0.8577555542935913,
+              -0.6585123933240598
+            ]
+          },
+          "accuracy_full": 1.0
+        },
+        "2": {
+          "n_worlds": 96,
+          "omission_cost_graded_modifier": {
+            "estimate": 15.232747362529556,
+            "ci95": [
+              14.714160098404898,
+              15.756184843429256
+            ]
+          },
+          "omission_cost_other_modifier": {
+            "estimate": -0.4049479088543446,
+            "ci95": [
+              -0.46452641420687374,
+              -0.34439288105792715
+            ]
+          },
+          "accuracy_full": 1.0
+        },
+        "3": {
+          "n_worlds": 96,
+          "omission_cost_graded_modifier": {
+            "estimate": 17.99121084201941,
+            "ci95": [
+              17.645450781716242,
+              18.31933582842023
+            ]
+          },
+          "omission_cost_other_modifier": {
+            "estimate": -0.36914063811464465,
+            "ci95": [
+              -0.4192708044196039,
+              -0.31966146381558064
+            ]
+          },
+          "accuracy_full": 1.0
+        },
+        "per_unit_cost_over_degrees_1_to_3": {
+          "estimate": 8.854871919589364,
+          "ci95": [
+            8.464735211316473,
+            9.24355057504595
+          ]
+        }
+      },
+      "projection_by_degree": {
+        "0": {
+          "graded_modifier": 10.098587195078531,
+          "other_modifier": 22.714174032211304,
+          "n": 48
+        },
+        "1": {
+          "graded_modifier": 23.694700519243877,
+          "other_modifier": 4.01998360765477,
+          "n": 48
+        },
+        "2": {
+          "graded_modifier": 31.243284543355305,
+          "other_modifier": -5.552485066155593,
+          "n": 48
+        },
+        "3": {
+          "graded_modifier": 33.02002747853597,
+          "other_modifier": -28.40282674630483,
+          "n": 48
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights: 100%|██████████| 311/311 [00:00<00:00, 5688.52it/s]
+{
+  "contract_id": "025-d0-v1-world-indexed-capability",
+  "cuda_visible_devices": "0",
+  "family": "qwen",
+  "label_token_ids": {
+    "FALSE": [
+      7833
+    ],
+    "TRUE": [
+      8214
+    ]
+  },
+  "model_id": "Qwen/Qwen3-1.7B",
+  "n_records": 256,
+  "revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+  "torch_version": "2.11.0+cu130"
+}

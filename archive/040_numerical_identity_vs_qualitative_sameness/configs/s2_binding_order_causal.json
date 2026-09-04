@@ -1,0 +1,20 @@
+{
+  "experiment_version": "s2_v1",
+  "seed": 20260904,
+  "model": "Qwen/Qwen3-8B",
+  "model_revision": "b968826d9c46dd6066d109eabc6255188de91218",
+  "dtype": "bfloat16",
+  "candidate_answers": ["A", "B"],
+  "block_index": 17,
+  "residual_layer": 18,
+  "patch_strength": 1.0,
+  "batch_size": 16,
+  "test_fraction": 0.2,
+  "bootstrap_samples": 5000,
+  "gate": {
+    "history_real_ci_low_above_zero": true,
+    "history_real_minus_shuffled_ci_low_above_zero": true,
+    "min_clean_type_accuracy": 0.9,
+    "max_type_accuracy_drop": 0.05
+  }
+}

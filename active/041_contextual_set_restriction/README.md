@@ -1,6 +1,38 @@
 # 041 — Which Modifier Is Actually Doing the Identifying? Contextual Set Restriction in LLMs
 
-Status: **PASS-REGISTER / GPU AUTHORIZED**  
+Status: **KEEP / FULL CHAIN PASSED / DEEPENING**
+
+Execution update (2026-09-04). Under `E0`, the obviousness constraint, the S0 result — omitting the
+modifier that actually distinguishes the target costs more than omitting the redundant one — is a
+capability denominator, not the contribution: its direction is predictable in advance and its
+explanation is only that the description became less informative.
+
+What carries the topic is the set of claims whose direction was not predictable:
+
+- **Separable from ambiguity.** With restriction and description-uniqueness deliberately decorrelated,
+  the role direction transfers across the uniqueness manipulation (0.867-0.929) in 4/4 families while
+  a uniqueness direction classifies restriction at 0.363-0.451, i.e. at or below chance.
+- **Graded, not binary.** When the same modifier removes 1, 2 or 3 candidates, the projection onto the
+  role direction rises monotonically (+16% to +91% from k=1 to k=3) while the behavioural cost is flat
+  or slightly negative in 3/4 families. The non-restricting modifier's projection falls through zero
+  as the other's degree rises in 4/4, so the two are coded relative to each other.
+- **Causally selective.** The frozen causal contract passes in 4/4 with held-out property families, a
+  held-out surface form, shuffled-label and random controls, and property truth preserved.
+
+Across Qwen3 1.7B to 32B the effect holds with the same sign at every size and the probe is at
+ceiling throughout, so the scaling series is a robustness check rather than a claim. A 0.6B point
+was run and discarded: sub-billion scale is not what this work is read against, and the
+"representation present, behaviour absent" reading it would have supported does not survive its own
+numbers, since 0.6B's behaviour is reliably non-zero on continuous metrics (+0.44 [+0.40, +0.47]).
+A within-model task-load experiment (S8) was run to look for a representation/use gap at 8B-12B and
+returned a negative result — on the candidate-load axis the probe degrades more than behaviour in all
+four families — so that claim is dropped from the topic. It costs nothing: the graded result above is
+already a representation/use gap of a cleaner kind, at normal scale, with full accuracy at 1.000.
+
+The Leffel natural-language window replicates in 3/5 on an adequacy readout; a direct metalinguistic
+"is this word needed" question fails everywhere to an over-informativeness bias. See
+`EXPERIMENT_LOG.md`.
+
 Date: 2026-09-01  
 Route: **C — simple natural object first**
 

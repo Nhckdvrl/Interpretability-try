@@ -1,0 +1,301 @@
+{
+  "contract": "delayed two-live-intention focality x expectancy validation without exact cue repetition",
+  "models": [
+    {
+      "model": "NousResearch/Meta-Llama-3.1-8B-Instruct",
+      "model_revision": "d10aef7999a2b5ba950ab3974312feeedbfe0b77",
+      "n_semantic_cells": 192,
+      "cells": {
+        "none/focal/expected": {
+          "n": 16,
+          "accuracy": 0.75,
+          "mean_target_action_margin": -1.7558250427246094,
+          "prediction_counts": {
+            "NO": 12,
+            "TARGET_ACTION": 3,
+            "YES": 1
+          }
+        },
+        "none/focal/unexpected": {
+          "n": 16,
+          "accuracy": 0.8125,
+          "mean_target_action_margin": -2.065937042236328,
+          "prediction_counts": {
+            "NO": 13,
+            "TARGET_ACTION": 2,
+            "YES": 1
+          }
+        },
+        "none/nonfocal/expected": {
+          "n": 16,
+          "accuracy": 1.0,
+          "mean_target_action_margin": -1.26123046875,
+          "prediction_counts": {
+            "YES": 16
+          }
+        },
+        "none/nonfocal/unexpected": {
+          "n": 16,
+          "accuracy": 1.0,
+          "mean_target_action_margin": -2.02752685546875,
+          "prediction_counts": {
+            "YES": 16
+          }
+        },
+        "target/focal/expected": {
+          "n": 16,
+          "accuracy": 1.0,
+          "mean_target_action_margin": 3.0497078895568848,
+          "prediction_counts": {
+            "TARGET_ACTION": 16
+          }
+        },
+        "target/focal/unexpected": {
+          "n": 16,
+          "accuracy": 1.0,
+          "mean_target_action_margin": 2.8924503326416016,
+          "prediction_counts": {
+            "TARGET_ACTION": 16
+          }
+        },
+        "target/nonfocal/expected": {
+          "n": 16,
+          "accuracy": 1.0,
+          "mean_target_action_margin": 3.529006004333496,
+          "prediction_counts": {
+            "TARGET_ACTION": 16
+          }
+        },
+        "target/nonfocal/unexpected": {
+          "n": 16,
+          "accuracy": 1.0,
+          "mean_target_action_margin": 3.448000907897949,
+          "prediction_counts": {
+            "TARGET_ACTION": 16
+          }
+        },
+        "other/focal/expected": {
+          "n": 16,
+          "accuracy": 0.875,
+          "mean_target_action_margin": -0.832275390625,
+          "prediction_counts": {
+            "OTHER_ACTION": 14,
+            "TARGET_ACTION": 1,
+            "NO": 1
+          }
+        },
+        "other/focal/unexpected": {
+          "n": 16,
+          "accuracy": 0.9375,
+          "mean_target_action_margin": -0.8961334228515625,
+          "prediction_counts": {
+            "OTHER_ACTION": 15,
+            "NO": 1
+          }
+        },
+        "other/nonfocal/expected": {
+          "n": 16,
+          "accuracy": 0.5625,
+          "mean_target_action_margin": -0.18160247802734375,
+          "prediction_counts": {
+            "TARGET_ACTION": 6,
+            "OTHER_ACTION": 9,
+            "YES": 1
+          }
+        },
+        "other/nonfocal/unexpected": {
+          "n": 16,
+          "accuracy": 0.5625,
+          "mean_target_action_margin": -0.2671661376953125,
+          "prediction_counts": {
+            "TARGET_ACTION": 6,
+            "OTHER_ACTION": 9,
+            "YES": 1
+          }
+        }
+      },
+      "cross_intention_confusion": 0.1015625,
+      "focal_minus_nonfocal_target_margin": {
+        "expected": {
+          "estimate": -0.47929811477661133,
+          "ci95": [
+            -0.9105071306228638,
+            -0.03163261413574253
+          ]
+        },
+        "unexpected": {
+          "estimate": -0.5555505752563477,
+          "ci95": [
+            -0.9983589887619019,
+            -0.07250983715057434
+          ]
+        }
+      },
+      "expected_minus_unexpected_target_margin": {
+        "focal": {
+          "estimate": 0.1572575569152832,
+          "ci95": [
+            0.10389537811279297,
+            0.20562191009521485
+          ]
+        },
+        "nonfocal": {
+          "estimate": 0.08100509643554688,
+          "ci95": [
+            -0.04391465187072754,
+            0.22046856880187987
+          ]
+        }
+      },
+      "behavior_gate_pass": false
+    },
+    {
+      "model": "Qwen/Qwen3-8B",
+      "model_revision": "b968826d9c46dd6066d109eabc6255188de91218",
+      "n_semantic_cells": 192,
+      "cells": {
+        "none/focal/expected": {
+          "n": 16,
+          "accuracy": 0.9375,
+          "mean_target_action_margin": -12.72236598841846,
+          "prediction_counts": {
+            "NO": 15,
+            "TARGET_ACTION": 1
+          }
+        },
+        "none/focal/unexpected": {
+          "n": 16,
+          "accuracy": 1.0,
+          "mean_target_action_margin": -23.906232070177794,
+          "prediction_counts": {
+            "NO": 16
+          }
+        },
+        "none/nonfocal/expected": {
+          "n": 16,
+          "accuracy": 1.0,
+          "mean_target_action_margin": -9.994966657832265,
+          "prediction_counts": {
+            "YES": 16
+          }
+        },
+        "none/nonfocal/unexpected": {
+          "n": 16,
+          "accuracy": 1.0,
+          "mean_target_action_margin": -21.144158655777574,
+          "prediction_counts": {
+            "YES": 16
+          }
+        },
+        "target/focal/expected": {
+          "n": 16,
+          "accuracy": 1.0,
+          "mean_target_action_margin": 5.8000459261238575,
+          "prediction_counts": {
+            "TARGET_ACTION": 16
+          }
+        },
+        "target/focal/unexpected": {
+          "n": 16,
+          "accuracy": 0.3125,
+          "mean_target_action_margin": -1.4797285981476307,
+          "prediction_counts": {
+            "YES": 10,
+            "TARGET_ACTION": 5,
+            "NO": 1
+          }
+        },
+        "target/nonfocal/expected": {
+          "n": 16,
+          "accuracy": 1.0,
+          "mean_target_action_margin": 10.99983304925263,
+          "prediction_counts": {
+            "TARGET_ACTION": 16
+          }
+        },
+        "target/nonfocal/unexpected": {
+          "n": 16,
+          "accuracy": 0.375,
+          "mean_target_action_margin": -0.9537043329328299,
+          "prediction_counts": {
+            "YES": 10,
+            "TARGET_ACTION": 6
+          }
+        },
+        "other/focal/expected": {
+          "n": 16,
+          "accuracy": 0.875,
+          "mean_target_action_margin": -9.670682180672884,
+          "prediction_counts": {
+            "OTHER_ACTION": 14,
+            "NO": 2
+          }
+        },
+        "other/focal/unexpected": {
+          "n": 16,
+          "accuracy": 0.625,
+          "mean_target_action_margin": -14.393967406824231,
+          "prediction_counts": {
+            "OTHER_ACTION": 10,
+            "NO": 6
+          }
+        },
+        "other/nonfocal/expected": {
+          "n": 16,
+          "accuracy": 0.0625,
+          "mean_target_action_margin": 3.0384892877191305,
+          "prediction_counts": {
+            "TARGET_ACTION": 13,
+            "YES": 2,
+            "OTHER_ACTION": 1
+          }
+        },
+        "other/nonfocal/unexpected": {
+          "n": 16,
+          "accuracy": 0.0625,
+          "mean_target_action_margin": -5.624946845695376,
+          "prediction_counts": {
+            "TARGET_ACTION": 6,
+            "YES": 9,
+            "OTHER_ACTION": 1
+          }
+        }
+      },
+      "cross_intention_confusion": 0.1484375,
+      "focal_minus_nonfocal_target_margin": {
+        "expected": {
+          "estimate": -5.199787123128772,
+          "ci95": [
+            -8.177664737310261,
+            -2.343600141676144
+          ]
+        },
+        "unexpected": {
+          "estimate": -0.5260242652148008,
+          "ci95": [
+            -4.049361427081749,
+            2.8569304668810203
+          ]
+        }
+      },
+      "expected_minus_unexpected_target_margin": {
+        "focal": {
+          "estimate": 7.279774524271488,
+          "ci95": [
+            6.252767114434391,
+            8.38454799107276
+          ]
+        },
+        "nonfocal": {
+          "estimate": 11.95353738218546,
+          "ci95": [
+            10.297214873461053,
+            13.556301319831979
+          ]
+        }
+      },
+      "behavior_gate_pass": false
+    }
+  ],
+  "panel_gate_pass": false
+}

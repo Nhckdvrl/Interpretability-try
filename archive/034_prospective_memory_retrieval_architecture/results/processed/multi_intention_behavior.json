@@ -1,0 +1,189 @@
+{
+  "contract": "delayed two-intention focality x expectancy PM validation",
+  "models": [
+    {
+      "model": "NousResearch/Meta-Llama-3.1-8B-Instruct",
+      "model_revision": "d10aef7999a2b5ba950ab3974312feeedbfe0b77",
+      "n_semantic_cells": 128,
+      "cells": {
+        "no_cue/focal/expected": {
+          "n": 16,
+          "accuracy": 0.8125,
+          "mean_target_action_margin": -2.6456117630004883,
+          "prediction_counts": {
+            "NO": 13,
+            "TARGET_ACTION": 2,
+            "YES": 1
+          }
+        },
+        "no_cue/focal/unexpected": {
+          "n": 16,
+          "accuracy": 0.875,
+          "mean_target_action_margin": -2.3499755859375,
+          "prediction_counts": {
+            "NO": 14,
+            "TARGET_ACTION": 2
+          }
+        },
+        "no_cue/nonfocal/expected": {
+          "n": 16,
+          "accuracy": 0.0,
+          "mean_target_action_margin": -0.35540771484375,
+          "prediction_counts": {
+            "NO": 12,
+            "TARGET_ACTION": 4
+          }
+        },
+        "no_cue/nonfocal/unexpected": {
+          "n": 16,
+          "accuracy": 0.0,
+          "mean_target_action_margin": -0.2189788818359375,
+          "prediction_counts": {
+            "NO": 11,
+            "TARGET_ACTION": 5
+          }
+        },
+        "cue/focal/expected": {
+          "n": 16,
+          "accuracy": 1.0,
+          "mean_target_action_margin": 4.576775312423706,
+          "prediction_counts": {
+            "TARGET_ACTION": 16
+          }
+        },
+        "cue/focal/unexpected": {
+          "n": 16,
+          "accuracy": 1.0,
+          "mean_target_action_margin": 4.975538015365601,
+          "prediction_counts": {
+            "TARGET_ACTION": 16
+          }
+        },
+        "cue/nonfocal/expected": {
+          "n": 16,
+          "accuracy": 1.0,
+          "mean_target_action_margin": 5.098119765520096,
+          "prediction_counts": {
+            "TARGET_ACTION": 16
+          }
+        },
+        "cue/nonfocal/unexpected": {
+          "n": 16,
+          "accuracy": 1.0,
+          "mean_target_action_margin": 5.266776442527771,
+          "prediction_counts": {
+            "TARGET_ACTION": 16
+          }
+        }
+      },
+      "cue_other_intention_intrusion": 0.0,
+      "focal_minus_nonfocal_target_margin": {
+        "expected": {
+          "estimate": -0.5213444530963898,
+          "ci95": [
+            -0.9875959493219852,
+            -0.06698915958404554
+          ]
+        },
+        "unexpected": {
+          "estimate": -0.2912384271621704,
+          "ci95": [
+            -0.7997013211250305,
+            0.1715971201658243
+          ]
+        }
+      },
+      "behavior_gate_pass": false
+    },
+    {
+      "model": "Qwen/Qwen3-8B",
+      "model_revision": "b968826d9c46dd6066d109eabc6255188de91218",
+      "n_semantic_cells": 128,
+      "cells": {
+        "no_cue/focal/expected": {
+          "n": 16,
+          "accuracy": 1.0,
+          "mean_target_action_margin": -19.530971756204963,
+          "prediction_counts": {
+            "NO": 16
+          }
+        },
+        "no_cue/focal/unexpected": {
+          "n": 16,
+          "accuracy": 1.0,
+          "mean_target_action_margin": -20.052365001291037,
+          "prediction_counts": {
+            "NO": 16
+          }
+        },
+        "no_cue/nonfocal/expected": {
+          "n": 16,
+          "accuracy": 0.0,
+          "mean_target_action_margin": -16.644249653443694,
+          "prediction_counts": {
+            "NO": 16
+          }
+        },
+        "no_cue/nonfocal/unexpected": {
+          "n": 16,
+          "accuracy": 0.0,
+          "mean_target_action_margin": -13.993774209171534,
+          "prediction_counts": {
+            "NO": 16
+          }
+        },
+        "cue/focal/expected": {
+          "n": 16,
+          "accuracy": 1.0,
+          "mean_target_action_margin": 7.826993016526103,
+          "prediction_counts": {
+            "TARGET_ACTION": 16
+          }
+        },
+        "cue/focal/unexpected": {
+          "n": 16,
+          "accuracy": 1.0,
+          "mean_target_action_margin": 9.967820832505822,
+          "prediction_counts": {
+            "TARGET_ACTION": 16
+          }
+        },
+        "cue/nonfocal/expected": {
+          "n": 16,
+          "accuracy": 1.0,
+          "mean_target_action_margin": 23.679671404883265,
+          "prediction_counts": {
+            "TARGET_ACTION": 16
+          }
+        },
+        "cue/nonfocal/unexpected": {
+          "n": 16,
+          "accuracy": 1.0,
+          "mean_target_action_margin": 24.199209285899997,
+          "prediction_counts": {
+            "TARGET_ACTION": 16
+          }
+        }
+      },
+      "cue_other_intention_intrusion": 0.0,
+      "focal_minus_nonfocal_target_margin": {
+        "expected": {
+          "estimate": -15.852678388357162,
+          "ci95": [
+            -17.70086124232039,
+            -13.868112490838394
+          ]
+        },
+        "unexpected": {
+          "estimate": -14.231388453394175,
+          "ci95": [
+            -15.915144940977916,
+            -12.563248890498656
+          ]
+        }
+      },
+      "behavior_gate_pass": false
+    }
+  ],
+  "panel_gate_pass": false
+}

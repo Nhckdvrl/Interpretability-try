@@ -1,0 +1,57 @@
+{
+  "contract": "response-list sensitivity after unresolved but not resolved reference",
+  "models": [
+    {
+      "model": "NousResearch/Meta-Llama-3.1-8B-Instruct",
+      "model_revision": "d10aef7999a2b5ba950ab3974312feeedbfe0b77",
+      "n_source_discourse_rows": 238,
+      "clearref_accuracy": 0.9545454545454546,
+      "clearref_preference_flip_across_response_orders": 0.045454545454545456,
+      "clearref_first_listed_target_margin_effect": {
+        "estimate": -0.13283469460227273,
+        "ci95": [
+          -0.633723310990767,
+          0.3409192171963778
+        ]
+      },
+      "sharedref_both_candidates_over_distractor_rate": 0.7870370370370371,
+      "sharedref_positive_preference_flip_across_response_orders": 0.3101851851851852,
+      "sharedref_first_positive_listed_margin_effect": {
+        "estimate": -0.3946344116587697,
+        "ci95": [
+          -0.6948620937488696,
+          -0.10502132074332544
+        ]
+      },
+      "ambiguity_specific_flip_gap": 0.2647306397306397,
+      "gate_pass": true
+    },
+    {
+      "model": "Qwen/Qwen3-8B",
+      "model_revision": "b968826d9c46dd6066d109eabc6255188de91218",
+      "n_source_discourse_rows": 238,
+      "clearref_accuracy": 1.0,
+      "clearref_preference_flip_across_response_orders": 0.0,
+      "clearref_first_listed_target_margin_effect": {
+        "estimate": 9.78409093618393,
+        "ci95": [
+          8.113494324413212,
+          11.482954572953961
+        ]
+      },
+      "sharedref_both_candidates_over_distractor_rate": 0.8132716049382716,
+      "sharedref_positive_preference_flip_across_response_orders": 0.32407407407407407,
+      "sharedref_first_positive_listed_margin_effect": {
+        "estimate": 5.678604096726135,
+        "ci95": [
+          3.6759317914552896,
+          7.8872023131100475
+        ]
+      },
+      "ambiguity_specific_flip_gap": 0.32407407407407407,
+      "gate_pass": true
+    }
+  ],
+  "panel_gate_pass": true,
+  "interpretation_guard": "A pass supports response-time construction of ambiguous preference when combined with the pronoun-state causal null; candidate-list bias alone is not a reference-representation claim."
+}

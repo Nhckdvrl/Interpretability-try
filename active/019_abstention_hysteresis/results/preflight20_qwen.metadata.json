@@ -1,0 +1,18 @@
+{
+  "contract_id": "019-d0-v1",
+  "family": "qwen",
+  "model": "/home/xiang/.cache/huggingface/hub/models--Qwen--Qwen3-8B/snapshots/b968826d9c46dd6066d109eabc6255188de91218",
+  "model_revision": "b968826d9c46dd6066d109eabc6255188de91218",
+  "bank_sha256": "c385061a7757a2e57f6be69a1e82723c64b66c5401878068dc67494a8cdb0a12",
+  "bank_items": 20,
+  "gated_items": 8,
+  "records": 100,
+  "batch_size": 4,
+  "score_batch_size": 4,
+  "max_new_tokens": 32,
+  "dtype": "torch.bfloat16",
+  "elapsed_seconds": 66.51030802726746,
+  "python": "3.12.13",
+  "torch": "2.11.0+cu130",
+  "transformers": "5.12.1"
+}

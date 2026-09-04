@@ -1,0 +1,6 @@
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:03,  1.30s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:02<00:01,  1.03it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:02<00:00,  1.13it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.61it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.31it/s]
+{"scored": 16, "total": 3136}
+{"scored": 816, "total": 3136}
+{"scored": 1616, "total": 3136}
+{"scored": 2416, "total": 3136}
+{"output": "active/041_contextual_set_restriction/results/raw/s8_load_llama3_1_8b.jsonl", "rows": 3136, "state_rows": 1232}

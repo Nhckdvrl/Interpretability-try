@@ -1,0 +1,309 @@
+{
+  "contract": "focal cue-token state selectively rescues lower-priority intention retrieval",
+  "models": [
+    {
+      "model": "Qwen/Qwen3-8B",
+      "model_revision": "b968826d9c46dd6066d109eabc6255188de91218",
+      "residual_layers": [
+        9,
+        18,
+        27
+      ],
+      "layers": {
+        "9": {
+          "n_other_cue_items": 32,
+          "n_no_cue_items": 32,
+          "other_action_margin_effect": {
+            "real_focal_state": {
+              "estimate": -0.07684541586786509,
+              "ci95": [
+                -0.18210768182761966,
+                0.02747489812318219
+              ]
+            },
+            "shuffled_item_focal_delta": {
+              "estimate": -0.05022955872118473,
+              "ci95": [
+                -0.10780113278888166,
+                0.01011145885568112
+              ]
+            },
+            "random_matched_norm": {
+              "estimate": 0.02520183101296425,
+              "ci95": [
+                -0.035195351438596846,
+                0.08914324622601258
+              ]
+            }
+          },
+          "real_minus_controls": {
+            "shuffled_item_focal_delta": {
+              "estimate": -0.026615857146680355,
+              "ci95": [
+                -0.10770167773589492,
+                0.05473061620723448
+              ]
+            },
+            "random_matched_norm": {
+              "estimate": -0.10204724688082933,
+              "ci95": [
+                -0.22986661363393068,
+                0.02527106178458777
+              ]
+            }
+          },
+          "clean_no_cue_other_action_intrusion": 0.0,
+          "patched_no_cue_other_action_intrusion": 0.0,
+          "depth_pass": false
+        },
+        "18": {
+          "n_other_cue_items": 32,
+          "n_no_cue_items": 32,
+          "other_action_margin_effect": {
+            "real_focal_state": {
+              "estimate": -0.9317755457013845,
+              "ci95": [
+                -1.596225606626831,
+                -0.24598443289287691
+              ]
+            },
+            "shuffled_item_focal_delta": {
+              "estimate": -1.0826660646125674,
+              "ci95": [
+                -1.6887751169735565,
+                -0.5324505667900669
+              ]
+            },
+            "random_matched_norm": {
+              "estimate": -0.3278735866770148,
+              "ci95": [
+                -0.5426011258037761,
+                -0.1163814187515528
+              ]
+            }
+          },
+          "real_minus_controls": {
+            "shuffled_item_focal_delta": {
+              "estimate": 0.15089051891118288,
+              "ci95": [
+                -0.1653739529196173,
+                0.49533437334466707
+              ]
+            },
+            "random_matched_norm": {
+              "estimate": -0.6039019590243697,
+              "ci95": [
+                -1.2558791175251827,
+                0.04611338044051047
+              ]
+            }
+          },
+          "clean_no_cue_other_action_intrusion": 0.0,
+          "patched_no_cue_other_action_intrusion": 0.0,
+          "depth_pass": false
+        },
+        "27": {
+          "n_other_cue_items": 32,
+          "n_no_cue_items": 32,
+          "other_action_margin_effect": {
+            "real_focal_state": {
+              "estimate": 0.02749414462596178,
+              "ci95": [
+                0.0030602383427321914,
+                0.05277542846743016
+              ]
+            },
+            "shuffled_item_focal_delta": {
+              "estimate": 0.029614198952913284,
+              "ci95": [
+                -0.0048585339216515415,
+                0.06057926376815884
+              ]
+            },
+            "random_matched_norm": {
+              "estimate": 0.009739875793457031,
+              "ci95": [
+                -0.017655179160647093,
+                0.0374381433706727
+              ]
+            }
+          },
+          "real_minus_controls": {
+            "shuffled_item_focal_delta": {
+              "estimate": -0.0021200543269515038,
+              "ci95": [
+                -0.030825732671655712,
+                0.027229797258041796
+              ]
+            },
+            "random_matched_norm": {
+              "estimate": 0.01775426883250475,
+              "ci95": [
+                -0.01283665073569864,
+                0.0460401700809598
+              ]
+            }
+          },
+          "clean_no_cue_other_action_intrusion": 0.0,
+          "patched_no_cue_other_action_intrusion": 0.0,
+          "depth_pass": false
+        }
+      },
+      "positive_depths": 0,
+      "trajectory_gate_pass": false
+    },
+    {
+      "model": "NousResearch/Meta-Llama-3.1-8B-Instruct",
+      "model_revision": "d10aef7999a2b5ba950ab3974312feeedbfe0b77",
+      "residual_layers": [
+        8,
+        16,
+        24
+      ],
+      "layers": {
+        "8": {
+          "n_other_cue_items": 32,
+          "n_no_cue_items": 32,
+          "other_action_margin_effect": {
+            "real_focal_state": {
+              "estimate": 0.01026153564453125,
+              "ci95": [
+                -0.009857463836669921,
+                0.03082408905029295
+              ]
+            },
+            "shuffled_item_focal_delta": {
+              "estimate": 0.010890960693359375,
+              "ci95": [
+                -0.007625675201416016,
+                0.02893171310424803
+              ]
+            },
+            "random_matched_norm": {
+              "estimate": -0.002040863037109375,
+              "ci95": [
+                -0.017655372619628906,
+                0.013538455963134764
+              ]
+            }
+          },
+          "real_minus_controls": {
+            "shuffled_item_focal_delta": {
+              "estimate": -0.000629425048828125,
+              "ci95": [
+                -0.02611227035522461,
+                0.022850799560546864
+              ]
+            },
+            "random_matched_norm": {
+              "estimate": 0.012302398681640625,
+              "ci95": [
+                -0.009903812408447265,
+                0.03448619842529295
+              ]
+            }
+          },
+          "clean_no_cue_other_action_intrusion": 0.0,
+          "patched_no_cue_other_action_intrusion": 0.0,
+          "depth_pass": false
+        },
+        "16": {
+          "n_other_cue_items": 32,
+          "n_no_cue_items": 32,
+          "other_action_margin_effect": {
+            "real_focal_state": {
+              "estimate": -0.01807403564453125,
+              "ci95": [
+                -0.02986907958984375,
+                -0.005629920959472665
+              ]
+            },
+            "shuffled_item_focal_delta": {
+              "estimate": -0.0040130615234375,
+              "ci95": [
+                -0.016068458557128906,
+                0.0076066970825195285
+              ]
+            },
+            "random_matched_norm": {
+              "estimate": -0.01136016845703125,
+              "ci95": [
+                -0.024589729309082032,
+                0.002060317993164057
+              ]
+            }
+          },
+          "real_minus_controls": {
+            "shuffled_item_focal_delta": {
+              "estimate": -0.01406097412109375,
+              "ci95": [
+                -0.025833320617675782,
+                -0.00255336761474613
+              ]
+            },
+            "random_matched_norm": {
+              "estimate": -0.0067138671875,
+              "ci95": [
+                -0.020660591125488282,
+                0.006295204162597642
+              ]
+            }
+          },
+          "clean_no_cue_other_action_intrusion": 0.0,
+          "patched_no_cue_other_action_intrusion": 0.0,
+          "depth_pass": false
+        },
+        "24": {
+          "n_other_cue_items": 32,
+          "n_no_cue_items": 32,
+          "other_action_margin_effect": {
+            "real_focal_state": {
+              "estimate": -0.011074066162109375,
+              "ci95": [
+                -0.02434539794921875,
+                0.0016567230224609208
+              ]
+            },
+            "shuffled_item_focal_delta": {
+              "estimate": -0.001667022705078125,
+              "ci95": [
+                -0.013176918029785156,
+                0.009514713287353503
+              ]
+            },
+            "random_matched_norm": {
+              "estimate": -0.0085906982421875,
+              "ci95": [
+                -0.022389698028564452,
+                0.005203342437744139
+              ]
+            }
+          },
+          "real_minus_controls": {
+            "shuffled_item_focal_delta": {
+              "estimate": -0.00940704345703125,
+              "ci95": [
+                -0.023208999633789064,
+                0.0041658401489257785
+              ]
+            },
+            "random_matched_norm": {
+              "estimate": -0.002483367919921875,
+              "ci95": [
+                -0.01428985595703125,
+                0.010410594940185543
+              ]
+            }
+          },
+          "clean_no_cue_other_action_intrusion": 0.0,
+          "patched_no_cue_other_action_intrusion": 0.0,
+          "depth_pass": false
+        }
+      },
+      "positive_depths": 0,
+      "trajectory_gate_pass": false
+    }
+  ],
+  "panel_gate_pass": false,
+  "interpretation_guard": "A pass supports semantic retrieval gating only when focal-state effects exceed shuffled deltas across multiple fixed depths and do not induce OTHER_ACTION on no-cue controls."
+}

@@ -1,0 +1,1132 @@
+{
+  "contract_id": "018-d0-v2-semantic-recognition",
+  "families": {
+    "qwen": {
+      "metadata": {
+        "contract_id": "018-d0-v2-semantic-recognition",
+        "family": "qwen",
+        "model": "Qwen/Qwen3-8B",
+        "model_revision": "b968826d9c46dd6066d109eabc6255188de91218",
+        "bank_sha256": "27e2ca2cd1bf01c1172d55290dfb2d4ba4381c40af6f4d1fd58a2f3a3efecbf6",
+        "bank_items": 2,
+        "records": 44,
+        "semantic_token_ids": {
+          "positive": 30487,
+          "negative": 42224
+        },
+        "letter_token_ids": {
+          "A": 32,
+          "B": 33
+        },
+        "batch_size": 8,
+        "dtype": "torch.bfloat16",
+        "elapsed_seconds": 9.17246127128601,
+        "python": "3.12.13",
+        "torch": "2.11.0+cu130",
+        "transformers": "5.12.1"
+      },
+      "analysis": {
+        "gate": {
+          "total_items": 2,
+          "gated_items": 1,
+          "gate_rate": 0.5,
+          "gated_cells": {
+            "net_up__inflow_down": 1
+          },
+          "gated_dams": 1,
+          "recognition_diagnostics": {
+            "net_down__inflow_up": {
+              "item_gate_accuracy": 0.0,
+              "mean_gold_probability": 0.1344814385929567,
+              "column_accuracy": {
+                "inflow_first": 0.0,
+                "outflow_first": 0.0
+              }
+            },
+            "net_up__inflow_down": {
+              "item_gate_accuracy": 1.0,
+              "mean_gold_probability": 1.0,
+              "column_accuracy": {
+                "inflow_first": 1.0,
+                "outflow_first": 1.0
+              }
+            }
+          }
+        },
+        "conditions": {
+          "direct": {
+            "accuracy_aligned": null,
+            "accuracy_conflict": 1.0,
+            "inflow_attraction": {
+              "estimate": null,
+              "ci_low": null,
+              "ci_high": null,
+              "n_dams": 1,
+              "n_items": 1
+            },
+            "direction_effects": {
+              "positive": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 1,
+                "n_items": 1
+              },
+              "negative": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 0,
+                "n_items": 0
+              }
+            },
+            "column_order_effects": {
+              "inflow_first": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 1,
+                "n_items": 1
+              },
+              "outflow_first": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 1,
+                "n_items": 1
+              }
+            }
+          },
+          "actual_net_history": {
+            "accuracy_aligned": null,
+            "accuracy_conflict": 1.0,
+            "inflow_attraction": {
+              "estimate": null,
+              "ci_low": null,
+              "ci_high": null,
+              "n_dams": 1,
+              "n_items": 1
+            },
+            "direction_effects": {
+              "positive": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 1,
+                "n_items": 1
+              },
+              "negative": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 0,
+                "n_items": 0
+              }
+            },
+            "column_order_effects": {
+              "inflow_first": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 1,
+                "n_items": 1
+              },
+              "outflow_first": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 1,
+                "n_items": 1
+              }
+            }
+          },
+          "explicit_correct_net": {
+            "accuracy_aligned": null,
+            "accuracy_conflict": 1.0,
+            "inflow_attraction": {
+              "estimate": null,
+              "ci_low": null,
+              "ci_high": null,
+              "n_dams": 1,
+              "n_items": 1
+            },
+            "direction_effects": {
+              "positive": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 1,
+                "n_items": 1
+              },
+              "negative": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 0,
+                "n_items": 0
+              }
+            },
+            "column_order_effects": {
+              "inflow_first": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 1,
+                "n_items": 1
+              },
+              "outflow_first": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 1,
+                "n_items": 1
+              }
+            }
+          },
+          "masked_net_history": {
+            "accuracy_aligned": null,
+            "accuracy_conflict": 1.0,
+            "inflow_attraction": {
+              "estimate": null,
+              "ci_low": null,
+              "ci_high": null,
+              "n_dams": 1,
+              "n_items": 1
+            },
+            "direction_effects": {
+              "positive": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 1,
+                "n_items": 1
+              },
+              "negative": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 0,
+                "n_items": 0
+              }
+            },
+            "column_order_effects": {
+              "inflow_first": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 1,
+                "n_items": 1
+              },
+              "outflow_first": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 1,
+                "n_items": 1
+              }
+            }
+          },
+          "formula_reminder": {
+            "accuracy_aligned": null,
+            "accuracy_conflict": 1.0,
+            "inflow_attraction": {
+              "estimate": null,
+              "ci_low": null,
+              "ci_high": null,
+              "n_dams": 1,
+              "n_items": 1
+            },
+            "direction_effects": {
+              "positive": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 1,
+                "n_items": 1
+              },
+              "negative": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 0,
+                "n_items": 0
+              }
+            },
+            "column_order_effects": {
+              "inflow_first": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 1,
+                "n_items": 1
+              },
+              "outflow_first": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 1,
+                "n_items": 1
+              }
+            }
+          }
+        },
+        "promotion_checks": {
+          "minimum_gated_items_per_cell": false,
+          "minimum_gated_dams": false,
+          "actual_attraction_at_least_5pp": false,
+          "actual_attraction_ci_positive": false,
+          "explicit_correct_net_ci_positive": false,
+          "both_net_directions_positive": false,
+          "both_column_orders_positive": false
+        },
+        "promotion": false
+      }
+    },
+    "gemma": {
+      "metadata": {
+        "contract_id": "018-d0-v2-semantic-recognition",
+        "family": "gemma",
+        "model": "google/gemma-3-12b-it",
+        "model_revision": "96b6f1eccf38110c56df3a15bffe176da04bfd80",
+        "bank_sha256": "27e2ca2cd1bf01c1172d55290dfb2d4ba4381c40af6f4d1fd58a2f3a3efecbf6",
+        "bank_items": 2,
+        "records": 44,
+        "semantic_token_ids": {
+          "positive": 30558,
+          "negative": 27851
+        },
+        "letter_token_ids": {
+          "A": 236776,
+          "B": 236799
+        },
+        "batch_size": 4,
+        "dtype": "torch.bfloat16",
+        "elapsed_seconds": 14.186779975891113,
+        "python": "3.12.13",
+        "torch": "2.11.0+cu130",
+        "transformers": "5.12.1"
+      },
+      "analysis": {
+        "gate": {
+          "total_items": 2,
+          "gated_items": 1,
+          "gate_rate": 0.5,
+          "gated_cells": {
+            "net_up__inflow_down": 1
+          },
+          "gated_dams": 1,
+          "recognition_diagnostics": {
+            "net_down__inflow_up": {
+              "item_gate_accuracy": 0.0,
+              "mean_gold_probability": 0.0002693885544431396,
+              "column_accuracy": {
+                "inflow_first": 0.0,
+                "outflow_first": 0.0
+              }
+            },
+            "net_up__inflow_down": {
+              "item_gate_accuracy": 1.0,
+              "mean_gold_probability": 0.999998152256012,
+              "column_accuracy": {
+                "inflow_first": 1.0,
+                "outflow_first": 1.0
+              }
+            }
+          }
+        },
+        "conditions": {
+          "direct": {
+            "accuracy_aligned": null,
+            "accuracy_conflict": 1.0,
+            "inflow_attraction": {
+              "estimate": null,
+              "ci_low": null,
+              "ci_high": null,
+              "n_dams": 1,
+              "n_items": 1
+            },
+            "direction_effects": {
+              "positive": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 1,
+                "n_items": 1
+              },
+              "negative": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 0,
+                "n_items": 0
+              }
+            },
+            "column_order_effects": {
+              "inflow_first": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 1,
+                "n_items": 1
+              },
+              "outflow_first": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 1,
+                "n_items": 1
+              }
+            }
+          },
+          "actual_net_history": {
+            "accuracy_aligned": null,
+            "accuracy_conflict": 1.0,
+            "inflow_attraction": {
+              "estimate": null,
+              "ci_low": null,
+              "ci_high": null,
+              "n_dams": 1,
+              "n_items": 1
+            },
+            "direction_effects": {
+              "positive": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 1,
+                "n_items": 1
+              },
+              "negative": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 0,
+                "n_items": 0
+              }
+            },
+            "column_order_effects": {
+              "inflow_first": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 1,
+                "n_items": 1
+              },
+              "outflow_first": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 1,
+                "n_items": 1
+              }
+            }
+          },
+          "explicit_correct_net": {
+            "accuracy_aligned": null,
+            "accuracy_conflict": 1.0,
+            "inflow_attraction": {
+              "estimate": null,
+              "ci_low": null,
+              "ci_high": null,
+              "n_dams": 1,
+              "n_items": 1
+            },
+            "direction_effects": {
+              "positive": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 1,
+                "n_items": 1
+              },
+              "negative": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 0,
+                "n_items": 0
+              }
+            },
+            "column_order_effects": {
+              "inflow_first": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 1,
+                "n_items": 1
+              },
+              "outflow_first": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 1,
+                "n_items": 1
+              }
+            }
+          },
+          "masked_net_history": {
+            "accuracy_aligned": null,
+            "accuracy_conflict": 1.0,
+            "inflow_attraction": {
+              "estimate": null,
+              "ci_low": null,
+              "ci_high": null,
+              "n_dams": 1,
+              "n_items": 1
+            },
+            "direction_effects": {
+              "positive": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 1,
+                "n_items": 1
+              },
+              "negative": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 0,
+                "n_items": 0
+              }
+            },
+            "column_order_effects": {
+              "inflow_first": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 1,
+                "n_items": 1
+              },
+              "outflow_first": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 1,
+                "n_items": 1
+              }
+            }
+          },
+          "formula_reminder": {
+            "accuracy_aligned": null,
+            "accuracy_conflict": 1.0,
+            "inflow_attraction": {
+              "estimate": null,
+              "ci_low": null,
+              "ci_high": null,
+              "n_dams": 1,
+              "n_items": 1
+            },
+            "direction_effects": {
+              "positive": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 1,
+                "n_items": 1
+              },
+              "negative": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 0,
+                "n_items": 0
+              }
+            },
+            "column_order_effects": {
+              "inflow_first": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 1,
+                "n_items": 1
+              },
+              "outflow_first": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 1,
+                "n_items": 1
+              }
+            }
+          }
+        },
+        "promotion_checks": {
+          "minimum_gated_items_per_cell": false,
+          "minimum_gated_dams": false,
+          "actual_attraction_at_least_5pp": false,
+          "actual_attraction_ci_positive": false,
+          "explicit_correct_net_ci_positive": false,
+          "both_net_directions_positive": false,
+          "both_column_orders_positive": false
+        },
+        "promotion": false
+      }
+    },
+    "llama": {
+      "metadata": {
+        "contract_id": "018-d0-v2-semantic-recognition",
+        "family": "llama",
+        "model": "NousResearch/Meta-Llama-3.1-8B-Instruct",
+        "model_revision": "d10aef7999a2b5ba950ab3974312feeedbfe0b77",
+        "bank_sha256": "27e2ca2cd1bf01c1172d55290dfb2d4ba4381c40af6f4d1fd58a2f3a3efecbf6",
+        "bank_items": 2,
+        "records": 44,
+        "semantic_token_ids": {
+          "positive": 31587,
+          "negative": 43324
+        },
+        "letter_token_ids": {
+          "A": 32,
+          "B": 33
+        },
+        "batch_size": 8,
+        "dtype": "torch.bfloat16",
+        "elapsed_seconds": 9.927595376968384,
+        "python": "3.12.13",
+        "torch": "2.11.0+cu130",
+        "transformers": "5.12.1"
+      },
+      "analysis": {
+        "gate": {
+          "total_items": 2,
+          "gated_items": 1,
+          "gate_rate": 0.5,
+          "gated_cells": {
+            "net_down__inflow_up": 1
+          },
+          "gated_dams": 1,
+          "recognition_diagnostics": {
+            "net_down__inflow_up": {
+              "item_gate_accuracy": 1.0,
+              "mean_gold_probability": 0.757331132888794,
+              "column_accuracy": {
+                "inflow_first": 1.0,
+                "outflow_first": 1.0
+              }
+            },
+            "net_up__inflow_down": {
+              "item_gate_accuracy": 0.0,
+              "mean_gold_probability": 0.2717607319355011,
+              "column_accuracy": {
+                "inflow_first": 0.0,
+                "outflow_first": 0.0
+              }
+            }
+          }
+        },
+        "conditions": {
+          "direct": {
+            "accuracy_aligned": null,
+            "accuracy_conflict": 0.75,
+            "inflow_attraction": {
+              "estimate": null,
+              "ci_low": null,
+              "ci_high": null,
+              "n_dams": 1,
+              "n_items": 1
+            },
+            "direction_effects": {
+              "positive": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 0,
+                "n_items": 0
+              },
+              "negative": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 1,
+                "n_items": 1
+              }
+            },
+            "column_order_effects": {
+              "inflow_first": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 1,
+                "n_items": 1
+              },
+              "outflow_first": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 1,
+                "n_items": 1
+              }
+            }
+          },
+          "actual_net_history": {
+            "accuracy_aligned": null,
+            "accuracy_conflict": 1.0,
+            "inflow_attraction": {
+              "estimate": null,
+              "ci_low": null,
+              "ci_high": null,
+              "n_dams": 1,
+              "n_items": 1
+            },
+            "direction_effects": {
+              "positive": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 0,
+                "n_items": 0
+              },
+              "negative": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 1,
+                "n_items": 1
+              }
+            },
+            "column_order_effects": {
+              "inflow_first": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 1,
+                "n_items": 1
+              },
+              "outflow_first": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 1,
+                "n_items": 1
+              }
+            }
+          },
+          "explicit_correct_net": {
+            "accuracy_aligned": null,
+            "accuracy_conflict": 1.0,
+            "inflow_attraction": {
+              "estimate": null,
+              "ci_low": null,
+              "ci_high": null,
+              "n_dams": 1,
+              "n_items": 1
+            },
+            "direction_effects": {
+              "positive": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 0,
+                "n_items": 0
+              },
+              "negative": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 1,
+                "n_items": 1
+              }
+            },
+            "column_order_effects": {
+              "inflow_first": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 1,
+                "n_items": 1
+              },
+              "outflow_first": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 1,
+                "n_items": 1
+              }
+            }
+          },
+          "masked_net_history": {
+            "accuracy_aligned": null,
+            "accuracy_conflict": 0.0,
+            "inflow_attraction": {
+              "estimate": null,
+              "ci_low": null,
+              "ci_high": null,
+              "n_dams": 1,
+              "n_items": 1
+            },
+            "direction_effects": {
+              "positive": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 0,
+                "n_items": 0
+              },
+              "negative": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 1,
+                "n_items": 1
+              }
+            },
+            "column_order_effects": {
+              "inflow_first": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 1,
+                "n_items": 1
+              },
+              "outflow_first": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 1,
+                "n_items": 1
+              }
+            }
+          },
+          "formula_reminder": {
+            "accuracy_aligned": null,
+            "accuracy_conflict": 1.0,
+            "inflow_attraction": {
+              "estimate": null,
+              "ci_low": null,
+              "ci_high": null,
+              "n_dams": 1,
+              "n_items": 1
+            },
+            "direction_effects": {
+              "positive": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 0,
+                "n_items": 0
+              },
+              "negative": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 1,
+                "n_items": 1
+              }
+            },
+            "column_order_effects": {
+              "inflow_first": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 1,
+                "n_items": 1
+              },
+              "outflow_first": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 1,
+                "n_items": 1
+              }
+            }
+          }
+        },
+        "promotion_checks": {
+          "minimum_gated_items_per_cell": false,
+          "minimum_gated_dams": false,
+          "actual_attraction_at_least_5pp": false,
+          "actual_attraction_ci_positive": false,
+          "explicit_correct_net_ci_positive": false,
+          "both_net_directions_positive": false,
+          "both_column_orders_positive": false
+        },
+        "promotion": false
+      }
+    },
+    "phi": {
+      "metadata": {
+        "contract_id": "018-d0-v2-semantic-recognition",
+        "family": "phi",
+        "model": "microsoft/Phi-4-mini-instruct",
+        "model_revision": "cfbefacb99257ffa30c83adab238a50856ac3083",
+        "bank_sha256": "27e2ca2cd1bf01c1172d55290dfb2d4ba4381c40af6f4d1fd58a2f3a3efecbf6",
+        "bank_items": 2,
+        "records": 44,
+        "semantic_token_ids": {
+          "positive": 46914,
+          "negative": 46069
+        },
+        "letter_token_ids": {
+          "A": 32,
+          "B": 33
+        },
+        "batch_size": 8,
+        "dtype": "torch.bfloat16",
+        "elapsed_seconds": 84.67348957061768,
+        "python": "3.12.13",
+        "torch": "2.11.0+cu130",
+        "transformers": "5.12.1"
+      },
+      "analysis": {
+        "gate": {
+          "total_items": 2,
+          "gated_items": 1,
+          "gate_rate": 0.5,
+          "gated_cells": {
+            "net_up__inflow_down": 1
+          },
+          "gated_dams": 1,
+          "recognition_diagnostics": {
+            "net_down__inflow_up": {
+              "item_gate_accuracy": 0.0,
+              "mean_gold_probability": 0.310124509036541,
+              "column_accuracy": {
+                "inflow_first": 0.0,
+                "outflow_first": 0.0
+              }
+            },
+            "net_up__inflow_down": {
+              "item_gate_accuracy": 1.0,
+              "mean_gold_probability": 0.9462437331676483,
+              "column_accuracy": {
+                "inflow_first": 1.0,
+                "outflow_first": 1.0
+              }
+            }
+          }
+        },
+        "conditions": {
+          "direct": {
+            "accuracy_aligned": null,
+            "accuracy_conflict": 0.0,
+            "inflow_attraction": {
+              "estimate": null,
+              "ci_low": null,
+              "ci_high": null,
+              "n_dams": 1,
+              "n_items": 1
+            },
+            "direction_effects": {
+              "positive": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 1,
+                "n_items": 1
+              },
+              "negative": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 0,
+                "n_items": 0
+              }
+            },
+            "column_order_effects": {
+              "inflow_first": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 1,
+                "n_items": 1
+              },
+              "outflow_first": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 1,
+                "n_items": 1
+              }
+            }
+          },
+          "actual_net_history": {
+            "accuracy_aligned": null,
+            "accuracy_conflict": 0.25,
+            "inflow_attraction": {
+              "estimate": null,
+              "ci_low": null,
+              "ci_high": null,
+              "n_dams": 1,
+              "n_items": 1
+            },
+            "direction_effects": {
+              "positive": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 1,
+                "n_items": 1
+              },
+              "negative": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 0,
+                "n_items": 0
+              }
+            },
+            "column_order_effects": {
+              "inflow_first": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 1,
+                "n_items": 1
+              },
+              "outflow_first": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 1,
+                "n_items": 1
+              }
+            }
+          },
+          "explicit_correct_net": {
+            "accuracy_aligned": null,
+            "accuracy_conflict": 0.5,
+            "inflow_attraction": {
+              "estimate": null,
+              "ci_low": null,
+              "ci_high": null,
+              "n_dams": 1,
+              "n_items": 1
+            },
+            "direction_effects": {
+              "positive": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 1,
+                "n_items": 1
+              },
+              "negative": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 0,
+                "n_items": 0
+              }
+            },
+            "column_order_effects": {
+              "inflow_first": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 1,
+                "n_items": 1
+              },
+              "outflow_first": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 1,
+                "n_items": 1
+              }
+            }
+          },
+          "masked_net_history": {
+            "accuracy_aligned": null,
+            "accuracy_conflict": 0.5,
+            "inflow_attraction": {
+              "estimate": null,
+              "ci_low": null,
+              "ci_high": null,
+              "n_dams": 1,
+              "n_items": 1
+            },
+            "direction_effects": {
+              "positive": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 1,
+                "n_items": 1
+              },
+              "negative": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 0,
+                "n_items": 0
+              }
+            },
+            "column_order_effects": {
+              "inflow_first": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 1,
+                "n_items": 1
+              },
+              "outflow_first": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 1,
+                "n_items": 1
+              }
+            }
+          },
+          "formula_reminder": {
+            "accuracy_aligned": null,
+            "accuracy_conflict": 0.5,
+            "inflow_attraction": {
+              "estimate": null,
+              "ci_low": null,
+              "ci_high": null,
+              "n_dams": 1,
+              "n_items": 1
+            },
+            "direction_effects": {
+              "positive": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 1,
+                "n_items": 1
+              },
+              "negative": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 0,
+                "n_items": 0
+              }
+            },
+            "column_order_effects": {
+              "inflow_first": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 1,
+                "n_items": 1
+              },
+              "outflow_first": {
+                "estimate": null,
+                "ci_low": null,
+                "ci_high": null,
+                "n_dams": 1,
+                "n_items": 1
+              }
+            }
+          }
+        },
+        "promotion_checks": {
+          "minimum_gated_items_per_cell": false,
+          "minimum_gated_dams": false,
+          "actual_attraction_at_least_5pp": false,
+          "actual_attraction_ci_positive": false,
+          "explicit_correct_net_ci_positive": false,
+          "both_net_directions_positive": false,
+          "both_column_orders_positive": false
+        },
+        "promotion": false
+      }
+    }
+  },
+  "promoted_families": [],
+  "overall_promotion": false,
+  "overall_decision": "NO-PROMOTE"
+}

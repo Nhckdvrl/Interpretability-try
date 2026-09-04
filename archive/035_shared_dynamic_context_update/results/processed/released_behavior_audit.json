@@ -1,0 +1,49 @@
+{
+  "checkpoint": "meta-llama/Llama-3.1-8B-Instruct",
+  "source_commits": {
+    "anaphora": "5d44efa61b49ab270aace476620e9aeda5e55814",
+    "presupposition": "9dca0a9edb4ac358f80e565173de19fdcd20cc06"
+  },
+  "anaphora": {
+    "n": 1280,
+    "overall_accuracy": 0.97734375,
+    "overall_mean_effect": 2.7457608435209293,
+    "by_comparison": {
+      "if_diff>a_diff": {
+        "n": 640,
+        "accuracy": 0.9875,
+        "mean_effect_size": 2.9003714527705595
+      },
+      "whenever_diff>a_diff": {
+        "n": 640,
+        "accuracy": 0.9671875,
+        "mean_effect_size": 2.591150234271299
+      }
+    }
+  },
+  "presupposition": {
+    "n": 90,
+    "parsed_n": 87,
+    "excluded_ids": [
+      18,
+      52,
+      75
+    ],
+    "by_gold_band": {
+      "high": {
+        "n": 29,
+        "mean_rating": 5.586206896551724
+      },
+      "low": {
+        "n": 28,
+        "mean_rating": 5.107142857142857
+      },
+      "mid": {
+        "n": 30,
+        "mean_rating": 4.833333333333333
+      }
+    }
+  },
+  "behavior_denominator_pass": false,
+  "scientific_limit": "Two within-task behavioral effects do not imply a shared causal dynamic-context state."
+}

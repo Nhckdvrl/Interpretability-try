@@ -1,0 +1,523 @@
+{
+  "source_commit": "e1093c470c8981daf522d4ef047a7c3a71e077d7",
+  "scenario": "synthetic_week_v9",
+  "total_tasks": 83,
+  "task_cells": [
+    {
+      "type": "event",
+      "regularity": "irregular",
+      "visibility": "hidden_channel",
+      "n": 15
+    },
+    {
+      "type": "event",
+      "regularity": "irregular",
+      "visibility": "visible_event",
+      "n": 28
+    },
+    {
+      "type": "event",
+      "regularity": "regular",
+      "visibility": "visible_event",
+      "n": 14
+    },
+    {
+      "type": "time",
+      "regularity": "irregular",
+      "visibility": "time",
+      "n": 12
+    },
+    {
+      "type": "time",
+      "regularity": "regular",
+      "visibility": "time",
+      "n": 14
+    }
+  ],
+  "released_rows": [
+    {
+      "model": "Llama 3.3 70B Instruct",
+      "setup": "single-baseline",
+      "run_type": "live",
+      "tp": 48,
+      "fp": 20,
+      "fn": 33,
+      "set_precision": 0.706,
+      "set_recall": 0.593,
+      "micro_set_f1": 0.644,
+      "hit_rate": 0.593,
+      "exact_set_match": 0.525,
+      "state_queries": 0,
+      "check_time_actions": 0,
+      "actions": 68,
+      "duration": "1m 52.8s"
+    },
+    {
+      "model": "Llama 3.3 70B Instruct",
+      "setup": "heartbeat-proactive",
+      "run_type": "live",
+      "tp": 49,
+      "fp": 14,
+      "fn": 32,
+      "set_precision": 0.778,
+      "set_recall": 0.605,
+      "micro_set_f1": 0.6809999999999999,
+      "hit_rate": 0.605,
+      "exact_set_match": 0.55,
+      "state_queries": 13,
+      "check_time_actions": 11,
+      "actions": 63,
+      "duration": "2m 24.1s"
+    },
+    {
+      "model": "Llama 3.3 70B Instruct",
+      "setup": "heartbeat-auto-60m",
+      "run_type": "live",
+      "tp": 44,
+      "fp": 20,
+      "fn": 37,
+      "set_precision": 0.688,
+      "set_recall": 0.5429999999999999,
+      "micro_set_f1": 0.607,
+      "hit_rate": 0.5429999999999999,
+      "exact_set_match": 0.43799999999999994,
+      "state_queries": 16,
+      "check_time_actions": 16,
+      "actions": 64,
+      "duration": "3m 41.2s"
+    },
+    {
+      "model": "Llama 3.3 70B Instruct",
+      "setup": "heartbeat-auto-30m",
+      "run_type": "live",
+      "tp": 46,
+      "fp": 18,
+      "fn": 35,
+      "set_precision": 0.7190000000000001,
+      "set_recall": 0.568,
+      "micro_set_f1": 0.634,
+      "hit_rate": 0.568,
+      "exact_set_match": 0.525,
+      "state_queries": 16,
+      "check_time_actions": 16,
+      "actions": 64,
+      "duration": "3m 4.0s"
+    },
+    {
+      "model": "Mistral Small 3.2 24B Instruct",
+      "setup": "single-baseline",
+      "run_type": "live",
+      "tp": 36,
+      "fp": 20,
+      "fn": 45,
+      "set_precision": 0.643,
+      "set_recall": 0.444,
+      "micro_set_f1": 0.526,
+      "hit_rate": 0.444,
+      "exact_set_match": 0.43799999999999994,
+      "state_queries": 0,
+      "check_time_actions": 0,
+      "actions": 56,
+      "duration": "1m 42.5s"
+    },
+    {
+      "model": "Mistral Small 3.2 24B Instruct",
+      "setup": "heartbeat-proactive",
+      "run_type": "live",
+      "tp": 35,
+      "fp": 16,
+      "fn": 46,
+      "set_precision": 0.6859999999999999,
+      "set_recall": 0.43200000000000005,
+      "micro_set_f1": 0.53,
+      "hit_rate": 0.43200000000000005,
+      "exact_set_match": 0.425,
+      "state_queries": 0,
+      "check_time_actions": 0,
+      "actions": 51,
+      "duration": "1m 18.9s"
+    },
+    {
+      "model": "Mistral Small 3.2 24B Instruct",
+      "setup": "heartbeat-auto-60m",
+      "run_type": "live",
+      "tp": 34,
+      "fp": 14,
+      "fn": 47,
+      "set_precision": 0.708,
+      "set_recall": 0.42,
+      "micro_set_f1": 0.527,
+      "hit_rate": 0.42,
+      "exact_set_match": 0.488,
+      "state_queries": 0,
+      "check_time_actions": 0,
+      "actions": 48,
+      "duration": "1m 24.0s"
+    },
+    {
+      "model": "Mistral Small 3.2 24B Instruct",
+      "setup": "heartbeat-auto-30m",
+      "run_type": "live",
+      "tp": 32,
+      "fp": 11,
+      "fn": 49,
+      "set_precision": 0.7440000000000001,
+      "set_recall": 0.395,
+      "micro_set_f1": 0.516,
+      "hit_rate": 0.395,
+      "exact_set_match": 0.5379999999999999,
+      "state_queries": 7,
+      "check_time_actions": 7,
+      "actions": 43,
+      "duration": "1m 23.9s"
+    },
+    {
+      "model": "Qwen3-8B",
+      "setup": "single-baseline",
+      "run_type": "live",
+      "tp": 34,
+      "fp": 47,
+      "fn": 47,
+      "set_precision": 0.42,
+      "set_recall": 0.42,
+      "micro_set_f1": 0.42,
+      "hit_rate": 0.42,
+      "exact_set_match": 0.188,
+      "state_queries": 0,
+      "check_time_actions": 0,
+      "actions": 81,
+      "duration": "23.6s"
+    },
+    {
+      "model": "Qwen3-8B",
+      "setup": "heartbeat-proactive",
+      "run_type": "live",
+      "tp": 64,
+      "fp": 33,
+      "fn": 17,
+      "set_precision": 0.66,
+      "set_recall": 0.79,
+      "micro_set_f1": 0.7190000000000001,
+      "hit_rate": 0.79,
+      "exact_set_match": 0.625,
+      "state_queries": 0,
+      "check_time_actions": 0,
+      "actions": 97,
+      "duration": "7m 11.7s"
+    },
+    {
+      "model": "Qwen3-8B",
+      "setup": "heartbeat-auto-60m",
+      "run_type": "live",
+      "tp": 38,
+      "fp": 60,
+      "fn": 43,
+      "set_precision": 0.38799999999999996,
+      "set_recall": 0.469,
+      "micro_set_f1": 0.425,
+      "hit_rate": 0.469,
+      "exact_set_match": 0.15,
+      "state_queries": 0,
+      "check_time_actions": 0,
+      "actions": 98,
+      "duration": "24.7s"
+    },
+    {
+      "model": "Qwen3-8B",
+      "setup": "heartbeat-auto-30m",
+      "run_type": "live",
+      "tp": 33,
+      "fp": 52,
+      "fn": 48,
+      "set_precision": 0.38799999999999996,
+      "set_recall": 0.40700000000000003,
+      "micro_set_f1": 0.39799999999999996,
+      "hit_rate": 0.40700000000000003,
+      "exact_set_match": 0.15,
+      "state_queries": 0,
+      "check_time_actions": 0,
+      "actions": 85,
+      "duration": "24.0s"
+    }
+  ],
+  "monitoring_demand_rows": [
+    {
+      "model": "Qwen3-8B",
+      "setup": "single-baseline",
+      "categories": {
+        "no_proactive_monitoring": {
+          "hit": 23,
+          "late": 2,
+          "miss": 17,
+          "total": 42,
+          "hit_rate": 0.5479999999999999,
+          "any_rate": 0.595
+        },
+        "proactive_monitoring_required": {
+          "hit": 11,
+          "late": 2,
+          "miss": 26,
+          "total": 39,
+          "hit_rate": 0.282,
+          "any_rate": 0.33299999999999996
+        }
+      },
+      "demand_gap": 0.26599999999999996
+    },
+    {
+      "model": "Qwen3-8B",
+      "setup": "heartbeat-proactive",
+      "categories": {
+        "no_proactive_monitoring": {
+          "hit": 38,
+          "late": 0,
+          "miss": 4,
+          "total": 42,
+          "hit_rate": 0.905,
+          "any_rate": 0.905
+        },
+        "proactive_monitoring_required": {
+          "hit": 26,
+          "late": 0,
+          "miss": 13,
+          "total": 39,
+          "hit_rate": 0.667,
+          "any_rate": 0.667
+        }
+      },
+      "demand_gap": 0.238
+    },
+    {
+      "model": "Qwen3-8B",
+      "setup": "heartbeat-auto-60m",
+      "categories": {
+        "no_proactive_monitoring": {
+          "hit": 27,
+          "late": 1,
+          "miss": 14,
+          "total": 42,
+          "hit_rate": 0.643,
+          "any_rate": 0.667
+        },
+        "proactive_monitoring_required": {
+          "hit": 11,
+          "late": 1,
+          "miss": 27,
+          "total": 39,
+          "hit_rate": 0.282,
+          "any_rate": 0.308
+        }
+      },
+      "demand_gap": 0.36100000000000004
+    },
+    {
+      "model": "Qwen3-8B",
+      "setup": "heartbeat-auto-30m",
+      "categories": {
+        "no_proactive_monitoring": {
+          "hit": 23,
+          "late": 2,
+          "miss": 17,
+          "total": 42,
+          "hit_rate": 0.5479999999999999,
+          "any_rate": 0.595
+        },
+        "proactive_monitoring_required": {
+          "hit": 10,
+          "late": 2,
+          "miss": 27,
+          "total": 39,
+          "hit_rate": 0.256,
+          "any_rate": 0.308
+        }
+      },
+      "demand_gap": 0.2919999999999999
+    },
+    {
+      "model": "Llama 3.3 70B Instruct",
+      "setup": "single-baseline",
+      "categories": {
+        "no_proactive_monitoring": {
+          "hit": 36,
+          "late": 0,
+          "miss": 6,
+          "total": 42,
+          "hit_rate": 0.857,
+          "any_rate": 0.857
+        },
+        "proactive_monitoring_required": {
+          "hit": 12,
+          "late": 1,
+          "miss": 26,
+          "total": 39,
+          "hit_rate": 0.308,
+          "any_rate": 0.33299999999999996
+        }
+      },
+      "demand_gap": 0.5489999999999999
+    },
+    {
+      "model": "Llama 3.3 70B Instruct",
+      "setup": "heartbeat-proactive",
+      "categories": {
+        "no_proactive_monitoring": {
+          "hit": 35,
+          "late": 0,
+          "miss": 7,
+          "total": 42,
+          "hit_rate": 0.833,
+          "any_rate": 0.833
+        },
+        "proactive_monitoring_required": {
+          "hit": 14,
+          "late": 2,
+          "miss": 23,
+          "total": 39,
+          "hit_rate": 0.359,
+          "any_rate": 0.41
+        }
+      },
+      "demand_gap": 0.474
+    },
+    {
+      "model": "Llama 3.3 70B Instruct",
+      "setup": "heartbeat-auto-60m",
+      "categories": {
+        "no_proactive_monitoring": {
+          "hit": 31,
+          "late": 0,
+          "miss": 11,
+          "total": 42,
+          "hit_rate": 0.738,
+          "any_rate": 0.738
+        },
+        "proactive_monitoring_required": {
+          "hit": 13,
+          "late": 0,
+          "miss": 26,
+          "total": 39,
+          "hit_rate": 0.33299999999999996,
+          "any_rate": 0.33299999999999996
+        }
+      },
+      "demand_gap": 0.405
+    },
+    {
+      "model": "Llama 3.3 70B Instruct",
+      "setup": "heartbeat-auto-30m",
+      "categories": {
+        "no_proactive_monitoring": {
+          "hit": 32,
+          "late": 0,
+          "miss": 10,
+          "total": 42,
+          "hit_rate": 0.762,
+          "any_rate": 0.762
+        },
+        "proactive_monitoring_required": {
+          "hit": 14,
+          "late": 0,
+          "miss": 25,
+          "total": 39,
+          "hit_rate": 0.359,
+          "any_rate": 0.359
+        }
+      },
+      "demand_gap": 0.403
+    },
+    {
+      "model": "Mistral Small 3.2 24B Instruct",
+      "setup": "single-baseline",
+      "categories": {
+        "no_proactive_monitoring": {
+          "hit": 27,
+          "late": 2,
+          "miss": 13,
+          "total": 42,
+          "hit_rate": 0.643,
+          "any_rate": 0.69
+        },
+        "proactive_monitoring_required": {
+          "hit": 9,
+          "late": 1,
+          "miss": 29,
+          "total": 39,
+          "hit_rate": 0.231,
+          "any_rate": 0.256
+        }
+      },
+      "demand_gap": 0.41200000000000003
+    },
+    {
+      "model": "Mistral Small 3.2 24B Instruct",
+      "setup": "heartbeat-proactive",
+      "categories": {
+        "no_proactive_monitoring": {
+          "hit": 27,
+          "late": 2,
+          "miss": 13,
+          "total": 42,
+          "hit_rate": 0.643,
+          "any_rate": 0.69
+        },
+        "proactive_monitoring_required": {
+          "hit": 8,
+          "late": 0,
+          "miss": 31,
+          "total": 39,
+          "hit_rate": 0.205,
+          "any_rate": 0.205
+        }
+      },
+      "demand_gap": 0.43800000000000006
+    },
+    {
+      "model": "Mistral Small 3.2 24B Instruct",
+      "setup": "heartbeat-auto-60m",
+      "categories": {
+        "no_proactive_monitoring": {
+          "hit": 27,
+          "late": 0,
+          "miss": 15,
+          "total": 42,
+          "hit_rate": 0.643,
+          "any_rate": 0.643
+        },
+        "proactive_monitoring_required": {
+          "hit": 7,
+          "late": 2,
+          "miss": 30,
+          "total": 39,
+          "hit_rate": 0.179,
+          "any_rate": 0.231
+        }
+      },
+      "demand_gap": 0.464
+    },
+    {
+      "model": "Mistral Small 3.2 24B Instruct",
+      "setup": "heartbeat-auto-30m",
+      "categories": {
+        "no_proactive_monitoring": {
+          "hit": 23,
+          "late": 1,
+          "miss": 18,
+          "total": 42,
+          "hit_rate": 0.5479999999999999,
+          "any_rate": 0.5710000000000001
+        },
+        "proactive_monitoring_required": {
+          "hit": 9,
+          "late": 1,
+          "miss": 29,
+          "total": 39,
+          "hit_rate": 0.231,
+          "any_rate": 0.256
+        }
+      },
+      "demand_gap": 0.31699999999999995
+    }
+  ],
+  "behavior_denominator_pass": true,
+  "scientific_limit": "Released heartbeat effects do not identify native strategic monitoring: heartbeat text changes the model's current input and may itself trigger retrieval. The scorer's monitoring-demand partition is descriptive because cue visibility/channel and monitoring demand are not matched."
+}

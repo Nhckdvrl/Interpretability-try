@@ -1,0 +1,59 @@
+{
+  "base_config": "/home/xiang/Interpretability-try/active/006_bayesian_latent_inference_use_gap/mechanism/configs/confirmatory/v2_d2_id.json",
+  "changed_factor": "prior_count_composition",
+  "code_commit": "4f94a1693ce4376e19fdc5e6db1386da0875035d",
+  "config_path": "/home/xiang/Interpretability-try/active/006_bayesian_latent_inference_use_gap/mechanism/configs/confirmatory/v2_d2_ood_composition.json",
+  "config_sha256": "33939c45776a3b072bc354036c75504453ed526d5b457089adc2640a2f59359c",
+  "d2_opened": false,
+  "evidence_class": "confirmatory-ood-sealed",
+  "freeze_version": "v2-m12-1",
+  "model": "Qwen/Qwen2.5-14B-Instruct",
+  "model_revision": "cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8",
+  "output_sha256": {
+    "evidence": "fa2496e5119f5b8343a80d423a4d81c9c78cd14ba35e89ab3145c1870e6fc7c6",
+    "factorial": "605e21557ebadc96100077a830915c66c346985b6f4caf049f0d4c8336e282b6",
+    "families": "eb39ea933e7d0daab87627653df0f612dfdc33e443a69d723c26ddbff913fcab",
+    "schema": "085c74cf8cea267f67f92f0a0927e15e5316b29a53edddd4d1994c9e9c310862",
+    "token_audit": "be94ff5d49aed2fa4cf01926a620901471a24b7cd839a50e23fae26c6383a4a2"
+  },
+  "resolved_config_sha256": "ab88ccbae824d563cd621b9bbe08a2b514c82837b57b5bd180cf647a7732f338",
+  "seed": 6021,
+  "split": "d2_ood_composition",
+  "token_audit": {
+    "model": "Qwen/Qwen2.5-14B-Instruct",
+    "model_revision": "cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8",
+    "n_prompts": 6144,
+    "records_sha256": "6af8419161c69621e31423c24679d7f324de78c979e0157b35795be98d7c4720",
+    "role_marker_token_counts": {
+      "DECISION_SCORE": [
+        3
+      ],
+      "IGNORE": [
+        1
+      ],
+      "POSTERIOR": [
+        3
+      ],
+      "USE": [
+        1
+      ]
+    },
+    "tokenizer_class": "Qwen2TokenizerFast",
+    "value_token_counts": [
+      8
+    ],
+    "within_family_low_high_fertility_matched": true
+  },
+  "validation": {
+    "conditions": [
+      "posterior_use",
+      "posterior_ignore",
+      "generic_use",
+      "generic_ignore"
+    ],
+    "n_families": 48,
+    "n_family_surface_groups": 768,
+    "n_rows": 6144,
+    "n_surfaces": 16
+  }
+}

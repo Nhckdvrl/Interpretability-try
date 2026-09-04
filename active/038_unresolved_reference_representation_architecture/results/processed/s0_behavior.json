@@ -1,0 +1,38 @@
+{
+  "contract": "038 cheap capability and candidate-coverage denominator",
+  "models": [
+    {
+      "model": "NousResearch/Meta-Llama-3.1-8B-Instruct",
+      "model_revision": "d10aef7999a2b5ba950ab3974312feeedbfe0b77",
+      "n_clearref": 104,
+      "n_sharedref": 1362,
+      "clearref_accuracy": 0.9615384615384616,
+      "sharedref_both_licensed_over_distractor_rate": 0.8663729809104258,
+      "sharedref_mean_abs_candidate_margin": 2.57834323877455,
+      "sharedref_preferred_mention_position": {
+        "0": 584,
+        "1": 778
+      },
+      "semantic_items_with_preference_flip_across_permutations": 0.4581497797356828,
+      "gate_pass": true,
+      "scope_note": "Behavioral candidate scores do not identify H1 versus H2."
+    },
+    {
+      "model": "Qwen/Qwen3-32B",
+      "model_revision": "9216db5781bf21249d130ec9da846c4624c16137",
+      "n_clearref": 104,
+      "n_sharedref": 1362,
+      "clearref_accuracy": 0.9807692307692307,
+      "sharedref_both_licensed_over_distractor_rate": 0.959618208516887,
+      "sharedref_mean_abs_candidate_margin": 5.88063567237882,
+      "sharedref_preferred_mention_position": {
+        "0": 580,
+        "1": 782
+      },
+      "semantic_items_with_preference_flip_across_permutations": 0.4185022026431718,
+      "gate_pass": true,
+      "scope_note": "Behavioral candidate scores do not identify H1 versus H2."
+    }
+  ],
+  "panel_gate_pass": true
+}

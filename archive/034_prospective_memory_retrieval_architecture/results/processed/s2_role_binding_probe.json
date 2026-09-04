@@ -1,0 +1,2007 @@
+{
+  "contract": "cue-to-intention routing follows the ongoing task's own category check",
+  "models": [
+    {
+      "model": "Qwen/Qwen3-8B",
+      "model_revision": "b968826d9c46dd6066d109eabc6255188de91218",
+      "residual_layers": [
+        0,
+        4,
+        9,
+        14,
+        18,
+        22,
+        27,
+        32,
+        36
+      ],
+      "depth_fractions": [
+        0.0,
+        0.125,
+        0.25,
+        0.375,
+        0.5,
+        0.625,
+        0.75,
+        0.875,
+        1.0
+      ],
+      "behavior": {
+        "cells": {
+          "nonfocal/target": {
+            "n": 192,
+            "accuracy": 0.8854166666666666,
+            "misroute_to_other_intention": 0.0,
+            "prediction_counts": {
+              "TARGET_ACTION": 170,
+              "YES": 22
+            }
+          },
+          "nonfocal/other": {
+            "n": 192,
+            "accuracy": 0.13020833333333334,
+            "misroute_to_other_intention": 0.7291666666666666,
+            "prediction_counts": {
+              "OTHER_ACTION": 25,
+              "TARGET_ACTION": 140,
+              "YES": 27
+            }
+          },
+          "nonfocal/none": {
+            "n": 192,
+            "accuracy": 0.9895833333333334,
+            "misroute_to_other_intention": null,
+            "prediction_counts": {
+              "TARGET_ACTION": 2,
+              "YES": 190
+            }
+          },
+          "focal_target/target": {
+            "n": 192,
+            "accuracy": 0.734375,
+            "misroute_to_other_intention": 0.0,
+            "prediction_counts": {
+              "NO": 8,
+              "TARGET_ACTION": 141,
+              "YES": 43
+            }
+          },
+          "focal_target/other": {
+            "n": 192,
+            "accuracy": 0.546875,
+            "misroute_to_other_intention": 0.2552083333333333,
+            "prediction_counts": {
+              "NO": 33,
+              "OTHER_ACTION": 105,
+              "TARGET_ACTION": 49,
+              "YES": 5
+            }
+          },
+          "focal_target/none": {
+            "n": 192,
+            "accuracy": 0.9322916666666666,
+            "misroute_to_other_intention": null,
+            "prediction_counts": {
+              "NO": 179,
+              "OTHER_ACTION": 11,
+              "TARGET_ACTION": 2
+            }
+          },
+          "focal_other/target": {
+            "n": 192,
+            "accuracy": 0.6458333333333334,
+            "misroute_to_other_intention": 0.005208333333333333,
+            "prediction_counts": {
+              "NO": 67,
+              "OTHER_ACTION": 1,
+              "TARGET_ACTION": 124
+            }
+          },
+          "focal_other/other": {
+            "n": 192,
+            "accuracy": 0.453125,
+            "misroute_to_other_intention": 0.22395833333333334,
+            "prediction_counts": {
+              "NO": 10,
+              "OTHER_ACTION": 87,
+              "TARGET_ACTION": 43,
+              "YES": 52
+            }
+          },
+          "focal_other/none": {
+            "n": 192,
+            "accuracy": 0.9791666666666666,
+            "misroute_to_other_intention": null,
+            "prediction_counts": {
+              "NO": 188,
+              "OTHER_ACTION": 2,
+              "TARGET_ACTION": 2
+            }
+          }
+        },
+        "matched_focal_minus_nonfocal": {
+          "target": {
+            "estimate": -0.15104166666666666,
+            "ci95": [
+              -0.22395833333333331,
+              -0.07291666666666667
+            ]
+          },
+          "other": {
+            "estimate": 0.3229166666666667,
+            "ci95": [
+              0.265625,
+              0.3854166666666667
+            ]
+          }
+        },
+        "mismatched_focal_minus_nonfocal": {
+          "target": {
+            "estimate": -0.23958333333333331,
+            "ci95": [
+              -0.35416666666666663,
+              -0.125
+            ]
+          },
+          "other": {
+            "estimate": 0.4166666666666667,
+            "ci95": [
+              0.3229166666666667,
+              0.49479166666666663
+            ]
+          }
+        },
+        "monitoring_crossover": {
+          "estimate": -0.005208333333333343,
+          "ci95": [
+            -0.09895833333333334,
+            0.09895833333333331
+          ]
+        }
+      },
+      "probes": {
+        "0": {
+          "residual_layer": 0,
+          "conditions": {
+            "nonfocal": {
+              "n_role": 192,
+              "n_detect": 288,
+              "role": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.5,
+                  "auc": 0.5
+                },
+                "logistic_pca": null
+              },
+              "detect": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.8229166666666666,
+                  "auc": 0.935546875
+                },
+                "logistic_pca": null
+              }
+            },
+            "focal_target": {
+              "n_role": 192,
+              "n_detect": 288,
+              "role": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.5,
+                  "auc": 0.5
+                },
+                "logistic_pca": null
+              },
+              "detect": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.8229166666666666,
+                  "auc": 0.935546875
+                },
+                "logistic_pca": null
+              }
+            },
+            "focal_other": {
+              "n_role": 192,
+              "n_detect": 288,
+              "role": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.5,
+                  "auc": 0.5
+                },
+                "logistic_pca": null
+              },
+              "detect": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.8229166666666666,
+                  "auc": 0.935546875
+                },
+                "logistic_pca": null
+              }
+            }
+          }
+        },
+        "0.125": {
+          "residual_layer": 4,
+          "conditions": {
+            "nonfocal": {
+              "n_role": 192,
+              "n_detect": 288,
+              "role": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.5625,
+                  "auc": 0.5747612847222222
+                },
+                "logistic_pca": null
+              },
+              "detect": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.8697916666666666,
+                  "auc": 0.9751519097222222
+                },
+                "logistic_pca": null
+              }
+            },
+            "focal_target": {
+              "n_role": 192,
+              "n_detect": 288,
+              "role": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.6197916666666667,
+                  "auc": 0.6684027777777778
+                },
+                "logistic_pca": null
+              },
+              "detect": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.8697916666666666,
+                  "auc": 0.9749891493055556
+                },
+                "logistic_pca": null
+              }
+            },
+            "focal_other": {
+              "n_role": 192,
+              "n_detect": 288,
+              "role": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.5364583333333333,
+                  "auc": 0.5771484375
+                },
+                "logistic_pca": null
+              },
+              "detect": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.8697916666666666,
+                  "auc": 0.9750434027777778
+                },
+                "logistic_pca": null
+              }
+            }
+          }
+        },
+        "0.25": {
+          "residual_layer": 9,
+          "conditions": {
+            "nonfocal": {
+              "n_role": 192,
+              "n_detect": 288,
+              "role": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.8958333333333333,
+                  "auc": 0.9481336805555556
+                },
+                "logistic_pca": {
+                  "balanced_accuracy": 0.546875,
+                  "auc": 0.5792100694444444
+                }
+              },
+              "detect": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.9192708333333333,
+                  "auc": 0.9880099826388888
+                },
+                "logistic_pca": {
+                  "balanced_accuracy": 0.9375,
+                  "auc": 0.9851345486111112
+                }
+              }
+            },
+            "focal_target": {
+              "n_role": 192,
+              "n_detect": 288,
+              "role": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.859375,
+                  "auc": 0.9305555555555556
+                },
+                "logistic_pca": {
+                  "balanced_accuracy": 0.5885416666666666,
+                  "auc": 0.5999348958333334
+                }
+              },
+              "detect": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.9192708333333333,
+                  "auc": 0.9874674479166666
+                },
+                "logistic_pca": {
+                  "balanced_accuracy": 0.9401041666666667,
+                  "auc": 0.9826931423611112
+                }
+              }
+            },
+            "focal_other": {
+              "n_role": 192,
+              "n_detect": 288,
+              "role": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.890625,
+                  "auc": 0.9448784722222222
+                },
+                "logistic_pca": {
+                  "balanced_accuracy": 0.53125,
+                  "auc": 0.5400390625
+                }
+              },
+              "detect": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.9166666666666667,
+                  "auc": 0.9874131944444444
+                },
+                "logistic_pca": {
+                  "balanced_accuracy": 0.9375,
+                  "auc": 0.9826388888888888
+                }
+              }
+            }
+          }
+        },
+        "0.375": {
+          "residual_layer": 14,
+          "conditions": {
+            "nonfocal": {
+              "n_role": 192,
+              "n_detect": 288,
+              "role": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.9583333333333333,
+                  "auc": 0.9875217013888888
+                },
+                "logistic_pca": null
+              },
+              "detect": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.9739583333333333,
+                  "auc": 0.9911024305555556
+                },
+                "logistic_pca": null
+              }
+            },
+            "focal_target": {
+              "n_role": 192,
+              "n_detect": 288,
+              "role": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.9427083333333333,
+                  "auc": 0.9806857638888888
+                },
+                "logistic_pca": null
+              },
+              "detect": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.9713541666666666,
+                  "auc": 0.9917534722222222
+                },
+                "logistic_pca": null
+              }
+            },
+            "focal_other": {
+              "n_role": 192,
+              "n_detect": 288,
+              "role": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.9479166666666667,
+                  "auc": 0.9905598958333334
+                },
+                "logistic_pca": null
+              },
+              "detect": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.9713541666666666,
+                  "auc": 0.9916449652777778
+                },
+                "logistic_pca": null
+              }
+            }
+          }
+        },
+        "0.5": {
+          "residual_layer": 18,
+          "conditions": {
+            "nonfocal": {
+              "n_role": 192,
+              "n_detect": 288,
+              "role": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.9947916666666667,
+                  "auc": 1.0
+                },
+                "logistic_pca": {
+                  "balanced_accuracy": 1.0,
+                  "auc": 1.0
+                }
+              },
+              "detect": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.9791666666666667,
+                  "auc": 0.9994032118055556
+                },
+                "logistic_pca": {
+                  "balanced_accuracy": 0.9869791666666667,
+                  "auc": 0.9995659722222222
+                }
+              }
+            },
+            "focal_target": {
+              "n_role": 192,
+              "n_detect": 288,
+              "role": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.9947916666666667,
+                  "auc": 1.0
+                },
+                "logistic_pca": {
+                  "balanced_accuracy": 1.0,
+                  "auc": 1.0
+                }
+              },
+              "detect": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.9791666666666667,
+                  "auc": 0.9990776909722222
+                },
+                "logistic_pca": {
+                  "balanced_accuracy": 0.9817708333333333,
+                  "auc": 0.9991319444444444
+                }
+              }
+            },
+            "focal_other": {
+              "n_role": 192,
+              "n_detect": 288,
+              "role": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.9739583333333333,
+                  "auc": 0.9991319444444444
+                },
+                "logistic_pca": {
+                  "balanced_accuracy": 0.984375,
+                  "auc": 0.9992404513888888
+                }
+              },
+              "detect": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.984375,
+                  "auc": 0.9989691840277778
+                },
+                "logistic_pca": {
+                  "balanced_accuracy": 0.9817708333333333,
+                  "auc": 0.9992404513888888
+                }
+              }
+            }
+          }
+        },
+        "0.625": {
+          "residual_layer": 22,
+          "conditions": {
+            "nonfocal": {
+              "n_role": 192,
+              "n_detect": 288,
+              "role": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.9947916666666667,
+                  "auc": 1.0
+                },
+                "logistic_pca": null
+              },
+              "detect": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.9869791666666667,
+                  "auc": 0.9998914930555556
+                },
+                "logistic_pca": null
+              }
+            },
+            "focal_target": {
+              "n_role": 192,
+              "n_detect": 288,
+              "role": {
+                "mass_mean": {
+                  "balanced_accuracy": 1.0,
+                  "auc": 1.0
+                },
+                "logistic_pca": null
+              },
+              "detect": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.9895833333333333,
+                  "auc": 0.9998372395833334
+                },
+                "logistic_pca": null
+              }
+            },
+            "focal_other": {
+              "n_role": 192,
+              "n_detect": 288,
+              "role": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.9947916666666667,
+                  "auc": 1.0
+                },
+                "logistic_pca": null
+              },
+              "detect": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.9895833333333333,
+                  "auc": 0.9995659722222222
+                },
+                "logistic_pca": null
+              }
+            }
+          }
+        },
+        "0.75": {
+          "residual_layer": 27,
+          "conditions": {
+            "nonfocal": {
+              "n_role": 192,
+              "n_detect": 288,
+              "role": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.890625,
+                  "auc": 0.9558376736111112
+                },
+                "logistic_pca": {
+                  "balanced_accuracy": 0.5729166666666666,
+                  "auc": 0.638671875
+                }
+              },
+              "detect": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.9635416666666666,
+                  "auc": 0.9962022569444444
+                },
+                "logistic_pca": {
+                  "balanced_accuracy": 0.9765625,
+                  "auc": 0.9983723958333334
+                }
+              }
+            },
+            "focal_target": {
+              "n_role": 192,
+              "n_detect": 288,
+              "role": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.953125,
+                  "auc": 0.9913194444444444
+                },
+                "logistic_pca": {
+                  "balanced_accuracy": 0.8020833333333333,
+                  "auc": 0.8868272569444444
+                }
+              },
+              "detect": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.9635416666666666,
+                  "auc": 0.9959852430555556
+                },
+                "logistic_pca": {
+                  "balanced_accuracy": 0.9817708333333333,
+                  "auc": 0.9987521701388888
+                }
+              }
+            },
+            "focal_other": {
+              "n_role": 192,
+              "n_detect": 288,
+              "role": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.9583333333333333,
+                  "auc": 0.9903428819444444
+                },
+                "logistic_pca": {
+                  "balanced_accuracy": 0.6145833333333333,
+                  "auc": 0.6343315972222222
+                }
+              },
+              "detect": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.9505208333333333,
+                  "auc": 0.9950629340277778
+                },
+                "logistic_pca": {
+                  "balanced_accuracy": 0.9817708333333333,
+                  "auc": 0.998046875
+                }
+              }
+            }
+          }
+        },
+        "0.875": {
+          "residual_layer": 32,
+          "conditions": {
+            "nonfocal": {
+              "n_role": 192,
+              "n_detect": 288,
+              "role": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.6770833333333333,
+                  "auc": 0.7872178819444444
+                },
+                "logistic_pca": null
+              },
+              "detect": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.9244791666666667,
+                  "auc": 0.9826388888888888
+                },
+                "logistic_pca": null
+              }
+            },
+            "focal_target": {
+              "n_role": 192,
+              "n_detect": 288,
+              "role": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.8541666666666666,
+                  "auc": 0.9222005208333334
+                },
+                "logistic_pca": null
+              },
+              "detect": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.9244791666666667,
+                  "auc": 0.9816080729166666
+                },
+                "logistic_pca": null
+              }
+            },
+            "focal_other": {
+              "n_role": 192,
+              "n_detect": 288,
+              "role": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.8385416666666667,
+                  "auc": 0.9172092013888888
+                },
+                "logistic_pca": null
+              },
+              "detect": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.921875,
+                  "auc": 0.9815538194444444
+                },
+                "logistic_pca": null
+              }
+            }
+          }
+        },
+        "1": {
+          "residual_layer": 36,
+          "conditions": {
+            "nonfocal": {
+              "n_role": 192,
+              "n_detect": 288,
+              "role": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.6302083333333333,
+                  "auc": 0.7082248263888888
+                },
+                "logistic_pca": null
+              },
+              "detect": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.9114583333333333,
+                  "auc": 0.9695095486111112
+                },
+                "logistic_pca": null
+              }
+            },
+            "focal_target": {
+              "n_role": 192,
+              "n_detect": 288,
+              "role": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.7760416666666667,
+                  "auc": 0.8742404513888888
+                },
+                "logistic_pca": null
+              },
+              "detect": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.9114583333333334,
+                  "auc": 0.9702690972222222
+                },
+                "logistic_pca": null
+              }
+            },
+            "focal_other": {
+              "n_role": 192,
+              "n_detect": 288,
+              "role": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.6510416666666666,
+                  "auc": 0.7230902777777778
+                },
+                "logistic_pca": null
+              },
+              "detect": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.9140625,
+                  "auc": 0.9667426215277778
+                },
+                "logistic_pca": null
+              }
+            }
+          }
+        }
+      },
+      "role_gap_at_gate_depths": {
+        "0.25": {
+          "focal_target_minus_nonfocal": -0.03645833333333326,
+          "focal_other_minus_nonfocal": -0.005208333333333259
+        },
+        "0.5": {
+          "focal_target_minus_nonfocal": 0.0,
+          "focal_other_minus_nonfocal": -0.02083333333333348
+        },
+        "0.75": {
+          "focal_target_minus_nonfocal": 0.0625,
+          "focal_other_minus_nonfocal": 0.06770833333333326
+        }
+      },
+      "role_transfer_to_nonfocal": {
+        "0": {
+          "train_focal_target_test_nonfocal": {
+            "balanced_accuracy": 0.5,
+            "auc": 0.4998914930555556
+          },
+          "train_focal_other_test_nonfocal": {
+            "balanced_accuracy": 0.5,
+            "auc": 0.4998914930555556
+          }
+        },
+        "0.125": {
+          "train_focal_target_test_nonfocal": {
+            "balanced_accuracy": 0.515625,
+            "auc": 0.5396050347222222
+          },
+          "train_focal_other_test_nonfocal": {
+            "balanced_accuracy": 0.5208333333333334,
+            "auc": 0.5386284722222222
+          }
+        },
+        "0.25": {
+          "train_focal_target_test_nonfocal": {
+            "balanced_accuracy": 0.8177083333333334,
+            "auc": 0.8902994791666666
+          },
+          "train_focal_other_test_nonfocal": {
+            "balanced_accuracy": 0.8802083333333334,
+            "auc": 0.9551866319444444
+          }
+        },
+        "0.375": {
+          "train_focal_target_test_nonfocal": {
+            "balanced_accuracy": 0.8854166666666667,
+            "auc": 0.9273003472222222
+          },
+          "train_focal_other_test_nonfocal": {
+            "balanced_accuracy": 0.9114583333333333,
+            "auc": 0.9742838541666666
+          }
+        },
+        "0.5": {
+          "train_focal_target_test_nonfocal": {
+            "balanced_accuracy": 0.96875,
+            "auc": 0.9976128472222222
+          },
+          "train_focal_other_test_nonfocal": {
+            "balanced_accuracy": 0.9583333333333333,
+            "auc": 0.9933810763888888
+          }
+        },
+        "0.625": {
+          "train_focal_target_test_nonfocal": {
+            "balanced_accuracy": 0.9322916666666667,
+            "auc": 0.9976128472222222
+          },
+          "train_focal_other_test_nonfocal": {
+            "balanced_accuracy": 0.953125,
+            "auc": 0.9967447916666666
+          }
+        },
+        "0.75": {
+          "train_focal_target_test_nonfocal": {
+            "balanced_accuracy": 0.8177083333333333,
+            "auc": 0.9188368055555556
+          },
+          "train_focal_other_test_nonfocal": {
+            "balanced_accuracy": 0.8385416666666666,
+            "auc": 0.9102647569444444
+          }
+        },
+        "0.875": {
+          "train_focal_target_test_nonfocal": {
+            "balanced_accuracy": 0.6770833333333333,
+            "auc": 0.787109375
+          },
+          "train_focal_other_test_nonfocal": {
+            "balanced_accuracy": 0.703125,
+            "auc": 0.7976345486111112
+          }
+        },
+        "1": {
+          "train_focal_target_test_nonfocal": {
+            "balanced_accuracy": 0.6354166666666666,
+            "auc": 0.7132161458333334
+          },
+          "train_focal_other_test_nonfocal": {
+            "balanced_accuracy": 0.5989583333333334,
+            "auc": 0.6195746527777778
+          }
+        }
+      },
+      "role_decodability_by_routing_outcome": {
+        "0": {
+          "residual_layer": 0,
+          "groups": {
+            "misrouted": {
+              "n": 49,
+              "role_correct_rate": 0.5918367346938775,
+              "mean_score": -0.1974794300539153
+            },
+            "correctly_routed": {
+              "n": 5,
+              "role_correct_rate": 0.2,
+              "mean_score": 0.2514602839946747
+            }
+          },
+          "overall_balanced_accuracy": 0.5
+        },
+        "0.125": {
+          "residual_layer": 4,
+          "groups": {
+            "misrouted": {
+              "n": 49,
+              "role_correct_rate": 0.5510204081632653,
+              "mean_score": -0.1162432579665768
+            },
+            "correctly_routed": {
+              "n": 5,
+              "role_correct_rate": 0.6,
+              "mean_score": 0.16581376194953917
+            }
+          },
+          "overall_balanced_accuracy": 0.5625
+        },
+        "0.25": {
+          "residual_layer": 9,
+          "groups": {
+            "misrouted": {
+              "n": 49,
+              "role_correct_rate": 0.9795918367346939,
+              "mean_score": -2.4385786804617666
+            },
+            "correctly_routed": {
+              "n": 5,
+              "role_correct_rate": 1.0,
+              "mean_score": -2.4314446806907655
+            }
+          },
+          "overall_balanced_accuracy": 0.8958333333333333
+        },
+        "0.375": {
+          "residual_layer": 14,
+          "groups": {
+            "misrouted": {
+              "n": 49,
+              "role_correct_rate": 1.0,
+              "mean_score": -5.638715559122514
+            },
+            "correctly_routed": {
+              "n": 5,
+              "role_correct_rate": 1.0,
+              "mean_score": -4.0097297668457035
+            }
+          },
+          "overall_balanced_accuracy": 0.9583333333333333
+        },
+        "0.5": {
+          "residual_layer": 18,
+          "groups": {
+            "misrouted": {
+              "n": 49,
+              "role_correct_rate": 1.0,
+              "mean_score": -11.500559874943324
+            },
+            "correctly_routed": {
+              "n": 5,
+              "role_correct_rate": 0.8,
+              "mean_score": -3.7678041100502013
+            }
+          },
+          "overall_balanced_accuracy": 0.9947916666666667
+        },
+        "0.625": {
+          "residual_layer": 22,
+          "groups": {
+            "misrouted": {
+              "n": 49,
+              "role_correct_rate": 1.0,
+              "mean_score": -13.171763126947441
+            },
+            "correctly_routed": {
+              "n": 5,
+              "role_correct_rate": 1.0,
+              "mean_score": -7.449643993377686
+            }
+          },
+          "overall_balanced_accuracy": 0.9947916666666667
+        },
+        "0.75": {
+          "residual_layer": 27,
+          "groups": {
+            "misrouted": {
+              "n": 49,
+              "role_correct_rate": 0.8367346938775511,
+              "mean_score": -3.6889500192233493
+            },
+            "correctly_routed": {
+              "n": 5,
+              "role_correct_rate": 1.0,
+              "mean_score": -3.281123328208923
+            }
+          },
+          "overall_balanced_accuracy": 0.890625
+        },
+        "0.875": {
+          "residual_layer": 32,
+          "groups": {
+            "misrouted": {
+              "n": 49,
+              "role_correct_rate": 0.6530612244897959,
+              "mean_score": -1.8669703254590229
+            },
+            "correctly_routed": {
+              "n": 5,
+              "role_correct_rate": 0.8,
+              "mean_score": -2.866876459121704
+            }
+          },
+          "overall_balanced_accuracy": 0.6770833333333333
+        },
+        "1": {
+          "residual_layer": 36,
+          "groups": {
+            "misrouted": {
+              "n": 49,
+              "role_correct_rate": 0.6530612244897959,
+              "mean_score": -1.30727142278029
+            },
+            "correctly_routed": {
+              "n": 5,
+              "role_correct_rate": 0.6,
+              "mean_score": -1.9769131362438201
+            }
+          },
+          "overall_balanced_accuracy": 0.6302083333333333
+        }
+      },
+      "crossover_pass": false
+    },
+    {
+      "model": "NousResearch/Meta-Llama-3.1-8B-Instruct",
+      "model_revision": "d10aef7999a2b5ba950ab3974312feeedbfe0b77",
+      "residual_layers": [
+        0,
+        4,
+        8,
+        12,
+        16,
+        20,
+        24,
+        28,
+        32
+      ],
+      "depth_fractions": [
+        0.0,
+        0.125,
+        0.25,
+        0.375,
+        0.5,
+        0.625,
+        0.75,
+        0.875,
+        1.0
+      ],
+      "behavior": {
+        "cells": {
+          "nonfocal/target": {
+            "n": 192,
+            "accuracy": 0.9739583333333334,
+            "misroute_to_other_intention": 0.0,
+            "prediction_counts": {
+              "TARGET_ACTION": 187,
+              "YES": 5
+            }
+          },
+          "nonfocal/other": {
+            "n": 192,
+            "accuracy": 0.3802083333333333,
+            "misroute_to_other_intention": 0.5104166666666666,
+            "prediction_counts": {
+              "NO": 2,
+              "OTHER_ACTION": 73,
+              "TARGET_ACTION": 98,
+              "YES": 19
+            }
+          },
+          "nonfocal/none": {
+            "n": 192,
+            "accuracy": 0.5729166666666666,
+            "misroute_to_other_intention": null,
+            "prediction_counts": {
+              "NO": 40,
+              "TARGET_ACTION": 42,
+              "YES": 110
+            }
+          },
+          "focal_target/target": {
+            "n": 192,
+            "accuracy": 0.984375,
+            "misroute_to_other_intention": 0.0,
+            "prediction_counts": {
+              "TARGET_ACTION": 189,
+              "YES": 3
+            }
+          },
+          "focal_target/other": {
+            "n": 192,
+            "accuracy": 0.5416666666666666,
+            "misroute_to_other_intention": 0.3854166666666667,
+            "prediction_counts": {
+              "NO": 13,
+              "OTHER_ACTION": 104,
+              "TARGET_ACTION": 74,
+              "YES": 1
+            }
+          },
+          "focal_target/none": {
+            "n": 192,
+            "accuracy": 0.7135416666666666,
+            "misroute_to_other_intention": null,
+            "prediction_counts": {
+              "NO": 137,
+              "TARGET_ACTION": 24,
+              "YES": 31
+            }
+          },
+          "focal_other/target": {
+            "n": 192,
+            "accuracy": 0.9635416666666666,
+            "misroute_to_other_intention": 0.0,
+            "prediction_counts": {
+              "NO": 5,
+              "TARGET_ACTION": 185,
+              "YES": 2
+            }
+          },
+          "focal_other/other": {
+            "n": 192,
+            "accuracy": 0.23958333333333334,
+            "misroute_to_other_intention": 0.5572916666666666,
+            "prediction_counts": {
+              "NO": 2,
+              "OTHER_ACTION": 46,
+              "TARGET_ACTION": 107,
+              "YES": 37
+            }
+          },
+          "focal_other/none": {
+            "n": 192,
+            "accuracy": 0.6510416666666666,
+            "misroute_to_other_intention": null,
+            "prediction_counts": {
+              "NO": 125,
+              "OTHER_ACTION": 1,
+              "TARGET_ACTION": 28,
+              "YES": 38
+            }
+          }
+        },
+        "matched_focal_minus_nonfocal": {
+          "target": {
+            "estimate": 0.010416666666666664,
+            "ci95": [
+              0.0,
+              0.031249999999999993
+            ]
+          },
+          "other": {
+            "estimate": -0.140625,
+            "ci95": [
+              -0.1875,
+              -0.09895833333333333
+            ]
+          }
+        },
+        "mismatched_focal_minus_nonfocal": {
+          "target": {
+            "estimate": -0.010416666666666671,
+            "ci95": [
+              -0.031250000000000014,
+              0.0
+            ]
+          },
+          "other": {
+            "estimate": 0.16145833333333331,
+            "ci95": [
+              0.09895833333333334,
+              0.21875
+            ]
+          }
+        },
+        "monitoring_crossover": {
+          "estimate": -0.28125,
+          "ci95": [
+            -0.3489583333333333,
+            -0.20833333333333334
+          ]
+        }
+      },
+      "probes": {
+        "0": {
+          "residual_layer": 0,
+          "conditions": {
+            "nonfocal": {
+              "n_role": 192,
+              "n_detect": 288,
+              "role": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.5,
+                  "auc": 0.5
+                },
+                "logistic_pca": null
+              },
+              "detect": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.84375,
+                  "auc": 0.9538845486111112
+                },
+                "logistic_pca": null
+              }
+            },
+            "focal_target": {
+              "n_role": 192,
+              "n_detect": 288,
+              "role": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.5,
+                  "auc": 0.5
+                },
+                "logistic_pca": null
+              },
+              "detect": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.84375,
+                  "auc": 0.9538845486111112
+                },
+                "logistic_pca": null
+              }
+            },
+            "focal_other": {
+              "n_role": 192,
+              "n_detect": 288,
+              "role": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.5,
+                  "auc": 0.5
+                },
+                "logistic_pca": null
+              },
+              "detect": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.84375,
+                  "auc": 0.9538845486111112
+                },
+                "logistic_pca": null
+              }
+            }
+          }
+        },
+        "0.125": {
+          "residual_layer": 4,
+          "conditions": {
+            "nonfocal": {
+              "n_role": 192,
+              "n_detect": 288,
+              "role": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.5729166666666666,
+                  "auc": 0.6196831597222222
+                },
+                "logistic_pca": null
+              },
+              "detect": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.921875,
+                  "auc": 0.9722764756944444
+                },
+                "logistic_pca": null
+              }
+            },
+            "focal_target": {
+              "n_role": 192,
+              "n_detect": 288,
+              "role": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.640625,
+                  "auc": 0.6963975694444444
+                },
+                "logistic_pca": null
+              },
+              "detect": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.921875,
+                  "auc": 0.9728732638888888
+                },
+                "logistic_pca": null
+              }
+            },
+            "focal_other": {
+              "n_role": 192,
+              "n_detect": 288,
+              "role": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.609375,
+                  "auc": 0.6381293402777778
+                },
+                "logistic_pca": null
+              },
+              "detect": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.921875,
+                  "auc": 0.9729275173611112
+                },
+                "logistic_pca": null
+              }
+            }
+          }
+        },
+        "0.25": {
+          "residual_layer": 8,
+          "conditions": {
+            "nonfocal": {
+              "n_role": 192,
+              "n_detect": 288,
+              "role": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.8333333333333333,
+                  "auc": 0.9458550347222222
+                },
+                "logistic_pca": {
+                  "balanced_accuracy": 0.5885416666666666,
+                  "auc": 0.615234375
+                }
+              },
+              "detect": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.96875,
+                  "auc": 0.9874674479166666
+                },
+                "logistic_pca": {
+                  "balanced_accuracy": 0.953125,
+                  "auc": 0.9847547743055556
+                }
+              }
+            },
+            "focal_target": {
+              "n_role": 192,
+              "n_detect": 288,
+              "role": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.875,
+                  "auc": 0.9468315972222222
+                },
+                "logistic_pca": {
+                  "balanced_accuracy": 0.6875,
+                  "auc": 0.8089192708333334
+                }
+              },
+              "detect": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.96875,
+                  "auc": 0.9894205729166666
+                },
+                "logistic_pca": {
+                  "balanced_accuracy": 0.9609375,
+                  "auc": 0.9862738715277778
+                }
+              }
+            },
+            "focal_other": {
+              "n_role": 192,
+              "n_detect": 288,
+              "role": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.9010416666666666,
+                  "auc": 0.9608289930555556
+                },
+                "logistic_pca": {
+                  "balanced_accuracy": 0.7395833333333334,
+                  "auc": 0.8018663194444444
+                }
+              },
+              "detect": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.96875,
+                  "auc": 0.9890407986111112
+                },
+                "logistic_pca": {
+                  "balanced_accuracy": 0.9583333333333334,
+                  "auc": 0.9858940972222222
+                }
+              }
+            }
+          }
+        },
+        "0.375": {
+          "residual_layer": 12,
+          "conditions": {
+            "nonfocal": {
+              "n_role": 192,
+              "n_detect": 288,
+              "role": {
+                "mass_mean": {
+                  "balanced_accuracy": 1.0,
+                  "auc": 1.0
+                },
+                "logistic_pca": null
+              },
+              "detect": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.984375,
+                  "auc": 0.9968532986111112
+                },
+                "logistic_pca": null
+              }
+            },
+            "focal_target": {
+              "n_role": 192,
+              "n_detect": 288,
+              "role": {
+                "mass_mean": {
+                  "balanced_accuracy": 1.0,
+                  "auc": 1.0
+                },
+                "logistic_pca": null
+              },
+              "detect": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.9869791666666667,
+                  "auc": 0.998046875
+                },
+                "logistic_pca": null
+              }
+            },
+            "focal_other": {
+              "n_role": 192,
+              "n_detect": 288,
+              "role": {
+                "mass_mean": {
+                  "balanced_accuracy": 1.0,
+                  "auc": 1.0
+                },
+                "logistic_pca": null
+              },
+              "detect": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.984375,
+                  "auc": 0.9965277777777778
+                },
+                "logistic_pca": null
+              }
+            }
+          }
+        },
+        "0.5": {
+          "residual_layer": 16,
+          "conditions": {
+            "nonfocal": {
+              "n_role": 192,
+              "n_detect": 288,
+              "role": {
+                "mass_mean": {
+                  "balanced_accuracy": 1.0,
+                  "auc": 1.0
+                },
+                "logistic_pca": {
+                  "balanced_accuracy": 1.0,
+                  "auc": 1.0
+                }
+              },
+              "detect": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.9765625,
+                  "auc": 0.9916449652777778
+                },
+                "logistic_pca": {
+                  "balanced_accuracy": 0.9817708333333334,
+                  "auc": 0.9913736979166666
+                }
+              }
+            },
+            "focal_target": {
+              "n_role": 192,
+              "n_detect": 288,
+              "role": {
+                "mass_mean": {
+                  "balanced_accuracy": 1.0,
+                  "auc": 1.0
+                },
+                "logistic_pca": {
+                  "balanced_accuracy": 1.0,
+                  "auc": 1.0
+                }
+              },
+              "detect": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.9765625,
+                  "auc": 0.9935438368055556
+                },
+                "logistic_pca": {
+                  "balanced_accuracy": 0.9791666666666667,
+                  "auc": 0.9949001736111112
+                }
+              }
+            },
+            "focal_other": {
+              "n_role": 192,
+              "n_detect": 288,
+              "role": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.9947916666666667,
+                  "auc": 1.0
+                },
+                "logistic_pca": {
+                  "balanced_accuracy": 0.9947916666666667,
+                  "auc": 0.9998914930555556
+                }
+              },
+              "detect": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.9817708333333334,
+                  "auc": 0.9929470486111112
+                },
+                "logistic_pca": {
+                  "balanced_accuracy": 0.984375,
+                  "auc": 0.99462890625
+                }
+              }
+            }
+          }
+        },
+        "0.625": {
+          "residual_layer": 20,
+          "conditions": {
+            "nonfocal": {
+              "n_role": 192,
+              "n_detect": 288,
+              "role": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.9895833333333334,
+                  "auc": 0.9995659722222222
+                },
+                "logistic_pca": null
+              },
+              "detect": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.9479166666666667,
+                  "auc": 0.9865451388888888
+                },
+                "logistic_pca": null
+              }
+            },
+            "focal_target": {
+              "n_role": 192,
+              "n_detect": 288,
+              "role": {
+                "mass_mean": {
+                  "balanced_accuracy": 1.0,
+                  "auc": 1.0
+                },
+                "logistic_pca": null
+              },
+              "detect": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.9453125,
+                  "auc": 0.9871419270833334
+                },
+                "logistic_pca": null
+              }
+            },
+            "focal_other": {
+              "n_role": 192,
+              "n_detect": 288,
+              "role": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.96875,
+                  "auc": 0.9972873263888888
+                },
+                "logistic_pca": null
+              },
+              "detect": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.9505208333333333,
+                  "auc": 0.9874131944444444
+                },
+                "logistic_pca": null
+              }
+            }
+          }
+        },
+        "0.75": {
+          "residual_layer": 24,
+          "conditions": {
+            "nonfocal": {
+              "n_role": 192,
+              "n_detect": 288,
+              "role": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.9322916666666667,
+                  "auc": 0.9854600694444444
+                },
+                "logistic_pca": {
+                  "balanced_accuracy": 0.5364583333333334,
+                  "auc": 0.5557725694444444
+                }
+              },
+              "detect": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.9270833333333334,
+                  "auc": 0.9764539930555556
+                },
+                "logistic_pca": {
+                  "balanced_accuracy": 0.890625,
+                  "auc": 0.9605577256944444
+                }
+              }
+            },
+            "focal_target": {
+              "n_role": 192,
+              "n_detect": 288,
+              "role": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.9270833333333333,
+                  "auc": 0.9879557291666666
+                },
+                "logistic_pca": {
+                  "balanced_accuracy": 0.5625,
+                  "auc": 0.5868055555555556
+                }
+              },
+              "detect": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.9296875,
+                  "auc": 0.9763454861111112
+                },
+                "logistic_pca": {
+                  "balanced_accuracy": 0.9192708333333333,
+                  "auc": 0.9698893229166666
+                }
+              }
+            },
+            "focal_other": {
+              "n_role": 192,
+              "n_detect": 288,
+              "role": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.9375,
+                  "auc": 0.9800347222222222
+                },
+                "logistic_pca": {
+                  "balanced_accuracy": 0.5364583333333334,
+                  "auc": 0.5716145833333334
+                }
+              },
+              "detect": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.9296875,
+                  "auc": 0.9768880208333334
+                },
+                "logistic_pca": {
+                  "balanced_accuracy": 0.9244791666666667,
+                  "auc": 0.97021484375
+                }
+              }
+            }
+          }
+        },
+        "0.875": {
+          "residual_layer": 28,
+          "conditions": {
+            "nonfocal": {
+              "n_role": 192,
+              "n_detect": 288,
+              "role": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.8802083333333333,
+                  "auc": 0.9675564236111112
+                },
+                "logistic_pca": null
+              },
+              "detect": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.9166666666666667,
+                  "auc": 0.9705946180555556
+                },
+                "logistic_pca": null
+              }
+            },
+            "focal_target": {
+              "n_role": 192,
+              "n_detect": 288,
+              "role": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.875,
+                  "auc": 0.9441189236111112
+                },
+                "logistic_pca": null
+              },
+              "detect": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.9192708333333333,
+                  "auc": 0.9692925347222222
+                },
+                "logistic_pca": null
+              }
+            },
+            "focal_other": {
+              "n_role": 192,
+              "n_detect": 288,
+              "role": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.8854166666666667,
+                  "auc": 0.9505208333333334
+                },
+                "logistic_pca": null
+              },
+              "detect": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.9166666666666667,
+                  "auc": 0.9682074652777778
+                },
+                "logistic_pca": null
+              }
+            }
+          }
+        },
+        "1": {
+          "residual_layer": 32,
+          "conditions": {
+            "nonfocal": {
+              "n_role": 192,
+              "n_detect": 288,
+              "role": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.671875,
+                  "auc": 0.7505425347222222
+                },
+                "logistic_pca": null
+              },
+              "detect": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.9140625,
+                  "auc": 0.9633246527777778
+                },
+                "logistic_pca": null
+              }
+            },
+            "focal_target": {
+              "n_role": 192,
+              "n_detect": 288,
+              "role": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.71875,
+                  "auc": 0.8250868055555556
+                },
+                "logistic_pca": null
+              },
+              "detect": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.9140625,
+                  "auc": 0.9633246527777778
+                },
+                "logistic_pca": null
+              }
+            },
+            "focal_other": {
+              "n_role": 192,
+              "n_detect": 288,
+              "role": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.71875,
+                  "auc": 0.7989366319444444
+                },
+                "logistic_pca": null
+              },
+              "detect": {
+                "mass_mean": {
+                  "balanced_accuracy": 0.9140625,
+                  "auc": 0.9611545138888888
+                },
+                "logistic_pca": null
+              }
+            }
+          }
+        }
+      },
+      "role_gap_at_gate_depths": {
+        "0.25": {
+          "focal_target_minus_nonfocal": 0.04166666666666674,
+          "focal_other_minus_nonfocal": 0.06770833333333337
+        },
+        "0.5": {
+          "focal_target_minus_nonfocal": 0.0,
+          "focal_other_minus_nonfocal": -0.005208333333333259
+        },
+        "0.75": {
+          "focal_target_minus_nonfocal": -0.005208333333333481,
+          "focal_other_minus_nonfocal": 0.005208333333333259
+        }
+      },
+      "role_transfer_to_nonfocal": {
+        "0": {
+          "train_focal_target_test_nonfocal": {
+            "balanced_accuracy": 0.5,
+            "auc": 0.5000542534722222
+          },
+          "train_focal_other_test_nonfocal": {
+            "balanced_accuracy": 0.5,
+            "auc": 0.5000542534722222
+          }
+        },
+        "0.125": {
+          "train_focal_target_test_nonfocal": {
+            "balanced_accuracy": 0.546875,
+            "auc": 0.5767144097222222
+          },
+          "train_focal_other_test_nonfocal": {
+            "balanced_accuracy": 0.5260416666666667,
+            "auc": 0.5335286458333334
+          }
+        },
+        "0.25": {
+          "train_focal_target_test_nonfocal": {
+            "balanced_accuracy": 0.703125,
+            "auc": 0.8291015625
+          },
+          "train_focal_other_test_nonfocal": {
+            "balanced_accuracy": 0.7135416666666667,
+            "auc": 0.796875
+          }
+        },
+        "0.375": {
+          "train_focal_target_test_nonfocal": {
+            "balanced_accuracy": 0.9791666666666667,
+            "auc": 1.0
+          },
+          "train_focal_other_test_nonfocal": {
+            "balanced_accuracy": 0.9895833333333334,
+            "auc": 0.9986979166666666
+          }
+        },
+        "0.5": {
+          "train_focal_target_test_nonfocal": {
+            "balanced_accuracy": 0.96875,
+            "auc": 1.0
+          },
+          "train_focal_other_test_nonfocal": {
+            "balanced_accuracy": 0.90625,
+            "auc": 0.9940321180555556
+          }
+        },
+        "0.625": {
+          "train_focal_target_test_nonfocal": {
+            "balanced_accuracy": 0.8958333333333333,
+            "auc": 0.9725477430555556
+          },
+          "train_focal_other_test_nonfocal": {
+            "balanced_accuracy": 0.84375,
+            "auc": 0.9470486111111112
+          }
+        },
+        "0.75": {
+          "train_focal_target_test_nonfocal": {
+            "balanced_accuracy": 0.84375,
+            "auc": 0.9175347222222222
+          },
+          "train_focal_other_test_nonfocal": {
+            "balanced_accuracy": 0.8385416666666667,
+            "auc": 0.9224175347222222
+          }
+        },
+        "0.875": {
+          "train_focal_target_test_nonfocal": {
+            "balanced_accuracy": 0.78125,
+            "auc": 0.8355034722222222
+          },
+          "train_focal_other_test_nonfocal": {
+            "balanced_accuracy": 0.7552083333333334,
+            "auc": 0.8614366319444444
+          }
+        },
+        "1": {
+          "train_focal_target_test_nonfocal": {
+            "balanced_accuracy": 0.625,
+            "auc": 0.6994357638888888
+          },
+          "train_focal_other_test_nonfocal": {
+            "balanced_accuracy": 0.578125,
+            "auc": 0.6267361111111112
+          }
+        }
+      },
+      "role_decodability_by_routing_outcome": {
+        "0": {
+          "residual_layer": 0,
+          "groups": {
+            "misrouted": {
+              "n": 4,
+              "role_correct_rate": 0.75,
+              "mean_score": 0.01878830895293504
+            },
+            "correctly_routed": {
+              "n": 2,
+              "role_correct_rate": 1.0,
+              "mean_score": -1.2163676023483276
+            }
+          },
+          "overall_balanced_accuracy": 0.5
+        },
+        "0.125": {
+          "residual_layer": 4,
+          "groups": {
+            "misrouted": {
+              "n": 4,
+              "role_correct_rate": 0.5,
+              "mean_score": 0.03690763283520937
+            },
+            "correctly_routed": {
+              "n": 2,
+              "role_correct_rate": 0.5,
+              "mean_score": 0.2748306691646576
+            }
+          },
+          "overall_balanced_accuracy": 0.5729166666666666
+        },
+        "0.25": {
+          "residual_layer": 8,
+          "groups": {
+            "misrouted": {
+              "n": 4,
+              "role_correct_rate": 0.5,
+              "mean_score": -0.34491753578186035
+            },
+            "correctly_routed": {
+              "n": 2,
+              "role_correct_rate": 1.0,
+              "mean_score": -3.512099862098694
+            }
+          },
+          "overall_balanced_accuracy": 0.8333333333333333
+        },
+        "0.375": {
+          "residual_layer": 12,
+          "groups": {
+            "misrouted": {
+              "n": 4,
+              "role_correct_rate": 1.0,
+              "mean_score": -10.837968826293945
+            },
+            "correctly_routed": {
+              "n": 2,
+              "role_correct_rate": 1.0,
+              "mean_score": -11.47941541671753
+            }
+          },
+          "overall_balanced_accuracy": 1.0
+        },
+        "0.5": {
+          "residual_layer": 16,
+          "groups": {
+            "misrouted": {
+              "n": 4,
+              "role_correct_rate": 1.0,
+              "mean_score": -6.25211238861084
+            },
+            "correctly_routed": {
+              "n": 2,
+              "role_correct_rate": 1.0,
+              "mean_score": -8.715622425079346
+            }
+          },
+          "overall_balanced_accuracy": 1.0
+        },
+        "0.625": {
+          "residual_layer": 20,
+          "groups": {
+            "misrouted": {
+              "n": 4,
+              "role_correct_rate": 1.0,
+              "mean_score": -1.8496228158473969
+            },
+            "correctly_routed": {
+              "n": 2,
+              "role_correct_rate": 1.0,
+              "mean_score": -3.644300937652588
+            }
+          },
+          "overall_balanced_accuracy": 0.9895833333333334
+        },
+        "0.75": {
+          "residual_layer": 24,
+          "groups": {
+            "misrouted": {
+              "n": 4,
+              "role_correct_rate": 1.0,
+              "mean_score": -1.2366366162896156
+            },
+            "correctly_routed": {
+              "n": 2,
+              "role_correct_rate": 1.0,
+              "mean_score": -1.8856929540634155
+            }
+          },
+          "overall_balanced_accuracy": 0.9322916666666667
+        },
+        "0.875": {
+          "residual_layer": 28,
+          "groups": {
+            "misrouted": {
+              "n": 4,
+              "role_correct_rate": 0.75,
+              "mean_score": -0.9583254605531693
+            },
+            "correctly_routed": {
+              "n": 2,
+              "role_correct_rate": 1.0,
+              "mean_score": -1.6192016899585724
+            }
+          },
+          "overall_balanced_accuracy": 0.8802083333333333
+        },
+        "1": {
+          "residual_layer": 32,
+          "groups": {
+            "misrouted": {
+              "n": 4,
+              "role_correct_rate": 0.75,
+              "mean_score": -1.621240060776472
+            },
+            "correctly_routed": {
+              "n": 2,
+              "role_correct_rate": 0.0,
+              "mean_score": 1.7285710982978344
+            }
+          },
+          "overall_balanced_accuracy": 0.671875
+        }
+      },
+      "crossover_pass": false
+    }
+  ],
+  "panel_gate_pass": false,
+  "interpretation_guard": "A crossover pass means routing is controlled by the ongoing task's category check rather than by generic semantic depth. Probe results say whether the intention-role binding is absent at the cue token or present but unused downstream."
+}

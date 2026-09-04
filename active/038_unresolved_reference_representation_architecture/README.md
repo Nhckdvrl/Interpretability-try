@@ -1,7 +1,13 @@
 # 038 — Unresolved Reference Representation Architecture
 
-Status: **PASS-REGISTER / GPU AUTHORIZED**  
+Status: **KEEP / LATE-SELECTION RESULT ESTABLISHED / MECHANISTIC DEVELOPMENT ACTIVE**
 Date: 2026-09-01
+
+Execution update (2026-09-04): the clean H1 and transferable H2 signatures failed, and a
+same-content mention-order transplant had no causal effect at the unresolved pronoun. A
+mechanism-derived response-list manipulation then produced 31--32% licensed-candidate flips
+for ambiguous references but 0--4.5% for resolved controls across Llama and Qwen. The project
+is kept with a late-selection result; it does not claim a generic ambiguity representation.
 
 ## A. Natural question
 

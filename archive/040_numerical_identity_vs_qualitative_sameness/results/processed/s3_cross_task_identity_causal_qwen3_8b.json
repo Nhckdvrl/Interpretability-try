@@ -1,0 +1,130 @@
+{
+  "contract": "cross-surface identity state -> arbitrary history inheritance with type knowledge preserved",
+  "model": "Qwen/Qwen3-8B",
+  "model_revision": "b968826d9c46dd6066d109eabc6255188de91218",
+  "block_index": 17,
+  "residual_layer": 18,
+  "test_frames": [
+    5,
+    7,
+    17,
+    19,
+    20,
+    21
+  ],
+  "identity_readout": {
+    "train_rows": 200,
+    "test_rows": 48,
+    "test_cross_surface_auc": 0.4739583333333333,
+    "test_cross_surface_balanced_accuracy": 0.5208333333333334,
+    "class_counts_train": {
+      "different": 100,
+      "same": 100
+    },
+    "class_counts_test": {
+      "different": 24,
+      "same": 24
+    },
+    "projection_sd": 0.2388409674167633
+  },
+  "n_label_aggregated_items": 384,
+  "history_identity_aligned_bidirectional_effect": {
+    "identity": {
+      "estimate": -0.00451414721707503,
+      "ci95": [
+        -0.009157936088740826,
+        -0.0015053115785121918
+      ]
+    },
+    "shuffled": {
+      "estimate": -0.0015346314758062363,
+      "ci95": [
+        -0.011660606600344181,
+        0.01004084867114822
+      ]
+    },
+    "random": {
+      "estimate": -0.0007522230346997579,
+      "ci95": [
+        -0.008798136841505766,
+        0.00816501552859942
+      ]
+    }
+  },
+  "identity_minus_controls": {
+    "shuffled": {
+      "estimate": -0.0029795157412687936,
+      "ci95": [
+        -0.012552640866488218,
+        0.0061510672482351465
+      ]
+    },
+    "random": {
+      "estimate": -0.0037619241823752723,
+      "ci95": [
+        -0.010722964070737362,
+        0.0032883502232531705
+      ]
+    }
+  },
+  "history_effect_by_binding_order": {
+    "target_binding_last": {
+      "identity": {
+        "estimate": -0.006459915700058143,
+        "ci95": [
+          -0.016905406901302437,
+          0.0033970577642321587
+        ]
+      },
+      "shuffled": {
+        "estimate": -0.0012139311681191127,
+        "ci95": [
+          -0.01870763177673022,
+          0.014410101187725862
+        ]
+      },
+      "random": {
+        "estimate": -0.00589009157071511,
+        "ci95": [
+          -0.024723066948354244,
+          0.013606773999830088
+        ]
+      }
+    },
+    "target_binding_not_last": {
+      "identity": {
+        "estimate": -0.0025683787340919175,
+        "ci95": [
+          -0.009186217561364174,
+          0.004051612193385729
+        ]
+      },
+      "shuffled": {
+        "estimate": -0.0018553317834933598,
+        "ci95": [
+          -0.015445011978348097,
+          0.011861707316711542
+        ]
+      },
+      "random": {
+        "estimate": 0.004385645501315594,
+        "ci95": [
+          -0.00016233076651891073,
+          0.00889650958900649
+        ]
+      }
+    }
+  },
+  "clean_type_accuracy": 0.96875,
+  "patched_type_accuracy": {
+    "identity_plus": 0.96875,
+    "identity_minus": 0.9739583333333334,
+    "shuffled_plus": 0.9739583333333334,
+    "shuffled_minus": 0.9739583333333334,
+    "random_plus": 0.9739583333333334,
+    "random_minus": 0.9739583333333334
+  },
+  "worst_identity_type_accuracy_drop": 0.0,
+  "gate_pass": false,
+  "interpretation_guard": "A pass is cross-task causal evidence for an abstract numerical-identity state. A readable direction without selective history transfer is representation without established causal use."
+}

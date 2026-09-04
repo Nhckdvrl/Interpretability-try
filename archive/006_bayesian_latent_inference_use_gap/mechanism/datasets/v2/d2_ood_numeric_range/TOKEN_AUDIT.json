@@ -1,0 +1,25 @@
+{
+  "model": "Qwen/Qwen2.5-14B-Instruct",
+  "model_revision": "cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8",
+  "n_prompts": 4096,
+  "records_sha256": "b6a4708c4406d1fe5e47ca26b46fcd900af69c0f045e7f7170d536e27ec90d30",
+  "role_marker_token_counts": {
+    "DECISION_SCORE": [
+      3
+    ],
+    "IGNORE": [
+      1
+    ],
+    "POSTERIOR": [
+      3
+    ],
+    "USE": [
+      1
+    ]
+  },
+  "tokenizer_class": "Qwen2TokenizerFast",
+  "value_token_counts": [
+    8
+  ],
+  "within_family_low_high_fertility_matched": true
+}
