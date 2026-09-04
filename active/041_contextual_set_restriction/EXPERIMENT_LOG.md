@@ -452,3 +452,107 @@ the event, making it referentially load-bearing should still raise support for i
 All four families are positive (+0.009 to +0.042) but only Llama's interval excludes zero. At the
 level of raw support the item variance is too large; the within-item `dRE` differencing is where this
 effect is clean. A 1/4 result is recorded as a directional trend, not promoted to a claim.
+
+---
+
+# Pilot B — from restrictiveness to discourse function
+
+Frozen before the panel was opened: `B1_PREANALYSIS_FREEZE.md`, tag `B1_PREANALYSIS_FREEZE`.
+Execution order was freeze -> B0 -> B1, and B0 was explicitly not a gate for B1.
+
+## B0 — Davies & Richardson (2021) in an LM
+
+Question:
+Their 2x2 crosses referential relevance (contrast set present or not) with semantic relevance
+(`fed` vs `tickled the hungry rabbit`), fully crossed, 12 vignettes x 4 versions, N=31, self-paced
+reading. Does it appear in an LM when reading time is replaced by window surprisal — the measure
+they themselves appeal to when interpreting their result?
+
+Experiment:
+Their 48 critical items verbatim, two transcription notes recorded rather than silently applied.
+Mean per-token NLL over their two windows: the noun phrase (adjective + noun) and the wrap-up
+phrase. Raw running text, no chat template, no forced choice. Four families.
+
+Result — the two factors separate cleanly:
+
+| model | window | referential | semantic | interaction |
+|---|---|---|---|---|
+| Qwen3-8B | NP | -0.193 | -0.928 [-1.854, +0.070] | +0.145 |
+| | wrap-up | +0.228 | **-0.560** | +0.079 |
+| Llama-3.1-8B | NP | -0.002 | **-1.345** | +0.156 |
+| | wrap-up | **+0.215** | -0.403 | +0.097 |
+| Gemma-3-12B | NP | +0.152 | **-1.144** | +0.350 |
+| | wrap-up | +0.205 | -0.244 | -0.008 |
+| Mistral-Small-24B | NP | **+0.327** | **-0.873** | +0.175 |
+| | wrap-up | **+0.142** | -0.378 | +0.095 |
+
+Bold marks bootstrap intervals over the 12 items excluding zero; negative eases processing.
+
+Interpretation:
+Semantic relevance replicates in the noun-phrase window in all four families, and the interaction is
+near zero everywhere, matching their own null. Referential relevance does not replicate: it is absent
+or reversed in every family and significantly positive in three cells. That is the predicted failure
+rather than a surprise — their referential factor is a *licensing* manipulation ("there were two
+spiders" supplies a contrast set but no properties, so `the scary spider` does not denotationally
+pick anything out), and it is exactly the half B1 replaces with gold computed from the described
+properties. B0 turns "why B1 needs a denotational R axis" from a design argument into a measurement.
+
+Only 12 items carry the variance here; D&R's power came from 31 participants and we have no
+participant dimension. That is a property of B0 as a denominator and is not fixable by adding models.
+
+Note:
+Mistral's tokenizer refuses `return_offsets_mapping`, so span scoring gained a cumulative-prefix
+path. It is identical to the offset path on Qwen3-8B to 0.000e+00 over all 48 rows
+(`logs/span_scoring_equivalence.txt`).
+
+## B1 — referential relevance x explanatory relevance on the same content
+
+Question:
+With the world text fixed and only the live-entity clause or the matrix verb changing, does making a
+modifier referentially load-bearing change what that same content is taken to explain, and does
+event-relevance change what it does for reference?
+
+Experiment:
+48 four-entity worlds over the 12 D&R adjective-event families, 13,824 reference rows and 1,536
+explanation rows, gold computed from denotations, structural validity asserted in code with no model
+consulted. `Q` restricts under both R conditions so no competition is built into the stimuli. The
+explanation readout is the length-normalised log probability of a fixed continuation, identical
+across `E+` and `E-`, plus the same with the property's contrasting value.
+
+Result:
+
+| | Qwen3-8B | Llama-3.1-8B | Gemma-3-12B | Mistral-24B |
+|---|---|---|---|---|
+| G1 `RC(P)` R+ - R- | +23.46* | +2.11* | +9.88* | +3.76* |
+| G2_E `ES_p` E+ - E- | +0.53* | +0.17* | +0.35* | +0.21* |
+| **dRR** | +23.46* | +2.11* | +9.88* | +3.76* |
+| **dRE** true property | +0.096* | +0.032* | +0.025 | +0.018* |
+| **dRE** contrasting property | **-0.064*** | **-0.031*** | **-0.148*** | **-0.071*** |
+| **dER** | -0.84 | -0.19 | -1.68* | -0.44* |
+| **dEE** | -0.069 | -0.002 | -0.188* | -0.083* |
+| \|dER\| / dRR | 3.6% | 9.1% | 17.0% | 11.7% |
+
+Interpretation:
+The gates pass everywhere and are denominators. The finding is the off-diagonal. Making a modifier
+referentially load-bearing redistributes explanatory support *property-specifically*: the true
+property gains in 3/4 families and the contrasting property loses in **4/4**, with opposite signs.
+The opposite signs are what rules out the obvious alternative, that breaking reference simply
+degrades every downstream continuation — that would move both continuations the same way.
+
+The reverse influence is real but an order of magnitude weaker: `dER` is negative in all four,
+significant in two, and 3.6-17% of `dRR`. Its likely source is mundane and is reported as such: an
+event-relevant verb partially predicts the property, so reference has a back-channel when the
+adjective is dropped.
+
+Two quantities are deliberately *not* claimed. `dEE` is negative in all four but `G2_E` already
+raises the baseline under `E+`, so there is less headroom for the NP mention to add; saturation
+explains it and it is not treated as a result. And within `E-`, raw `ES_p` under `R+` minus `R-` is
+positive in all four families but significant only in Llama (+0.029 [+0.011, +0.048]); the
+over-attribution reading it would support is recorded as a directional trend, not a claim.
+
+`RC(Q)` differs across R conditions (-0.64 to -5.57, all significant). This is design, not failure:
+`Q` restricts under both conditions, but dropping it leaves 2 live candidates under `R+` and 3 under
+`R-`, and S7 already established that the state scales with how many candidates a modifier removes.
+
+The observed structure is a directed asymmetry, which is none of the three patterns the freeze named.
+It is reported as found rather than forced into a label.
