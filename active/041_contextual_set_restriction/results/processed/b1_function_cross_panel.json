@@ -1,0 +1,247 @@
+{
+  "experiment": "b1_function_cross",
+  "freeze_tag": "B1_PREANALYSIS_FREEZE",
+  "note": "rows=manipulation, cols=which readout's P-omission consequence moves. Magnitudes are NOT comparable across columns (forced-choice log-odds vs continuation logprob). Bootstrap over 12 items, 5000 resamples.",
+  "models": {
+    "Qwen/Qwen3-8B": {
+      "n_items": 12,
+      "G1": {
+        "mean": 23.4564,
+        "ci": [
+          19.1816,
+          27.9132
+        ]
+      },
+      "G2_E": {
+        "mean": 0.5301,
+        "ci": [
+          0.3662,
+          0.6958
+        ]
+      },
+      "dRR": {
+        "mean": 23.4564,
+        "ci": [
+          19.1552,
+          27.5248
+        ]
+      },
+      "dRE_p": {
+        "mean": 0.0959,
+        "ci": [
+          0.0534,
+          0.1379
+        ]
+      },
+      "dRE_pcontrast": {
+        "mean": -0.0637,
+        "ci": [
+          -0.0813,
+          -0.046
+        ]
+      },
+      "dER": {
+        "mean": -0.8394,
+        "ci": [
+          -2.9387,
+          0.8433
+        ]
+      },
+      "dEE_p": {
+        "mean": -0.0686,
+        "ci": [
+          -0.2245,
+          0.09
+        ]
+      },
+      "RC_Q_by_R": {
+        "mean": -2.8722,
+        "ci": [
+          -4.202,
+          -1.6618
+        ]
+      },
+      "checkpoint": "Qwen/Qwen3-8B"
+    },
+    "NousResearch/Meta-Llama-3.1-8B-Instruct": {
+      "n_items": 12,
+      "G1": {
+        "mean": 2.1081,
+        "ci": [
+          1.8281,
+          2.4339
+        ]
+      },
+      "G2_E": {
+        "mean": 0.1702,
+        "ci": [
+          0.0559,
+          0.2858
+        ]
+      },
+      "dRR": {
+        "mean": 2.1081,
+        "ci": [
+          1.8312,
+          2.4262
+        ]
+      },
+      "dRE_p": {
+        "mean": 0.0318,
+        "ci": [
+          0.0145,
+          0.0478
+        ]
+      },
+      "dRE_pcontrast": {
+        "mean": -0.0312,
+        "ci": [
+          -0.0613,
+          -0.0016
+        ]
+      },
+      "dER": {
+        "mean": -0.1915,
+        "ci": [
+          -0.667,
+          0.2075
+        ]
+      },
+      "dEE_p": {
+        "mean": -0.0019,
+        "ci": [
+          -0.0802,
+          0.0753
+        ]
+      },
+      "RC_Q_by_R": {
+        "mean": -1.5452,
+        "ci": [
+          -1.7627,
+          -1.3167
+        ]
+      },
+      "checkpoint": "NousResearch/Meta-Llama-3.1-8B-Instruct"
+    },
+    "google/gemma-3-12b-it": {
+      "n_items": 12,
+      "G1": {
+        "mean": 9.8839,
+        "ci": [
+          7.9801,
+          11.6245
+        ]
+      },
+      "G2_E": {
+        "mean": 0.3487,
+        "ci": [
+          0.1665,
+          0.5303
+        ]
+      },
+      "dRR": {
+        "mean": 9.8839,
+        "ci": [
+          8.0415,
+          11.5417
+        ]
+      },
+      "dRE_p": {
+        "mean": 0.0253,
+        "ci": [
+          -0.073,
+          0.1256
+        ]
+      },
+      "dRE_pcontrast": {
+        "mean": -0.1481,
+        "ci": [
+          -0.2316,
+          -0.0673
+        ]
+      },
+      "dER": {
+        "mean": -1.6772,
+        "ci": [
+          -3.0629,
+          -0.4467
+        ]
+      },
+      "dEE_p": {
+        "mean": -0.1876,
+        "ci": [
+          -0.3414,
+          -0.0231
+        ]
+      },
+      "RC_Q_by_R": {
+        "mean": -5.5677,
+        "ci": [
+          -6.5579,
+          -4.6846
+        ]
+      },
+      "checkpoint": "google/gemma-3-12b-it"
+    },
+    "mistralai/Mistral-Small-24B-Instruct-2501": {
+      "n_items": 12,
+      "G1": {
+        "mean": 3.7644,
+        "ci": [
+          3.3891,
+          4.2051
+        ]
+      },
+      "G2_E": {
+        "mean": 0.2067,
+        "ci": [
+          0.1167,
+          0.3109
+        ]
+      },
+      "dRR": {
+        "mean": 3.7644,
+        "ci": [
+          3.3872,
+          4.1869
+        ]
+      },
+      "dRE_p": {
+        "mean": 0.0175,
+        "ci": [
+          0.0015,
+          0.0326
+        ]
+      },
+      "dRE_pcontrast": {
+        "mean": -0.0707,
+        "ci": [
+          -0.1079,
+          -0.0383
+        ]
+      },
+      "dER": {
+        "mean": -0.4413,
+        "ci": [
+          -0.7945,
+          -0.1568
+        ]
+      },
+      "dEE_p": {
+        "mean": -0.0825,
+        "ci": [
+          -0.1486,
+          -0.0167
+        ]
+      },
+      "RC_Q_by_R": {
+        "mean": -0.6415,
+        "ci": [
+          -0.8253,
+          -0.4639
+        ]
+      },
+      "checkpoint": "mistralai/Mistral-Small-24B-Instruct-2501"
+    }
+  }
+}

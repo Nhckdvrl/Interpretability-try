@@ -57,8 +57,8 @@ def main() -> None:
     # --- reference: omission consequences, formed within template ---
     margins = {}
     for row in ref_rows[1:]:
-        key = (row["world_id"], row["e_condition"], row["surface_form"], row["cue_index"],
-               row["mapping_index"], row["description_condition"])
+        key = (row["world_id"], row["r_condition"], row["e_condition"], row["surface_form"],
+               row["cue_index"], row["mapping_index"], row["description_condition"])
         margins[key] = row["referent_margin"]
     rc_p = defaultdict(lambda: defaultdict(list))   # [r_cond][item] and [e_cond][item]
     rc_q = defaultdict(lambda: defaultdict(list))
@@ -68,8 +68,8 @@ def main() -> None:
         meta[row["world_id"]] = (row["item_id"], row["r_condition"])
         if row["description_condition"] != "full":
             continue
-        base = (row["world_id"], row["e_condition"], row["surface_form"], row["cue_index"],
-                row["mapping_index"])
+        base = (row["world_id"], row["r_condition"], row["e_condition"], row["surface_form"],
+                row["cue_index"], row["mapping_index"])
         full = margins[base + ("full",)]
         cell = (row["r_condition"], row["e_condition"], row["item_id"])
         rc_p[cell][0].append(full - margins[base + ("drop_p",)])
@@ -79,15 +79,16 @@ def main() -> None:
     # --- explanation: omission consequence of P on the fixed P continuation ---
     support = {}
     for row in exp_rows[1:]:
-        key = (row["world_id"], row["e_condition"], row["cue_index"], row["continuation_label"],
-               row["description_condition"])
+        key = (row["world_id"], row["r_condition"], row["e_condition"], row["cue_index"],
+               row["continuation_label"], row["description_condition"])
         support[key] = row["explanation_support"]
     ec_p = defaultdict(lambda: defaultdict(list))
     es_full = defaultdict(lambda: defaultdict(list))
     for row in exp_rows[1:]:
         if row["description_condition"] != "full":
             continue
-        base = (row["world_id"], row["e_condition"], row["cue_index"], row["continuation_label"])
+        base = (row["world_id"], row["r_condition"], row["e_condition"], row["cue_index"],
+                row["continuation_label"])
         cell = (row["r_condition"], row["e_condition"], row["item_id"], row["continuation_label"])
         ec_p[cell][0].append(support[base + ("full",)] - support[base + ("drop_p",)])
         es_full[cell][0].append(support[base + ("full",)])
@@ -125,6 +126,17 @@ def main() -> None:
     print(f"{'E manipulation':<18}"
           f"{fmt(collect(rc_p, e_filter='E_plus') - collect(rc_p, e_filter='E_minus'), rng):>30}"
           f"{fmt(collect(ec_p, e_filter='E_plus') - collect(ec_p, e_filter='E_minus'), rng):>30}")
+
+    # The explanation column on the contrasting-value continuation. If dropping P in R+ simply
+    # breaks reference and degrades every downstream continuation, the same R effect appears here;
+    # if the effect is specific to the P explanation, it does not. Same data, no extra run.
+    print("\nsame matrix on the contrasting-value continuation (specificity read)")
+    print(f"{'R manipulation':<18}"
+          f"{'':>30}"
+          f"{fmt(collect(ec_p, r_filter='R_plus', label='p_contrast') - collect(ec_p, r_filter='R_minus', label='p_contrast'), rng):>30}")
+    print(f"{'E manipulation':<18}"
+          f"{'':>30}"
+          f"{fmt(collect(ec_p, e_filter='E_plus', label='p_contrast') - collect(ec_p, e_filter='E_minus', label='p_contrast'), rng):>30}")
 
     print("\ncontrol and exploratory")
     print(f"  RC(Q) R+ minus R-           {fmt(collect(rc_q, r_filter='R_plus') - collect(rc_q, r_filter='R_minus'), rng)}"
