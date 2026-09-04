@@ -10,6 +10,8 @@ Revision history:
 - rev 6 — B0, B1 and C4 are run on four families. The paper question narrows from "are the two
   functions orthogonal?" to the asymmetry that was actually found, and the claim ladder below is
   rewritten against results rather than predictions.
+- rev 6 — B0, B1, C4, C5 and C6 are run; the claim ladder below is rewritten around
+  what was found rather than what was anticipated.
 - rev 5 — the explanation readout became a scored fixed continuation and the authored background
   fact `Z` was removed from the design, so B1 relies on no causal gold we invented.
 - rev 4 — execution order fixed as freeze -> B0 -> B1 and recorded in
@@ -217,27 +219,41 @@ Known denominators (predictable in advance, and in the human data already): `dRR
 | **generic relevance** | all four positive | one undifferentiated "this modifier matters" signal |
 | **competition** | a directed negative cross-effect, e.g. `E+` raises explanation uptake while suppressing referential use | functions contend for the same content |
 
-## 4. Claim ladder — as run
+## 4. Claim ladder — as found
 
-Headline, in one sentence:
+Headline:
 
-> **What a modifier is currently doing for reference determines what the same content is taken to
-> explain; the reverse influence is an order of magnitude weaker.**
+> **What a modifier is doing for reference shapes what the same content is taken to explain — and
+> the two functions are distinct causal states at the same token, not one relevance signal.**
 
-This is a directed asymmetry, not the orthogonality the freeze anticipated, and it is the more
-informative outcome: independence would have been a null, whereas a one-way dependence is structure.
-
-| # | claim | evidence | families |
+| # | claim | evidence | coverage |
 |---|---|---|---|
-| anchor | The human effect this rests on transfers to LMs; the part that does not transfer is the part B1 replaces | **B0**: semantic relevance eases the NP window in 4/4 with a null interaction, exactly as in Davies & Richardson; their referential *licensing* factor does not replicate anywhere | 4/4 |
-| **C1** | Descriptive content and referential function are separable, and the role state is causally used while property truth survives | **S1** (AUC .997-1.000, cross-uniqueness transfer .867-.929) + **S3** (role interaction -0.89 to -4.28, shuffled and random controls, held-out families and surface form) | 4/4 |
-| **C2** | That referential role does not stay inside reference: it redistributes what the same content is taken to explain, property-specifically | **B1**: the contrasting property is suppressed in 4/4 and the true property raised in 3/4, with opposite signs, which excludes generic degradation | 4/4 |
-| **C3** | The reverse influence is an order of magnitude weaker, and has a mundane source | **B1**: `dER` is 3.6-17% of `dRR`, significant in 2/4, and an event-relevant verb partially predicts the property | 4/4 |
-| **C4** | The redistribution is carried causally by the referential-role state at the modifier token | **C4**: editing the held-out role direction releases the suppression of the contrasting property in 4/4 and lowers the true property in 2/4, at the same order of magnitude as the behavioural effect | 4/4 |
+| anchor | The human R x E factorization appears in an LM only on its semantic half; the referential half, which is a licensing manipulation rather than a denotational one, does not transfer | **B0** | 4/4 semantic, 0/4 referential |
+| **C1** | The same content carries a separable, causally used referential-role state, with property truth preserved | existing **S1** + **S3** | 4/4 |
+| **C2** | Referential status reshapes explanatory reading *property-specifically*: the true property gains and the contrasting one loses | **B1** `dRE` | contrast 4/4, true 3/4 |
+| **C3** | The reverse influence exists but is an order of magnitude weaker, and its source is mundane | **B1** `dER`, 3.6-17% of `dRR` | 4/4 in sign, 2/4 significant |
+| **C4** | That reshaping is causally carried by the referential-role state at the modifier token | **C4** edit, role minus shuffled | 4/4 in sign, 3/4 on each half |
+| **C5** | **Strongest.** The referential state and the event-relevance state at the same token leave *opposite* signatures on the same readout, which a single relevance signal cannot produce | **C6** | 3/3 run, 4th pending |
+| **C6** | The coupling is localised: one depth per family governs it, while the state stays decodable at neighbouring depths that are causally inert | **C4/C5** depth sweep | Llama sharpest |
 
-Deliberately **not** claimed, and recorded as such in `EXPERIMENT_LOG.md`: `dEE` (saturation), the
-over-attribution failure prediction (1/4 significant), and C4's reference context (uninformative
-because the sibling modifier keeps reference intact by design — that evidence stays with S3).
+The C5 dissociation is the load-bearing one. Removing the referential role lets probability mass
+redistribute to the alternative property; removing event relevance withdraws the explanatory warrant
+without the alternative benefiting. A single undifferentiated relevance signal predicts the
+alternative to gain under both edits, and it does not.
+
+Three quantities are deliberately **not** claimed, and saying so costs the paper nothing:
+
+- `dEE` is negative in 4/4 but `G2_E` already raises the baseline under `E+`, so saturation explains
+  it;
+- the over-attribution reading within `E-` is positive in 4/4 but significant only in Llama, so it is
+  a directional trend;
+- the reference context of the C4 edit is uninformative in the B1 worlds by construction, because
+  `Q` restricts under both R conditions and still identifies the referent; the causal reference
+  evidence stays with S3.
+
+No further experiments are planned. The E->R direction has behavioural evidence only; supplying a
+causal version would require building stimuli after the freeze, and C6 already gives the mechanistic
+asymmetry in a stronger form.
 
 ## 5. What the outcomes do to the story
 
