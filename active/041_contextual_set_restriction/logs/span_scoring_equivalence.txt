@@ -1,0 +1,3 @@
+character_offsets vs cumulative_prefix_segments, Qwen3-8B, B0 48 rows
+max absolute difference in window surprisal: 0.000e+00 nats/token
+rows with differing NP-window token counts: 0

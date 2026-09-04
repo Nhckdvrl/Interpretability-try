@@ -22,7 +22,7 @@ import torch
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 sys.path.insert(0, str(Path(__file__).resolve().parents[3] / "phenomenon_miner"))
 from model_scoring import load_model, resolve_snapshot  # noqa: E402
-from span_scoring import score_spans  # noqa: E402
+from span_scoring import score_segments, score_spans, supports_offsets  # noqa: E402
 
 SYSTEM = "Answer the final multiple-choice question using only A, B or C. Do not explain."
 
@@ -123,10 +123,16 @@ def main() -> None:
                     "correct": bool(max(value, key=value.get) == gold),
                 }, ensure_ascii=False) + "\n")
         else:
-            texts = [row["prefix"] + row["continuation"] for row in rows]
-            spans = [[(len(row["prefix"]), len(row["prefix"]) + len(row["continuation"]))]
-                     for row in rows]
-            scored = score_spans(tokenizer, model, texts, spans, batch_size)
+            if supports_offsets(tokenizer):
+                texts = [row["prefix"] + row["continuation"] for row in rows]
+                spans = [[(len(row["prefix"]), len(row["prefix"]) + len(row["continuation"]))]
+                         for row in rows]
+                scored = score_spans(tokenizer, model, texts, spans, batch_size)
+            else:
+                # MistralCommonBackend refuses return_offsets_mapping; the cumulative-prefix path
+                # is verified identical on a tokenizer supporting both (logs/span_scoring_equivalence.txt)
+                segments = [[row["prefix"], row["continuation"]] for row in rows]
+                scored = score_segments(tokenizer, model, segments, batch_size)
             for row, (window,) in zip(rows, scored):
                 handle.write(json.dumps({
                     "record_type": "example",

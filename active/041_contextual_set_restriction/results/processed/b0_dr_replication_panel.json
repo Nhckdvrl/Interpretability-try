@@ -1,0 +1,206 @@
+{
+  "experiment": "b0_dr_replication",
+  "note": "D&R 2021 materials, reading time replaced by window surprisal (nats/token); negative eases processing; bootstrap over 12 items",
+  "models": {
+    "google/gemma-3-12b-it": {
+      "span_method": "character_offsets",
+      "revision": "96b6f1eccf38110c56df3a15bffe176da04bfd80",
+      "np": {
+        "referential": {
+          "mean": 0.1521,
+          "ci": [
+            -0.3422,
+            0.5831
+          ]
+        },
+        "semantic": {
+          "mean": -1.1437,
+          "ci": [
+            -2.0941,
+            -0.2795
+          ]
+        },
+        "interaction": {
+          "mean": 0.3502,
+          "ci": [
+            -0.4522,
+            1.1725
+          ]
+        }
+      },
+      "wrapup": {
+        "referential": {
+          "mean": 0.2046,
+          "ci": [
+            -0.007,
+            0.4416
+          ]
+        },
+        "semantic": {
+          "mean": -0.2437,
+          "ci": [
+            -0.7303,
+            0.2166
+          ]
+        },
+        "interaction": {
+          "mean": -0.0078,
+          "ci": [
+            -0.2743,
+            0.259
+          ]
+        }
+      }
+    },
+    "NousResearch/Meta-Llama-3.1-8B-Instruct": {
+      "span_method": "character_offsets",
+      "revision": "d10aef7999a2b5ba950ab3974312feeedbfe0b77",
+      "np": {
+        "referential": {
+          "mean": -0.0017,
+          "ci": [
+            -0.3801,
+            0.4496
+          ]
+        },
+        "semantic": {
+          "mean": -1.3451,
+          "ci": [
+            -1.8922,
+            -0.8029
+          ]
+        },
+        "interaction": {
+          "mean": 0.1559,
+          "ci": [
+            -0.3345,
+            0.6631
+          ]
+        }
+      },
+      "wrapup": {
+        "referential": {
+          "mean": 0.2155,
+          "ci": [
+            0.028,
+            0.3984
+          ]
+        },
+        "semantic": {
+          "mean": -0.4032,
+          "ci": [
+            -0.8147,
+            0.0395
+          ]
+        },
+        "interaction": {
+          "mean": 0.0975,
+          "ci": [
+            -0.161,
+            0.2882
+          ]
+        }
+      }
+    },
+    "mistralai/Mistral-Small-24B-Instruct-2501": {
+      "span_method": "cumulative_prefix_segments",
+      "revision": "9527884be6e5616bdd54de542f9ae13384489724",
+      "np": {
+        "referential": {
+          "mean": 0.3267,
+          "ci": [
+            0.0993,
+            0.5709
+          ]
+        },
+        "semantic": {
+          "mean": -0.8727,
+          "ci": [
+            -1.5192,
+            -0.359
+          ]
+        },
+        "interaction": {
+          "mean": 0.175,
+          "ci": [
+            -0.1268,
+            0.5076
+          ]
+        }
+      },
+      "wrapup": {
+        "referential": {
+          "mean": 0.1421,
+          "ci": [
+            0.0159,
+            0.2804
+          ]
+        },
+        "semantic": {
+          "mean": -0.3779,
+          "ci": [
+            -0.8084,
+            0.0678
+          ]
+        },
+        "interaction": {
+          "mean": 0.095,
+          "ci": [
+            -0.0933,
+            0.2782
+          ]
+        }
+      }
+    },
+    "Qwen/Qwen3-8B": {
+      "span_method": "character_offsets",
+      "revision": "b968826d9c46dd6066d109eabc6255188de91218",
+      "np": {
+        "referential": {
+          "mean": -0.1934,
+          "ci": [
+            -0.7826,
+            0.3452
+          ]
+        },
+        "semantic": {
+          "mean": -0.9277,
+          "ci": [
+            -1.8537,
+            0.0704
+          ]
+        },
+        "interaction": {
+          "mean": 0.145,
+          "ci": [
+            -0.5659,
+            0.7555
+          ]
+        }
+      },
+      "wrapup": {
+        "referential": {
+          "mean": 0.2279,
+          "ci": [
+            -0.1717,
+            0.7021
+          ]
+        },
+        "semantic": {
+          "mean": -0.5602,
+          "ci": [
+            -1.0757,
+            -0.0422
+          ]
+        },
+        "interaction": {
+          "mean": 0.0787,
+          "ci": [
+            -0.3793,
+            0.4585
+          ]
+        }
+      }
+    }
+  }
+}
