@@ -616,3 +616,55 @@ So the coupling is not a shared representation that later branches, and it is no
 output. It is localised: the referential-role state governs the explanatory readout at a single
 depth per family (37-61%), and the same state at neighbouring depths, decodable just as well, is
 causally inert.
+
+## C6 — the same token, a second state, the opposite signature
+
+Question:
+C4 showed the referential-role state moves the explanation readout. Is that just "some relevance
+signal", or is there a separate event-relevance state at the same token with a signature of its own?
+
+Experiment:
+Identical to C4 in every respect except the label: the state is estimated on
+`p_relevant_to_event` instead of `p_restricts`, at the same modifier token, with the same mass-mean
+estimator, the same held-out property families, the same S3 replacement edit, the same shuffled and
+random controls, and the same depth sweep. Readout is unchanged: support for the fixed explanation
+continuation, true property and contrasting property. Four families.
+
+Statistic: role minus shuffled, averaged over every depth whose held-out AUC is at least 0.6. The
+threshold and the averaging are fixed in advance and applied identically to both states and all
+families.
+
+Why not the probe-AUC peak: it is a bad selector and demonstrably so. Mistral's event-relevance probe
+peaks at layer 10, the one depth at which that state does nothing (+0.0105 on the true property,
+wrong sign), while layers 20-30 carry the effect (-0.018, -0.016, -0.016 on the contrasting
+property). Its referential probe saturates at 1.000, which makes that argmax arbitrary too.
+
+Result — the contrasting-property column separates the two states by sign in 4/4:
+
+| model | state | dES true property | dES contrasting property |
+|---|---|---|---|
+| Qwen3-8B | referential | **-0.0151** | **+0.0155** |
+| | event | **-0.0265** | **-0.0198** |
+| Llama-3.1-8B | referential | **-0.0036** | **+0.0075** |
+| | event | -0.0051 | **-0.0131** |
+| Gemma-3-12B | referential | -0.0104 | **+0.0398** |
+| | event | -0.0212 | **-0.0482** |
+| Mistral-Small-24B | referential | -0.0026 | +0.0018 |
+| | event | **+0.0043** | **-0.0109** |
+
+Bold marks bootstrap intervals over held-out items excluding zero.
+
+Interpretation:
+Removing the referential role lets probability mass **redistribute** to the alternative property:
+once the model no longer knows which property is doing the identifying, the other one gains as an
+explanation. Removing event relevance instead **withdraws the explanatory warrant**, and the
+alternative does not benefit — it loses too.
+
+A single undifferentiated relevance signal predicts the alternative property to gain under both
+edits. The observed signs are opposite in all four families, which rules that out. This is the
+strongest result in the project: two states at one token, estimated identically, with opposite
+causal fingerprints on one readout.
+
+Mistral is the weak family throughout — its probes are the best in the panel (AUC 1.000 for the
+referential state) and its causal effects the smallest. Its referential-side contrast cell is
++0.0018 and not significant, so it contributes the sign but not the interval.
