@@ -48,11 +48,21 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--reference", type=Path, required=True)
     parser.add_argument("--explanation", type=Path, required=True)
+    parser.add_argument("--source", choices=["all", "davies_richardson", "extended"], default="all",
+                        help="Restrict to the inherited human-validated core or to the authored "
+                             "extension. The core is the confirmatory set; the extension supplies "
+                             "power. Both are always reported, never merged silently.")
     args = parser.parse_args()
 
     ref_rows = [json.loads(line) for line in args.reference.read_text().splitlines() if line]
     exp_rows = [json.loads(line) for line in args.explanation.read_text().splitlines() if line]
     model = ref_rows[0]["model_checkpoint"].split("/")[-1]
+    if args.source != "all":
+        ref_rows = [ref_rows[0]] + [r for r in ref_rows[1:]
+                                    if r.get("source", "davies_richardson") == args.source]
+        exp_rows = [exp_rows[0]] + [r for r in exp_rows[1:]
+                                    if r.get("source", "davies_richardson") == args.source]
+    n_items = len({r["item_id"] for r in ref_rows[1:]})
 
     # --- reference: omission consequences, formed within template ---
     margins = {}
@@ -110,7 +120,7 @@ def main() -> None:
         return by_item(per_item)
 
     rng = np.random.default_rng(SEED)
-    print(f"\n=== {model} ===")
+    print(f"\n=== {model} | source={args.source} | {n_items} families ===")
     print(f"full-description accuracy: R+ {np.mean(accuracy['R_plus']):.3f}  "
           f"R- {np.mean(accuracy['R_minus']):.3f}")
 

@@ -41,7 +41,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[3] / "phenomenon_miner")
 from model_scoring import load_model, resolve_snapshot  # noqa: E402
 
 ALPHAS = [2.0, 4.0]
-DEPTH_FRACTIONS = [0.25, 0.375, 0.5, 0.625, 0.75]
+DEPTH_FRACTIONS = [0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8]
 SYSTEM = "Answer the final multiple-choice question using only A, B or C. Do not explain."
 OPTIONS = ["A", "B", "C"]
 SEED = 20260904
@@ -145,6 +145,13 @@ def main() -> None:
                         default="p_restricts",
                         help="Which state to estimate and edit. p_relevant_to_event asks whether "
                              "an explanatory-relevance state exists at the same token and is used.")
+    parser.add_argument("--split", choices=["fold_a", "fold_b", "extended_to_core"],
+                        default="fold_a",
+                        help="fold_a and fold_b are complementary halves, stratified by source, so "
+                             "running both puts every family in a test set exactly once and the "
+                             "pooled held-out N is the full item count. extended_to_core estimates "
+                             "the direction on the 36 authored families and tests on all 12 Davies "
+                             "& Richardson families, which is a transfer test rather than a split.")
     parser.add_argument("--all-depths", action="store_true",
                         help="Edit at every captured depth instead of the probe-AUC argmax. "
                              "Held-out AUC saturates at 1.000 in some families, which makes the "
@@ -156,6 +163,7 @@ def main() -> None:
     rows = [json.loads(line) for line in args.stimuli.read_text().splitlines() if line]
     rows = [r for r in rows if r["readout"] == args.context
             and r["description_condition"] == "full"
+            and r["cue_index"] == 0
             and (args.context == "explanation" or r["surface_form"] == "np")]
     if args.context == "reference":
         rows = [r for r in rows if r["mapping_index"] == 0]
@@ -211,8 +219,16 @@ def main() -> None:
     captured, baseline = forward(model, tokenizer, prompts, args.batch_size,
                                  capture_positions=positions, layers=layers, score_fn=score_fn)
 
-    families = sorted({r["item_id"] for r in rows})
-    held_out = set(families[len(families) // 2:])
+    if args.split == "extended_to_core":
+        held_out = {r["item_id"] for r in rows if r.get("source") == "davies_richardson"}
+    else:
+        held_out = set()
+        for source in sorted({r.get("source", "unknown") for r in rows}):
+            families = sorted({r["item_id"] for r in rows if r.get("source") == source})
+            half = len(families) // 2
+            held_out |= set(families[half:] if args.split == "fold_a" else families[:half])
+    if not held_out or len(held_out) == len({r["item_id"] for r in rows}):
+        raise ValueError("split produced an empty train or test set")
     labels = np.array([r[args.label] for r in rows])
     valid = np.array([c is not None for c in captured])
     states = np.stack([c if c is not None else np.zeros_like(captured[0]) for c in captured])
@@ -269,7 +285,8 @@ def main() -> None:
     with args.output.open("w") as handle:
         handle.write(json.dumps({
             "record_type": "metadata", "experiment_version": "c4_role_causal_cross_readout_v1",
-            "context": args.context, "label": args.label,
+            "context": args.context, "label": args.label, "split": args.split,
+            "depth_fractions": DEPTH_FRACTIONS,
             "model_checkpoint": checkpoint, "model_revision": revision,
             "layers": {str(k): round(v["auc"], 4) for k, v in axes.items()},
             "edited_layers": chosen, "alphas": ALPHAS,
