@@ -141,6 +141,10 @@ def main() -> None:
     parser.add_argument("--model-path", required=True)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--batch-size", type=int, default=8)
+    parser.add_argument("--label", choices=["p_restricts", "p_relevant_to_event"],
+                        default="p_restricts",
+                        help="Which state to estimate and edit. p_relevant_to_event asks whether "
+                             "an explanatory-relevance state exists at the same token and is used.")
     parser.add_argument("--all-depths", action="store_true",
                         help="Edit at every captured depth instead of the probe-AUC argmax. "
                              "Held-out AUC saturates at 1.000 in some families, which makes the "
@@ -209,7 +213,7 @@ def main() -> None:
 
     families = sorted({r["item_id"] for r in rows})
     held_out = set(families[len(families) // 2:])
-    labels = np.array([r["p_restricts"] for r in rows])
+    labels = np.array([r[args.label] for r in rows])
     valid = np.array([c is not None for c in captured])
     states = np.stack([c if c is not None else np.zeros_like(captured[0]) for c in captured])
     train = np.array([r["item_id"] not in held_out for r in rows]) & valid
@@ -265,7 +269,8 @@ def main() -> None:
     with args.output.open("w") as handle:
         handle.write(json.dumps({
             "record_type": "metadata", "experiment_version": "c4_role_causal_cross_readout_v1",
-            "context": args.context, "model_checkpoint": checkpoint, "model_revision": revision,
+            "context": args.context, "label": args.label,
+            "model_checkpoint": checkpoint, "model_revision": revision,
             "layers": {str(k): round(v["auc"], 4) for k, v in axes.items()},
             "edited_layers": chosen, "alphas": ALPHAS,
             "held_out_families": sorted(held_out), "n_rows": len(rows),
