@@ -1,4 +1,4 @@
-# 041 — Main-paper blueprint (2026-09-04, rev 4)
+# 041 — Main-paper blueprint (2026-09-04, rev 5)
 
 Supersedes the framing in `README.md` section A. The **scientific object is unchanged**; the
 paper-level question is allowed to grow. Existing results are an evidence inventory, not a track.
@@ -7,6 +7,8 @@ Revision history:
 - rev 2 — implicit-causality verbs removed from the E manipulation; Davies & Richardson (2021) made
   the human mother; sibling modifier `Q` and explanation competitor `Z` decoupled; behavioural object
   restated as a functional-selectivity matrix; C5 restated as branch-point localisation.
+- rev 5 — the explanation readout became a scored fixed continuation and the authored background
+  fact `Z` was removed from the design, so B1 relies on no causal gold we invented.
 - rev 4 — execution order fixed as freeze -> B0 -> B1 and recorded in
   `B1_PREANALYSIS_FREEZE.md`; B1 worlds and analysis plan built and tagged.
 - rev 3 — Davies & Richardson AAM obtained and read; their 2x2 is confirmed fully crossed and their
@@ -129,7 +131,7 @@ in B1.
 
 ```text
    WORLD (identical text in every cell; 4 entities, 2 described properties each)
-     A = P+ Q+     target,   plus background fact Z
+     A = P+ Q+     target
      B = P- Q+
      C = P+ Q-
      D = P+ Q-
@@ -140,13 +142,19 @@ in B1.
      live {A,C,D} :  P does NOT restrict Q restricts        <- Q's role is held constant
 
    E axis — change only the matrix verb, inheriting D&R's adjective-verb pairings
-     V_P : the event is one that P bears on   (fed the hungry rabbit)
-     V_Z : the event is one that Z bears on   (P is not what the event is about)
+     V+ : the event P bears on       (fed the hungry rabbit)
+     V- : the event P does not       (tickled the hungry rabbit)
 
-   readout R : ReferenceMargin(P)    = logP(target) - logP(distractor), and its P-omission cost
-   readout E : ExplanationMargin(P)  = logP(cause = P) - logP(cause = Z)      <- Q is never an option
+   readout R : ReferenceMargin(P), forced choice over the live entities, and its P-omission cost
+   readout E : ExplanationSupport(P) = length-normalised log P of a FIXED continuation,
+               "Because the rabbit was hungry.", identical across every condition,
+               plus the same with P's contrasting value as a baseline
    readout S : modifier-span surprisal, the B0 measure carried into the crossed worlds
 ```
+
+B1 assumes no alternative cause. The only causal gold is D&R's: `hungry` bears on `fed` and not on
+`tickled`. Scoring a fixed continuation rather than a forced choice also removes option-order bias
+and lets the readout run unchanged on base models.
 
 Three structural hazards, three structural fixes.
 
@@ -171,13 +179,13 @@ Strictly better than changing entity facts between conditions: `R+` and `R-` pro
 byte-identical except for the clause naming the live entities, the property that made S0
 interpretable.
 
-**(c) The explanation competitor must not be `Q`.** If `ExplanationMargin` were `P vs Q`, `P`'s
-explanatory state would be relative-winner by construction and could never be read as an absolute
-functional code. Fix: an **independent background fact `Z`**, true of the target, stated in every
-cell, never part of the referring description, with matched background facts for the other entities
-so `Z` creates no salience asymmetry. D&R do not need `Z` — their `-sem` verbs are merely neutral —
-but a forced-choice readout needs a defined alternative in both cells, so `Z` is our addition and is
-labelled as such.
+**(c) The explanation readout must not smuggle in a cause we invented.** A forced choice needs a
+defined competitor in both cells, and an authored background fact playing that role would have made
+`Z bears on the E- event` an experimenter-intended gold requiring its own human norming. Fix: drop
+the competitor. Score a **fixed continuation** — the same `P`-based explanation string under both
+events — so the measured span is identical and the only causal claim in play is D&R's already-normed
+one. The contrasting-value continuation is generated mechanically from the item table and separates
+`P`-specific support from the `+sem` verb simply making explanations more likely.
 
 ### B2 — mechanism
 

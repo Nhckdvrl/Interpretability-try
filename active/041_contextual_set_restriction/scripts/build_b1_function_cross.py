@@ -1,21 +1,22 @@
 """Build B1: referential relevance x explanatory relevance, crossed on the same content.
 
-Frozen under tag B1_PREANALYSIS_FREEZE. Nothing below may change after any panel model has been
-run on B1 or B0.
+Frozen under tag B1_PREANALYSIS_FREEZE. Nothing below may change after any panel model has been run
+on B0 or B1.
 
 Inheritance. The twelve adjective-event pairings come from the critical materials of
-Davies & Richardson (2021), J. Pragmatics 178:258-269 (AAM, White Rose eprints 172760): the
-`+sem` verb of each quartet is the event the adjective bears on (`fed` / `hungry`,
-`spat out` / `mouldy`), the `-sem` verb is the event it does not (`tickled`, `chewed`). Their
-referential factor is a licensing manipulation (a contrast set is present or not) and is replaced
-here by a denotational one whose gold is computed from the described properties, as in 041 S0.
-The background fact `Z` and the four-entity worlds are ours; D&R needed no alternative cause because
-their measure was reading time, whereas a forced-choice readout needs a defined competitor in both
-cells.
+Davies & Richardson (2021), J. Pragmatics 178:258-269 (AAM, White Rose eprints 172760): the `+sem`
+verb of each quartet is the event the adjective bears on (`fed` / `hungry`, `spat out` / `mouldy`),
+the `-sem` verb is the event it does not (`tickled`, `chewed`). Their referential factor is a
+licensing manipulation (a contrast set is present or not) and is replaced here by a denotational one
+whose gold is computed from the described properties, as in 041 S0.
 
-World schema. Four entities, each described on two dimensions and carrying one background fact:
+B1 does not assume a uniquely correct alternative cause in the E- condition. It measures the model's
+support for the same P-based explanation across the human-validated E+/E- property-event contrast,
+so the only causal gold it relies on is the one Davies & Richardson already normed on 31 readers.
 
-    A = P+ Q+   target, background fact Z
+World schema. Four entities, each described on two dimensions:
+
+    A = P+ Q+   target
     B = P- Q+
     C = P+ Q-
     D = P+ Q-
@@ -27,135 +28,97 @@ World schema. Four entities, each described on two dimensions and carrying one b
 
 `Q` therefore restricts in both R conditions, so the R manipulation is not a `P wins vs Q wins`
 swap, and no competition between the two modifiers is built into the stimuli. World text is
-identical across R conditions; only the clause naming the live entities differs.
-
-`Z` is true of the target, stated in every cell, never part of the referring description, and never
-an option in the referential readout. Matched background facts are stated for the non-targets so `Z`
-creates no salience asymmetry. The E manipulation changes only the matrix verb phrase.
+identical across R conditions; only the clause naming the live entities differs. The E manipulation
+changes only the matrix verb phrase.
 """
 
 from __future__ import annotations
 
 import argparse
 import json
-from itertools import product
+import re
 from pathlib import Path
 
 SEED = 20260904
 
-# item, noun, plural, setting, P+, P-, (Q+, Q-),
-# (vp_p, wrap_p, ref_q_p, exp_q_p), (vp_z, wrap_z, ref_q_z, exp_q_z),
-# z_fact, cause_p, cause_z, (bg_b, bg_c, bg_d)
+# item, noun, plural, explanation_noun, setting, P+, P-, (Q+, Q-),
+# (vp_p, wrap_p, ref_question_p, exp_question_p), (vp_z, wrap_z, ref_question_z, exp_question_z)
 ITEMS = [
-    ("table", "table", "tables", "the meeting room", "heavy", "light", ("brown", "white"),
+    ("table", "table", "tables", "table", "the meeting room", "heavy", "light", ("brown", "white"),
      ("Mark helped Tom move", "to the middle of the room.", "Which table did Mark help Tom move?",
       "Why did Mark help Tom move that table?"),
      ("Mark helped Tom sit at", "at the end of the meeting.", "Which table did Mark help Tom sit at?",
-      "Why did Mark help Tom sit at that table?"),
-     "was already laid out for the meeting",
-     "Because the table was heavy.", "Because the table was already laid out for the meeting.",
-     ("had a wobbly leg", "was covered in papers", "had just been polished")),
+      "Why did Mark help Tom sit at that table?")),
 
-    ("mirror", "mirror", "mirrors", "the hallway", "broken", "intact", ("gold", "silver"),
+    ("mirror", "mirror", "mirrors", "mirror", "the hallway", "broken", "intact", ("gold", "silver"),
      ("Ella stepped over", "on her way out.", "Which mirror did Ella step over?",
       "Why did Ella step over that mirror?"),
      ("Ella looked at", "on her way out.", "Which mirror did Ella look at?",
-      "Why did Ella look at that mirror?"),
-     "was hanging at eye level",
-     "Because the mirror was broken.", "Because the mirror was hanging at eye level.",
-     ("had just been delivered", "was wrapped in paper", "belonged to her aunt")),
+      "Why did Ella look at that mirror?")),
 
-    ("bird", "bird", "birds", "the garden", "noisy", "quiet", ("brown", "grey"),
+    ("bird", "bird", "birds", "bird", "the garden", "noisy", "quiet", ("brown", "grey"),
      ("Sarah listened to", "all afternoon.", "Which bird did Sarah listen to?",
       "Why did Sarah listen to that bird?"),
      ("Sarah painted", "all afternoon.", "Which bird did Sarah paint?",
-      "Why did Sarah paint that bird?"),
-     "was perched in bright sunlight",
-     "Because the bird was noisy.", "Because the bird was perched in bright sunlight.",
-     ("had a broken wing", "had just landed", "was sitting near the fence")),
+      "Why did Sarah paint that bird?")),
 
-    ("rabbit", "rabbit", "rabbits", "the kitchen", "hungry", "well-fed", ("brown", "white"),
+    ("rabbit", "rabbit", "rabbits", "rabbit", "the kitchen", "hungry", "well-fed", ("brown", "white"),
      ("Bob fed", "when he got home.", "Which rabbit did Bob feed?",
       "Why did Bob feed that rabbit?"),
      ("Bob tickled", "when he got home.", "Which rabbit did Bob tickle?",
-      "Why did Bob tickle that rabbit?"),
-     "had been very playful that evening",
-     "Because the rabbit was hungry.", "Because the rabbit had been very playful that evening.",
-     ("had just arrived", "was due at the vet", "had chewed through its hutch")),
+      "Why did Bob tickle that rabbit?")),
 
-    ("chandelier", "chandelier", "chandeliers", "the shop", "large", "small", ("brass", "crystal"),
+    ("chandelier", "chandelier", "chandeliers", "chandelier", "the shop", "large", "small",
+     ("brass", "crystal"),
      ("Nina helped them lift", "onto the counter.", "Which chandelier did Nina help them lift?",
       "Why did Nina help them lift that chandelier?"),
      ("Nina helped them choose", "for the dining room.", "Which chandelier did Nina help them choose?",
-      "Why did Nina help them choose that chandelier?"),
-     "matched the dining room",
-     "Because the chandelier was large.", "Because the chandelier matched the dining room.",
-     ("was on sale", "came with a warranty", "had been recommended online")),
+      "Why did Nina help them choose that chandelier?")),
 
-    ("apple", "apple", "apples", "the bowl", "mouldy", "fresh", ("red", "green"),
+    ("apple", "apple", "apples", "apple", "the bowl", "mouldy", "fresh", ("red", "green"),
      ("Gregg spat out", "straight away.", "Which apple did Gregg spit out?",
       "Why did Gregg spit out that apple?"),
      ("Gregg chewed", "straight away.", "Which apple did Gregg chew?",
-      "Why did Gregg chew that apple?"),
-     "was part of a tasting test",
-     "Because the apple was mouldy.", "Because the apple was part of a tasting test.",
-     ("had been washed", "came from the garden", "was still in its wrapper")),
+      "Why did Gregg chew that apple?")),
 
-    ("scarf", "scarf", "scarves", "the chair", "warm", "thin", ("red", "blue"),
+    ("scarf", "scarf", "scarves", "scarf", "the chair", "warm", "thin", ("red", "blue"),
      ("Josie put on", "before leaving the house.", "Which scarf did Josie put on?",
       "Why did Josie put on that scarf?"),
      ("Josie moved", "before leaving the house.", "Which scarf did Josie move?",
-      "Why did Josie move that scarf?"),
-     "was blocking the seat",
-     "Because the scarf was warm.", "Because the scarf was blocking the seat.",
-     ("had just been washed", "belonged to her sister", "was still in its bag")),
+      "Why did Josie move that scarf?")),
 
-    ("food", "bowl of food", "bowls of food", "the kitchen floor", "tasty", "bland",
+    ("food", "bowl of food", "bowls of food", "food", "the kitchen floor", "tasty", "bland",
      ("tinned", "homemade"),
      ("The cat ate", "before having a nap.", "Which bowl of food did the cat eat?",
       "Why did the cat eat that bowl of food?"),
      ("The cat smelled", "before having a nap.", "Which bowl of food did the cat smell?",
-      "Why did the cat smell that bowl of food?"),
-     "was in an unfamiliar bowl",
-     "Because the food was tasty.", "Because the food was in an unfamiliar bowl.",
-     ("had been there since morning", "was in a chipped bowl", "had just been put down")),
+      "Why did the cat smell that bowl of food?")),
 
-    ("bag", "bag", "bags", "the shop floor", "pretty", "plain", ("leather", "canvas"),
+    ("bag", "bag", "bags", "bag", "the shop floor", "pretty", "plain", ("leather", "canvas"),
      ("Florence bought", "and left the store.", "Which bag did Florence buy?",
       "Why did Florence buy that bag?"),
      ("Florence moved", "and left the store.", "Which bag did Florence move?",
-      "Why did Florence move that bag?"),
-     "was blocking the aisle",
-     "Because the bag was pretty.", "Because the bag was blocking the aisle.",
-     ("had a broken zip", "was on the top shelf", "had just been restocked")),
+      "Why did Florence move that bag?")),
 
-    ("spider", "spider", "spiders", "the desk", "scary", "harmless", ("black", "brown"),
+    ("spider", "spider", "spiders", "spider", "the desk", "scary", "harmless", ("black", "brown"),
      ("Penny screamed at", "for a long time.", "Which spider did Penny scream at?",
       "Why did Penny scream at that spider?"),
      ("Penny stroked", "for a long time.", "Which spider did Penny stroke?",
-      "Why did Penny stroke that spider?"),
-     "was part of her class project",
-     "Because the spider was scary.", "Because the spider was part of her class project.",
-     ("had escaped that morning", "was in a glass tank", "had just been fed")),
+      "Why did Penny stroke that spider?")),
 
-    ("trampoline", "trampoline", "trampolines", "the garden", "bouncy", "flat", ("round", "square"),
+    ("trampoline", "trampoline", "trampolines", "trampoline", "the garden", "bouncy", "flat",
+     ("round", "square"),
      ("The dog jumped on", "before his walk.", "Which trampoline did the dog jump on?",
       "Why did the dog jump on that trampoline?"),
      ("The dog looked at", "before his walk.", "Which trampoline did the dog look at?",
-      "Why did the dog look at that trampoline?"),
-     "had a torn cover",
-     "Because the trampoline was bouncy.", "Because the trampoline had a torn cover.",
-     ("had just been assembled", "was still in its box", "belonged to the neighbours")),
+      "Why did the dog look at that trampoline?")),
 
-    ("painting", "painting", "paintings", "the studio", "weighty", "lightweight",
+    ("painting", "painting", "paintings", "painting", "the studio", "weighty", "lightweight",
      ("framed", "unframed"),
      ("Susanne dropped", "in the living room.", "Which painting did Susanne drop?",
       "Why did Susanne drop that painting?"),
      ("Susanne displayed", "in the living room.", "Which painting did Susanne display?",
-      "Why did Susanne display that painting?"),
-     "had won a prize",
-     "Because the painting was weighty.", "Because the painting had won a prize.",
-     ("was still drying", "had been a gift", "came from the market")),
+      "Why did Susanne display that painting?")),
 ]
 
 DESCRIPTION_CONDITIONS = ["full", "drop_p", "drop_q", "bare"]
@@ -192,26 +155,24 @@ def main() -> None:
     world_index = 0
 
     for item in ITEMS:
-        (item_id, noun, plural, setting, p_pos, p_neg, q_values,
-         event_p, event_z, z_fact, cause_p, cause_z, other_bg) = item
+        (item_id, noun, plural, explanation_noun, setting, p_pos, p_neg, q_values,
+         event_p, event_z) = item
         q_pos, q_neg = q_values
+        continuations = {
+            "p": f"Because the {explanation_noun} was {p_pos}.",
+            "p_contrast": f"Because the {explanation_noun} was {p_neg}.",
+        }
 
         for target_index in range(4):
-            # entity slots: 0 = A (target), 1 = B, 2 = C, 3 = D
             props = [(p_pos, q_pos), (p_neg, q_pos), (p_pos, q_neg), (p_pos, q_neg)]
-            facts = [z_fact, other_bg[0], other_bg[1], other_bg[2]]
-            # rotate which numbered entity is the target, keeping the schema fixed
             order = [(target_index + k) % 4 for k in range(4)]
             slot_of_number = {number: slot for slot, number in enumerate(order)}
+            number_of_slot = {slot: number for number, slot in slot_of_number.items()}
             names = [f"{noun.split()[0].capitalize()} {n + 1}" for n in range(4)]
             entity_lines = []
             for number in range(4):
-                slot = slot_of_number[number]
-                p_val, q_val = props[slot]
-                entity_lines.append(
-                    f"{names[number]} is {p_val} and {q_val}; it {facts[slot]}."
-                )
-            number_of_slot = {slot: number for number, slot in slot_of_number.items()}
+                p_val, q_val = props[slot_of_number[number]]
+                entity_lines.append(f"{names[number]} is {p_val} and {q_val}.")
             target_name = names[number_of_slot[0]]
 
             for r_condition, live_slots in (("R_plus", (0, 1, 2)), ("R_minus", (0, 2, 3))):
@@ -234,13 +195,13 @@ def main() -> None:
                             for surface in SURFACE_FORMS:
                                 phrase = describe(noun, p_pos, q_pos, surface, keep_p, keep_q)
                                 critical = f"{vp} {phrase} {wrapup}"
+                                stem = f"{scene}\n\n{cue_text}\n{critical}"
                                 for mapping_index in range(3):
                                     ordered = (live_names[mapping_index:]
                                                + live_names[:mapping_index])
                                     options = "\n".join(
                                         f"{OPTION_LETTERS[i]}) {name}"
                                         for i, name in enumerate(ordered))
-                                    gold = OPTION_LETTERS[ordered.index(target_name)]
                                     reference_rows.append({
                                         "stimulus_version": "b1_function_cross",
                                         "readout": "reference",
@@ -251,30 +212,23 @@ def main() -> None:
                                         "description_condition": condition,
                                         "p_restricts": r_condition == "R_plus",
                                         "q_restricts": True,
-                                        "p_explains": e_condition == "E_plus",
+                                        "p_relevant_to_event": e_condition == "E_plus",
                                         "n_live_satisfying": len(satisfying),
                                         "surface_form": surface,
                                         "cue_index": cue_index,
                                         "mapping_index": mapping_index,
                                         "target_name": target_name,
-                                        "gold_option": gold,
+                                        "gold_option": OPTION_LETTERS[ordered.index(target_name)],
                                         "live_names": live_names,
-                                        "prompt_text": (
-                                            f"{scene}\n\n{cue_text}\n{critical}\n\n"
-                                            f"{ref_question}\n{options}\n"
-                                            f"Answer with exactly A, B or C."),
+                                        "prompt_text": (f"{stem}\n\n{ref_question}\n{options}\n"
+                                                        "Answer with exactly A, B or C."),
                                         "critical_sentence": critical,
                                         "modifier_span": p_pos,
                                         "np_span": phrase,
                                     })
-                                # explanation readout: full and drop_p only, np surface only
+                                # explanation readout: scored continuation, no forced choice.
                                 if condition in {"full", "drop_p"} and surface == "np":
-                                    for option_order in range(2):
-                                        pair = ([cause_p, cause_z] if option_order == 0
-                                                else [cause_z, cause_p])
-                                        options = "\n".join(
-                                            f"{OPTION_LETTERS[i]}) {text}"
-                                            for i, text in enumerate(pair))
+                                    for continuation_label, continuation in continuations.items():
                                         explanation_rows.append({
                                             "stimulus_version": "b1_function_cross",
                                             "readout": "explanation",
@@ -284,26 +238,20 @@ def main() -> None:
                                             "e_condition": e_condition,
                                             "description_condition": condition,
                                             "p_restricts": r_condition == "R_plus",
-                                            "p_explains": e_condition == "E_plus",
+                                            "p_relevant_to_event": e_condition == "E_plus",
                                             "cue_index": cue_index,
-                                            "option_order": option_order,
-                                            "p_cause_option": OPTION_LETTERS[pair.index(cause_p)],
-                                            "z_cause_option": OPTION_LETTERS[pair.index(cause_z)],
-                                            "prompt_text": (
-                                                f"{scene}\n\n{cue_text}\n{critical}\n\n"
-                                                f"{exp_question}\n{options}\n"
-                                                f"Answer with exactly A or B."),
+                                            "continuation_label": continuation_label,
+                                            "prefix": f"{stem}\n\n{exp_question}\n",
+                                            "continuation": continuation,
                                             "critical_sentence": critical,
                                             "verb_phrase": vp,
                                             "explanation_question": exp_question,
-                                            "cause_p_text": cause_p,
-                                            "cause_z_text": cause_z,
                                             "q_values": [q_pos, q_neg],
                                             "entity_names": names,
                                         })
             world_index += 1
 
-    certify(reference_rows)
+    certify_reference(reference_rows)
     certify_explanation(explanation_rows)
 
     args.output.parent.mkdir(parents=True, exist_ok=True)
@@ -314,7 +262,7 @@ def main() -> None:
           f"to {args.output}")
 
 
-def certify(rows: list[dict]) -> None:
+def certify_reference(rows: list[dict]) -> None:
     """Deterministic structural validity. No model is consulted, at build time or ever."""
     for row in rows:
         cond, r = row["description_condition"], row["r_condition"]
@@ -334,36 +282,36 @@ def certify(rows: list[dict]) -> None:
 
 
 def certify_explanation(rows: list[dict]) -> None:
-    """The explanation readout must ask about the event that was actually described, and neither
-    answer option may leak the referent's identity."""
-    import re
-
-    # exact verb synchronisation: the question must be the one belonging to the event that was
-    # actually described. A lexical heuristic would trip over irregular forms (fed / feed), so the
-    # check is against the source table itself, and it also asserts the two events are not swapped.
+    """The scored continuation must be identical across the E manipulation, the question must belong
+    to the event actually described, and the continuation must not leak the referent's identity."""
     expected = {}
+    continuations = {}
     for item in ITEMS:
-        item_id, event_p, event_z = item[0], item[7], item[8]
-        expected[(item_id, "E_plus")] = (event_p[0], event_p[3])
-        expected[(item_id, "E_minus")] = (event_z[0], event_z[3])
+        item_id, explanation_noun, p_pos, p_neg = item[0], item[3], item[5], item[6]
+        expected[(item_id, "E_plus")] = (item[8][0], item[8][3])
+        expected[(item_id, "E_minus")] = (item[9][0], item[9][3])
+        continuations[(item_id, "p")] = f"Because the {explanation_noun} was {p_pos}."
+        continuations[(item_id, "p_contrast")] = f"Because the {explanation_noun} was {p_neg}."
 
     for row in rows:
         key = (row["item_id"], row["e_condition"])
         want_vp, want_question = expected[key]
+        # exact verb synchronisation, checked against the source table rather than by stemming,
+        # since irregular forms (fed / feed) defeat a lexical heuristic
         assert row["verb_phrase"] == want_vp, (key, row["verb_phrase"])
         assert row["explanation_question"] == want_question, (key, row["explanation_question"])
         other = "E_minus" if row["e_condition"] == "E_plus" else "E_plus"
         assert row["explanation_question"] != expected[(row["item_id"], other)][1], key
-        assert row["verb_phrase"] in row["critical_sentence"], (key, row["critical_sentence"])
-
-        # (2) neither answer option may carry Q, an entity label, or a digit
-        for text in (row["cause_p_text"], row["cause_z_text"]):
-            lowered = text.lower()
-            for q_value in row["q_values"]:
-                assert q_value.lower() not in lowered, (row["item_id"], text, q_value)
-            assert not re.search(r"\d", text), (row["item_id"], text)
-            for name in row["entity_names"]:
-                assert name.lower() not in lowered, (row["item_id"], text, name)
+        assert row["verb_phrase"] in row["critical_sentence"], key
+        # the scored span is identical across E+ and E-, so the contrast is a pure context swap
+        assert row["continuation"] == continuations[(row["item_id"], row["continuation_label"])], key
+        # no identity leakage in the scored span
+        lowered = row["continuation"].lower()
+        for q_value in row["q_values"]:
+            assert q_value.lower() not in lowered, (key, row["continuation"], q_value)
+        assert not re.search(r"\d", row["continuation"]), (key, row["continuation"])
+        for name in row["entity_names"]:
+            assert name.lower() not in lowered, (key, row["continuation"], name)
     print(f"explanation certification passed on {len(rows)} rows")
 
 
