@@ -4,9 +4,16 @@ Everything in this document and in the two builder scripts it names is frozen **
 model has been run on B0 or B1**. Execution order is:
 
 ```text
-D&R materials inherited  ->  B1 design and analysis plan frozen (this document, tagged)
+D&R materials inherited  ->  authored Z-event relations human-normed
+                         ->  B1 design and analysis plan frozen (this document, tagged)
                          ->  panel opened  ->  B0 replication  ->  B1 confirmatory
 ```
+
+**The panel may not be opened until the Z-causal norming in `norming/Z_CAUSAL_NORM_PROTOCOL.md`
+has been collected and passed.** The P side of the E manipulation is inherited from Davies &
+Richardson's human-validated materials; the Z side is ours and is therefore normed independently on
+humans first. Families that fail the frozen crossing criteria have their `Z` revised and re-normed,
+which is permitted only before the panel is opened and is never informed by any model.
 
 **B0 is not a gate for B1.** Regardless of whether B0 reproduces the human main effects, the window
 asymmetry or the null interaction in any given family, B1 is executed unchanged on all four
@@ -36,6 +43,13 @@ analysis selection.*
 | description conditions | `full`, `drop_p`, `drop_q`, `bare` |
 | surface forms | `np`, `relative_pq`, `relative_qp` (relative-clause forms carry the modifier-order counterbalance; prenominal order is not reversed, because reversed adjective order is independently marked in English and would confound the surprisal readout) |
 | counterbalancing | target entity index (4), live-cue paraphrase (2), answer-option rotation (3), explanation-option order (2), entity presentation order tied to the target rotation |
+| Z norming | `norming/build_z_causal_norm.py` -> `norming/z_causal_norm_items.jsonl`, 48 trials, 4-list Latin square; criteria and analysis in `norming/Z_CAUSAL_NORM_PROTOCOL.md` and `scripts/analyze_z_causal_norm.py` |
+
+**Surface form is a blocking factor, not a pooling dimension.** `np`, `relative_pq` and
+`relative_qp` are different syntactic templates, so raw token surprisal is never averaged across
+them as if the observations were exchangeable: every contrast is computed within a template first
+and only then combined. This matters most for C5 branch-point localisation, which is defined over
+token positions and is therefore template-specific by construction.
 
 ## 2. Frozen cell definitions
 
@@ -52,6 +66,13 @@ Gold is computed from the described properties and the live set, never from a mo
 `scripts/build_b1_function_cross.py::certify` asserts, for every reference row: live set size 3;
 target in the live set; and live-satisfier cardinality exactly 1 / 2 / 2 / 3 for
 `full` / `drop_p` / `drop_q` / `bare` under `R+`, and 1 / 1 / 3 / 3 under `R-`.
+
+`::certify_explanation` asserts, for every explanation row: (1) **verb synchronisation** — the
+verb phrase and the why-question are exactly the pair belonging to the described event, checked
+against the source table rather than by a lexical heuristic, since irregular forms (`fed` / `feed`)
+defeat stemming, and additionally that the question is not the other event's question; and (2) **no
+identity leakage** — neither answer option contains a `Q` value, an entity label, or a digit. Both
+assertions were verified to fire on injected violations.
 
 ## 3. Frozen readouts
 

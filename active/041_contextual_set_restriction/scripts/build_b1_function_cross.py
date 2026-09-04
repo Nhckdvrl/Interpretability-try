@@ -52,8 +52,8 @@ ITEMS = [
       "Why did Mark help Tom move that table?"),
      ("Mark helped Tom sit at", "at the end of the meeting.", "Which table did Mark help Tom sit at?",
       "Why did Mark help Tom sit at that table?"),
-     "was the only one with a free chair",
-     "Because the table was heavy.", "Because the table was the only one with a free chair.",
+     "was already laid out for the meeting",
+     "Because the table was heavy.", "Because the table was already laid out for the meeting.",
      ("had a wobbly leg", "was covered in papers", "had just been polished")),
 
     ("mirror", "mirror", "mirrors", "the hallway", "broken", "intact", ("gold", "silver"),
@@ -70,8 +70,8 @@ ITEMS = [
       "Why did Sarah listen to that bird?"),
      ("Sarah painted", "all afternoon.", "Which bird did Sarah paint?",
       "Why did Sarah paint that bird?"),
-     "was perched in the best light",
-     "Because the bird was noisy.", "Because the bird was perched in the best light.",
+     "was perched in bright sunlight",
+     "Because the bird was noisy.", "Because the bird was perched in bright sunlight.",
      ("had a broken wing", "had just landed", "was sitting near the fence")),
 
     ("rabbit", "rabbit", "rabbits", "the kitchen", "hungry", "well-fed", ("brown", "white"),
@@ -79,8 +79,8 @@ ITEMS = [
       "Why did Bob feed that rabbit?"),
      ("Bob tickled", "when he got home.", "Which rabbit did Bob tickle?",
       "Why did Bob tickle that rabbit?"),
-     "had been miserable all week",
-     "Because the rabbit was hungry.", "Because the rabbit had been miserable all week.",
+     "had been very playful that evening",
+     "Because the rabbit was hungry.", "Because the rabbit had been very playful that evening.",
      ("had just arrived", "was due at the vet", "had chewed through its hutch")),
 
     ("chandelier", "chandelier", "chandeliers", "the shop", "large", "small", ("brass", "crystal"),
@@ -97,8 +97,8 @@ ITEMS = [
       "Why did Gregg spit out that apple?"),
      ("Gregg chewed", "straight away.", "Which apple did Gregg chew?",
       "Why did Gregg chew that apple?"),
-     "was the only one he was allowed to take",
-     "Because the apple was mouldy.", "Because the apple was the only one he was allowed to take.",
+     "was part of a tasting test",
+     "Because the apple was mouldy.", "Because the apple was part of a tasting test.",
      ("had been washed", "came from the garden", "was still in its wrapper")),
 
     ("scarf", "scarf", "scarves", "the chair", "warm", "thin", ("red", "blue"),
@@ -116,8 +116,8 @@ ITEMS = [
       "Why did the cat eat that bowl of food?"),
      ("The cat smelled", "before having a nap.", "Which bowl of food did the cat smell?",
       "Why did the cat smell that bowl of food?"),
-     "was closest to the door",
-     "Because the food was tasty.", "Because the food was closest to the door.",
+     "was in an unfamiliar bowl",
+     "Because the food was tasty.", "Because the food was in an unfamiliar bowl.",
      ("had been there since morning", "was in a chipped bowl", "had just been put down")),
 
     ("bag", "bag", "bags", "the shop floor", "pretty", "plain", ("leather", "canvas"),
@@ -134,8 +134,8 @@ ITEMS = [
       "Why did Penny scream at that spider?"),
      ("Penny stroked", "for a long time.", "Which spider did Penny stroke?",
       "Why did Penny stroke that spider?"),
-     "was the one from her class project",
-     "Because the spider was scary.", "Because the spider was the one from her class project.",
+     "was part of her class project",
+     "Because the spider was scary.", "Because the spider was part of her class project.",
      ("had escaped that morning", "was in a glass tank", "had just been fed")),
 
     ("trampoline", "trampoline", "trampolines", "the garden", "bouncy", "flat", ("round", "square"),
@@ -143,8 +143,8 @@ ITEMS = [
       "Why did the dog jump on that trampoline?"),
      ("The dog looked at", "before his walk.", "Which trampoline did the dog look at?",
       "Why did the dog look at that trampoline?"),
-     "had a squirrel sitting on it",
-     "Because the trampoline was bouncy.", "Because the trampoline had a squirrel sitting on it.",
+     "had a torn cover",
+     "Because the trampoline was bouncy.", "Because the trampoline had a torn cover.",
      ("had just been assembled", "was still in its box", "belonged to the neighbours")),
 
     ("painting", "painting", "paintings", "the studio", "weighty", "lightweight",
@@ -294,10 +294,17 @@ def main() -> None:
                                                 f"{exp_question}\n{options}\n"
                                                 f"Answer with exactly A or B."),
                                             "critical_sentence": critical,
+                                            "verb_phrase": vp,
+                                            "explanation_question": exp_question,
+                                            "cause_p_text": cause_p,
+                                            "cause_z_text": cause_z,
+                                            "q_values": [q_pos, q_neg],
+                                            "entity_names": names,
                                         })
             world_index += 1
 
     certify(reference_rows)
+    certify_explanation(explanation_rows)
 
     args.output.parent.mkdir(parents=True, exist_ok=True)
     with args.output.open("w") as handle:
@@ -324,6 +331,40 @@ def certify(rows: list[dict]) -> None:
         assert row["target_name"] in row["live_names"], row
         assert row["modifier_span"] in row["critical_sentence"] or cond in {"drop_p", "bare"}, row
     print(f"structural certification passed on {len(rows)} reference rows")
+
+
+def certify_explanation(rows: list[dict]) -> None:
+    """The explanation readout must ask about the event that was actually described, and neither
+    answer option may leak the referent's identity."""
+    import re
+
+    # exact verb synchronisation: the question must be the one belonging to the event that was
+    # actually described. A lexical heuristic would trip over irregular forms (fed / feed), so the
+    # check is against the source table itself, and it also asserts the two events are not swapped.
+    expected = {}
+    for item in ITEMS:
+        item_id, event_p, event_z = item[0], item[7], item[8]
+        expected[(item_id, "E_plus")] = (event_p[0], event_p[3])
+        expected[(item_id, "E_minus")] = (event_z[0], event_z[3])
+
+    for row in rows:
+        key = (row["item_id"], row["e_condition"])
+        want_vp, want_question = expected[key]
+        assert row["verb_phrase"] == want_vp, (key, row["verb_phrase"])
+        assert row["explanation_question"] == want_question, (key, row["explanation_question"])
+        other = "E_minus" if row["e_condition"] == "E_plus" else "E_plus"
+        assert row["explanation_question"] != expected[(row["item_id"], other)][1], key
+        assert row["verb_phrase"] in row["critical_sentence"], (key, row["critical_sentence"])
+
+        # (2) neither answer option may carry Q, an entity label, or a digit
+        for text in (row["cause_p_text"], row["cause_z_text"]):
+            lowered = text.lower()
+            for q_value in row["q_values"]:
+                assert q_value.lower() not in lowered, (row["item_id"], text, q_value)
+            assert not re.search(r"\d", text), (row["item_id"], text)
+            for name in row["entity_names"]:
+                assert name.lower() not in lowered, (row["item_id"], text, name)
+    print(f"explanation certification passed on {len(rows)} rows")
 
 
 if __name__ == "__main__":
