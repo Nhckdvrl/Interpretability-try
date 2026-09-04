@@ -1,5 +1,19 @@
 # B1 pre-analysis freeze — 041 Pilot B
 
+> **Amendment, after the panel was opened.** The frozen experiment below was run to completion on all
+> four families and stands as the **pre-registered core**: 12 adjective-event families inherited from
+> Davies & Richardson, bootstrap over 12 items, and 6 held-out items for the causal claims. That
+> item count is the weakest link in the whole design — the 13,824 reference rows are almost entirely
+> counterbalancing *within* those 12 families, so the effective N for every interval is 12, and 6 for
+> C4/C6. The item set has therefore been **extended to 48 families** (`scripts/b1_items.py`), and B1,
+> C4 and C6 re-run on it.
+>
+> The extension is **not pre-registered** and is not presented as such. The 36 added families were
+> authored to the same template, are not frequency-controlled the way D&R's were, and were not normed
+> on humans. Every result is reported twice: on the inherited human-validated core alone, and on the
+> full 48. The core is the confirmatory analysis; the extension supplies power and generality. If the
+> two disagree, that is the finding and it is reported.
+
 Everything in this document and in the builder scripts it names is frozen **before any panel model
 has been run on B0 or B1**. Execution order:
 

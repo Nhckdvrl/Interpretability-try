@@ -37,89 +37,13 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import sys
 from pathlib import Path
 
 SEED = 20260904
 
-# item, noun, plural, explanation_noun, setting, P+, P-, (Q+, Q-),
-# (vp_p, wrap_p, ref_question_p, exp_question_p), (vp_z, wrap_z, ref_question_z, exp_question_z)
-ITEMS = [
-    ("table", "table", "tables", "table", "the meeting room", "heavy", "light", ("brown", "white"),
-     ("Mark helped Tom move", "to the middle of the room.", "Which table did Mark help Tom move?",
-      "Why did Mark help Tom move that table?"),
-     ("Mark helped Tom sit at", "at the end of the meeting.", "Which table did Mark help Tom sit at?",
-      "Why did Mark help Tom sit at that table?")),
-
-    ("mirror", "mirror", "mirrors", "mirror", "the hallway", "broken", "intact", ("gold", "silver"),
-     ("Ella stepped over", "on her way out.", "Which mirror did Ella step over?",
-      "Why did Ella step over that mirror?"),
-     ("Ella looked at", "on her way out.", "Which mirror did Ella look at?",
-      "Why did Ella look at that mirror?")),
-
-    ("bird", "bird", "birds", "bird", "the garden", "noisy", "quiet", ("brown", "grey"),
-     ("Sarah listened to", "all afternoon.", "Which bird did Sarah listen to?",
-      "Why did Sarah listen to that bird?"),
-     ("Sarah painted", "all afternoon.", "Which bird did Sarah paint?",
-      "Why did Sarah paint that bird?")),
-
-    ("rabbit", "rabbit", "rabbits", "rabbit", "the kitchen", "hungry", "well-fed", ("brown", "white"),
-     ("Bob fed", "when he got home.", "Which rabbit did Bob feed?",
-      "Why did Bob feed that rabbit?"),
-     ("Bob tickled", "when he got home.", "Which rabbit did Bob tickle?",
-      "Why did Bob tickle that rabbit?")),
-
-    ("chandelier", "chandelier", "chandeliers", "chandelier", "the shop", "large", "small",
-     ("brass", "crystal"),
-     ("Nina helped them lift", "onto the counter.", "Which chandelier did Nina help them lift?",
-      "Why did Nina help them lift that chandelier?"),
-     ("Nina helped them choose", "for the dining room.", "Which chandelier did Nina help them choose?",
-      "Why did Nina help them choose that chandelier?")),
-
-    ("apple", "apple", "apples", "apple", "the bowl", "mouldy", "fresh", ("red", "green"),
-     ("Gregg spat out", "straight away.", "Which apple did Gregg spit out?",
-      "Why did Gregg spit out that apple?"),
-     ("Gregg chewed", "straight away.", "Which apple did Gregg chew?",
-      "Why did Gregg chew that apple?")),
-
-    ("scarf", "scarf", "scarves", "scarf", "the chair", "warm", "thin", ("red", "blue"),
-     ("Josie put on", "before leaving the house.", "Which scarf did Josie put on?",
-      "Why did Josie put on that scarf?"),
-     ("Josie moved", "before leaving the house.", "Which scarf did Josie move?",
-      "Why did Josie move that scarf?")),
-
-    ("food", "bowl of food", "bowls of food", "food", "the kitchen floor", "tasty", "bland",
-     ("tinned", "homemade"),
-     ("The cat ate", "before having a nap.", "Which bowl of food did the cat eat?",
-      "Why did the cat eat that bowl of food?"),
-     ("The cat smelled", "before having a nap.", "Which bowl of food did the cat smell?",
-      "Why did the cat smell that bowl of food?")),
-
-    ("bag", "bag", "bags", "bag", "the shop floor", "pretty", "plain", ("leather", "canvas"),
-     ("Florence bought", "and left the store.", "Which bag did Florence buy?",
-      "Why did Florence buy that bag?"),
-     ("Florence moved", "and left the store.", "Which bag did Florence move?",
-      "Why did Florence move that bag?")),
-
-    ("spider", "spider", "spiders", "spider", "the desk", "scary", "harmless", ("black", "brown"),
-     ("Penny screamed at", "for a long time.", "Which spider did Penny scream at?",
-      "Why did Penny scream at that spider?"),
-     ("Penny stroked", "for a long time.", "Which spider did Penny stroke?",
-      "Why did Penny stroke that spider?")),
-
-    ("trampoline", "trampoline", "trampolines", "trampoline", "the garden", "bouncy", "flat",
-     ("round", "square"),
-     ("The dog jumped on", "before his walk.", "Which trampoline did the dog jump on?",
-      "Why did the dog jump on that trampoline?"),
-     ("The dog looked at", "before his walk.", "Which trampoline did the dog look at?",
-      "Why did the dog look at that trampoline?")),
-
-    ("painting", "painting", "paintings", "painting", "the studio", "weighty", "lightweight",
-     ("framed", "unframed"),
-     ("Susanne dropped", "in the living room.", "Which painting did Susanne drop?",
-      "Why did Susanne drop that painting?"),
-     ("Susanne displayed", "in the living room.", "Which painting did Susanne display?",
-      "Why did Susanne display that painting?")),
-]
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from b1_items import ITEMS  # noqa: E402
 
 DESCRIPTION_CONDITIONS = ["full", "drop_p", "drop_q", "bare"]
 SURFACE_FORMS = ["np", "relative_pq", "relative_qp"]
@@ -156,7 +80,7 @@ def main() -> None:
 
     for item in ITEMS:
         (item_id, noun, plural, explanation_noun, setting, p_pos, p_neg, q_values,
-         event_p, event_z) = item
+         event_p, event_z, source) = item
         q_pos, q_neg = q_values
         # "p" is the confirmatory continuation. "p_contrast" is an EXPLORATORY false-property
         # control only: it is false of the target in every world, so a null there may be a floor
@@ -183,7 +107,10 @@ def main() -> None:
                 live_numbers = sorted(number_of_slot[s] for s in live_slots)
                 live_names = [names[n] for n in live_numbers]
                 for e_condition, event in (("E_plus", event_p), ("E_minus", event_z)):
-                    vp, wrapup, ref_question, exp_question = event
+                    agent, past_vp, base_vp, wrapup = event
+                    vp = f"{agent[0].upper()}{agent[1:]} {past_vp}"
+                    ref_question = f"Which {noun} did {agent} {base_vp}?"
+                    exp_question = f"Why did {agent} {base_vp} that {explanation_noun}?"
                     for cue_index, cue in enumerate(LIVE_CUES):
                         cue_text = cue.format(listing=listing(live_names))
                         scene = (f"Scene: there are four {plural} in {setting}.\n"
@@ -210,7 +137,7 @@ def main() -> None:
                                         "stimulus_version": "b1_function_cross",
                                         "readout": "reference",
                                         "world_id": f"b1_{world_index:04d}",
-                                        "item_id": item_id,
+                                        "item_id": item_id, "source": source,
                                         "r_condition": r_condition,
                                         "e_condition": e_condition,
                                         "description_condition": condition,
@@ -237,7 +164,7 @@ def main() -> None:
                                             "stimulus_version": "b1_function_cross",
                                             "readout": "explanation",
                                             "world_id": f"b1_{world_index:04d}",
-                                            "item_id": item_id,
+                                            "item_id": item_id, "source": source,
                                             "r_condition": r_condition,
                                             "e_condition": e_condition,
                                             "description_condition": condition,
@@ -291,9 +218,13 @@ def certify_explanation(rows: list[dict]) -> None:
     expected = {}
     continuations = {}
     for item in ITEMS:
-        item_id, explanation_noun, p_pos, p_neg = item[0], item[3], item[5], item[6]
-        expected[(item_id, "E_plus")] = (item[8][0], item[8][3])
-        expected[(item_id, "E_minus")] = (item[9][0], item[9][3])
+        item_id, noun, explanation_noun = item[0], item[1], item[3]
+        p_pos, p_neg = item[5], item[6]
+        for condition, event in (("E_plus", item[8]), ("E_minus", item[9])):
+            agent, past_vp, base_vp, _wrapup = event
+            expected[(item_id, condition)] = (
+                f"{agent[0].upper()}{agent[1:]} {past_vp}",
+                f"Why did {agent} {base_vp} that {explanation_noun}?")
         continuations[(item_id, "p")] = f"Because the {explanation_noun} was {p_pos}."
         continuations[(item_id, "p_contrast")] = f"Because the {explanation_noun} was {p_neg}."
 
@@ -311,8 +242,10 @@ def certify_explanation(rows: list[dict]) -> None:
         assert row["continuation"] == continuations[(row["item_id"], row["continuation_label"])], key
         # no identity leakage in the scored span
         lowered = row["continuation"].lower()
+        # whole-word matching: a substring test flags "red" inside "secured"
+        words = set(re.findall(r"[a-z]+", lowered))
         for q_value in row["q_values"]:
-            assert q_value.lower() not in lowered, (key, row["continuation"], q_value)
+            assert q_value.lower() not in words, (key, row["continuation"], q_value)
         assert not re.search(r"\d", row["continuation"]), (key, row["continuation"])
         for name in row["entity_names"]:
             assert name.lower() not in lowered, (key, row["continuation"], name)
