@@ -141,6 +141,14 @@ def main() -> None:
     parser.add_argument("--model-path", required=True)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--batch-size", type=int, default=8)
+    parser.add_argument("--all-layers", action="store_true",
+                        help="C5: run the edit at every captured depth, not only the probe peak, to "
+                             "locate where the referential-role state gains its influence.")
+    parser.add_argument("--all-depths", action="store_true",
+                        help="Edit at every captured depth instead of the probe-AUC argmax. "
+                             "Held-out AUC saturates at 1.000 in some families, which makes the "
+                             "argmax arbitrary; the depth profile also answers the branch-point "
+                             "question directly.")
     args = parser.parse_args()
 
     config = json.loads(args.config.read_text())
@@ -211,48 +219,49 @@ def main() -> None:
     test = np.array([r["item_id"] in held_out for r in rows]) & valid
 
     rng = np.random.default_rng(SEED)
-    best = None
+    axes = {}
     for index, layer in enumerate(layers):
         features = states[:, index]
         positive = features[train & labels].mean(0)
         negative = features[train & ~labels].mean(0)
-        direction = positive - negative
-        direction = direction / (np.linalg.norm(direction) + 1e-8)
-        projection = features @ direction
+        role = positive - negative
+        role = role / (np.linalg.norm(role) + 1e-8)
+        projection = features @ role
         pos, neg = projection[test & labels], projection[test & ~labels]
         auc = float((pos[:, None] > neg[None, :]).mean())
+        shuffled_labels = rng.permutation(labels[train])
+        train_features = features[train]
+        shuffled = (train_features[shuffled_labels].mean(0)
+                    - train_features[~shuffled_labels].mean(0))
+        shuffled = shuffled / (np.linalg.norm(shuffled) + 1e-8)
+        random = rng.standard_normal(features.shape[1]).astype("float32")
+        random = random / np.linalg.norm(random)
+        entry = {"auc": auc, "layer": layer, "index": index}
+        for name, axis in (("role", role), ("shuffled", shuffled), ("random", random)):
+            axis = axis.astype("float32")
+            projection = features[train] @ axis
+            entry[name] = axis
+            entry[f"{name}_means"] = (float(projection[labels[train]].mean()),
+                                      float(projection[~labels[train]].mean()))
+        axes[layer] = entry
         print(json.dumps({"layer": layer, "held_out_auc": round(auc, 4)}), flush=True)
-        if best is None or auc > best["auc"]:
-            shuffled_labels = rng.permutation(labels[train])
-            train_features = features[train]
-            shuffled = (train_features[shuffled_labels].mean(0)
-                        - train_features[~shuffled_labels].mean(0))
-            shuffled = shuffled / (np.linalg.norm(shuffled) + 1e-8)
-            random = rng.standard_normal(features.shape[1]).astype("float32")
-            random = random / np.linalg.norm(random)
-            best = {"auc": auc, "layer": layer, "index": index,
-                    "role": direction.astype("float32"),
-                    "shuffled": shuffled.astype("float32"), "random": random}
 
-    index = best["index"]
-    features = states[:, index]
-    means = {}
-    for name in ("role", "shuffled", "random"):
-        projection = features[train] @ best[name]
-        means[name] = (float(projection[labels[train]].mean()),
-                       float(projection[~labels[train]].mean()))
+    chosen = ([entry["layer"] for entry in axes.values()] if args.all_depths
+              else [max(axes.values(), key=lambda e: e["auc"])["layer"]])
 
     results = {"baseline": baseline}
-    for name in ("role", "shuffled", "random"):
-        positive_mean, negative_mean = means[name]
-        for alpha in ALPHAS:
-            opposite = np.where(labels, negative_mean, positive_mean)
-            _, per_row = forward(
-                model, tokenizer, prompts, args.batch_size,
-                block_index=best["layer"], direction=best[name], mu=opposite, alpha=alpha,
-                positions=positions, score_fn=score_fn)
-            results[f"{name}|a{alpha:g}"] = per_row
-            print(json.dumps({"edit": f"{name}|a{alpha:g}", "done": len(per_row)}), flush=True)
+    for layer in chosen:
+        entry = axes[layer]
+        for name in ("role", "shuffled", "random"):
+            positive_mean, negative_mean = entry[f"{name}_means"]
+            for alpha in ALPHAS:
+                opposite = np.where(labels, negative_mean, positive_mean)
+                _, per_row = forward(
+                    model, tokenizer, prompts, args.batch_size,
+                    block_index=layer, direction=entry[name], mu=opposite, alpha=alpha,
+                    positions=positions, score_fn=score_fn)
+                results[f"L{layer}|{name}|a{alpha:g}"] = per_row
+                print(json.dumps({"edit": f"L{layer}|{name}|a{alpha:g}"}), flush=True)
 
     checkpoint, revision = resolve_snapshot(args.model)
     args.output.parent.mkdir(parents=True, exist_ok=True)
@@ -260,7 +269,8 @@ def main() -> None:
         handle.write(json.dumps({
             "record_type": "metadata", "experiment_version": "c4_role_causal_cross_readout_v1",
             "context": args.context, "model_checkpoint": checkpoint, "model_revision": revision,
-            "layer": best["layer"], "held_out_auc": best["auc"], "alphas": ALPHAS,
+            "layers": {str(k): round(v["auc"], 4) for k, v in axes.items()},
+            "edited_layers": chosen, "alphas": ALPHAS,
             "held_out_families": sorted(held_out), "n_rows": len(rows),
             "commit_sha": subprocess.check_output(["git", "rev-parse", "HEAD"], text=True).strip(),
         }) + "\n")
@@ -271,8 +281,7 @@ def main() -> None:
                 "held_out": row["item_id"] in held_out,
                 "scores": {name: values[i] for name, values in results.items()},
             }, ensure_ascii=False) + "\n")
-    print(json.dumps({"output": str(args.output), "layer": best["layer"],
-                      "held_out_auc": best["auc"]}))
+    print(json.dumps({"output": str(args.output), "edited_layers": chosen}))
 
 
 if __name__ == "__main__":
