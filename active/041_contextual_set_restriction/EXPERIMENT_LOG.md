@@ -315,3 +315,140 @@ claim is removed from 041 entirely. Nothing is lost, because S7 already carries 
 gap of a cleaner kind, at 8B-12B, inside single models, with full accuracy at 1.000 in every cell:
 the state's projection scales with how many candidates a modifier removes while the behavioural cost
 does not. That is the claim to make; S8 was not needed and did not work.
+
+## B0 — Davies & Richardson (2021) replicated as window surprisal
+
+Question:
+Their 2x2 crosses referential relevance (contrast set present or not) with semantic relevance of the
+adjective to the matrix event (`fed` vs `tickled the hungry rabbit`), on 12 vignettes, N=31,
+self-paced reading, two windows. Does it appear in an LM when reading time is replaced by token
+surprisal — the measure they themselves invoke when interpreting their result?
+
+Experiment:
+Their 48 critical items verbatim, scored as raw running text with no chat template, on the noun
+phrase (adjective + noun) and the wrap-up window. Four families. Bootstrap over the 12 items, which
+is the only variance we have: there is no participant dimension, so intervals are wide by
+construction and this is a denominator rather than a claim.
+
+Result — the two halves of their design come apart:
+
+| model | window | referential | semantic | interaction |
+|---|---|---|---|---|
+| Qwen3-8B | NP | -0.193 | -0.928 [-1.854,+0.070] | +0.145 |
+| | wrap-up | +0.228 | **-0.560** | +0.079 |
+| Llama-3.1-8B | NP | -0.002 | **-1.345** | +0.156 |
+| | wrap-up | **+0.215** | -0.403 | +0.097 |
+| Gemma-3-12B | NP | +0.152 | **-1.144** | +0.350 |
+| | wrap-up | +0.205 | -0.244 | -0.008 |
+| Mistral-24B | NP | **+0.327** | **-0.873** | +0.175 |
+| | wrap-up | **+0.142** | -0.378 | +0.095 |
+
+Semantic relevance eases the noun-phrase window in 4/4 (three intervals exclude zero; Qwen misses by
+0.07) and the interaction is near zero everywhere, matching their own null. Referential relevance
+does not replicate at all: absent or reversed in every family, significantly positive in Llama's
+wrap-up and both of Mistral's windows.
+
+Interpretation:
+The failure is the predicted one. Their referential factor is a *licensing* manipulation — `there
+were two spiders` supplies a contrast set but gives the second spider no properties, so `the scary
+spider` is not denotationally restricting. Humans infer that the modifier is licensed; the models do
+not. This turns the argument for B1's denotational R axis from a design choice into an empirical
+fact, and it is why B0 is the natural-language window in place of S4.
+
+Note:
+Mistral's tokenizer refuses `return_offsets_mapping`, so span location gained a cumulative-prefix
+path. It is identical to the offset path on Qwen3-8B: maximum absolute difference 0.000e+00 over all
+48 rows, zero rows with differing token counts (`logs/span_scoring_equivalence.txt`).
+
+## B1 — referential relevance crossed with explanatory relevance
+
+Question:
+When the same true modifier changes only whether it narrows the live referent set, or only whether
+the matrix event is one it bears on, which of those changes what the modifier contributes to
+reference and what it contributes to explanation?
+
+Experiment:
+Fixed four-entity worlds, `A = P+Q+` the target, live sets `{A,B,C}` and `{A,C,D}` so that `P`
+swaps role while the sibling `Q` restricts in both — no competition is built into the stimuli. World
+text is byte-identical across R conditions. The E axis changes only the matrix verb, inheriting the
+twelve D&R adjective-event pairings. Reference is a forced choice over the live entities;
+explanation is the length-normalised log probability of a fixed continuation (`Because the rabbit
+was hungry.`), byte-identical across E+ and E-, so the contrast is a pure context swap with no
+option-order bias. 13,824 reference and 1,536 explanation rows, four families, frozen under
+`B1_PREANALYSIS_FREEZE` before the panel was opened.
+
+Result:
+
+| | Qwen3-8B | Llama-3.1-8B | Gemma-3-12B | Mistral-24B |
+|---|---|---|---|---|
+| dRR | **+23.46** | **+2.11** | **+9.88** | **+3.76** |
+| dRE true property | **+0.096** | **+0.032** | +0.025 | **+0.018** |
+| dRE contrasting property | **-0.064** | **-0.031** | **-0.148** | **-0.071** |
+| dER | -0.84 | -0.19 | **-1.68** | **-0.44** |
+| dEE | -0.069 | -0.002 | **-0.188** | **-0.083** |
+| \|dER\|/dRR | 3.6% | 9.1% | 17.0% | 11.7% |
+
+Making the modifier referentially load-bearing redistributes explanatory support: 4/4 families
+suppress the contrasting property, 3/4 raise the true one. The opposite signs rule out the reading
+that breaking reference merely degrades every downstream continuation, which would move both the
+same way. The reverse coupling is real but 3.6-17% of dRR.
+
+Interpretation:
+Two quantities are deliberately not claimed. `dEE` is negative in 4/4 but `G2_E` already raises the
+baseline under E+, so there is less headroom for the noun-phrase mention to add; saturation explains
+it and it is not treated as a finding. `dER` has a mundane source: an event-relevant verb partially
+predicts the property, so dropping the adjective costs less when the verb already points at it.
+
+`RC(Q)` differs across R conditions by design, not by failure. `Q` restricts in both, but dropping it
+leaves 2 live candidates under `R+` and 3 under `R-`, and S7 already established that the state
+scales with how many candidates a modifier removes.
+
+The observed structure is a directed asymmetry, which is none of the three patterns the freeze named
+in advance. It is reported as found rather than forced into a label.
+
+## C4 — is the coupling carried by the referential-role state?
+
+Question:
+B1's R->E coupling is behavioural. Is it carried by the modifier's referential-role state, or by
+something else the live-set clause changes?
+
+Experiment:
+The S1 mass-mean estimator and the frozen S3 edit `h' = h + alpha (mu_opposite - h.d) d`, unchanged,
+applied at the P-modifier token inside the B1 vignettes. Half the property families held out; the
+depth is chosen by held-out probe AUC and never by causal performance. Controls are S3's: a
+shuffled-label direction and a random unit direction. Read out on held-out families only.
+
+Result — the restriction-role state is present in the naturalistic worlds (held-out AUC 0.933-1.000)
+and editing it moves the explanation readout, `alpha = 4`, on modifiers that are restricting:
+
+| model | layer | held-out AUC | dES true property | dES contrasting property |
+|---|---|---|---|---|
+| Qwen3-8B | 22 | 0.972 | **-0.0150** | **+0.0298** |
+| Llama-3.1-8B | 12 | 0.969 | **-0.0246** | **+0.0292** |
+| Gemma-3-12B | 24 | 0.933 | +0.0010 | **+0.1189** |
+| Mistral-24B | 20 | 1.000 | -0.0011 | **+0.0065** |
+
+Releasing the referential role releases the suppression of the contrasting property in 4/4, and
+lowers support for the true property in 2/4. Random directions are at zero except for two small
+significant cells in Gemma and Mistral; the shuffled direction carries 20-42% of the role effect in
+Qwen and Gemma, which is the same ratio S3 reported (10-40%) and is a known weakness of permuted
+mass-mean baselines rather than a new problem.
+
+This mirrors B1 exactly, including which half is which: the contrasting-property effect is the 4/4
+one in both the behavioural and the causal experiment, and Gemma is the family missing the
+true-property effect in both. Effect sizes (0.015-0.030 nats/token) are the same order as the
+behavioural effect they explain (dRE 0.018-0.096).
+
+Not claimed:
+The reference context of C4 is uninformative and is reported as such. In B1 the sibling `Q`
+restricts in both conditions by design, so removing `P`'s role leaves reference intact — margins are
++2 to +23 and accuracy is above 0.99. The edit moves ReferenceMargin by 0.01-0.10 and is not
+selective. The causal evidence for the reference side stays with S3, where it is -0.89 to -4.28,
+selective in 4/4, with property truth preserved.
+
+Also not claimed:
+The mechanism suggests an over-attribution failure — within `E-`, where the property does not bear on
+the event, making it referentially load-bearing should still raise support for it as an explanation.
+All four families are positive (+0.009 to +0.042) but only Llama's interval excludes zero. At the
+level of raw support the item variance is too large; the within-item `dRE` differencing is where this
+effect is clean. A 1/4 result is recorded as a directional trend, not promoted to a claim.

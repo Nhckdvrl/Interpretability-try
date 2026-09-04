@@ -1,4 +1,4 @@
-# 041 — Main-paper blueprint (2026-09-04, rev 5)
+# 041 — Main-paper blueprint (rev 6, results in as of 2026-09-05)
 
 Supersedes the framing in `README.md` section A. The **scientific object is unchanged**; the
 paper-level question is allowed to grow. Existing results are an evidence inventory, not a track.
@@ -7,6 +7,9 @@ Revision history:
 - rev 2 — implicit-causality verbs removed from the E manipulation; Davies & Richardson (2021) made
   the human mother; sibling modifier `Q` and explanation competitor `Z` decoupled; behavioural object
   restated as a functional-selectivity matrix; C5 restated as branch-point localisation.
+- rev 6 — B0, B1 and C4 are run on four families. The paper question narrows from "are the two
+  functions orthogonal?" to the asymmetry that was actually found, and the claim ladder below is
+  rewritten against results rather than predictions.
 - rev 5 — the explanation readout became a scored fixed continuation and the authored background
   fact `Z` was removed from the design, so B1 relies on no causal gold we invented.
 - rev 4 — execution order fixed as freeze -> B0 -> B1 and recorded in
@@ -214,24 +217,27 @@ Known denominators (predictable in advance, and in the human data already): `dRR
 | **generic relevance** | all four positive | one undifferentiated "this modifier matters" signal |
 | **competition** | a directed negative cross-effect, e.g. `E+` raises explanation uptake while suppressing referential use | functions contend for the same content |
 
-## 4. Claim ladder
+## 4. Claim ladder — as run
 
-| # | claim | evidence | status |
+Headline, in one sentence:
+
+> **What a modifier is currently doing for reference determines what the same content is taken to
+> explain; the reverse influence is an order of magnitude weaker.**
+
+This is a directed asymmetry, not the orthogonality the freeze anticipated, and it is the more
+informative outcome: independence would have been a null, whereas a one-way dependence is structure.
+
+| # | claim | evidence | families |
 |---|---|---|---|
-| gate | D&R's two main effects and window asymmetry reproduce as LM surprisal | **B0** | capability, one figure |
-| **C1** | Descriptive content and referential function are separable: same lexicon, same truth, different function | existing **S1** (restriction ⊥ uniqueness, AUC .997-1.000, transfer .867-.929) + **S3** (causal specificity 4/4, property truth preserved) | **done, reused** |
-| **C2** | Reference and explanation are distinct functions of the same content — which structure the selectivity matrix has | **B1** | to run |
-| **C3** | The model carries separable internal functional states, not one relevance signal | cross-classification | to run |
-| **C4** | **Headline.** The model routes the same content into distinct downstream computations by function | causal double dissociation | to run |
-| **C5** | Where does functional routing branch? | see below | to run |
+| anchor | The human effect this rests on transfers to LMs; the part that does not transfer is the part B1 replaces | **B0**: semantic relevance eases the NP window in 4/4 with a null interaction, exactly as in Davies & Richardson; their referential *licensing* factor does not replicate anywhere | 4/4 |
+| **C1** | Descriptive content and referential function are separable, and the role state is causally used while property truth survives | **S1** (AUC .997-1.000, cross-uniqueness transfer .867-.929) + **S3** (role interaction -0.89 to -4.28, shuffled and random controls, held-out families and surface form) | 4/4 |
+| **C2** | That referential role does not stay inside reference: it redistributes what the same content is taken to explain, property-specifically | **B1**: the contrasting property is suppressed in 4/4 and the true property raised in 3/4, with opposite signs, which excludes generic degradation | 4/4 |
+| **C3** | The reverse influence is an order of magnitude weaker, and has a mundane source | **B1**: `dER` is 3.6-17% of `dRR`, significant in 2/4, and an event-relevant verb partially predicts the property | 4/4 |
+| **C4** | The redistribution is carried causally by the referential-role state at the modifier token | **C4**: editing the held-out role direction releases the suppression of the contrasting property in 4/4 and lowers the true property in 2/4, at the same order of magnitude as the behavioural effect | 4/4 |
 
-**C5 — branch-point localisation, not a pass/fail gate.** Requiring both functions to be independently
-editable at the same token would discard a more interesting architecture. Three normal outcomes:
-
-- **A. local multiplexing** — both functions independently editable at the modifier/NP state. Strongest.
-- **B. shared-then-branch** — shared content early, functions separating at a later locus. Arguably
-  *more* routing-shaped than A, and it is what D&R's human window asymmetry would predict.
-- **C. entangled until output** — dissociation only at behaviour. Weaker; decide then whether to continue.
+Deliberately **not** claimed, and recorded as such in `EXPERIMENT_LOG.md`: `dEE` (saturation), the
+over-attribution failure prediction (1/4 significant), and C4's reference context (uninformative
+because the sibling modifier keeps reference intact by design — that evidence stays with S3).
 
 ## 5. What the outcomes do to the story
 

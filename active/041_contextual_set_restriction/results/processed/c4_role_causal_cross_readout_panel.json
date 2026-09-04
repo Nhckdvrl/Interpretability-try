@@ -1,0 +1,446 @@
+{
+  "experiment": "c4_role_causal_cross_readout",
+  "note": "Edit replaces the modifier token's component along the held-out restriction-role direction with the opposite class mean. Held-out property families only; bootstrap over items.",
+  "models": {
+    "Qwen/Qwen3-8B": {
+      "layer": 22,
+      "held_out_auc": 0.9717,
+      "held_out_families": [
+        "painting",
+        "rabbit",
+        "scarf",
+        "spider",
+        "table",
+        "trampoline"
+      ],
+      "edits": {
+        "role|a2": {
+          "p": {
+            "mean": -0.01,
+            "ci": [
+              -0.0154,
+              -0.0048
+            ]
+          },
+          "p_contrast": {
+            "mean": 0.0102,
+            "ci": [
+              0.0054,
+              0.0145
+            ]
+          }
+        },
+        "role|a4": {
+          "p": {
+            "mean": -0.015,
+            "ci": [
+              -0.0238,
+              -0.0063
+            ]
+          },
+          "p_contrast": {
+            "mean": 0.0298,
+            "ci": [
+              0.0132,
+              0.0468
+            ]
+          }
+        },
+        "shuffled|a2": {
+          "p": {
+            "mean": -0.0026,
+            "ci": [
+              -0.0072,
+              0.0038
+            ]
+          },
+          "p_contrast": {
+            "mean": 0.0042,
+            "ci": [
+              -0.0014,
+              0.0105
+            ]
+          }
+        },
+        "shuffled|a4": {
+          "p": {
+            "mean": -0.0055,
+            "ci": [
+              -0.0144,
+              0.0058
+            ]
+          },
+          "p_contrast": {
+            "mean": 0.0125,
+            "ci": [
+              0.0021,
+              0.0225
+            ]
+          }
+        },
+        "random|a2": {
+          "p": {
+            "mean": 0.0006,
+            "ci": [
+              -0.0026,
+              0.0039
+            ]
+          },
+          "p_contrast": {
+            "mean": -0.0002,
+            "ci": [
+              -0.0051,
+              0.0047
+            ]
+          }
+        },
+        "random|a4": {
+          "p": {
+            "mean": -0.0005,
+            "ci": [
+              -0.005,
+              0.0034
+            ]
+          },
+          "p_contrast": {
+            "mean": -0.0021,
+            "ci": [
+              -0.0095,
+              0.0049
+            ]
+          }
+        }
+      }
+    },
+    "NousResearch/Meta-Llama-3.1-8B-Instruct": {
+      "layer": 12,
+      "held_out_auc": 0.9692,
+      "held_out_families": [
+        "painting",
+        "rabbit",
+        "scarf",
+        "spider",
+        "table",
+        "trampoline"
+      ],
+      "edits": {
+        "role|a2": {
+          "p": {
+            "mean": -0.0159,
+            "ci": [
+              -0.0211,
+              -0.0112
+            ]
+          },
+          "p_contrast": {
+            "mean": 0.0129,
+            "ci": [
+              0.0091,
+              0.0172
+            ]
+          }
+        },
+        "role|a4": {
+          "p": {
+            "mean": -0.0246,
+            "ci": [
+              -0.0309,
+              -0.0187
+            ]
+          },
+          "p_contrast": {
+            "mean": 0.0292,
+            "ci": [
+              0.0203,
+              0.0372
+            ]
+          }
+        },
+        "shuffled|a2": {
+          "p": {
+            "mean": -0.0013,
+            "ci": [
+              -0.0043,
+              0.0022
+            ]
+          },
+          "p_contrast": {
+            "mean": 0.0034,
+            "ci": [
+              -0.0019,
+              0.0097
+            ]
+          }
+        },
+        "shuffled|a4": {
+          "p": {
+            "mean": -0.0019,
+            "ci": [
+              -0.0043,
+              0.0011
+            ]
+          },
+          "p_contrast": {
+            "mean": 0.0057,
+            "ci": [
+              -0.0012,
+              0.0159
+            ]
+          }
+        },
+        "random|a2": {
+          "p": {
+            "mean": 0.0004,
+            "ci": [
+              -0.0034,
+              0.0041
+            ]
+          },
+          "p_contrast": {
+            "mean": 0.0013,
+            "ci": [
+              -0.0023,
+              0.0052
+            ]
+          }
+        },
+        "random|a4": {
+          "p": {
+            "mean": 0.0,
+            "ci": [
+              -0.0016,
+              0.0022
+            ]
+          },
+          "p_contrast": {
+            "mean": 0.0005,
+            "ci": [
+              -0.0025,
+              0.0033
+            ]
+          }
+        }
+      }
+    },
+    "google/gemma-3-12b-it": {
+      "layer": 24,
+      "held_out_auc": 0.9334,
+      "held_out_families": [
+        "painting",
+        "rabbit",
+        "scarf",
+        "spider",
+        "table",
+        "trampoline"
+      ],
+      "edits": {
+        "role|a2": {
+          "p": {
+            "mean": 0.0039,
+            "ci": [
+              -0.0109,
+              0.0143
+            ]
+          },
+          "p_contrast": {
+            "mean": 0.0858,
+            "ci": [
+              0.0668,
+              0.1078
+            ]
+          }
+        },
+        "role|a4": {
+          "p": {
+            "mean": 0.001,
+            "ci": [
+              -0.0461,
+              0.0343
+            ]
+          },
+          "p_contrast": {
+            "mean": 0.1189,
+            "ci": [
+              0.0963,
+              0.1459
+            ]
+          }
+        },
+        "shuffled|a2": {
+          "p": {
+            "mean": 0.0088,
+            "ci": [
+              0.0009,
+              0.017
+            ]
+          },
+          "p_contrast": {
+            "mean": 0.0082,
+            "ci": [
+              -0.004,
+              0.0222
+            ]
+          }
+        },
+        "shuffled|a4": {
+          "p": {
+            "mean": 0.0168,
+            "ci": [
+              0.0006,
+              0.0357
+            ]
+          },
+          "p_contrast": {
+            "mean": 0.0307,
+            "ci": [
+              0.0067,
+              0.0593
+            ]
+          }
+        },
+        "random|a2": {
+          "p": {
+            "mean": -0.0062,
+            "ci": [
+              -0.0126,
+              -0.0017
+            ]
+          },
+          "p_contrast": {
+            "mean": -0.0044,
+            "ci": [
+              -0.0109,
+              0.002
+            ]
+          }
+        },
+        "random|a4": {
+          "p": {
+            "mean": -0.0027,
+            "ci": [
+              -0.0046,
+              -0.0006
+            ]
+          },
+          "p_contrast": {
+            "mean": -0.0036,
+            "ci": [
+              -0.0069,
+              -0.0005
+            ]
+          }
+        }
+      }
+    },
+    "mistralai/Mistral-Small-24B-Instruct-2501": {
+      "layer": 20,
+      "held_out_auc": 1.0,
+      "held_out_families": [
+        "painting",
+        "rabbit",
+        "scarf",
+        "spider",
+        "table",
+        "trampoline"
+      ],
+      "edits": {
+        "role|a2": {
+          "p": {
+            "mean": -0.0,
+            "ci": [
+              -0.0036,
+              0.0033
+            ]
+          },
+          "p_contrast": {
+            "mean": 0.0032,
+            "ci": [
+              -0.0004,
+              0.0068
+            ]
+          }
+        },
+        "role|a4": {
+          "p": {
+            "mean": -0.0011,
+            "ci": [
+              -0.0067,
+              0.0045
+            ]
+          },
+          "p_contrast": {
+            "mean": 0.0065,
+            "ci": [
+              0.0014,
+              0.0115
+            ]
+          }
+        },
+        "shuffled|a2": {
+          "p": {
+            "mean": 0.0015,
+            "ci": [
+              -0.0009,
+              0.0039
+            ]
+          },
+          "p_contrast": {
+            "mean": 0.0017,
+            "ci": [
+              -0.0011,
+              0.0052
+            ]
+          }
+        },
+        "shuffled|a4": {
+          "p": {
+            "mean": 0.0032,
+            "ci": [
+              -0.0016,
+              0.008
+            ]
+          },
+          "p_contrast": {
+            "mean": 0.0019,
+            "ci": [
+              -0.0037,
+              0.0073
+            ]
+          }
+        },
+        "random|a2": {
+          "p": {
+            "mean": 0.0013,
+            "ci": [
+              0.0001,
+              0.0026
+            ]
+          },
+          "p_contrast": {
+            "mean": 0.0012,
+            "ci": [
+              -0.0014,
+              0.004
+            ]
+          }
+        },
+        "random|a4": {
+          "p": {
+            "mean": 0.0016,
+            "ci": [
+              0.0002,
+              0.003
+            ]
+          },
+          "p_contrast": {
+            "mean": 0.0016,
+            "ci": [
+              -0.0018,
+              0.0048
+            ]
+          }
+        }
+      }
+    }
+  }
+}
