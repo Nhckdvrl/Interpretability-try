@@ -556,3 +556,63 @@ over-attribution reading it would support is recorded as a directional trend, no
 
 The observed structure is a directed asymmetry, which is none of the three patterns the freeze named.
 It is reported as found rather than forced into a label.
+
+## C4 — is the coupling carried by the referential-role state?
+
+Question:
+B1 found the coupling behaviourally. Is it carried by the modifier's referential-role state, or by
+something else the live-entity clause changes?
+
+Experiment:
+The S1 mass-mean estimator and the frozen S3 counterfactual replacement, both unchanged, applied
+inside the B1 vignettes at the P-modifier token, with six of the twelve property families held out
+and the direction never chosen by causal performance. The edit pushes a restricting modifier toward
+the non-restricting class mean. Readout: the fixed-continuation explanation support, for the true
+property and for the property's contrasting value. Shuffled-label and random directions as controls,
+the S3 convention. Four families.
+
+The probe-AUC argmax was **replaced by a sweep over all five captured depths** before reading any
+result, because held-out AUC saturates (1.000 in Mistral) and the argmax is then arbitrary. The
+sweep changed the reading and is reported in full.
+
+Result — role minus shuffled, alpha 4, at each family's selective site, held-out families only:
+
+| model | site (depth) | AUC | true property | contrasting property |
+|---|---|---|---|---|
+| Qwen3-8B | 22 (61%) | 0.972 | **-0.0095** | **+0.0173** |
+| Llama-3.1-8B | 12 (37%) | 0.969 | **-0.0227** | **+0.0235** |
+| Gemma-3-12B | 24 (50%) | 0.933 | -0.0157 | **+0.0882** |
+| Mistral-Small-24B | 20 (50%) | 1.000 | **-0.0043** | +0.0046 |
+
+Bold marks bootstrap intervals over held-out items excluding zero.
+
+Interpretation:
+Removing the referential-role component moves the explanation the way B1's behaviour predicts:
+support for the true-property explanation falls and support for the contrasting property rises. The
+sign is correct in 4/4 on both halves and significant in 3/4 on each, with a different family the
+exception on each half. Magnitudes (0.004-0.088 nats/token) are the same order as the behavioural
+redistribution they explain (`dRE` 0.018-0.148), which is the right comparison.
+
+The reference context was run and is **not used**. In the B1 worlds `Q` restricts under both R
+conditions by construction, so editing away `P`'s role leaves the referent identifiable, and margins
+are 2-23 logits; effects are 0.01-0.1 logits and not selective. This is a consequence of the design
+choice that keeps competition out of the stimuli, not a failed replication — the causal reference
+evidence is S3's and stays there.
+
+## C5 — where does the coupling live?
+
+The depth sweep answers this directly, and the answer is not one of the three shapes anticipated.
+
+In Llama the state decodes at 0.969 / 0.968 / 0.944 at layers 12, 16 and 20, but the causal effect
+exists only at 12; at 16, with essentially the same AUC, the true-property effect **reverses sign**
+(+0.0075). Decodability is broad, use is one locus.
+
+In Gemma layer 18 produces the largest raw effects in the whole panel (-0.20 / +0.31) at an AUC of
+0.532, i.e. chance, and there the shuffled direction is *larger* than the role direction
+(+0.48 vs +0.31). That layer is a place where any edit disturbs the output, not a functional site.
+The probe-AUC argmax rule would have hidden this; the sweep exposes it.
+
+So the coupling is not a shared representation that later branches, and it is not entangled to the
+output. It is localised: the referential-role state governs the explanatory readout at a single
+depth per family (37-61%), and the same state at neighbouring depths, decodable just as well, is
+causally inert.
