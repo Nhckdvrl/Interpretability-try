@@ -1,14 +1,18 @@
-"""The two-state signature table on 48 families, with complementary folds pooled.
+"""The two-state signature table on 48 families: depth chosen on train, effect reported on test.
 
-Inputs are the outputs of `run_c4_role_causal_cross_readout.py` on the 48-family stimuli. Files are
-grouped by (model, edited state, split). The two complementary folds are pooled, so every family
-appears in a test set exactly once and the held-out N is the full item count; the
-`extended_to_core` split is reported separately, since it estimates the direction entirely on the
-authored families and tests on the twelve inherited from Davies & Richardson, which is a transfer
-test rather than a split.
+Three ways to pick the depth at which to report an intervention, and only one of them is sound:
 
-Statistic is role minus shuffled, averaged over every depth whose held-out AUC is at least 0.6, and
-reported per source so the human-validated core never hides inside the extension.
+  probe-AUC peak      -- arbitrary when AUC saturates, and demonstrably wrong: Mistral's
+                         event-relevance probe peaks at a depth where that state does nothing.
+  average over depths -- non-circular but dilutes, and the effect is sharply localised, so averaging
+                         over seven depths of which one is active buries it.
+  select on train     -- pick the depth where the causal effect is largest on the TRAINING families,
+                         then report it on the held-out families. Non-circular, and it does not
+                         dilute. This is what the table below does.
+
+Complementary folds are pooled, so every family appears in a test set exactly once. The
+`extended_to_core` split is separate: it estimates the direction entirely on the 36 authored
+families and tests on the 12 inherited from Davies & Richardson, a transfer rather than a split.
 """
 
 from __future__ import annotations
@@ -22,30 +26,28 @@ import numpy as np
 
 BOOTSTRAP = 5000
 SEED = 20260904
-MIN_AUC = 0.6
-SELECTOR = {"p_restricts": "p_restricts", "p_relevant_to_event": "p_relevant_to_event"}
 
 
-def gather(files, label, source):
-    per_item = defaultdict(list)
-    aucs = []
-    for meta, rows in files:
-        layers = [int(k) for k, v in meta["layers"].items() if v >= MIN_AUC]
-        aucs.extend(v for v in meta["layers"].values() if v >= MIN_AUC)
-        selector = SELECTOR[meta["label"]]
-        for row in rows:
-            if not (row["held_out"] and row[selector]):
-                continue
-            if row["continuation_label"] != label:
-                continue
-            if source != "all" and row.get("source") != source:
-                continue
-            for layer in layers:
-                role = row["scores"].get(f"L{layer}|role|a4")
-                shuffled = row["scores"].get(f"L{layer}|shuffled|a4")
-                if role is not None and shuffled is not None:
-                    per_item[row["item_id"]].append(role - shuffled)
-    return per_item, (float(np.mean(aucs)) if aucs else float("nan"))
+def per_family(rows, selector, label, layer, source, held):
+    out = defaultdict(list)
+    for row in rows:
+        if row["held_out"] != held or not row[selector]:
+            continue
+        if row["continuation_label"] != label:
+            continue
+        if source != "all" and row.get("source") != source:
+            continue
+        role = row["scores"].get(f"L{layer}|role|a4")
+        shuffled = row["scores"].get(f"L{layer}|shuffled|a4")
+        if role is not None and shuffled is not None:
+            out[row["item_id"]].append(role - shuffled)
+    return out
+
+
+def mean_of(per_item):
+    if not per_item:
+        return float("nan")
+    return float(np.mean([np.mean(v) for v in per_item.values()]))
 
 
 def stat(per_item, rng):
@@ -68,30 +70,36 @@ def main() -> None:
         rows = [json.loads(line) for line in path.read_text().splitlines() if line]
         meta = rows[0]
         split = "folds" if meta["split"] in {"fold_a", "fold_b"} else meta["split"]
-        grouped[(meta["model_checkpoint"], split)].append((meta, rows[1:]))
+        grouped[(meta["model_checkpoint"], split, meta["label"])].append((meta, rows[1:]))
 
-    print(f"role minus shuffled, alpha 4, averaged over depths with held-out AUC >= {MIN_AUC}, "
-          f"source={args.source}\n")
-    print(f"{'model':<26}{'split':<17}{'state':<14}{'N':>4}{'mean AUC':>10}"
+    print(f"role minus shuffled at alpha 4; depth selected on TRAINING families by the size of the "
+          f"contrasting-property effect, reported on held-out families. source={args.source}\n")
+    print(f"{'model':<26}{'split':<18}{'state':<13}{'N':>4}{'depths':>18}"
           f"{'dES true':>13}{'dES contrast':>15}")
-    for (model, split) in sorted(grouped):
-        name = model.split("/")[-1]
-        for state in ("p_restricts", "p_relevant_to_event"):
-            files = [(m, r) for m, r in grouped[(model, split)] if m["label"] == state]
-            if not files:
-                continue
-            rng = np.random.default_rng(SEED)
-            cells, sizes = [], []
-            for label in ("p", "p_contrast"):
-                per_item, auc = gather(files, label, args.source)
-                cell, size = stat(per_item, rng)
-                cells.append(cell)
-                sizes.append(size)
-            pretty = "referential" if state == "p_restricts" else "event"
-            print(f"{name:<26}{split:<17}{pretty:<14}{max(sizes):>4}{auc:>10.3f}"
-                  f"{cells[0]:>13}{cells[1]:>15}")
-            name = ""
-    print("\nEach edit pushes the item toward the opposite class mean. "
+    for key in sorted(grouped):
+        model, split, state = key
+        chosen, test_true, test_contrast = [], defaultdict(list), defaultdict(list)
+        for meta, rows in grouped[key]:
+            selector = meta["label"]
+            layers = sorted(int(k) for k in meta["layers"])
+            scores = {}
+            for layer in layers:
+                train = per_family(rows, selector, "p_contrast", layer, "all", held=False)
+                scores[layer] = abs(mean_of(train)) if train else -1.0
+            best = max(layers, key=lambda layer: scores[layer])
+            chosen.append(f"{best}/{max(layers)}")
+            for label, store in (("p", test_true), ("p_contrast", test_contrast)):
+                for item, values in per_family(rows, selector, label, best, args.source,
+                                               held=True).items():
+                    store[item].extend(values)
+        rng = np.random.default_rng(SEED)
+        cell_true, n_true = stat(test_true, rng)
+        cell_contrast, n_contrast = stat(test_contrast, rng)
+        pretty = "referential" if state == "p_restricts" else "event"
+        print(f"{model.split('/')[-1]:<26}{split:<18}{pretty:<13}"
+              f"{max(n_true, n_contrast):>4}{','.join(chosen):>18}"
+              f"{cell_true:>13}{cell_contrast:>15}")
+    print("\nDepth is chosen without ever looking at held-out families. "
           "* = bootstrap interval over held-out families excludes zero.")
 
 

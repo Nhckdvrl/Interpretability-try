@@ -152,6 +152,14 @@ def main() -> None:
                              "pooled held-out N is the full item count. extended_to_core estimates "
                              "the direction on the 36 authored families and tests on all 12 Davies "
                              "& Richardson families, which is a transfer test rather than a split.")
+    parser.add_argument("--every-layer", action="store_true",
+                        help="Estimate and edit at EVERY decoder layer instead of a fraction grid. "
+                             "The effect is sharply localised, so a sparse grid can miss the site "
+                             "entirely -- Llama's is at layer 12 of 32, which a 0.2-0.8 grid skips "
+                             "-- and averaging over a grid of mostly inert depths buries it. With "
+                             "every layer present the profile itself is the evidence and no depth "
+                             "has to be selected. Runs role and shuffled at alpha 4 only, since the "
+                             "random direction is flat everywhere and alpha 2 is a weaker copy of 4.")
     parser.add_argument("--all-depths", action="store_true",
                         help="Edit at every captured depth instead of the probe-AUC argmax. "
                              "Held-out AUC saturates at 1.000 in some families, which makes the "
@@ -170,7 +178,10 @@ def main() -> None:
 
     tokenizer, model = load_model(args.model_path, config["dtype"])
     n_blocks = config["models"][args.model]["n_blocks"]
-    layers = sorted({int(round(f * n_blocks)) for f in DEPTH_FRACTIONS})
+    layers = (list(range(n_blocks)) if args.every_layer
+              else sorted({int(round(f * n_blocks)) for f in DEPTH_FRACTIONS}))
+    kinds = ("role", "shuffled") if args.every_layer else ("role", "shuffled", "random")
+    alphas = [4.0] if args.every_layer else ALPHAS
 
     if args.context == "reference":
         prompts = [format_chat(tokenizer, r["prompt_text"]) for r in rows]
@@ -269,9 +280,9 @@ def main() -> None:
     results = {"baseline": baseline}
     for layer in chosen:
         entry = axes[layer]
-        for name in ("role", "shuffled", "random"):
+        for name in kinds:
             positive_mean, negative_mean = entry[f"{name}_means"]
-            for alpha in ALPHAS:
+            for alpha in alphas:
                 opposite = np.where(labels, negative_mean, positive_mean)
                 _, per_row = forward(
                     model, tokenizer, prompts, args.batch_size,
@@ -286,7 +297,8 @@ def main() -> None:
         handle.write(json.dumps({
             "record_type": "metadata", "experiment_version": "c4_role_causal_cross_readout_v1",
             "context": args.context, "label": args.label, "split": args.split,
-            "depth_fractions": DEPTH_FRACTIONS,
+            "every_layer": args.every_layer, "kinds": list(kinds), "alphas_run": alphas,
+            "depth_fractions": None if args.every_layer else DEPTH_FRACTIONS,
             "model_checkpoint": checkpoint, "model_revision": revision,
             "layers": {str(k): round(v["auc"], 4) for k, v in axes.items()},
             "edited_layers": chosen, "alphas": ALPHAS,
