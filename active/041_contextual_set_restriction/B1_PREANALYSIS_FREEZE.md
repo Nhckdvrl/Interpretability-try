@@ -163,6 +163,11 @@ Frozen readings:
 - **Inference:** `bfloat16` weights, deterministic scoring, no sampling, no chain of thought. Any
   hidden-state capture stores `float32` (Gemma-3-12B's residual stream exceeds the float16 range in
   the middle third of the stack; see the correction in `EXPERIMENT_LOG.md`).
+- **Prompt convention:** the reference readout uses each model's chat template with a fixed
+  system instruction, matching every earlier 041 experiment. The explanation readout and the B0
+  windows are scored on **raw running text with no chat template**, because both are running-text
+  likelihood measures — wrapping the continuation in an assistant turn would change what is being
+  measured, and the raw form is what runs unchanged on base models.
 - **Tokenizer handling:** option scoring reads the logit of the single option-letter token under each
   model's own tokenizer. Continuation scoring sums token log-probabilities over the continuation span
   only and divides by its token count, so multi-token adjectives are length-normalised. Surprisal

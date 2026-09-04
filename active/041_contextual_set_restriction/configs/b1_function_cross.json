@@ -1,0 +1,19 @@
+{
+  "experiment_version": "b1_function_cross_v1",
+  "stimulus_version": "b1_function_cross",
+  "seed": 20260904,
+  "models": {
+    "Qwen/Qwen3-8B": {"n_blocks": 36},
+    "NousResearch/Meta-Llama-3.1-8B-Instruct": {"n_blocks": 32},
+    "google/gemma-3-12b-it": {"n_blocks": 48},
+    "mistralai/Mistral-Small-24B-Instruct-2501": {"n_blocks": 40}
+  },
+  "dtype": "bfloat16",
+  "candidate_answers": ["A", "B", "C"],
+  "batch_size": 16,
+  "bootstrap_samples": 5000,
+  "scoring": {
+    "reference": "chat_template_single_token_forced_choice",
+    "explanation": "raw_text_continuation_logprob"
+  }
+}

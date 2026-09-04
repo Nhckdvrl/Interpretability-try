@@ -1,0 +1,15 @@
+{
+  "experiment_version": "b0_dr_replication_v1",
+  "stimulus_version": "b0_dr_replication",
+  "seed": 20260904,
+  "models": {
+    "Qwen/Qwen3-8B": {"n_blocks": 36},
+    "NousResearch/Meta-Llama-3.1-8B-Instruct": {"n_blocks": 32},
+    "google/gemma-3-12b-it": {"n_blocks": 48},
+    "mistralai/Mistral-Small-24B-Instruct-2501": {"n_blocks": 40}
+  },
+  "dtype": "bfloat16",
+  "batch_size": 16,
+  "bootstrap_samples": 5000,
+  "scoring": "raw_text_window_surprisal"
+}
