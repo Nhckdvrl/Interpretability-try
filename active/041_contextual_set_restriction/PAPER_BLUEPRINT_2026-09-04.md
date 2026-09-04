@@ -1,4 +1,4 @@
-# 041 — Main-paper blueprint (2026-09-04, rev 3)
+# 041 — Main-paper blueprint (2026-09-04, rev 4)
 
 Supersedes the framing in `README.md` section A. The **scientific object is unchanged**; the
 paper-level question is allowed to grow. Existing results are an evidence inventory, not a track.
@@ -7,6 +7,8 @@ Revision history:
 - rev 2 — implicit-causality verbs removed from the E manipulation; Davies & Richardson (2021) made
   the human mother; sibling modifier `Q` and explanation competitor `Z` decoupled; behavioural object
   restated as a functional-selectivity matrix; C5 restated as branch-point localisation.
+- rev 4 — execution order fixed as freeze -> B0 -> B1 and recorded in
+  `B1_PREANALYSIS_FREEZE.md`; B1 worlds and analysis plan built and tagged.
 - rev 3 — Davies & Richardson AAM obtained and read; their 2x2 is confirmed fully crossed and their
   12 critical quartets are inherited verbatim as **B0**; modifier surprisal promoted from a felicity
   check to the direct LM analogue of their dependent measure; **no model of any kind is used for item
@@ -81,6 +83,13 @@ remove. D&R's verbs are ordinary transitive verbs whose relation to the adjectiv
 variable, which is exactly what we need.
 
 ## 2. Experiment ladder
+
+Execution order is frozen in `B1_PREANALYSIS_FREEZE.md` (tag `B1_PREANALYSIS_FREEZE`) and is **not**
+the order in which the experiments are presented: the B1 design and analysis plan are frozen first,
+*then* the panel is opened, *then* B0 runs, *then* B1. B0 is explicitly not a gate for B1 — no family
+is dropped or kept on its B0 result. B0 and B1 share the inherited D&R adjective-event families, so
+the claim we make is not that their materials are disjoint, but that no B1 trial was evaluated and no
+B0 outcome was used for item, family, model, window or analysis selection before the freeze.
 
 ```text
 B0  direct replication of D&R in an LM
