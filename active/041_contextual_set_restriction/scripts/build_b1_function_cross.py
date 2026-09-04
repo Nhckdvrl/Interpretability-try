@@ -158,6 +158,10 @@ def main() -> None:
         (item_id, noun, plural, explanation_noun, setting, p_pos, p_neg, q_values,
          event_p, event_z) = item
         q_pos, q_neg = q_values
+        # "p" is the confirmatory continuation. "p_contrast" is an EXPLORATORY false-property
+        # control only: it is false of the target in every world, so a null there may be a floor
+        # effect and is never treated as evidence about generic explainability. It is not a gate,
+        # not gold, and not a precondition for dEE.
         continuations = {
             "p": f"Because the {explanation_noun} was {p_pos}.",
             "p_contrast": f"Because the {explanation_noun} was {p_neg}.",

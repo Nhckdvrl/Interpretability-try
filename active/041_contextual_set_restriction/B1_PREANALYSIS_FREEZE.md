@@ -92,10 +92,13 @@ ExplanationSupport(P-bar) ES_pbar     = the same with P's contrasting value
 ExplanationConsequence(P)             = ES_p(full) - ES_p(drop_p)
 ```
 
-`ES_pbar` is generated mechanically from the `p_neg` value already in the item table. It carries no
-causal gold and needs no norming; it exists because `ES_p(E+) > ES_p(E-)` has two live readings —
-`P`-specific explanatory support, or the `+sem` verb simply making every explanation more likely —
-and the contrasting-value continuation separates them.
+`ES_pbar` is generated mechanically from the `p_neg` value already in the item table and is an
+**exploratory false-property control only**. It is explicitly *not* a gate, not gold, not a
+confirmatory prediction, not a precondition for `dEE`, and `ES_pbar` being flat is *not* treated as
+evidence that generic explainability is ruled out. The reason for the demotion is that `P-bar` is
+false of the target in every world, so its log probability may already sit at floor, in which case a
+null there carries no information about the `+sem` verb's generic effect. If it shows something
+interesting it goes in the appendix; if it shows nothing that costs us nothing.
 
 **Surprisal.** Mean per-token NLL of the `P` span and of the `P`+noun span in the critical sentence.
 This is the B0 measure carried into the crossed worlds. In B0 the two windows are the D&R windows:
@@ -110,9 +113,16 @@ non-parametric bootstrap over items, 5,000 resamples, matching the existing 041 
 contributions:
 
 ```text
-G1   ReferenceConsequence(P) is larger under R+ than R-
-G2   ES_p is higher under E+ than E-, while ES_pbar shows no comparable shift
+G1        ReferenceConsequence(P) is larger under R+ than R-
+G2_E(P)   ES_p(E+) - ES_p(E-)   > 0
 ```
+
+`G2_E(P)` is the **event-relevance manipulation check**, deliberately named apart from `dEE` so the
+two are never conflated. It is the direct analogue of D&R's human contrast, and it is the one
+quantity in B1 that a generic effect of the `+sem` verb could inflate: if `fed` raised the log
+probability of every explanation by a constant `c`, `G2_E` would absorb it. That constant cancels in
+`dEE`, which is a difference of differences, so the confound threatens the manipulation check and not
+the matrix.
 
 **The functional-selectivity matrix.** Rows are manipulations, columns are the two consequence
 measures, both of which are omission costs of the same modifier, so they are directly comparable:
@@ -121,8 +131,18 @@ measures, both of which are omission costs of the same modifier, so they are dir
 dRR = mean[ReferenceConsequence(P)   | R+] - mean[ReferenceConsequence(P)   | R-]
 dRE = mean[ExplanationConsequence(P) | R+] - mean[ExplanationConsequence(P) | R-]
 dER = mean[ReferenceConsequence(P)   | E+] - mean[ReferenceConsequence(P)   | E-]
-dEE = mean[ExplanationConsequence(P) | E+] - mean[ExplanationConsequence(P) | E-]
+dEE = [ES_p(full, E+) - ES_p(drop_p, E+)] - [ES_p(full, E-) - ES_p(drop_p, E-)]
 ```
+
+Every cell therefore asks one question in one shape: **does a change on axis R or E change P's
+omission consequence on readout R or E?**
+
+**Scale caveat, frozen now so it cannot be forgotten at writing time.** The two columns are the same
+kind of estimand but not the same scale: `ReferenceConsequence` is a forced-choice log-odds
+difference and `ExplanationConsequence` is a continuation log-probability difference. Signs,
+interval-based significance and the selectivity pattern are comparable across columns; **absolute
+magnitudes are not**. The paper must never say something of the form "`dRE` is three times `dER`"
+without standardising first.
 
 `ReferenceConsequence(Q)` is expected to be positive and approximately equal across R conditions; a
 large R-dependence there would mean the `Q`-constant construction failed and is reported as such.
