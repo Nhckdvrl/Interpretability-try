@@ -141,9 +141,6 @@ def main() -> None:
     parser.add_argument("--model-path", required=True)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--batch-size", type=int, default=8)
-    parser.add_argument("--all-layers", action="store_true",
-                        help="C5: run the edit at every captured depth, not only the probe peak, to "
-                             "locate where the referential-role state gains its influence.")
     parser.add_argument("--all-depths", action="store_true",
                         help="Edit at every captured depth instead of the probe-AUC argmax. "
                              "Held-out AUC saturates at 1.000 in some families, which makes the "
