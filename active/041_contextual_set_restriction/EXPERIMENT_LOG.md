@@ -668,3 +668,46 @@ causal fingerprints on one readout.
 Mistral is the weak family throughout — its probes are the best in the panel (AUC 1.000 for the
 referential state) and its causal effects the smallest. Its referential-side contrast cell is
 +0.0018 and not significant, so it contributes the sign but not the interval.
+
+---
+
+# Raising the sample size — 48 families
+
+Audit that forced this. The bootstrap resamples adjective-event families, and B1 had twelve of them;
+the causal experiments held out six. The 13,824 reference rows were almost entirely counterbalancing
+*within* those twelve, so quoting row counts as sample size was misleading. The item set was extended
+to 48 families (`scripts/b1_items.py`): the 12 inherited from Davies & Richardson, kept as a labelled
+core, plus 36 authored to the same template. The extension is not pre-registered, is not
+frequency-controlled the way theirs is, and was not normed on humans, so every result is reported by
+source.
+
+## B1 on 48 families
+
+| | Qwen3-8B | Llama-3.1-8B | Gemma-3-12B | Mistral-24B |
+|---|---|---|---|---|
+| `dRR` | +20.10* | +2.38* | +11.35* | +3.63* |
+| `dRE` true property | **+0.073*** | **+0.022*** | **+0.068*** | **+0.027*** |
+| `dRE` contrasting | **-0.048*** | **-0.028*** | **-0.134*** | **-0.071*** |
+| `dER` | **-1.12*** | **-0.20*** | **-1.29*** | **-0.38*** |
+| `dEE` true property | -0.043 | **-0.051*** | **-0.235*** | **-0.089*** |
+| `dEE` contrasting | **+0.104*** | **+0.074*** | **+0.373*** | **+0.090*** |
+| \|`dER`\| / `dRR` | 5.6% | 8.5% | 11.4% | 10.6% |
+
+The R manipulation raises support for the true property and lowers it for the contrasting one; the E
+manipulation does the reverse. That is a full behavioural double dissociation on one readout, and its
+signs match the C6 causal signatures cell for cell.
+
+**Two earlier readings are withdrawn.** `dEE` was called saturation on the strength of the 12-family
+run; it is significant in 4/4 here, so that was an underpowered null presented as a mechanism.
+`dER` was called non-significant; it is significant in 4/4. The magnitude asymmetry survives — `dER`
+is 5.6-11.4% of `dRR` — so "the reverse influence is an order of magnitude weaker" stands, but as a
+statement about size, not about existence.
+
+**Provenance, stated rather than blurred.** `dRE` is significant on the inherited core and on the
+extension separately, in both halves. `dEE` on the contrasting property is significant in **no**
+family on the core alone and needs the extension's power; it is 4/4 on the extension and matches an
+independent causal result, but it is reported as an extension-powered finding.
+
+**One honest weakness of the extension.** Llama's `G2_E` manipulation check is +0.172 on the
+inherited core and +0.034, not significant, on the authored families. Our adjective-event pairings
+are weaker than D&R's human-normed ones for that model. Qwen's extension check is +0.349 and holds.
