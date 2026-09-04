@@ -233,13 +233,18 @@ Headline:
 | **C2** | Referential status reshapes explanatory reading *property-specifically*: the true property gains and the contrasting one loses | **B1** `dRE` | contrast 4/4, true 3/4 |
 | **C3** | The reverse influence exists but is an order of magnitude weaker, and its source is mundane | **B1** `dER`, 3.6-17% of `dRR` | 4/4 in sign, 2/4 significant |
 | **C4** | That reshaping is causally carried by the referential-role state at the modifier token | **C4** edit, role minus shuffled | 4/4 in sign, 3/4 on each half |
-| **C5** | **Strongest.** The referential state and the event-relevance state at the same token leave *opposite* signatures on the same readout, which a single relevance signal cannot produce | **C6** | 3/3 run, 4th pending |
+| **C5** | **Strongest.** The referential state and the event-relevance state at the same token leave *opposite* signatures on the same readout, which a single relevance signal cannot produce | **C6**, `figures/fig_state_signatures.pdf` | **4/4 in sign**, both sides significant in 3/4 |
 | **C6** | The coupling is localised: one depth per family governs it, while the state stays decodable at neighbouring depths that are causally inert | **C4/C5** depth sweep | Llama sharpest |
 
 The C5 dissociation is the load-bearing one. Removing the referential role lets probability mass
-redistribute to the alternative property; removing event relevance withdraws the explanatory warrant
-without the alternative benefiting. A single undifferentiated relevance signal predicts the
-alternative to gain under both edits, and it does not.
+redistribute to the alternative property (+0.0018 to +0.0398); removing event relevance withdraws the
+explanatory warrant without the alternative benefiting (-0.0109 to -0.0482). A single undifferentiated
+relevance signal predicts the alternative to gain under both edits, and it does not, in any family.
+
+The summary statistic averages role minus shuffled over every depth with held-out AUC >= 0.6, fixed
+in advance. The probe-AUC peak is not used as a selector: Mistral's event-relevance probe peaks at
+the one depth where that state does nothing, and its referential probe saturates at 1.000, so the
+argmax is arbitrary there.
 
 Three quantities are deliberately **not** claimed, and saying so costs the paper nothing:
 

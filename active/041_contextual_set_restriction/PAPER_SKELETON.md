@@ -37,7 +37,7 @@ effective at only one.
 | 4 Human effect in an LM | semantic relevance replicates in the NP window in 4/4 and the interaction is null, as in humans; referential *licensing* does not transfer at all | **B0** |
 | 5 The selectivity matrix | `dRR` +2.1 to +23.5; `dRE` on the contrasting property −0.03 to −0.15 in 4/4 with the true property moving the other way; `dER` 3.6-17% of `dRR` | **B1** |
 | 6 The role state carries it | role minus shuffled, correct sign 4/4 on both halves, significant 3/4 on each | **C4** |
-| 7 Two states, opposite signatures | referential edit raises the contrasting property, event-relevance edit lowers it; rules out one relevance signal | **C6** |
+| 7 Two states, opposite signatures | referential edit raises the contrasting property (+0.002 to +0.040), event-relevance edit lowers it (-0.011 to -0.048); sign split 4/4, rules out one relevance signal | **C6** |
 | 8 Where it lives | one causal depth per family while decodability is broad; in Llama layers 12/16/20 all decode at 0.94-0.97 and only 12 is effective | **C4/C5** depth sweep |
 | 9 Discussion | what this says about restrictiveness as a *function* rather than a lexical class; feedback to the linguistic account | — |
 | Limitations | `dER` has behavioural evidence only; B0's variance is 12 items with no participant dimension; the reference readout is insensitive inside the B1 worlds by construction | — |
@@ -56,8 +56,9 @@ appendix unless the graded story is needed.
 2. B0: two windows x four families, referential vs semantic.
 3. B1: the 2x2 selectivity matrix per family, with the contrasting-property row that carries the
    specificity.
-4. **Key figure.** C4 vs C6: role-minus-shuffled on the true and contrasting property, both states,
-   four families.
+4. **Key figure — drafted, `figures/fig_state_signatures.pdf`.** C4 vs C6: role-minus-shuffled on the
+   true and contrasting property, both states, four families. The right panel is the paper: the
+   referential bars sit above zero and the event bars below it in every family.
 5. Depth profile: probe AUC and causal effect against relative depth, four families.
 
 ## Scope discipline
