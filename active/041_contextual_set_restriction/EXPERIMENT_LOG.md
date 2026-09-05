@@ -758,13 +758,14 @@ tells you the cleaning was real. Llama's authored-set `G2_E` went from +0.034 an
 +0.071 and significant; Qwen's from +0.349 to +0.465. The inherited twelve returned bit-identical
 numbers.
 
-| all 48 families | Qwen3-8B | Llama-3.1-8B | Gemma-3-12B |
-|---|---|---|---|
-| `dRR` | +20.99* | +2.29* | +11.66* |
-| `dRE` true property | **+0.068*** | **+0.021*** | **+0.078*** |
-| `dRE` contrasting | **-0.049*** | **-0.028*** | **-0.139*** |
-| `dER` | -1.37* | -0.14 | -0.85* |
-| `dEE` contrasting | **+0.121*** | **+0.126*** | **+0.388*** |
+| all 48 families | Qwen3-8B | Llama-3.1-8B | Gemma-3-12B | Mistral-24B |
+|---|---|---|---|---|
+| `dRR` | +20.99* | +2.29* | +11.66* | +3.50* |
+| `dRE` true property | **+0.068*** | **+0.021*** | **+0.078*** | **+0.025*** |
+| `dRE` contrasting | **-0.049*** | **-0.028*** | **-0.139*** | **-0.072*** |
+| `dER` | -1.37* | -0.14 | -0.85* | -0.34* |
+| `dEE` true property | -0.019 | -0.025 | **-0.173*** | **-0.073*** |
+| `dEE` contrasting | **+0.121*** | **+0.126*** | **+0.388*** | **+0.109*** |
 
 The crossing is the result and it holds in 4/4 (`figures/fig_behavioural_matrix.pdf`): the
 referential manipulation raises the true-property explanation and lowers the contrasting one, the
@@ -778,6 +779,7 @@ each readout turns the asymmetry into a statement about architecture rather than
 | Qwen3-8B | **15.3x** | 2.5x |
 | Llama-3.1-8B | **16.6x** | 4.5x |
 | Gemma-3-12B | **13.8x** | 2.8x |
+| Mistral-24B | **10.4x** | 1.5x |
 
 Reference is governed by one function to within an order of magnitude. Explanation is a joint
 integration of two, within a factor of a few, and they pull in opposite directions. That is a
