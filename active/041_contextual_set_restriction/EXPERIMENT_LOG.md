@@ -792,3 +792,35 @@ difference moved. It is not: the sum rises significantly under the E manipulatio
 (+0.083 to +0.292) and under the R manipulation in 2/4. Event relevance raises total explanatory
 mass rather than redistributing it. Reporting only the difference, which is significant in 3/4 and
 would have made the conservation story look right, would have been construction.
+
+## The layer-by-layer sweep: the two functions are computed at different depths
+
+Editing every decoder layer, rather than a fraction grid, removes the depth-selection problem
+entirely and shows something the grid was hiding.
+
+**Decodability onset, held-out AUC >= 0.80, folds pooled:**
+
+| model | event-relevance state | referential state | gap |
+|---|---|---|---|
+| Qwen3-8B | L6 (17% of stack) | L19 (54%) | 37% |
+| Llama-3.1-8B | L4 (13%) | L11 (35%) | 23% |
+| Gemma-3-12B | L17 (36%) | L26 (55%) | 19% |
+| Mistral-24B | L3 (8%) | L14 (36%) | 28% |
+
+**4/4, across four architectures.** Event relevance is available almost immediately; the referential
+role is at chance until a third to a half of the network has run. This is not a restatement of the
+behavioural asymmetry, it is an explanation of it: event relevance is a local lexical relation
+between the adjective and the verb, while the referential role requires the scene, the description
+and the live-entity clause to be integrated, so it arrives late and its window is narrow.
+
+**Causal signature in each state's own window — 3/4.** Where the referential probe rises, editing it
+raises support for the contrasting property (Qwen +0.028 to +0.047 at L18-22, Llama +0.012 to +0.036
+at L11-14, Mistral +0.009 to +0.024 at L14-19), while the event edit lowers it across a broad early
+band. Gemma does not show this: at its referential peak (L26-30) the effect is negative, the same
+sign as its event edit.
+
+**Gemma is an outlier for an identifiable reason, and it is reported rather than dropped.** Its
+probe curves are jagged and never separate cleanly, and it produces enormous edit effects at
+chance-level AUC — +0.211 at layer 4, where the referential probe is at 0.502. In that model the
+edit disturbs the computation instead of steering a functional state, which is exactly the failure
+mode the earlier probe-AUC-peak rule would have hidden.

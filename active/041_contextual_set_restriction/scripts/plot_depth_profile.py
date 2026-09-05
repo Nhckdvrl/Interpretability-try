@@ -104,8 +104,9 @@ def main() -> None:
             top.legend(frameon=False, fontsize=8.5, loc="upper left")
             bottom.legend(frameon=False, fontsize=8.5, loc="lower left")
 
-    fig.suptitle("Event relevance is available early, the referential role only past mid-stack, "
-                 "and their edits push the same readout opposite ways", fontsize=11, y=1.0)
+    fig.suptitle("Event relevance is available early and the referential role only past mid-stack "
+                 "in 4/4; their edits push the same readout opposite ways in 3/4",
+                 fontsize=11, y=1.0)
     fig.tight_layout()
     args.output.parent.mkdir(parents=True, exist_ok=True)
     for suffix in (".pdf", ".png"):
