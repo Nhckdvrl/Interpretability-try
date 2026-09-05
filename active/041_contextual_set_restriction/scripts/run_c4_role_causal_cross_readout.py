@@ -274,7 +274,8 @@ def main() -> None:
         axes[layer] = entry
         print(json.dumps({"layer": layer, "held_out_auc": round(auc, 4)}), flush=True)
 
-    chosen = ([entry["layer"] for entry in axes.values()] if args.all_depths
+    chosen = ([entry["layer"] for entry in axes.values()]
+              if (args.all_depths or args.every_layer)
               else [max(axes.values(), key=lambda e: e["auc"])["layer"]])
 
     results = {"baseline": baseline}
