@@ -750,3 +750,43 @@ pairs are common in the set and most are fine (`grit`/`icy`, `air out`/`stuffy`,
 three are therefore left in. Continuing to edit whichever items score badly is tuning, and three
 nulls in 48 dilute an effect rather than create one. The distribution is reported instead: median
 `G2_E` +0.268, range -0.126 to +0.707, 3/48 non-positive.
+
+## B1 on the cleaned 48 families, and what the ratios say
+
+Cleaning the stimuli strengthened the *manipulation*, not the effect, which is the direction that
+tells you the cleaning was real. Llama's authored-set `G2_E` went from +0.034 and not significant to
++0.071 and significant; Qwen's from +0.349 to +0.465. The inherited twelve returned bit-identical
+numbers.
+
+| all 48 families | Qwen3-8B | Llama-3.1-8B | Gemma-3-12B |
+|---|---|---|---|
+| `dRR` | +20.99* | +2.29* | +11.66* |
+| `dRE` true property | **+0.068*** | **+0.021*** | **+0.078*** |
+| `dRE` contrasting | **-0.049*** | **-0.028*** | **-0.139*** |
+| `dER` | -1.37* | -0.14 | -0.85* |
+| `dEE` contrasting | **+0.121*** | **+0.126*** | **+0.388*** |
+
+The crossing is the result and it holds in 4/4 (`figures/fig_behavioural_matrix.pdf`): the
+referential manipulation raises the true-property explanation and lowers the contrasting one, the
+event manipulation does the reverse.
+
+**How many sources each readout listens to.** Taking the ratio of the two manipulations' effects on
+each readout turns the asymmetry into a statement about architecture rather than about leakage:
+
+| | reference readout `|dRR|/|dER|` | explanation readout `|dEE|/|dRE|` |
+|---|---|---|
+| Qwen3-8B | **15.3x** | 2.5x |
+| Llama-3.1-8B | **16.6x** | 4.5x |
+| Gemma-3-12B | **13.8x** | 2.8x |
+
+Reference is governed by one function to within an order of magnitude. Explanation is a joint
+integration of two, within a factor of a few, and they pull in opposite directions. That is a
+stronger claim than "referential status leaks into explanation", and it costs no extra experiment —
+it is a ratio of numbers already in the table.
+
+**A deeper reading that was tested and rejected.** If the two functions merely re-allocated a fixed
+budget of explanatory credit, the sum `ES(true) + ES(contrast)` would be invariant while the
+difference moved. It is not: the sum rises significantly under the E manipulation in 3/4 families
+(+0.083 to +0.292) and under the R manipulation in 2/4. Event relevance raises total explanatory
+mass rather than redistributing it. Reporting only the difference, which is significant in 3/4 and
+would have made the conservation story look right, would have been construction.
