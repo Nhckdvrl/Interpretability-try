@@ -1,0 +1,608 @@
+{
+  "experiment": "b1_function_cross_v4",
+  "n_families": 48,
+  "stimuli": "stimuli/b1_function_cross_v4.jsonl, after the lexical quality gate in scripts/validate_b1_items.py",
+  "note": "12 families inherited from Davies & Richardson (untouched) plus 36 authored and revised to pass the gate. Bootstrap over families.",
+  "models": {
+    "Qwen/Qwen3-8B": {
+      "davies_richardson": {
+        "G1": {
+          "mean": 23.4564,
+          "ci": [
+            19.1816,
+            27.9132
+          ],
+          "n_families": 12
+        },
+        "G2_E": {
+          "mean": 0.5236,
+          "ci": [
+            0.3589,
+            0.6908
+          ],
+          "n_families": 12
+        },
+        "dRR": {
+          "mean": 23.4564,
+          "ci": [
+            19.1552,
+            27.5248
+          ],
+          "n_families": 12
+        },
+        "dRE_true": {
+          "mean": 0.095,
+          "ci": [
+            0.052,
+            0.137
+          ],
+          "n_families": 12
+        },
+        "dRE_contrast": {
+          "mean": -0.0652,
+          "ci": [
+            -0.082,
+            -0.0483
+          ],
+          "n_families": 12
+        },
+        "dER": {
+          "mean": -0.8394,
+          "ci": [
+            -2.9387,
+            0.8433
+          ],
+          "n_families": 12
+        },
+        "dEE_true": {
+          "mean": -0.0693,
+          "ci": [
+            -0.2245,
+            0.0887
+          ],
+          "n_families": 12
+        },
+        "dEE_contrast": {
+          "mean": -0.0119,
+          "ci": [
+            -0.139,
+            0.1203
+          ],
+          "n_families": 12
+        }
+      },
+      "extended": {
+        "G1": {
+          "mean": 20.1645,
+          "ci": [
+            18.6497,
+            21.7761
+          ],
+          "n_families": 36
+        },
+        "G2_E": {
+          "mean": 0.4649,
+          "ci": [
+            0.3745,
+            0.5543
+          ],
+          "n_families": 36
+        },
+        "dRR": {
+          "mean": 20.1645,
+          "ci": [
+            18.7204,
+            21.7027
+          ],
+          "n_families": 36
+        },
+        "dRE_true": {
+          "mean": 0.0591,
+          "ci": [
+            0.0459,
+            0.0742
+          ],
+          "n_families": 36
+        },
+        "dRE_contrast": {
+          "mean": -0.0436,
+          "ci": [
+            -0.0584,
+            -0.0278
+          ],
+          "n_families": 36
+        },
+        "dER": {
+          "mean": -1.5503,
+          "ci": [
+            -2.3914,
+            -0.7704
+          ],
+          "n_families": 36
+        },
+        "dEE_true": {
+          "mean": -0.0025,
+          "ci": [
+            -0.0772,
+            0.0761
+          ],
+          "n_families": 36
+        },
+        "dEE_contrast": {
+          "mean": 0.1652,
+          "ci": [
+            0.0826,
+            0.2468
+          ],
+          "n_families": 36
+        }
+      },
+      "all": {
+        "G1": {
+          "mean": 20.9875,
+          "ci": [
+            19.4038,
+            22.6555
+          ],
+          "n_families": 48
+        },
+        "G2_E": {
+          "mean": 0.4796,
+          "ci": [
+            0.3987,
+            0.5579
+          ],
+          "n_families": 48
+        },
+        "dRR": {
+          "mean": 20.9875,
+          "ci": [
+            19.4292,
+            22.6352
+          ],
+          "n_families": 48
+        },
+        "dRE_true": {
+          "mean": 0.0681,
+          "ci": [
+            0.0529,
+            0.0844
+          ],
+          "n_families": 48
+        },
+        "dRE_contrast": {
+          "mean": -0.049,
+          "ci": [
+            -0.0613,
+            -0.0365
+          ],
+          "n_families": 48
+        },
+        "dER": {
+          "mean": -1.3726,
+          "ci": [
+            -2.137,
+            -0.638
+          ],
+          "n_families": 48
+        },
+        "dEE_true": {
+          "mean": -0.0192,
+          "ci": [
+            -0.0917,
+            0.0544
+          ],
+          "n_families": 48
+        },
+        "dEE_contrast": {
+          "mean": 0.121,
+          "ci": [
+            0.0478,
+            0.1949
+          ],
+          "n_families": 48
+        }
+      }
+    },
+    "NousResearch/Meta-Llama-3.1-8B-Instruct": {
+      "davies_richardson": {
+        "G1": {
+          "mean": 2.1081,
+          "ci": [
+            1.8281,
+            2.4339
+          ],
+          "n_families": 12
+        },
+        "G2_E": {
+          "mean": 0.1718,
+          "ci": [
+            0.0566,
+            0.287
+          ],
+          "n_families": 12
+        },
+        "dRR": {
+          "mean": 2.1081,
+          "ci": [
+            1.8312,
+            2.4262
+          ],
+          "n_families": 12
+        },
+        "dRE_true": {
+          "mean": 0.0292,
+          "ci": [
+            0.0089,
+            0.0473
+          ],
+          "n_families": 12
+        },
+        "dRE_contrast": {
+          "mean": -0.0321,
+          "ci": [
+            -0.0619,
+            -0.0033
+          ],
+          "n_families": 12
+        },
+        "dER": {
+          "mean": -0.1915,
+          "ci": [
+            -0.667,
+            0.2075
+          ],
+          "n_families": 12
+        },
+        "dEE_true": {
+          "mean": 0.0015,
+          "ci": [
+            -0.0786,
+            0.0803
+          ],
+          "n_families": 12
+        },
+        "dEE_contrast": {
+          "mean": 0.0451,
+          "ci": [
+            -0.0019,
+            0.0892
+          ],
+          "n_families": 12
+        }
+      },
+      "extended": {
+        "G1": {
+          "mean": 2.3503,
+          "ci": [
+            2.1127,
+            2.5986
+          ],
+          "n_families": 36
+        },
+        "G2_E": {
+          "mean": 0.071,
+          "ci": [
+            0.0048,
+            0.1414
+          ],
+          "n_families": 36
+        },
+        "dRR": {
+          "mean": 2.3503,
+          "ci": [
+            2.122,
+            2.5916
+          ],
+          "n_families": 36
+        },
+        "dRE_true": {
+          "mean": 0.0188,
+          "ci": [
+            0.0101,
+            0.028
+          ],
+          "n_families": 36
+        },
+        "dRE_contrast": {
+          "mean": -0.0265,
+          "ci": [
+            -0.0373,
+            -0.0163
+          ],
+          "n_families": 36
+        },
+        "dER": {
+          "mean": -0.1198,
+          "ci": [
+            -0.3078,
+            0.0712
+          ],
+          "n_families": 36
+        },
+        "dEE_true": {
+          "mean": -0.0334,
+          "ci": [
+            -0.0802,
+            0.0122
+          ],
+          "n_families": 36
+        },
+        "dEE_contrast": {
+          "mean": 0.1534,
+          "ci": [
+            0.1017,
+            0.2067
+          ],
+          "n_families": 36
+        }
+      },
+      "all": {
+        "G1": {
+          "mean": 2.2898,
+          "ci": [
+            2.0969,
+            2.4961
+          ],
+          "n_families": 48
+        },
+        "G2_E": {
+          "mean": 0.0962,
+          "ci": [
+            0.0369,
+            0.1563
+          ],
+          "n_families": 48
+        },
+        "dRR": {
+          "mean": 2.2898,
+          "ci": [
+            2.0938,
+            2.4903
+          ],
+          "n_families": 48
+        },
+        "dRE_true": {
+          "mean": 0.0214,
+          "ci": [
+            0.0129,
+            0.0299
+          ],
+          "n_families": 48
+        },
+        "dRE_contrast": {
+          "mean": -0.0279,
+          "ci": [
+            -0.0389,
+            -0.0173
+          ],
+          "n_families": 48
+        },
+        "dER": {
+          "mean": -0.1377,
+          "ci": [
+            -0.3216,
+            0.038
+          ],
+          "n_families": 48
+        },
+        "dEE_true": {
+          "mean": -0.0247,
+          "ci": [
+            -0.0666,
+            0.0147
+          ],
+          "n_families": 48
+        },
+        "dEE_contrast": {
+          "mean": 0.1264,
+          "ci": [
+            0.084,
+            0.1707
+          ],
+          "n_families": 48
+        }
+      }
+    },
+    "google/gemma-3-12b-it": {
+      "davies_richardson": {
+        "G1": {
+          "mean": 9.8839,
+          "ci": [
+            7.9801,
+            11.6245
+          ],
+          "n_families": 12
+        },
+        "G2_E": {
+          "mean": 0.3497,
+          "ci": [
+            0.1681,
+            0.5307
+          ],
+          "n_families": 12
+        },
+        "dRR": {
+          "mean": 9.8839,
+          "ci": [
+            8.0415,
+            11.5417
+          ],
+          "n_families": 12
+        },
+        "dRE_true": {
+          "mean": 0.0261,
+          "ci": [
+            -0.0718,
+            0.1264
+          ],
+          "n_families": 12
+        },
+        "dRE_contrast": {
+          "mean": -0.145,
+          "ci": [
+            -0.2304,
+            -0.0608
+          ],
+          "n_families": 12
+        },
+        "dER": {
+          "mean": -1.6772,
+          "ci": [
+            -3.0629,
+            -0.4467
+          ],
+          "n_families": 12
+        },
+        "dEE_true": {
+          "mean": -0.1968,
+          "ci": [
+            -0.3522,
+            -0.0311
+          ],
+          "n_families": 12
+        },
+        "dEE_contrast": {
+          "mean": 0.1764,
+          "ci": [
+            -0.0305,
+            0.4217
+          ],
+          "n_families": 12
+        }
+      },
+      "extended": {
+        "G1": {
+          "mean": 12.256,
+          "ci": [
+            11.3696,
+            13.1373
+          ],
+          "n_families": 36
+        },
+        "G2_E": {
+          "mean": 0.2829,
+          "ci": [
+            0.194,
+            0.3734
+          ],
+          "n_families": 36
+        },
+        "dRR": {
+          "mean": 12.256,
+          "ci": [
+            11.3508,
+            13.1099
+          ],
+          "n_families": 36
+        },
+        "dRE_true": {
+          "mean": 0.0949,
+          "ci": [
+            0.0659,
+            0.1227
+          ],
+          "n_families": 36
+        },
+        "dRE_contrast": {
+          "mean": -0.1366,
+          "ci": [
+            -0.1744,
+            -0.0955
+          ],
+          "n_families": 36
+        },
+        "dER": {
+          "mean": -0.5687,
+          "ci": [
+            -1.438,
+            0.32
+          ],
+          "n_families": 36
+        },
+        "dEE_true": {
+          "mean": -0.1654,
+          "ci": [
+            -0.2798,
+            -0.0549
+          ],
+          "n_families": 36
+        },
+        "dEE_contrast": {
+          "mean": 0.4591,
+          "ci": [
+            0.3053,
+            0.607
+          ],
+          "n_families": 36
+        }
+      },
+      "all": {
+        "G1": {
+          "mean": 11.663,
+          "ci": [
+            10.797,
+            12.5169
+          ],
+          "n_families": 48
+        },
+        "G2_E": {
+          "mean": 0.2996,
+          "ci": [
+            0.2154,
+            0.3815
+          ],
+          "n_families": 48
+        },
+        "dRR": {
+          "mean": 11.663,
+          "ci": [
+            10.7802,
+            12.5119
+          ],
+          "n_families": 48
+        },
+        "dRE_true": {
+          "mean": 0.0777,
+          "ci": [
+            0.0418,
+            0.1128
+          ],
+          "n_families": 48
+        },
+        "dRE_contrast": {
+          "mean": -0.1387,
+          "ci": [
+            -0.1742,
+            -0.1021
+          ],
+          "n_families": 48
+        },
+        "dER": {
+          "mean": -0.8458,
+          "ci": [
+            -1.5892,
+            -0.1076
+          ],
+          "n_families": 48
+        },
+        "dEE_true": {
+          "mean": -0.1733,
+          "ci": [
+            -0.2651,
+            -0.0792
+          ],
+          "n_families": 48
+        },
+        "dEE_contrast": {
+          "mean": 0.3884,
+          "ci": [
+            0.2551,
+            0.5243
+          ],
+          "n_families": 48
+        }
+      }
+    }
+  }
+}
