@@ -13,4 +13,4 @@ cache/
 
 phenomenon_miner/results/
 phenomenon_miner/logs/
-phenomenon_miner/__pycache__/
+phenomenon_miner/__pycache__/.venv-*/

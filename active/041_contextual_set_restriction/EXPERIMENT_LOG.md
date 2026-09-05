@@ -711,3 +711,42 @@ independent causal result, but it is reported as an extension-powered finding.
 **One honest weakness of the extension.** Llama's `G2_E` manipulation check is +0.172 on the
 inherited core and +0.034, not significant, on the authored families. Our adjective-event pairings
 are weaker than D&R's human-normed ones for that model. Qwen's extension check is +0.349 and holds.
+
+## Stimulus quality gate, and what it found
+
+A per-item manipulation check — `G2_E` computed for each family rather than each panel — showed 7 of
+48 families with a null or backwards manipulation, **all of them authored, none inherited**. The
+inherited mean check is +0.313 against the authored +0.195. The items were the problem, not the
+statistics, so the criteria were made explicit and executable in
+`scripts/validate_b1_items.py`:
+
+| criterion | threshold | source |
+|---|---|---|
+| event verb frequency | Zipf >= 3.0 | rarer verbs are not used reliably |
+| verb pair matched within a quartet | \|dZipf\| <= 1.2 | **Davies & Richardson's own bar** |
+| property value frequency | Zipf >= 2.4 | their `mouldy` is 2.43, which sets the floor |
+| Q value frequency | Zipf >= 3.5 | must be an ordinary word |
+| no lexical overlap between P and Q; values distinct within a dimension | — | construct validity |
+| no verb phrase carrying its own article-bearing complement | — | it strands the object |
+
+The gate found **26 violations, every one of them in the authored set**. `descale` and `limescaled`
+have a Zipf of 0.00, so that item was testing words the models barely see; `rebind` is 1.38 and
+`rewire` 2.45. Twelve quartets were mismatched by more than D&R allow — a criterion this project had
+simply never applied — and eight Q values were rarer than ordinary words. Fourteen families were
+revised; the authored set now passes every criterion. The three violations among the inherited twelve
+are D&R's own (`feed`/`tickle` differ by 1.43 Zipf, `tinned`, `unframed`) and are printed rather than
+fixed, since changing their words would end the inheritance.
+
+**Pre-stated test of the revision.** Authored families with a null manipulation fell from 8 to 3 of
+48. The twelve inherited families produced bit-identical numbers — 0 of 12 moved by any amount —
+which is the check that matters, since they were untouched and therefore fix a reference point for
+whether the revision leaked into the core. The authored mean rose from +0.210 to +0.273 against the
+core's +0.348.
+
+**Where the revision stops.** Three families still fail: `patched`/`punctured`, `dried`/`damp`,
+`sharpened`/`blunt`. The tempting explanation is that the `+sem` verb lexically presupposes the
+property, so restating it as the reason is redundant. Checking all 48 kills that story — presupposing
+pairs are common in the set and most are fine (`grit`/`icy`, `air out`/`stuffy`, `fill`/`empty`). The
+three are therefore left in. Continuing to edit whichever items score badly is tuning, and three
+nulls in 48 dilute an effect rather than create one. The distribution is reported instead: median
+`G2_E` +0.268, range -0.126 to +0.707, 3/48 non-positive.
