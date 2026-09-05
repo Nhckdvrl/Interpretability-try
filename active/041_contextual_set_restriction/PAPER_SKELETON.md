@@ -33,9 +33,9 @@ effective at only one.
 |---|---|---|
 | 1 Introduction | the same true property, two jobs; what is known and what is not | — |
 | 2 Background | restrictive vs non-restrictive modification (Leffel et al. 2014); restriction and coherence are not exclusive (Hoek et al. 2020); referential x semantic relevance in humans (Davies & Richardson 2021); what LM work already owns: incremental reference resolution, overmodification, REG | — |
-| 3 Setup | four-entity worlds, denotational gold, the two readouts, the four families, the pre-analysis freeze | `B1_PREANALYSIS_FREEZE.md` |
+| 3 Setup | four-entity worlds, denotational gold, the two readouts, the four families, the pre-analysis freeze, and the stimulus quality gate: 48 adjective-event families, 12 inherited from Davies & Richardson and 36 authored to their template, every authored family passing frequency and lexical criteria including their own 1.2 Zipf verb-matching bar | `B1_PREANALYSIS_FREEZE.md`, `scripts/validate_b1_items.py` |
 | 4 Human effect in an LM | semantic relevance replicates in the NP window in 4/4 and the interaction is null, as in humans; referential *licensing* does not transfer at all | **B0** |
-| 5 The selectivity matrix | `dRR` +2.1 to +23.5; `dRE` on the contrasting property −0.03 to −0.15 in 4/4 with the true property moving the other way; `dER` 3.6-17% of `dRR` | **B1** |
+| 5 The selectivity matrix | On 48 families after the lexical quality gate: the referential manipulation raises the true-property explanation and lowers the contrasting one, the event manipulation does the reverse, in 4/4 families. `dRR` +2.3 to +21.0 is the denominator; `dER` stays an order of magnitude below it | **B1**, `figures/fig_behavioural_matrix.pdf` |
 | 6 The role state carries it | role minus shuffled, correct sign 4/4 on both halves, significant 3/4 on each | **C4** |
 | 7 Two states, opposite signatures | referential edit raises the contrasting property (+0.002 to +0.040), event-relevance edit lowers it (-0.011 to -0.048); sign split 4/4, rules out one relevance signal | **C6** |
 | 8 Where it lives | one causal depth per family while decodability is broad; in Llama layers 12/16/20 all decode at 0.94-0.97 and only 12 is effective | **C4/C5** depth sweep |
@@ -50,6 +50,8 @@ appendix unless the graded story is needed.
 
 ## Figures
 
+0. **Behavioural crossing — drafted, `figures/fig_behavioural_matrix.pdf`.** Four models, the two
+   manipulations, the two explanations. The X shape is the result.
 1. **Design and result in one panel.** Left: one world, the two manipulations (live-entity clause,
    matrix verb), the two readouts. Right: the signature dissociation — two states at the same token,
    opposite effects on the contrasting property.
