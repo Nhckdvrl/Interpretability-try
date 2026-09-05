@@ -2,12 +2,33 @@
 
 Working title:
 
-> **Same Content, Different Jobs: Referential and Explanatory Function Are Distinct Causal States
-> in Language Models**
+> **Same Content, Different Jobs: Language Models Compute a Modifier's Referential and Explanatory
+> Roles at Different Depths**
 
 Title width check: "restrictive adjectives" would be too narrow, "discourse understanding" too
 broad. The object is one modifier and two of its jobs, which is the width of the EMNLP 2025
 Outstanding filler-gap paper (one construction family, one abstraction question).
+
+## The spine, after the layer-by-layer sweep
+
+The two discourse functions are not merely distinct states — they are computed at **different
+depths**, and that ordering explains the behavioural asymmetry instead of restating it.
+
+```text
+event relevance      decodable from ~13-17% of the stack
+                     a local lexical relation between the adjective and the verb
+                              |
+                              v
+referential role     at chance until 35-54% of the stack
+                     needs the scene, the description and the live-entity clause integrated
+                              |
+                              v
+each edit marks the same explanation readout, with opposite signs, in its own window
+                              |
+                              v
+reference listens to one function (10-17x dominance)
+explanation integrates both (1.5-4.5x), in opposition
+```
 
 ## Abstract (draft)
 
@@ -38,7 +59,7 @@ effective at only one.
 | 5 The selectivity matrix | On 48 families after the lexical quality gate: the referential manipulation raises the true-property explanation and lowers the contrasting one, the event manipulation does the reverse, in 4/4 families. `dRR` +2.3 to +21.0 is the denominator; `dER` stays an order of magnitude below it | **B1**, `figures/fig_behavioural_matrix.pdf` |
 | 6 The role state carries it | role minus shuffled, correct sign 4/4 on both halves, significant 3/4 on each | **C4** |
 | 7 Two states, opposite signatures | referential edit raises the contrasting property (+0.002 to +0.040), event-relevance edit lowers it (-0.011 to -0.048); sign split 4/4, rules out one relevance signal | **C6** |
-| 8 Where it lives | one causal depth per family while decodability is broad; in Llama layers 12/16/20 all decode at 0.94-0.97 and only 12 is effective | **C4/C5** depth sweep |
+| 8 **Where each function lives** | every layer edited, no grid: event relevance decodable by 13-17% of the stack, referential role at chance until 35-54%, a gap of 23-37% of the network in both models; each edit acts in its own window and they point opposite ways | **dense sweep**, `figures/fig_depth_profile.pdf` |
 | 9 Discussion | what this says about restrictiveness as a *function* rather than a lexical class; feedback to the linguistic account | — |
 | Limitations | `dER` has behavioural evidence only; B0's variance is 12 items with no participant dimension; the reference readout is insensitive inside the B1 worlds by construction | — |
 
